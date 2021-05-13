@@ -1,0 +1,9 @@
+tools:
+  - name: samtools-merge
+    path: samtools-merge
+    versions:
+      - name: 1.12.0
+        path: 1.12.0/samtools-merge__1.12.0.cwl
+        md5sum: c45cb7a5439a5c1e438f8d81ec042939
+    categories:
+      - bam handler

@@ -1,0 +1,21 @@
+projects:
+  - project_name: development
+    project_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    project_description: |
+        Development project
+    project_abbr: dev
+    project_api_key_name: development
+    production: false
+    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
+    tools:
+      - name: samtools-merge
+        path: samtools-merge
+        ica_workflow_name: samtools-merge_dev
+        ica_workflow_id: wfl.a717e4b2ec484c4cab2910c813179738
+        versions:
+          - name: 1.12.0
+            path: 1.12.0/samtools-merge__1.12.0.cwl
+            ica_workflow_version_name: 1.12.0
+            modification_time: 2021-05-12T08:12:40UTC
+            run_instances: []
+    workflows: []

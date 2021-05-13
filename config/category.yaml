@@ -1,0 +1,7 @@
+categories:
+  - name: alignment
+    description: |
+        Tool / Workflow performs alignment step
+  - name: bam handler
+    description: |
+        Tool manipulates / updates bam alignment files
