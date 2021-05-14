@@ -56,7 +56,7 @@ Example:
         try:
             logger.debug("Checking args")
             self.check_args()
-        except ArgumentError:  # FIXME
+        except CheckArgumentError:
             self._help(fail=True)
 
     def __call__(self):
