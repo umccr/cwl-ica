@@ -6,13 +6,9 @@ List all users registered in <CWL_ICA_REPO_PATH>/config/category.yaml
 
 from classes.command import Command
 from utils.logging import get_logger
-from docopt import docopt
 import pandas as pd
-from tabulate import tabulate
 from utils.repo import read_yaml, get_category_yaml_path
-import os
 import sys
-from utils.errors import CheckArgumentError
 
 logger = get_logger()
 
