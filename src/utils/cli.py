@@ -75,8 +75,10 @@ Command:
     ########################
     Sync-to-project Commands
     ########################
+    expression-sync                     Sync an expression in ${CWL_ICA_REPO_PATH}/config/expression.yaml
     tool-sync                           Sync a tool's md5sum in ${CWL_ICA_REPO_PATH}/config/tool.yaml
                                         and update definition on ICA
+    schema-sync                         Sync a schema in ${CWL_ICA_REPO_PATH}/config/schema.yaml
     workflow-sync                       Sync a workflows's md5sum in ${CWL_ICA_REPO_PATH}/config/workflow.yaml
                                         and update definition on ICA
 
@@ -124,9 +126,8 @@ Command:
 """
 
 from docopt import docopt
-from __version__ import version
+from utils.__version__ import version
 import sys
-from classes.command import Command
 from utils.logging import set_basic_logger
 
 logger = set_basic_logger()
@@ -287,7 +288,7 @@ def _dispatch():
         # Call command
         workflow_validate_obj()
 
-    # Initialisation commands -- # TODO workflow, schema, expression
+    # Initialisation commands
     elif cmd == "expression-init":
         from subcommands.initialisers.expression_init import ExpressionInitialiser
         # Initialise command
@@ -313,7 +314,7 @@ def _dispatch():
         # Call command
         workflow_init_obj()
 
-    # Sync to project commands -- # TODO workflow, schema expression
+    # Sync to project commands
     elif cmd == "expression-sync":
         from subcommands.sync.sync_expression import ExpressionSync
         # Initialise Command
@@ -353,7 +354,7 @@ def _dispatch():
         # Call command
         workflow_add_obj()
 
-    # Github actions
+    # Github actions  # TODO - sync-schema / sync-expression
     elif cmd == "github-actions-sync-tools":
         from subcommands.sync.sync_github_actions_tool import SyncGitHubActionsTool
         # Initialise command
