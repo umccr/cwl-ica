@@ -310,12 +310,12 @@ conda_cwl_ica_env_prefix="$(get_conda_env_prefix)"
 # COPY BINS
 ###########
 
-# Ensure all the scripts are executable
-chmod +x "$(get_this_path)/cwl-ica.py"
-
 # Copy over to conda env
 echo_stderr "Adding main script to \"${conda_cwl_ica_env_prefix}/bin\""
 cp "$(get_this_path)/cwl-ica.py" "${conda_cwl_ica_env_prefix}/bin/cwl-ica"
+
+# Ensure all the scripts are executable
+chmod +x "${conda_cwl_ica_env_prefix}/bin/cwl-ica"
 
 ###########
 # COPY LIBS
@@ -325,15 +325,12 @@ Copy over utils/classes/subcommands to library path
 '
 
 rsync --delete --archive \
-  --include='*.py' --exclude='*' \
   "$(get_this_path)/utils/" "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/"
 
 rsync --delete --archive \
-  --include='*.py' --exclude='*' \
   "$(get_this_path)/classes/" "${conda_cwl_ica_env_prefix}/lib/python3.8/classes/"
 
 rsync --delete --archive \
-  --include='*.py' --exclude='*' \
   "$(get_this_path)/subcommands/" "${conda_cwl_ica_env_prefix}/lib/python3.8/subcommands/"
 
 #####################
