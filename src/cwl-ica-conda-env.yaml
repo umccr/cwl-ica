@@ -1,0 +1,23 @@
+name: cwl-ica
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - pip
+  - python=3.8
+  - pip:
+    - cwlref-runner
+    - cwltool==3.0.20201203173111  # Matches ICA current version
+    - cwl_utils
+    - pytest
+    - humanfriendly
+    - libica==0.5.0
+    - mdutils
+    - pyyaml
+    - requests
+    - ruamel.yaml
+    - verboselogs
+    - semantic_version
+    - python-dateutil
+    - docopt

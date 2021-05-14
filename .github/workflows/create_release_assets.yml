@@ -1,0 +1,59 @@
+name: Create and Upload Release
+
+on:
+  push:
+   # Sequence of patterns matched against refs/tags
+   tags:
+    - 'v*' # Push events to matching v*, i.e v1.0, v20.15.10 etc
+    - 'pre-v*' # Push events to matching pre-v, i.ve pre-v1.0, pre-v20.15.10
+    - 'latest'
+
+jobs:
+  build:
+    name: Build Release Bundle
+    runs-on: ubuntu-latest
+    steps:
+      # Standard checkout step
+      - name: Checkout code
+        id: git_checkout
+        uses: actions/checkout@v2
+      - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      # Get tag name, from /ref/heads/<tag> to <tag>
+      - name: Get Tag Name
+        id: get_tag_name
+        run: echo "::set-output name=tag_name::$(basename ${{ github.ref }})"
+      # Is pre-release?
+      - name: Determine if this is a pre-release or not
+        id: is_prerelease
+        run: echo "::set-output name=prerelease::$(if [[ "${{ steps.get_tag_name.outputs.tag_name }}" == "pre"* || "${{ steps.get_tag_name.outputs.tag_name }}" == "dev" ]]; then echo true; else echo false; fi)"
+      # Build project
+      - name: Build project # This would actually build your project, using zip for an example artifact
+        uses: ./.github/actions/build-release
+        with:
+          git_tag: ${{ steps.get_tag_name.outputs.tag_name }}
+      # Create release zip file
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.get_tag_name.outputs.tag_name }}
+          release_name: release-${{ steps.get_tag_name.outputs.tag_name }}
+          draft: false
+          body: ${{ github.event.head_commit.message }}
+          prerelease: ${{ steps.is_prerelease.outputs.prerelease == 'true' }}
+      # Upload zip file as an asset
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # This pulls from the CREATE RELEASE step above,
+          # referencing it's ID to get its outputs object, which include a `upload_url`.
+          # See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: release-${{ steps.get_tag_name.outputs.tag_name }}.zip
+          asset_name: release-${{ steps.get_tag_name.outputs.tag_name }}.zip
+          asset_content_type: application/zip

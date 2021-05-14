@@ -1,0 +1,94 @@
+name: build-release
+
+inputs:
+  git_tag:
+    description: name of the release tag
+    required: true
+
+description: |
+  Set the version in the version file
+  Add necessary files to zip file.
+runs:
+  using: "composite"
+  steps:
+    - id: get-nonlatest-git-tag
+      shell: bash
+      env:
+        git_tag: ${{ inputs.git_tag }}
+      run: |
+        # Show running through script
+        set -euxo pipefail
+        # Get git commit id
+        commit_id="$(git show-ref --tags "${git_tag}" | {
+                     cut -d' ' -f1
+                    })"
+        # Now get git tag from commit id if it isn't 'latest'
+        git_tag_non_latest="$(git show-ref | {
+                              # Collect the tags on the commit id connected to 'latest'
+                              grep "${commit_id}"
+                             } | {
+                              # Filter out heads/remotes, only want the tags
+                              grep "refs/tags"
+                             } | {
+                              # Filter out 'latest' tag, should just be the release left
+                              grep -v "refs/tags/latest"
+                             } | {
+                              # Now get the name of the release
+                              cut -d' ' -f2
+                             })"
+        git_tag_non_latest="$(basename "${git_tag_non_latest}")"
+        # Set git tag as output for this step
+        echo "::set-output name=git_tag_non_latest::${git_tag_non_latest}"
+    - id: update-python-alternatives
+      shell: bash
+      run: |
+        # Show running through script
+        set -euxo pipefail
+        # Basic updates / ensure pip is installed
+        sudo apt-get update -y -qq
+        # Order of positional parameters below is
+        # <link> is the symlink pointing to /etc/alternatives/<name>.
+        #   (e.g. /usr/bin/pager)
+        # <name> is the master name for this link group.
+        #   (e.g. pager)
+        # <path> is the location of one of the alternative target files.
+        #   (e.g. /usr/bin/less)
+        # <priority> is an integer; options with higher numbers have higher priority in
+        #   automatic mode.
+        sudo update-alternatives --quiet --install \
+          /usr/bin/python python /usr/bin/python3 10
+    - id: install-semantic-version-from-pip
+      shell: bash
+      run: |
+        # Show running through script
+        set -euxo pipefail
+        # Basic updates / ensure pip is installed
+        sudo apt-get update -y -qq
+        sudo apt-get install -y -qq \
+          python3-pip
+        # Install semantic_version through pip
+        pip3 install --quiet semantic_version
+    - id: build-release
+      shell: bash
+      env:
+        NON_LATEST_CWL_ICA_VERSION: ${{ steps.get-nonlatest-git-tag.outputs.git_tag_non_latest }}
+      run: |
+        # Show running of script
+        set -euxo pipefail
+        # Install commands
+        sudo apt-get update -y -qq
+        sudo apt-get install -y -qq \
+          rsync \
+          zip
+        # Create release dir
+        mkdir -p "release-${{ inputs.git_tag }}"
+        # Add src files
+        rsync --archive \
+          "src/" "release-${{ inputs.git_tag }}/"
+        # Update version.py for release
+        sed -i "s/__VERSION__/${NON_LATEST_CWL_ICA_VERSION}/" \
+          "release-${{ inputs.git_tag }}/utils/__version__.py"
+        # Make install.sh an executable
+        chmod +x "release-${{ inputs.git_tag }}/install.sh"
+        # Create zip file
+        zip -q -r "release-${{ inputs.git_tag }}.zip" "release-${{ inputs.git_tag }}"
