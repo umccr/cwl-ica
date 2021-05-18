@@ -106,7 +106,7 @@ Example
         self.name = expression_name_arg
 
         expression_version_arg = self.args.get("--expression-version", None)
-        self.check_shlex_arg("--expression-version", expression_version_arg)
+        self.check_shlex_version_arg("--expression-version", expression_version_arg)
         if expression_version_arg is None:
             logger.error("--expression-version not defined")
             raise CheckArgumentError
@@ -132,7 +132,7 @@ Example
         :return:
         """
 
-        return CWLExpression(
+        self.cwl_obj = CWLExpression(
             cwl_file_path=self.cwl_file_path,
             name=self.name,
             version=self.version,

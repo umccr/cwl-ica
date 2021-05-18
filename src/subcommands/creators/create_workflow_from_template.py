@@ -97,19 +97,19 @@ Example
         """
 
         # Check defined and assign properties
-        tool_name_arg = self.args.get("--workflow-name", None)
-        self.check_shlex_arg("--workflow-name", tool_name_arg)
-        if tool_name_arg is None:
+        workflow_name_arg = self.args.get("--workflow-name", None)
+        self.check_shlex_arg("--workflow-name", workflow_name_arg)
+        if workflow_name_arg is None:
             logger.error("--workflow-name not defined")
             raise CheckArgumentError
-        self.name = tool_name_arg
+        self.name = workflow_name_arg
 
-        tool_version_arg = self.args.get("--workflow-version", None)
-        self.check_shlex_arg("--workflow-version", tool_version_arg)
-        if tool_version_arg is None:
+        workflow_version_arg = self.args.get("--workflow-version", None)
+        self.check_shlex_version_arg("--workflow-version", workflow_version_arg)
+        if workflow_version_arg is None:
             logger.error("--workflow-version not defined")
             raise CheckArgumentError
-        self.version = tool_version_arg
+        self.version = workflow_version_arg
 
         username_arg = self.args.get("--username", None)
         if username_arg is None:
@@ -131,7 +131,7 @@ Example
         :return:
         """
 
-        return CWLWorkflow(
+        self.cwl_obj = CWLWorkflow(
             cwl_file_path=self.cwl_file_path,
             name=self.name,
             version=self.version,

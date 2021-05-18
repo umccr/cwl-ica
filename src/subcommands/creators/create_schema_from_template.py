@@ -97,7 +97,7 @@ Example
         self.name = schema_name_arg
 
         schema_version_arg = self.args.get("--schema-version", None)
-        self.check_shlex_arg("--schema-version", schema_version_arg)
+        self.check_shlex_version_arg("--schema-version", schema_version_arg)
         if schema_version_arg is None:
             logger.error("--schema-version not defined")
             raise CheckArgumentError
@@ -116,7 +116,7 @@ Example
         :return:
         """
 
-        return CWLSchema(
+        self.cwl_obj = CWLSchema(
             cwl_file_path=self.cwl_file_path,
             name=self.name,
             version=self.version,
