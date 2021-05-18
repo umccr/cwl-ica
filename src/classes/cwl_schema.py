@@ -11,7 +11,7 @@ from utils.errors import CWLSchemaError
 from tempfile import NamedTemporaryFile
 import os
 from pathlib import Path
-from collections import OrderedDict
+from ruamel.yaml.comments import CommentedMap as OrderedDict
 from ruamel import yaml
 import json
 from cwl_utils.parser_v1_1 import RecordSchema
@@ -76,7 +76,8 @@ class CWLSchema(CWL):
         validation_passing_fields = []
         if schema_type == "record":
             for field_name, field_attrs in self.cwl_obj.get("fields").items():
-                validation_passing_fields, issue_count = self.check_docs([field_attrs], issue_count)
+                validation_passing_field, issue_count = self.check_docs([field_attrs], issue_count)
+                validation_passing_fields.append(validation_passing_field)
 
         for vpf in validation_passing_fields:
             validation_passing = validation_passing * vpf
@@ -103,7 +104,7 @@ class CWLSchema(CWL):
         self.cwl_obj = RecordSchema(
             type="record",
             fields=[]
-        ).type
+        )
 
     # Write the tool to the cwltool file path
     def write_object(self, user_obj):
@@ -120,13 +121,36 @@ class CWLSchema(CWL):
         # Create ordered dictionary ready to be written
         write_obj = OrderedDict({
             "type": self.cwl_obj.type,
-            "name": self.cwl_obj.name,
+            "name": self.name,
             "fields": self.cwl_obj.fields,
         })
 
         with open(self.cwl_file_path, 'w') as cwl_h:
             yaml.main.round_trip_dump(write_obj, cwl_h)
 
+    def check_docs(self, cwl_attr_list, issue_count):
+        """
+        Check labels and docs for schema fields
+        :param cwl_attr_list:
+        :param issue_count:
+        :return:
+        """
+        validation_passing = True
+        # Check inputs
+        for cwl_obj in cwl_attr_list:
+            # Check label and doc
+            if cwl_obj.get("label", None) is None:
+                issue_count += 1
+                logger.error(f"Issue {issue_count}: Input \"{cwl_obj.get('id', None)}\" "
+                             f"does not have a 'label' attribute \"{self.cwl_file_path}\"")
+                validation_passing = False
+            if cwl_obj.get("doc", None) is None:
+                issue_count += 1
+                logger.error(f"Issue {issue_count}: Input \"{cwl_obj.get('id', None)}\" "
+                             f"does not have a 'doc' attribute \"{self.cwl_file_path}\"")
+                validation_passing = False
+
+        return validation_passing, issue_count
 
 
 

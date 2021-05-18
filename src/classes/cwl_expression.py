@@ -12,8 +12,9 @@ from tempfile import NamedTemporaryFile
 import os
 from pathlib import Path
 from cwl_utils.parser_v1_1 import ExpressionTool, LoadingOptions  # For creation of tool
-from collections import OrderedDict
+from ruamel.yaml.comments import CommentedMap as OrderedDict
 from ruamel import yaml
+from utils.yaml import dump_cwl_yaml as dump_yaml, to_multiline_string
 
 logger = get_logger()
 
@@ -160,16 +161,6 @@ class CWLExpression(CWL):
 
         # Before we commence we have to reorganise a couple of settings
 
-        # Reorganise hints
-        hints = {
-                    hint.get("class"): hint.copy()
-                    for hint in self.cwl_obj.hints
-                 }
-
-        for hint_key, hint_obj in hints.items():
-            # Remove class attribute
-            del hint_obj["class"]
-
         # Create ordered dictionary ready to be written
         write_obj = OrderedDict({
             "cwlVersion": self.cwl_obj.cwlVersion,
@@ -179,14 +170,14 @@ class CWLExpression(CWL):
             "s:author": self.get_author_extension_field(user_obj),
             "id": self.cwl_obj.id,
             "label": self.cwl_obj.label,
-            "doc": self.cwl_obj.doc,
+            "doc": to_multiline_string(self.cwl_obj.doc),
             "inputs": self.cwl_obj.inputs,
             "outputs": self.cwl_obj.outputs,
             "expression": self.cwl_obj.expression
         })
 
         with open(self.cwl_file_path, 'w') as cwl_h:
-            yaml.main.round_trip_dump(write_obj, cwl_h)
+            dump_yaml(write_obj, cwl_h)
 
 
 

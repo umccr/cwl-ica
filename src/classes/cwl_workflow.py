@@ -9,11 +9,12 @@ from classes.cwl import CWL
 from utils.logging import get_logger
 from utils.errors import CWLValidationError, CWLPackagingError
 from cwl_utils.parser_v1_1 import Workflow, LoadingOptions  # For creation of workflow
-from collections import OrderedDict
+from ruamel.yaml.comments import CommentedMap as OrderedDict
 import os
-from ruamel import yaml
 from tempfile import NamedTemporaryFile
 from pathlib import Path
+from utils.yaml import dump_cwl_yaml as dump_yaml, to_multiline_string
+
 
 logger = get_logger()
 
@@ -108,7 +109,7 @@ class CWLWorkflow(CWL):
         # Run cwltool --validate
         self.run_cwltool_validate(self.cwl_file_path)
 
-        # Pack tool
+        # Pack workflow
         tmp_packed_file = NamedTemporaryFile(prefix=f"{self.cwl_file_path.name}",
                                              suffix="packed.json",
                                              delete=False)
@@ -131,24 +132,19 @@ class CWLWorkflow(CWL):
             os.remove(tmp_packed_file.name)
 
         # Expect 'author' in last of keys
-        if 'https://schema.org/author' not in self.cwl_packed_obj.keys():
-            logger.error(
-                "Could not find attribute \"https://schema.org/author\" in the packed version of the cwl file. "
-                "Please ensure you have set the authorship in the tool.")
-        else:
-            self.validate_authorship_attr(self.cwl_packed_obj['https://schema.org/author'])
-
-        if not validation_passing:
-            logger.error(f"There were a total of {issue_count} issues.")
+        if '$graph' not in self.cwl_packed_obj.keys():
+            logger.error(f"Could not find the top-level key \"$graphr\" in the packed version of the "
+                         f"cwl file \"{self.cwl_file_path}\". "
+                         f"Please ensure you have no 'inline' steps and all steps point to a file")
             raise CWLValidationError
 
-        # Expect 'author' in last of keys
-        if 'https://schema.org/author' not in self.cwl_packed_obj.keys():
-            logger.error(
-                "Could not find attribute \"https://schema.org/author\" in the packed version of the cwl file. "
-                "Please ensure you have set the authorship in the workflow.")
+        # Check authorship in workflow - we assume that workflow is the last item in the graph
+        if 'https://schema.org/author' not in self.cwl_packed_obj['$graph'][-1].keys():
+            logger.error(f"Could not find attribute \"https://schema.org/author\" in the packed version of the "
+                         f"cwl file \"{self.cwl_file_path}\". "
+                         f"Please ensure you have set the authorship in the workflow.")
         else:
-            self.validate_authorship_attr(self.cwl_packed_obj['https://schema.org/author'])
+            self.validate_authorship_attr(self.cwl_packed_obj['$graph'][-1]['https://schema.org/author'])
 
         if not validation_passing:
             logger.error(f"There were a total of {issue_count} issues.")
@@ -167,7 +163,7 @@ class CWLWorkflow(CWL):
         self.cwl_obj = Workflow(
             id=f"{self.name}--{self.version}",
             label=f"{self.name} v({self.version})",
-            doc=f"Documentation for {self.name} v{self.version}\n",
+            doc=to_multiline_string(f"Documentation for {self.name} v{self.version}\n"),
             inputs=[],
             steps=[],
             outputs=[],
@@ -196,16 +192,6 @@ class CWLWorkflow(CWL):
 
         # Before we commence we have to reorganise a couple of settings
 
-        # Reorganise hints
-        hints = {
-            hint.get("class"): hint.copy()
-            for hint in self.cwl_obj.hints
-        }
-
-        for hint_key, hint_obj in hints.items():
-            # Remove class attribute
-            del hint_obj["class"]
-
         # Create ordered dictionary ready to be written
         write_obj = OrderedDict({
             "cwlVersion": self.cwl_obj.cwlVersion,
@@ -216,11 +202,12 @@ class CWLWorkflow(CWL):
             "id": self.cwl_obj.id,
             "label": self.cwl_obj.label,
             "doc": self.cwl_obj.doc,
-            "requirements": self.cwl_obj.requirements,
+            "requirements": {key: {} for key in self.DEFAULT_REQUIREMENTS},
             "inputs": self.cwl_obj.inputs,
             "steps": self.cwl_obj.steps,
             "outputs": self.cwl_obj.outputs
         })
 
         with open(self.cwl_file_path, 'w') as cwl_h:
-            yaml.main.round_trip_dump(write_obj, cwl_h)
+            dump_yaml(write_obj, cwl_h)
+

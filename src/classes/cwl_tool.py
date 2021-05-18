@@ -146,8 +146,9 @@ class CWLTool(CWL):
 
         # Expect 'author' in last of keys
         if 'https://schema.org/author' not in self.cwl_packed_obj.keys():
-            logger.error("Could not find attribute \"https://schema.org/author\" in the packed version of the cwl file. "
-                         "Please ensure you have set the authorship in the tool.")
+            logger.error(f"Could not find attribute \"https://schema.org/author\" in the packed version of the "
+                         f"cwl file \"{self.cwl_file_path}\". "
+                         f"Please ensure you have set the authorship in the tool.")
         else:
             self.validate_authorship_attr(self.cwl_packed_obj['https://schema.org/author'])
 
@@ -197,7 +198,8 @@ class CWLTool(CWL):
                     "s": "https://schema.org/",
                     "ilmn-tes": "http://platform.illumina.com/rdf/ica/"
                 }
-            )
+            ),
+            successCodes=[0]
         )
 
     # Write the tool to the cwltool file path
@@ -235,7 +237,8 @@ class CWLTool(CWL):
             "hints": self.cwl_obj.hints,
             "baseCommand": self.cwl_obj.baseCommand,
             "inputs": self.cwl_obj.inputs,
-            "outputs": self.cwl_obj.outputs
+            "outputs": self.cwl_obj.outputs,
+            "successCodes": self.cwl_obj.successCodes
         })
 
         with open(self.cwl_file_path, 'w') as cwl_h:
