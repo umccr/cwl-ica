@@ -21,3 +21,5 @@ dependencies:
     - semantic_version
     - python-dateutil
     - docopt
+    - PyJWT
+    - tabulate
