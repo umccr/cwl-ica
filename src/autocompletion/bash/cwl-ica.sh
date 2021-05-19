@@ -1,4 +1,4 @@
-#!bash
+#!/usr/bin/env bash
 
 # Generated with perl module App::Spec v0.013
 
@@ -37,7 +37,8 @@ Each project is linked to a tenancy id
 '$'\n''expression-init'$'\t''Register an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 '$'\n''expression-sync'$'\t''Sync an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 '$'\n''expression-validate'$'\t''Validate a CWL expression
-'$'\n''help'$'\t''Print help and exit'$'\n''list-categories'$'\t''List registered categories
+'$'\n''help'$'\t''Print help and exit
+'$'\n''list-categories'$'\t''List registered categories
 '$'\n''list-projects'$'\t''List registered projects
 '$'\n''list-tenants'$'\t''List registered tenants
 '$'\n''list-users'$'\t''List registered users
@@ -49,11 +50,12 @@ Each project is linked to a tenancy id
 '$'\n''set-default-tenant'$'\t''Set a tenant to the default tenant
 '$'\n''set-default-user'$'\t''Set a user to the default user
 '$'\n''tool-init'$'\t''Register a tool in \${CWL_ICA_REPO_PATH}/config/tool.yaml and with ICA projects
-'$'\n''tool-sync'$'\t''Sync a tool'"'"'s md5sum in \${CWL_ICA_REPO_PATH}/config/tool.yaml
+'$'\n''tool-sync'$'\t''Sync a tool md5sum in \${CWL_ICA_REPO_PATH}/config/tool.yaml
 and update definition on ICA
 '$'\n''tool-validate'$'\t''Validate a CWL tool ready for initialising on ICA
-'$'\n''version'$'\t''Print version and exit'$'\n''workflow-init'$'\t''Register a workflow in \${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
-'$'\n''workflow-sync'$'\t''Sync a workflows'"'"'s md5sum in \${CWL_ICA_REPO_PATH}/config/workflow.yaml
+'$'\n''version'$'\t''Print version and exit
+'$'\n''workflow-init'$'\t''Register a workflow in \${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
+'$'\n''workflow-sync'$'\t''Sync a workflows md5sum in \${CWL_ICA_REPO_PATH}/config/workflow.yaml
 and update definition on ICA
 '$'\n''workflow-validate'$'\t''Validate a CWL workflow ready for initialising on ICA
 '
@@ -761,17 +763,17 @@ _cwl-ica_add-workflow-to-project_option_project_completion() {
 }
 _cwl-ica_create-expression-from-template_option_username_completion() {
     local CURRENT_WORD="${words[$cword]}"
-    local param_username="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'')"
+    local param_username="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")')"
     _cwl-ica_compreply "$param_username"
 }
 _cwl-ica_create-tool-from-template_option_username_completion() {
     local CURRENT_WORD="${words[$cword]}"
-    local param_username="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'')"
+    local param_username="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")')"
     _cwl-ica_compreply "$param_username"
 }
 _cwl-ica_create-workflow-from-template_option_username_completion() {
     local CURRENT_WORD="${words[$cword]}"
-    local param_username="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'')"
+    local param_username="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")')"
     _cwl-ica_compreply "$param_username"
 }
 _cwl-ica_expression-init_option_expression_path_completion() {

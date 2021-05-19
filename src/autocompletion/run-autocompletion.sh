@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Set to fail on non-zero exit code
 set -euo pipefail
@@ -29,7 +29,10 @@ for template in templates/*.yaml; do
   		completion \
 			"${template}" \
 		    	--name "${name_root}" \
-		    	--bash > "bash/${name_root}.bash"
+		    	--bash > "bash/${name_root}.sh"
+
+	# Update first line from '#!bash' to '#!/usr/bin/env bash'
+	sed -i '1c#!/usr/bin/env bash' "bash/${name_root}.sh"
 done
 
 # Run through zsh completions

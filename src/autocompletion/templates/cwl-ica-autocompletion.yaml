@@ -3,10 +3,12 @@ name: cwl-ica
 
 subcommands:
   help:
-    summary: Print help and exit
+    summary: |
+      Print help and exit
 
   version:
-    summary: Print version and exit
+    summary: |
+      Print version and exit
 
 
   ######################
@@ -199,7 +201,7 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")''
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
   create-schema-from-template:
     summary: |
       Initialise a CWL schema from the cwl schema template
@@ -230,7 +232,7 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")''
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
   create-workflow-from-template:
     summary: |
       Initialise a CWL workflow from the cwl workflow template
@@ -249,7 +251,7 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")''
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
 
 
   ###################
@@ -408,7 +410,7 @@ subcommands:
             find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl"
   tool-sync:
     summary: |
-      Sync a tool's md5sum in ${CWL_ICA_REPO_PATH}/config/tool.yaml
+      Sync a tool md5sum in ${CWL_ICA_REPO_PATH}/config/tool.yaml
       and update definition on ICA
     options:
       - name: tool-path
@@ -445,7 +447,7 @@ subcommands:
             find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml"
   workflow-sync:
     summary: |
-      Sync a workflows's md5sum in ${CWL_ICA_REPO_PATH}/config/workflow.yaml
+      Sync a workflows md5sum in ${CWL_ICA_REPO_PATH}/config/workflow.yaml
       and update definition on ICA
     options:
       - name: workflow-path

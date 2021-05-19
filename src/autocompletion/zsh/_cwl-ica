@@ -31,7 +31,8 @@ Each project is linked to a tenancy id
 " expression-init\:"Register an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 " expression-sync\:"Sync an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 " expression-validate\:"Validate a CWL expression
-" help\:"Print help and exit" list-categories\:"List registered categories
+" help\:"Print help and exit
+" list-categories\:"List registered categories
 " list-projects\:"List registered projects
 " list-tenants\:"List registered tenants
 " list-users\:"List registered users
@@ -43,11 +44,12 @@ Each project is linked to a tenancy id
 " set-default-tenant\:"Set a tenant to the default tenant
 " set-default-user\:"Set a user to the default user
 " tool-init\:"Register a tool in \${CWL_ICA_REPO_PATH}/config/tool.yaml and with ICA projects
-" tool-sync\:"Sync a tool'"'"'s md5sum in \${CWL_ICA_REPO_PATH}/config/tool.yaml
+" tool-sync\:"Sync a tool md5sum in \${CWL_ICA_REPO_PATH}/config/tool.yaml
 and update definition on ICA
 " tool-validate\:"Validate a CWL tool ready for initialising on ICA
-" version\:"Print version and exit" workflow-init\:"Register a workflow in \${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
-" workflow-sync\:"Sync a workflows'"'"'s md5sum in \${CWL_ICA_REPO_PATH}/config/workflow.yaml
+" version\:"Print version and exit
+" workflow-init\:"Register a workflow in \${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
+" workflow-sync\:"Sync a workflows md5sum in \${CWL_ICA_REPO_PATH}/config/workflow.yaml
 and update definition on ICA
 " workflow-validate\:"Validate a CWL workflow ready for initialising on ICA
 "))'
@@ -662,19 +664,19 @@ _cwl-ica_add-workflow-to-project_option_project_completion() {
 _cwl-ica_create-expression-from-template_option_username_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"
-    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'' ) )
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")' ) )
     compadd -X "username:" $__dynamic_completion
 }
 _cwl-ica_create-tool-from-template_option_username_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"
-    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'' ) )
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")' ) )
     compadd -X "username:" $__dynamic_completion
 }
 _cwl-ica_create-workflow-from-template_option_username_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"
-    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'' ) )
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")' ) )
     compadd -X "username:" $__dynamic_completion
 }
 _cwl-ica_expression-init_option_expression_path_completion() {

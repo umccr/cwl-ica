@@ -347,6 +347,19 @@ sed "s/__VERSION__/latest/" \
 mv "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/__version__.py.tmp" \
   "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/__version__.py"
 
+##################################
+# Add autocompletion to activate.d
+##################################
+
+echo_stderr "Copying auto-autocompletion files to activate.d directory"
+
+# Create activate.d if doesn't already exist
+mkdir -p "${conda_cwl_ica_env_prefix}/etc/conda/activate.d"
+
+user_shell="$(basename "$(awk -F: -v user="$USER" '$1 == user {print $NF}' /etc/passwd)")"
+
+rsync --archive "$(get_this_path)/autocompletion/${user_shell}/" \
+  "${conda_cwl_ica_env_prefix}/etc/conda/activate.d/"
 
 ###############
 # END OF SCRIPT
