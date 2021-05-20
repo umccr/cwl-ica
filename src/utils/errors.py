@@ -70,6 +70,13 @@ class ICAWorkflowVersionCreationError(Exception):
     pass
 
 
+class UnknownDateTypeError(Exception):
+    """
+    When handling the modification time error
+    """
+    pass
+
+
 # Items
 class ItemCreationError(Exception):
     """

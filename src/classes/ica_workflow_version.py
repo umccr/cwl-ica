@@ -4,13 +4,14 @@ import libica.openapi.libwes
 from libica.openapi.libwes.rest import ApiException
 from utils.ica_utils import get_base_url
 from utils.logging import get_logger
-from utils.errors import ICAWorkflowVersionCreationError
+from utils.errors import ICAWorkflowVersionCreationError, UnknownDateTypeError
 from hashlib import md5
 from ruamel.yaml.comments import CommentedMap as OrderedDict
 from dateutil.parser import parse as date_parser
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 import json
+from datetime import datetime
 
 logger = get_logger()
 
@@ -228,11 +229,44 @@ class ICAWorkflowVersion:
             "name": self.name,
             "path": str(self.path),
             "ica_workflow_version_name": self.ica_workflow_version_name,
-            "modification_time": self.modification_time.strftime("%Y-%m-%dT%H:%M:%S%Z")
-                                 if self.modification_time is not None
-                                 else None,
+            "modification_time": self.modification_time_to_string(self.modification_time),
             "run_instances": self.run_instances
         })
+
+    @staticmethod
+    def modification_time_to_string(modification_time):
+        """
+        Get the modification time and convert to string logic
+        :param self:
+        :param modification_time:
+        :return:
+        """
+        if modification_time is None:
+            return None
+        elif isinstance(modification_time, datetime):
+            return modification_time.strftime("%Y-%m-%dT%H:%M:%S%Z")
+        elif isinstance(modification_time, str):
+            return date_parser(modification_time).strftime("%Y-%m-%dT%H:%M:%S%Z")
+        else:
+            logger.error(f"Did not know what to do when modification_time attribute was \"{type(modification_time)}\"")
+            raise UnknownDateTypeError
+
+    @staticmethod
+    def modification_time_to_datetime(modification_time):
+        """
+        Get the modification time and convert to datetime object
+        :param modification_time:
+        :return:
+        """
+        if modification_time is None:
+            return None
+        elif isinstance(modification_time, datetime):
+            return modification_time
+        elif isinstance(modification_time, str):
+            return date_parser(modification_time)
+        else:
+            logger.error(f"Did not know what to do when modification_time attribute was \"{type(modification_time)}\"")
+            raise UnknownDateTypeError
 
     @classmethod
     def from_dict(cls, workflow_version_dict):
@@ -256,7 +290,5 @@ class ICAWorkflowVersion:
                    path=workflow_version_dict.get("path"),
                    ica_workflow_id=workflow_version_dict.get("ica_workflow_id", None),
                    ica_workflow_version_name=workflow_version_dict.get("ica_workflow_version_name", None),
-                   modification_time=date_parser(workflow_version_dict.get("modification_time", None))
-                                     if workflow_version_dict.get("modification_time", None) is not None
-                                     else None,
+                   modification_time=cls.modification_time_to_datetime(workflow_version_dict.get("modification_time", None)),
                    run_instances=workflow_version_dict.get("run_instances", None))
