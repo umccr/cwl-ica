@@ -5,3 +5,6 @@ categories:
   - name: bam handler
     description: |
         Tool manipulates / updates bam alignment files
+  - name: hla
+    description: |
+        Tool/workflow is used for hla typing
