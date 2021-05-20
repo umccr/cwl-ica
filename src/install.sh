@@ -13,14 +13,12 @@ set -euo pipefail
 ###########
 # GLOBALS
 ###########
-
 CWL_ICA_CONDA_ENV_NAME="cwl-ica"
 REQUIRED_CONDA_VERSION="4.9.0"
 
 ##########
 # GET HELP
 ##########
-
 help_message="Usage: install.sh
 Installs cwl-ica software and scripts into the conda env '${CWL_ICA_CONDA_ENV_NAME}'.
 You must have conda (${REQUIRED_CONDA_VERSION}) and jq installed.
@@ -351,15 +349,42 @@ mv "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/__version__.py.tmp" \
 # Add autocompletion to activate.d
 ##################################
 
-echo_stderr "Copying auto-autocompletion files to activate.d directory"
+echo_stderr "Copying auto-autocompletion files to conda prefix directory"
 
 # Create activate.d if doesn't already exist
-mkdir -p "${conda_cwl_ica_env_prefix}/etc/conda/activate.d"
+mkdir -p "${conda_cwl_ica_env_prefix}/etc/autocompletions"
 
-user_shell="$(basename "$(awk -F: -v user="$USER" '$1 == user {print $NF}' /etc/passwd)")"
+# Quick "one liner" to get 'bash' or 'zsh'
+if [[ "${OSTYPE}" == "darwin"* ]]; then
+  user_shell="$(basename "$(finger "${USER}" | grep 'Shell:*' | cut -f3 -d ":")")"
+else
+  user_shell="$(basename "$(awk -F: -v user="$USER" '$1 == user {print $NF}' /etc/passwd)")"
+fi
 
-rsync --archive "$(get_this_path)/autocompletion/${user_shell}/" \
-  "${conda_cwl_ica_env_prefix}/etc/conda/activate.d/"
+# Bash
+if [[ "${user_shell}" == "bash" ]]; then
+  rsync --archive "$(get_this_path)/autocompletion/${user_shell}/" \
+    "${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/"
+  echo_stderr "To enable autocompletions for this script add the following line to your '.bashrc'"
+  echo_stderr "######CWL-ICA######"
+  echo_stderr "\"source ${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/*.bash\""
+  echo_stderr "###################"
+
+# ZSH
+elif [[ "${user_shell}" == "zsh" ]]; then
+  rsync --archive "$(get_this_path)/autocompletion/${user_shell}/" \
+    "${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/"
+  echo_stderr "To enable autocompletions for this script add the following lines to your '~/.zshrc'"
+  echo_stderr "######CWL-ICA######"
+  echo_stderr "fpath=(\"${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/\" \$fpath)"
+  echo_stderr "compinit"
+  echo_stderr "###################"
+
+# UNKNOWN
+else
+  echo_stderr "Warning, could not figure out user's default shell"
+fi
+
 
 ###############
 # END OF SCRIPT
