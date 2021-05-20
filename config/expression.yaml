@@ -1,0 +1,8 @@
+expressions:
+  - name: get-faidx-file-from-reference-file
+    path: get-faidx-file-from-reference-file
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/get-faidx-file-from-reference-file__1.0.0.cwl
+        md5sum: 5537a7433792c92e63c11abe20e9ba78
+    categories: []

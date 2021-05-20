@@ -1,0 +1,8 @@
+schemas:
+  - name: fastq-list-rows
+    path: fastq-list-rows
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/fastq-list-rows__1.0.0.yaml
+        md5sum: 13ba7474e7bce7e5b1c49256634682b5
+    categories: []
