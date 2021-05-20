@@ -66,8 +66,8 @@ class CWLExpression(CWL):
         output_validation_passing, issue_count = self.check_docs(outputs, issue_count)
 
         # Check that no 'ids' of inputs and outputs match
-        input_ids = [_input.get('id') for _input in inputs]
-        output_ids = [_output.get('id') for _output in outputs]
+        input_ids = [_input.id for _input in inputs]
+        output_ids = [_output.id for _output in outputs]
 
         # Intersection of ids
         intersection_input_output = list(set(input_ids).intersection(set(output_ids)))
