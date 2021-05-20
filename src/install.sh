@@ -367,10 +367,12 @@ if [[ "${user_shell}" == "bash" ]]; then
     "${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/"
   echo_stderr "To enable autocompletions for this script add the following line to your '.bashrc'"
   echo_stderr "######CWL-ICA######"
-  echo_stderr "\"source ${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/*.bash\""
+  echo_stderr "source \"${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/\"*\".bash\""
   echo_stderr "###################"
 
 # ZSH
+
+
 elif [[ "${user_shell}" == "zsh" ]]; then
   rsync --archive "$(get_this_path)/autocompletion/${user_shell}/" \
     "${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/"
