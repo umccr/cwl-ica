@@ -24,7 +24,7 @@ class CreateSchemaFromTemplate(CreateFromTemplate):
 
 Description:
     We initialise a schema with all of the bells / schema and whistles.
-    This creates a file under <CWL_ICA_REPO_PATH>/schema/<schema_name>/<schema_version>/<schema_name>__<schema_version>.cwl
+    This creates a file under <CWL_ICA_REPO_PATH>/schema/<schema_name>/<schema_version>/<schema_name>__<schema_version>.yaml
 
     The schema will have the bare minimum inputs and is ready for you to edit.
     This command does NOT register the schema under schema.yaml, should you change your mind, you can easily just delete the file.
@@ -49,7 +49,7 @@ Example
 
     def __init__(self, command_argv):
         # Collect args from doc strings
-        super().__init__(command_argv)
+        super().__init__(command_argv, suffix="yaml")
 
         # Collect arguments
         self.args: dict = self.get_args(command_argv)

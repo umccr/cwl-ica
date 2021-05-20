@@ -29,9 +29,7 @@ class CreateFromTemplate(Command):
     Usage defined in subclass
     """
 
-    suffix = "cwl"
-
-    def __init__(self, command_argv):
+    def __init__(self, command_argv, suffix="cwl"):
         # Collect args from doc strings
         super().__init__(command_argv)
 
@@ -42,6 +40,7 @@ class CreateFromTemplate(Command):
         self.user_obj = None
         self.cwl_obj = None
         self.cwl_file_path = None
+        self.suffix = suffix
 
         # Init requirements of subclass
         # Get args
