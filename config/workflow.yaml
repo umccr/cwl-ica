@@ -1,0 +1,9 @@
+workflows:
+  - name: optitype-pipeline
+    path: optitype-pipeline
+    versions:
+      - name: 1.3.5
+        path: 1.3.5/optitype-pipeline__1.3.5.cwl
+        md5sum: a6cafecc661f1c43f1f928d42218ddf4
+    categories:
+      - hla
