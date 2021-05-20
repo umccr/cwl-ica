@@ -29,10 +29,10 @@ for template in templates/*.yaml; do
   		completion \
 			"${template}" \
 		    	--name "${name_root}" \
-		    	--bash > "bash/${name_root}.sh"
+		    	--bash > "bash/${name_root}.bash"
 
 	# Update first line from '#!bash' to '#!/usr/bin/env bash'
-	sed -i '1c#!/usr/bin/env bash' "bash/${name_root}.sh"
+	sed -i '1c#!/usr/bin/env bash' "bash/${name_root}.bash"
 done
 
 # Run through zsh completions
