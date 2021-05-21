@@ -20,6 +20,8 @@ from tempfile import NamedTemporaryFile
 import json
 from utils.subprocess_handler import run_subprocess_proc
 from hashlib import md5
+from ruamel.yaml.comments import CommentedMap as OrderedDict
+
 
 logger = get_logger()
 
@@ -105,6 +107,50 @@ class CWL:
         else:
             logger.error("Version error. Did not recognise {} as a CWL version".format(yaml_obj["CWLVersion"]))
             raise CWLImportError
+
+        # Due to https://github.com/common-workflow-language/cwl-utils/issues/74
+        # We must first check for SchemaDefRequirement types and add them to the name spaces
+        if yaml_obj.get("requirements", None) is None:
+            pass
+        elif yaml_obj.get("requirements").get("SchemaDefRequirement", None) is None:
+            pass
+        elif yaml_obj.get("requirements").get("SchemaDefRequirement").get("types", None) is None:
+            pass
+        else:
+            for imports in yaml_obj.get("requirements").get("SchemaDefRequirement").get("types"):
+                # Get import key
+                if imports.get("$import", None) is None:
+                    continue
+
+                # We need the relative import path and the schema path
+                schema_relative_imports_path = imports.get("$import")
+                schema_import_path = (Path(self.cwl_file_path).parent / Path(schema_relative_imports_path)).resolve()
+
+                # Log this
+                logger.info(f"Manually adding in \"{schema_relative_imports_path}\" into namespaces before "
+                            f"we import the cwl object")
+
+                # Import schema
+                from classes.cwl_schema import CWLSchema
+                from utils.repo import get_schemas_dir
+                from utils.miscell import get_name_version_tuple_from_cwl_file_path
+                schema_name, schema_version = get_name_version_tuple_from_cwl_file_path(schema_import_path,
+                                                                                        get_schemas_dir())
+                schema_obj = CWLSchema(schema_import_path, name=schema_name, version=schema_version)
+
+                # Get name and type
+                schema_name = schema_obj.cwl_obj.get("name")
+
+                # Schema path
+                schema_namespace_str = "#".join(map(str, [schema_relative_imports_path, schema_name]))
+
+                # Now add to namespaces
+                if yaml_obj.get('$namespaces') is None:
+                    yaml_obj['$namespaces'] = OrderedDict({
+                        schema_namespace_str: schema_namespace_str
+                    })
+                else:
+                    yaml_obj['$namespaces'][schema_namespace_str] = schema_namespace_str
 
         # Now import cwl object as a file
         self.cwl_obj = parser.load_document_by_yaml(yaml_obj, self.cwl_file_path.absolute().as_uri())

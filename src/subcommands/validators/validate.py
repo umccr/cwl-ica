@@ -58,6 +58,7 @@ class Validate(Command):
         # Check file exists
         if not self.cwl_file_path.is_file():
             logger.error("Could not validate \"{self.cwl_file_path}\" because file did not exist")
+            raise CheckArgumentError
 
     def split_name_version(self, items_dir):
         """
