@@ -61,3 +61,17 @@ tools:
         md5sum: beccb4a5e29eed5de0be6dc7617f3602
     categories:
       - bam handler
+  - name: custom-hla-bed-from-faidx
+    path: custom-hla-bed-from-faidx
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-hla-bed-from-faidx__1.0.0.cwl
+        md5sum: ef945ce5417bc7886b3aa67dcb42977b
+    categories: []
+  - name: bedops
+    path: bedops
+    versions:
+      - name: 2.4.39
+        path: 2.4.39/bedops__2.4.39.cwl
+        md5sum: 94cac9220b0156075600bc0a26a0c4b9
+    categories: []

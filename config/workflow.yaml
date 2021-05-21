@@ -7,3 +7,10 @@ workflows:
         md5sum: a6cafecc661f1c43f1f928d42218ddf4
     categories:
       - hla
+  - name: get-hla-regions-bed
+    path: get-hla-regions-bed
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/get-hla-regions-bed__1.0.0.cwl
+        md5sum: 8c0f5b8d32082d3ae4a348ca97240d35
+    categories: []

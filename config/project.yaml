@@ -88,6 +88,16 @@ projects:
             ica_workflow_version_name: 1.12.0
             modification_time: 2021-05-20T04:53:30UTC
             run_instances: []
+      - name: bedops
+        path: bedops
+        ica_workflow_name: bedops_dev
+        ica_workflow_id: wfl.5808cc6b5c6b4386b1ad966fabcec1be
+        versions:
+          - name: 2.4.39
+            path: 2.4.39/bedops__2.4.39.cwl
+            ica_workflow_version_name: 2.4.39
+            modification_time: 2021-05-21T00:21:30UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline

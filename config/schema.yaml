@@ -6,3 +6,10 @@ schemas:
         path: 1.0.0/fastq-list-rows__1.0.0.yaml
         md5sum: 13ba7474e7bce7e5b1c49256634682b5
     categories: []
+  - name: contig
+    path: contig
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/contig__1.0.0.yaml
+        md5sum: 4584d6b2739f4d02b934eead6fd1e328
+    categories: []
