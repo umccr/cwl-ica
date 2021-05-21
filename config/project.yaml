@@ -109,3 +109,13 @@ projects:
             ica_workflow_version_name: 1.3.5
             modification_time: 2021-05-20T04:48:01UTC
             run_instances: []
+      - name: get-hla-regions-bed
+        path: get-hla-regions-bed
+        ica_workflow_name: get-hla-regions-bed_dev
+        ica_workflow_id: wfl.4c8ce85b9d2f427bb08e288d0e915981
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/get-hla-regions-bed__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0
+            modification_time: 2021-05-21T02:29:48UTC
+            run_instances: []
