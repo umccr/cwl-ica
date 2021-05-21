@@ -75,3 +75,10 @@ tools:
         path: 2.4.39/bedops__2.4.39.cwl
         md5sum: 94cac9220b0156075600bc0a26a0c4b9
     categories: []
+  - name: dragen-germline
+    path: dragen-germline
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/dragen-germline__3.7.5.cwl
+        md5sum: 7ddc21a4ca6a8c0279061849a317cae1
+    categories: []

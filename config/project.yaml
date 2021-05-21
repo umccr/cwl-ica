@@ -98,6 +98,16 @@ projects:
             ica_workflow_version_name: 2.4.39
             modification_time: 2021-05-21T00:21:30UTC
             run_instances: []
+      - name: dragen-germline
+        path: dragen-germline
+        ica_workflow_name: dragen-germline_dev
+        ica_workflow_id: wfl.a19f90ebde874ceba9f3f41f82878e8c
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-germline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5
+            modification_time: 2021-05-21T08:25:18UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -118,4 +128,24 @@ projects:
             path: 1.0.0/get-hla-regions-bed__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
             modification_time: 2021-05-21T02:29:48UTC
+            run_instances: []
+      - name: dragen-germline-pipeline
+        path: dragen-germline-pipeline
+        ica_workflow_name: dragen-germline-pipeline_dev
+        ica_workflow_id: wfl.c5b3bd16ef014a338d489b6829d685c6
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5
+            modification_time: 2021-05-21T08:33:58UTC
+            run_instances: []
+      - name: dragen-qc-hla-pipeline
+        path: dragen-qc-hla-pipeline
+        ica_workflow_name: dragen-qc-hla-pipeline_dev
+        ica_workflow_id: wfl.31d0e45ea17443f18768386f16b82af8
+        versions:
+          - name: 3.7.5--1.3.5
+            path: 3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl
+            ica_workflow_version_name: 3.7.5--1.3.5
+            modification_time: 2021-05-21T08:52:39UTC
             run_instances: []

@@ -1,9 +1,9 @@
 schemas:
-  - name: fastq-list-rows
-    path: fastq-list-rows
+  - name: fastq-list-row
+    path: fastq-list-row
     versions:
       - name: 1.0.0
-        path: 1.0.0/fastq-list-rows__1.0.0.yaml
+        path: 1.0.0/fastq-list-row__1.0.0.yaml
         md5sum: 13ba7474e7bce7e5b1c49256634682b5
     categories: []
   - name: contig
@@ -12,4 +12,11 @@ schemas:
       - name: 1.0.0
         path: 1.0.0/contig__1.0.0.yaml
         md5sum: 4584d6b2739f4d02b934eead6fd1e328
+    categories: []
+  - name: predefined-mount-path
+    path: predefined-mount-path
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/predefined-mount-path__1.0.0.yaml
+        md5sum: da24a7c18dc1531382032a84fcaee2eb
     categories: []
