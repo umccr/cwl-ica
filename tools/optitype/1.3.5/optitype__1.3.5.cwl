@@ -106,6 +106,7 @@ inputs:
     inputBinding:
       prefix: "--verbose"
   config:
+    label: config
     doc: |
       Path to config file. Default: config.ini in the same
       directory as this script

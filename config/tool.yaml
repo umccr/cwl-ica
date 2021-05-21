@@ -50,7 +50,7 @@ tools:
     versions:
       - name: 1.3.5
         path: 1.3.5/optitype__1.3.5.cwl
-        md5sum: bbe30f82b50715d3b32b921d01517ce0
+        md5sum: c48f5ee0ce0017eaeb12f2d1f0de1c62
     categories:
       - hla
   - name: custom-subset-bam
