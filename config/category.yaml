@@ -8,3 +8,6 @@ categories:
   - name: hla
     description: |
         Tool/workflow is used for hla typing
+  - name: demux-tools
+    description: |
+        custom tools utilised as part of  demultiplexing workflow
