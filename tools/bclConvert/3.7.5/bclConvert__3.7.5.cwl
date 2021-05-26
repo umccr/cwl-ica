@@ -28,12 +28,9 @@ hints:
     coresMin: 72
     ramMin: 64000
   DockerRequirement:
-    dockerPull: 173606189969.dkr.ecr.us-east-1.amazonaws.com/dragen/bclconvert:3.7.5
+    dockerPull: 'umccr/bcl-convert:3.7.5'
 
 requirements:
-  # This overrides the hints
-  DockerRequirement:
-    dockerPull: 'umccr/bcl-convert:3.7.5'
   InlineJavascriptRequirement: {}
   SchemaDefRequirement:
     types:
@@ -217,7 +214,7 @@ outputs:
       * lane: The lane of the sample
       * read_1: The read 1 File of the sample
       * read_2: The read 2 File of the sample (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq_list_row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
     outputBinding:
       glob: "$(inputs.output_directory)/Reports/fastq_list.csv"
       loadContents: true

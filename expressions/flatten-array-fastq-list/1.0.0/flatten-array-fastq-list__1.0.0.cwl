@@ -34,7 +34,7 @@ inputs:
       type: array
       items:
         type: array
-        items: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq_list_row
+        items: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row
     inputBinding:
       loadContents: true
 
@@ -43,7 +43,7 @@ outputs:
     label: one dim array
     doc: |
       one dimensional array
-    type: .../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq_list_row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
 
 expression: >
   ${
