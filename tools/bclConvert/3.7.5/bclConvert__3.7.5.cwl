@@ -217,7 +217,7 @@ outputs:
       * lane: The lane of the sample
       * read_1: The read 1 File of the sample
       * read_2: The read 2 File of the sample (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq_list_row[]
     outputBinding:
       glob: "$(inputs.output_directory)/Reports/fastq_list.csv"
       loadContents: true
