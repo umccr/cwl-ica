@@ -11,6 +11,9 @@ categories:
   - name: demux-tools
     description: |
         custom tools utilised as part of  demultiplexing workflow
+  - name: expressions
+    description: |
+        Javascript code to modify behavior of a workflow
   - name: tso500
     description: |
         tool/workflow is involved in the tso500 pipeline
