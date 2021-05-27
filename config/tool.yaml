@@ -90,3 +90,11 @@ tools:
         md5sum: 16fc41821d43459286a47af79066447f
     categories:
       - tso500
+  - name: tso500-ctdna-demultiplex-workflow
+    path: tso500-ctdna-demultiplex-workflow
+    versions:
+      - name: 1.1.0--120
+        path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
+        md5sum: 845748c4e1bf7064e615b3cee6882401
+    categories:
+      - tso500
