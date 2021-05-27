@@ -106,3 +106,11 @@ tools:
         md5sum: b4490d13b1d0e8f0f6a48f4dd35325bb
     categories:
       - tso500
+  - name: tso500-ctdna-reporting-workflow
+    path: tso500-ctdna-reporting-workflow
+    versions:
+      - name: 1.1.0--120
+        path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
+        md5sum: ab0e1bc6b5b7a8905257da439d1b2c97
+    categories:
+      - tso500
