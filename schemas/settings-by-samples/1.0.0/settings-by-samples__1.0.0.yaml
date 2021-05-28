@@ -1,5 +1,5 @@
 type: record
-name: settings_by_samples
+name: settings-by-samples
 
 fields:
   batch_name:
