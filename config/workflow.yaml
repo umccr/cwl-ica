@@ -36,3 +36,10 @@ workflows:
         md5sum: bb4a12084822bed9c7dd1cbed8b0173e
     categories:
       - tso500
+  - name: bcl-conversion
+    path: bcl-conversion
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/bcl-conversion__3.7.5.cwl
+        md5sum: 037e133e04d5f527208a20e1246dace4
+    categories: []

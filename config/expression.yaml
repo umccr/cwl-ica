@@ -13,3 +13,17 @@ expressions:
         path: 1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.cwl
         md5sum: a592eeffe3208dcd7d12bdbda11e4e65
     categories: []
+  - name: get-samplesheet-midfix-regex
+    path: get-samplesheet-midfix-regex
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/get-samplesheet-midfix-regex__1.0.0.cwl
+        md5sum: 93d9dba10e7674e53a886ef28818c133
+    categories: []
+  - name: flatten-array-fastq-list
+    path: flatten-array-fastq-list
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/flatten-array-fastq-list__1.0.0.cwl
+        md5sum: 3fd2377b47c3641f64e43b530138ae02
+    categories: []

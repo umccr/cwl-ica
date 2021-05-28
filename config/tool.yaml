@@ -114,3 +114,31 @@ tools:
         md5sum: ab0e1bc6b5b7a8905257da439d1b2c97
     categories:
       - tso500
+  - name: custom-samplesheet-split-by-settings
+    path: custom-samplesheet-split-by-settings
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl
+        md5sum: 75dbba7125e3f97d10954f566875d58f
+    categories: []
+  - name: bclConvert
+    path: bclConvert
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/bclConvert__3.7.5.cwl
+        md5sum: 974f3efc9ceb0134dc8e6a3177bc2e6d
+    categories: []
+  - name: create-dummy-file
+    path: create-dummy-file
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/create-dummy-file__1.0.0.cwl
+        md5sum: e3489c0a1a03c088ce4b0865105b348d
+    categories: []
+  - name: multiqc-interop
+    path: multiqc-interop
+    versions:
+      - name: 1.2.1
+        path: 1.2.1/multiqc-interop__1.2.1.cwl
+        md5sum: abf0ea022fa5c53a8fb3c964a3d0478a
+    categories: []
