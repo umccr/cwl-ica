@@ -551,7 +551,7 @@ inputs:
     type:
       - "null"
       - type: array
-        items: ../../../schemas/settings-by-samples/1.0.0/settings-by-samples__1.0.0.yaml#settings_by_samples
+        items: ../../../schemas/settings-by-samples/1.0.0/settings-by-samples__1.0.0.yaml#settings-by-samples
         inputBinding:
           prefix: "--settings-by-samples="
           separate: false
