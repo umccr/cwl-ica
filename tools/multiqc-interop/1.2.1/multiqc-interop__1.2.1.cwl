@@ -108,6 +108,9 @@ inputs:
 
 outputs:
   interop_multi_qc_out:
+    label: multiqc output
+    doc: |
+      output dircetory with interop multiQC matrices
     type: Directory
     outputBinding:
       glob: "$(inputs.output_directory)"
