@@ -194,7 +194,7 @@ requirements:
                    "AnalysisWorkflow.analysisFolder":get_analysis_dir(),
                    "AnalysisWorkflow.logsIntermediatesFolder":get_logs_intermediates_dir(),
                    "AnalysisWorkflow.resourceFolder":get_resources_dir(),
-                   "AnalysisWorkflow.dragenLicenseKeyFolder":get_dragen_license_key_folder(),
+                   "AnalysisWorkflow.dragenLicenseKeyFolder":abs_path(get_dragen_license_key_folder()),
                    "AnalysisWorkflow.dragenLicenseInstanceFolder":get_dragen_license_instance_folder()
                  });
         }

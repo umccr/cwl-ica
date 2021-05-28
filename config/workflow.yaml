@@ -33,6 +33,6 @@ workflows:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
-        md5sum: 9b9a80d5a94bf57d54ca6295a5d957cf
+        md5sum: bb4a12084822bed9c7dd1cbed8b0173e
     categories:
       - tso500
