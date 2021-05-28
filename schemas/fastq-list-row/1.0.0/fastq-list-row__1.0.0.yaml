@@ -3,39 +3,33 @@ name: fastq-list-row
 
 fields:
   rgid:
-    name: rgid
     label: rgid
     doc: |
       The read-group id of the sample.
       Often an index
     type: string
   rglb:
-    name: rglb
     label: rglb
     doc: |
       The read-group library of the sample.
     type: string
   rgsm:
-    name: rgsm
     label: rgsm
     doc: |
       The read-group sample name
     type: string
   lane:
-    name: lane
     label: lane
     doc: |
       The lane that the sample was run on
     type: int
   read_1:
-    name: read_1
     label: read 1
     doc: |
       The path to R1 of a sample
     type: File
     streamable: true
   read_2:
-    name: read_2
     label: read 2
     doc: |
       The path to R2 of a sample

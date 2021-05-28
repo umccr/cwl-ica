@@ -20,3 +20,10 @@ schemas:
         path: 1.0.0/predefined-mount-path__1.0.0.yaml
         md5sum: da24a7c18dc1531382032a84fcaee2eb
     categories: []
+  - name: tso500-sample
+    path: tso500-sample
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/tso500-sample__1.0.0.yaml
+        md5sum: 8c1b912aba28ab93bdce4f420f346380
+    categories: []

@@ -82,3 +82,35 @@ tools:
         path: 3.7.5/dragen-germline__3.7.5.cwl
         md5sum: 7ddc21a4ca6a8c0279061849a317cae1
     categories: []
+  - name: custom-create-tso500-samplesheet
+    path: custom-create-tso500-samplesheet
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
+        md5sum: 16fc41821d43459286a47af79066447f
+    categories:
+      - tso500
+  - name: tso500-ctdna-demultiplex-workflow
+    path: tso500-ctdna-demultiplex-workflow
+    versions:
+      - name: 1.1.0--120
+        path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
+        md5sum: 845748c4e1bf7064e615b3cee6882401
+    categories:
+      - tso500
+  - name: tso500-ctdna-analysis-workflow
+    path: tso500-ctdna-analysis-workflow
+    versions:
+      - name: 1.1.0--120
+        path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
+        md5sum: 89f6a25af6eef8b76f2dd383ee93e7e4
+    categories:
+      - tso500
+  - name: tso500-ctdna-reporting-workflow
+    path: tso500-ctdna-reporting-workflow
+    versions:
+      - name: 1.1.0--120
+        path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
+        md5sum: ab0e1bc6b5b7a8905257da439d1b2c97
+    categories:
+      - tso500
