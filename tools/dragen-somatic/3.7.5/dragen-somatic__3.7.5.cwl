@@ -429,6 +429,7 @@ inputs:
       prefix: "--vc-enable-baf"
   # Somatic calling options
   vc_min_tumor_read_qual:
+    label: vc min tumor read qual
     type: int?
     doc: |
       The --vc-min-tumor-read-qual option specifies the minimum read quality (MAPQ) to be considered for
@@ -436,6 +437,7 @@ inputs:
     inputBinding:
       prefix: --vc-min-tumor-read-qual
   vc_callability_tumor_thresh:
+    label: vc callability tumor thresh
     type: int?
     doc: |
       The --vc-callability-tumor-thresh option specifies the callability threshold for tumor samples. The
@@ -443,6 +445,7 @@ inputs:
     inputBinding:
       prefix: --vc-callability-tumor-thresh
   vc_callability_normal_thresh:
+    label: vc callability normal thresh
     type: int?
     doc: |
       The --vc-callability-normal-thresh option specifies the callability threshold for normal samples.
@@ -450,6 +453,7 @@ inputs:
     inputBinding:
       prefix: --vc-callability-normal-thresh
   vc_somatic_hotspots:
+    label: vc somatic hotspots
     type: File?
     doc: |
       The somatic hotspots option allows an input VCF to specify the positions where the risk for somatic
@@ -460,6 +464,7 @@ inputs:
     inputBinding:
       prefix: --vc-somatic-hotspots
   vc_hotspot_log10_prior_boost:
+    label: vc hotspot log10 prior boost
     type: int?
     doc: |
       The size of the hotspot adjustment can be controlled via vc-hotspotlog10-prior-boost,
@@ -467,6 +472,7 @@ inputs:
     inputBinding:
       prefix: --vc-hotspot-log10-prior-boost
   vc_enable_liquid_tumor_mode:
+    label: vc enable liquid tumor mode
     type: boolean?
     doc: |
       In a tumor-normal analysis, DRAGEN accounts for tumor-in-normal (TiN) contamination by running liquid
@@ -480,6 +486,7 @@ inputs:
       prefix: --vc-enable-liquid-tumor-mode
       valueFrom: "$(self.toString())"
   vc_tin_contam_tolerance:
+    label: vc tin contam tolerance
     type: float?
     doc: |
      --vc-tin-contam-tolerance enables liquid tumor mode and allows you to
@@ -489,6 +496,7 @@ inputs:
       prefix: --vc-tin-contam-tolerance
   # Post somatic calling filtering options
   vc_sq_call_threshold:
+    label: vc sq call threshold
     type: float?
     doc: |
       Emits calls in the VCF. The default is 3.
@@ -497,6 +505,7 @@ inputs:
     inputBinding:
       prefix: --vc-sq-call-threshold
   vc_sq_filter_threshold:
+    label: vc sq filter threshold
     type: float?
     doc: |
       Marks emitted VCF calls as filtered.
@@ -504,6 +513,7 @@ inputs:
     inputBinding:
       prefix: --vc-sq-filter-threshold
   vc_enable_triallelic_filter:
+    label: vc enable triallelic filter
     type: boolean?
     doc: |
       Enables the multiallelic filter. The default is true.
@@ -511,6 +521,7 @@ inputs:
       prefix: --vc-enable-triallelic-filter
       valueFrom: "$(self.toString())"
   vc_enable_af_filter:
+    label: vc enable af filter
     type: boolean?
     doc: |
       Enables the allele frequency filter. The default value is false. When set to true, the VCF excludes variants
@@ -523,6 +534,7 @@ inputs:
       prefix: --vc-enable-af-filter
       valueFrom: "$(self.toString())"
   vc_af_call_threshold:
+    label: vc af call threshold
     type: float?
     doc: |
       Set the allele frequency call threshold to emit a call in the VCF if the AF filter is enabled.
@@ -530,6 +542,7 @@ inputs:
     inputBinding:
       prefix: --vc-af-call-threshold
   vc_af_filter_threshold:
+    label: vc af filter threshold
     type: float?
     doc: |
       Set the allele frequency filter threshold to mark emitted VCF calls as filtered if the AF filter is
@@ -538,6 +551,7 @@ inputs:
     inputBinding:
       prefix: --vc-af-filter-threshold
   vc_enable_non_homref_normal_filter:
+    label: vc enable non homoref normal filter
     type: boolean?
     doc: |
       Enables the non-homref normal filter. The default value is true. When set to true, the VCF filters out
