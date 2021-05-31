@@ -37,8 +37,6 @@ requirements:
   SchemaDefRequirement:
     types:
       - $import: ../../../schema_definitions/predefined_mount_path/predefined_mount_path.yaml
-  DockerRequirement:
-    dockerPull: '699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.7.5'
   InlineJavascriptRequirement:
     expressionLib:
       - var get_script_path = function(){
