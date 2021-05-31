@@ -36,7 +36,7 @@ hints:
 requirements:
   SchemaDefRequirement:
     types:
-      - $import: ../../../schema_definitions/predefined_mount_path/predefined_mount_path.yaml
+      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
   InlineJavascriptRequirement:
     expressionLib:
       - var get_script_path = function(){
@@ -219,7 +219,7 @@ inputs:
     label: fastq list mount paths
     doc: |
       Path to fastq list mount path
-    type: ../../../schema_definitions/predefined_mount_path/predefined_mount_path.yaml#predefined_mount_path[]?
+    type: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml#predefined-mount-path[]?
   tumor_fastq_list:
     label: tumor fastq list
     doc: |
@@ -234,7 +234,7 @@ inputs:
     label: tumor fastq list mount paths
     doc: |
       Path to fastq list mount path
-    type: ../../../schema_definitions/predefined_mount_path/predefined_mount_path.yaml#predefined_mount_path[]?
+    type: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml#predefined-mount-path[]?
   reference_tar:
     label: reference tar
     doc: |
