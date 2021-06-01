@@ -49,8 +49,8 @@ requirements:
         }
   SchemaDefRequirement:
     types:
-      - $import: ../../../schema_definitions/fastq_list_row/fastq_list_row.yaml
-      - $import: ../../../schema_definitions/predefined_mount_path/predefined_mount_path.yaml
+      - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
+      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
 
 # Declare inputs
 inputs:
@@ -66,7 +66,7 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schema_definitions/fastq_list_row/fastq_list_row.yaml#fastq_list_row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
   tumor_fastq_list_rows:
     label: Row of fastq lists
     doc: |
@@ -78,7 +78,7 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schema_definitions/fastq_list_row/fastq_list_row.yaml#fastq_list_row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
   reference_tar:
     label: reference tar
     doc: |
@@ -223,21 +223,25 @@ inputs:
     type: boolean?
   # Somatic calling options
   vc_min_tumor_read_qual:
+    label: vc min tumor read qual
     type: int?
     doc: |
       The --vc-min-tumor-read-qual option specifies the minimum read quality (MAPQ) to be considered for
       variant calling. The default value is 3 for tumor-normal analysis or 20 for tumor-only analysis.
   vc_callability_tumor_thresh:
+    label: vc callability tumor thresh
     type: int?
     doc: |
       The --vc-callability-tumor-thresh option specifies the callability threshold for tumor samples. The
       somatic callable regions report includes all regions with tumor coverage above the tumor threshold.
   vc_callability_normal_thresh:
+    label: vc callability normal thresh
     type: int?
     doc: |
       The --vc-callability-normal-thresh option specifies the callability threshold for normal samples.
       The somatic callable regions report includes all regions with normal coverage above the normal threshold.
   vc_somatic_hotspots:
+    label: vc somatic hotspots
     type: File?
     doc: |
       The somatic hotspots option allows an input VCF to specify the positions where the risk for somatic
@@ -246,11 +250,13 @@ inputs:
       reads. The cosmic database in VCF format can be used as one source of prior information to boost
       sensitivity for known somatic mutations.
   vc_hotspot_log10_prior_boost:
+    label: vc hotspot log10 prior boost
     type: int?
     doc: |
       The size of the hotspot adjustment can be controlled via vc-hotspotlog10-prior-boost,
       which has a default value of 4 (log10 scale) corresponding to an increase of 40 phred.
   vc_enable_liquid_tumor_mode:
+    label: vc enable liquid tumor mode
     type: boolean?
     doc: |
       In a tumor-normal analysis, DRAGEN accounts for tumor-in-normal (TiN) contamination by running liquid
@@ -261,6 +267,7 @@ inputs:
       expected to be observed in the normal sample with allele frequencies up to 15% of the corresponding
       allele in the tumor sample.
   vc_tin_contam_tolerance:
+    label: vc tin contam tolerance
     type: float?
     doc: |
      --vc-tin-contam-tolerance enables liquid tumor mode and allows you to
@@ -268,21 +275,25 @@ inputs:
       greater than zero. For example, vc-tin-contam-tolerance=-0.1.
   # Post somatic calling filtering options
   vc_sq_call_threshold:
+    label: vc sq call threshold
     type: float?
     doc: |
       Emits calls in the VCF. The default is 3.
       If the value for vc-sq-filter-threshold is lower than vc-sq-callthreshold,
       the filter threshold value is used instead of the call threshold value
   vc_sq_filter_threshold:
+    label: vc sq filter threshold
     type: float?
     doc: |
       Marks emitted VCF calls as filtered.
       The default is 17.5 for tumor-normal and 6.5 for tumor-only.
   vc_enable_triallelic_filter:
+    label: vc enable triallelic filter
     type: boolean?
     doc: |
       Enables the multiallelic filter. The default is true.
   vc_enable_af_filter:
+    label: vc enable af filter
     type: boolean?
     doc: |
       Enables the allele frequency filter. The default value is false. When set to true, the VCF excludes variants
@@ -292,17 +303,20 @@ inputs:
       To change the threshold values, use the following command line options:
         --vc-af-callthreshold and --vc-af-filter-threshold.
   vc_af_call_threshold:
+    label: vc af call threshold
     type: float?
     doc: |
       Set the allele frequency call threshold to emit a call in the VCF if the AF filter is enabled.
       The default is 0.01.
   vc_af_filter_threshold:
+    label: vc af filter threshold
     type: float?
     doc: |
       Set the allele frequency filter threshold to mark emitted VCF calls as filtered if the AF filter is
       enabled.
       The default is 0.05.
   vc_enable_non_homref_normal_filter:
+    label: vc enable non homoref normal filter
     type: boolean?
     doc: |
       Enables the non-homref normal filter. The default value is true. When set to true, the VCF filters out
@@ -344,7 +358,7 @@ steps:
     out:
       - fastq_list_csv_out
       - predefined_mount_paths_out
-    run: ../../../tools/custom/create_csv_from_fastq_list_row_objs/create_csv_from_fastq_list_row_objs.cwl
+    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   # Create fastq_list.csv
   create_tumor_fastq_list_csv_step:
     label: create tumor fastq list csv step
@@ -358,7 +372,7 @@ steps:
     out:
       - fastq_list_csv_out
       - predefined_mount_paths_out
-    run: ../../../tools/custom/create_csv_from_fastq_list_row_objs/create_csv_from_fastq_list_row_objs.cwl
+    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   # Run dragen somatic workflow
   run_dragen_somatic_step:
     label: run dragen somatic step
@@ -456,7 +470,7 @@ steps:
       - somatic_snv_vcf_out
       - somatic_snv_vcf_hard_filtered_out
       - somatic_structural_vcf_out
-    run: ../../../tools/dragenSomatic/3.7.5/dragen-somatic-3.7.5.cwl
+    run: ../../../tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.cwl
 
 outputs:
   # Will also include mounted-files.txt
