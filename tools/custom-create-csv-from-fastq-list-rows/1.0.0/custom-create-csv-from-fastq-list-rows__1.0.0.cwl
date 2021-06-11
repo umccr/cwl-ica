@@ -297,7 +297,7 @@ inputs:
                   /*
                   We have a file attribute, append path
                   */
-                  new_obj[key] = self[key].path
+                  new_obj[key] = self[key].basename
                 }
               }
               return JSON.stringify(new_obj);
