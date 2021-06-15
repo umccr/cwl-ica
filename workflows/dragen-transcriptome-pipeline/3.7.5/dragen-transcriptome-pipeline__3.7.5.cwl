@@ -177,44 +177,55 @@ steps:
       bam_file:
         source: dragen_step/dragen_bam_out
       annotation:
-        source: transcript-dragen
+        source: annotation_file
       reference: 
-        source: referenceFasta-arribaFusion
+        source: referenceFasta
       contigs:
-        source: contigs-arribaFusion
+        source: contigs
       blacklist: 
-        source: blacklist-arribaFusion
+        source: blacklist
     out:
       - fusions
       - discardedFusions
-    run: ../../tools/arriba/2.0.0/arriba-fusion.cwl
+    run: ../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl
   # Step-3: Call Arriba drawing script
   arriba_drawing_step:
     in:
       annotation:
-        source: transcript-dragen
+        source: annotation_file
       fusions: 
         source: arriba_fusion_step/fusions
       bam_file:
         source: dragen_step/dragen_bam_out
       cytobands:
-        source: cytobands-arribaDrawing
+        source: cytobands
       proteinDomains:
-        source: proteinDomains-arribaDrawing
+        source: proteinDomains
     out: 
       - outPDF
-    run:  ../../tools/arriba/2.0.0/arriba-drawing.cwl
+    run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
 
 outputs:
-  dragen-output:
-    type: Directory
-    outputSource: dragen_step/dragen_transcriptome_directory
-  arriba-fusion-output:
+  dragen_transcriptome_output_directory:
+    label: dragen transcriptome output directory
+    doc: |
+      The output directory containing all transcriptome output files
+    outputSource: run_dragen_transcriptome_step/dragen_transcriptome_directory
+  arriba_fusion_output:
+    label: arriba fusion output
+    doc: |
+      The output fusions file
     type: File
     outputSource: arriba_fusion_step/fusions
-  arriba-discardedFusion-output:
+  arriba_discardedFusion_output:
+    label: arriba discarded fusions
+    doc: |
+      The fusions discarded by arriba
     type: File
     outputSource: arriba_fusion_step/discardedFusions
-  arriba-pdf:
+  arriba_pdf:
+    label: Arriba pdf
+    doc: |
+      The pdf drawing file
     type: File
     outputSource: arriba_drawing_step/outPDF
