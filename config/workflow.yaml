@@ -50,3 +50,10 @@ workflows:
         path: 3.7.5/dragen-somatic__3.7.5.cwl
         md5sum: 6c27a4a1e3dc1e7999d90d46f796a27f
     categories: []
+  - name: dragen-transcriptome-pipeline
+    path: dragen-transcriptome-pipeline
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+        md5sum: 3470e5804826c5affbf5fa18ec1664d2
+    categories: []
