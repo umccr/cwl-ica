@@ -77,10 +77,6 @@ inputs:
     doc: |
       Mark identical alignments as duplicates
     type: boolean?
-    transcript-dragen:
-    type: File
-    doc: |
-      Transcript file for annotation
   # Quantification options
   enable_rna_quantification:
     label: enable rna quantification
@@ -160,7 +156,7 @@ steps:
       enable_map_align_output:
         source: enable_map_align_output
       enable_duplicate_marking:
-        source: enable_duplicate_marking)
+        source: enable_duplicate_marking
       annotation_file:
         source: annotation_file
       enable_rna_quantification:
@@ -173,9 +169,12 @@ steps:
     run: ../../../tools/dragen-transcriptome/3.7.5/dragen-transcriptome__3.7.5.cwl
   # Step-2: Call Arriba fusion calling step
   arriba_fusion_step:
+    label: arriba fusion step
+    doc: |
+      Runs Arriba fusion calling on the bam file produced by Dragen.
     in: 
       bam_file:
-        source: dragen_step/dragen_bam_out
+        source: run_dragen_transcriptome_step/dragen_bam_out
       annotation:
         source: annotation_file
       reference: 
@@ -190,13 +189,16 @@ steps:
     run: ../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl
   # Step-3: Call Arriba drawing script
   arriba_drawing_step:
+    label: arriba drawing step
+    doc: |
+      Run Arriba's drawing script for fusions predicted by previous step.
     in:
       annotation:
         source: annotation_file
       fusions: 
         source: arriba_fusion_step/fusions
       bam_file:
-        source: dragen_step/dragen_bam_out
+        source: run_dragen_transcriptome_step/dragen_bam_out
       cytobands:
         source: cytobands
       proteinDomains:
@@ -210,6 +212,7 @@ outputs:
     label: dragen transcriptome output directory
     doc: |
       The output directory containing all transcriptome output files
+    type: Directory
     outputSource: run_dragen_transcriptome_step/dragen_transcriptome_directory
   arriba_fusion_output:
     label: arriba fusion output
