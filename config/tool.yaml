@@ -149,6 +149,27 @@ tools:
         path: 3.7.5/dragen-somatic__3.7.5.cwl
         md5sum: 476ffd3dba9f93e6aeea222d45d373cd
     categories: []
+  - name: dragen-transcriptome
+    path: dragen-transcriptome
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/dragen-transcriptome__3.7.5.cwl
+        md5sum: 3f23e5e29e142c8126bd35e6ba57494a
+    categories: []
+  - name: arriba-fusion-calling
+    path: arriba-fusion-calling
+    versions:
+      - name: 2.0.0
+        path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
+        md5sum: b415b4e693330d45511413110d2e80ba
+    categories: []
+  - name: arriba-drawing
+    path: arriba-drawing
+    versions:
+      - name: 2.0.0
+        path: 2.0.0/arriba-drawing__2.0.0.cwl
+        md5sum: 84777ebd31fc48622b79fd4167527c0b
+    categories: []
   - name: multiqc
     path: multiqc
     versions:
