@@ -126,19 +126,12 @@ inputs:
       Delete undetermined indices on completion of the run
     type: boolean?
     default: true
-  # MultiQC mandatory options
+  # Run / BCLConvert - MultiQC mandatory options
   runfolder_name:
     label: runfolder name
     doc: |
       Required - used in naming run specific folder, reports and headings
     type: string
-  # MultiQC optional args
-  outdir_multiqc:
-    label: outdir multiqc
-    doc: |
-      Optional - Output directory for the multiqc command
-      If not set defaults to runfolder-name + "_multiqc/"
-    type: string?
 
 
 steps:
@@ -176,7 +169,7 @@ steps:
     run: ../../../expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.cwl
   # Scatter bclConvert over each samplesheet, produce an array of output directories
   bcl_convert_step:
-    label: Run BCL Convert workflow
+    label: bcl convert
     doc: |
       BCLConvert is then scattered across each of the samplesheets.
     scatter: [samplesheet, output_directory]
@@ -214,33 +207,58 @@ steps:
     out:
       - array1d
     run: ../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.cwl
-  # Create rn specific QC report (interop)
-  # Create a dummy file s.t the qc step is auto-streamed
+  # Create a dummy file s.t the qc steps are auto-streamed
   create_dummy_file_step:
-    label: Create dummy file
+    label: create dummy file
     doc: |
       Intermediate step for letting multiqc-interop be placed in stream mode
     in: {}
     out:
       - dummy_file_output
-    run: ../../../tools/create-dummy-file/1.0.0/create-dummy-file__1.0.0.cwl
-  qc_step:
-    label: Multiqc Step
+    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+  # Create a bclconvert specific report
+  bclconvert_qc_step:
+    label: bclconvert qc step
+    doc: |
+      The bclconvert qc step - from scatter this takes in an array of dirs
+    # This allows us to run the bclconvert module over the array of directories
+    requirements:
+      DockerRequirement:
+        dockerPull: umccr/multiqc-bclconvert:1.9
+    in:
+      input_directories:
+        source: bcl_convert_step/bcl_convert_directory_output
+      output_directory_name:
+        source: runfolder_name
+        valueFrom: "$(self)_bclconvert_multiqc"
+      output_filename:
+        source: runfolder_name
+        valueFrom: "$(self)_bclconvert_multiqc.html"
+      title:
+        source: runfolder_name
+        valueFrom: "UMCCR MultiQC BCLConvert report for $(self)"
+      dummy_file:
+        source: create_dummy_file_step/dummy_file_output
+    out:
+      - output_directory
+    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
+  # Create run specific QC report (interop)
+  interop_qc_step:
+    label: interop qc step
     doc: |
       Run the multiqc by first also generating the interop files for use
     in:
       input_directory:
         source: bcl_input_directory
-      output_directory:
-        source: [outdir_multiqc, runfolder_name]
-        linkMerge: merge_flattened
-        valueFrom: $(get_first_string_or_second_string_with_suffix(self, "_multiqc"))
+      output_directory_name:
+        source: runfolder_name
+        valueFrom: "$(self)_interop_multiqc"
       output_filename:
         source: runfolder_name
-        valueFrom: "$(self)_multiqc.html"
+        valueFrom: "$(self)_interop_multiqc.html"
       title:
         source: runfolder_name
-        valueFrom: "UMCCR MultiQC report for $(self)"
+        valueFrom: "UMCCR MultiQC Interop report for $(self)"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
@@ -267,9 +285,16 @@ outputs:
       Contains the fastq list row schema for each of the output fastq files
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
     outputSource: flatten_fastq_list_rows_array/array1d
-  interop_multi_qc_out:
+  interop_multiqc_out:
     label: interop multiqc
     doc: |
       multiqc directory output that contains interop data
     type: Directory
-    outputSource: qc_step/interop_multi_qc_out
+    outputSource: interop_qc_step/interop_multi_qc_out
+  bclconvert_multiqc_out:
+    label: bclconvert multiqc
+    doc: |
+      multiqc directory output that contains bclconvert multiqc data
+    type: Directory
+    outputSource: bclconvert_qc_step/output_directory
+

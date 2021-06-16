@@ -170,3 +170,10 @@ tools:
         path: 2.0.0/arriba-drawing__2.0.0.cwl
         md5sum: 84777ebd31fc48622b79fd4167527c0b
     categories: []
+  - name: multiqc
+    path: multiqc
+    versions:
+      - name: 1.10.1
+        path: 1.10.1/multiqc__1.10.1.cwl
+        md5sum: 7cb5bd963c74b297bc2f3e007315ba62
+    categories: []

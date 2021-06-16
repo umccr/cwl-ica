@@ -4,7 +4,8 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: http://platform.illumina.com/rdf/iap/
+
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -37,19 +38,65 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/repository/biocontainers/multiqc:1.10.1--pyhdfd78af_1
+        dockerPull: quay.io/biocontainers/multiqc:1.10.1--pyhdfd78af_1
 
-baseCommand: ["multiqc"]
+requirements:
+  InlineJavascriptRequirement:
+    expressionLib:
+      - var get_input_dir = function(){
+          /*
+          Just returns the name of the input directory
+          */
+          return "multiqc_input_dir";
+        }
+  InitialWorkDirRequirement:
+    listing:
+      - entryname: run_multiqc.sh
+        entry: |
+          #!/usr/bin/env bash
+
+          # Set up to fail
+          set -euo pipefail
+
+          # Create input dir
+          mkdir "$(get_input_dir())"
+
+          # Create an array of dirs
+          input_dir_path_array=( $(inputs.input_directories.map(function(a) {return '"' + a.path + '"';}).join(' ')) )
+          input_dir_basename_array=( $(inputs.input_directories.map(function(a) {return '"' + a.basename + '"';}).join(' ')) )
+
+          # Iterate through input direcotires
+          for input_dir_path in "\${input_dir_path_array[@]}"; do
+            ln -s "\${input_dir_path}" "$(get_input_dir())/"
+          done
+
+          # Run multiqc
+          eval multiqc '"\${@}"'
+
+          # Run ls to see what's here
+          ls
+
+          # Unlink input directories - otherwise ICA tries to upload them onto gds (and fails)
+          for input_dir_basename in "\${input_dir_basename_array[@]}"; do
+            unlink "$(get_input_dir())/\${input_dir_basename}"
+          done
+
+          # Run ls to see what's here
+          ls
+
+baseCommand: ["bash", "run_multiqc.sh"]
+
+arguments:
+  - position: 100
+    valueFrom: "$(get_input_dir())"
 
 inputs:
   # Required inputs
-  input_directory:
-    label: input directory
+  input_directories:
+    label: input directories
     doc: |
-      The bcl directory
-    type: Directory
-    inputBinding:
-      position: 100
+      The list of directories to place in the analysis
+    type: Directory[]
   output_directory_name:
     label: output directory
     doc: |
@@ -57,6 +104,7 @@ inputs:
     type: string
     inputBinding:
       prefix: "--outdir"
+      valueFrom: "$(runtime.outdir)/$(self)"
   output_filename:
     label: output filename
     doc: |
@@ -81,6 +129,7 @@ inputs:
       saves having to download the entire input folder
     type: File?
     streamable: true
+
 
 outputs:
   output_directory:

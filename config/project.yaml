@@ -148,6 +148,16 @@ projects:
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-05-26T09:50:36UTC
             run_instances: []
+      - name: multiqc
+        path: multiqc
+        ica_workflow_name: multiqc_dev
+        ica_workflow_id: wfl.c2ca973c62a24066bf82f63715d66083
+        versions:
+          - name: 1.10.1
+            path: 1.10.1/multiqc__1.10.1.cwl
+            ica_workflow_version_name: 1.10.1
+            modification_time: 2021-06-16T02:19:21UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -217,7 +227,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-10T07:38:19UTC
+            modification_time: 2021-06-16T04:16:34UTC
             run_instances: []
       - name: dragen-transcriptome-pipeline
         path: dragen-transcriptome-pipeline

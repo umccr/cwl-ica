@@ -72,7 +72,7 @@ inputs:
     type: Directory
     inputBinding:
       position: 100
-  output_directory:
+  output_directory_name:
     label: output directory
     doc: |
       The output directory, defaults to "multiqc-outdir"
@@ -113,7 +113,7 @@ outputs:
       output dircetory with interop multiQC matrices
     type: Directory
     outputBinding:
-      glob: "$(inputs.output_directory)"
+      glob: "$(inputs.output_directory_name)"
 
 
 successCodes:
