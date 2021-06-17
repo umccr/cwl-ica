@@ -126,7 +126,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-05-27T13:29:22UTC
+            modification_time: 2021-06-17T11:31:03UTC
             run_instances: []
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
@@ -136,7 +136,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-05-28T00:08:04UTC
+            modification_time: 2021-06-17T11:31:43UTC
             run_instances: []
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
@@ -207,7 +207,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-05-27T23:38:45UTC
+            modification_time: 2021-06-17T08:20:17UTC
             run_instances: []
       - name: dragen-somatic
         path: dragen-somatic
@@ -256,7 +256,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-05-27T13:29:22UTC
+            modification_time: 2021-06-17T11:31:07UTC
             run_instances: []
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
@@ -266,7 +266,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-05-28T00:08:04UTC
+            modification_time: 2021-06-17T11:31:46UTC
             run_instances: []
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
@@ -287,5 +287,5 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-05-27T23:38:49UTC
+            modification_time: 2021-06-17T08:20:21UTC
             run_instances: []

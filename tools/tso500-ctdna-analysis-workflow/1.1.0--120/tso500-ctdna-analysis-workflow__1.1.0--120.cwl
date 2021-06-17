@@ -73,7 +73,7 @@ requirements:
       - var get_fastq_dir_path = function() {
           return "fastqs";
         }
-      - var get_fastq_list_file_mounts = function(sample_id, input_fastq_list_rows){
+      - var get_fastq_list_file_mounts = function(sample_id, sample_number, input_fastq_list_rows){
           /*
           Return a list of entry/entryname dicts to be mounted for a given sample
           */
@@ -101,8 +101,8 @@ requirements:
             /*
             Set the basenames for each file
             */
-            var read_1_base_name = sample_id + "_S" + String(i) + "_L" + String(lane).padStart(3, '0') + "_R1_" + "001.fastq.gz";
-            var read_2_base_name = sample_id + "_S" + String(i) + "_L" + String(lane).padStart(3, '0') + "_R2_" + "001.fastq.gz";
+            var read_1_base_name = sample_id + "_S" + String(sample_number) + "_L" + String(lane).padStart(3, '0') + "_R1_" + "001.fastq.gz";
+            var read_2_base_name = sample_id + "_S" + String(sample_number) + "_L" + String(lane).padStart(3, '0') + "_R2_" + "001.fastq.gz";
 
             /*
             Set the mount points for each file
@@ -274,6 +274,7 @@ requirements:
           */
           var sample_id = inputs.tso500_samples[i].sample_id;
           var sample_name = inputs.tso500_samples[i].sample_name;
+          var sample_number = i + 1;
 
           /*
           Iterate over the input fastq list rows and match rgsm values to the sample_name of the tso500 sample
@@ -293,7 +294,7 @@ requirements:
           /*
           Now mount according to the sample id
           */
-          e = e.concat(get_fastq_list_file_mounts(sample_id, input_fastq_list_rows));
+          e = e.concat(get_fastq_list_file_mounts(sample_id, sample_number, input_fastq_list_rows));
         }
 
         /*
