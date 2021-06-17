@@ -158,6 +158,16 @@ projects:
             ica_workflow_version_name: 1.10.1
             modification_time: 2021-06-16T02:19:21UTC
             run_instances: []
+      - name: dragen-alignment
+        path: dragen-alignment
+        ica_workflow_name: dragen-alignment_dev
+        ica_workflow_id: wfl.b2b0f4d467df453abd5526eb73b3afb7
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-alignment__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5
+            modification_time: 2021-06-17T11:40:42UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -228,6 +238,16 @@ projects:
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-16T04:16:34UTC
+            run_instances: []
+      - name: dragen-alignment-pipeline
+        path: dragen-alignment-pipeline
+        ica_workflow_name: dragen-alignment-pipeline_dev
+        ica_workflow_id: wfl.a3e19e590ed34a0fa0518718cb8a36cf
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5
+            modification_time: 2021-06-17T12:04:42UTC
             run_instances: []
   - project_name: collab-illumina-dev
     project_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3

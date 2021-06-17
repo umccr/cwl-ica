@@ -177,3 +177,10 @@ tools:
         path: 1.10.1/multiqc__1.10.1.cwl
         md5sum: 7cb5bd963c74b297bc2f3e007315ba62
     categories: []
+  - name: dragen-alignment
+    path: dragen-alignment
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/dragen-alignment__3.7.5.cwl
+        md5sum: 087a42a06ee3674eb9a8535d18e3e375
+    categories: []
