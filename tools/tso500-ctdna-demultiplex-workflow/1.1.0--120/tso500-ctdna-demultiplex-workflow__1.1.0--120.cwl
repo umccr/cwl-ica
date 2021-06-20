@@ -74,7 +74,7 @@ requirements:
           return "demux_workflow";
         }
       - var get_logs_intermediates_dir = function() {
-          return get_analysis_dir() + "/" + "outputs";
+          return get_analysis_dir() + "/" + "demux_outputs";
         }
       - var get_dragen_license_instance_folder = function() {
           /*

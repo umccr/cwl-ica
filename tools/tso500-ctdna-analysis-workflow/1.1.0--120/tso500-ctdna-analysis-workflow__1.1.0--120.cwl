@@ -68,7 +68,10 @@ requirements:
           return inputs.output_dirname;
         }
       - var get_logs_intermediates_dir = function() {
-          return get_analysis_dir() + "/" + "outputs"
+          return get_analysis_dir() + "/" + "analysis_outputs"
+        }
+      - var get_logs_intermediates_output_dir = function() {
+          return get_output_dir() + "/" + "analysis_outputs"
         }
       - var get_fastq_dir_path = function() {
           return "fastqs";
@@ -139,7 +142,7 @@ requirements:
         }
       # Paths to outputs
       - var get_dsdm_json_path = function() {
-          return get_output_dir() + "/" + "outputs" + "/" + "Contamination" + "/" + "dsdm.json"
+          return get_logs_intermediates_output_dir() + "/" + "Contamination" + "/" + "dsdm.json"
         }
       - var get_dragen_license_key_folder = function() {
           /*
@@ -361,7 +364,7 @@ outputs:
       Output files
     type: Directory
     outputBinding:
-      glob: "$(get_output_dir())"
+      glob: "$(get_logs_intermediates_output_dir())"
   contamination_dsdm:
     label: contamination dsdm
     doc: |

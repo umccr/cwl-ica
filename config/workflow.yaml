@@ -33,7 +33,7 @@ workflows:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
-        md5sum: f612a7b9390dbf81d6d3b2a24b07fdf6
+        md5sum: 4fdce74f2f1ec0219aea72e3ece1e154
     categories:
       - tso500
   - name: bcl-conversion

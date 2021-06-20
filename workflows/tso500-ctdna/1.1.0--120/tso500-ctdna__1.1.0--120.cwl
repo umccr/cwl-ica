@@ -199,15 +199,24 @@ steps:
 
 
 outputs:
-  logs_intermediates:
-    label: logs intermediates
+  demultiplex_workflow_output:
+    label: demultiplex workflow output
     doc: |
-      Intermediate output files from each of the WDL workflows called
-    type: Directory[]
-    outputSource:
-      - run_tso500_ctdna_demultiplex_workflow_step/output_dir
-      - run_tso500_ctdna_analysis_workflow_step/output_dir
-      - run_tso500_ctdna_reporting_workflow_step/output_dir
+      Intermediate output files from the demultiplex workflow steps
+    type: Directory
+    outputSource: run_tso500_ctdna_demultiplex_workflow_step/output_dir
+  analysis_workflow_output:
+    label: analysis workflow output
+    doc: |
+      Intermediate output files from the analysis workflow steps
+    type: Directory
+    outputSource: run_tso500_ctdna_analysis_workflow_step/output_dir
+  reporting_workflow_output:
+    label: reporting workflow output
+    doc: |
+      Intermediate output files from the reporting workflow steps
+    type: Directory
+    outputSource: run_tso500_ctdna_reporting_workflow_step/output_dir
   results:
     label: results
     doc: |

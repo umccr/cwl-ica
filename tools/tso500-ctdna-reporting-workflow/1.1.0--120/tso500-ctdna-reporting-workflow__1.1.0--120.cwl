@@ -55,7 +55,7 @@ requirements:
           return "reporting_workflow";
         }
       - var get_logs_intermediates_dir = function() {
-          return get_analysis_dir() + "/" + "outputs";
+          return get_analysis_dir() + "/" + "reporting_outputs";
         }
       - var get_results_dir = function() {
           return "results";
