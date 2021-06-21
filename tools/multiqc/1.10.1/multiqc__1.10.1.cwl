@@ -121,6 +121,28 @@ inputs:
     type: string
     inputBinding:
       prefix: "--title"
+  comment:
+    label: comment
+    doc: |
+      Custom comment, will be printed at the top of the report.
+    type: string?
+    inputBinding:
+      prefix: "--comment"
+  config:
+    label: config
+    doc: |
+      Configuration file for bclconvert
+    type: File?
+    streamable: true
+    inputBinding:
+      prefix: "--config"
+  cl_config:
+    label: cl config
+    doc: |
+      Override config from the cli
+    type: string?
+    inputBinding:
+      prefix: "--cl_config"
   dummy_file:
     label: dummy file
     doc: |
