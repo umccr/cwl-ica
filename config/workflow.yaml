@@ -65,3 +65,10 @@ workflows:
         md5sum: ea3e93325400d53b910d941c316011ba
     categories:
       - alignment
+  - name: dragen-WGS-QC-pipeline
+    path: dragen-WGS-QC-pipeline
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
+        md5sum: 82074fb53381dbc99b59b7d87537e7b7
+    categories: []

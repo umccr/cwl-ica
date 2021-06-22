@@ -259,6 +259,16 @@ projects:
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-17T12:04:42UTC
             run_instances: []
+      - name: dragen-WGS-QC-pipeline
+        path: dragen-WGS-QC-pipeline
+        ica_workflow_name: dragen-WGS-QC-pipeline_dev
+        ica_workflow_id: wfl.ff6ca1789f4e4eb0982ea3e01407aca8
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5
+            modification_time: 2021-06-22T00:54:20UTC
+            run_instances: []
   - project_name: collab-illumina-dev
     project_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3
     project_description: |

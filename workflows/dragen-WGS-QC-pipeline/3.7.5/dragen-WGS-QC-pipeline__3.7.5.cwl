@@ -62,20 +62,6 @@ inputs:
     type: string
 
 steps:
-  # Create fastq_list.csv
-  create_fastq_list_csv_step:
-    label: create fastq list csv step
-    doc: |
-      Create the fastq list csv to then run the germline tool.
-      Takes in an array of fastq_list_row schema.
-      Returns a csv file along with predefined_mount_path schema
-    in:
-      fastq_list_rows:
-        source: fastq_list_rows
-    out:
-      - fastq_list_csv_out
-      - predefined_mount_paths_out
-    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   run_dragen_alignment_step:
     label: run dragen alignment step
     doc: |
@@ -83,10 +69,8 @@ steps:
       Takes in a fastq list and corresponding mount paths from the predefined mount paths
       All other options available at the top of the workflow
     in:
-      fastq_list:
-        source: create_fastq_list_csv_step/fastq_list_csv_out
-      fastq_list_mount_paths:
-        source: create_fastq_list_csv_step/predefined_mount_paths_out
+      fastq_list_rows:
+        source: fastq_list_rows
       reference_tar:
         source: reference_tar
       output_file_prefix:
@@ -101,21 +85,35 @@ steps:
     out:
       - dragen_alignment_output_directory
       - dragen_bam_out
-    run: ../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment__3.7.5.cwl
+    run: ../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl
+
+  # Create dummy file
+  create_dummy_file_step:
+    label: Create dummy file
+    doc: |
+      Intermediate step for letting multiqc-interop be placed in stream mode
+    in: {}
+    out:
+      - dummy_file_output
+    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
 
    # Create a Dragen specific report
   dragen_qc_step:
     label: dragen qc step
     doc: |
-      The dragen qc step - from scatter this takes in an array of dirs
+      The dragen qc step - this takes in an array of dirs
     requirements:
       DockerRequirement:
         dockerPull: umccr/multiqc-dragen:1.9
     in:
       input_directories:
         source: run_dragen_alignment_step/dragen_alignment_output_directory
+        valueFrom: |
+          ${
+            return [self];
+          }
       output_directory_name:
-        source: runfolder_name
+        source: output_file_prefix
         valueFrom: "$(self)_dragen_multiqc"
       output_filename:
         source: output_file_prefix
@@ -147,7 +145,7 @@ outputs:
     outputSource: run_dragen_alignment_step/dragen_bam_out
   #multiQC output
   output_directory:
-    label: dragen QC reprt out
+    label: dragen QC report out
     doc: |
       The dragen multiQC output
     type: Directory
