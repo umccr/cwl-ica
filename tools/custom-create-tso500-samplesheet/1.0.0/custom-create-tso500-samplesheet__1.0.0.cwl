@@ -19,7 +19,7 @@ s:author:
 id: custom-create-tso500-samplesheet--1.0.0
 label: custom-create-tso500-samplesheet v(1.0.0)
 doc: |
-    Given a v1 samplesheet updates the [Data] section to include the 'Sample_Type' and 'Pair_ID' attributes
+    Given a v2 samplesheet updates the [<SampleSheet_Prefix"_Data] section to include the 'Sample_Type' and 'Pair_ID' attributes
 
 hints:
     ResourceRequirement:
@@ -74,7 +74,7 @@ requirements:
               parser.add_argument("--samplesheet-csv", required=True,
                                   help="Path to samplesheet csv")
               parser.add_argument("--samplesheet-prefix", required=True,
-                                  help="Rename data and header sections")
+                                  help="Data and Settings prefix sections to update")
               parser.add_argument("--out-file", required=True,
                                   help="Output modified sample sheet name")
               parser.add_argument("--tso500-samples", action="append", nargs='*', required=True,
@@ -194,7 +194,7 @@ requirements:
               """
 
               for section_name, section_str_list in samplesheet_obj.items():
-                  if section_name == "Data":
+                  if section_name.endswith("Data"):
                       # Convert to dataframe
                       samplesheet_obj[section_name] = pd.DataFrame(columns=section_str_list[0].split(","),
                                                                    data=[row.split(",") for row in
@@ -217,7 +217,7 @@ requirements:
               return samplesheet_obj
 
 
-          def truncate_sample_sheet_to_sample_ids(samplesheet_obj, samples):
+          def truncate_sample_sheet_to_sample_ids(samplesheet_obj, samples, samplesheet_prefix):
               """
               Truncate the sample sheet to the sample names in --sample-names
               Parameters
@@ -231,17 +231,17 @@ requirements:
               """
               sample_ids_array = [item.get('sample_id') for item in samples] # Used in the query statement below
 
-              samplesheet_obj["Data"] = samplesheet_obj["Data"].query("Sample_ID in @sample_ids_array")
+              samplesheet_obj[f"{samplesheet_prefix}_Data"] = samplesheet_obj[f"{samplesheet_prefix}_Data"].query("Sample_ID in @sample_ids_array")
 
               # Check dataframe is not empty
-              if samplesheet_obj["Data"].shape[0] == 0:
+              if samplesheet_obj[f"{samplesheet_prefix}_Data"].shape[0] == 0:
                   logging.error("Could not find any of {} in the sample sheet, exiting".format(", ".join(sample_ids_array)))
                   sys.exit(1)
 
               return samplesheet_obj
 
 
-          def add_sample_type_and_pair_id_to_sample_sheet(samplesheet_obj, samples):
+          def add_sample_type_and_pair_id_to_sample_sheet(samplesheet_obj, samples, samplesheet_prefix):
               """
               Adds the Sample_Type and Pair_ID to each Sample_ID value
               Parameters
@@ -254,7 +254,7 @@ requirements:
 
               """
 
-              sample_sheet_df = samplesheet_obj["Data"]
+              sample_sheet_df = samplesheet_obj[f"{samplesheet_prefix}_Data"]
               sample_sheet_dfs = []
 
               for sample_id, sample_df in sample_sheet_df.groupby("Sample_ID"):
@@ -268,23 +268,18 @@ requirements:
 
               # Concatenate back together
               sample_sheet_df = pd.concat(sample_sheet_dfs, axis="rows")
-              samplesheet_obj["Data"] = sample_sheet_df
+              samplesheet_obj[f"{samplesheet_prefix}_Data"] = sample_sheet_df
 
               return samplesheet_obj
 
 
-          def write_samplesheet(samplesheet_obj, output_file, samplesheet_prefix):
+          def write_samplesheet(samplesheet_obj, output_file):
               """
               Write out the samplesheet object and a given file
               :param samplesheet_obj:
               :param output_file:
               :return:
               """
-
-              # Rename Settings
-              samplesheet_obj['{}_Settings'.format(samplesheet_prefix)] = samplesheet_obj.pop("Settings")
-              # Rename Data
-              samplesheet_obj['{}_Data'.format(samplesheet_prefix)] = samplesheet_obj.pop("Data")
 
               # Write the output file
               with open(output_file, 'w') as samplesheet_h:
@@ -323,21 +318,19 @@ requirements:
               # Truncate sample sheet
               logging.info("Truncating samplesheet")
               samplesheet_obj = truncate_sample_sheet_to_sample_ids(samplesheet_obj=samplesheet_obj,
-                                                                    samples=args.tso500_samples_list)
-
-              # Add FileFormatVersion as v2 to samplesheet
-              samplesheet_obj["Header"]["FileFormatVersion"] = "2"
+                                                                    samples=args.tso500_samples_list,
+                                                                    samplesheet_prefix=args.samplesheet_prefix)
 
               # Append Sample Type and Pair ID
               logging.info("Adding sample type and pair id columns to sample sheet")
               samplesheet_obj = add_sample_type_and_pair_id_to_sample_sheet(samplesheet_obj=samplesheet_obj,
-                                                                            samples=args.tso500_samples_list)
+                                                                            samples=args.tso500_samples_list,
+                                                                            samplesheet_prefix=args.samplesheet_prefix)
 
               # Write out sample sheet
               logging.info("Writing out sample sheet")
               write_samplesheet(samplesheet_obj=samplesheet_obj,
-                                output_file=args.out_file,
-                                samplesheet_prefix=args.samplesheet_prefix)
+                                output_file=args.out_file)
 
 
           if __name__ == "__main__":
@@ -351,16 +344,16 @@ inputs:
   samplesheet:
     label: samplesheet
     doc: |
-      The v1 samplesheet used for demultiplexing
+      The v2 samplesheet used for demultiplexing the tso500 samples with
     type: File
     inputBinding:
       prefix: "--samplesheet-csv"
   samplesheet_prefix:
     label: samplesheet_prefix
     doc: |
-      The output samplesheet prefix
+      The samplesheet prefix for v2 samplesheets
     type: string?
-    default: "TSO500"
+    default: "TSO500L"
     inputBinding:
       prefix: "--samplesheet-prefix"
   tso500_samples:

@@ -64,15 +64,17 @@ inputs:
     # No input binding required, samplesheet is placed in input.json
     label: sample sheet
     doc: |
-      The sample sheet file. Special samplesheet type, must have the Sample_Type and Pair_ID columns in the [Data] section.
+      The sample sheet file, expects a V2 samplesheet.
       Even though we don't demultiplex, we still need the information on Sample_Type and Pair_ID to determine which
-      workflow (DNA / RNA) to run through.
+      workflow (DNA / RNA) to run through, we gather this through the tso500_samples input schema and then append to the
+      samplesheet. Please make sure that the sample_id in the tso500 sample schema match the Sample_ID in the
+      "<samplesheet_prefix>_Data" column.
     type: File
   samplesheet_prefix:
     label: samplesheet prefix
     doc: |
-      If using a v2 samplesheet, this points to the TSO500 section of the samplesheet.
-      Leave blank for v1 samples.
+      Points to the TSO500 section of the samplesheet.  If you are using a samplesheet from BCLConvert,
+      please set this to "BCLConvert"
     type: string?
     default: "TSO500L"
   # Run Info file

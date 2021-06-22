@@ -54,8 +54,14 @@ requirements:
       - var get_analysis_dir = function() {
           return "reporting_workflow";
         }
+      - var get_scratch_mount = function() {
+          return "/scratch";
+        }
       - var get_logs_intermediates_dir = function() {
           return get_analysis_dir() + "/" + "reporting_outputs";
+        }
+      - var get_writable_input_dir = function() {
+          return get_scratch_mount() + "/" + "analysis_workflow_outputs";
         }
       - var get_results_dir = function() {
           return "results";
@@ -84,7 +90,7 @@ requirements:
                    "ReportingWorkflow.runFolder":abs_path(get_run_dir_path()),
                    "ReportingWorkflow.analysisFolder":abs_path(get_analysis_dir()),
                    "ReportingWorkflow.logsIntermediatesFolder":abs_path(get_logs_intermediates_dir()),
-                   "ReportingWorkflow.inputFolder":inputs.analysis_folder.path,
+                   "ReportingWorkflow.inputFolder":get_writable_input_dir(),
                    "ReportingWorkflow.resourceFolder":inputs.resources_dir.path,
                    "ReportingWorkflow.resultsFolder":abs_path(get_results_dir()),
                    "ReportingWorkflow.startFromFastq":true,
@@ -99,7 +105,10 @@ requirements:
                  "echo \"create analysis dirs\" 1>&2\n" +
                  "mkdir --parents \\\n" +
                  "  \"" + get_results_dir() + "\" \\\n" +
+                 "  \"" + get_writable_input_dir() + "\" \\\n" +
                  "  \"" + get_analysis_dir() + "\"\n\n" +
+                 "echo \"copy outputs from analysis workflow to local writable dir\" 1>&2\n" +
+                 "cp -r \"" + inputs.analysis_folder.path +  "/.\" \"" + get_writable_input_dir() + "/\"\n" +
                  "echo \"start reporting workflow task\" 1>&2\n" +
                  "java \\\n" +
                  "  -DLOG_MODE=pretty \\\n" +
