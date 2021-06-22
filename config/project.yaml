@@ -247,7 +247,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-16T10:30:40UTC
+            modification_time: 2021-06-22T11:06:38UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
@@ -267,7 +267,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-22T00:54:20UTC
+            modification_time: 2021-06-22T08:10:19UTC
             run_instances: []
   - project_name: collab-illumina-dev
     project_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3
