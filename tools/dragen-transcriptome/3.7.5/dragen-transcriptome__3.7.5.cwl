@@ -173,8 +173,6 @@ arguments:
   - valueFrom: "$(get_script_path())"
     position: -1
   # Parameters that are always true
-  - prefix: "--enable-variant-caller"
-    valueFrom: "true"
   - prefix: "--intermediate-results-dir"
     valueFrom: "$(get_intermediate_results_dir())"
 
@@ -271,7 +269,7 @@ outputs:
       The output directory containing all wts analysis output files
     type: Directory
     outputBinding:
-      glob: "$(inputs.output_dir)"
+      glob: "$(inputs.output_directory)"
   # Optional files to be used in downstream workflows.
   # Whilst these files reside inside the germline directory, specifying them here as outputs
   # provides easier access and reference
