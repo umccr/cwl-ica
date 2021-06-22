@@ -4,7 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: http://platform.illumina.com/rdf/iap/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -21,14 +21,13 @@ doc: |
     Documentation for arriba-drawing v2.0.0
 
 hints:
-    ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standardHiCpu
-            size: large
-    DockerRequirement:
-        dockerPull: "uhrigs/arriba:2.0.0"
-        dockerOutputDirectory: /output
+  ResourceRequirement:
+    ilmn-tes:resources:
+      type: standardHiCpu
+      size: large
+  DockerRequirement:
+    dockerPull: "uhrigs/arriba:2.0.0"
+    dockerOutputDirectory: /output
 
 requirements:
   InlineJavascriptRequirement: {}
