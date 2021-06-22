@@ -587,6 +587,13 @@ inputs:
     inputBinding:
       prefix: "--samplesheet-format"
 outputs:
+  samplesheet_outdir:
+    label: samplesheets outdir
+    doc: |
+      Directory of samplesheets
+    type: Directory
+    outputBinding:
+      glob: "$(inputs.out_dir)"
   samplesheets:
     label: output samplesheets
     doc: |
