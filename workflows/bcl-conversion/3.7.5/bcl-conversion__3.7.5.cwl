@@ -24,28 +24,7 @@ requirements:
     types:
       - $import: ../../../schemas/settings-by-samples/1.0.0/settings-by-samples__1.0.0.yaml
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
-  InlineJavascriptRequirement:
-    expressionLib:
-      - var pick_value_first_non_null = function(input_array){
-          /*
-          Iterate through input_array, return first non null input
-          Replacement for pickValue of CWL 1.2
-          */
-          var return_val = null;
-          var iterator = 0;
-          while (return_val === null) {
-            return_val = input_array[iterator];
-            iterator += 1
-          }
-          return return_val;
-        }
-      - var get_first_string_or_second_string_with_suffix = function(input_obj, suffix){
-          /*
-          Determine if first input has been determined.
-          Fall back to second with suffix otherwise
-          */
-          return pick_value_first_non_null([input_obj[0], input_obj[1] + suffix]);
-        }
+  InlineJavascriptRequirement: {}
   ScatterFeatureRequirement: {}
   MultipleInputFeatureRequirement: {}
   StepInputExpressionRequirement: {}
@@ -155,6 +134,7 @@ steps:
         source: samplesheet_output_format
     out:
       - samplesheets
+      - samplesheet_outdir
     run: ../../../tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl
   # Get midfixes
   get_batch_dirs:
@@ -237,6 +217,11 @@ steps:
       title:
         source: runfolder_name
         valueFrom: "UMCCR MultiQC BCLConvert report for $(self)"
+      cl_config:
+        valueFrom: |
+         ${
+            return JSON.stringify({"bclconvert": { "genome_size": "hg38_genome" }});
+          }
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
@@ -267,8 +252,14 @@ steps:
 
 
 outputs:
+  split_sheets_dir:
+    label: split sheets dir
+    doc: |
+      The directory containing the samplesheets used for each bcl convert
+    type: Directory
+    outputSource: samplesheet_split_by_settings_step/samplesheet_outdir
   split_sheets:
-    label: samplesheets
+    label: split samplesheets
     doc: |
       List of samplesheets split by override cycles
     type: File[]
