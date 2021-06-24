@@ -70,5 +70,5 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
-        md5sum: 7b6f114c526ae89dab34ad7ecfe2fe36
+        md5sum: 52c13b80f30908fee506548ddbb48718
     categories: []

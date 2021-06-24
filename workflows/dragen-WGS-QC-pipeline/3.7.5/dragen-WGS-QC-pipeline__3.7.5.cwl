@@ -55,7 +55,7 @@ inputs:
     doc: |
       The prefix given to all output files
     type: string
-  output_directory:
+  output_directory_wgs:
     label: output directory
     doc: |
       The directory where all output files are placed
@@ -76,7 +76,7 @@ steps:
       output_file_prefix:
         source: output_file_prefix
       output_directory:
-        source: output_directory
+        source: output_directory_wgs
       # Output configurations
       enable_map_align:
         valueFrom: ${ return true; }
@@ -85,6 +85,7 @@ steps:
     out:
       - dragen_alignment_output_directory
       - dragen_bam_out
+      - multiqc_output_directory
     run: ../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl
 
   # Create dummy file
@@ -96,36 +97,6 @@ steps:
     out:
       - dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-
-   # Create a Dragen specific report
-  dragen_qc_step:
-    label: dragen qc step
-    doc: |
-      The dragen qc step - this takes in an array of dirs
-    requirements:
-      DockerRequirement:
-        dockerPull: umccr/multiqc-dragen:1.9
-    in:
-      input_directories:
-        source: run_dragen_alignment_step/dragen_alignment_output_directory
-        valueFrom: |
-          ${
-            return [self];
-          }
-      output_directory_name:
-        source: output_file_prefix
-        valueFrom: "$(self)_dragen_multiqc"
-      output_filename:
-        source: output_file_prefix
-        valueFrom: "$(self)_dragen_multiqc.html"
-      title:
-        source: output_file_prefix
-        valueFrom: "UMCCR MultiQC Dragen report for $(self)"
-      dummy_file:
-        source: create_dummy_file_step/dummy_file_output
-    out:
-      - output_directory
-    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
 
 outputs:
   # All output files will be under the output directory
@@ -144,9 +115,17 @@ outputs:
     type: File
     outputSource: run_dragen_alignment_step/dragen_bam_out
   #multiQC output
-  output_directory:
+  multiqc_output_directory:
     label: dragen QC report out
     doc: |
       The dragen multiQC output
     type: Directory
-    outputSource: dragen_qc_step/output_directory
+    outputSource: run_dragen_alignment_step/multiqc_output_directory
+  #testing dummy output
+  dummy_file:
+    label: test
+    doc: |
+      Testing
+    type: File
+    outputSource: create_dummy_file_step/dummy_file_output
+

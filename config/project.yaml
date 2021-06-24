@@ -267,7 +267,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-22T08:10:19UTC
+            modification_time: 2021-06-23T22:25:21UTC
             run_instances: []
   - project_name: collab-illumina-dev
     project_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3
