@@ -176,7 +176,7 @@ Example:
 
         # Check linked projects
         if self.args.get("--linked-projects", None) is not None:
-            self.linked_projects = ",".split(self.args.get("--linked-projects"))
+            self.linked_projects = self.args.get("--linked-projects").split(",")
 
         # Check linked projects are in the current tenancy
         # TODO
