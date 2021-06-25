@@ -13,7 +13,6 @@ import re
 import requests
 from urllib.parse import urlparse
 from ruamel.yaml import YAML, RoundTripDumper, dump as yaml_dump
-from argparse import ArgumentError
 from utils.globals import CWL_ICA_REPO_PATH_ENV_VAR
 from utils.repo import get_user_yaml_path, read_yaml
 from utils.errors import UserNotFoundError, CheckArgumentError
@@ -59,7 +58,7 @@ Example:
         try:
             logger.debug("Checking args")
             self.check_args()
-        except ArgumentError:
+        except CheckArgumentError:
             self._help(fail=True)
 
         # Confirm user already exists in user.yaml

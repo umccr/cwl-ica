@@ -35,7 +35,8 @@ class ProjectInit(Command):
                                    (--project-description=<"describe_the_project>")
                                    (--project-abbr="<project_abbreviation>")
                                    (--project-api-key-name="<project_api_key_name>")
-                                   [--tenant-name=<"name_of_tenant">]
+                                   [--tenant-name="<name_of_tenant>"]
+                                   [--linked-projects="<list-of-linked-projects>"]
                                    [--set-as-default]
 
 
@@ -55,6 +56,7 @@ Options:
     --project-description=<project description>   Required, a short summary of the project
     --project-abbr<project abbreviation>          Required, a quick abbreviation of the project name - used to append to workflow names
     --production                                  Optional, boolean, if set, the project is a production project
+    --linked-projects=<list-of-linked-projects>   Optional, for every ICA workflow id and workflow version, the acl attributes will also allow access to these projects.
     --tenant-name=<project tenant name>           Optional, the tenant name
     --set-as-default                              Optional, set as the default project
 
@@ -72,6 +74,7 @@ Example:
     cwl-ica project-init --project-id "d2zf..." --project-name "development" --project-api-key-name "ica-api-key-development" --project-abbr "dev" --project-description "UMMCR development project" --set-as-default
     cwl-ica project-init --project-id "adfx..." --project-name "development-umccr-dev" --project-api-key-name "ica-api-key-development" --project-abbr "dev" --project-description "UMMCR development project" --tenant-name "umccr-dev"
     cwl-ica project-init --project-id "adfx..." --project-name "development-umccr-dev" --project-api-key-name "ica-api-key-development" --project-abbr "dev" --project-description "UMMCR development project" --tenant-name "umccr-dev"
+    cwl-ica project-init --project-id "adfx..." --project-name "development-workflows-umccr-dev" --project-api-key-name "ica-api-key-development" --project-abbr "dev-wf" --project-description "UMMCR development project" --linked-projects "development" --tenant-name "umccr-dev"
     """
 
     def __init__(self, command_argv):
@@ -85,6 +88,7 @@ Example:
         self.project_access_token = None
         self.project_api_key_name = None
         self.project_description = None
+        self.linked_projects = []
         self.tenant_id = None
         self.production = False
         self.set_as_default = False
@@ -169,6 +173,13 @@ Example:
         # Check production boolean
         if self.args.get("--production", False):
             self.production = True
+
+        # Check linked projects
+        if self.args.get("--linked-projects", None) is not None:
+            self.linked_projects = ",".split(self.args.get("--linked-projects"))
+
+        # Check linked projects are in the current tenancy
+        # TODO
 
         # Check repo path
         repo_path = get_cwl_ica_repo_path()
@@ -290,6 +301,7 @@ Example:
             "project_description": to_multiline_string(self.project_description),
             "project_abbr": self.project_abbr,
             "project_api_key_name": self.project_api_key_name,
+            "linked_projects": self.linked_projects,
             "tenant_id": self.tenant_id,
             "production": self.production,
             "tools": [],  # List of tools available for this project

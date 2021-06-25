@@ -67,7 +67,7 @@ class ICAWorkflowVersion:
         )
         return configuration
 
-    def create_workflow_version(self, workflow_definition, access_token):
+    def create_workflow_version(self, workflow_definition, access_token, project_id, linked_projects):
         """
         Use libica to create a workflow version though POST
         :return:
@@ -76,13 +76,20 @@ class ICAWorkflowVersion:
         # Set config
         configuration = self.get_ica_wes_configuration(access_token)
 
+        # Set acl
+        acl = [f"cid:{project_id}"]
+
+        if linked_projects is not None and not len(linked_projects) == 0:
+            acl.extend([f"cid:{project_id}" for project_id in linked_projects])
+
         # Create workflow version
         with libica.openapi.libwes.ApiClient(configuration) as api_client:
             api_instance = libica.openapi.libwes.WorkflowVersionsApi(api_client)
             language = libica.openapi.libwes.WorkflowLanguage(name="CWL", version=workflow_definition.get("cwlVersion"))
             body = libica.openapi.libwes.CreateWorkflowVersionRequest(version=self.ica_workflow_version_name,
                                                                       definition=workflow_definition,
-                                                                      language=language)
+                                                                      language=language,
+                                                                      acl=acl)
 
             try:
                 # Create a new workflow version
@@ -98,9 +105,12 @@ class ICAWorkflowVersion:
         # Update modification time attribute
         self.modification_time = self.get_workflow_version_modification_time()
 
-    def sync_workflow_version(self, workflow_definition, access_token):
+    def update_workflow_version(self, access_token, version_name=None, acl=None):
         """
-        Use libica to update a workflow version through PATCH
+        The only updates we tolerate are for name or acls, all other updates must go through 'sync_workflow_version'
+        :param access_token
+        :param version_name
+        :param acls
         :return:
         """
 
@@ -110,7 +120,44 @@ class ICAWorkflowVersion:
         # Update workflow version
         with libica.openapi.libwes.ApiClient(configuration) as api_client:
             api_instance = libica.openapi.libwes.WorkflowVersionsApi(api_client)
-            body = libica.openapi.libwes.UpdateWorkflowVersionRequest(definition=workflow_definition)
+            body = libica.openapi.libwes.UpdateWorkflowVersionRequest(version=version_name,
+                                                                      acl=acl)
+
+            try:
+                # Create a new workflow version
+                api_response = api_instance.update_workflow_version(self.ica_workflow_id,
+                                                                    version_name=self.ica_workflow_version_name,
+                                                                    body=body)
+                # Create
+            except ApiException:
+                logger.error(f"Api exeception error when trying to "
+                             f"create workflow version \"{self.ica_workflow_id}/{self.ica_workflow_version_name}\"")
+
+        self.workflow_version_obj = api_response
+
+        # Update modification time attribute
+        self.modification_time = self.get_workflow_version_modification_time()
+
+    def sync_workflow_version(self, workflow_definition, access_token, project_id, linked_projects=None):
+        """
+        Use libica to update a workflow version through PATCH
+        :return:
+        """
+
+        # Set config
+        configuration = self.get_ica_wes_configuration(access_token)
+
+        # Set acl
+        acl = [f"cid:{project_id}"]
+
+        if linked_projects is not None and not len(linked_projects) == 0:
+            acl.extend([f"cid:{linked_project_id}" for linked_project_id in linked_projects])
+
+        # Update workflow version
+        with libica.openapi.libwes.ApiClient(configuration) as api_client:
+            api_instance = libica.openapi.libwes.WorkflowVersionsApi(api_client)
+            body = libica.openapi.libwes.UpdateWorkflowVersionRequest(definition=workflow_definition,
+                                                                      acl=acl)
 
             try:
                 # Create a new workflow version

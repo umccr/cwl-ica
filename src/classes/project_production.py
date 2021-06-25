@@ -35,14 +35,14 @@ class ProductionProject(Project):
 
     is_production = True  # Overwrites default in Project class
 
-    def __init__(self, project_name, project_id, project_abbr, project_api_key_name, project_description, tenant_id, tools, workflows):
+    def __init__(self, project_name, project_id, project_abbr, project_api_key_name, project_description, linked_projects, tenant_id, tools, workflows):
         """
         Collect the project from the project list if defined,
         otherwise read in the project from the project yaml path
         """
 
         # Call super class
-        super(ProductionProject, self).__init__(project_name, project_id, project_abbr, project_api_key_name, project_description, tenant_id, tools, workflows)
+        super(ProductionProject, self).__init__(project_name, project_id, project_abbr, project_api_key_name, project_description, linked_projects, tenant_id, tools, workflows)
 
     def get_tools(self):
         """

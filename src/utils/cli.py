@@ -88,6 +88,7 @@ Command:
     #######################
     add-tool-to-project                 Add an existing tool to another project
     add-workflow-to-project             Add an existing workflow to another project
+    add-linked-project                        Link an existing project-id to an initialised project in project.yaml
 
 
     #############################
@@ -353,6 +354,14 @@ def _dispatch():
         workflow_add_obj = AddWorkflowToProject(command_argv)
         # Call command
         workflow_add_obj()
+
+    # Project update command
+    elif cmd == "add-linked-project":
+        from subcommands.updaters.add_linked_project import LinkProject
+        # Initialise command
+        link_project_obj = LinkProject(command_argv)
+        # Call command
+        link_project_obj()
 
     # Github actions  # TODO - sync-schema / sync-expression
     elif cmd == "github-actions-sync-tools":

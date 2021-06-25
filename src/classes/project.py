@@ -44,7 +44,7 @@ class Project:
 
     is_production = False  # True in ProductionProject class
 
-    def __init__(self, project_name, project_id, project_abbr, project_api_key_name, project_description, tenant_id, tools, workflows):
+    def __init__(self, project_name, project_id, project_abbr, project_api_key_name, project_description, linked_projects, tenant_id, tools, workflows):
         """
         Collect the project from the project list if defined,
         otherwise read in the project from the project yaml path
@@ -58,6 +58,7 @@ class Project:
         self.project_abbr = project_abbr
         self.project_api_key_name = project_api_key_name
         self.project_description = project_description
+        self.linked_projects = linked_projects
         self.tenant_id = tenant_id
 
         # Get lists of ica workflow objects
@@ -235,7 +236,7 @@ class Project:
                 categories=categories if categories is not None else []
             )
             # Create a workflow id -> this also must happen for a production project
-            this_project_ica_item.create_workflow_id(access_token)
+            this_project_ica_item.create_workflow_id(access_token, self.project_id, linked_projects=self.linked_projects)
 
             # We should also now append our project item to our list
             project_ica_items_list.append(this_project_ica_item)
@@ -259,7 +260,7 @@ class Project:
             # Append workflow
             this_project_ica_item.versions.append(project_ica_item_version)
             # Create a new workflow version
-            project_ica_item_version.create_workflow_version(cwl_obj.cwl_packed_obj, access_token)
+            project_ica_item_version.create_workflow_version(cwl_obj.cwl_packed_obj, access_token, project_id=self.project_id, linked_projects=self.linked_projects)
 
     def sync_item_version_with_project(self, ica_workflow_version, md5sum, cwl_packed_obj):
         """
@@ -315,6 +316,7 @@ class Project:
             "project_abbr": self.project_abbr,
             "project_api_key_name": self.project_api_key_name,
             "production": self.is_production,
+            "linked_projects": self.linked_projects,
             "tenant_id": self.tenant_id,
             "tools": [tool.to_dict() if isinstance(tool, ICAWorkflow) else tool
                       for tool in self.ica_tools_list],
@@ -351,6 +353,10 @@ class Project:
             logger.error("\"project_description\" attribute not found, cannot create project")
             raise ProjectCreationError
 
+        if project_dict.get("linked_projects", None) is None:
+            logger.error("\"linked_projects\" attribute not found, cannot create project")
+            raise ProjectCreationError
+
         if project_dict.get("tenant_id", None) is None:
             logger.error("\"tenant_id\" attribute not found, cannot create project")
             raise ProjectCreationError
@@ -360,6 +366,7 @@ class Project:
                    project_abbr=project_dict.get("project_abbr", None),
                    project_api_key_name=project_dict.get("project_api_key_name", None),
                    project_description=project_dict.get("project_description", None),
+                   linked_projects=project_dict.get("linked_projects", None),
                    tenant_id=project_dict.get("tenant_id", None),
                    tools=project_dict.get("tools", None),
                    workflows=project_dict.get("workflows", None))

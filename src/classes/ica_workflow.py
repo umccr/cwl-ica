@@ -108,9 +108,40 @@ class ICAWorkflow:
         })
 
     # Initialise workflow id
-    def create_workflow_id(self, access_token):
+    def create_workflow_id(self, access_token, project_id, linked_projects=None):
         """
         Use the libica package to create a workflow and assign to the workflow id attribute
+        :return:
+        """
+
+        # Set config
+        configuration = self.get_ica_wes_configuration(access_token)
+
+        # Set acl
+        acl = [f"cid:{project_id}"]
+        if linked_projects is not None and not len(linked_projects) == 0:
+            acl.extend([f"cid:{linked_project_id}" for linked_project_id in linked_projects])
+
+        # Create a project token
+        with libica.openapi.libwes.ApiClient(configuration) as api_client:
+            # Create an instance of the API class
+            api_instance = libica.openapi.libwes.WorkflowsApi(api_client)
+            body = libica.openapi.libwes.CreateWorkflowRequest(name=self.ica_workflow_name,
+                                                               categories=self.categories if self.categories is not None else [],
+                                                               acl=acl)
+            try:
+                # Get the details of a workflow version
+                api_response = api_instance.create_workflow(body=body)
+            except ApiException:
+                logger.error(f"Api exeception error when trying to create a workflow for {self.name}")
+                raise ApiException
+
+        self.ica_workflow_id = api_response.id
+
+    def get_workflow_object(self, access_token):
+        """
+        Use libica to run a get on the workflow object. Used for updating acls
+        :param access_token:
         :return:
         """
 
@@ -121,17 +152,46 @@ class ICAWorkflow:
         with libica.openapi.libwes.ApiClient(configuration) as api_client:
             # Create an instance of the API class
             api_instance = libica.openapi.libwes.WorkflowsApi(api_client)
-            body = libica.openapi.libwes.CreateWorkflowRequest(name=self.ica_workflow_name,
-                                                               categories=self.categories if self.categories is not None else [])
 
             try:
                 # Get the details of a workflow version
-                api_response = api_instance.create_workflow(body=body)
+                api_response = api_instance.get_workflow(self.ica_workflow_id)
             except ApiException:
-                logger.error(f"Api exeception error when trying to create a workflow for {self.name}")
-                raise ApiException
+                logger.error(f"Api exeception error when trying to "
+                             f"get workflow \"{self.ica_workflow_id}\"")
 
-        self.ica_workflow_id = api_response.id
+        self.workflow_obj = api_response
+
+        return api_response
+
+    def update_ica_workflow_item(self, access_token, name=None, acl=None):
+        """
+        Update a ica workflow, allowing only for changes for a name or acl
+        :param name:
+        :param acl:
+        :return:
+        """
+
+        # Set config
+        configuration = self.get_ica_wes_configuration(access_token)
+
+        # Create a project token
+        with libica.openapi.libwes.ApiClient(configuration) as api_client:
+            # Create an instance of the API class
+            api_instance = libica.openapi.libwes.WorkflowsApi(api_client)
+
+            body = libica.openapi.libwes.UpdateWorkflowRequest(name=name,
+                                                               acl=acl)
+
+            try:
+                # Get the details of a workflow version
+                api_response = api_instance.update_workflow(self.ica_workflow_id,
+                                                            body=body)
+            except ApiException:
+                logger.error(f"Api exeception error when trying to "
+                             f"update workflow \"{self.ica_workflow_id}\"")
+
+        self.workflow_obj = api_response
 
     @classmethod
     def from_dict(cls, workflow_dict):

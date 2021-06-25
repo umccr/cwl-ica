@@ -8,6 +8,7 @@ CWL_ICA_REPO_PATH_ENV_VAR = "CWL_ICA_REPO_PATH"
 ICA_BASE_URL_ENV_VAR = "ICA_BASE_URL"
 EXPIRY_DAYS_WARNING_TRIGGER = 7
 BASE_URL_NETLOC_REGEX = "(\S+).platform.illumina.com"
+PROJECT_ID_REGEX = "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 
 SCOPES_BY_ROLE = {
     "read-only": [
