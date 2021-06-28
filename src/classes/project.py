@@ -260,7 +260,8 @@ class Project:
             # Append workflow
             this_project_ica_item.versions.append(project_ica_item_version)
             # Create a new workflow version
-            project_ica_item_version.create_workflow_version(cwl_obj.cwl_packed_obj, access_token, project_id=self.project_id, linked_projects=self.linked_projects)
+            project_ica_item_version.create_workflow_version(cwl_obj.cwl_packed_obj, access_token,
+                                                             project_id=self.project_id, linked_projects=self.linked_projects)
 
     def sync_item_version_with_project(self, ica_workflow_version, md5sum, cwl_packed_obj):
         """
@@ -276,7 +277,8 @@ class Project:
         # Now compare the item version and ica workflow version
         if self.compare_item_version_and_ica_workflow_version(ica_workflow_version, md5sum):
             # Update ica workflow
-            ica_workflow_version.sync_workflow_version(cwl_packed_obj, self.get_project_token())
+            ica_workflow_version.sync_workflow_version(cwl_packed_obj, self.get_project_token(),
+                                                       project_id=self.project_id, linked_projects=self.linked_projects)
 
     # Compare item version and ICA workflow version
     def compare_item_version_and_ica_workflow_version(self, ica_workflow_version, md5sum):
