@@ -21,7 +21,7 @@ import json
 from utils.subprocess_handler import run_subprocess_proc
 from hashlib import md5
 from ruamel.yaml.comments import CommentedMap as OrderedDict
-from string import ascii_lowercase
+from string import ascii_lowercase, digits
 
 logger = get_logger()
 
@@ -346,7 +346,7 @@ class CWL:
         :param arg_val:
         :return:
         """
-        bad_chars = list(set(arg_val).difference(ascii_lowercase + "_"))
+        bad_chars = list(set(arg_val).difference(ascii_lowercase + digits + "_"))
         if not len(bad_chars) == 0:
             logger.warning(f"Found {id_type} '{arg_val}' uses chars '{', '.join(bad_chars)}' that "
                            f"aren't recommended in names of {id_type}")
