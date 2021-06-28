@@ -23,7 +23,8 @@ _cwl-ica() {
 
     0)
         __comp_current_options || return
-        __cwl-ica_dynamic_comp 'commands' 'add-tool-to-project'$'\t''Add an existing tool to another project
+        __cwl-ica_dynamic_comp 'commands' 'add-linked-project'$'\t''Add a linked project to another project
+'$'\n''add-tool-to-project'$'\t''Add an existing tool to another project
 '$'\n''add-workflow-to-project'$'\t''Add an existing workflow to another project
 '$'\n''category-init'$'\t''Initialise a category in \${CWL_ICA_REPO_PATH}/config/category.yaml
 '$'\n''configure-repo'$'\t''One-time command to point to the cwl-ica git repository
@@ -132,6 +133,26 @@ and update definition on ICA
           ;;
         esac
 
+        ;;
+        esac
+      ;;
+      add-linked-project)
+        OPTIONS+=('--src-project' 'The name of your project in project.yaml
+' '--target-project' 'ID of the target project to receive all ica workflows and ica workflow versions
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --src-project)
+            _cwl-ica_add-linked-project_option_src_project_completion
+          ;;
+          --target-project)
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
         ;;
         esac
       ;;
@@ -741,6 +762,11 @@ _cwl-ica_compreply() {
     fi
 }
 
+_cwl-ica_add-linked-project_option_src_project_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_src_project="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
+    _cwl-ica_compreply "$param_src_project"
+}
 _cwl-ica_add-tool-to-project_option_tool_path_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_tool_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl")"

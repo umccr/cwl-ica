@@ -17,7 +17,8 @@ _cwl-ica() {
 
         case $state in
         cmd1)
-            _alternative 'args:cmd2:((add-tool-to-project\:"Add an existing tool to another project
+            _alternative 'args:cmd2:((add-linked-project\:"Add a linked project to another project
+" add-tool-to-project\:"Add an existing tool to another project
 " add-workflow-to-project\:"Add an existing workflow to another project
 " category-init\:"Initialise a category in \${CWL_ICA_REPO_PATH}/config/category.yaml
 " configure-repo\:"One-time command to point to the cwl-ica git repository
@@ -156,6 +157,21 @@ and update definition on ICA
                 ;;
 
                 esac
+            ;;
+            add-linked-project)
+
+                # ---- Command: add-linked-project
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--src-project[The name of your project in project.yaml
+]:src-project:_cwl-ica_add-linked-project_option_src_project_completion' \
+                    '--target-project[ID of the target project to receive all ica workflows and ica workflow versions
+]:target-project' \
+                    && ret=0
+
+
             ;;
             add-tool-to-project)
 
@@ -637,6 +653,12 @@ to workflow names
 
 }
 
+_cwl-ica_add-linked-project_option_src_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "src_project:" $__dynamic_completion
+}
 _cwl-ica_add-tool-to-project_option_tool_path_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"

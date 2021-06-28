@@ -154,7 +154,6 @@ subcommands:
           command_string: |-
             python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
 
-
   #########################
   # List Commands
   #########################
@@ -511,7 +510,21 @@ subcommands:
         completion:
           command_string: |-
             python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
-
+  add-linked-project:
+    summary: |
+      Add a linked project to another project
+    options:
+      - name: src-project
+        summary: |
+          The name of your project in project.yaml
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+      - name: target-project
+        summary: |
+          ID of the target project to receive all ica workflows and ica workflow versions
+        type: string
 
   #############################
   # Run-register Commands  # Not yet implemented v1.0 release
