@@ -87,11 +87,11 @@ class CWLTool(CWL):
 
         # Check input ids and output ids are merely a combination of [a-z and _]
         for input_id in input_ids:
-            self.check_id_conformance("inputs", input_id)
+            self.check_id_conformance("inputs", Path(input_id).name)
 
         # Do same for outputs
         for output_id in output_ids:
-            self.check_id_conformance("outputs", output_id)
+            self.check_id_conformance("outputs", Path(output_id).name)
 
         # Check requirements section
         requirements = self.cwl_obj.requirements

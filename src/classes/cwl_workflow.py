@@ -97,31 +97,24 @@ class CWLWorkflow(CWL):
         # Intersection of ids
         for (list_a, list_b) in combinations([input_ids, step_ids, output_ids], 2):
             intersection_input_output_steps = list(set(list_a).intersection(set(list_b)))
-            logger.error("The following cwl attributes are found in multiple of the 'inputs', 'steps' and 'outputs' section.\n"
-                         "This will cause an issue for a packed cwl file:\n"
-                         "{intersecting_ids}".format(
-                             intersecting_ids=", ".join(["'%s'" % _id for _id in intersection_input_output_steps])
-                         ))
-            issue_count += 1
+
+            if not len(intersection_input_output_steps) == 0:
+                logger.error("The following cwl attributes are found in multiple of the 'inputs', 'steps' and 'outputs' section.\n"
+                             "This will cause an issue for a packed cwl file:\n"
+                             "{intersecting_ids}".format(
+                                 intersecting_ids=", ".join(["'%s'" % _id for _id in intersection_input_output_steps])
+                             ))
+                issue_count += 1
 
         # Check input ids and output ids are merely a combination of [a-z and _]
         for input_id in input_ids:
-            self.check_id_conformance("inputs", input_id)
+            self.check_id_conformance("inputs", Path(input_id).name)
 
         # Do same for steps and outputs
         for step_id in step_ids:
-            self.check_id_conformance("steps", step_id)
+            self.check_id_conformance("steps", Path(step_id).name)
         for output_id in output_ids:
-            self.check_id_conformance("outputs", output_id)
-
-        # This will cause a fail when we pack the file
-        if not len(intersection_input_output_steps) == 0:
-            logger.error("The following cwl attributes are found in both the 'inputs' and 'outputs' section.\n"
-                         "This will cause an issue for a packed cwl file:\n"
-                         "{intersecting_ids}".format(
-                             intersecting_ids=", ".join(["'%s'" % _id for _id in intersection_input_output_steps])
-                         ))
-            issue_count += 1
+            self.check_id_conformance("outputs", Path(output_id).name)
 
         # Run cwltool --validate
         self.run_cwltool_validate(self.cwl_file_path)
