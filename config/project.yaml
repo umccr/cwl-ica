@@ -2,8 +2,8 @@ projects:
   - project_name: development_workflows
     project_id: 0df0356d-3637-48a5-80d1-a924642a6556
     project_description: |
-        Development workflows, project is linked to the development
-        project
+      Development workflows, project is linked to the development
+      project
     project_abbr: dev-wf
     project_api_key_name: development_workflows
     production: false
@@ -20,7 +20,7 @@ projects:
             path: 1.12.0/samtools-merge__1.12.0.cwl
             ica_workflow_version_name: 1.12.0
             modification_time: 2021-06-25T02:25:00UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tabix
         path: tabix
         ica_workflow_name: tabix_dev-wf
@@ -30,7 +30,7 @@ projects:
             path: 0.2.6/tabix__0.2.6.cwl
             ica_workflow_version_name: 0.2.6
             modification_time: 2021-06-25T02:25:01UTC
-            run_instances: []
+            run_instances: [ ]
       - name: sambamba-merge-and-index
         path: sambamba-merge-and-index
         ica_workflow_name: sambamba-merge-and-index_dev-wf
@@ -40,7 +40,7 @@ projects:
             path: 0.8.0/sambamba-merge-and-index__0.8.0.cwl
             ica_workflow_version_name: 0.8.0
             modification_time: 2021-06-25T02:25:01UTC
-            run_instances: []
+            run_instances: [ ]
       - name: sambamba-sort-and-index
         path: sambamba-sort-and-index
         ica_workflow_name: sambamba-sort-and-index_dev-wf
@@ -50,7 +50,7 @@ projects:
             path: 0.8.0/sambamba-sort-and-index__0.8.0.cwl
             ica_workflow_version_name: 0.8.0
             modification_time: 2021-06-25T02:25:02UTC
-            run_instances: []
+            run_instances: [ ]
       - name: sambamba-slice-and-index
         path: sambamba-slice-and-index
         ica_workflow_name: sambamba-slice-and-index_dev-wf
@@ -60,7 +60,7 @@ projects:
             path: 0.8.0/sambamba-slice-and-index__0.8.0.cwl
             ica_workflow_version_name: 0.8.0
             modification_time: 2021-06-25T02:25:02UTC
-            run_instances: []
+            run_instances: [ ]
       - name: sambamba-view-and-index
         path: sambamba-view-and-index
         ica_workflow_name: sambamba-view-and-index_dev-wf
@@ -70,7 +70,7 @@ projects:
             path: 0.8.0/sambamba-view-and-index__0.8.0.cwl
             ica_workflow_version_name: 0.8.0
             modification_time: 2021-06-25T02:25:02UTC
-            run_instances: []
+            run_instances: [ ]
       - name: optitype
         path: optitype
         ica_workflow_name: optitype_dev-wf
@@ -80,7 +80,7 @@ projects:
             path: 1.3.5/optitype__1.3.5.cwl
             ica_workflow_version_name: 1.3.5
             modification_time: 2021-06-25T02:25:03UTC
-            run_instances: []
+            run_instances: [ ]
       - name: custom-subset-bam
         path: custom-subset-bam
         ica_workflow_name: custom-subset-bam_dev-wf
@@ -90,7 +90,7 @@ projects:
             path: 1.12.0/custom-subset-bam__1.12.0.cwl
             ica_workflow_version_name: 1.12.0
             modification_time: 2021-06-25T02:25:03UTC
-            run_instances: []
+            run_instances: [ ]
       - name: bedops
         path: bedops
         ica_workflow_name: bedops_dev-wf
@@ -100,7 +100,7 @@ projects:
             path: 2.4.39/bedops__2.4.39.cwl
             ica_workflow_version_name: 2.4.39
             modification_time: 2021-06-25T02:25:04UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-germline
         path: dragen-germline
         ica_workflow_name: dragen-germline_dev-wf
@@ -110,7 +110,7 @@ projects:
             path: 3.7.5/dragen-germline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:04UTC
-            run_instances: []
+            run_instances: [ ]
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
         ica_workflow_name: custom-create-tso500-samplesheet_dev-wf
@@ -120,7 +120,7 @@ projects:
             path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
             modification_time: 2021-06-25T02:25:05UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tso500-ctdna-demultiplex-workflow
         path: tso500-ctdna-demultiplex-workflow
         ica_workflow_name: tso500-ctdna-demultiplex-workflow_dev-wf
@@ -130,7 +130,7 @@ projects:
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-25T02:25:05UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
         ica_workflow_name: tso500-ctdna-analysis-workflow_dev-wf
@@ -140,7 +140,7 @@ projects:
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-25T02:25:06UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
         ica_workflow_name: tso500-ctdna-reporting-workflow_dev-wf
@@ -150,7 +150,7 @@ projects:
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-25T02:25:06UTC
-            run_instances: []
+            run_instances: [ ]
       - name: multiqc
         path: multiqc
         ica_workflow_name: multiqc_dev-wf
@@ -160,7 +160,7 @@ projects:
             path: 1.10.1/multiqc__1.10.1.cwl
             ica_workflow_version_name: 1.10.1
             modification_time: 2021-06-25T02:25:07UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-alignment
         path: dragen-alignment
         ica_workflow_name: dragen-alignment_dev-wf
@@ -170,7 +170,7 @@ projects:
             path: 3.7.5/dragen-alignment__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:07UTC
-            run_instances: []
+            run_instances: [ ]
       - name: arriba-drawing
         path: arriba-drawing
         ica_workflow_name: arriba-drawing_dev-wf
@@ -180,7 +180,7 @@ projects:
             path: 2.0.0/arriba-drawing__2.0.0.cwl
             ica_workflow_version_name: 2.0.0
             modification_time: 2021-06-25T02:32:52UTC
-            run_instances: []
+            run_instances: [ ]
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -191,7 +191,7 @@ projects:
             path: 1.3.5/optitype-pipeline__1.3.5.cwl
             ica_workflow_version_name: 1.3.5
             modification_time: 2021-06-25T02:25:07UTC
-            run_instances: []
+            run_instances: [ ]
       - name: get-hla-regions-bed
         path: get-hla-regions-bed
         ica_workflow_name: get-hla-regions-bed_dev-wf
@@ -201,7 +201,7 @@ projects:
             path: 1.0.0/get-hla-regions-bed__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
             modification_time: 2021-06-25T02:25:08UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_dev-wf
@@ -211,7 +211,7 @@ projects:
             path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:08UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
         ica_workflow_name: dragen-qc-hla-pipeline_dev-wf
@@ -221,7 +221,7 @@ projects:
             path: 3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl
             ica_workflow_version_name: 3.7.5--1.3.5
             modification_time: 2021-06-25T02:25:09UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tso500-ctdna
         path: tso500-ctdna
         ica_workflow_name: tso500-ctdna_dev-wf
@@ -231,7 +231,7 @@ projects:
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-25T02:25:09UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-somatic
         path: dragen-somatic
         ica_workflow_name: dragen-somatic_dev-wf
@@ -241,7 +241,7 @@ projects:
             path: 3.7.5/dragen-somatic__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:10UTC
-            run_instances: []
+            run_instances: [ ]
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_dev-wf
@@ -251,7 +251,7 @@ projects:
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:10UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-transcriptome-pipeline
         path: dragen-transcriptome-pipeline
         ica_workflow_name: dragen-transcriptome-pipeline_dev-wf
@@ -261,7 +261,7 @@ projects:
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:11UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
@@ -271,7 +271,7 @@ projects:
             path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:11UTC
-            run_instances: []
+            run_instances: [ ]
       - name: dragen-WGS-QC-pipeline
         path: dragen-WGS-QC-pipeline
         ica_workflow_name: dragen-WGS-QC-pipeline_dev-wf
@@ -281,28 +281,28 @@ projects:
             path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-25T02:25:13UTC
-            run_instances: []
+            run_instances: [ ]
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
-        Production workflows, project is linked to the production
-        project
+      Production workflows, project is linked to the production
+      project
     project_abbr: prod-wf
     project_api_key_name: production_workflows
     production: true
     linked_projects:
       - 20b42a71-1ebc-4e7b-b659-313f2f4524c3
     tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
-    tools: []
-    workflows: []
+    tools: [ ]
+    workflows: [ ]
   - project_name: collab-illumina-dev
     project_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3
     project_description: |
-        Collaborative project between UMCCR and Illumina
+      Collaborative project between UMCCR and Illumina
     project_abbr: clb-ilmn-dev
     project_api_key_name: collab-illumina-dev
     production: false
-    linked_projects: []
+    linked_projects: [ ]
     tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: custom-create-tso500-samplesheet
@@ -314,7 +314,7 @@ projects:
             path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
             modification_time: 2021-06-22T00:02:46UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tso500-ctdna-demultiplex-workflow
         path: tso500-ctdna-demultiplex-workflow
         ica_workflow_name: tso500-ctdna-demultiplex-workflow_clb-ilmn-dev
@@ -324,7 +324,7 @@ projects:
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-22T00:31:31UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
         ica_workflow_name: tso500-ctdna-analysis-workflow_clb-ilmn-dev
@@ -334,7 +334,7 @@ projects:
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-22T00:32:05UTC
-            run_instances: []
+            run_instances: [ ]
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
         ica_workflow_name: tso500-ctdna-reporting-workflow_clb-ilmn-dev
@@ -344,7 +344,7 @@ projects:
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-22T00:32:43UTC
-            run_instances: []
+            run_instances: [ ]
     workflows:
       - name: tso500-ctdna
         path: tso500-ctdna
@@ -355,4 +355,5 @@ projects:
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-21T06:13:18UTC
+            run_instances: [ ]
             run_instances: []
