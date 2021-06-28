@@ -21,7 +21,7 @@ import json
 from utils.subprocess_handler import run_subprocess_proc
 from hashlib import md5
 from ruamel.yaml.comments import CommentedMap as OrderedDict
-
+from string import ascii_lowercase
 
 logger = get_logger()
 
@@ -336,3 +336,17 @@ class CWL:
 
         if not validated:
             raise InvalidAuthorshipError
+
+    @staticmethod
+    def check_id_conformance(id_type, arg_val):
+        """
+        Check id for input / output step is a combination of lowercase and underscores only
+        Throw warning otherwise
+        :param id_type:
+        :param arg_val:
+        :return:
+        """
+        bad_chars = list(set(arg_val).difference(ascii_lowercase + "_"))
+        if not len(bad_chars) == 0:
+            logger.warning(f"Found {id_type} '{arg_val}' uses chars '{', '.join(bad_chars)}' that "
+                           f"aren't recommended in names of {id_type}")

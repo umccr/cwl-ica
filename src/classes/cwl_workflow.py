@@ -14,7 +14,7 @@ import os
 from tempfile import NamedTemporaryFile
 from pathlib import Path
 from utils.yaml import dump_cwl_yaml as dump_yaml, to_multiline_string
-
+from itertools import combinations
 
 logger = get_logger()
 
@@ -95,7 +95,24 @@ class CWLWorkflow(CWL):
                     for _step in steps]
 
         # Intersection of ids
-        intersection_input_output_steps = list(set(input_ids).intersection(set(output_ids)).intersection(set(step_ids)))
+        for (list_a, list_b) in combinations([input_ids, step_ids, output_ids], 2):
+            intersection_input_output_steps = list(set(list_a).intersection(set(list_b)))
+            logger.error("The following cwl attributes are found in multiple of the 'inputs', 'steps' and 'outputs' section.\n"
+                         "This will cause an issue for a packed cwl file:\n"
+                         "{intersecting_ids}".format(
+                             intersecting_ids=", ".join(["'%s'" % _id for _id in intersection_input_output_steps])
+                         ))
+            issue_count += 1
+
+        # Check input ids and output ids are merely a combination of [a-z and _]
+        for input_id in input_ids:
+            self.check_id_conformance("inputs", input_id)
+
+        # Do same for steps and outputs
+        for step_id in step_ids:
+            self.check_id_conformance("steps", step_id)
+        for output_id in output_ids:
+            self.check_id_conformance("outputs", output_id)
 
         # This will cause a fail when we pack the file
         if not len(intersection_input_output_steps) == 0:

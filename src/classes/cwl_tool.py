@@ -14,7 +14,7 @@ from pathlib import Path
 from cwl_utils.parser_v1_1 import CommandLineTool, LoadingOptions  # For creation of tool
 from ruamel.yaml.comments import CommentedMap as OrderedDict
 from utils.yaml import dump_cwl_yaml as dump_yaml, to_multiline_string
-
+from string import ascii_lowercase
 logger = get_logger()
 
 
@@ -81,16 +81,25 @@ class CWLTool(CWL):
                          "both the 'inputs' and 'outputs' section.\n"
                          "This will cause an issue for a packed cwl file:\n"
                          "{intersecting_ids}".format(
-                             issue_num=issue_count,
-                             intersecting_ids=", ".join(["'%s'" % _id for _id in intersection_input_output])
-                         ))
+                issue_num=issue_count,
+                intersecting_ids=", ".join(["'%s'" % _id for _id in intersection_input_output])
+            ))
+
+        # Check input ids and output ids are merely a combination of [a-z and _]
+        for input_id in input_ids:
+            self.check_id_conformance("inputs", input_id)
+
+        # Do same for outputs
+        for output_id in output_ids:
+            self.check_id_conformance("outputs", output_id)
 
         # Check requirements section
         requirements = self.cwl_obj.requirements
 
         # No stress if there are no requirements for this tool
         if requirements is not None:
-            # We make sure that 'ResoureceRequirement' and 'DockerRequirement' are not in the 'requirements' section
+            # Just make sure that 'ResourceRequirement' and 'DockerRequirement' are not in the 'requirements' section
+            # Both should be in the hints section instead
             for requirement in requirements:
                 if requirement.class_ in self.EXPECTED_HINTS:
                     logger.error(f"Requirement {requirement.class_} should be in 'hints' section instead")

@@ -72,6 +72,14 @@ class CWLExpression(CWL):
         # Intersection of ids
         intersection_input_output = list(set(input_ids).intersection(set(output_ids)))
 
+        # Check input ids and output ids are merely a combination of [a-z and _]
+        for input_id in input_ids:
+            self.check_id_conformance("inputs", input_id)
+
+        # Do same for outputs
+        for output_id in output_ids:
+            self.check_id_conformance("outputs", output_id)
+
         # This will cause a fail when we pack the file
         if not len(intersection_input_output) == 0:
             issue_count += 1
