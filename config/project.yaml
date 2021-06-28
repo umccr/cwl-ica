@@ -232,15 +232,15 @@ projects:
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-25T02:25:09UTC
             run_instances: []
-      - name: dragen-somatic
-        path: dragen-somatic
-        ica_workflow_name: dragen-somatic_dev-wf
+      - name: dragen-somatic-pipeline
+        path: dragen-somatic-pipeline
+        ica_workflow_name: dragen-somatic-pipeline_dev-wf
         ica_workflow_id: wfl.32e346cdbb854f6487e7594ec17a81f9
         versions:
           - name: 3.7.5
-            path: 3.7.5/dragen-somatic__3.7.5.cwl
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-25T02:25:10UTC
+            modification_time: 2021-06-28T04:34:56UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion

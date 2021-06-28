@@ -14,8 +14,8 @@ s:author:
     s:email: sehrish.kanwal@umccr.org
 
 # ID/Docs
-id: dragen-somatic--3.7.5
-label: dragen-somatic v(3.7.5)
+id: dragen-somatic-pipeline--3.7.5
+label: dragen-somatic-pipeline v(3.7.5)
 doc: |
   Run tumor-normal dragen somatic pipeline
   v 3.7.5.
