@@ -107,11 +107,11 @@ subcommands:
     summary: |
       Initialise a category in ${CWL_ICA_REPO_PATH}/config/category.yaml
     options:
-      - name: name
+      - name: category-name
         summary: |
           Name of category
         type: string
-      - name: description
+      - name: category-description
         summary: |
           Category description
         type: string

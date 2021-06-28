@@ -210,10 +210,10 @@ and update definition on ICA
                     '1: :->cmd1' \
                     '--help[Show command help]' \
                     '-h[Show command help]' \
-                    '--name[Name of category
-]:name' \
-                    '--description[Category description
-]:description' \
+                    '--category-name[Name of category
+]:category-name' \
+                    '--category-description[Category description
+]:category-description' \
                     && ret=0
 
 

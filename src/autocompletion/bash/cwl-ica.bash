@@ -199,14 +199,14 @@ and update definition on ICA
         esac
       ;;
       category-init)
-        OPTIONS+=('--name' 'Name of category
-' '--description' 'Category description
+        OPTIONS+=('--category-name' 'Name of category
+' '--category-description' 'Category description
 ')
         __cwl-ica_handle_options_flags
         case ${MYWORDS[$INDEX-1]} in
-          --name)
+          --category-name)
           ;;
-          --description)
+          --category-description)
           ;;
 
         esac
