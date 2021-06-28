@@ -77,6 +77,8 @@ Example:
         with open(project_activate_path, 'w') as project_h:
             project_h.write(f"export CWL_ICA_DEFAULT_PROJECT=\"{self.project_name}\"\n")
 
+        logger.info("Default project updated, please deactivate and reactivate your conda environment to complete the process")
+
     def check_args(self):
         """
         Perform the following checks:
