@@ -144,8 +144,9 @@ steps:
       Runs multiqc on the run folder
       Uses a dummy file so that the folder can be placed in 'stream' mode.
     in:
-      input_directory:
-        source: dragen_germline_step/dragen_germline_output_directory
+      input_directories:
+        source: [ dragen_germline_step/dragen_germline_output_directory ]
+        linkMerge: merge_nested
       output_directory_name:
         source: sample_name
         valueFrom: "$(self)_germline_multiqc"
