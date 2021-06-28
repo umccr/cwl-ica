@@ -5,21 +5,13 @@ All create-x-from-template classes will inherit this class and thne update their
 """
 
 from classes.command import Command
-from utils.conda import get_conda_activate_dir
 from utils.logging import get_logger
-from docopt import docopt
 from pathlib import Path
-import re
-import requests
-from urllib.parse import urlparse
-from ruamel.yaml import YAML, RoundTripDumper, dump as yaml_dump
 from string import ascii_letters, digits
-from argparse import ArgumentError
-from utils.globals import CWL_ICA_REPO_PATH_ENV_VAR
 from utils.repo import get_user_yaml_path, read_yaml, get_tools_dir
-from classes.cwl_tool import CWLTool
 from utils.errors import UserNotFoundError, CheckArgumentError, InvalidNameError, InvalidVersionError
 from semantic_version import Version
+import os
 
 logger = get_logger()
 
