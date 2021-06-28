@@ -280,11 +280,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-<<<<<<< HEAD
-            modification_time: 2021-06-28T02:45:52UTC
-=======
             modification_time: 2021-06-28T02:34:58UTC
->>>>>>> 6f137fd311a7be3c209d3c1541d56fd076aa2749
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
