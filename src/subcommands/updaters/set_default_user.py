@@ -86,6 +86,9 @@ Example:
         with open(user_activate_path, 'w') as user_h:
             user_h.write(f"export CWL_ICA_DEFAULT_USER=\"{self.username}\"\n")
 
+        logger.info(
+            "Default user updated, please deactivate and reactivate your conda environment to complete the process")
+
     def check_args(self):
         """
         Perform the following checks:

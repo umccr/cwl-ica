@@ -91,6 +91,7 @@ Example
         # Check defined and assign properties
         schema_name_arg = self.args.get("--schema-name", None)
         self.check_shlex_arg("--schema-name", schema_name_arg)
+        self.check_conformance("--schema-name", schema_name_arg)
         if schema_name_arg is None:
             logger.error("--schema-name not defined")
             raise CheckArgumentError

@@ -88,6 +88,9 @@ Example:
         with open(tenant_activate_path, 'w') as tenant_h:
             tenant_h.write(f"export CWL_ICA_DEFAULT_TENANT=\"{self.tenant_name}\"\n")
 
+        logger.info(
+            "Default tenant updated, please deactivate and reactivate your conda environment to complete the process")
+
     def check_args(self):
         """
         Perform the following checks:

@@ -12,6 +12,7 @@ from argparse import ArgumentError
 from utils.repo import get_expressions_dir
 from classes.cwl_expression import CWLExpression
 from utils.errors import CheckArgumentError
+import os
 
 logger = get_logger()
 
@@ -21,7 +22,7 @@ class CreateExpressionFromTemplate(CreateFromTemplate):
     cwl-ica create-expression-from-template help
     cwl-ica create-expression-from-template (--expression-name="<name_of_expression>")
                                             (--expression-version="<expression_version>")
-                                            (--username="<your_name>")
+                                            [--username="<your_name>"]
 
 
 Description:
@@ -47,8 +48,10 @@ Description:
 Options:
     --expression-name=<expression_name>            Required, the name of the expression
     --expression-version=<expression_version>      Required, the version of the expression
-    --username=<username>              Required, the username of the creator
+    --username=<username>                          Optional, the username of the creator
 
+EnvironmentVariables:
+    CWL_ICA_DEFAULT_USER                           Saves having to use --username
 
 Example
     cwl-ica create-expression-from-template --expression-name samexpressions-fastq --expression-version 1.10.0  --username "Alexis Lucattini"
@@ -100,6 +103,7 @@ Example
         # Check defined and assign properties
         expression_name_arg = self.args.get("--expression-name", None)
         self.check_shlex_arg("--expression-name", expression_name_arg)
+        self.check_conformance("--expression-name", expression_name_arg)
         if expression_name_arg is None:
             logger.error("--expression-name not defined")
             raise CheckArgumentError
@@ -107,16 +111,14 @@ Example
 
         expression_version_arg = self.args.get("--expression-version", None)
         self.check_shlex_version_arg("--expression-version", expression_version_arg)
+
         if expression_version_arg is None:
             logger.error("--expression-version not defined")
             raise CheckArgumentError
         self.version = expression_version_arg
 
-        username_arg = self.args.get("--username", None)
-        if username_arg is None:
-            logger.error("--username not defined")
-            raise CheckArgumentError
-        self.username = username_arg
+        self.set_user_arg()
+
         self.set_user_obj()
 
     def get_top_dir(self, create_dir=False):

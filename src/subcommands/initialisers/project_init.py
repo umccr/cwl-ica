@@ -23,6 +23,7 @@ from utils.conda import get_conda_activate_dir
 from utils.yaml import dump_yaml, to_multiline_string
 import os
 from utils.errors import CheckArgumentError, TenantNotFoundError, InvalidTokenError
+from classes.project import Project
 
 logger = get_logger()
 
@@ -295,7 +296,7 @@ Example:
                 ))
 
         # Append project
-        project_list.append(OrderedDict({
+        project_list.append(Project.from_dict(OrderedDict({
             "project_name": self.project_name,
             "project_id": self.project_id,
             "project_description": to_multiline_string(self.project_description),
@@ -306,7 +307,7 @@ Example:
             "production": self.production,
             "tools": [],  # List of tools available for this project
             "workflows": []  # List of workflows available for this project
-        }))
+        })).to_dict())
 
         project_dict = {
             "projects": project_list

@@ -18,8 +18,8 @@ logger = get_logger()
 class CategoryInit(Command):
     """Usage:
     cwl-ica [options] category-init help
-    cwl-ica [options] category-init (--name="<name_of_category>")
-                                    [--description="<Description_of_category>"]
+    cwl-ica [options] category-init (--category-name="<name_of_category>")
+                                    [--category-description="<Description_of_category>"]
 
 Description:
     Initialises a category in ${CWL_ICA_REPO_PATH}/config/category.yaml
@@ -27,12 +27,12 @@ Description:
     A tool / workflow may have multiple categories.
 
 Options:
-    --name=<"name of category">                                 Required, the name of the category
-    --description=<"A little description of the category">      Required, whats the theme
+    --category-name=<"name of category">                                 Required, the name of the category
+    --category-description=<"A little description of the category">      Required, whats the theme
 
 Example:
-    cwl-ica category-init --name "dragen" --description "Tool / Workflow uses dragen"
-    cwl-ica category-init --name "Alignment" --description "Tool / Workflow aligns read-level data as bams"
+    cwl-ica category-init --category-name "dragen" --category-description "Tool / Workflow uses dragen"
+    cwl-ica category-init --category-name "Alignment" --category-description "Tool / Workflow aligns read-level data as bams"
     """
 
     def __init__(self, command_argv):
@@ -72,16 +72,16 @@ Example:
 
     def check_args(self):
         # Check name is defined
-        if self.args.get("--name", None) is None:
-            logger.error("Category name is not defined. Please specify with --name")
+        if self.args.get("--category-name", None) is None:
+            logger.error("Category name is not defined. Please specify with --category-name")
             raise CheckArgumentError
-        self.category_name = self.args.get("--name")
+        self.category_name = self.args.get("--category-name")
 
         # Check description is defined
-        if self.args.get("--description", None) is None:
-            logger.error("Category description is not defined. Please specify with --description")
+        if self.args.get("--category-description", None) is None:
+            logger.error("Category description is not defined. Please specify with --category-description")
             raise CheckArgumentError
-        self.category_description = self.args.get("--description")
+        self.category_description = self.args.get("--category-description")
 
     def add_category_to_category_yaml(self):
         # Read category yaml

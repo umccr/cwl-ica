@@ -25,7 +25,8 @@ for template in templates/*.yaml; do
   docker run \
 	--volume "$PWD:$PWD" \
         --workdir "$PWD" \
-	agrf/appspec:0.006 \
+	umccr/appspec:0.006 \
+	    appspec \
   		completion \
 			"${template}" \
 		    	--name "${name_root}" \
@@ -42,7 +43,8 @@ for template in templates/*.yaml; do
   docker run \
 	--volume "$PWD:$PWD" \
         --workdir "$PWD" \
-	agrf/appspec:0.006 \
+	umccr/appspec:0.006 \
+	    appspec \
 	  	completion \
         		"${template}" \
             --name "${name_root}" \

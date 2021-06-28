@@ -86,8 +86,9 @@ class ProductionProject(Project):
                                                                     os.environ.get("GIT_COMMIT_ID")][:7])
 
         # Create the workflow version - modification time is auto added to ica workflow version object
-        ica_workflow_version.create_workflow_version(cwl_packed_obj, self.get_project_token())
-        workflow_version_obj = ica_workflow_version.get_workflow_version_object(self.get_project_token())
+        ica_workflow_version.create_workflow_version(cwl_packed_obj, self.get_project_token(),
+                                                     project_id=self.project_id, linked_projects=self.linked_projects)
+        _ = ica_workflow_version.get_workflow_version_object(self.get_project_token())
 
     def add_item_to_project(self, item_key, item_obj: CWL, access_token, categories=None):
         """
@@ -126,7 +127,7 @@ class ProductionProject(Project):
                 categories=categories if categories is not None else []
             )
             # Create a workflow id -> this also must happen for a production project
-            this_project_ica_item.create_workflow_id(access_token)
+            this_project_ica_item.create_workflow_id(access_token, self.project_id, linked_projects=self.linked_projects)
 
             # We should also now append our project item to our list
             project_ica_items_list.append(this_project_ica_item)

@@ -125,13 +125,12 @@ class Initialiser(Command):
         logger.info(f"Updating \"{self.get_item_yaml()}\"")
         self.write_item_yaml()
 
-        # For each add the item to each project
-        logger.info(f"Adding \"{self.item_type}\" to projects")
-        self.add_item_to_projects()
-
         # Write out projects
-        logger.info(f"Updating \"{get_project_yaml_path()}\"")
-        self.write_projects_yaml()
+        if self.args.get("--projects", None) is not None:
+            logger.info(f"Adding \"{self.item_type}\" to projects")
+            self.add_item_to_projects()
+            logger.info(f"Updating \"{get_project_yaml_path()}\"")
+            self.write_projects_yaml()
 
     # Methods implemented in subclass
     def check_args(self):

@@ -27,8 +27,8 @@ hints:
             tier: standard
             type: fpga
             size: medium
-        #coresMin: 2  # FIXME
-        #ramMin: 4000
+        coresMin: 16
+        ramMin: 240000
     DockerRequirement:
         dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.7.5"
 
@@ -96,29 +96,29 @@ requirements:
           Use full long arguments where possible
           */
           return "#!/usr/bin/env bash\n" +
-          "\n" +
-          "# Fail on non-zero exit of subshell\n" +
-          "set -euo pipefail\n" +
-          "\n" +
-          "# Initialise dragen\n" +
-          "/opt/edico/bin/dragen \\\n" +
-          "  --partial-reconfig DNA-MAPPER \\\n" +
-          "  --ignore-version-check true\n" +
-          "\n" +
-          "# Create directories\n" +
-          "mkdir --parents \\\n" +
-          "  \"" + get_ref_mount() + "\" \\\n" +
-          "  \"" + get_intermediate_results_dir() + "\" \\\n" +
-          "  \"" + inputs.output_directory + "\"\n" +
-          "\n" +
-          "# untar ref data into scratch space\n" +
-          "tar \\\n" +
-          "  --directory \"" + get_ref_mount() + "\" \\\n" +
-          "  --extract \\\n" +
-          "  --file \"" + inputs.reference_tar.path + "\"\n" +
-          "\n" +
-          "# Run dragen command and import options from cli\n" +
-          "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
+                 "\n" +
+                 "# Fail on non-zero exit of subshell\n" +
+                 "set -euo pipefail\n" +
+                 "\n" +
+                 "# Initialise dragen\n" +
+                 "/opt/edico/bin/dragen \\\n" +
+                 "  --partial-reconfig DNA-MAPPER \\\n" +
+                 "  --ignore-version-check true\n" +
+                 "\n" +
+                 "# Create directories\n" +
+                 "mkdir --parents \\\n" +
+                 "  \"" + get_ref_mount() + "\" \\\n" +
+                 "  \"" + get_intermediate_results_dir() + "\" \\\n" +
+                 "  \"" + inputs.output_directory + "\"\n" +
+                 "\n" +
+                 "# untar ref data into scratch space\n" +
+                 "tar \\\n" +
+                 "  --directory \"" + get_ref_mount() + "\" \\\n" +
+                 "  --extract \\\n" +
+                 "  --file \"" + inputs.reference_tar.path + "\"\n" +
+                 "\n" +
+                 "# Run dragen command and import options from cli\n" +
+                 "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
         }
   InitialWorkDirRequirement:
     listing: |

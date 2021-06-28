@@ -37,6 +37,7 @@ class Validate(Command):
     def __call__(self):
         # We just validate obj to call
         self.validate_obj()
+        logger.info(f"Validation of cwl file '{self.cwl_file_path}' was successful")
 
     # Defined in subclass
     def import_cwl_obj(self):

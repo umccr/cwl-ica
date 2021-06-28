@@ -102,6 +102,7 @@ Example
         # Check defined and assign properties
         tool_name_arg = self.args.get("--tool-name", None)
         self.check_shlex_arg("--tool-name", tool_name_arg)
+        self.check_conformance("--tool-name", tool_name_arg)
         if tool_name_arg is None:
             logger.error("--tool-name not defined")
             raise CheckArgumentError
@@ -114,16 +115,7 @@ Example
             raise CheckArgumentError
         self.version = tool_version_arg
 
-        username_arg = self.args.get("--username", None)
-
-        username_env = os.environ.get("CWL_ICA_DEFAULT_USER", None)
-
-        if username_arg is None and username_env is None:
-            logger.error("Please specify the --username parameter or set a default user through "
-                         "'cwl-ica set-default-user' then reactivate the conda env")
-            raise CheckArgumentError
-
-        self.username = username_arg if username_arg is not None else username_env
+        self.set_user_arg()
 
         self.set_user_obj()
 

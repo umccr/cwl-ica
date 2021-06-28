@@ -80,7 +80,7 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-germline__3.7.5.cwl
-        md5sum: 7ddc21a4ca6a8c0279061849a317cae1
+        md5sum: 4574354a1e0b40dd49415688f0afca76
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -119,7 +119,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl
-        md5sum: 75dbba7125e3f97d10954f566875d58f
+        md5sum: 4dd3425af669e23740532a838748f9d8
     categories: []
   - name: bclConvert
     path: bclConvert
@@ -140,35 +140,35 @@ tools:
     versions:
       - name: 1.2.1
         path: 1.2.1/multiqc-interop__1.2.1.cwl
-        md5sum: abf0ea022fa5c53a8fb3c964a3d0478a
+        md5sum: 346fde115ccefa53c32b28be0c9978ff
     categories: []
   - name: dragen-somatic
     path: dragen-somatic
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic__3.7.5.cwl
-        md5sum: 476ffd3dba9f93e6aeea222d45d373cd
+        md5sum: aacbf7dde65bdddb19e1258e93e3dadb
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome__3.7.5.cwl
-        md5sum: 3f23e5e29e142c8126bd35e6ba57494a
+        md5sum: 5d36c7fd37b74bd21fa49e58955cb7bc
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
-        md5sum: b415b4e693330d45511413110d2e80ba
+        md5sum: 65dd200c547415abd2ac500855e616c9
     categories: []
   - name: arriba-drawing
     path: arriba-drawing
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-drawing__2.0.0.cwl
-        md5sum: 84777ebd31fc48622b79fd4167527c0b
+        md5sum: 123c2037b05723d8f919d0d35978b223
     categories: []
   - name: multiqc
     path: multiqc
@@ -182,5 +182,5 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment__3.7.5.cwl
-        md5sum: 087a42a06ee3674eb9a8535d18e3e375
+        md5sum: d379d6c8579884fd29b684b9c4de940d
     categories: []

@@ -396,11 +396,11 @@ def get_api_key(project_name, sh_env_var="CWL_ICA_API_KEY_SH", key_path_env_var=
         sh_env_path = Path(os.environ.get(sh_env_var))
 
     if not sh_env_path.is_file():
-        logger.warning(f"Could not find file \"{sh_env_var}\"")
+        logger.warning(f"Could not find file \"{sh_env_path}\"")
         return None
 
     if not os.access(sh_env_path, os.X_OK):
-        logger.warning(f"Found path \"{sh_env_var}\" however it is not executable")
+        logger.warning(f"Found path \"{sh_env_path}\" however it is not executable")
         return None
 
     # Run the file with the environment variables set
