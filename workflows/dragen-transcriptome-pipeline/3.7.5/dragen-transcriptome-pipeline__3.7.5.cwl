@@ -101,8 +101,8 @@ inputs:
     type: File
     doc: |
       File with blacklist range
-  referenceFasta:
-    label: referenceFasta
+  reference_fasta:
+    label: reference Fasta
     type: File
     doc: |
       FastA file with genome sequence
@@ -112,7 +112,7 @@ inputs:
     type: File
     doc: |
       Coordinates of the Giemsa staining bands.
-  proteinDomains:
+  protein_domains:
     label: protein domains
     type: File
     doc: |
@@ -178,7 +178,7 @@ steps:
       annotation:
         source: annotation_file
       reference: 
-        source: referenceFasta
+        source: reference_fasta
       contigs:
         source: contigs
       blacklist: 
@@ -202,7 +202,7 @@ steps:
       cytobands:
         source: cytobands
       proteinDomains:
-        source: proteinDomains
+        source: protein_domains
     out: 
       - outPDF
     run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl

@@ -60,9 +60,23 @@ inputs:
     doc: |
       The directory where all output files are placed
     type: string
+  # Somalier Options
+  sites_somalier:
+    label: sites somalier
+    doc: |
+      gzipped vcf file. Required for somalier sites
+    type: File
+    secondaryFiles:
+      - pattern: ".tbi"
+        required: true
+  reference_fasta:
+    label: reference fasta
+    type: File
+    doc: |
+      FastA file with genome sequence
 
 steps:
-  run_dragen_alignment_step:
+  run_dragen_step:
     label: run dragen alignment step
     doc: |
       Runs the alignment step on a dragen fpga
@@ -88,15 +102,30 @@ steps:
       - multiqc_output_directory
     run: ../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl
 
-  # Create dummy file
-  create_dummy_file_step:
-    label: Create dummy file
+  # Step-4: run somalier
+  run_somalier_step:
+    label: somalier
     doc: |
-      Intermediate step for letting multiqc-interop be placed in stream mode
-    in: {}
+      Runs the somalier extract function to call the fingerprint on the germline bam file
+    in:
+      bam_sorted:
+        # The bam from the dragen germline workflow
+        source: run_dragen_step/dragen_bam_out
+      sites:
+        # The VCF output file from the dragen command
+        source: sites_somalier
+      reference:
+        # The reference fasta for the genome somalier
+        source: reference_fasta
+      sample_prefix:
+        source: output_file_prefix
+        # The output-prefix, if not specified just the sample name
+      output_directory_name:
+        source: output_directory_wgs
+        valueFrom: "$(self)_somalier"
     out:
-      - dummy_file_output
-    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+      - output_directory
+    run: ../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl
 
 outputs:
   # All output files will be under the output directory
@@ -105,7 +134,7 @@ outputs:
     doc: |
       The output directory containing all alignment output files and qc metrics
     type: Directory
-    outputSource: run_dragen_alignment_step/dragen_alignment_output_directory
+    outputSource: run_dragen_step/dragen_alignment_output_directory
   # Whilst these files reside inside the output directory, specifying them here as outputs
   # provides easier access and reference
   dragen_bam_out:
@@ -113,19 +142,19 @@ outputs:
     doc: |
       The output alignment file
     type: File
-    outputSource: run_dragen_alignment_step/dragen_bam_out
-  #multiQC output
+    outputSource: run_dragen_step/dragen_bam_out
+  # multiQC output
   multiqc_output_directory:
     label: dragen QC report out
     doc: |
       The dragen multiQC output
     type: Directory
-    outputSource: run_dragen_alignment_step/multiqc_output_directory
-  #testing dummy output
-  dummy_file:
-    label: test
+    outputSource: run_dragen_step/multiqc_output_directory
+  # Somalier outputs
+  somalier_output_directory:
+    label: somalier output directory
     doc: |
-      Testing
-    type: File
-    outputSource: create_dummy_file_step/dummy_file_output
+      Output directory from somalier step
+    type: Directory
+    outputSource: run_somalier_step/output_directory
 
