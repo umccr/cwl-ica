@@ -97,6 +97,7 @@ class CreateFromTemplate(Command):
         :return:
         """
 
+        # Removed hyphens from name convention, can be used for the versioning only
         illegal_chars = set(arg_val).difference(ascii_letters + digits + "-_")
 
         if not len(illegal_chars) == 0:
@@ -106,6 +107,18 @@ class CreateFromTemplate(Command):
                             arg_chars=", ".join(["\"%s\"" % char for char in illegal_chars])
                          ))
             raise InvalidNameError
+
+    @staticmethod
+    def check_conformance(arg_name, arg_val):
+        """
+        Check that the
+        :param arg_name:
+        :param arg_val:
+        :return:
+        """
+        # Checks that the name conforms to convention of lowercase only
+        if not arg_val.lower() == arg_val:
+            logger.warning(f"Please use lowercase only when specifying arg {arg_name}.")
 
     @staticmethod
     def check_shlex_version_arg(arg_name, arg_val):
@@ -150,6 +163,23 @@ class CreateFromTemplate(Command):
             logger.error(f"Could not find \"{self.username}\" in {user_yaml_path}. "
                          f"Please configure user with cwl-ica configure-user")
             raise UserNotFoundError
+
+    def set_user_arg(self):
+        """
+        Get --username or CWL_ICA_DEFAULT_USER env var
+        :return:
+        """
+
+        username_arg = self.args.get("--username", None)
+
+        username_env = os.environ.get("CWL_ICA_DEFAULT_USER", None)
+
+        if username_arg is None and username_env is None:
+            logger.error("Please specify the --username parameter or set a default user through "
+                         "'cwl-ica set-default-user' then reactivate the conda env")
+            raise CheckArgumentError
+
+        self.username = username_arg if username_arg is not None else username_env
 
     def get_cwl_file_path(self):
         """

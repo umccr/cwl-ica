@@ -20,8 +20,8 @@ class CreateWorkflowFromTemplate(CreateFromTemplate):
     """Usage:
     cwl-ica create-workflow-from-template help
     cwl-ica create-workflow-from-template (--workflow-name="<name_of_workflow>")
-                                      (--workflow-version="<workflow_version>")
-                                      (--username="<your_name>")
+                                          (--workflow-version="<workflow_version>")
+                                          [--username="<your_name>"]
 
 
 Description:
@@ -47,8 +47,10 @@ Description:
 Options:
     --workflow-name=<workflow_name>            Required, the name of the workflow
     --workflow-version=<workflow_version>      Required, the version of the workflow
-    --username=<username>              Required, the username of the creator
+    --username=<username>                      Optional, the username of the creator
 
+EnvironmentVariables:
+    CWL_ICA_DEFAULT_USER                       Saves having to use --username
 
 Example
     cwl-ica create-workflow-from-template --workflow-name fastq-to-bam --workflow-version 1.0.0--3.7.5  --username "Alexis Lucattini"
@@ -99,6 +101,7 @@ Example
         # Check defined and assign properties
         workflow_name_arg = self.args.get("--workflow-name", None)
         self.check_shlex_arg("--workflow-name", workflow_name_arg)
+        self.check_conformance("--workflow-name", workflow_name_arg)
         if workflow_name_arg is None:
             logger.error("--workflow-name not defined")
             raise CheckArgumentError
@@ -111,11 +114,7 @@ Example
             raise CheckArgumentError
         self.version = workflow_version_arg
 
-        username_arg = self.args.get("--username", None)
-        if username_arg is None:
-            logger.error("--username not defined")
-            raise CheckArgumentError
-        self.username = username_arg
+        self.set_user_arg()
         self.set_user_obj()
 
     def get_top_dir(self, create_dir=False):
