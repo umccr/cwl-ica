@@ -555,6 +555,8 @@ outputs:
       The output alignment file
     type: File
     outputSource: run_dragen_alignment_step/dragen_bam_out
+    secondaryFiles:
+      - ".bai"
   #multiQC output
   multiqc_output_directory:
     label: dragen QC report out
