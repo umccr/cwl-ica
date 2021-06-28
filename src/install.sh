@@ -197,6 +197,16 @@ print_help() {
   echo_stderr "${help_message}"
 }
 
+###################
+# CHECK INTERPRETER
+###################
+
+# Make sure user is running this through bash
+if [[ "$(basename "$(ps h -p $$ -o args="" | cut -f1 -d' ')")" != "bash" ]]; then
+  echo_stderr "Error: Please make sure you are running this installation script through bash"
+  exit 1
+fi
+
 ###############
 # GET ARGUMENTS
 ###############
