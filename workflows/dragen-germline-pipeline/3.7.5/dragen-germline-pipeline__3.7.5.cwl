@@ -235,7 +235,7 @@ steps:
     doc: |
       Runs the dragen germline workflow on the FPGA.
       Takes in a fastq list and corresponding mount paths from the predefined_mount_paths.
-      All other options avaiable at the top of the workflow
+      All other options available at the top of the workflow
     in:
       fastq_list:
         source: create_fastq_list_csv_step/fastq_list_csv_out
