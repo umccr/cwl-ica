@@ -5,7 +5,7 @@ Wraps around autocompletion to run the appspec completion command from within th
 '
 
 # Set to fail on non-zero exit code
-set -euxo pipefail
+set -euo pipefail
 
 # Globals
 AUTOCOMPLETION_DIR="src/autocompletion"
