@@ -90,6 +90,9 @@ inputs:
 
 outputs:
   hla_regions_bed:
+    label: hla regions bed
+    doc: |
+      Output hla regions bed file
     type: File
     # Outputs contigs objects
     outputBinding:

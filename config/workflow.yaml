@@ -12,28 +12,28 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/get-hla-regions-bed__1.0.0.cwl
-        md5sum: 07b329268787d7da48512db5be172e30
+        md5sum: b862e2ebf15ef0f4d96100cf6e11ed81
     categories: []
   - name: dragen-germline-pipeline
     path: dragen-germline-pipeline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
-        md5sum: d510549cdb2d589a2af6351f0ea755a1
+        md5sum: 1dd21876f7d79d218f7cf5277455569d
     categories: []
   - name: dragen-qc-hla-pipeline
     path: dragen-qc-hla-pipeline
     versions:
       - name: 3.7.5--1.3.5
         path: 3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl
-        md5sum: 6c0a25caca8e414fbdf24b1cdc79e83f
+        md5sum: 9d907df17955b8f983a99378211f9a02
     categories: []
   - name: tso500-ctdna
     path: tso500-ctdna
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
-        md5sum: 2006738e7d61d32da7d9eabeb75aa447
+        md5sum: 142373654002249b53cc3dafe0d7c662
     categories:
       - tso500
   - name: bcl-conversion
@@ -41,21 +41,21 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/bcl-conversion__3.7.5.cwl
-        md5sum: fbd8f27301da38595927da113ddea336
+        md5sum: 86c3982e159955358a1b045a5f7fb1fd
     categories: []
   - name: dragen-somatic-pipeline
     path: dragen-somatic-pipeline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
-        md5sum: e65610f86307e44ade3c807bcd692541
+        md5sum: 32dc4439e50ab2aa58a1d88243e3a5b0
     categories: []
   - name: dragen-transcriptome-pipeline
     path: dragen-transcriptome-pipeline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
-        md5sum: 33c3ee8cbd41b6c824d7bff3fa06b228
+        md5sum: 7c93be543fa637db69901ca784950e43
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline

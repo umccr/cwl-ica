@@ -78,7 +78,7 @@ inputs:
     inputBinding:
       prefix: -b
       position: 5
-  fusion:
+  fusions_filename:
     label: fusion
     doc: |
       Output file with fusions that have passed all filters
@@ -87,7 +87,7 @@ inputs:
     inputBinding:
       prefix: -o
       position: 6
-  discardedFusion:
+  discarded_fusions_filename:
     label: discarded fusion
     doc: |
       Output file with fusions that were discarded due to filtering
@@ -106,7 +106,7 @@ outputs:
     type: File
     outputBinding: 
       glob: "$(inputs.fusion)"
-  discardedFusions:
+  discarded_fusions:
     label: discarded fusions
     doc: | 
       file with discarded fusions
