@@ -94,7 +94,7 @@ inputs:
       position: 6
 
 outputs:
-  outPDF:
+  output_pdf:
     label: output PDF
     doc: |
       Output pdf file with fusion drawing

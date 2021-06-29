@@ -294,7 +294,47 @@ projects:
       - 20b42a71-1ebc-4e7b-b659-313f2f4524c3
     tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools: []
-    workflows: []
+    workflows:
+      - name: tso500-ctdna
+        path: tso500-ctdna
+        ica_workflow_name: tso500-ctdna_prod-wf
+        ica_workflow_id: wfl.576020a89adb49c3b2081a620d19104d
+        versions:
+          - name: 1.1.0--120
+            path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
+            ica_workflow_version_name: 1.1.0--120--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
+      - name: dragen-somatic-pipeline
+        path: dragen-somatic-pipeline
+        ica_workflow_name: dragen-somatic-pipeline_prod-wf
+        ica_workflow_id: wfl.aa0ccece4e004839aa7374d1d6530633
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
+      - name: bcl-conversion
+        path: bcl-conversion
+        ica_workflow_name: bcl-conversion_prod-wf
+        ica_workflow_id: wfl.f257ca35ced94e648fdda1173144c476
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/bcl-conversion__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
+      - name: dragen-transcriptome-pipeline
+        path: dragen-transcriptome-pipeline
+        ica_workflow_name: dragen-transcriptome-pipeline_prod-wf
+        ica_workflow_id: wfl.7e5ba7470b5549a6b4bf6d95daaa1214
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
   - project_name: collab-illumina-dev
     project_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3
     project_description: |

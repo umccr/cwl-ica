@@ -185,7 +185,7 @@ steps:
         source: blacklist
     out:
       - fusions
-      - discardedFusions
+      - discarded_fusions
     run: ../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl
   # Step-3: Call Arriba drawing script
   arriba_drawing_step:
@@ -204,7 +204,7 @@ steps:
       proteinDomains:
         source: protein_domains
     out: 
-      - outPDF
+      - output_pdf
     run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
 
 outputs:
@@ -225,10 +225,10 @@ outputs:
     doc: |
       The fusions discarded by arriba
     type: File
-    outputSource: arriba_fusion_step/discardedFusions
+    outputSource: arriba_fusion_step/discarded_fusions
   arriba_pdf:
     label: Arriba pdf
     doc: |
       The pdf drawing file
     type: File
-    outputSource: arriba_drawing_step/outPDF
+    outputSource: arriba_drawing_step/output_pdf
