@@ -220,7 +220,7 @@ outputs:
       The output fusions file
     type: File
     outputSource: arriba_fusion_step/fusions
-  arriba_discardedFusion_output:
+  arriba_discarded_fusion_output:
     label: arriba discarded fusions
     doc: |
       The fusions discarded by arriba
