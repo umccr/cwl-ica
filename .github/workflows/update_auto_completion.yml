@@ -5,12 +5,17 @@ on:
    branches:
     - beta-release  # To be moved to 'main'
    paths:
-     - "autocompletion/templates/*.yaml"
+     # Template change
+     - "src/autocompletion/templates/*.yaml"
+     # GH change
+     - ".github/workflows/update_auto_completion.yml"
+     - ".github/actions/update-autocompletion/action.yml"
+     - ".github/scripts/update_autocompletion.sh"
 
 
 jobs:
-  sync_tools_and_workflows:
-    name: sync-tools and sync-workflows
+  update_auto_completion_yaml:
+    name: update autocompletion yaml
     runs-on: ubuntu-latest
     steps:
       # Standard checkout step
@@ -18,10 +23,13 @@ jobs:
         id: git_checkout
         uses: actions/checkout@v2
       # Run autocompletion script
-      - name: update autocompletion
-        uses: ./.github/actions/update-autocompletion
+      - id: update_autocompletion
+        name: update autocompletion
+        run: |
+          bash ".github/scripts/update_autocompletion.sh"
       # Commit to github
-      - name: Commit configuration yaml files
+      - id: commit_configuration_yaml_files
+        name: Commit configuration yaml files
         uses: EndBug/add-and-commit@v4
         with:
           add: "src/autocompletion/"

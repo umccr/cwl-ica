@@ -5,7 +5,7 @@ Wraps around autocompletion to run the appspec completion command from within th
 '
 
 # Set to fail on non-zero exit code
-set -euo pipefail
+set -euxo pipefail
 
 # Globals
 AUTOCOMPLETION_DIR="src/autocompletion"
@@ -25,15 +25,30 @@ TEMPLATE_FILE="templates/${CWL_ICA_NAMEROOT}-autocompletion.yaml"
  mkdir -p "zsh"
 
  # Run the bash completion script
- appspec completion \
-  "${TEMPLATE_FILE}" \
-  --name "${CWL_ICA_NAMEROOT}" \
-  --bash > "bash/${CWL_ICA_NAMEROOT}.bash"
+ docker run \
+   --rm \
+   --user "$(id -u):$(id -g)" \
+   --volume  "$PWD:$PWD" \
+   --workdir "$PWD" \
+   umccr/appspec:0.006 \
+     appspec completion \
+       "${TEMPLATE_FILE}" \
+       --name "${CWL_ICA_NAMEROOT}" \
+       --bash > "bash/${CWL_ICA_NAMEROOT}.bash"
+
+  # Overwrite shebang
+  sed -i '1c#!/usr/bin/env bash' "bash/${CWL_ICA_NAMEROOT}.bash"
 
   # Run the zsh completion script
-  appspec completion \
-    "${TEMPLATE_FILE}" \
-    --name "${CWL_ICA_NAMEROOT}" \
-	  --zsh > "zsh/_${CWL_ICA_NAMEROOT}"
+  docker run \
+    --rm \
+    --user "$(id -u):$(id -g)" \
+    --volume  "$PWD:$PWD" \
+    --workdir "$PWD" \
+    umccr/appspec:0.006 \
+      appspec completion \
+        "${TEMPLATE_FILE}" \
+        --name "${CWL_ICA_NAMEROOT}" \
+	      --zsh > "zsh/_${CWL_ICA_NAMEROOT}"
 
 )

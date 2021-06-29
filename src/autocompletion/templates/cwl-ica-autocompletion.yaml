@@ -516,7 +516,7 @@ subcommands:
     options:
       - name: src-project
         summary: |
-          The name of your project in project.yaml
+          The ID of your project in project.yaml
         type: string
         completion:
           command_string: |-
@@ -551,11 +551,3 @@ subcommands:
   ################################
   # copy-tool-submission-template       Copy a tool submission template for an upcoming tool run
   # copy-workflow-submission-template   Copy a workflow submission template for an upcoming workflow run
-
-
-  #################################
-  # GitHub Actions Scripts
-  #################################
-  # github-actions-sync-tools           Sync all tools to tool.yaml and to all projects with that tool version
-  # github-actions-sync-workflows       Sync workflows to workflow.yaml and to all projects with that workflow version
-  # github-actions-build-catalogue      Create the catalogue markdown file    # Not yet implemented v1.0 release
