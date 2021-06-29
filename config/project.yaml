@@ -335,14 +335,16 @@ projects:
             ica_workflow_version_name: 3.7.5--ef43134
             modification_time: 2021-06-29T01:56:04UTC
             run_instances: []
-  - project_name: collab-illumina-dev
-    project_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3
+  - project_name: collab-illumina-dev_workflows
+    project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
     project_description: |
-        Collaborative project between UMCCR and Illumina
-    project_abbr: clb-ilmn-dev
-    project_api_key_name: collab-illumina-dev
+      Repository Project containing tools and workflows for the
+      collab-illumina-dev project
+    project_abbr: clb-ilmn-dev_wf
+    project_api_key_name: collab-illumina-dev_workflows
     production: false
-    linked_projects: []
+    linked_projects:
+      - 30f09dfb-10e3-43b4-9056-07c8623b96a3
     tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: custom-create-tso500-samplesheet
@@ -353,7 +355,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-06-22T00:02:46UTC
+            modification_time: 2021-06-29T04:56:05UTC
             run_instances: []
       - name: tso500-ctdna-demultiplex-workflow
         path: tso500-ctdna-demultiplex-workflow
@@ -363,7 +365,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T00:51:45UTC
+            modification_time: 2021-06-29T04:56:06UTC
             run_instances: []
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
@@ -373,7 +375,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T00:51:45UTC
+            modification_time: 2021-06-29T04:56:06UTC
             run_instances: []
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
@@ -383,7 +385,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T00:51:45UTC
+            modification_time: 2021-06-29T04:56:07UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
@@ -394,5 +396,5 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T01:56:05UTC
+            modification_time: 2021-06-29T04:56:07UTC
             run_instances: []
