@@ -137,7 +137,7 @@ and update definition on ICA
         esac
       ;;
       add-linked-project)
-        OPTIONS+=('--src-project' 'The name of your project in project.yaml
+        OPTIONS+=('--src-project' 'The ID of your project in project.yaml
 ' '--target-project' 'ID of the target project to receive all ica workflows and ica workflow versions
 ')
         __cwl-ica_handle_options_flags

@@ -165,7 +165,7 @@ and update definition on ICA
                     '1: :->cmd1' \
                     '--help[Show command help]' \
                     '-h[Show command help]' \
-                    '--src-project[The name of your project in project.yaml
+                    '--src-project[The ID of your project in project.yaml
 ]:src-project:_cwl-ica_add-linked-project_option_src_project_completion' \
                     '--target-project[ID of the target project to receive all ica workflows and ica workflow versions
 ]:target-project' \
