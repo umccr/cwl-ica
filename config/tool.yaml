@@ -66,7 +66,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-hla-bed-from-faidx__1.0.0.cwl
-        md5sum: ef945ce5417bc7886b3aa67dcb42977b
+        md5sum: 34b3939fbdb3d642e299b3662151d284
     categories: []
   - name: bedops
     path: bedops
@@ -80,7 +80,7 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-germline__3.7.5.cwl
-        md5sum: 4574354a1e0b40dd49415688f0afca76
+        md5sum: 54dd1c2214ab62a252ba9fb195af749d
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -95,7 +95,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
-        md5sum: d6d98a22ba398ec56cede24d582169e4
+        md5sum: 64829a605ed798458fbe4772c8970248
     categories:
       - tso500
   - name: tso500-ctdna-analysis-workflow
@@ -103,7 +103,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
-        md5sum: ed369b6bc93461cf4ae093a814fba023
+        md5sum: 26f06d67bc0c1b8569f4d03d91335b44
     categories:
       - tso500
   - name: tso500-ctdna-reporting-workflow
@@ -111,7 +111,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
-        md5sum: d3873b2e3c90b59406986747537eaa30
+        md5sum: 63a3b446bbcde4bd82a1c3b00b8d623a
     categories:
       - tso500
   - name: custom-samplesheet-split-by-settings
@@ -147,40 +147,40 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic__3.7.5.cwl
-        md5sum: aacbf7dde65bdddb19e1258e93e3dadb
+        md5sum: 476ffd3dba9f93e6aeea222d45d373cd
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome__3.7.5.cwl
-        md5sum: 5d36c7fd37b74bd21fa49e58955cb7bc
+        md5sum: 59d9b3f3eb644033136c9582505bb2b4
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
-        md5sum: 65dd200c547415abd2ac500855e616c9
+        md5sum: 799d503cd950d052c40b3145574d8302
     categories: []
   - name: arriba-drawing
     path: arriba-drawing
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-drawing__2.0.0.cwl
-        md5sum: 123c2037b05723d8f919d0d35978b223
+        md5sum: 87ee5552c7c0e3aad1a74d5b3a75dc4b
     categories: []
   - name: multiqc
     path: multiqc
     versions:
       - name: 1.10.1
         path: 1.10.1/multiqc__1.10.1.cwl
-        md5sum: f53e0547ebe0d30d1a5515e43e5d49fb
+        md5sum: 41ed548ff78108ac73741fd6cdc6ea6c
     categories: []
   - name: dragen-alignment
     path: dragen-alignment
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment__3.7.5.cwl
-        md5sum: d379d6c8579884fd29b684b9c4de940d
+        md5sum: b6b90c6e5016c4718c73813b10699a32
     categories: []

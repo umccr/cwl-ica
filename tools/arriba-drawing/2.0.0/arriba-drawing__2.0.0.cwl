@@ -83,7 +83,7 @@ inputs:
       prefix: --cytobands=
       separate: false
       position: 5
-  proteinDomains:
+  protein_domains:
     label: protein domains
     doc: |
       GFF3 file containing the genomic coordinates of protein domains

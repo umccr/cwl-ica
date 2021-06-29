@@ -201,7 +201,7 @@ steps:
         source: run_dragen_transcriptome_step/dragen_bam_out
       cytobands:
         source: cytobands
-      proteinDomains:
+      protein_domains:
         source: protein_domains
     out: 
       - output_pdf
