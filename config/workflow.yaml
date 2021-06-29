@@ -62,7 +62,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
-        md5sum: 18bf072e4682bbad7e134085dad4bf23
+        md5sum: 82633e970581c22782afaadae266759e
     categories:
       - alignment
   - name: dragen-WGS-QC-pipeline
@@ -70,5 +70,5 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
-        md5sum: b7043b6e8d7538d8a124bd3a468f5070
+        md5sum: 050bdadba676a1e6742bdaf23dbb9d61
     categories: []
