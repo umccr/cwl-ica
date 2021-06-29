@@ -280,11 +280,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-WGS-QC-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-<<<<<<< HEAD
-            modification_time: 2021-06-28T02:45:52UTC
-=======
             modification_time: 2021-06-28T02:34:58UTC
->>>>>>> 6f137fd311a7be3c209d3c1541d56fd076aa2749
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
@@ -360,60 +356,3 @@ projects:
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-21T06:13:18UTC
             run_instances: []
-<<<<<<< HEAD
-=======
-  - project_name: cwl-ica-playground-wf
-    project_id: c7f417cd-8564-4241-9606-eb0b51ff7e0d
-    project_description: |
-        Playground workflows - links to playground
-    project_abbr: pg-wf
-    project_api_key_name: default-api-key
-    production: false
-    linked_projects:
-      - 7f858640-4a71-490a-9024-cc94b8d141cd
-    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
-    tools:
-      - name: multiqc
-        path: multiqc
-        ica_workflow_name: multiqc_pg-wf
-        ica_workflow_id: wfl.a99e94a3fe284338b9c3286da64e5838
-        versions:
-          - name: 1.10.1
-            path: 1.10.1/multiqc__1.10.1.cwl
-            ica_workflow_version_name: 1.10.1
-            modification_time: 2021-06-25T00:56:37UTC
-            run_instances: []
-      - name: optitype
-        path: optitype
-        ica_workflow_name: optitype_pg-wf
-        ica_workflow_id: wfl.8572c37270334396a8b502fa0c036ad4
-        versions:
-          - name: 1.3.5
-            path: 1.3.5/optitype__1.3.5.cwl
-            ica_workflow_version_name: 1.3.5
-            modification_time: 2021-06-25T00:56:38UTC
-            run_instances: []
-    workflows: []
-  - project_name: cwl-ica-playground-prod-workflows
-    project_id: dc1d1a0c-07c4-49a9-868f-935b8efb72cb
-    project_description: |
-        playground workflow prod project
-    project_abbr: pg-prod-wf
-    project_api_key_name: default-api-key
-    production: true
-    linked_projects:
-      - 31293195-a1a8-4136-97b8-da71f783078d
-    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
-    tools:
-      - name: multiqc
-        path: multiqc
-        ica_workflow_name: multiqc_pg-prod-wf
-        ica_workflow_id: wfl.89334edfa2fa46a49c6e30474f041ee2
-        versions:
-          - name: 1.10.1
-            path: 1.10.1/multiqc__1.10.1.cwl
-            ica_workflow_version_name: 1.10.1--f5a068f
-            modification_time: 2021-06-25T04:23:17UTC
-            run_instances: []
-    workflows: []
->>>>>>> 6f137fd311a7be3c209d3c1541d56fd076aa2749
