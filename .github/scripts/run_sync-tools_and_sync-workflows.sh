@@ -6,17 +6,29 @@ set -euo pipefail
 # Set Globals
 CONDA_ENV_NAME="cwl-ica"
 CWL_ICA_REPO_PATH="$PWD"
-GIT_COMMIT_ID="$1"
-SECRETS_JSON="$2"
 
 # Exports
 export CWL_ICA_REPO_PATH
-export GIT_COMMIT_ID
+
+# Check env vars
+if [[ ! -v GIT_COMMIT_ID ]]; then
+  echo "Error - expected env var GIT_COMMIT_ID" 1>&2
+  exit 1
+fi
+
+if [[ ! -v SECRETS_JSON ]]; then
+  echo "Error - expected env var SECRETS_JSON" 1>&2
+  exit 1
+fi
 
 # Run export over jq secrets -
 # Secrets are in nested form:
 # '{"PROJECT_X": {"ICA_ACCESS_TOKEN": "foo"}, "PROJECT_Y": {"ICA_ACCESS_TOKEN": "bar"}}'
 echo "Collecting access tokens" 1>&2
+
+# Reset secrets json
+SECRETS_JSON="$(echo "${SECRETS_JSON}" | sed 's/#/{/g' | sed 's/%/}/g')"
+
 for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
     # Now export each token env var as CWL_ICA_ACCESS_TOKEN_PROJECT_X=<PROJECT_X_ACCESS_TOKEN>
     # Sub out hypens for underscores

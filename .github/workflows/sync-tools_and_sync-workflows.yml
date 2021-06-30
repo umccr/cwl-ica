@@ -57,12 +57,12 @@ jobs:
             --volume  "$PWD:$PWD" \
             --workdir "$PWD" \
             --env USER="$(id -nu)" \
+            --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
+            --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
             continuumio/anaconda3:2021.05-user \
               sh -c "conda config --append pkgs_dirs \"\$HOME/.conda/pkgs\" && \
                      conda config --append envs_dirs \"\$HOME/.conda/envs\" && \
-                     bash \".github/scripts/run_sync-tools_and_sync-workflows.sh\" \
-                       '${{ steps.get_git_commit_id.outputs.git_commit_id }}' \
-                       '${{ secrets.ICA_ACCESS_TOKENS_JSON }}'"
+                     bash \".github/scripts/run_sync-tools_and_sync-workflows.sh\""
       # Commit to github
       - name: Commit configuration yaml files
         uses: EndBug/add-and-commit@v4
