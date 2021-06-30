@@ -26,8 +26,8 @@ fi
 # '{"PROJECT_X": {"ICA_ACCESS_TOKEN": "foo"}, "PROJECT_Y": {"ICA_ACCESS_TOKEN": "bar"}}'
 echo "Collecting access tokens" 1>&2
 
-# Reset secrets json
-SECRETS_JSON="$(echo "${SECRETS_JSON}" | sed 's/#/{/g' | sed 's/%/}/g')"
+# decode secrets json
+SECRETS_JSON="$(echo "${SECRETS_JSON}" | base64 -d)"
 
 for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
     # Now export each token env var as CWL_ICA_ACCESS_TOKEN_PROJECT_X=<PROJECT_X_ACCESS_TOKEN>
