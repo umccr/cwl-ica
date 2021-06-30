@@ -181,6 +181,16 @@ projects:
             ica_workflow_version_name: 2.0.0
             modification_time: 2021-06-29T01:01:43UTC
             run_instances: []
+      - name: custom-create-directory
+        path: custom-create-directory
+        ica_workflow_name: custom-create-directory_dev-wf
+        ica_workflow_id: wfl.d58562105cb74b67906be002c2f53bef
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/custom-create-directory__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0
+            modification_time: 2021-06-30T07:00:07UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -386,6 +396,16 @@ projects:
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-06-29T04:56:07UTC
+            run_instances: []
+      - name: custom-create-directory
+        path: custom-create-directory
+        ica_workflow_name: custom-create-directory_clb-ilmn-dev_wf
+        ica_workflow_id: wfl.261e0e22cfc842579d708d7a14134d4b
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/custom-create-directory__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0
+            modification_time: 2021-06-30T07:00:10UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
