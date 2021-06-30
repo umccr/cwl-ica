@@ -338,8 +338,8 @@ projects:
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
     project_description: |
-      Repository Project containing tools and workflows for the
-      collab-illumina-dev project
+        Repository Project containing tools and workflows for the
+        collab-illumina-dev project
     project_abbr: clb-ilmn-dev_wf
     project_api_key_name: collab-illumina-dev_workflows
     production: false
