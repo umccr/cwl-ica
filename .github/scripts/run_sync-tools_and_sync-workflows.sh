@@ -21,6 +21,11 @@ if [[ ! -v SECRETS_JSON ]]; then
   exit 1
 fi
 
+if [[ ! -v ICA_BASE_URL ]]; then
+  echo "Error - expected env var ICA_BASE_URL" 1>&2
+  exit 1
+fi
+
 # Run export over jq secrets -
 # Secrets are in nested form:
 # '{"PROJECT_X": {"ICA_ACCESS_TOKEN": "foo"}, "PROJECT_Y": {"ICA_ACCESS_TOKEN": "bar"}}'
