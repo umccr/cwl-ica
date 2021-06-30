@@ -25,30 +25,18 @@ TEMPLATE_FILE="templates/${CWL_ICA_NAMEROOT}-autocompletion.yaml"
  mkdir -p "zsh"
 
  # Run the bash completion script
- docker run \
-   --rm \
-   --user "$(id -u):$(id -g)" \
-   --volume  "$PWD:$PWD" \
-   --workdir "$PWD" \
-   umccr/appspec:0.006 \
-     appspec completion \
-       "${TEMPLATE_FILE}" \
-       --name "${CWL_ICA_NAMEROOT}" \
-       --bash > "bash/${CWL_ICA_NAMEROOT}.bash"
+ appspec completion \
+   "${TEMPLATE_FILE}" \
+   --name "${CWL_ICA_NAMEROOT}" \
+   --bash > "bash/${CWL_ICA_NAMEROOT}.bash"
 
   # Overwrite shebang
   sed -i '1c#!/usr/bin/env bash' "bash/${CWL_ICA_NAMEROOT}.bash"
 
   # Run the zsh completion script
-  docker run \
-    --rm \
-    --user "$(id -u):$(id -g)" \
-    --volume  "$PWD:$PWD" \
-    --workdir "$PWD" \
-    umccr/appspec:0.006 \
-      appspec completion \
-        "${TEMPLATE_FILE}" \
-        --name "${CWL_ICA_NAMEROOT}" \
-	      --zsh > "zsh/_${CWL_ICA_NAMEROOT}"
+  appspec completion \
+    "${TEMPLATE_FILE}" \
+    --name "${CWL_ICA_NAMEROOT}" \
+    --zsh > "zsh/_${CWL_ICA_NAMEROOT}"
 
 )

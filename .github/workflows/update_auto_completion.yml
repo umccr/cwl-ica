@@ -9,9 +9,7 @@ on:
      - "src/autocompletion/templates/*.yaml"
      # GH change
      - ".github/workflows/update_auto_completion.yml"
-     - ".github/actions/update-autocompletion/action.yml"
      - ".github/scripts/update_autocompletion.sh"
-
 
 jobs:
   update_auto_completion_yaml:
@@ -26,7 +24,13 @@ jobs:
       - id: update_autocompletion
         name: update autocompletion
         run: |
-          bash ".github/scripts/update_autocompletion.sh"
+          docker run \
+             --rm \
+             --user "$(id -u):$(id -g)" \
+             --volume  "$PWD:$PWD" \
+             --workdir "$PWD" \
+             umccr/appspec:0.006 \
+               bash ".github/scripts/update_autocompletion.sh"
       # Commit to github
       - id: commit_configuration_yaml_files
         name: Commit configuration yaml files

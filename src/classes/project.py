@@ -107,7 +107,7 @@ class Project:
         valid_access_token = False
         from_env = False
         logger.debug("Looking for project token in environment variables")
-        cwl_ica_access_token = os.environ.get("CWL_ICA_ACCESS_TOKEN_{}".format(self.project_name.upper()), None)
+        cwl_ica_access_token = os.environ.get("CWL_ICA_ACCESS_TOKEN_{}".format(self.project_name.upper().replace("-", "_")), None)
         token_path = Path(get_conda_tokens_dir()) / Path(f"{self.project_name}.txt")
 
         if cwl_ica_access_token is None and token_path.is_file():
