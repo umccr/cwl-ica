@@ -74,6 +74,9 @@ inputs:
     type: File
     doc: |
       FastA file with genome sequence
+    secondaryFiles:
+      - pattern: ".fai"
+        required: true
 
 steps:
   run_dragen_step:
