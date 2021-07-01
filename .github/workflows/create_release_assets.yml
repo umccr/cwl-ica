@@ -7,12 +7,12 @@ on:
     - 'v*' # Push events to matching v*, i.e v1.0, v20.15.10 etc
     - 'pre-v*' # Push events to matching pre-v, i.ve pre-v1.0, pre-v20.15.10
     - 'latest'
-    paths:
-      # Template change
-      - "src/autocompletion/templates/*.yaml"
-      # GH change
-      - ".github/workflows/update_auto_completion.yml"
-      - ".github/scripts/update_autocompletion.sh"
+   paths:
+     # Template change
+     - "src/autocompletion/templates/*.yaml"
+     # GH change
+     - ".github/workflows/update_auto_completion.yml"
+     - ".github/scripts/update_autocompletion.sh"
 
 jobs:
   build:
