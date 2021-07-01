@@ -14,8 +14,8 @@ s:author:
     s:email: sehrish.kanwal@umccr.org
 
 # ID/Docs
-id: dragen-WGS-QC-pipeline--3.7.5
-label: dragen-WGS-QC-pipeline v(3.7.5)
+id: dragen-wgs-qc-pipeline--3.7.5
+label: dragen-wgs-qc-pipeline v(3.7.5)
 doc: |
     Documentation for dragen-alignment-pipeline v3.7.5
 
@@ -55,7 +55,7 @@ inputs:
     doc: |
       The prefix given to all output files
     type: string
-  output_directory_wgs:
+  output_directory:
     label: output directory
     doc: |
       The directory where all output files are placed
@@ -93,7 +93,7 @@ steps:
       output_file_prefix:
         source: output_file_prefix
       output_directory:
-        source: output_directory_wgs
+        source: output_directory
       # Output configurations
       enable_map_align:
         valueFrom: ${ return true; }
@@ -124,7 +124,7 @@ steps:
         source: output_file_prefix
         # The output-prefix, if not specified just the sample name
       output_directory_name:
-        source: output_directory_wgs
+        source: output_directory
         valueFrom: "$(self)_somalier"
     out:
       - output_directory
