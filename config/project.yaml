@@ -220,7 +220,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-29T01:55:56UTC
+            modification_time: 2021-07-01T03:33:50UTC
             run_instances: []
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
@@ -250,7 +250,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-29T01:56:01UTC
+            modification_time: 2021-07-01T03:35:13UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -344,6 +344,16 @@ projects:
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--ef43134
             modification_time: 2021-06-29T01:56:04UTC
+            run_instances: []
+      - name: dragen-germline-pipeline
+        path: dragen-germline-pipeline
+        ica_workflow_name: dragen-germline-pipeline_prod-wf
+        ica_workflow_id: wfl.b41302dd537d44fd92ae719a367d69fd
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
+            modification_time:
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21

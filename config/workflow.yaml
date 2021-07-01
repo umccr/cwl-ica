@@ -19,7 +19,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
-        md5sum: 1dd21876f7d79d218f7cf5277455569d
+        md5sum: df9b5eeda506cba1587719866062b47b
     categories: []
   - name: dragen-qc-hla-pipeline
     path: dragen-qc-hla-pipeline
@@ -48,7 +48,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
-        md5sum: 32dc4439e50ab2aa58a1d88243e3a5b0
+        md5sum: 51b2e94f46c58787e5d736dba935af8a
     categories: []
   - name: dragen-transcriptome-pipeline
     path: dragen-transcriptome-pipeline

@@ -526,13 +526,13 @@ steps:
           }
       output_directory_name:
         source: output_file_prefix
-        valueFrom: "$(self)_dragen_multiqc"
+        valueFrom: "$(self)_dragen_alignment_multiqc"
       output_filename:
         source: output_file_prefix
-        valueFrom: "$(self)_dragen_multiqc.html"
+        valueFrom: "$(self)_dragen_alignment_multiqc.html"
       title:
         source: output_file_prefix
-        valueFrom: "UMCCR MultiQC Dragen report for $(self)"
+        valueFrom: "UMCCR MultiQC Dragen Alignment Report for $(self)"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:

@@ -471,6 +471,45 @@ steps:
       - somatic_snv_vcf_hard_filtered_out
       - somatic_structural_vcf_out
     run: ../../../tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.cwl
+  # Create dummy file
+  create_dummy_file_step:
+    label: Create dummy file
+    doc: |
+      Intermediate step for letting multiqc-interop be placed in stream mode
+    in: { }
+    out:
+      - dummy_file_output
+    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+  # Create a Dragen specific QC report
+  dragen_qc_step:
+    label: dragen qc step
+    doc: |
+      The dragen qc step - this takes in an array of dirs
+    requirements:
+      DockerRequirement:
+        dockerPull: umccr/multiqc-dragen:1.9
+    in:
+      input_directories:
+        source: run_dragen_somatic_step/dragen_somatic_output_directory
+        valueFrom: |
+          ${
+            return [self];
+          }
+      output_directory_name:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_somatic_multiqc"
+      output_filename:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_somatic_multiqc.html"
+      title:
+        source: output_file_prefix
+        valueFrom: "UMCCR MultiQC Dragen Somatic Report for $(self)"
+      dummy_file:
+        source: create_dummy_file_step/dummy_file_output
+    out:
+      - output_directory
+    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
+
 
 outputs:
   # Will also include mounted-files.txt
@@ -512,3 +551,9 @@ outputs:
       Exists only if --enable-sv is set to true.
     type: File?
     outputSource: run_dragen_somatic_step/somatic_structural_vcf_out
+  multiqc_output_directory:
+    label: multiqc output directory
+    doc: |
+      The output directory for multiqc
+    type: Directory
+    outputSource: dragen_qc_step/output_directory

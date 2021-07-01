@@ -294,7 +294,43 @@ steps:
       - dragen_bam_out
       - dragen_vcf_out
     run: ../../../tools/dragen-germline/3.7.5/dragen-germline__3.7.5.cwl
-
+  # Create dummy file for the qc step
+  create_dummy_file_step:
+    label: Create dummy file
+    doc: |
+      Intermediate step for letting multiqc-interop be placed in stream mode
+    in: { }
+    out:
+      - dummy_file_output
+    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+  dragen_qc_step:
+    label: dragen qc step
+    doc: |
+      The dragen qc step - this takes in an array of dirs
+    requirements:
+      DockerRequirement:
+        dockerPull: umccr/multiqc-dragen:1.9
+    in:
+      input_directories:
+        source: run_dragen_germline_step/dragen_germline_output_directory
+        valueFrom: |
+          ${
+            return [self];
+          }
+      output_directory_name:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_germline_multiqc"
+      output_filename:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_germline_multiqc.html"
+      title:
+        source: output_file_prefix
+        valueFrom: "UMCCR MultiQC Dragen Germline Report for $(self)"
+      dummy_file:
+        source: create_dummy_file_step/dummy_file_output
+    out:
+      - output_directory
+    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
 
 outputs:
   dragen_germline_output_directory:
@@ -322,3 +358,10 @@ outputs:
     secondaryFiles:
       - ".tbi"
     outputSource: run_dragen_germline_step/dragen_vcf_out
+  # The multiqc output directory
+  multiqc_output_directory:
+    label: multiqc output directory
+    doc: |
+      The output directory for multiqc
+    type: Directory
+    outputSource: dragen_qc_step/output_directory
