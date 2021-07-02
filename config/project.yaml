@@ -230,7 +230,7 @@ projects:
           - name: 3.7.5--1.3.5
             path: 3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl
             ica_workflow_version_name: 3.7.5--1.3.5
-            modification_time: 2021-06-29T01:55:57UTC
+            modification_time: 2021-07-01T03:55:15UTC
             run_instances: []
       - name: tso500-ctdna
         path: tso500-ctdna
@@ -280,7 +280,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-06-29T01:56:02UTC
+            modification_time: 2021-07-01T03:55:30UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
@@ -325,6 +325,11 @@ projects:
             ica_workflow_version_name: 3.7.5--ef43134
             modification_time: 2021-06-29T01:56:03UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5cwl
+            ica_workflow_version_name: 3.7.5--29dfde0
+            modification_time: 2021-07-01T03:55:38UTC
+            run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_prod-wf
@@ -352,8 +357,8 @@ projects:
         versions:
           - name: 3.7.5
             path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
-            ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 3.7.5--29dfde0
+            modification_time: 2021-07-01T03:55:44UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
