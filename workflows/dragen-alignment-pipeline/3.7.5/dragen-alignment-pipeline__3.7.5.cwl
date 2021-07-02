@@ -376,8 +376,8 @@ steps:
       fastq_list_rows:
         source: fastq_list_rows
     out:
-      - fastq_list_csv_out
-      - predefined_mount_paths_out
+      - id: fastq_list_csv_out
+      - id: predefined_mount_paths_out
     run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   
   # Run Dragen
@@ -495,8 +495,8 @@ steps:
       verbose:
         source: verbose
     out:
-      - dragen_alignment_output_directory
-      - dragen_bam_out
+      - id: dragen_alignment_output_directory
+      - id: dragen_bam_out
     run: ../../../tools/dragen-alignment/3.7.5/dragen-alignment__3.7.5.cwl
 
   # Create dummy file
@@ -506,7 +506,7 @@ steps:
       Intermediate step for letting multiqc-interop be placed in stream mode
     in: {}
     out:
-      - dummy_file_output
+      - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
 
   # Create a Dragen specific QC report
@@ -536,7 +536,7 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
-      - output_directory
+      - id: output_directory
     run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
 
 outputs:

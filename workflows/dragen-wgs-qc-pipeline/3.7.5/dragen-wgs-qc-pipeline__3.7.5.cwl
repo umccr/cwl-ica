@@ -100,9 +100,9 @@ steps:
       enable_duplicate_marking:
         valueFrom: ${ return true; }
     out:
-      - dragen_alignment_output_directory
-      - dragen_bam_out
-      - multiqc_output_directory
+      - id: dragen_alignment_output_directory
+      - id: dragen_bam_out
+      - id: multiqc_output_directory
     run: ../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl
 
   # Step-4: run somalier
@@ -127,7 +127,7 @@ steps:
         source: output_directory
         valueFrom: "$(self)_somalier"
     out:
-      - output_directory
+      - id: output_directory
     run: ../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl
 
 outputs:

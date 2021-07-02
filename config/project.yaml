@@ -290,7 +290,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-07-01T00:45:41UTC
+            modification_time: 2021-07-02T02:15:26UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
@@ -352,6 +352,16 @@ projects:
         versions:
           - name: 3.7.5
             path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
+      - name: dragen-wgs-qc-pipeline
+        path: dragen-wgs-qc-pipeline
+        ica_workflow_name: dragen-wgs-qc-pipeline_prod-wf
+        ica_workflow_id: wfl.23f61cb1baab412a8c37dc93bed6c2af
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
             modification_time:
             run_instances: []
