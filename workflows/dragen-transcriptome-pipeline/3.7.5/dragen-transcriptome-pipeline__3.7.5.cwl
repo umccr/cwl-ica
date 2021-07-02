@@ -133,7 +133,7 @@ steps:
       - fastq_list_csv_out
       - predefined_mount_paths_out
     run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
-  # Run dragen transcriptome workflow
+  # Step-1: Run dragen transcriptome workflow
   run_dragen_transcriptome_step:
     label: run dragen transcriptome step
     doc: |
@@ -206,6 +206,22 @@ steps:
     out: 
       - output_pdf
     run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
+  # Step-4: Create Arriba output directory
+  create_arriba_output_directory:
+    label: create arriba output directory
+    doc: |
+      Create an output directory to contain the arriba files
+    in:
+      input_files:
+        source:
+          - arriba_fusion_step/fusions
+          - arriba_fusion_step/discarded_fusions
+          - arriba_drawing_step/output_pdf
+      output_directory_name:
+        valueFrom: "arriba_outputs"
+    out:
+      - output_directory
+    run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
 
 outputs:
   dragen_transcriptome_output_directory:
@@ -214,21 +230,9 @@ outputs:
       The output directory containing all transcriptome output files
     type: Directory
     outputSource: run_dragen_transcriptome_step/dragen_transcriptome_directory
-  arriba_fusion_output:
-    label: arriba fusion output
+  arriba_output_directory:
+    label: arriba output directory
     doc: |
-      The output fusions file
-    type: File
-    outputSource: arriba_fusion_step/fusions
-  arriba_discarded_fusion_output:
-    label: arriba discarded fusions
-    doc: |
-      The fusions discarded by arriba
-    type: File
-    outputSource: arriba_fusion_step/discarded_fusions
-  arriba_pdf:
-    label: Arriba pdf
-    doc: |
-      The pdf drawing file
-    type: File
-    outputSource: arriba_drawing_step/output_pdf
+      The directory containing output files from arriba
+    type: Directory
+    outputSource: create_arriba_output_directory/output_directory
