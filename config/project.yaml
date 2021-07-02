@@ -270,7 +270,11 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
+<<<<<<< HEAD
             modification_time: 2021-07-02T12:18:34UTC
+=======
+            modification_time: 2021-07-02T05:02:38UTC
+>>>>>>> f6e3d0279a30eb0201c1f63811fad3d0467b0bc8
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
@@ -280,7 +284,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-07-01T03:55:30UTC
+            modification_time: 2021-07-02T05:02:42UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
@@ -290,7 +294,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-07-01T03:55:34UTC
+            modification_time: 2021-07-02T05:02:49UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
@@ -359,6 +363,16 @@ projects:
             path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--29dfde0
             modification_time: 2021-07-01T03:55:44UTC
+            run_instances: []
+      - name: dragen-wgs-qc-pipeline
+        path: dragen-wgs-qc-pipeline
+        ica_workflow_name: dragen-wgs-qc-pipeline_prod-wf
+        ica_workflow_id: wfl.23f61cb1baab412a8c37dc93bed6c2af
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--67a9d2b
+            modification_time: 2021-07-02T05:02:57UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
