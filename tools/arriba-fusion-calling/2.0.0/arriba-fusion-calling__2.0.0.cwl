@@ -105,14 +105,14 @@ outputs:
       file with output fusions
     type: File
     outputBinding: 
-      glob: "$(inputs.fusion)"
+      glob: "$(inputs.fusions_filename)"
   discarded_fusions:
     label: discarded fusions
     doc: | 
       file with discarded fusions
     type: File
     outputBinding: 
-      glob: "$(inputs.discardedFusion)"
+      glob: "$(inputs.discarded_fusions_filename)"
 
 successCodes:
   - 0

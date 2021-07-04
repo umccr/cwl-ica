@@ -55,14 +55,14 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
-        md5sum: 7c93be543fa637db69901ca784950e43
+        md5sum: 71bcc6fcba5dc7d80f0bcf76aaaa333b
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
-        md5sum: de2c1d7907c379a5b21d7ee65a662fb7
+        md5sum: 7d1f53b5a952427be5dbcd1165795907
     categories:
       - alignment
   - name: dragen-wgs-qc-pipeline
@@ -70,5 +70,5 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
-        md5sum: 74f8234665317f7554cde7c0d1127522
+        md5sum: e8a5f7e0631cb9d14303f56d67e408d7
     categories: []
