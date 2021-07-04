@@ -270,11 +270,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-<<<<<<< HEAD
             modification_time: 2021-07-02T12:18:34UTC
-=======
-            modification_time: 2021-07-02T05:02:38UTC
->>>>>>> f6e3d0279a30eb0201c1f63811fad3d0467b0bc8
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
