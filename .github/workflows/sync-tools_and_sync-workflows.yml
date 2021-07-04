@@ -12,6 +12,10 @@ on:
      - ".github/actions/sync-tools_and_sync-workflows/action.yml"
      - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
      - "src/install.sh"
+     # Config files (say a merge conflict is resolved)
+     - "config/project.yaml"
+     - "config.tool.yaml"
+     - "config/workflow.yaml"
 
 jobs:
   sync_tools_and_workflows:
