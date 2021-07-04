@@ -226,8 +226,8 @@ steps:
       fastq_list_rows:
         source: fastq_list_rows
     out:
-      - fastq_list_csv_out
-      - predefined_mount_paths_out
+      - id: fastq_list_csv_out
+      - id: predefined_mount_paths_out
     run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   # Run dragen germline workflow
   run_dragen_germline_step:
@@ -290,9 +290,9 @@ steps:
       lic_instance_id_location:
         source: lic_instance_id_location
     out:
-      - dragen_germline_output_directory
-      - dragen_bam_out
-      - dragen_vcf_out
+      - id: dragen_germline_output_directory
+      - id: dragen_bam_out
+      - id: dragen_vcf_out
     run: ../../../tools/dragen-germline/3.7.5/dragen-germline__3.7.5.cwl
   # Create dummy file for the qc step
   create_dummy_file_step:
@@ -301,7 +301,7 @@ steps:
       Intermediate step for letting multiqc-interop be placed in stream mode
     in: { }
     out:
-      - dummy_file_output
+      - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
   dragen_qc_step:
     label: dragen qc step
@@ -329,7 +329,7 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
-      - output_directory
+      - id: output_directory
     run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
 
 outputs:

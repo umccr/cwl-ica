@@ -124,9 +124,9 @@ steps:
       enable_duplicate_marking:
         valueFrom: ${ return true; }
     out:
-      - dragen_germline_output_directory
-      - dragen_bam_out
-      - dragen_vcf_out
+      - id: dragen_germline_output_directory
+      - id: dragen_bam_out
+      - id: dragen_vcf_out
     run: ../../../workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.cwl
   # Step-2a: Create dummy file
   create_dummy_file_step:
@@ -135,7 +135,7 @@ steps:
       Intermediate step for letting multiqc-interop be placed in stream mode
     in: {}
     out:
-      - dummy_file_output
+      - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
   # Step-2: Generate QC report
   qc_step:
@@ -161,8 +161,8 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
-      - output_directory
-      - output_file
+      - id: output_directory
+      - id: output_file
     run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
   # Step-3ai: Get secondary faidx file
   get_faidx_file_step:
@@ -175,7 +175,7 @@ steps:
       reference_fasta:
         source: reference_fasta
     out:
-      - faidx_file
+      - id: faidx_file
     run: ../../../expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.cwl
   # Step-3aii: Get regions bed for optitype
   get_hla_regions_bed_step:
@@ -190,7 +190,7 @@ steps:
       regions_bed_file:
         valueFrom: "hla-regions.bed"
     out:
-      - regions_bed
+      - id: regions_bed
     run: ../../../workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.cwl
   # Step-3: OptiTypePipeline step
   optitype_step:
@@ -207,9 +207,9 @@ steps:
       hla_reference_fasta:
         source: hla_reference_fasta
     out:
-      - output_directory
-      - result_matrix
-      - coverage_plot
+      - id: output_directory
+      - id: result_matrix
+      - id: coverage_plot
     run: ../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.cwl
   # Step-4: run somalier
   somalier_step:
@@ -233,7 +233,7 @@ steps:
         source: sample_name
         valueFrom: "$(self)_somalier"
     out:
-      - output_directory
+      - id: output_directory
     run: ../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl
 
 

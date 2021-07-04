@@ -130,8 +130,8 @@ steps:
       fastq_list_rows:
         source: fastq_list_rows
     out:
-      - fastq_list_csv_out
-      - predefined_mount_paths_out
+      - id: fastq_list_csv_out
+      - id: predefined_mount_paths_out
     run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   # Step-1: Run dragen transcriptome workflow
   run_dragen_transcriptome_step:
@@ -164,8 +164,8 @@ steps:
       enable_rna_gene_fusion:
         source: enable_rna_gene_fusion
     out:
-      - dragen_transcriptome_directory
-      - dragen_bam_out
+      - id: dragen_transcriptome_directory
+      - id: dragen_bam_out
     run: ../../../tools/dragen-transcriptome/3.7.5/dragen-transcriptome__3.7.5.cwl
   # Step-2: Call Arriba fusion calling step
   arriba_fusion_step:
@@ -184,8 +184,8 @@ steps:
       blacklist: 
         source: blacklist
     out:
-      - fusions
-      - discarded_fusions
+      - id: fusions
+      - id: discarded_fusions
     run: ../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl
   # Step-3: Call Arriba drawing script
   arriba_drawing_step:
@@ -204,7 +204,7 @@ steps:
       protein_domains:
         source: protein_domains
     out: 
-      - output_pdf
+      - id: output_pdf
     run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
   # Step-4: Create Arriba output directory
   create_arriba_output_directory:

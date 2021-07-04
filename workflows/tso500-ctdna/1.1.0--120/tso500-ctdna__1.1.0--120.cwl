@@ -122,7 +122,7 @@ steps:
       tso500_samples:
         source: tso500_samples
     out:
-      - tso500_samplesheet
+      - id: tso500_samplesheet
     run: ../../../tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
   # Demux step
   run_tso500_ctdna_demultiplex_workflow_step:
@@ -147,9 +147,9 @@ steps:
       resources_dir:
         source: resources_dir
     out:
-      - output_dir
-      - output_samplesheet
-      - fastq_validation_dsdm
+      - id: output_dir
+      - id: output_samplesheet
+      - id: fastq_validation_dsdm
     run: ../../../tools/tso500-ctdna-demultiplex-workflow/1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
   # Analysis step
   run_tso500_ctdna_analysis_workflow_step:
@@ -170,8 +170,8 @@ steps:
       dragen_license_key:
         source: dragen_license_key
     out:
-      - output_dir
-      - contamination_dsdm
+      - id: output_dir
+      - id: contamination_dsdm
     run: ../../../tools/tso500-ctdna-analysis-workflow/1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
   # Reporting workflow
   run_tso500_ctdna_reporting_workflow_step:
@@ -194,9 +194,9 @@ steps:
       samplesheet_prefix:
         source: samplesheet_prefix
     out:
-      - output_dir
-      - results_dir
-      - cleanup_dsdm
+      - id: output_dir
+      - id: results_dir
+      - id: cleanup_dsdm
     run: ../../../tools/tso500-ctdna-reporting-workflow/1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
 
 

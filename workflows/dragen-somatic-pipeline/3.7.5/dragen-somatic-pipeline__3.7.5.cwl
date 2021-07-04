@@ -356,8 +356,8 @@ steps:
       fastq_list_rows:
         source: fastq_list_rows
     out:
-      - fastq_list_csv_out
-      - predefined_mount_paths_out
+      - id: fastq_list_csv_out
+      - id: predefined_mount_paths_out
     run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   # Create fastq_list.csv
   create_tumor_fastq_list_csv_step:
@@ -370,8 +370,8 @@ steps:
       fastq_list_rows:
         source: tumor_fastq_list_rows
     out:
-      - fastq_list_csv_out
-      - predefined_mount_paths_out
+      - id: fastq_list_csv_out
+      - id: predefined_mount_paths_out
     run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   # Run dragen somatic workflow
   run_dragen_somatic_step:
@@ -464,12 +464,12 @@ steps:
       lic_instance_id_location:
         source: lic_instance_id_location
     out:
-      - dragen_somatic_output_directory
-      - tumor_bam_out
-      - normal_bam_out
-      - somatic_snv_vcf_out
-      - somatic_snv_vcf_hard_filtered_out
-      - somatic_structural_vcf_out
+      - id: dragen_somatic_output_directory
+      - id: tumor_bam_out
+      - id: normal_bam_out
+      - id: somatic_snv_vcf_out
+      - id: somatic_snv_vcf_hard_filtered_out
+      - id: somatic_structural_vcf_out
     run: ../../../tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.cwl
   # Create dummy file
   create_dummy_file_step:
@@ -478,7 +478,7 @@ steps:
       Intermediate step for letting multiqc-interop be placed in stream mode
     in: { }
     out:
-      - dummy_file_output
+      - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
   # Create a Dragen specific QC report
   dragen_qc_step:
@@ -507,7 +507,7 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
-      - output_directory
+      - id: output_directory
     run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
 
 

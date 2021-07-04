@@ -71,7 +71,7 @@ steps:
       genome_version:
         source: genome_version
     out:
-      - contig
+      - id: contig
     run: ../../../expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.cwl
   # Create regions bed from hla-regions
   create_regions_bed_for_hla_contigs_step:
@@ -83,7 +83,7 @@ steps:
       faidx_file:
         source: faidx_file
     out:
-      - hla_regions_bed
+      - id: hla_regions_bed
     run: ../../../tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.cwl
   # Create regions bed from contig objects
   create_regions_bed_for_chr_6_hla_region_step:
@@ -98,7 +98,7 @@ steps:
       regions_bed:
         source: regions_bed_file
     out:
-      - regions_bed_out
+      - id: regions_bed_out
     run: ../../../tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.cwl
   # Merge bed files with bedops merge
   bedops_merge_step:
@@ -115,7 +115,7 @@ steps:
       output_filename:
         source: regions_bed_file
     out:
-      - output_file
+      - id: output_file
     run: ../../../tools/bedops/2.4.39/bedops__2.4.39.cwl
 
 outputs:

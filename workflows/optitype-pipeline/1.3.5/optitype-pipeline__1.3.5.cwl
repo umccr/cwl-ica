@@ -79,7 +79,7 @@ steps:
         source: sample_name
         valueFrom: "$(self)_hla_sorted.bam"
     out:
-      - bam_indexed
+      - id: bam_indexed
     run: ../../../tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.cwl
   # Get unmapped reads from the bam file
   get_unmapped_file_from_sorted_bam_step:
@@ -97,7 +97,7 @@ steps:
         source: sample_name
         valueFrom: "$(self)_unmapped_sorted.bam"
     out:
-      - bam_indexed
+      - id: bam_indexed
     run: ../../../tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.cwl
   # Take a random subset of reads from the bam file.
   subset_unmapped_bam:
@@ -111,7 +111,7 @@ steps:
         # 2 million reads is more than enough -> but limits file size to about 2-3 Gbs
         valueFrom: ${ return parseInt("2000000"); }
     out:
-      - bam_indexed
+      - id: bam_indexed
     run: ../../../tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.cwl
   # Merge hla and unmapped bam files
   merge_hla_and_unmapped_bam_files_step:
@@ -127,7 +127,7 @@ steps:
         source: sample_name
         valueFrom: "$(self)_unmapped_and_hla_merged_sorted.bam"
     out:
-      - bam_indexed
+      - id: bam_indexed
     run: ../../../tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.cwl
   # Sort file by name first
   sort_merged_bam_by_name_step:
@@ -144,7 +144,7 @@ steps:
         source: sample_name
         valueFrom: "$(self)_umapped_and_hla_merged_sorted_by_readname.bam"
     out:
-      - bam_sorted
+      - id: bam_sorted
     run: ../../../tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.cwl
   # Convert to fastq to align through razers
   unmapped_and_hla_bam_to_fastq_step:
@@ -167,8 +167,8 @@ steps:
       append_read_number:
         valueFrom: ${ return true; }
     out:
-      - read_one_out
-      - read_two_out
+      - id: read_one_out
+      - id: read_two_out
     run: ../../../tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.cwl
   # Run output fastq through optitype step
   optitype_step:
@@ -190,9 +190,9 @@ steps:
       enumerate:
         valueFrom: ${ return parseInt("3"); }
     out:
-      - result_matrix
-      - coverage_plot
-      - output_directory
+      - id: result_matrix
+      - id: coverage_plot
+      - id: output_directory
     run: ../../../tools/optitype/1.3.5/optitype__1.3.5.cwl
 
 # Outputs

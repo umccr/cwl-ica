@@ -133,8 +133,8 @@ steps:
       samplesheet_format:
         source: samplesheet_output_format
     out:
-      - samplesheets
-      - samplesheet_outdir
+      - id: samplesheets
+      - id: samplesheet_outdir
     run: ../../../tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl
   # Get midfixes
   get_batch_dirs:
@@ -145,7 +145,7 @@ steps:
       samplesheets:
         source: samplesheet_split_by_settings_step/samplesheets
     out:
-      - batch_names
+      - id: batch_names
     run: ../../../expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.cwl
   # Scatter bclConvert over each samplesheet, produce an array of output directories
   bcl_convert_step:
@@ -173,8 +173,8 @@ steps:
       delete_undetermined_indices:
         source: delete_undetermined_indices_bcl_conversion
     out:
-      - bcl_convert_directory_output
-      - fastq_list_rows
+      - id: bcl_convert_directory_output
+      - id: fastq_list_rows
     run: ../../../tools/bclConvert/3.7.5/bclConvert__3.7.5.cwl
   # Flatten the array of output fastq_list_rows.
   flatten_fastq_list_rows_array:
@@ -185,7 +185,7 @@ steps:
     in:
       arrayTwoDim: bcl_convert_step/fastq_list_rows
     out:
-      - array1d
+      - id: array1d
     run: ../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.cwl
   # Create a dummy file s.t the qc steps are auto-streamed
   create_dummy_file_step:
@@ -194,7 +194,7 @@ steps:
       Intermediate step for letting multiqc-interop be placed in stream mode
     in: {}
     out:
-      - dummy_file_output
+      - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
   # Create a bclconvert specific report
   bclconvert_qc_step:
@@ -225,7 +225,7 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
-      - output_directory
+      - id: output_directory
     run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
   # Create run specific QC report (interop)
   interop_qc_step:
@@ -247,7 +247,7 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
-      - interop_multi_qc_out
+      - id: interop_multi_qc_out
     run: ../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl
 
 
