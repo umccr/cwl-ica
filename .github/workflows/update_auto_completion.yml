@@ -43,8 +43,12 @@ jobs:
           pull_strategy: "--rebase"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          branch: beta-release  # To be moved to 'main'
+      # Push config files
+      - name: Push code
+        id: git_push
+        run: |
+          # Pull first
+          git pull --rebase
+
+          # Merge next
+          git push
