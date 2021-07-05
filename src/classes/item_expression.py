@@ -47,5 +47,8 @@ class ItemExpression(Item):
                 raise ItemVersionAttributeError
             # Need to add in the cwl file path
             version["cwl_file_path"] = Path(get_expressions_dir()) / Path(self.path) / Path(version["path"])
+            if not version["cwl_file_path"].is_file():
+                logger.warning(f"Could not find cwl file {version['cwl_file_path']}. Skipping file")
+                continue
             version_objs.append(ItemVersionExpression.from_dict(version))
         return version_objs
