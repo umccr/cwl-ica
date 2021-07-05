@@ -61,6 +61,7 @@ Command:
     schema-validate                     Validate a CWL schema
     tool-validate                       Validate a CWL tool ready for initialising on ICA
     workflow-validate                   Validate a CWL workflow ready for initialising on ICA
+    validate-config-yamls               Confirms configuration files are legit
 
 
     ###############
@@ -288,6 +289,12 @@ def _dispatch():
         workflow_validate_obj = WorkflowValidate(command_argv)
         # Call command
         workflow_validate_obj()
+    elif cmd == "validate-config-yamls":
+        from subcommands.validators.validate_config_yamls import ValidateConfigYamls
+        # Init command
+        validate_config_obj = ValidateConfigYamls(command_argv)
+        # Call command
+        validate_config_obj()
 
     # Initialisation commands
     elif cmd == "expression-init":
