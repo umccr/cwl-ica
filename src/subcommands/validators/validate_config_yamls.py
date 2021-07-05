@@ -5,21 +5,12 @@ Confirm that all the yamls in config/ are valid yaml files
 """
 
 from classes.command import Command
-from utils.conda import get_conda_activate_dir
 from utils.logging import get_logger
-from docopt import docopt
-from pathlib import Path
-import re
-import requests
-from urllib.parse import urlparse
-from argparse import ArgumentError
 from utils.repo import read_yaml, \
     get_configuration_path, get_project_yaml_path, get_tenant_yaml_path, get_category_yaml_path, \
     get_user_yaml_path, get_expression_yaml_path,  get_schema_yaml_path,  get_tool_yaml_path, get_workflow_yaml_path
-from utils.errors import UserExistsError, CheckArgumentError
 from ruamel.yaml.error import YAMLError
-from ruamel.yaml.comments import CommentedMap as OrderedDict
-from utils.yaml import dump_yaml
+import sys
 
 logger = get_logger()
 
@@ -81,7 +72,8 @@ Example:
                 error_count += 1
 
         if error_count > 0:
-            logger.warning(f"{error_count} files were unable to be loaded. Please amend these files before committing")
+            logger.error(f"{error_count} files were unable to be loaded. Please amend these files before committing")
+            sys.exit(1)
 
     def check_args(self):
         """
