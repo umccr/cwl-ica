@@ -95,6 +95,20 @@ get_this_path() {
   echo "${this_dir}"
 }
 
+get_lib_path(){
+  : '
+  Returns path to sync libraries to
+  '
+
+  local conda_env_prefix="$1"
+
+  if [[ "${OSTYPE}" == "msys" ]]; then
+    echo "${conda_env_prefix}/Lib"
+  else
+    echo "${conda_env_prefix}/lib/python3.8"
+  fi
+}
+
 _verlte() {
   [ "$1" = "$(echo -e "$1\n$2" | sort -V | head -n1)" ]
 }
@@ -152,7 +166,11 @@ get_conda_env_prefix() {
                     })"
 
   # Should return something like '/home/alexiswl/anaconda3/envs/cwl-ica'
-  echo "${conda_env_prefix}"
+  if [[ "$OSTYPE" == "msys" ]]; then
+    cygpath --path "${conda_env_prefix}"
+  else
+    echo "${conda_env_prefix}"
+  fi
 }
 
 check_conda_version() {
@@ -204,7 +222,7 @@ print_help() {
 # Check installation type first
 if type ps 2>/dev/null; then
   # Make sure user is running this through bash
-  if [[ "$(basename "$(ps h -p $$ -o args="" | cut -f1 -d' ')")" != "bash" ]]; then
+  if [[ "${OSTYPE}" != "msys" && "$(basename "$(ps h -p $$ -o args="" | cut -f1 -d' ')")" != "bash" ]]; then
     echo_stderr "Error: Please make sure you are running this installation script through bash"
     exit 1
   fi
@@ -336,13 +354,13 @@ Copy over utils/classes/subcommands to library path
 '
 
 rsync --delete --archive \
-  "$(get_this_path)/utils/" "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/"
+  "$(get_this_path)/utils/" "$(get_lib_path "${conda_cwl_ica_env_prefix}")/utils/"
 
 rsync --delete --archive \
-  "$(get_this_path)/classes/" "${conda_cwl_ica_env_prefix}/lib/python3.8/classes/"
+  "$(get_this_path)/classes/" "$(get_lib_path "${conda_cwl_ica_env_prefix}")/classes/"
 
 rsync --delete --archive \
-  "$(get_this_path)/subcommands/" "${conda_cwl_ica_env_prefix}/lib/python3.8/subcommands/"
+  "$(get_this_path)/subcommands/" "$(get_lib_path "${conda_cwl_ica_env_prefix}")/subcommands/"
 
 #####################
 # REPLACE __VERSION__
@@ -352,11 +370,11 @@ Only needed in the event that one is installing from source
 '
 
 sed "s/__VERSION__/latest/" \
-  "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/__version__.py" > \
-  "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/__version__.py.tmp"
+  "$(get_lib_path "${conda_cwl_ica_env_prefix}")/utils/__version__.py" > \
+  "$(get_lib_path "${conda_cwl_ica_env_prefix}")/utils/__version__.py.tmp"
 
-mv "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/__version__.py.tmp" \
-  "${conda_cwl_ica_env_prefix}/lib/python3.8/utils/__version__.py"
+mv "$(get_lib_path "${conda_cwl_ica_env_prefix}")/utils/__version__.py.tmp" \
+  "$(get_lib_path "${conda_cwl_ica_env_prefix}")/utils/__version__.py"
 
 ##################################
 # Add autocompletion to activate.d
