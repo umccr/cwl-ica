@@ -147,6 +147,11 @@ class ICAWorkflowVersion:
         # Set config
         configuration = self.get_ica_wes_configuration(access_token)
 
+        # Check update is okay first
+        if not self.check_update_okay():
+            # Update should NOT happen
+            return
+
         # Set acl
         acl = [f"cid:{project_id}"]
 
@@ -257,7 +262,8 @@ class ICAWorkflowVersion:
             logger.warning(f"Cannot update workflow \"{self.ica_workflow_id}\" "
                            f"version \"{self.ica_workflow_version_name}\""
                            f"It has been modified elsewhere but the "
-                           f"modification was not recorded in project.yaml file.")
+                           f"modification was not recorded in project.yaml file. "
+                           f"Another user may be editing this workflow but has not pushed changes or you have not pulled the changes")
             return False
 
     def to_dict(self):
