@@ -300,7 +300,9 @@ subcommands:
         completion:
           command_string: |-
             find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
-
+  validate-config-yamls:
+    summary: |
+      Confirm all config yamls are legitimate
 
   ###############
   # Init Commands
