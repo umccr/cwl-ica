@@ -54,6 +54,7 @@ Each project is linked to a tenancy id
 '$'\n''tool-sync'$'\t''Sync a tool md5sum in \${CWL_ICA_REPO_PATH}/config/tool.yaml
 and update definition on ICA
 '$'\n''tool-validate'$'\t''Validate a CWL tool ready for initialising on ICA
+'$'\n''validate-config-yamls'$'\t''Confirm all config yamls are legitimate
 '$'\n''version'$'\t''Print version and exit
 '$'\n''workflow-init'$'\t''Register a workflow in \${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
 '$'\n''workflow-sync'$'\t''Sync a workflows md5sum in \${CWL_ICA_REPO_PATH}/config/workflow.yaml
@@ -666,6 +667,10 @@ to workflow names
             __comp_current_options || return
         ;;
         esac
+      ;;
+      validate-config-yamls)
+        __cwl-ica_handle_options_flags
+        __comp_current_options true || return # no subcmds, no params/opts
       ;;
       version)
         __cwl-ica_handle_options_flags
