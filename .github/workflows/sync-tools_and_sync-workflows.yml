@@ -71,7 +71,7 @@ jobs:
                      bash \".github/scripts/run_sync-tools_and_sync-workflows.sh\""
       # Commit to github
       - name: Commit configuration yaml files
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v7.2.1
         with:
           add: "config/"
           author_name: "auto-config-updater"

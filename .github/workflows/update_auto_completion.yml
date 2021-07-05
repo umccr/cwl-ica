@@ -35,7 +35,7 @@ jobs:
       # Commit to github
       - id: commit_configuration_yaml_files
         name: Commit configuration yaml files
-        uses: EndBug/add-and-commit@v4
+        uses: EndBug/add-and-commit@v7.2.1
         with:
           add: "src/autocompletion/"
           author_name: "auto-autocompletion-updater"
