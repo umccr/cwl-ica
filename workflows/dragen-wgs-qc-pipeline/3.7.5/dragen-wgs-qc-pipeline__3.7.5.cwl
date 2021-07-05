@@ -79,6 +79,7 @@ inputs:
         required: true
 
 steps:
+  # Step-1: run subworkflow that mainly calls Dragen and multiQC
   run_dragen_step:
     label: run dragen alignment step
     doc: |
@@ -105,7 +106,7 @@ steps:
       - id: multiqc_output_directory
     run: ../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl
 
-  # Step-4: run somalier
+  # Step-2: run somalier
   run_somalier_step:
     label: somalier
     doc: |
