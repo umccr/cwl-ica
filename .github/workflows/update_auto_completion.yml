@@ -48,7 +48,7 @@ jobs:
         id: git_push
         run: |
           # Pull first
-          git pull --rebase
+          git pull --rebase "${GITHUB_REF}"
 
-          # Merge next
-          git push
+          # Push after
+          git push origin "${GITHUB_REF}"
