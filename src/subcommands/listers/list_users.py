@@ -49,6 +49,9 @@ Example:
         # Write user to stdout
         user_df.to_markdown(sys.stdout, index=False)
 
+        # Add new line
+        print()
+
     def check_args(self):
         """
         Check if --tenant-name is defined or CWL_ICA_DEFAULT_TENANT is present

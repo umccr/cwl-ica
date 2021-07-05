@@ -65,13 +65,8 @@ Example:
         project_df[["project_name", "project_id", "project_description", "production"]].\
             to_markdown(sys.stdout, index=False)
 
-    @staticmethod
-    def get_args(command_argv):
-        """
-        :return:
-        """
-        # Get arguments from commandline
-        return docopt(__class__.__doc__, argv=command_argv, options_first=False)
+        # Create a new line character
+        print()
 
     def check_args(self):
         """

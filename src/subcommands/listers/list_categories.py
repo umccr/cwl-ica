@@ -49,6 +49,9 @@ Example:
         # Write category to stdout
         category_df.to_markdown(sys.stdout, index=False)
 
+        # Create new line character
+        print()
+
     def check_args(self):
         """
         Check category yaml exists
