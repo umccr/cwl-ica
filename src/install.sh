@@ -407,9 +407,13 @@ if [[ "${user_shell}" == "bash" ]]; then
 elif [[ "${user_shell}" == "zsh" ]]; then
   rsync --archive "$(get_this_path)/autocompletion/${user_shell}/" \
     "${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/"
-  echo_stderr "To enable autocompletions for this script add the following lines to your '~/.zshrc'"
+  echo_stderr "To enable autocompletions for this script add the following lines to your '~/.zlogin'"
   echo_stderr "######CWL-ICA######"
   echo_stderr "fpath=(\"${conda_cwl_ica_env_prefix}/etc/autocompletions/${user_shell}/\" \$fpath)"
+  if [[ "${OSTYPE}" == "darwin"* ]]; then
+    # Mac Users need to run 'autoload' before running compinit
+    echo_stderr "autoload -Uz compinit"
+  fi
   echo_stderr "compinit"
   echo_stderr "###################"
 
