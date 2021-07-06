@@ -202,9 +202,6 @@ steps:
     doc: |
       The bclconvert qc step - from scatter this takes in an array of dirs
     # This allows us to run the bclconvert module over the array of directories
-    requirements:
-      DockerRequirement:
-        dockerPull: umccr/multiqc-bclconvert:1.9
     in:
       input_directories:
         source: bcl_convert_step/bcl_convert_directory_output
@@ -226,7 +223,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
+    run: ../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl
   # Create run specific QC report (interop)
   interop_qc_step:
     label: interop qc step

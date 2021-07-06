@@ -176,6 +176,9 @@ tools:
       - name: 1.10.1
         path: 1.10.1/multiqc__1.10.1.cwl
         md5sum: 41ed548ff78108ac73741fd6cdc6ea6c
+      - name: 1.11.0
+        path: 1.11.0/multiqc__1.11.0.cwl
+        md5sum: c11d22eae7403c803231d56d54a67091
     categories: []
   - name: dragen-alignment
     path: dragen-alignment
