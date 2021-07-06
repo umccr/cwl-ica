@@ -164,7 +164,7 @@ projects:
           - name: 1.11.0
             path: 1.11.0/multiqc__1.11.0.cwl
             ica_workflow_version_name: 1.11.0
-            modification_time: 2021-07-06T04:25:18UTC
+            modification_time: 2021-07-06T06:40:17UTC
             run_instances: []
       - name: dragen-alignment
         path: dragen-alignment
@@ -359,6 +359,11 @@ projects:
             path: 3.7.5/bcl-conversion__3.7.5cwl
             ica_workflow_version_name: 3.7.5--1d8fe7b
             modification_time: 2021-07-04T11:54:31UTC
+            run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/bcl-conversion__3.7.5cwl
+            ica_workflow_version_name: 3.7.5--f1e67a3
+            modification_time: 2021-07-06T06:45:54UTC
             run_instances: []
       - name: dragen-transcriptome-pipeline
         path: dragen-transcriptome-pipeline
