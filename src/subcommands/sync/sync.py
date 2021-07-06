@@ -10,6 +10,7 @@ For each project specified, we compare the md5sum of the version against the upd
 
 from classes.command import Command
 from classes.project import Project
+from classes.project_production import ProductionProject
 from utils.repo import get_tenant_yaml_path, read_yaml, get_project_yaml_path
 import os
 from ruamel import yaml
@@ -364,7 +365,13 @@ class Sync(Command):
         # Read in the appropriate project objects
         self.projects = []
         for project_dict in projects_list:
-            if project_dict.get("project_name") in self.project_list:
+            # Skip projects we're not working on
+            if project_dict.get("project_name") not in self.project_list:
+                continue
+
+            if project_dict.get("production"):
+                self.projects.append(ProductionProject.from_dict(project_dict))
+            else:
                 self.projects.append(Project.from_dict(project_dict))
 
         # Filter projects

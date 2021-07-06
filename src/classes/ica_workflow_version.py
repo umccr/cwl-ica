@@ -256,7 +256,7 @@ class ICAWorkflowVersion:
         :return:
         """
         # Add workflow version
-        if self.get_workflow_version_modification_time() < self.modification_time:
+        if self.get_workflow_version_modification_time() <= self.modification_time:
             return True
         else:
             logger.warning(f"Cannot update workflow \"{self.ica_workflow_id}\" "
