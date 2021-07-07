@@ -194,3 +194,10 @@ tools:
         path: 1.0.0/custom-create-directory__1.0.0.cwl
         md5sum: 22a4d53dc62d5ceebc12ba4efd1b6925
     categories: []
+  - name: dragen-build-reference-tarball
+    path: dragen-build-reference-tarball
+    versions:
+      - name: 3.7.5
+        path: 3.7.5/dragen-build-reference-tarball__3.7.5.cwl
+        md5sum: 6125bf3e82c9bc95b6cee76a7cb11b27
+    categories: []

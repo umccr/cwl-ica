@@ -196,6 +196,16 @@ projects:
             ica_workflow_version_name: 1.0.0
             modification_time: 2021-07-04T11:45:37UTC
             run_instances: []
+      - name: dragen-build-reference-tarball
+        path: dragen-build-reference-tarball
+        ica_workflow_name: dragen-build-reference-tarball_dev-wf
+        ica_workflow_id: wfl.01656410e5f949b194ae7e629568f0dd
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-build-reference-tarball__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5
+            modification_time: 2021-07-07T02:29:13UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -308,7 +318,17 @@ projects:
     linked_projects:
       - 20b42a71-1ebc-4e7b-b659-313f2f4524c3
     tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
-    tools: []
+    tools:
+      - name: dragen-build-reference-tarball
+        path: dragen-build-reference-tarball
+        ica_workflow_name: dragen-build-reference-tarball_prod-wf
+        ica_workflow_id: wfl.9e5bdd810ef8404fabb29f8d71214131
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-build-reference-tarball__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
     workflows:
       - name: tso500-ctdna
         path: tso500-ctdna
