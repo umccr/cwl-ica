@@ -37,15 +37,22 @@ echo_stderr() {
 
 has_conda() {
   if ! conda --version >/dev/null; then
-    echo_stderr "Could find command 'conda'. Please ensure conda is installed before continuing"
+    echo_stderr "Error: Could not find command 'conda'. Please ensure conda is installed before continuing"
     return 1
   fi
 }
 
 has_jq() {
   if ! jq --version >/dev/null; then
-    echo_stderr "Could not find command 'jq'. Please ensure jq is installed before continuing"
+    echo_stderr "Error: Could not find command 'jq'. Please ensure jq is installed before continuing"
     return 1
+  fi
+}
+
+has_node(){
+  # Check node, then nodejq then docker ps
+  if ! ( node --version >/dev/null || nodejs --version >/dev/null || docker version >/dev/null); then
+    echo_stderr "Error: Please install one of node, nodejs or docker"
   fi
 }
 
@@ -260,7 +267,7 @@ set -u
 ############
 
 # Installations
-echo_stderr "Checking conda and jq are installed"
+echo_stderr "Checking conda, jq and node/nodejs/docker are installed"
 
 if ! has_conda; then
   echo_stderr "Error, could not find conda binary."
@@ -271,6 +278,11 @@ fi
 if ! has_jq; then
   echo_stderr "Error, could not find jq binary."
   echo_stderr "Please install jq globally (preferred) via apt/brew or locally via conda before continuing"
+  exit 1
+fi
+
+if ! has_node; then
+  echo_stderr "Could not one of node, nodejs or docker, required for cwltool commands"
   exit 1
 fi
 
