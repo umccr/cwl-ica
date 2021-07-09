@@ -371,7 +371,7 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")'
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
   workflow-init:
     summary: |
       Register a workflow in ${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
@@ -403,7 +403,7 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")'
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
 
 
   ########################
@@ -553,6 +553,13 @@ subcommands:
         completion:
           command_string: |-
             python -c 'exec("""\nfrom utils.repo import read_yaml, get_tool_yaml_path\n\nfor tool in read_yaml(get_tool_yaml_path())["tools"]:\n    print(tool.get("name"))\n""")'
+      - name: category-name
+        summary: |
+          The name of the category
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
   add-category-to-workflow:
     summary: |
       Add an existing category to an existing workflow
@@ -564,7 +571,13 @@ subcommands:
         completion:
           command_string: |-
             python -c 'exec("""\nfrom utils.repo import read_yaml, get_workflow_yaml_path\n\nfor workflow in read_yaml(get_workflow_yaml_path())["workflows"]:\n    print(workflow.get("name"))\n""")'
-
+      - name: category-name
+        summary: |
+          The name of the category
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
 
   #########################
   # Add maintainer commands
