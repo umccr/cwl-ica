@@ -263,7 +263,7 @@ class Project:
             project_ica_item_version.create_workflow_version(cwl_obj.cwl_packed_obj, access_token,
                                                              project_id=self.project_id, linked_projects=self.linked_projects)
 
-    def sync_item_version_with_project(self, ica_workflow_version, md5sum, cwl_packed_obj):
+    def sync_item_version_with_project(self, ica_workflow_version, md5sum, cwl_packed_obj, force=False):
         """
         Takes an ica workflow version object (which, yes will be an item in this in either tools or workflows)
         Gets the new item versions md5sum and the cwl_packed_dict for uploading to ica
@@ -271,32 +271,25 @@ class Project:
         In the ProductionVersion, this is set in mind for GitHub actions
         :return:
         """
-        # Call the workflow version object
-        workflow_version_obj = ica_workflow_version.get_workflow_version_object(self.get_project_token())
+        # Call the workflow version object / Assign ica_workflow_obj attribute to ica_workflow_version obj
+        _ = ica_workflow_version.get_workflow_version_object(self.get_project_token())
 
         # Now compare the item version and ica workflow version
         if self.compare_item_version_and_ica_workflow_version(ica_workflow_version, md5sum):
             # Update ica workflow
             ica_workflow_version.sync_workflow_version(cwl_packed_obj, self.get_project_token(),
-                                                       project_id=self.project_id, linked_projects=self.linked_projects)
+                                                       project_id=self.project_id,
+                                                       linked_projects=self.linked_projects,
+                                                       force=force)
 
     # Compare item version and ICA workflow version
-    def compare_item_version_and_ica_workflow_version(self, ica_workflow_version, md5sum):
+    @staticmethod
+    def compare_item_version_and_ica_workflow_version(ica_workflow_version, md5sum):
         """
         Get item version and ica workflow version
         :return:
         """
-        old_workflow_modification_time = ica_workflow_version.modification_time
-        # Now call the object to re-update the modification time attribute
-        _ = ica_workflow_version.get_workflow_version_object(self.get_project_token())
-        # Compare modification times
-        if old_workflow_modification_time < ica_workflow_version.get_workflow_version_modification_time():
-            logger.warning(
-                f"Skipping project \"{self.project_name}\", modification time on ICA is later than that on yaml. "
-                f"This workflow will need to be updated manually for this tool")
-            return False
-
-        # Get the md5sum attribute
+        # Set the workflow version object
         if ica_workflow_version.get_workflow_version_md5sum() == md5sum:
             logger.info("Workflow is up-to-date, skipping")
             return False

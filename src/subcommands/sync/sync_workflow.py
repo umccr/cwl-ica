@@ -21,6 +21,7 @@ class WorkflowSync(Sync):
     cwl-ica [options] workflow-sync (--workflow-path /path/to/workflow.cwl)
                                 [--projects="project[,additional-projects]"]
                                 [--tenants="tenant-name[,additional-tenants]"]
+                                [--force]
 
 
 Description:
@@ -34,9 +35,10 @@ Description:
 
 
 Options:
-    --workflow-path=<the workflow path>                         Required, the path to the cwl workflow
+    --workflow-path=<the workflow path>                 Required, the path to the cwl workflow
     --projects=<the list of projects>                   Optional, the list of projects
     --tenants=<the list of tenants>                     Optional, the list of tenants
+    --force                                             Optional, force sync even if modification time is ahead on ICA
 
 Environment Variables:
     CWL_ICA_DEFAULT_PROJECT    Can be used as an alternative for --projects.
@@ -93,6 +95,10 @@ Example:
 
         # Get projects
         self.set_projects_list()
+
+        # Check force argument
+        if self.args.get("--force", False):
+            self.force = True
 
     @staticmethod
     def get_project_ica_item_list(project):

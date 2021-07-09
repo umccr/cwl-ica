@@ -138,7 +138,7 @@ class ICAWorkflowVersion:
         # Update modification time attribute
         self.modification_time = self.get_workflow_version_modification_time()
 
-    def sync_workflow_version(self, workflow_definition, access_token, project_id, linked_projects=None):
+    def sync_workflow_version(self, workflow_definition, access_token, project_id, linked_projects=None, force=False):
         """
         Use libica to update a workflow version through PATCH
         :return:
@@ -147,10 +147,13 @@ class ICAWorkflowVersion:
         # Set config
         configuration = self.get_ica_wes_configuration(access_token)
 
-        # Check update is okay first
+        # Check update is okay first or if we've set force to okay
         if not self.check_update_okay():
-            # Update should NOT happen
-            return
+            if not force:
+                # Update should NOT happen
+                return
+            else:
+                logger.warning("Overriding ICA workflow version definition with --force")
 
         # Set acl
         acl = [f"cid:{project_id}"]
@@ -204,9 +207,6 @@ class ICAWorkflowVersion:
 
         self.workflow_version_obj = api_response
 
-        # Update modification time attribute
-        self.modification_time = self.get_workflow_version_modification_time()
-
         return api_response
 
     def get_workflow_version_md5sum(self):
@@ -243,7 +243,7 @@ class ICAWorkflowVersion:
             return None
 
         # Get definition
-        workflow_modification_time = self.workflow_version_obj.time_modified
+        workflow_modification_time = self.workflow_version_obj.time_modified.replace(microsecond=0)
 
         # Calculate md5sum
         return workflow_modification_time
@@ -260,7 +260,7 @@ class ICAWorkflowVersion:
             return True
         else:
             logger.warning(f"Cannot update workflow \"{self.ica_workflow_id}\" "
-                           f"version \"{self.ica_workflow_version_name}\""
+                           f"version \"{self.ica_workflow_version_name}\".  "
                            f"It has been modified elsewhere but the "
                            f"modification was not recorded in project.yaml file. "
                            f"Another user may be editing this workflow but has not pushed changes or you have not pulled the changes")

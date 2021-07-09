@@ -64,6 +64,7 @@ class Sync(Command):
         self.projects = None  # List of project objects
         self.project_list = None  # Str list of projects
         self.update_projects = update_projects  # True for tools and workflows, false for expressions and schemas
+        self.force = False
 
         # Check args
         try:
@@ -122,7 +123,7 @@ class Sync(Command):
                 # Get workflow version
                 ica_workflow_version = self.get_ica_workflow_version(ica_workflow)
                 # Now sync the item version with the project
-                project.sync_item_version_with_project(ica_workflow_version, self.md5sum, self.cwl_packed_obj)
+                project.sync_item_version_with_project(ica_workflow_version, self.md5sum, self.cwl_packed_obj, force=self.force)
 
             # Update project yaml
             logger.info("Updating project yaml")

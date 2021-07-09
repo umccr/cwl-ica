@@ -70,7 +70,7 @@ class ICAWorkflow:
                     path=workflow_version.get("path", None),
                     ica_workflow_id=self.ica_workflow_id,
                     ica_workflow_version_name=workflow_version.get("ica_workflow_version_name", None),
-                    modification_time=workflow_version.get("modification_time", None),
+                    modification_time=ICAWorkflowVersion.modification_time_to_datetime(workflow_version.get("modification_time", None)),
                     run_instances=workflow_version.get("run_instances", [])
                 ))
 
@@ -164,7 +164,7 @@ class ICAWorkflow:
 
         return api_response
 
-    def update_ica_workflow_item(self, access_token, name=None, acl=None):
+    def update_ica_workflow_item(self, access_token, name=None, acl=None, categories=None):
         """
         Update a ica workflow, allowing only for changes for a name or acl
         :param name:
@@ -181,7 +181,8 @@ class ICAWorkflow:
             api_instance = libica.openapi.libwes.WorkflowsApi(api_client)
 
             body = libica.openapi.libwes.UpdateWorkflowRequest(name=name,
-                                                               acl=acl)
+                                                               acl=acl,
+                                                               categories=categories)
 
             try:
                 # Get the details of a workflow version

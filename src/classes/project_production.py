@@ -62,7 +62,7 @@ class ProductionProject(Project):
         # TODO need to implement inits in hierarchical format first
         raise NotImplementedError  # Don't see a reason to implement this
 
-    def sync_item_version_with_project(self, ica_workflow_version, md5sum, cwl_packed_obj):
+    def sync_item_version_with_project(self, ica_workflow_version, md5sum, cwl_packed_obj, force=False):
         """
         Takes an ica workflow version object (which, yes will be an item in this in either tools or workflows)
         Gets the new item versions md5sum and the cwl_packed_dict for uploading to ica
