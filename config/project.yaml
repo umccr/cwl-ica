@@ -164,7 +164,7 @@ projects:
           - name: 1.11.0
             path: 1.11.0/multiqc__1.11.0.cwl
             ica_workflow_version_name: 1.11.0
-            modification_time: 2021-07-06T06:40:17UTC
+            modification_time: 2021-07-09T00:52:26UTC
             run_instances: []
       - name: dragen-alignment
         path: dragen-alignment

@@ -178,8 +178,10 @@ tools:
         md5sum: 41ed548ff78108ac73741fd6cdc6ea6c
       - name: 1.11.0
         path: 1.11.0/multiqc__1.11.0.cwl
-        md5sum: 52f894c74e65685883df0a2100f7c98f
-    categories: []
+        md5sum: 59614d4be56c46d9ac9d31bcef91eff8
+    categories:
+      - qc
+      - visual
   - name: dragen-alignment
     path: dragen-alignment
     versions:

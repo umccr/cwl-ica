@@ -66,16 +66,11 @@ requirements:
           # Run multiqc
           eval multiqc '"\${@}"'
 
-          # Run ls to see what's here
-          ls
-
           # Unlink input directories - otherwise ICA tries to upload them onto gds (and fails)
           for input_dir_basename in "\${input_dir_basename_array[@]}"; do
             unlink "$(get_input_dir())/\${input_dir_basename}"
           done
 
-          # Run ls to see what's here
-          ls
 
 baseCommand: ["bash", "run_multiqc.sh"]
 
