@@ -74,6 +74,7 @@ Example:
         for item_list in [ self.src_project_obj.ica_tools_list, self.src_project_obj.ica_workflows_list ]:
 
           for ica_item_obj in item_list:
+              logger.info(f"Updating acl of workflow '{ica_item_obj.ica_workflow_id}'")
               # Get existing acl - update existing acl
               workflow_response = ica_item_obj.get_workflow_object(access_token=self.src_project_obj.get_project_token())
               acl_list = workflow_response.acl + [f"cid:{self.target_project_id}"]
@@ -81,6 +82,7 @@ Example:
 
               # Update item versions
               for ica_item_version in ica_item_obj.versions:
+                  logger.info(f"Updating acl of workflow '{ica_item_obj.ica_workflow_id}' version '{ica_item_version.name}'")
                   # Get existing item version
                   workflow_version_response = ica_item_version.get_workflow_version_object(access_token=self.src_project_obj.get_project_token())
 
@@ -93,6 +95,7 @@ Example:
 
         # Update project yaml
         # Workflow versions now have an updated time stamp
+        logger.info(f"Adding project {self.target_project_id} to {self.src_project_obj.project_name} in project.yaml")
         self.src_project_obj.linked_projects.append(self.target_project_id)
 
         # Write out project.yaml
