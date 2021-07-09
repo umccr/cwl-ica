@@ -119,7 +119,7 @@ inputs:
       GFF3 file containing the genomic coordinates of protein domains
 
 steps:
-   # Create fastq_list.csv
+   # Step-1: Create fastq_list.csv
   create_fastq_list_csv_step:
     label: create fastq list csv step
     doc: |
@@ -133,7 +133,7 @@ steps:
       - id: fastq_list_csv_out
       - id: predefined_mount_paths_out
     run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
-  # Step-1: Run dragen transcriptome workflow
+  # Step-2: Run dragen transcriptome workflow
   run_dragen_transcriptome_step:
     label: run dragen transcriptome step
     doc: |
@@ -167,7 +167,7 @@ steps:
       - id: dragen_transcriptome_directory
       - id: dragen_bam_out
     run: ../../../tools/dragen-transcriptome/3.7.5/dragen-transcriptome__3.7.5.cwl
-  # Step-2: Call Arriba fusion calling step
+  # Step-3: Call Arriba fusion calling step
   arriba_fusion_step:
     label: arriba fusion step
     doc: |
@@ -187,7 +187,7 @@ steps:
       - id: fusions
       - id: discarded_fusions
     run: ../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl
-  # Step-3: Call Arriba drawing script
+  # Step-4: Call Arriba drawing script
   arriba_drawing_step:
     label: arriba drawing step
     doc: |
@@ -206,7 +206,7 @@ steps:
     out: 
       - id: output_pdf
     run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
-  # Step-4: Create Arriba output directory
+  # Step-5: Create Arriba output directory
   create_arriba_output_directory:
     label: create arriba output directory
     doc: |
@@ -222,17 +222,64 @@ steps:
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
+  # Step-56: Create dummy file for the qc step
+  create_dummy_file_step:
+    label: Create dummy file
+    doc: |
+      Intermediate step for letting multiqc-interop be placed in stream mode
+    in: { }
+    out:
+      - id: dummy_file_output
+    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+  # Step-67: Create multiQC report
+  dragen_qc_step:
+    label: dragen qc step
+    doc: |
+      The dragen qc step - this takes in an array of dirs
+    requirements:
+      DockerRequirement:
+        dockerPull: umccr/multiqc-dragen:1.9
+    in:
+      input_directories:
+        source: run_dragen_transcriptome_step/dragen_transcriptome_directory
+        valueFrom: |
+          ${
+            return [self];
+          }
+      output_directory_name:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_transcriptome_multiqc"
+      output_filename:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_transcriptome_multiqc.html"
+      title:
+        source: output_file_prefix
+        valueFrom: "UMCCR MultiQC Dragen Transcriptome Report for $(self)"
+      dummy_file:
+        source: create_dummy_file_step/dummy_file_output
+    out:
+      - id: output_directory
+    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
 
 outputs:
+  # The dragen output directory
   dragen_transcriptome_output_directory:
     label: dragen transcriptome output directory
     doc: |
       The output directory containing all transcriptome output files
     type: Directory
     outputSource: run_dragen_transcriptome_step/dragen_transcriptome_directory
+  # The arriba output directory
   arriba_output_directory:
     label: arriba output directory
     doc: |
       The directory containing output files from arriba
     type: Directory
     outputSource: create_arriba_output_directory/output_directory
+  # The multiqc output directory
+  multiqc_output_directory:
+    label: multiqc output directory
+    doc: |
+      The output directory for multiqc
+    type: Directory
+    outputSource: dragen_qc_step/output_directory
