@@ -303,6 +303,17 @@ subcommands:
   validate-config-yamls:
     summary: |
       Confirm all config yamls are legitimate
+  validate-api-key-script:
+    summary: |
+      Confirm your api-key script works for a given project
+    options:
+      - name: project-name
+        summary: |
+          Name of your project
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
 
   ###############
   # Init Commands
@@ -360,7 +371,7 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category_name"))\n""")'
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")'
   workflow-init:
     summary: |
       Register a workflow in ${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
@@ -392,7 +403,7 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category_name"))\n""")'
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")'
 
 
   ########################
@@ -518,7 +529,7 @@ subcommands:
     options:
       - name: src-project
         summary: |
-          The ID of your project in project.yaml
+          The name of your project in project.yaml
         type: string
         completion:
           command_string: |-
@@ -527,6 +538,92 @@ subcommands:
         summary: |
           ID of the target project to receive all ica workflows and ica workflow versions
         type: string
+
+  ########################
+  # Add-category Commands
+  ########################
+  add-category-to-tool:
+    summary: |
+      Add an existing category to an existing tool
+    options:
+      - name: tool-name
+        summary: |
+          Name of the tool
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tool_yaml_path\n\nfor tool in read_yaml(get_tool_yaml_path())["tools"]:\n    print(tool.get("name"))\n""")'
+  add-category-to-workflow:
+    summary: |
+      Add an existing category to an existing workflow
+    options:
+      - name: workflow-name
+        summary: |
+          Name of the workflow
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_workflow_yaml_path\n\nfor workflow in read_yaml(get_workflow_yaml_path())["workflows"]:\n    print(workflow.get("name"))\n""")'
+
+
+  #########################
+  # Add maintainer commands
+  #########################
+  add-maintainer-to-expression:
+    summary: |
+      Add a maintainter to a cwl expression
+    options:
+      - name: expression-path
+        summary: |
+          Path to cwl expression
+        type: string
+        completion:
+          command_string: |-
+            find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl"
+      - name: project-name
+        summary: |
+          Name of project
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+  add-maintainer-to-tool:
+    summary: |
+      Add a maintainter to a cwl tool
+    options:
+      - name: tool-path
+        summary: |
+          Path to cwl tool
+        type: string
+        completion:
+          command_string: |-
+            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
+      - name: project-name
+        summary: |
+          Name of project
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+
+  add-maintainer-to-workflow:
+    summary: |
+      Add a maintainter to a cwl workflow
+    options:
+      - name: workflow-path
+        summary: |
+          Path to cwl workflow
+        type: string
+        completion:
+          command_string: |-
+            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+      - name: project-name
+        summary: |
+          Name of project
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
 
   #############################
   # Run-register Commands  # Not yet implemented v1.0 release

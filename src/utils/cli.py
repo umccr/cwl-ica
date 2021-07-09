@@ -62,6 +62,7 @@ Command:
     tool-validate                       Validate a CWL tool ready for initialising on ICA
     workflow-validate                   Validate a CWL workflow ready for initialising on ICA
     validate-config-yamls               Confirms configuration files are legit
+    validate-api-key-script             Confirm an api-key-script works for a given project
 
 
     ###############
@@ -89,7 +90,22 @@ Command:
     #######################
     add-tool-to-project                 Add an existing tool to another project
     add-workflow-to-project             Add an existing workflow to another project
-    add-linked-project                        Link an existing project-id to an initialised project in project.yaml
+    add-linked-project                  Link an existing project-id to an initialised project in project.yaml
+
+
+    ########################
+    Add-category Commands
+    ########################
+    add-category-to-tool                Add an existing category to an existing tool
+    add-category-to-workflow            Add an existing category to an existing workflow
+
+
+    ############################
+    Add-maintainer commands
+    ############################
+    add-maintainer-to-expression        Acknowledge a user as a maintainer of a cwl expression
+    add-maintainer-to-tool              Acknowledge a user as a maintainer of a cwl tool
+    add-maintainer-to-workflow          Acknowledge a user as a maintainer of a cwl workflow
 
 
     #############################
@@ -295,6 +311,12 @@ def _dispatch():
         validate_config_obj = ValidateConfigYamls(command_argv)
         # Call command
         validate_config_obj()
+    elif cmd == "validate-api-key-script":
+        from subcommands.validators.validate_api_key_script import ValidateApiKeyScript
+        # Init command
+        validate_api_key_script_obj = ValidateApiKeyScript(command_argv)
+        # Call command
+        validate_api_key_script_obj()
 
     # Initialisation commands
     elif cmd == "expression-init":
@@ -361,6 +383,40 @@ def _dispatch():
         workflow_add_obj = AddWorkflowToProject(command_argv)
         # Call command
         workflow_add_obj()
+
+    # Add category to 'x' commands
+    elif cmd == "add-category-to-tool":
+        from subcommands.updaters.add_category_to_tool import AddCategoryToTool
+        # Initialise command
+        category_add_obj = AddCategoryToTool(command_argv)
+        # Call command
+        category_add_obj()
+    elif cmd == "add-category-to-workflow":
+        from subcommands.updaters.add_category_to_workflow import AddCategoryToWorkflow
+        # Initialise command
+        category_add_obj = AddCategoryToWorkflow(command_argv)
+        # Call command
+        category_add_obj()
+
+    # Add maintainer commands
+    elif cmd == "add-maintainer-to-expression":
+        from subcommands.updaters.add_maintainer_to_expression import AddMaintainerToExpression
+        # Initialise command
+        add_maintainer_obj = AddMaintainerToExpression(command_argv)
+        # Call command
+        add_maintainer_obj()
+    elif cmd == "add-maintainer-to-tool":
+        from subcommands.updaters.add_maintainer_to_tool import AddMaintainerToTool
+        # Initialise command
+        add_maintainer_obj = AddMaintainerToTool(command_argv)
+        # Call command
+        add_maintainer_obj()
+    elif cmd == "add-maintainer-to-workflow":
+        from subcommands.updaters.add_maintainer_to_workflow import AddMaintainerToWorkflow
+        # Initialise command
+        add_maintainer_obj = AddMaintainerToWorkflow(command_argv)
+        # Call command
+        add_maintainer_obj()
 
     # Project update command
     elif cmd == "add-linked-project":

@@ -191,6 +191,13 @@ class UserNotFoundError(Exception):
     pass
 
 
+class MultipleAuthorsError(Exception):
+    """
+    Cannot have more than one author of a script
+    """
+    pass
+
+
 # Tenants
 class TenantExistsError(Exception):
     """
@@ -210,6 +217,12 @@ class TenantNotFoundError(Exception):
 class CategoryExistsError(Exception):
     """
     The category already exists in category.yaml
+    """
+    pass
+
+class CategoryNotFoundError(Exception):
+    """
+    The category does not exist in category.yaml
     """
     pass
 
