@@ -21,3 +21,9 @@ categories:
   - name: visual
     description: |
         Tool / Workflow has visual output (like a plot or html file)
+  - name: dragen
+    description: |
+        Tool / workflow uses the dragen fpga
+  - name: variant-calling
+    description: |
+        Tool / workflow outputs variant calling analysis

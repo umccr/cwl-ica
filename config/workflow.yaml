@@ -20,7 +20,8 @@ workflows:
       - name: 3.7.5
         path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
         md5sum: 9c415babb9da86131c01d4e816d9ef67
-    categories: []
+    categories:
+      - dragen
   - name: dragen-qc-hla-pipeline
     path: dragen-qc-hla-pipeline
     versions:
@@ -49,7 +50,9 @@ workflows:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
         md5sum: 1e102e38c9fcdbbbe41f9a013f3ceb61
-    categories: []
+    categories:
+      - dragen
+      - variant-calling
   - name: dragen-transcriptome-pipeline
     path: dragen-transcriptome-pipeline
     versions:
@@ -65,10 +68,12 @@ workflows:
         md5sum: 7d1f53b5a952427be5dbcd1165795907
     categories:
       - alignment
+      - dragen
   - name: dragen-wgs-qc-pipeline
     path: dragen-wgs-qc-pipeline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
         md5sum: e8a5f7e0631cb9d14303f56d67e408d7
-    categories: []
+    categories:
+      - dragen
