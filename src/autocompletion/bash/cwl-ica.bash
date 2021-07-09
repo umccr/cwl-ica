@@ -23,7 +23,12 @@ _cwl-ica() {
 
     0)
         __comp_current_options || return
-        __cwl-ica_dynamic_comp 'commands' 'add-linked-project'$'\t''Add a linked project to another project
+        __cwl-ica_dynamic_comp 'commands' 'add-category-to-tool'$'\t''Add an existing category to an existing tool
+'$'\n''add-category-to-workflow'$'\t''Add an existing category to an existing workflow
+'$'\n''add-linked-project'$'\t''Add a linked project to another project
+'$'\n''add-maintainer-to-expression'$'\t''Add a maintainter to a cwl expression
+'$'\n''add-maintainer-to-tool'$'\t''Add a maintainter to a cwl tool
+'$'\n''add-maintainer-to-workflow'$'\t''Add a maintainter to a cwl workflow
 '$'\n''add-tool-to-project'$'\t''Add an existing tool to another project
 '$'\n''add-workflow-to-project'$'\t''Add an existing workflow to another project
 '$'\n''category-init'$'\t''Initialise a category in \${CWL_ICA_REPO_PATH}/config/category.yaml
@@ -54,6 +59,7 @@ Each project is linked to a tenancy id
 '$'\n''tool-sync'$'\t''Sync a tool md5sum in \${CWL_ICA_REPO_PATH}/config/tool.yaml
 and update definition on ICA
 '$'\n''tool-validate'$'\t''Validate a CWL tool ready for initialising on ICA
+'$'\n''validate-api-key-script'$'\t''Confirm your api-key script works for a given project
 '$'\n''validate-config-yamls'$'\t''Confirm all config yamls are legitimate
 '$'\n''version'$'\t''Print version and exit
 '$'\n''workflow-init'$'\t''Register a workflow in \${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
@@ -137,8 +143,42 @@ and update definition on ICA
         ;;
         esac
       ;;
+      add-category-to-tool)
+        OPTIONS+=('--tool-name' 'Name of the tool
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --tool-name)
+            _cwl-ica_add-category-to-tool_option_tool_name_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
+      add-category-to-workflow)
+        OPTIONS+=('--workflow-name' 'Name of the workflow
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --workflow-name)
+            _cwl-ica_add-category-to-workflow_option_workflow_name_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
       add-linked-project)
-        OPTIONS+=('--src-project' 'The ID of your project in project.yaml
+        OPTIONS+=('--src-project' 'The name of your project in project.yaml
 ' '--target-project' 'ID of the target project to receive all ica workflows and ica workflow versions
 ')
         __cwl-ica_handle_options_flags
@@ -147,6 +187,69 @@ and update definition on ICA
             _cwl-ica_add-linked-project_option_src_project_completion
           ;;
           --target-project)
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
+      add-maintainer-to-expression)
+        OPTIONS+=('--expression-path' 'Path to cwl expression
+' '--project-name' 'Name of project
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --expression-path)
+            _cwl-ica_add-maintainer-to-expression_option_expression_path_completion
+          ;;
+          --project-name)
+            _cwl-ica_add-maintainer-to-expression_option_project_name_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
+      add-maintainer-to-tool)
+        OPTIONS+=('--tool-path' 'Path to cwl tool
+' '--project-name' 'Name of project
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --tool-path)
+            _cwl-ica_add-maintainer-to-tool_option_tool_path_completion
+          ;;
+          --project-name)
+            _cwl-ica_add-maintainer-to-tool_option_project_name_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
+      add-maintainer-to-workflow)
+        OPTIONS+=('--workflow-path' 'Path to cwl workflow
+' '--project-name' 'Name of project
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --workflow-path)
+            _cwl-ica_add-maintainer-to-workflow_option_workflow_path_completion
+          ;;
+          --project-name)
+            _cwl-ica_add-maintainer-to-workflow_option_project_name_completion
           ;;
 
         esac
@@ -668,6 +771,23 @@ to workflow names
         ;;
         esac
       ;;
+      validate-api-key-script)
+        OPTIONS+=('--project-name' 'Name of your project
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --project-name)
+            _cwl-ica_validate-api-key-script_option_project_name_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
       validate-config-yamls)
         __cwl-ica_handle_options_flags
         __comp_current_options true || return # no subcmds, no params/opts
@@ -767,10 +887,50 @@ _cwl-ica_compreply() {
     fi
 }
 
+_cwl-ica_add-category-to-tool_option_tool_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_tool_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_tool_yaml_path\n\nfor tool in read_yaml(get_tool_yaml_path())["tools"]:\n    print(tool.get("name"))\n""")')"
+    _cwl-ica_compreply "$param_tool_name"
+}
+_cwl-ica_add-category-to-workflow_option_workflow_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_workflow_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_workflow_yaml_path\n\nfor workflow in read_yaml(get_workflow_yaml_path())["workflows"]:\n    print(workflow.get("name"))\n""")')"
+    _cwl-ica_compreply "$param_workflow_name"
+}
 _cwl-ica_add-linked-project_option_src_project_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_src_project="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
     _cwl-ica_compreply "$param_src_project"
+}
+_cwl-ica_add-maintainer-to-expression_option_expression_path_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_expression_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl")"
+    _cwl-ica_compreply "$param_expression_path"
+}
+_cwl-ica_add-maintainer-to-expression_option_project_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_project_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
+    _cwl-ica_compreply "$param_project_name"
+}
+_cwl-ica_add-maintainer-to-tool_option_tool_path_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_tool_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl")"
+    _cwl-ica_compreply "$param_tool_path"
+}
+_cwl-ica_add-maintainer-to-tool_option_project_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_project_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
+    _cwl-ica_compreply "$param_project_name"
+}
+_cwl-ica_add-maintainer-to-workflow_option_workflow_path_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_workflow_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl")"
+    _cwl-ica_compreply "$param_workflow_path"
+}
+_cwl-ica_add-maintainer-to-workflow_option_project_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_project_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
+    _cwl-ica_compreply "$param_project_name"
 }
 _cwl-ica_add-tool-to-project_option_tool_path_completion() {
     local CURRENT_WORD="${words[$cword]}"
@@ -879,7 +1039,7 @@ _cwl-ica_tool-init_option_tenants_completion() {
 }
 _cwl-ica_tool-init_option_categories_completion() {
     local CURRENT_WORD="${words[$cword]}"
-    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category_name"))\n""")')"
+    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")')"
     _cwl-ica_compreply "$param_categories"
 }
 _cwl-ica_tool-sync_option_tool_path_completion() {
@@ -902,6 +1062,11 @@ _cwl-ica_tool-validate_option_tool_path_completion() {
     local param_tool_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl")"
     _cwl-ica_compreply "$param_tool_path"
 }
+_cwl-ica_validate-api-key-script_option_project_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_project_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
+    _cwl-ica_compreply "$param_project_name"
+}
 _cwl-ica_workflow-init_option_workflow_path_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_workflow_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl")"
@@ -919,7 +1084,7 @@ _cwl-ica_workflow-init_option_tenants_completion() {
 }
 _cwl-ica_workflow-init_option_categories_completion() {
     local CURRENT_WORD="${words[$cword]}"
-    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category_name"))\n""")')"
+    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")')"
     _cwl-ica_compreply "$param_categories"
 }
 _cwl-ica_workflow-sync_option_workflow_path_completion() {
