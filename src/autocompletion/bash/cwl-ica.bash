@@ -145,11 +145,15 @@ and update definition on ICA
       ;;
       add-category-to-tool)
         OPTIONS+=('--tool-name' 'Name of the tool
+' '--category-name' 'The name of the category
 ')
         __cwl-ica_handle_options_flags
         case ${MYWORDS[$INDEX-1]} in
           --tool-name)
             _cwl-ica_add-category-to-tool_option_tool_name_completion
+          ;;
+          --category-name)
+            _cwl-ica_add-category-to-tool_option_category_name_completion
           ;;
 
         esac
@@ -162,11 +166,15 @@ and update definition on ICA
       ;;
       add-category-to-workflow)
         OPTIONS+=('--workflow-name' 'Name of the workflow
+' '--category-name' 'The name of the category
 ')
         __cwl-ica_handle_options_flags
         case ${MYWORDS[$INDEX-1]} in
           --workflow-name)
             _cwl-ica_add-category-to-workflow_option_workflow_name_completion
+          ;;
+          --category-name)
+            _cwl-ica_add-category-to-workflow_option_category_name_completion
           ;;
 
         esac
@@ -892,10 +900,20 @@ _cwl-ica_add-category-to-tool_option_tool_name_completion() {
     local param_tool_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_tool_yaml_path\n\nfor tool in read_yaml(get_tool_yaml_path())["tools"]:\n    print(tool.get("name"))\n""")')"
     _cwl-ica_compreply "$param_tool_name"
 }
+_cwl-ica_add-category-to-tool_option_category_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_category_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")')"
+    _cwl-ica_compreply "$param_category_name"
+}
 _cwl-ica_add-category-to-workflow_option_workflow_name_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_workflow_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_workflow_yaml_path\n\nfor workflow in read_yaml(get_workflow_yaml_path())["workflows"]:\n    print(workflow.get("name"))\n""")')"
     _cwl-ica_compreply "$param_workflow_name"
+}
+_cwl-ica_add-category-to-workflow_option_category_name_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_category_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")')"
+    _cwl-ica_compreply "$param_category_name"
 }
 _cwl-ica_add-linked-project_option_src_project_completion() {
     local CURRENT_WORD="${words[$cword]}"
@@ -1039,7 +1057,7 @@ _cwl-ica_tool-init_option_tenants_completion() {
 }
 _cwl-ica_tool-init_option_categories_completion() {
     local CURRENT_WORD="${words[$cword]}"
-    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")')"
+    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")')"
     _cwl-ica_compreply "$param_categories"
 }
 _cwl-ica_tool-sync_option_tool_path_completion() {
@@ -1084,7 +1102,7 @@ _cwl-ica_workflow-init_option_tenants_completion() {
 }
 _cwl-ica_workflow-init_option_categories_completion() {
     local CURRENT_WORD="${words[$cword]}"
-    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")')"
+    local param_categories="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")')"
     _cwl-ica_compreply "$param_categories"
 }
 _cwl-ica_workflow-sync_option_workflow_path_completion() {
