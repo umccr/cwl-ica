@@ -96,6 +96,9 @@ class Initialiser(Command):
             self.item_version = self.create_item_version_object()
             # We need to create the item version
             self.add_item_version_to_item()
+            # Extend categories list with existing categories
+            if self.item_type in ["tool", "workflow"]:
+                self.categories = list(set(self.categories + self.item.categories))
 
         # Make sure that this workflow doesn't already exist
         # Add in the item yaml to the item yaml dict
