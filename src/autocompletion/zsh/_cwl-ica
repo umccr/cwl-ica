@@ -174,6 +174,8 @@ and update definition on ICA
                     '-h[Show command help]' \
                     '--tool-name[Name of the tool
 ]:tool-name:_cwl-ica_add-category-to-tool_option_tool_name_completion' \
+                    '--category-name[The name of the category
+]:category-name:_cwl-ica_add-category-to-tool_option_category_name_completion' \
                     && ret=0
 
 
@@ -187,6 +189,8 @@ and update definition on ICA
                     '-h[Show command help]' \
                     '--workflow-name[Name of the workflow
 ]:workflow-name:_cwl-ica_add-category-to-workflow_option_workflow_name_completion' \
+                    '--category-name[The name of the category
+]:category-name:_cwl-ica_add-category-to-workflow_option_category_name_completion' \
                     && ret=0
 
 
@@ -761,11 +765,23 @@ _cwl-ica_add-category-to-tool_option_tool_name_completion() {
     IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tool_yaml_path\n\nfor tool in read_yaml(get_tool_yaml_path())["tools"]:\n    print(tool.get("name"))\n""")' ) )
     compadd -X "tool_name:" $__dynamic_completion
 }
+_cwl-ica_add-category-to-tool_option_category_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
+    compadd -X "category_name:" $__dynamic_completion
+}
 _cwl-ica_add-category-to-workflow_option_workflow_name_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"
     IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_workflow_yaml_path\n\nfor workflow in read_yaml(get_workflow_yaml_path())["workflows"]:\n    print(workflow.get("name"))\n""")' ) )
     compadd -X "workflow_name:" $__dynamic_completion
+}
+_cwl-ica_add-category-to-workflow_option_category_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
+    compadd -X "category_name:" $__dynamic_completion
 }
 _cwl-ica_add-linked-project_option_src_project_completion() {
     local __dynamic_completion
@@ -938,7 +954,7 @@ _cwl-ica_tool-init_option_tenants_completion() {
 _cwl-ica_tool-init_option_categories_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"
-    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")' ) )
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
     compadd -X "categories:" $__dynamic_completion
 }
 _cwl-ica_tool-sync_option_tool_path_completion() {
@@ -992,7 +1008,7 @@ _cwl-ica_workflow-init_option_tenants_completion() {
 _cwl-ica_workflow-init_option_categories_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"
-    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("category"))\n""")' ) )
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
     compadd -X "categories:" $__dynamic_completion
 }
 _cwl-ica_workflow-sync_option_workflow_path_completion() {
