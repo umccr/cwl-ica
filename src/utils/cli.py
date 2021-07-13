@@ -109,7 +109,7 @@ Command:
 
 
     #############################
-    Run-register Commands  # Not yet implemented v1.0 release
+    Run-register Commands
     #############################
     register-tool-run-instance-id       Register an ICA workflow run instance of a tool for a given project
     register-workflow-run-instance-id   Register an ICA workflow run instance of a workflow for a given project
@@ -425,6 +425,19 @@ def _dispatch():
         link_project_obj = LinkProject(command_argv)
         # Call command
         link_project_obj()
+
+    # Register run instance commands
+    elif cmd == "register-tool-run-instance":
+        from subcommands.initialisers.run_tool_init import RegisterToolRunInstance
+        # Initialise command
+        register_tool_run_instance_obj = RegisterToolRunInstance(command_argv)
+        # Call command
+        register_tool_run_instance_obj()
+    elif cmd == "register-workflow-run-instance":
+        from subcommands.initialisers.run_workflow_init import RegisterWorkflowRunInstance
+        register_workflow_run_instance_obj = RegisterWorkflowRunInstance(command_argv)
+        # Call command
+        register_workflow_run_instance_obj()
 
     # Github actions  # TODO - sync-schema / sync-expression
     elif cmd == "github-actions-sync-tools":

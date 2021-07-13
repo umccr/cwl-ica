@@ -69,6 +69,21 @@ class ICAWorkflowVersionCreationError(Exception):
     """
     pass
 
+class ICAWorkflowRunCreationError(Exception):
+    """
+    Could not create the run object
+    """
+
+class ICAWorkflowRunExistsError(Exception):
+    """
+    The run already exists in run.yaml
+    """
+
+
+class ICAWorkflowRunNotFoundError(Exception):
+    """
+    The workflow run does not exist
+    """
 
 class UnknownDateTypeError(Exception):
     """

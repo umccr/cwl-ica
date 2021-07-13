@@ -246,6 +246,17 @@ def get_schemas_dir(create_dir=False):
     return schema_path
 
 
+def get_run_yaml_path(non_existent_ok=False):
+    config_path = get_configuration_path()
+
+    run_yaml_path = config_path / Path("run.yaml")
+
+    if not run_yaml_path.is_file() and not non_existent_ok:
+        logger.error(f"Couldn't find \"run.yaml\" file in {config_path}")
+        raise CWLICARepoAssetNotFoundError
+
+    return run_yaml_path
+
 def read_yaml(yaml_file):
     # Read in the cwl file from a yaml
     with open(yaml_file, "r") as yaml_h:

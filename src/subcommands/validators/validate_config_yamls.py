@@ -8,7 +8,8 @@ from classes.command import Command
 from utils.logging import get_logger
 from utils.repo import read_yaml, \
     get_configuration_path, get_project_yaml_path, get_tenant_yaml_path, get_category_yaml_path, \
-    get_user_yaml_path, get_expression_yaml_path,  get_schema_yaml_path,  get_tool_yaml_path, get_workflow_yaml_path
+    get_user_yaml_path, get_expression_yaml_path,  get_schema_yaml_path,  get_tool_yaml_path, get_workflow_yaml_path, \
+    get_run_yaml_path
 from ruamel.yaml.error import YAMLError
 import sys
 
@@ -53,11 +54,12 @@ Example:
         schema_yaml_path = get_schema_yaml_path(non_existent_ok=True)
         tool_yaml_path = get_tool_yaml_path(non_existent_ok=True)
         workflow_yaml_path = get_workflow_yaml_path(non_existent_ok=True)
+        run_yaml_path = get_run_yaml_path(non_existent_ok=True)
 
         error_count = 0
 
-        for yaml_file in [project_yaml_path, tenant_yaml_path, category_yaml_path,
-                          user_yaml_path, expression_yaml_path, schema_yaml_path, tool_yaml_path, workflow_yaml_path]:
+        for yaml_file in [project_yaml_path, tenant_yaml_path, category_yaml_path, user_yaml_path,
+                          expression_yaml_path, schema_yaml_path, tool_yaml_path, workflow_yaml_path, run_yaml_path]:
 
             # Check file exists first
             if not yaml_file.is_file():
