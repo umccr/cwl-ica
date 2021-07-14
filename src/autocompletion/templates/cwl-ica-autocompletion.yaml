@@ -639,11 +639,46 @@ subcommands:
             python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
 
   #############################
-  # Run-register Commands  # Not yet implemented v1.0 release
+  # Run-register Commands
   #############################
-  # register-tool-run-instance-id       Register an ICA workflow run instance of a tool for a given project
-  # register-workflow-run-instance-id   Register an ICA workflow run instance of a workflow for a given project
-
+  register-tool-run-instance-id:
+    summary: |
+      Register an ICA workflow run instance of a tool for a given project
+    options:
+      - name: ica-workflow-run-instance-id
+        summary: |
+          A workflow run instance id (starts with wfr.)
+        type: string
+      - name: project-name
+        summary: |
+          Name of project
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+      - name: access-token
+        summary: |
+          ica access token, if run instance was executed in a linked project context
+        type: string
+  register-workflow-run-instance-id:
+    summary: |
+      Register an ICA workflow run instance of a workflow for a given project
+    options:
+      - name: ica-workflow-run-instance-id
+        summary: |
+          A workflow run instance id (starts with wfr.)
+        type: string
+      - name: project-name
+        summary: |
+          Name of project
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+      - name: access-token
+        summary: |
+          ica access token, if run instance was executed in a linked project context
+        type: string
 
   #######################
   # Query workflow Commands  # Not yet implemented v1.0 release
@@ -663,3 +698,9 @@ subcommands:
   ################################
   # copy-tool-submission-template       Copy a tool submission template for an upcoming tool run
   # copy-workflow-submission-template   Copy a workflow submission template for an upcoming workflow run
+
+  #####################
+  # Run-launch commands  # Not yet implemented v1.0 release
+  #####################
+  # launch-tool                         Launch a tool on ICA
+  # launch-workflow                     Launch a workflow on ICA
