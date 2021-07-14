@@ -43,6 +43,8 @@ Each project is linked to a tenancy id
 " list-tenants\:"List registered tenants
 " list-users\:"List registered users
 " project-init\:"Initialise a project in \${CWL_ICA_REPO_PATH}/config/project.yaml
+" register-tool-run-instance-id\:"Register an ICA workflow run instance of a tool for a given project
+" register-workflow-run-instance-id\:"Register an ICA workflow run instance of a workflow for a given project
 " schema-init\:"Register a schema in \${CWL_ICA_REPO_PATH}/config/schema.yaml
 " schema-sync\:"Sync a schema in \${CWL_ICA_REPO_PATH}/config/schema.yaml
 " schema-validate\:"Validate a CWL schema
@@ -540,6 +542,40 @@ to workflow names
 
 
             ;;
+            register-tool-run-instance-id)
+
+                # ---- Command: register-tool-run-instance-id
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--ica-workflow-run-instance-id[A workflow run instance id (starts with wfr.)
+]:ica-workflow-run-instance-id' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_register-tool-run-instance-id_option_project_name_completion' \
+                    '--access-token[ica access token, if run instance was executed in a linked project context
+]:access-token' \
+                    && ret=0
+
+
+            ;;
+            register-workflow-run-instance-id)
+
+                # ---- Command: register-workflow-run-instance-id
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--ica-workflow-run-instance-id[A workflow run instance id (starts with wfr.)
+]:ica-workflow-run-instance-id' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_register-workflow-run-instance-id_option_project_name_completion' \
+                    '--access-token[ica access token, if run instance was executed in a linked project context
+]:access-token' \
+                    && ret=0
+
+
+            ;;
             schema-init)
 
                 # ---- Command: schema-init
@@ -896,6 +932,18 @@ _cwl-ica_project-init_option_tenant_name_completion() {
     local CURRENT_WORD="$words[CURRENT]"
     IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
     compadd -X "tenant_name:" $__dynamic_completion
+}
+_cwl-ica_register-tool-run-instance-id_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_register-workflow-run-instance-id_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
 }
 _cwl-ica_schema-init_option_schema_path_completion() {
     local __dynamic_completion
