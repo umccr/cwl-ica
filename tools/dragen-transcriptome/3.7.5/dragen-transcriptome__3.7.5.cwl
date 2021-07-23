@@ -260,6 +260,15 @@ inputs:
     inputBinding:
       prefix: "--enable-rna-gene-fusion"
       valueFrom: "$(self.toString())"
+  enable_rrna_filter:
+    label: enable rrna filtering
+    type: boolean?
+    default: true
+    doc: |
+      Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
+    inputBinding:
+      prefix: "--rrna-filter-enable"
+      valueFrom: "$(self.toString())"
 
 outputs:
   # Will also include mounted-files.txt
