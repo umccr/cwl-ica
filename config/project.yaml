@@ -410,6 +410,11 @@ projects:
             ica_workflow_version_name: 3.7.5--6769f8e
             modification_time: 2021-07-10T00:11:02UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5cwl
+            ica_workflow_version_name: 3.7.5--3991b88
+            modification_time: 2021-07-23T02:05:33UTC
+            run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_prod-wf
