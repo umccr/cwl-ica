@@ -1,0 +1,322 @@
+runs:
+  - ica_workflow_run_instance_id: wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
+    ica_workflow_id: wfl.32e346cdbb854f6487e7594ec17a81f9
+    ica_workflow_name: dragen-somatic-pipeline_dev-wf
+    ica_workflow_version_name: 3.7.5
+    ica_workflow_run_name: umccr__automated__tumor_normal__SBJ00913__1626338891
+    ica_input: eJzNlFFvmzAQx79KxXNjG1gDyRujKlOX7mFYWqRpOrngEKsGUtt0W6N8954TZdmaqOre8oAO7v7c/c5/yeugH9xqcLBQWsLKyIX6FUwvgrvreRSyMJkElxd7Sa2MrFxvfntB+fGWsUkY+/pCWPcIWlkHpv9psfx9HZhG1V5YcJ7nWcZJkWcFRk4igq0TlkLGWBgzYOF4DNmn5DO/vS7nEdnPTmGGkSUfEj/ENPre9/s3Z9u/aVOf1KKTmIx8XYoaQvxYB5UW1pMFN7joVtZXwqm+87mmtlNKh7aqzGi7zKgWToxq+UTfRKXfihK4ffwiup7md8pVS6k1PV4AygRmjEXwNQTsRLZDSPMcbPaU0VlRRq8oNz+QxQ1tb+BNs7M857wocpLxIsOYv9vsyZ4iPWF2esrsyXmZfVgAyvRszT5FedJs2Yl7vBFasQKhVdPB7hJANGcGeRDUw0orxPZS86C65khhnw4pvF+kkV0lwQnzf4eAv/45gdqIRnYUn76Vli6bOKUxScjV9hWBHSwdxJDAFcFBu61eABnudvU=
+    ica_output: eJzNl02PmzAQhv/Kil5bsLEBe4/VqodKPfVSqaosY0wWCfDWNkl3o/3vtUtIsiFfVFXKIYfxDJN3Xj9CwzooNF/IlhnVcFsJpjr71FlWVFoKq/RzcH+3DmolXFK1LggWhbmPolWpQ4lEmhMhM4kxzkSeFyiGeSJoKssszUDUNUJoxnhnfXNZMGa7RmnWKt3wmrGvHz8DQCFiDKZxihAhFEa9ABMNyeD9XZBzI1veSP//++f+TCtl/fkQy1/bUNTcGB88bKdxp6Z68Y3arq5fXdh0ta1+zmjwLw/fYghgRtnB1WyUHhpyTf2/MGojPueN9+q/c7HzKXSSTpoyJPcd2CYPrBhqt3Z8qmq55wTBCCQEp5Ak/lAK1RZcP/sqX/59fVqC+1W+03wcGxSNhj3q1L6NO7f+NHi09snNIVTTqHZVh0ovIrGqrVL1O4ej1MPA4PXHtHJv8oZl0y7ZUpTskeuClVVtpXYuzIxDL+7DIC50csPFy2kwT1Uf939UfXgb/cMn0U1ImiE6CdtjAkObz4njcxKvBPvcNQzebjrelPSZsX2J5kv8TiY2ownEIJtE7CwZ/SsqZ8Ch1Z2wnXYjzxBHs7xI5JuS4y73JRPfpBTE096jWyEzA3Ok60o2R8beEs9+5Pktof3TZ1fRtyVHve1LJq6lkAKASAoIppP20p2eeW2nY13XgTn295ab6u77kTnrmJHGuCyrCq/AmDYUAkDMk1zEMMESYpoDkqVU8FIgAmIcjJuUqi6k3vRwQcghQDx3DZyNOC9pjkUJSEFRGhOCEApefwN7qP9k
+    ica_engine_parameters: eJy9kj1vwyAQhv9K5SVLY4NJ7CRjm6GtFGVwOyMMZwvVgMVH3DTKf68haqfOGeGe03N67y7ZZOznXlrg3thztnvIeuF2RTF1NgfCq3bDoYbValXzthWkxO2abyvo6qpGRVCcW0pZ8EYxD4JSH5SxVBur2EBp8/SG0BYTSnFVVoRsNlucPT5kJvgx+Htai5vSRbtX4/H+AzgPY9IPpr+rePYlr2JfDWfeg52tpPxbQwPeS93HUZQ5QUS5Gc+3iF6180xzeD+PEIlmfglmxYt8HsP/aCO/E3oAIYOKjICOhWEGZupgRKou9mbSg2FiEQn5WzqewFopwM3M5RqXBe7Dwa2VadmB86k9ZpBa+TR4Y4b4SXKUl6hEuEQE1wTjdGyge6mTE+e4ytFyRjCq5pxqsl4KOMFgxuz6AyTb+wo=
+    workflow_start_time: 1626338893
+    workflow_end_time: 1626372797
+    workflow_duration: 33903
+    ica_tasks:
+      - ica_task_run_instance_id: trn.5c5f43f0c8824c249c367b49f7083871
+        task_step_name: create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626339030
+        task_stop_time: 1626339140
+        task_duration: 109
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.b2df77f4ea2f44128e619b8da909a071
+        task_step_name: create_fastq_list_csv_step
+        task_name: custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626339042
+        task_stop_time: 1626339200
+        task_duration: 158
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.c401d60caac74ab9960e649a18f330e2
+        task_step_name: create_tumor_fastq_list_csv_step
+        task_name: custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626339043
+        task_stop_time: 1626339220
+        task_duration: 177
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.c3b6e534cfe14817b2fb37bd4dfd45a1
+        task_step_name: run_dragen_somatic_step
+        task_name: dragen-somatic__3.7.5.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1626339364
+        task_stop_time: 1626370660
+        task_duration: 31296
+        task_metrics: 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
+      - ica_task_run_instance_id: trn.bb86714f5f9347d2a1236dba4f3c7874
+        task_step_name: dragen_qc_step
+        task_name: multiqc__1.10.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1626370810
+        task_stop_time: 1626371321
+        task_duration: 511
+        task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.1fd8c32d79c34e179a4c0d6754edd3a2
+    ica_workflow_id: wfl.ff6ca1789f4e4eb0982ea3e01407aca8
+    ica_workflow_name: dragen-wgs-qc-pipeline_dev-wf
+    ica_workflow_version_name: 3.7.5
+    ica_workflow_run_name: umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650
+    ica_input: eJzNkl1LwzAUhv/KyLVLmta1Y3elw4lfF67oQOQQ27QLtM2WZPNj7L+bdHSOKYJ640W+Tt5z3ueEbJBcmcXKQCEqDgvFC/GCRj105VPPi05DdNLrFLlQPDNSvR7eQ65YyRsnK5g2S6iENqDks7aqhw1SpcidfpLEcWonHMfJJE2TBFNsS0TeEGLPo4EHHg1DiM+jy/RiPJ35+Ho8swIahXDIosrq6ZhPlbp2sX2GC1as4TZI3T1nOVB72KCsYtqRoTPbbiuTGTNCNi5W5npEyKrOMtVvm+nnzLB+ztfkW1RyP5lCqpc3rJHkLkkS8pkdpnZvs+GWgl1wWx+Xb2jbAfr/BdA/Atw+WgwtDNegZc0qwdXPUO2n2nN2FUhbEM/LYIjXWfHxEgVXvMk4OH/2e5/dtyR2yJpr4nzayfZ1ZGTYH9r5yibAER60W2CVgbmBACIYYGu0e893jnwNXQ==
+    ica_output: eJzdlMtq3DAUhl8luNti6+KLlF3o9JpCKWlKoZSDLGlcF9lKJZlpGubdI3XGk6GZEArZdBZa/PrPRecTnJtMOdHpEYTpu3HQYwA7haspgOqdlsG66+z05CYzVorQ2zGKrFP+tChWS5fjpWKSEtVwSUuNGy5KiVTdVKVWigpSTIOUDkBMwQ4iaAWwbbfqPPyUAASjBjE4QwhTBAjXNZy9ac4/vVtcfCEALn/JyeXbxaJ/cXn+8aL6YT8vPtSvO4D3MRM1ZQ2Aa1ITjuoKFZun+2Jnbrplz0+yVng9ikGnAQ7YyXLWhmTPWv/aSWmE90ksdlTire9/p3rjZMw6yu1orRgSw/8f207ncaSHGM7ePsDZ+wvkHLqD+ao3eo8jLhvKOGUVZk261dKOSrjrFJbiv948+IJ4+lTpeHjPE92DdQj0/ifcwf6T/z2Eq4hB2mGw48rk1nWFXJlgrXkWe2o380Lrb/8WHqOHyYQ+8jm+lbG3D7dDPrJEDic8xVrxkYPptTtGyvNsj8Hdj3sKpncoIUIDr72PDKFXKdH7MW8rLUjZlFJiXDJec9ZqRkUr2qZkEWx2v8jSGhV/aVMjihxzjikRTFXLuqSCt2SJEVOc1oQxSmm2vgX5J1Qn
+    ica_engine_parameters: eJzVksFu2zAMhl+l8KWX1aHkRK57K+ph7boiGNwUuxGCxBjabMuT5HhZ0Xev5GA79QVyFPn90CeRr9ls3a/aOFLBumN2c5G12t+sVvPe5Wyvr1XBdVmpYk2srORagRblZk1aF5Kvpl4phyinYHsZSCNqJ1sacG49/laInEEJ13gLwApAYELg7X35+Py1bn5wRJd/rvjuoa7N3e7xe7P5aV/qrfjSIn6LSSjXApEJLngFYgPZp4vMTmGcwnn4rk6yPnmHftyek7oPNC7inW3PRDmaLsa9/NMoGQK56Fvw/0vTUAhmaNMjenughCo7Hk9jeRh8kIOi5+NIiWjiSUun783dOH2MNubvgj6RNlOfGE17OXURiNST1Uv3srbz0FmpLxNh/rW2B3LOaPKReX1LC0J+5+kUlYPZkw9LPP3eElVzF6ztUrHIIefAgXEoWFkwxhJAQ2uG5U6WM5HDVUQYCKgisrnSdKDOjtnbO6SoOZk=
+    workflow_start_time: 1626290652
+    workflow_end_time: 1626304980
+    workflow_duration: 14328
+    ica_tasks:
+      - ica_task_run_instance_id: trn.44e5be4e489643a99b87f172ea5f1055
+        task_step_name: run_dragen_step/create_fastq_list_csv_step
+        task_name: custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626290951
+        task_stop_time: 1626291329
+        task_duration: 377
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.ee38f5d644fc4bf4a9a0a2e42c41be03
+        task_step_name: run_dragen_step/create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626290930
+        task_stop_time: 1626291268
+        task_duration: 337
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.e86d3c48c327417b9700658d68e98221
+        task_step_name: run_dragen_step/run_dragen_alignment_step
+        task_name: dragen-alignment__3.7.5.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1626291482
+        task_stop_time: 1626302502
+        task_duration: 11020
+        task_metrics: eJydlM1qAzEMhF8l5ByMZf3Y6quUHkrJoYeloU0PpeTd41DI2t7OsuS2XviQNDPS8+/+/D4dv86v02n/tCNLltyTyWG3fzt9118xxPo9HaePz5+/5+Ww+5diKneKQtpKFXqAEpFHKNeZ4iAtxhYYcWpx5jTwVs5o7lKCt1iKQSGW0x3TkDus4OmyxAYrHeZBIOaGMF5psmhpsG42plAQ5lTQbMxYyVoOVhMwG8cYO0l6TINBzAViFhxhpAYx5FvFEmVogAMDblh2VE1iyAhjhk0K8u2GNSmx/iQI49lEBdktAuyumGJJRLEkmhVWW/HNWOFsK75Zc03ScBQiDlc2bo+QDVmGXZbUHK+02AFYr5T5mlBd6K2c8+wB0ZDLNa49srToE5lHsdmeRT2GySQib+eLQz2UMaJmf6qeI5cQl5qbUv3bznlZqwf7ZKNWl7xVT6EuLzLoiXJGklf7ROtAKp1/Y67hfOrzPuSF7fnycgVd+FN/
+      - ica_task_run_instance_id: trn.95388e5a84644316aad596eae345ecc4
+        task_step_name: run_dragen_step/dragen_qc_step
+        task_name: multiqc__1.10.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1626302664
+        task_stop_time: 1626303163
+        task_duration: 498
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.dbd6c9bd4c104516a1941165feab4255
+        task_step_name: run_somalier_step
+        task_name: somalier-extract__0.2.13.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1626303353
+        task_stop_time: 1626304104
+        task_duration: 751
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMyMzYwNjEw0lFQSi4oBQoZ6BkA2bmpuflFlRBurY4Cdl2mFki6jIjUZWpkjKTLmFhd5pa47TLEpcvM2JQMXeYGBuToMjUhQ5eFETl2WZiT4y9LY2QXGhKryxKvXbEAPS+gfQ==
+  - ica_workflow_run_instance_id: wfr.d9ddc8eb7d544d32bdbe285fd45a4365
+    ica_workflow_id: wfl.59e481580c6243b6b237ca2b08fa1270
+    ica_workflow_name: bcl-conversion_dev-wf
+    ica_workflow_version_name: 3.7.5
+    ica_workflow_run_name: umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458
+    ica_input: eJzVVW1P2zAQ/ivIn1ca5z3wKUq3DNjKRsMGmpDlJG4blpcSO2gV4r/v3NSpC4Wv01SliR+ffc89d7p7QmlWkqJedYLkRcsy0bRrdHL0hLKScg5faDLAH45Q2WRUFE0tNxY5PxmPU86XxzTL83SeUzvwDctneRDMaWDPmRc4phU4wfiqq/nYxIZn+CQ0DGwZxMCuS8LP3kVyPpndmKQ9/hiY12eTSRFdX3yfOffNj8mlGy/QM/jltFqVjC8ZE/vsPhUl+0fExrMNqZkkdZzxx54oE6KoF5yka7IlDZR+PaGUimxJaloxSREbNwSeUZiEEdrFJ03Rt6tzIOTaLvkyfEobtfB3uK/j3g73dNzZ4Q660zj2SraMCkbmlIsHMm9aKIac/SGA5tJAtB2DI1VRF1VXEdEWVcXyzTYpWb0QSzDypQXlvwlfNq0Yzkq4eWRtW+SMZOusDxDdmv4Um9bpGTY2z22Ap66BnkG+lzL9jGck4Q9TWjeHVbIdiA7ehostIppVt5J2Xyc3gGE76Pc829ZQz1KoqaGGoVCs2/oK7RVNIkmn3tSLt91y7J3Ytru93DXxjs5WfV+5cHTH9uDC0h27CnV11FGoo/l0TCWBsfM5PUh175irjtmvqA5xO1gPACt0j+qgsv+6umhOV4K1fb1gmdIwDpMojkN4x1EIvziJElhGSRSF8B3Kq/eOma+OgVmcxEkYS0AisEBvFBt28OmZPzX7P7k8XGnJjExZejUNXxaaClOJaJm6UCp4y9aFMhXqqLLp795kQ6XW0lPrD6iu7VAylqcrbis00G1VXVu+KoADTm3jv0nS3X7fJ00nYERJew3lo3Q9gllA1yOxXm1GQbGom5aRquAcQtS68LaXvbhTjj7oexWVkwU9brIrh2Jvtmqbexh/hHepmo8Fg+4OBllTQyi8HzrqbmiQYF01EN9bNjkrGXTcDvosyAedFfopNN0ie+fetqvnTZmD2qpg351Z6Pkv5rdDNg==
+    ica_output: eJzNXWtz28YV/SsZ9WsF7vuRbyg8RSe13YyJNJ7pZDAUhcicUqRMUnadjP57dyGChIAVcRdcgP4Q2whxL86ey4O9e/fBP69u5sv5evWl2Ozy+8flbvF5nq8fd1c//vDn1XI9n+0W65W5uLq73f44mTzez+eb699n293n69vZbnZ9W3yZEIwkUnmMEKYoR1iIPP6H/Gf205vpR3L607z99Ku//nB1M9sWq9l9YR/cx97abtZr24qr6rr43+Fyvpxtt/bizWJTzHfrzTf7f7eLP+wDV4/L5ZO5LBuZ3+7vWBTW4D+BOMHoY27+u46zOGm2t/lZgLYEQv1rOs2z7ef3s9W6Cbrx0XeEOZvm74ubD+/jFuQXn5yN+LfDV2a52O7yzfrr/guzuVvcWss4ieMszdI4jrI4TtLUxDeNsPWzuVve2Ft+Wf13tf66eru42cyen7C5297bT37+8JNpp2A8f3v4p/18OVtZBNjeWsxuc1zq9oD274tl0Wy3y1U+xflbQ2D+Aefmr6hsSHT3R/mI0F/4SfJrsVxuJ75A6iEC2zZiuXf1abd7MA2Zr+/v16uvy2i9uZvMvy536/XyL3fFqthULUbHKCsppWmblvqpYpucyzb5XthuA4GzTYZgGyuBhRaUS/xUvg0qGWVxmph2GSFFqZFUai79ZSSODRFnyqjuKp+Sy8kICsQV2E7bcIElUivOBKKqj4zcQC8gIygQONuDyEggIRSXVJGXKkqMaLIsyYx0Etsv2cvEV0Xy2A55porqrvIpvZyKoEBcce20Dfh6FCayHGFC+qjIDfQCKoICgbM9iIooV4JIInSjLzK9kBFRkqVGRTa1M/9IYl8VqWM71JkqqrvKp+xyKoICccW10zagiqiklCiJUB8VuYFeQEVQIHC2B1ER0ZJwYShv9EVxKRubz9khUZJlUAW9e/PRAMfSpKXmbyR7D4najvIpH1Y9tQHz5N+mN574YaiHEmgZMKkgglDzRlTCayh0CudAqvFi+bRggJbhWJZIEokVRqzR66RlIcF0NLaKYPsfX72Iqgl9xz5tR/lUXEgvMAyuSHZYBqwcmLeeeQzCrJdeXDjH1gsMA5TlQfSimTYcM844bVQM0n1ilmW2YJDCM7QssWysSs7kvh2c9U3S3N7yKR64aFAP6i/vkuTDpA+UF8mDj33AdA1hLZVJ95Vf7aAT7QhqghLfkbX52AckHlMtKEMaqUZXZHuiOLVdkemREngJ4b2zIX3zt1e8GVoGriS0I9wHSj3CXvYBR7iaEOEjqm6co4mqDxQ/ygcRFWOasuZIyI6F4sxOEJV9VUS8MjuEqs4W15RE/DO7mqN9nZ+MoqF0s7AM3k78cDjyji7LkHFkWnCNlfYS0CmcI0gHxDQow+uyDMi0oVgLhhGRDd2YLsjoJYvsBKu5yDx1Y6sgz02g5+mm5mhfkhxHN//6eTNbLid+KByx7LIMGEtqgkmJYIr1UI0T5wiqAfAM0kyXZUCepRkWaUwVb/Q1ZeXAdDNRaidR48xXM/LQBHmeZmqO8qkcTzPJu8Vu/qk4hhMIxDXI7bAM+QpUlDJMpaR9SgkunCPIBkY1rJ7QYRmOak6R4EJpxnmjt7E16jRNonLsY4Y9vsrRVRPUmco5Osqn6pLKgQFxhbPDMuQYlisukRZSes2ZngJ6EenAgEC5HqZeQJjp4pAmCutm7dpWr412EiMcuxguon7aoVUbSE07tId2jo72SzDoRUY4QByucHZYhpwmpZgzLBDDvaTjAnqBIQ4QB5TqYZTDkBKKYU5VM1+zK93sIh0jICOeOPFUDjuon52nnJqj/YTxOMpp5N4wFK7cu8MyZJeDqGBaS4W8CtangI4/yIGhgBI9UH2aaUrNE7luri0oZ3zM4KZM2TIz3GHAuZ/nRRGHdJPXK2rMQzVtR/lUWzLYKKrJ1rtPCxNNPxiOlSJdlgEn8pSkJk/jTPVZ3ObEOYJqIESDluR0WYacTzNtY4ZswlGzs7H7FMzIpqwRmJzNUzaqqglycp5sao7yKUYX0w0UhyOenaYBZ3FMSm+SNUIF76EcN9DxpQPFAeZ6mDWhhGhkU0Pc0I4VjJ0OjZJygBOnvtrBVRvomdo5OjJk4MtpB4jDFc8u03DxVFyZ8Y3UWPbZmOAGegHtAHGAuR5mqQ5hghOCWVM7aWw3JdjyQLk3IfPsd5iRfdkGYbS/Wz88PpyloLY7QwwbT0d/K27Xj4tJLzDtAEMdhCwDSSQoF6LPlrmTcEcQFpx8iLqgDkIWbYhRmRAUk+YGOrt5Ls2iNDWDIu/+iXFetYQG0VjTnSGGX0xjXmBcYYY5CBhmjiQWiiHdS2Mn4I6vMS8wnuQPozFBjLCpsgvhX+aAtkBn8sDoeWtdGvtqTFQtYUE01nRniBEX05gXGFeYYQ4CzgRqhaRkpjvrI7ETaMeXmBcYT+6H2cBKqMaKKdJQWFauNzWd16E781OY2Jf0BcEhFNZyZ3iRl1KYHxhHlIEOwkVZIiYJl2Zc0ENhp9COrjA/MJ7cD7PPiGNaLnSgrdK56bqSJLKLHMy4zHtbXrWUltZrgH22GR0dDX5OyfFQmJf7X2AQXFOHHZYBCxgSY4WIFl691CmYQ4nHg2PY9GyHZUCOFSVKMcFUM98r9+KlURLb+kUG3mK0b4GqdklRep5Wao4GP4zklTgCITji2GUZMKNjWGGCdK9VdE6Y42oFCAHK8UDr55RWRBKMm0ePGH2Up2DZxUAZXCvV/Fg1rUx778RrORr8yJFaHJsThTAUronCDsuASTiiVHImKe4zIeuCObxcIDTD5mM7LEPSzLVEtLXLruxU7PaGrDynJ/M97kqRqgVnnhlXczT48SKvhxKIwjXF0WEZMJSCSKU00z0GNG6YoysGiAJK8zCKkZibkRKRrTnYMgtLozjNyk7GZ8v3Mx0lbYfOsvcpca/5G/6AkWNgj3uPvaE0Nx/DHQSssiKMqZIa+/U+3WiHlxSY+e5t33AHQZknSGEtmtO0WbkINY7KGlwGP/OqSkKrZRq077lxbUfDn0ByDGtrUT4Qhysf77AMmI8LobAkVPTZpuqEObx+YETDBj4dliGJZkyYhFk0C2pZueeunHg1fRL8HJKqBdUqdNr3nLi2o/0eqlFU01yPD4ThimWHZcgEQ1AmGUG9CgUumMOLBsQzTDMdlgF5Vpga2UjZHvqUZyJEz0dnJ95FaFa1QJ9ZhD462m+euohmgDBcRdIOy3CxZFpihilDvTYLuWCOrxkgDCjPw/QziGJs/xCNqVG718HO15TLT+MUXC54704zGeopnVf97de1jzj46QWlHl0/BwHFpLiiyGttDwDqWCOfXlA8aR9mhSrmDEn+VP6sw2K1M4AeLvHzKI1HN0PtbVzntsGWvQT9MMr2YbnY5dtPRbEL+Zso29n9w7J4dnt98+3aIJl9u959eygm0/Kjqf0oqh+EG823X5qUdN1bZ+C1e5vfo71pS3WHpePU62sW7tdNgJzVlit0Uea49TXGHL/5AiQMU82+c8YOb7JOwlp3vspX6wdnoHQhRPzo+q0hU/szRuFeWa9z2CTq9J0hXkbmXfzwuLPty0178m2x3Zrm5WUmZO9p3/L7enlbbI53PP0f7JdK1w==
+    ica_engine_parameters: eJzNVNFumzAU/ZWKl74MYkMgSd+ikK1dW2UbzTRpmiyDL8wd2Mw2yViUf59N2i2rsu61Twjfc849PvfCzttK9S3lCgojVe9dnHkV0xej0bZUAZsxVkwhn7B4PGZRmLMcwmlcsnFMx1ESj7qmKBQhtDOyoQYYIXlRk0KKDShDSIjRBE3JHCEcIYJwkpD55eT67m2afQoJUcFyFq6v0pQv1tfvs/hefkxXyZuKEJyESRhH43jqvTrzZGfazpzwOLT3S6rNd59RQ30Gm9GzTZ2cadrVvxRfyK1H2kCrndlaVi/YpnU3uGzoj6ygxoCyHqPw98wyMIaLyhlv5AYctJBtf4j/SmhDRQF3fQsOkdk3RhW75Iu2Ow3N+M8BeguMd43DMChpV1uARd1KNlTPU7kVtaTs3CH4Y2ll7604A20xu71bBNBrDQcqFbwEbQa6S2ygFtvaSFm7wyhAQYhChEMU4UmEMXYATZu2Bv0VwDF3XlFT7eS917yGw/hsLFwKd/buZr5YXq5u0uUHb/83mdi4GHfhHZ9qP+99K0h737iMLEd1opQ1A0UEbeCpqgWAqLgYCjjASYB8axqjBM2s6dh9H1DLdoilElIBabjWdkLkoa0lGtWBc3cYnSZ5f1T8/GXIvAYDpBPMPlRj+zHCBeMF6KMV04drP8i582EShB2t81Fif7b8P7E5pYOhVsl7yyG6yx9F+TMWnuTtvJRS2U/DddkMvwZtFLeCjd2W0zL7XypksgI=
+    workflow_start_time: 1626253463
+    workflow_end_time: 1626273842
+    workflow_duration: 20378
+    ica_tasks:
+      - ica_task_run_instance_id: trn.8aa1cc12b060493089737b35665af33c
+        task_step_name: samplesheet_split_by_settings_step
+        task_name: custom-samplesheet-split-by-settings__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626253624
+        task_stop_time: 1626253730
+        task_duration: 106
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.daff5f41748f4551a93df1c8126ea54c
+        task_step_name: create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626253615
+        task_stop_time: 1626253709
+        task_duration: 93
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.765bf1d4d35546d0ac3661405b875a01
+        task_step_name: interop_qc_step
+        task_name: multiqc-interop__1.2.1.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1626253824
+        task_stop_time: 1626256473
+        task_duration: 2649
+        task_metrics: eJyd078KwkAMBvBXKZ2LJJfLP19FHEQ6OBwWrYOI727Bqeig33Z38OPCl2T36OdTG6/zoU39tmMrVrSKy9D1x+m2PNGGl3Mb2/lyf1+fQ/dVVTFEJaJUFVDGBVGOVOhQGp4JqIDSSA5EBf2vlASYKKUEKlRWB1QpjChH/hIB+qWCbMqyKohSrogKRJkgXTYoDVekwmBkesORv3K1KfSbMqKKKA1AMUMqGFClEqISyVBWm/Kh9i/uDu/Z
+      - ica_task_run_instance_id: trn.41b73de560df4fa29492c9f27f729d14
+        task_step_name: bcl_convert_step
+        task_name: bclConvert__3.7.5.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1626253945
+        task_stop_time: 1626263425
+        task_duration: 9479
+        task_metrics: eJyNl8tqXlcMhV/FeGwO+6ZbXyV0UEoGHZiGNh2E0HePfgL5l5SuQ2e24bOkJS1pnw9fXz//8f7x78+/vX96/eVl6tIlEqFvL6+/f/on/zSukT+/f3z/868v33/99+3lvygdIj8o1WsitufljJsLOLkMuTOuoJwZxqvc5vHWOU/uXLtwzuvbYz65dSlysq9DOd2YZxROrs24MwM5L1zqSznbqGdpn9gljJMzMZ4gp+NSygX0z2qeOnl9qjxP3TyeoS5tXrKftD4z5Zxci3F+NtZX81Ted0ddvOmpvL4QxXincHYZ4WysgfHKfCqfaxt2eJ5O9bS5nefp1LfZvme8nP/CrcPzXLBfZFUfnaB+tz0V41U/DNo/2/7UM/1d/SecO6DLw2+No/2TsTBPaz6iugjMi5yqi/L9Ygq65P+X5iOqp/rEPhRdjPvPDHWZtb7kmB/MAjitc203fnDZyJU9bzfzEuCjPme+eH3hz/7lviy6+Kb72sd+3jHxFo/r4qP6qPTP+Zz51InzWfzg3O++1kJO/zcHe1fa3Qw+175Rl9PqC7pf/IxB67uLd9BH7Y4lR+sTuEc512Wfxab+c6n7pbyXHv5gnG64f/One0vnReEeZX0l3s2ecBOnfc87xu6m+yx6ruK/xetz3+ijygXvXxxBrvropn8R4NtVdUnfsvpi6MI+lDzTt0zPmPOgH7pv2Z6ICbrkvFT/Gd1nsfbGeKdxTM9Ysd/YXXF+32PruPMDu5txUJc2n7HoXMexwDzrfjl0zkK2IFfuQyivLz+PfnD57pBWH42nuHfbOyTj0f7ZKpy1+mj/7OZOB3+/hO/F8zTeB4+yJ4qecsMF6uI1ntHvTR1jcr/ne4L4Njn0UXvvOtVTxzxQX+u703eI5rMc8ux7IlgfkpPA/vW7SevbC+obzUfK89zmPB7d8zoO+Oi0vTTHjaDlwXs6KMyBCWp5oY0ekaxQHfjklbbqHxFpL8qbV3uqN6IafDzmMmypOk81n4XYRatgMDslqLDWdrXhIyLZMzoC3zGji+N8AMLLgtKeKlM1W3VQ1eggOaEJwgrOiKuD5NbrnOgp+xlk7ZgLlvDx3sfHa/TXbyhcL8E=
+      - ica_task_run_instance_id: trn.bb03b904200a4a7886373a7da50215ad
+        task_step_name: bcl_convert_step
+        task_name: bclConvert__3.7.5.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1626253946
+        task_stop_time: 1626257074
+        task_duration: 3127
+        task_metrics: eJx90sEKwjAMBuBXGTtLWJsmaXwV8SCyg4fi0HkQ8d0tCFsqZre29ONv//bw6udLGe/zqUz9vgscORKp6q7rz9OjLg0w1HEZy/X2/E7fu+6f4oHTohiBLcMIyXMhrGlc9zVOAV0naPPUuhRBPRdRVhfavERAnsOBVpdAGpchuo5MLwTYOPXzUhDbS7aOgt9nErJ5rdvohZDcPiltOM3WNX0SAXuuQvsOTS/EvpPAi6P8c87s/08R9c+p9X7HD23M0tU=
+      - ica_task_run_instance_id: trn.f4d9c7617ff7449985341bc8c8475925
+        task_step_name: bcl_convert_step
+        task_name: bclConvert__3.7.5.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1626253945
+        task_stop_time: 1626257434
+        task_duration: 3488
+        task_metrics: eJx11LFOxDAMBuBXqTqfrNiJ7YRXQQwI3cBQcYJjQIh3v9xC7cI/tuonO/6dPn6v19ft/HF93i7rw8ImJqpj1NOyvlw+5yspVObDdt7e3r/un3RqP6flP2dF/deZUY2uNirIsXB0mtwgh84Nutawk9p3p9STczLoxthdzfWUiZGrVqJryTU8z8YK56mK+2y+52dCltzAfWpN5/PorFCHboQcnOTgYO4TRjcODubnLNGluRjTgC7uS897PecE++zVcZ+C641SYn4ph/t8oVOL+fHBoXpeRHAO+D548XC+lvdz3g/ouHHsM+fQ4b44h//Ln7n0uZ9PN1QNPKg=
+      - ica_task_run_instance_id: trn.34fcede4807e4c1d98118c053af3760d
+        task_step_name: bclconvert_qc_step
+        task_name: multiqc__1.11.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1626263658
+        task_stop_time: 1626264166
+        task_duration: 507
+        task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.58436856778e4f70ae7856869571470c
+    ica_workflow_id: wfl.32e346cdbb854f6487e7594ec17a81f9
+    ica_workflow_name: dragen-somatic-pipeline_dev-wf
+    ica_workflow_version_name: 3.7.5
+    ica_workflow_run_name: umccr__automated__tumor_normal__SBJ00910__1626338884
+    ica_input: eJzNlMlOwzAQhl8F5Uy9tDQBbsGIILYDiQAJoZFJ3GCRpdgOW9V3ZxxUylIhuPWQ2Jn5PfONfjmzoO3ctHMw0ZWCqVET/RzsbgSn+1dDzngUBpsbC0mhjcpda168IN07YmyHM5+fSOseoNLWgWmfLKavZ4EpdeGFcZYkAl8kSbJYiCwjnGDpiG1DzBgfMWA8DCE+jI6zo/30akgWvcdwgiuLtsa+iSmrW1/va8zWn2n7YCUbhUHu80oWwPFjFuSVtJ4sOMBBe1mbS6fbxsfKwu5S2tV5bgb9MINCOjko1CP9FZVeJilk9uFMNi29EELQn+yQ4h5PwzkHXEhfn5SvwXwBOFwXwOE3wPkNYriubg38ajH6iwaLmMSxSLJMiD9bHC4owhUWh6ssDtfG4iU7pOE6WrwKcKXFqpG3ePtrOQVZ6bKB9wuPVM50aikoummlkdhLzb1uyh8K+7gM4b9EGdXkCpw0/5sfj34MXxhZqobi09bK0rtytE1HJCLjfovADu4cjCCCMcFG71O9ATTEbV8=
+    ica_output: eJzNl82O2yAUhV9l5G5bG4yN8SyrUReVuuqmUlUhG3DGEjZTwElnonn3Qh0nmTh/rqrUiywuHG7OPXxSyDrguliIlhrVFLZmVHX2qbOU11owq/RzcH+3DqRiblO1rggW3NxH0arSYUoShEmKs4yIpMpAITJXEZynGUwywKKuYUxTWnTWNxecUts1StNW6aaQlH79+BmAHAJKIY4xQoSQJOoNmGjYDN7fBWVhRFs0wn///rpf00pZvz7U4te2ZLIwxhcP22ncqqlffKO2k/LVlU0nbf1zRoN/efgWQwAzTA+uZuP0MJBr9P8iqI35smh8Vv+di11OobN0MpRhcz+B7eZBFIN2G8enWoq9JCCEOANxnhGU+VXBVMsL/exlXv99fdqD+9S+1XwiGxyNpj0a1X6Ou7j+NHi09snNwVTTqHYlQ6UXEVtJq5R853gUehgYvP6YJvchb2A27ZIuWUUfC81pVUsrtEthZiB6cx8Gc6GzGy5eTpN5Sn08/5H68Db6w6fYRa5HDNAkbI8ZDG05J47PWbwS7HPXMGS76XhT0mfG9iWaL/E7mdjYjYJxMonYWTL6V1TOgEOrO2Y77UaeIY5meZHIN5LjKfeSaVwmSZzCSVRujcwMzJGvK9kcBXtLPPuR5/cK7U+ffYu+lRzNtpdMfZcmJE3d6Rilk37gd37m9Tod+7oOzHG+t3yp7v5AUhcdNcIYt0tr7h0Y04axgKhEAnFW4aQiec5RlVawRBy7PMs8GDeplORCb3q4IkwBiLngJMMwTQTkZcIYIDxHOCYEIRS8/gbiZuyq
+    ica_engine_parameters: eJy9kT1PwzAQhv8KytKFpnacxGlH6ABIVYfAbFn2JbJI7MgfDaXqf8dOBRNzx7t7Ts/pvUs2G/u5VxaEN/ac7R6yXrrdZjN3Nq+aktRNVVPaQNlRxIHGqqm3FcUlRWITRiEsYzx4M3IPkjEfRmOZNnbkA2Pt0xtCW4wYw3VRE9I0TZk9PmQm+Cn4e1o3N6VLdj9Ox/sf4DxMi34w/V3F0bd4R/7VCu492Gglxd8bWvBe6T6dMpoTJFSY6XyL6FU7z7WA9/MEiWhjJbmVL+p5Cv+jrfpe0ANIFcbESOh4GCIQqYORy3S1N7MeDJerRKjf0fEE1ioJLjKXa3oWuA8Ht1WuVQfOL+spg2VVzIM3ZkhNkqO8QAXCBSKYEoxxAkD3Si9OnOM6R+uIYFTHnCip1hJOMJgpu/4AkTr0xg==
+    workflow_start_time: 1626338890
+    workflow_end_time: 1626361263
+    workflow_duration: 22372
+    ica_tasks:
+      - ica_task_run_instance_id: trn.6259c72a989d430ea655687c96642657
+        task_step_name: create_fastq_list_csv_step
+        task_name: custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626339040
+        task_stop_time: 1626339180
+        task_duration: 139
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.b09e05861c2b4c1eac709d7aae1c6cef
+        task_step_name: create_tumor_fastq_list_csv_step
+        task_name: custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626339048
+        task_stop_time: 1626339261
+        task_duration: 213
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.f0b45d87ee0f4edfb5b99155d6a0dcb9
+        task_step_name: create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626339028
+        task_stop_time: 1626339119
+        task_duration: 91
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.02402cda5826438bbc439689065bb88e
+        task_step_name: run_dragen_somatic_step
+        task_name: dragen-somatic__3.7.5.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1626339449
+        task_stop_time: 1626359065
+        task_duration: 19616
+        task_metrics: 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
+      - ica_task_run_instance_id: trn.d20512b85bba4d7f8e4c831085447358
+        task_step_name: dragen_qc_step
+        task_name: multiqc__1.10.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1626359216
+        task_stop_time: 1626359745
+        task_duration: 529
+        task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.f0fa0ea3972f405aa5af5003e1427428
+    ica_workflow_id: wfl.286d4a2e82f048609d5b288a9d2868f6
+    ica_workflow_name: dragen-transcriptome-pipeline_dev-wf
+    ica_workflow_version_name: 3.7.5
+    ica_workflow_run_name: Dragen-WTS-MDX210147
+    ica_input: eJzFUsFu1DAQ/ZXKZxw7Dkuq3soiuIQedgtUQmg0SZzEatZe7Nku7Wr/HduUIlU9IFqJgzUez/N7z+M5MLTWEZJxFgYza3Z2cmDdjCHEHXufTl6dsNl1GZLOxj6cCRHII+0CD3ryJkxK9Ego9hSE1wOPRRs6b7YUCussv9Pe8VnbkaZipIEdI2c7Y3c9m0DPk0TvTYv8ga2gcFOMd1miuyXXou3DS0iIBzaYxuoUPqyWUwxKlqdcKq6qpJxlBwz0HZIZ8G6fJL8e2Iw2NbeMda+xh/L5nVZSlVzWXJbw5XINF7pdXZyLz8vlUnx8d6VKWb6uoYlR1lLBegGNjNBVCTEU2eTvRmVH6r85Uk84Gk2fFNcLlrO5Tdkne23d3jam9ehvf1XC5h53/BZzt6PtjqA3XnfkIibWSAcydmR/ymnSYRsn1fxIgLfnTcMvIypBtt6RNhZ6t0FjX2Z0HnE+MUAVl2+KcRiq+/8YtNe205Cagv/sIenEvj7iJPR/y7jbdJ3n8Wp6De/1jeg9jtqKuNxGh6wgqqIuFnkLOBNMBBXUsCiiUP7P40/UxGz6
+    ica_output: eJy1kDFvAjEMhf8KytxTjhMSElsrxuvWoVsUEvewlEuo7Yi2iP/eRKXQQocOMEXPz7Hf552yRLiyJmXZZDEeCZwkeleLyU6F5KxgikWowfNCaxaykrlhWBPyutOe7ACx2Qrrx+VzN22ns7npy9vO207/Gs7qbqJWliHaEerIS7c6lJJU91vD21G6YJmrWB5jlirjRx0Xcwj7Ir8SmRI0siPcSBrhRngCLBiHc64f5WsAjTkIvrobMTzc933zVBKbPw93WH6O+P9f17jAidwURsPAXJAN+kPPZctLCh7o1LH/BMZN/FQ=
+    ica_engine_parameters: eJytkLFugzAQhl8lYslSwDYQmqxlaKVGGUjVbtUJH8Qq2Mg2oWmUd68NaqZ0qTpZ9n3/d+c7B6PSH4XQWFmlT8FmETTcbOJ4rHVUkxoIQrLOWZ2SDCCDOiMkQZqyPGX3caGhQRm+7stwW7wxSmiaB3eLQA22H+wNq7Ea7GBCgwctzIHFfDaM1sRXw/uzO0lOmFfZrt/9ZvvzjG4O7I3Xt6r5V7HzTd4OPssKrEXtrAm77qREa4VsfKtOHdGjlepP8xefpLEgK9yfevRE6W4cNH8UD/1wGy3F14RukYuh8wzHGobWAY7aKj5Vl4UaZauALz0hfkq7I2otOBrHnC9+2WheDM5RkKJGY6c4DFZN0WpsrVKtf0wiEjHCCGUkoXlCKfUAykbIqSeN6CoioUMoWZG1Q7KQ4xFb1QeXb/irw4A=
+    workflow_start_time: 1626503489
+    workflow_end_time: 1626511597
+    workflow_duration: 8107
+    ica_tasks:
+      - ica_task_run_instance_id: trn.f96b51f4a6c149b09a71077cb5cf89ac
+        task_step_name: create_fastq_list_csv_step
+        task_name: custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626503613
+        task_stop_time: 1626503748
+        task_duration: 134
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.6f3230fa17ef4c0c8aecf7534eea316e
+        task_step_name: create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1626503609
+        task_stop_time: 1626503708
+        task_duration: 99
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.b0f2015a36624c1e87888cd18addd842
+        task_step_name: run_dragen_transcriptome_step
+        task_name: dragen-transcriptome__3.7.5.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1626503918
+        task_stop_time: 1626509032
+        task_duration: 5113
+        task_metrics: eJyd0DsOwjAMBuCrRJkrK87DjrkKYqhQB4aICsqAUO/esNCkIks229JnW//5o5dbmp7LmGZ9UkiWgoke/aD0dX59R2BznaZ0f7xza8Csg/qvmDpUcF1KpENRiLsK4EvmCFzLcZWHqxj4pmLeFQKWzDKElotOyi/rc9h2YvDn8voDk/WyAWpEhVI=
+      - ica_task_run_instance_id: trn.ff27bf86c68847378d88de4b0af56f97
+        task_step_name: arriba_fusion_step
+        task_name: arriba-fusion-calling__2.0.0.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1626509145
+        task_stop_time: 1626510072
+        task_duration: 927
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMyMzWwNLMw0FFQSi4oBQnpgdi5qbn5RZVAromeea2OAlZd5samuHSZ61ni0mVhgNMuQwM9U5zaTC1wajPCbZulkTFObcZ4tJmb4dUWCwClRljw
+      - ica_task_run_instance_id: trn.cfcfe535d66b4a8ba5aef05005e00552
+        task_step_name: dragen_qc_step
+        task_name: multiqc__1.10.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1626509175
+        task_stop_time: 1626509652
+        task_duration: 477
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.52aef64a355f4222bef57e6dd71ea4d0
+        task_step_name: arriba_drawing_step
+        task_name: arriba-drawing__2.0.0.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1626510152
+        task_stop_time: 1626510633
+        task_duration: 481
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMyMzU0MDK00FFQSi4oBQoZ6BkA2bmpuflFlRBurY4Cdl0WpnBdhqi6jHDrMjbGqctQzxKnLktz3HYZ4dJlYorHhTh1mRoZ4NZlUhsLACAHV8E=
+      - ica_task_run_instance_id: trn.efbea89d68654d8cb8eca53dc1681c4f
+        task_step_name: create_arriba_output_directory
+        task_name: custom-create-directory__1.0.0.cwl
+        task_cpus: 15.5
+        task_memory: 28
+        task_start_time: 1626510734
+        task_stop_time: 1626511193
+        task_duration: 459
+        task_metrics: eJyLjgUAARUAuQ==

@@ -266,7 +266,9 @@ projects:
             path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-07-04T11:54:07UTC
-            run_instances: []
+            run_instances:
+              - wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
+              - wfr.58436856778e4f70ae7856869571470c
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_dev-wf
@@ -276,7 +278,8 @@ projects:
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-07-09T01:45:56UTC
-            run_instances: []
+            run_instances:
+              - wfr.d9ddc8eb7d544d32bdbe285fd45a4365
       - name: dragen-transcriptome-pipeline
         path: dragen-transcriptome-pipeline
         ica_workflow_name: dragen-transcriptome-pipeline_dev-wf
@@ -286,7 +289,8 @@ projects:
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-07-04T11:54:15UTC
-            run_instances: []
+            run_instances:
+              - wfr.f0fa0ea3972f405aa5af5003e1427428
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
@@ -306,7 +310,8 @@ projects:
             path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-07-02T05:02:49UTC
-            run_instances: []
+            run_instances:
+              - wfr.1fd8c32d79c34e179a4c0d6754edd3a2
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
