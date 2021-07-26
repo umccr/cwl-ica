@@ -194,7 +194,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/custom-create-directory__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-07-04T11:45:37UTC
+            modification_time: 2021-07-26T08:16:33UTC
             run_instances: []
       - name: dragen-build-reference-tarball
         path: dragen-build-reference-tarball
@@ -277,7 +277,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-07-09T01:45:56UTC
+            modification_time: 2021-07-26T08:20:43UTC
             run_instances:
               - wfr.d9ddc8eb7d544d32bdbe285fd45a4365
       - name: dragen-transcriptome-pipeline
@@ -395,6 +395,11 @@ projects:
             ica_workflow_version_name: 3.7.5--0016880
             modification_time: 2021-07-09T01:46:06UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/bcl-conversion__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--e868619
+            modification_time: 2021-07-26T08:20:54UTC
+            run_instances: []
       - name: dragen-transcriptome-pipeline
         path: dragen-transcriptome-pipeline
         ica_workflow_name: dragen-transcriptome-pipeline_prod-wf
@@ -419,6 +424,11 @@ projects:
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--3991b88
             modification_time: 2021-07-23T02:05:33UTC
+            run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--e868619
+            modification_time: 2021-07-26T08:20:59UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
@@ -505,7 +515,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/custom-create-directory__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-07-04T11:45:47UTC
+            modification_time: 2021-07-26T08:16:43UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
