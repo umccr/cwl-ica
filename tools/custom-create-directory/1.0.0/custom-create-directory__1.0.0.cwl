@@ -26,7 +26,7 @@ doc: |
 hints:
     ResourceRequirement:
         ilmn-tes:resources:
-            type: standardHiCpu
+            type: standardHighIo
             size: small
         coresMin: 12
         ramMin: 92

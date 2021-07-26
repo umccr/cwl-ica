@@ -183,7 +183,7 @@ steps:
       fastq list rows is an array and bcl convert is from a directory output.
       This scatters the arrays to a single array
     in:
-      arrayTwoDim: bcl_convert_step/fastq_list_rows
+      array_two_dim: bcl_convert_step/fastq_list_rows
     out:
       - id: array1d
     run: ../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.cwl

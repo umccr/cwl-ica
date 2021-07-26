@@ -26,7 +26,7 @@ requirements:
     types:
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
 inputs:
-  arrayTwoDim:
+  array_two_dim:
     label: two dim array
     doc: |
       two dimensional array with fastq list row
@@ -48,9 +48,9 @@ outputs:
 expression: >
   ${
     var newArray= [];
-    for (var i = 0; i < inputs.arrayTwoDim.length; i++) {
-      for (var k = 0; k < inputs.arrayTwoDim[i].length; k++) {
-        newArray.push((inputs.arrayTwoDim[i])[k]);
+    for (var i = 0; i < inputs.array_two_dim.length; i++) {
+      for (var k = 0; k < inputs.array_two_dim[i].length; k++) {
+        newArray.push((inputs.array_two_dim[i])[k]);
       }
     }
     return { 'array1d' : newArray }
