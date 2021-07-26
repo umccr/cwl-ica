@@ -1,4 +1,4 @@
-name: Sync tools and sync workflows
+name: Sync tools and sync workflows and create catalogue
 
 on:
   push:
@@ -20,8 +20,8 @@ on:
      - "config/run.yaml"
 
 jobs:
-  sync_tools_and_workflows:
-    name: sync-tools and sync-workflows
+  sync_tools_and_workflows_and_create_catalogue:
+    name: sync-tools and sync-workflows and create-catalogue
     concurrency: git_commits
     runs-on: ubuntu-latest
     steps:

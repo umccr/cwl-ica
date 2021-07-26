@@ -134,5 +134,5 @@ fi
 echo_stderr "Building the CWL Catalogue"
 conda run \
       --name "${CONDA_ENV_NAME}" \
-      cwl-ica github-actions-build-catalogue \
+      cwl-ica github-actions-create-catalogue \
         --output-path "cwl-ica-catalogue.md"
