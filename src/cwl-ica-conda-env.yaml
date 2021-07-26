@@ -4,6 +4,7 @@ channels:
 dependencies:
   - numpy
   - pandas
+  - matplotlib
   - pip
   - python=3.8
   - pip:
@@ -23,3 +24,4 @@ dependencies:
     - docopt
     - PyJWT
     - tabulate
+    - mdutils

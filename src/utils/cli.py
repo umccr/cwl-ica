@@ -111,8 +111,8 @@ Command:
     #############################
     Run-register Commands
     #############################
-    register-tool-run-instance-id       Register an ICA workflow run instance of a tool for a given project
-    register-workflow-run-instance-id   Register an ICA workflow run instance of a workflow for a given project
+    register-tool-run-instance          Register an ICA workflow run instance of a tool for a given project
+    register-workflow-run-instance      Register an ICA workflow run instance of a workflow for a given project
 
 
     #######################
@@ -138,9 +138,12 @@ Command:
     #################################
     GitHub Actions Scripts
     #################################
-    github-actions-sync-tools           Sync all tools to tool.yaml and to all projects with that tool version
-    github-actions-sync-workflows       Sync workflows to workflow.yaml and to all projects with that workflow version
-    github-actions-build-catalogue      Create the catalogue markdown file    # Not yet implemented v1.0 release
+    github-actions-sync-tools                  Sync all tools to tool.yaml and to all projects with that tool version
+    github-actions-sync-workflows              Sync workflows to workflow.yaml and to all projects with that workflow version
+    github-actions-create-expression-markdown  Create a markdown help report file for a cwl expression
+    github-actions-create-tool-markdown        Create a markdown help report file for a cwl tool
+    github-actions-create-workflow-markdown    Create a markdown help report file for a cwl workflow
+    github-actions-create-catalogue            Create the catalogue markdown file
 """
 
 from docopt import docopt
@@ -452,6 +455,32 @@ def _dispatch():
         sync_workflows_obj = SyncGitHubActionsWorkflow(command_argv)
         # Call command
         sync_workflows_obj()
+    elif cmd == "github-actions-create-expression-markdown":
+        from subcommands.github_actions.create_expression_markdown_file import CreateExpressionMarkdownFile
+        # Initialise command
+        create_expression_markdown_obj = CreateExpressionMarkdownFile(command_argv)
+        # Call command
+        create_expression_markdown_obj()
+    elif cmd == "github-actions-create-tool-markdown":
+        from subcommands.github_actions.create_tool_markdown_file import CreateToolMarkdownFile
+        # Initialise command
+        create_tool_markdown_obj = CreateToolMarkdownFile(command_argv)
+        # Call command
+        create_tool_markdown_obj()
+    elif cmd == "github-actions-create-workflow-markdown":
+        from subcommands.github_actions.create_workflow_markdown_file import CreateWorkflowMarkdownFile
+        # Initialise command
+        create_workflow_markdown_obj = CreateWorkflowMarkdownFile(command_argv)
+        # Call command
+        create_workflow_markdown_obj()
+    elif cmd == "github-actions-create-catalogue":
+        from subcommands.github_actions.create_catalogue import CreateCatalogue
+        # Initialise command
+        create_catalogue_obj = CreateCatalogue(command_argv)
+        # Call command
+        create_catalogue_obj()
+
+    # NotImplemented Error
     else:
         print(__doc__)
         print(f"Could not find cmd \"{cmd}\". Please refer to usage above")

@@ -257,9 +257,54 @@ def get_run_yaml_path(non_existent_ok=False):
 
     return run_yaml_path
 
+
+def get_gh_dir() -> Path:
+    """
+    :return:
+    """
+
+    return get_cwl_ica_repo_path() / ".github/"
+
+
+def get_gh_catalogue_dir(non_existent_ok=True) -> Path:
+    """
+    Get the github actions catalogue directory - handy when running GH as will point to full url paths
+    :param non_existent_ok:
+    :return:
+    """
+    return get_gh_dir() / "catalogue"
+
+
+def get_gh_run_graphs_dir(non_existent_ok=True) -> Path:
+    return get_gh_catalogue_dir() / "images/runs"
+
+
 def read_yaml(yaml_file):
     # Read in the cwl file from a yaml
     with open(yaml_file, "r") as yaml_h:
         yaml_obj = yaml.main.round_trip_load(yaml_h, preserve_quotes=True)
 
     return yaml_obj
+
+def get_branch_name() -> str:
+    """
+    # TODO - add to globals and also convert to 'main' at some point
+    :return:
+    """
+    return 'beta-release'
+
+def get_blob_url() -> str:
+    return get_cwl_ica_repo_url() + f"/blob/{get_branch_name()}"
+
+
+def get_raw_url() -> str:
+    return get_cwl_ica_repo_url() + f"/raw/{get_branch_name()}"
+
+
+def get_cwl_ica_repo_url() -> str:
+    """
+    Returns the repo url
+    :return:
+    """
+
+    return os.environ["GITHUB_SERVER_URL"] + "/" + os.environ["GITHUB_REPOSITORY"]

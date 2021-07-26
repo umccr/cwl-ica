@@ -54,3 +54,79 @@ SCOPES_BY_ROLE = {
     ]
 }
 
+ICA_TES_INSTANCE_SIZES_BY_TYPE = {
+    "standard": {
+        "small": {
+            "cpu": 0.8,
+            "memory": 3
+        },
+        "medium": {
+            "cpu": 1.3,
+            "memory": 4.5
+        },
+        "large": {
+            "cpu": 2,
+            "memory": 7
+        },
+        "xlarge": {
+            "cpu": 4,
+            "memory": 14
+        },
+        "xxlarge": {
+            "cpu": 8,
+            "memory": 28
+        }
+    },
+    "standardHiCpu": {
+        "small": {
+            "cpu": 15.5,
+            "memory": 28
+        },
+        "medium": {
+            "cpu": 35.5,
+            "memory": 68
+        },
+        "large": {
+            "cpu": 71.5,
+            "memory": 140
+        },
+    },
+    "standardHiMem": {
+        "small": {
+            "cpu": 7.5,
+            "memory": 60
+        },
+        "medium": {
+            "cpu": 15.5,
+            "memory": 124
+        },
+        "large": {
+            "cpu": 47.5,
+            "memory": 380
+        },
+        "xlarge": {
+            "cpu": 95.5,
+            "memory": 764
+        }
+    },
+    "standardHighIo": {
+        "small": {
+            "cpu": 11.5,
+            "memory": 92
+        },
+    },
+    "fpga": {
+        "small": {
+            "cpu": 7.5,
+            "memory": 118
+        },
+        "medium": {
+            "cpu": 15.5,
+            "memory": 240
+        },
+        "large": {
+            "cpu": 63.5,
+            "memory": 972
+        }
+    }
+}

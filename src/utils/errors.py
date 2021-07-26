@@ -73,17 +73,28 @@ class ICAWorkflowRunCreationError(Exception):
     """
     Could not create the run object
     """
+    pass
 
 class ICAWorkflowRunExistsError(Exception):
     """
     The run already exists in run.yaml
     """
+    pass
 
 
 class ICAWorkflowRunNotFoundError(Exception):
     """
     The workflow run does not exist
     """
+    pass
+
+
+class ICATaskRunCreationError(Exception):
+    """
+    Could not create the ica workflow run
+    """
+    pass
+
 
 class UnknownDateTypeError(Exception):
     """
@@ -91,6 +102,13 @@ class UnknownDateTypeError(Exception):
     """
     pass
 
+
+# Tasks
+class GetStepNameError(Exception):
+    """
+    Could not get the name of the step from the ica task launch value
+    """
+    pass
 
 # Items
 class ItemCreationError(Exception):

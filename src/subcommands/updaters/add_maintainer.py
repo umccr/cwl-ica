@@ -110,7 +110,7 @@ class AddMaintainer(Command):
             if line.strip() == "s:author:":
                 if found_authorship:
                     logger.error("Don't know what to do with two authors")
-                    raise MultipleAuthorsError  # FIXME
+                    raise MultipleAuthorsError
                 in_authorship = True
                 found_authorship = True
             if in_authorship and line.strip() == "":

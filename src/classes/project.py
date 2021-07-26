@@ -17,7 +17,7 @@ from pathlib import Path
 from classes.cwl import CWL
 from utils.logging import get_logger
 from utils.errors import InvalidTokenError, CWLApiKeyNotFoundError, \
-    WorkflowVersionExistsError, ProjectCreationError, CWLAccessTokenNotFoundError
+    WorkflowVersionExistsError, ProjectCreationError, CWLAccessTokenNotFoundError, ItemNotFoundError
 from utils.ica_utils import get_base_url, get_jwt_token_obj, get_token_memberships, \
     get_token_expiry, check_token_expiry, get_api_key, create_token_from_api_key_with_role, get_region_from_base_url,\
     store_token
@@ -178,23 +178,17 @@ class Project:
         # Check scopes
         # TODO - not sure if this is necessary, we now run this through the api-key name
 
-    def get_tools(self):
+    def get_items_by_item_type(self, item_type):
         """
-        Collect tools for this project from tool.yaml
+        Return the tool list or workflows list
         :return:
         """
-        # TODO need to implement inits in hierarchical format first.
-        # Calls get_items on tool.yaml and cross reference name attribute with tool name
-        # And then for each tool checks versions with tool_versions
-        raise NotImplementedError  # Don't see a reason to implement this
-
-    def get_workflows(self):
-        """
-        Collects workflows for this project tool in workflow.yaml
-        :return:
-        """
-        # TODO need to implement inits in hierarchical format first
-        raise NotImplementedError  # Don't see a reason to implement this
+        if item_type == "tool":
+            return self.ica_tools_list
+        elif item_type == "workflow":
+            return self.ica_workflows_list
+        else:
+            raise ItemNotFoundError
 
     def add_item_to_project(self, item_key, cwl_obj: CWL, access_token, categories=None):
         """

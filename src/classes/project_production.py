@@ -44,24 +44,6 @@ class ProductionProject(Project):
         # Call super class
         super(ProductionProject, self).__init__(project_name, project_id, project_abbr, project_api_key_name, project_description, linked_projects, tenant_id, tools, workflows)
 
-    def get_tools(self):
-        """
-        Collect tools for this project from tool.yaml
-        :return:
-        """
-        # TODO need to implement inits in hierarchical format first.
-        # Calls get_items on tool.yaml and cross reference name attribute with tool name
-        # And then for each tool checks versions with tool_versions
-        raise NotImplementedError  # Don't see a reason to implement this
-
-    def get_workflows(self):
-        """
-        Collects workflows for this project tool in workflow.yaml
-        :return:
-        """
-        # TODO need to implement inits in hierarchical format first
-        raise NotImplementedError  # Don't see a reason to implement this
-
     def sync_item_version_with_project(self, ica_workflow_version, md5sum, cwl_packed_obj, force=False):
         """
         Takes an ica workflow version object (which, yes will be an item in this in either tools or workflows)

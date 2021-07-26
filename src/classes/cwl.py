@@ -42,6 +42,7 @@ class CWL:
         self.version = version
         self.cwl_type = cwl_type
         self.cwl_obj = None  # Imported through cwl
+        self.parser = None
         self.cwl_packed_obj = None  # Only created for validate_object and to grab authorship schemas.
         self.md5sum = None  # Packed md5sum
         self.create = create
@@ -151,6 +152,9 @@ class CWL:
                     })
                 else:
                     yaml_obj['$namespaces'][schema_namespace_str] = schema_namespace_str
+
+        # Also set the parser for other users
+        self.parser = parser
 
         # Now import cwl object as a file
         self.cwl_obj = parser.load_document_by_yaml(yaml_obj, self.cwl_file_path.absolute().as_uri())
