@@ -10,8 +10,8 @@ class RegisterWorkflowRunInstance(RegisterRunInstance):
     """Usage:
     cwl-ica [options] register-workflow-run-instance help
     cwl-ica [options] register-workflow-run-instance (--ica-workflow-run-instance-id ica_workflow_run_instance_id)
-                                                 (--project-name the_project_name)
-                                                 [--access-token ica_access_token]
+                                                     (--project-name the_project_name)
+                                                     [--access-token ica_access_token]
 
 
 Description:
