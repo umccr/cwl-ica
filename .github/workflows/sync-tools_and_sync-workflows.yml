@@ -9,8 +9,9 @@ on:
      - "**/*.cwl"
      # GH change
      - ".github/workflows/sync-tools_and_sync-workflows.yml"
-     - ".github/actions/sync-tools_and_sync-workflows/action.yml"
      - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
+     # Also for changes in the catalogue script
+     - ".github/create_catalogue.sh"
      - "src/install.sh"
      # Config files (say a merge conflict is resolved)
      - "config/project.yaml"

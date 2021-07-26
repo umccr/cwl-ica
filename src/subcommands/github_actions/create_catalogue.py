@@ -171,7 +171,7 @@ Example:
                     wrap_width=0)
                 md_file_obj.new_line("  - {}".format(
                         md_file_obj.new_inline_link(link=relpath(version.cwl_file_path, self.output_path.parent),
-                                                    text=version.name)
+                                                    text="CWL File Path")
                     ),
                     wrap_width=0)
                 md_file_obj.new_line("\n")
