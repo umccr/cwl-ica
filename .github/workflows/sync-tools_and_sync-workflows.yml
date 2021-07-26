@@ -3,7 +3,7 @@ name: Sync tools and sync workflows
 on:
   push:
    branches:
-    - beta-release  # To be moved to 'main'
+    - beta-release  # TODO moved to 'main'
    paths:
      # Workflow change
      - "**/*.cwl"
