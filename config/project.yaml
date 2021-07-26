@@ -346,7 +346,7 @@ projects:
             modification_time: 2021-06-29T01:56:03UTC
             run_instances: []
           - name: 1.1.0--120
-            path: 1.1.0--120/tso500-ctdna__1.1.0--120cwl
+            path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120--1d8fe7b
             modification_time: 2021-07-04T11:54:23UTC
             run_instances: []
@@ -361,12 +361,12 @@ projects:
             modification_time: 2021-06-29T01:56:03UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/dragen-somatic-pipeline__3.7.5cwl
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--29dfde0
             modification_time: 2021-07-01T03:55:38UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/dragen-somatic-pipeline__3.7.5cwl
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--1d8fe7b
             modification_time: 2021-07-04T11:54:27UTC
             run_instances: []
@@ -381,17 +381,17 @@ projects:
             modification_time: 2021-07-06T04:27:26UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/bcl-conversion__3.7.5cwl
+            path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--1d8fe7b
             modification_time: 2021-07-04T11:54:31UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/bcl-conversion__3.7.5cwl
+            path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--f1e67a3
             modification_time: 2021-07-06T06:45:54UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/bcl-conversion__3.7.5cwl
+            path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--0016880
             modification_time: 2021-07-09T01:46:06UTC
             run_instances: []
@@ -406,17 +406,17 @@ projects:
             modification_time: 2021-06-29T01:56:04UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5cwl
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--1d8fe7b
             modification_time: 2021-07-04T11:54:35UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5cwl
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--6769f8e
             modification_time: 2021-07-10T00:11:02UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5cwl
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--3991b88
             modification_time: 2021-07-23T02:05:33UTC
             run_instances: []
@@ -431,7 +431,7 @@ projects:
             modification_time: 2021-07-01T03:55:44UTC
             run_instances: []
           - name: 3.7.5
-            path: 3.7.5/dragen-germline-pipeline__3.7.5cwl
+            path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--1d8fe7b
             modification_time: 2021-07-04T11:54:39UTC
             run_instances: []

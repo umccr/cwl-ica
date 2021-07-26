@@ -247,7 +247,7 @@ class SyncGitHubActions(Command):
                                                                       path=Path(i_item_version.name) /
                                                                            Path(item_obj.name + "__" +
                                                                                 i_item_version.name +
-                                                                                self.item_suffix),
+                                                                                "." + self.item_suffix),
                                                                       ica_workflow_id=project_item.ica_workflow_id,
                                                                       ica_workflow_version_name=i_item_version.name +
                                                                                                 "--__GIT_COMMIT_ID__",
