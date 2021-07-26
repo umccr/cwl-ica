@@ -5,21 +5,6 @@ on:
     workflows: ["Sync tools and sync workflows"]
     branches:
      - beta-release  # TODO move to 'main'
-    paths:
-      # Workflow change
-      - "**/*.cwl"
-      # GH change
-      - ".github/workflows/create_catalogue.yml"
-      - ".github/actions/create_catalogue/action.yml"
-      - ".github/scripts/create_catalogue.sh"
-      - "src/install.sh"
-      # Config files (say a merge conflict is resolved)
-      - "config/project.yaml"
-      - "config.tool.yaml"
-      - "config/workflow.yaml"
-      - "config/expression.yaml"
-      - "config/run.yaml"
-      - "config/categories.yaml"
 
 jobs:
   create_catalogue:
