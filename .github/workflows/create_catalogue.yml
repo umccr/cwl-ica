@@ -31,10 +31,8 @@ jobs:
       - name: Checkout code
         id: git_checkout
         uses: actions/checkout@v2
-      # Get git commit ID
-      - name: Get git commit ID
-        id: get_git_commit_id
-        run: echo "::set-output name=git_commit_id::$(git log --format="%H" -n1 | cut -c1-7)"
+        with:
+          ssh-key: "${{ secrets.CREATE_CATALOGUE_SSHKEY }}"
       # Create container with user
       - name: Create container with user added
         run: |
