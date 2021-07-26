@@ -319,7 +319,14 @@ class CreateMarkdownFile(Command):
         # Check if an array
         if isinstance(i_o_type, self.cwl_item.parser.ArraySchema):
             recursion_level = 1
+            max_iters = 10
+            count = 0
             while True:
+                count += 1
+                if count > max_iters:
+                    logger.warning(f"Got stuck in infinite while loop whilst trying to determine the type for input/output"
+                                   f"of step with type {type(i_o_type)}")
+                    break
                 if isinstance(i_o_type.items, str):
                     i_o_type = i_o_type.items.rsplit("#", 1)[-1] + "[]"*recursion_level
                     break
@@ -330,6 +337,7 @@ class CreateMarkdownFile(Command):
                 else:
                     logger.warning(f"Could not handle input/output of type {type(i_o_type)} with items of type {type(i_o_type.items)}")
                     break
+
 
         return i_o_type, i_o_optional
 

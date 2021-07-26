@@ -6,7 +6,7 @@ set -euo pipefail
 # Set Globals
 CONDA_ENV_NAME="cwl-ica"
 CWL_ICA_REPO_PATH="$PWD"
-N_PARALLEL_JOBS="4"
+N_PARALLEL_JOBS="2"
 
 # FUNCTIONS
 echo_stderr(){
@@ -132,5 +132,7 @@ fi
 
 # Now create the catalogue
 echo_stderr "Building the CWL Catalogue"
-cwl-ica github-actions-build-catalogue \
-  --output-path "cwl-ica-catalogue.md"
+conda run \
+      --name "${CONDA_ENV_NAME}" \
+      cwl-ica github-actions-build-catalogue \
+        --output-path "cwl-ica-catalogue.md"
