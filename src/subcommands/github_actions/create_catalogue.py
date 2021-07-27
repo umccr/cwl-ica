@@ -199,6 +199,7 @@ Example:
 
             # Add versions
             item_version: ItemVersion
+            md_file_obj.new_header(level=4, title="Versions", add_table_of_contents='n')
             for item_version in item.versions:
                 version_markdown_path = get_markdown_file_from_cwl_path(item_version.cwl_file_path).absolute()
                 md_file_obj.new_line("- {}".format(
