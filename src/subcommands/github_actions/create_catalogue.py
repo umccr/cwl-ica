@@ -190,7 +190,7 @@ Example:
             md_file_obj.new_header(level=3, title=item.name, add_table_of_contents='n')
 
             # Add categories
-            if section_name in ["tools", "workflows"]:
+            if section_name in ["Tools", "Workflows"]:
                 if not len(item.categories) == 0:
                     md_file_obj.new_header(level=4, title="Categories", add_table_of_contents='n')
                     for category in item.categories:
