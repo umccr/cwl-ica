@@ -641,7 +641,7 @@ subcommands:
   #############################
   # Run-register Commands
   #############################
-  register-tool-run-instance-id:
+  register-tool-run-instance:
     summary: |
       Register an ICA workflow run instance of a tool for a given project
     options:
@@ -660,7 +660,7 @@ subcommands:
         summary: |
           ica access token, if run instance was executed in a linked project context
         type: string
-  register-workflow-run-instance-id:
+  register-workflow-run-instance:
     summary: |
       Register an ICA workflow run instance of a workflow for a given project
     options:
@@ -698,6 +698,7 @@ subcommands:
   ################################
   # copy-tool-submission-template       Copy a tool submission template for an upcoming tool run
   # copy-workflow-submission-template   Copy a workflow submission template for an upcoming workflow run
+
 
   #####################
   # Run-launch commands  # Not yet implemented v1.0 release
