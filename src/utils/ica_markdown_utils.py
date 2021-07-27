@@ -59,7 +59,8 @@ def get_ica_section(cwl_file_path: Path, projects: List[Project],
     # Add toc for projects
     md_file_obj.new_header(level=3, title=f"ToC", add_table_of_contents="n")
     for project in projects:
-        md_file_obj = add_toc_line(md_file_obj, header_name=project.project_name, link_text=project.project_name)
+        md_file_obj = add_toc_line(md_file_obj, header_name=f"Project: {project.project_name}",
+                                   link_text=project.project_name)
     md_file_obj.new_line("\n")
 
     # Collect projects list
