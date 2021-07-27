@@ -49,8 +49,8 @@ Each project is linked to a tenancy id
 '$'\n''list-tenants'$'\t''List registered tenants
 '$'\n''list-users'$'\t''List registered users
 '$'\n''project-init'$'\t''Initialise a project in \${CWL_ICA_REPO_PATH}/config/project.yaml
-'$'\n''register-tool-run-instance-id'$'\t''Register an ICA workflow run instance of a tool for a given project
-'$'\n''register-workflow-run-instance-id'$'\t''Register an ICA workflow run instance of a workflow for a given project
+'$'\n''register-tool-run-instance'$'\t''Register an ICA workflow run instance of a tool for a given project
+'$'\n''register-workflow-run-instance'$'\t''Register an ICA workflow run instance of a workflow for a given project
 '$'\n''schema-init'$'\t''Register a schema in \${CWL_ICA_REPO_PATH}/config/schema.yaml
 '$'\n''schema-sync'$'\t''Sync a schema in \${CWL_ICA_REPO_PATH}/config/schema.yaml
 '$'\n''schema-validate'$'\t''Validate a CWL schema
@@ -608,7 +608,7 @@ to workflow names
         ;;
         esac
       ;;
-      register-tool-run-instance-id)
+      register-tool-run-instance)
         OPTIONS+=('--ica-workflow-run-instance-id' 'A workflow run instance id (starts with wfr.)
 ' '--project-name' 'Name of project
 ' '--access-token' 'ica access token, if run instance was executed in a linked project context
@@ -618,7 +618,7 @@ to workflow names
           --ica-workflow-run-instance-id)
           ;;
           --project-name)
-            _cwl-ica_register-tool-run-instance-id_option_project_name_completion
+            _cwl-ica_register-tool-run-instance_option_project_name_completion
           ;;
           --access-token)
           ;;
@@ -631,7 +631,7 @@ to workflow names
         ;;
         esac
       ;;
-      register-workflow-run-instance-id)
+      register-workflow-run-instance)
         OPTIONS+=('--ica-workflow-run-instance-id' 'A workflow run instance id (starts with wfr.)
 ' '--project-name' 'Name of project
 ' '--access-token' 'ica access token, if run instance was executed in a linked project context
@@ -641,7 +641,7 @@ to workflow names
           --ica-workflow-run-instance-id)
           ;;
           --project-name)
-            _cwl-ica_register-workflow-run-instance-id_option_project_name_completion
+            _cwl-ica_register-workflow-run-instance_option_project_name_completion
           ;;
           --access-token)
           ;;
@@ -1058,12 +1058,12 @@ _cwl-ica_project-init_option_tenant_name_completion() {
     local param_tenant_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")')"
     _cwl-ica_compreply "$param_tenant_name"
 }
-_cwl-ica_register-tool-run-instance-id_option_project_name_completion() {
+_cwl-ica_register-tool-run-instance_option_project_name_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_project_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
     _cwl-ica_compreply "$param_project_name"
 }
-_cwl-ica_register-workflow-run-instance-id_option_project_name_completion() {
+_cwl-ica_register-workflow-run-instance_option_project_name_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_project_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
     _cwl-ica_compreply "$param_project_name"
