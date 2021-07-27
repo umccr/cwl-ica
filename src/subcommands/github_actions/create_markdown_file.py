@@ -51,7 +51,6 @@ from classes.project_production import ProductionProject
 from classes.ica_workflow_version import ICAWorkflowVersion
 from classes.ica_workflow import ICAWorkflow
 from utils.miscell import get_name_version_tuple_from_cwl_file_path, cwl_id_to_path, get_markdown_file_from_cwl_path
-from utils.ica_markdown_utils import get_ica_section
 from utils.pydot_utils import get_step_path_from_step_obj
 from os.path import relpath
 import re
@@ -137,10 +136,12 @@ class CreateMarkdownFile(Command):
         md_file = self.get_outputs_section(md_file)
 
         # Get ica section
-        if self.item_type in ["tool", "workflow"]:
+        if self.item_type in ["tool", "workflow"] and not len(self.projects) == 0:
             # Not for expressions
             logger.info("Getting the ica section")
-            md_file = get_ica_section(self.cwl_file_path, self.projects, self.workflows, self.workflow_versions, md_file, self.markdown_path)
+            from utils.ica_markdown_utils import get_ica_section
+            md_file = get_ica_section(self.cwl_file_path, self.projects, self.workflows,
+                                      self.workflow_versions, md_file, self.markdown_path)
 
         # Write out md file object
         logger.info("Writing out markdown file")

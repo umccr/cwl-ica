@@ -19,11 +19,10 @@ from utils.repo import read_yaml, get_expression_yaml_path, get_tool_yaml_path, 
 from pathlib import Path
 from typing import Optional, List
 from classes.item_expression import ItemExpression
-from classes.item_version_expression import ItemVersionExpression
 from classes.item_tool import ItemTool
-from classes.item_version_tool import ItemVersionTool
 from classes.item_workflow import ItemWorkflow
-from classes.item_version_workflow import ItemVersionWorkflow
+from classes.item import Item
+from classes.item_version import ItemVersion
 from mdutils import MdUtils
 from subcommands.github_actions.create_markdown_file import add_toc_line
 from utils.miscell import get_markdown_file_from_cwl_path
@@ -76,13 +75,13 @@ Example:
         self.md_file_obj = self.get_header_section(self.md_file_obj)
 
         logger.info("Getting the expressions section")
-        self.md_file_obj = self.get_expressions_section(self.md_file_obj)
+        self.md_file_obj = self.get_section("Expressions", self.md_file_obj, self.expressions)
 
         logger.info("Getting the tools section")
-        self.md_file_obj = self.get_tools_section(self.md_file_obj)
+        self.md_file_obj = self.get_section("Tools", self.md_file_obj, self.tools)
 
         logger.info("Getting the workflows section")
-        self.md_file_obj = self.get_workflows_section(self.md_file_obj)
+        self.md_file_obj = self.get_section("Workflows", self.md_file_obj, self.workflows)
 
         # Write out md file object
         logger.info("Writing out markdown file")
@@ -133,145 +132,83 @@ Example:
         :return:
         """
 
-        md_file_obj.new_header(level=2, title="TOC", add_table_of_contents='n')
+        md_file_obj.new_header(level=2, title="Table of Contents", add_table_of_contents='n')
 
-        add_toc_line(md_file_obj, header_name="Expressions", link_text="Expressions")
-        add_toc_line(md_file_obj, header_name="Tools", link_text="Tools")
-        add_toc_line(md_file_obj, header_name="Workflows", link_text="Workflows")
-
-        return md_file_obj
-
-
-    def get_expressions_section(self, md_file_obj: MdUtils) -> MdUtils:
-        """
-        Get the expressions section of the catalogue
-        :param md_file_obj:
-        :return:
-        """
-        md_file_obj.new_header(level=2, title="Expressions", add_table_of_contents='n')
-
-        # Iterate through items
-        for expression in self.expressions:
-            md_file_obj.new_header(level=3, title=expression.name, add_table_of_contents='n')
-            md_file_obj.new_header(level=4, title="Versions", add_table_of_contents='n')
-
-            version: ItemVersionExpression
-            for version in expression.versions:
-                md_file_obj.new_line(f"- {version.name}")
-                # Get help page link
-                version_markdown_path = get_markdown_file_from_cwl_path(version.cwl_file_path).absolute()
-                if not version_markdown_path.is_file():
-                    markdown_path_text = "CWL Help Page :construction:"
-                else:
-                    markdown_path_text = "CWL Help Page"
-                md_file_obj.new_line("  - {}".format(
-                        md_file_obj.new_inline_link(link=relpath(version_markdown_path, self.output_path.parent),
-                                                    text=markdown_path_text)
-                    ),
-                    wrap_width=0)
-                md_file_obj.new_line("  - {}".format(
-                        md_file_obj.new_inline_link(link=relpath(version.cwl_file_path, self.output_path.parent),
-                                                    text="CWL File Path")
-                    ),
-                    wrap_width=0)
-                md_file_obj.new_line("\n")
-
-            md_file_obj.new_line("\n")
+        md_file_obj = add_toc_line(md_file_obj, header_name="Expressions", link_text="Expressions")
+        md_file_obj = add_toc_line(md_file_obj, header_name="Tools", link_text="Tools")
+        md_file_obj = add_toc_line(md_file_obj, header_name="Workflows", link_text="Workflows")
 
         return md_file_obj
 
-    def get_tools_section(self, md_file_obj: MdUtils) -> MdUtils:
+    def get_version_as_dot_point(self, md_file_obj: MdUtils, version: ItemVersion) -> MdUtils:
         """
-        Get the tools section of the catalogue
+        For a given version, get the
         :param md_file_obj:
+        :param version:
         :return:
         """
-        md_file_obj.new_header(level=2, title="Tools", add_table_of_contents='n')
 
-        # Iterate through items
-        tool: ItemTool
-        for tool in self.tools:
-            md_file_obj.new_header(level=3, title=tool.name, add_table_of_contents='n')
+        version_markdown_path = get_markdown_file_from_cwl_path(version.cwl_file_path).absolute()
+        if not version_markdown_path.is_file():
+            markdown_path_text = f"{version.name} :construction:"
+        else:
+            markdown_path_text = f"{version.name}"
 
-            # Add in categories for the tool
-            if not len(tool.categories) == 0:
-                md_file_obj.new_header(level=4, title="Categories", add_table_of_contents='n')
-                for category in tool.categories:
-                    md_file_obj.new_line(f"- {category}")
-                md_file_obj.new_line("\n")
+        md_file_obj.new_line("  - {}".format(
+            md_file_obj.new_inline_link(link=relpath(version_markdown_path, self.output_path.parent),
+                                        text=markdown_path_text)
+        ),
+            wrap_width=0)
 
-            md_file_obj.new_header(level=4, title="Versions", add_table_of_contents='n')
+        return md_file_obj
 
-            version: ItemVersionTool
-            for version in tool.versions:
-                md_file_obj.new_line(f"- {version.name}")
-                # Get help page link
-                version_markdown_path = get_markdown_file_from_cwl_path(version.cwl_file_path).absolute()
-                if not version_markdown_path.is_file():
-                    markdown_path_text = "CWL Help Page :construction:"
-                else:
-                    markdown_path_text = "CWL Help Page"
-                md_file_obj.new_line("  - {}".format(
+    def get_section(self, section_name:str, md_file_obj: MdUtils, items) -> MdUtils:
+        """
+        Get the expressions, tools or workflows section
+        :param section_name:
+        :param md_file_obj:
+        :param items:
+        :return:
+        """
+
+        # Get the header
+        md_file_obj.new_header(level=2, title=section_name, add_table_of_contents='n')
+
+        # Add a mini TOC
+        md_file_obj.new_header(level=3, title=f"{section_name} ToC", add_table_of_contents='n')
+
+        item: Item
+        for item in items:
+            md_file_obj = add_toc_line(md_file_obj, header_name=item.name, link_text=item.name)
+
+        # New line between toc and section
+        md_file_obj.new_line("\n")
+
+        # Now add items and each item version
+        for item in items:
+            # Add header
+            md_file_obj.new_header(level=3, title=item.name, add_table_of_contents='n')
+
+            # Add categories
+            if section_name in ["tools", "workflows"]:
+                if not len(item.categories) == 0:
+                    md_file_obj.new_header(level=4, title="Categories", add_table_of_contents='n')
+                    for category in item.categories:
+                        md_file_obj.new_line(f"- {category}")
+                    md_file_obj.new_line("\n")
+
+            # Add versions
+            item_version: ItemVersion
+            for item_version in item.versions:
+                version_markdown_path = get_markdown_file_from_cwl_path(item_version.cwl_file_path).absolute()
+                md_file_obj.new_line("- {}".format(
                     md_file_obj.new_inline_link(link=relpath(version_markdown_path, self.output_path.parent),
-                                                text=markdown_path_text)
-                ),
-                    wrap_width=0)
-                md_file_obj.new_line("  - {}".format(
-                        md_file_obj.new_inline_link(link=relpath(version.cwl_file_path, self.output_path.parent),
-                                                    text=version.name)
+                                                text=item_version.name)
                     ),
-                    wrap_width=0)
-                md_file_obj.new_line("\n")
+                    wrap_width=0
+                )
 
+            # New line between tools
             md_file_obj.new_line("\n")
 
         return md_file_obj
-    
-    def get_workflows_section(self, md_file_obj: MdUtils) -> MdUtils:
-        """
-        Get the workflows section of the catalogue
-        :param md_file_obj:
-        :return:
-        """
-        md_file_obj.new_header(level=2, title="Workflows", add_table_of_contents='n')
-
-        # Iterate through items
-        workflow: ItemWorkflow
-        for workflow in self.workflows:
-            md_file_obj.new_header(level=3, title=workflow.name, add_table_of_contents='n')
-
-            # Add in categories for the workflow
-            if not len(workflow.categories) == 0:
-                md_file_obj.new_header(level=4, title="Categories", add_table_of_contents='n')
-                for category in workflow.categories:
-                    md_file_obj.new_line(f"- {category}")
-                md_file_obj.new_line("\n")
-
-            md_file_obj.new_header(level=4, title="Versions", add_table_of_contents='n')
-
-            version: ItemVersionWorkflow
-            for version in workflow.versions:
-                md_file_obj.new_line(f"- {version.name}")
-                # Get help page link
-                version_markdown_path = get_markdown_file_from_cwl_path(version.cwl_file_path).absolute()
-                if not version_markdown_path.is_file():
-                    markdown_path_text = "CWL Help Page :construction:"
-                else:
-                    markdown_path_text = "CWL Help Page"
-                md_file_obj.new_line("  - {}".format(
-                    md_file_obj.new_inline_link(link=relpath(version_markdown_path, self.output_path.parent),
-                                                text=markdown_path_text)
-                ),
-                    wrap_width=0)
-                md_file_obj.new_line("  - {}".format(
-                        md_file_obj.new_inline_link(link=relpath(version.cwl_file_path, self.output_path.parent),
-                                                    text=version.name)
-                    ),
-                    wrap_width=0)
-                md_file_obj.new_line("\n")
-
-            md_file_obj.new_line("\n")
-
-        return md_file_obj
-
-

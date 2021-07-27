@@ -36,7 +36,7 @@ from classes.project import Project
 from classes.ica_workflow import ICAWorkflow
 from classes.ica_workflow_version import ICAWorkflowVersion
 from classes.ica_workflow_run import ICAWorkflowRun
-
+from subcommands.github_actions.create_markdown_file import add_toc_line
 
 def get_ica_section(cwl_file_path: Path, projects: List[Project],
                     ica_workflow_objs: List[ICAWorkflow],
@@ -56,8 +56,13 @@ def get_ica_section(cwl_file_path: Path, projects: List[Project],
     # Create title section
     md_file_obj.new_header(level=2, title=f"ICA", add_table_of_contents="n")
 
-    # Collect projects list
+    # Add toc for projects
+    md_file_obj.new_header(level=3, title=f"ToC", add_table_of_contents="n")
+    for project in projects:
+        md_file_obj = add_toc_line(md_file_obj, header_name=project.project_name, link_text=project.project_name)
+    md_file_obj.new_line("\n")
 
+    # Collect projects list
     for project, ica_workflow, ica_workflow_version in zip(projects, ica_workflow_objs, ica_workflow_version_objs):
         # Create title section for project name
         md_file_obj.new_header(level=3, title=f"Project: {project.project_name}", add_table_of_contents="n")
@@ -117,7 +122,7 @@ def get_ica_section(cwl_file_path: Path, projects: List[Project],
                 run_graph_path.parent.mkdir(parents=True, exist_ok=True)
 
             # Get relative path and urls for run image
-            run_graph_rel_path = relpath(run_graph_path.absolute(), markdown_path.absolute())
+            run_graph_rel_path = relpath(run_graph_path.absolute(), markdown_path.absolute().parent)
             run_graph_raw_path = get_raw_url_from_path(run_graph_path)
             build_ica_run_graph(run_obj, run_graph_path)
 
