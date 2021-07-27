@@ -18,6 +18,10 @@ on:
      - "config.tool.yaml"
      - "config/workflow.yaml"
      - "config/run.yaml"
+     # Also for catalogue creation script changes
+     - "src/subcommands/github_actions/create_catalogue.py"
+     - "src/subcommands/github_actions/create_markdown_file.py"
+     - "src/subcommands/sync/sync_github_actions.py"
 
 jobs:
   sync_tools_and_workflows_and_create_catalogue:
