@@ -80,7 +80,7 @@ May be extracted from a secondary files reference file if this is a subworkflow
 > ID: genome_version
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fc3eba05250>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f0400242dc0>`  
 **Docs:**  
 The name of the genome determines the chr6 contig we create
 
@@ -192,6 +192,11 @@ The output regions bed file
 
 
 ## ICA
+
+### ToC
+  
+- [development_workflows](#development_workflows)  
+
 
 ### Project: development_workflows
 

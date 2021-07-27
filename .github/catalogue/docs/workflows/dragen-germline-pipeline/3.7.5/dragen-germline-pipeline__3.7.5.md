@@ -195,7 +195,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f5f34d616a0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fb9f5dce400>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -554,6 +554,12 @@ The output directory for multiqc
 
 
 ## ICA
+
+### ToC
+  
+- [development_workflows](#development_workflows)  
+- [production_workflows](#production_workflows)  
+
 
 ### Project: development_workflows
 

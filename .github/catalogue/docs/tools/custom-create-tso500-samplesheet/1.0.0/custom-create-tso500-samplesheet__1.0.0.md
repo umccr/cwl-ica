@@ -117,6 +117,12 @@ The updated samplesheet with the Sample_Type and Pair_ID columns in the Data sec
 
 ## ICA
 
+### ToC
+  
+- [development_workflows](#development_workflows)  
+- [collab-illumina-dev_workflows](#collab-illumina-dev_workflows)  
+
+
 ### Project: development_workflows
 
 

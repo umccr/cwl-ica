@@ -188,7 +188,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f4d6bdf3400>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f15dd478580>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -480,6 +480,11 @@ The output germline vcf file
 
 
 ## ICA
+
+### ToC
+  
+- [development_workflows](#development_workflows)  
+
 
 ### Project: development_workflows
 

@@ -295,7 +295,3 @@ This schema contains the following inputs:
 
   
 
-
-## ICA
-  
-

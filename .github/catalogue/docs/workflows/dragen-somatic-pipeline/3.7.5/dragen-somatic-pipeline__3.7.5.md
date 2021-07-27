@@ -198,7 +198,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f6a19a27df0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f31a7e6bee0>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -837,6 +837,12 @@ Bam file of the tumor sample
 
 ## ICA
 
+### ToC
+  
+- [development_workflows](#development_workflows)  
+- [production_workflows](#production_workflows)  
+
+
 ### Project: development_workflows
 
 
@@ -1060,7 +1066,7 @@ Bam file of the tumor sample
   
 
   
-[![umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg](../../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)  
+[![umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)  
 
 
 ##### Run wfr.58436856778e4f70ae7856869571470c
@@ -1274,7 +1280,7 @@ Bam file of the tumor sample
   
 
   
-[![umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg](../../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)  
+[![umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)  
 
 
 ### Project: production_workflows

@@ -57,7 +57,3 @@ Output dummy file
 
   
 
-
-## ICA
-  
-

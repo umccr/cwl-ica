@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7ff0cc0ee0a0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f8348ca3070>`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
@@ -440,6 +440,12 @@ The directory containing the samplesheets used for each bcl convert
 
 
 ## ICA
+
+### ToC
+  
+- [development_workflows](#development_workflows)  
+- [production_workflows](#production_workflows)  
+
 
 ### Project: development_workflows
 
@@ -1407,7 +1413,7 @@ The directory containing the samplesheets used for each bcl convert
   
 
   
-[![umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg](../../../../../images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)  
+[![umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg](../../../../images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)  
 
 
 ### Project: production_workflows
