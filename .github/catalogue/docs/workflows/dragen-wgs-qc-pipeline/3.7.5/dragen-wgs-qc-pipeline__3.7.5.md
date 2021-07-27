@@ -242,6 +242,12 @@ Output directory from somalier step
 
 ## ICA
 
+### ToC
+  
+- [development_workflows](#development_workflows)  
+- [production_workflows](#production_workflows)  
+
+
 ### Project: development_workflows
 
 
@@ -387,7 +393,7 @@ umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5
   
 
   
-[![umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg](../../../../../images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)  
+[![umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg](../../../../images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)  
 
 
 ### Project: production_workflows

@@ -75,7 +75,3 @@ Output hla regions bed file
 
   
 
-
-## ICA
-  
-

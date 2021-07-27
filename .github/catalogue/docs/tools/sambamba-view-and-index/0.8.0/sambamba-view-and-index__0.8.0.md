@@ -130,7 +130,7 @@ Name of the output file
 > ID: output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f674dca0a60>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f1b67828ac0>`  
 **Docs:**  
 The output file format of the filtered bam file.
 Can be bam, sam or cram. Sam by default.
@@ -223,6 +223,11 @@ Output indexed bam file
 
 
 ## ICA
+
+### ToC
+  
+- [development_workflows](#development_workflows)  
+
 
 ### Project: development_workflows
 

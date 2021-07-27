@@ -422,6 +422,12 @@ The output directory for multiqc
 
 ## ICA
 
+### ToC
+  
+- [development_workflows](#development_workflows)  
+- [production_workflows](#production_workflows)  
+
+
 ### Project: development_workflows
 
 
@@ -559,7 +565,7 @@ The output directory for multiqc
   
 
   
-[![Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg](../../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.7.5/Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.7.5/Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg)  
+[![Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg](../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.7.5/Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.7.5/Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg)  
 
 
 ### Project: production_workflows

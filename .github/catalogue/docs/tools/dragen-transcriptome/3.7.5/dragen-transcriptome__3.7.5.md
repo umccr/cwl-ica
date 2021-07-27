@@ -226,7 +226,3 @@ The output directory containing all wts analysis output files
 
   
 
-
-## ICA
-  
-

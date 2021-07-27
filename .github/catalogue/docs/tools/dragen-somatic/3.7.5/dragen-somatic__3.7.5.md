@@ -196,7 +196,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fb49c45b340>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fa888c45e80>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -733,9 +733,5 @@ Bam file of the tumor sample.
 Exists only if --enable-map-align-output set to true
   
 
-  
-
-
-## ICA
   
 

@@ -130,7 +130,3 @@ output dircetory with interop multiQC matrices
 
   
 
-
-## ICA
-  
-
