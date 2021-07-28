@@ -28,7 +28,7 @@ hints:
         ilmn-tes:resources:
             type: standardHiCpu
             size: small
-        coresMin: 15.5
+        coresMin: 15
         ramMin: 28
     DockerRequirement:
         dockerPull: umccr/alpine-rsync:3.2.3
