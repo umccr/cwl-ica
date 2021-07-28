@@ -244,8 +244,8 @@ Output directory from somalier step
 
 ### ToC
   
-- [development_workflows](#development_workflows)  
-- [production_workflows](#production_workflows)  
+- [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows

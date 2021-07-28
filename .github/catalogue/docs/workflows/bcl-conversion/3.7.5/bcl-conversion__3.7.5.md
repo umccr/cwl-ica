@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f8348ca3070>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f39f8bd3c10>`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
@@ -443,8 +443,8 @@ The directory containing the samplesheets used for each bcl convert
 
 ### ToC
   
-- [development_workflows](#development_workflows)  
-- [production_workflows](#production_workflows)  
+- [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows

@@ -49,7 +49,7 @@ v1.0.0
 > ID: genome_version
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fa0131e3070>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fb195d1d3a0>`  
 **Docs:**  
 The genome version, hg38 and GRCh37 have different hla-chr6 regions
 
