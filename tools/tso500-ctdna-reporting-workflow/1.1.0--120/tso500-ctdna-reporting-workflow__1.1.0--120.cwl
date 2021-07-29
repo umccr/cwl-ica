@@ -235,6 +235,35 @@ outputs:
     type: File
     outputBinding:
       glob: "$(get_dsdm_json_path())"
+  # Intermediate outputs dir
+  cleanup_dir:
+    label: cleanup_dir
+    doc: |
+      Intermediate output dir for cleanup_dir
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_dir())/Cleanup"
+  combined_variant_output_dir:
+    label: combined_variant_output_dir
+    doc: |
+      Intermediate output dir for combined_variant_output_dir
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_dir())/CombinedVariantOutput"
+  metrics_output_dir:
+    label: metrics_output_dir
+    doc: |
+      Intermediate output dir for metrics_output_dir
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_dir())/MetricsOutput"
+  sample_analysis_results_dir:
+    label: sample_analysis_results_dir
+    doc: |
+      Intermediate output dir for sample analysis results
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_dir())/SampleAnalysisResults"
 
 successCodes:
   - 0

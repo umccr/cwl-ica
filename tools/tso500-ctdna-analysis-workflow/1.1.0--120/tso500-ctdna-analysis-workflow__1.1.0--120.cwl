@@ -38,6 +38,7 @@ requirements:
     types:
       - $import: ../../../schemas/tso500-sample/1.0.0/tso500-sample__1.0.0.yaml
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
+      - $import: ../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml
   InlineJavascriptRequirement:
     expressionLib:
       # Standard
@@ -372,6 +373,113 @@ outputs:
     type: File
     outputBinding:
       glob: "$(get_dsdm_json_path())"
+  # Task directories
+  # Each output is a step in the wdl task workflow
+  align_collapse_fusion_caller_dir:
+    label: align collapse fusion caller dir
+    doc: |
+      Intermediate output directory for align collapse fusion caller step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/AlignCollapseFusionCaller"
+  annotation_dir:
+    label: annotation dir
+    doc: |
+      Intermediate output directory for annotation step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/Annotation"
+  cnv_caller_dir:
+    label: cnv caller dir
+    doc: |
+      Intermediate output directory for cnv caller step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/CnvCaller"
+  contamination_dir:
+    label: contamination dir
+    doc: |
+      Intermediate output directory for contamination step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/Contamination"
+  dna_fusion_filtering_dir:
+    label: dna fusion filtering dir
+    doc: |
+      Intermediate output directory for dna fusion filtering step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/DnaFusionFiltering"
+  dna_qc_metrics_dir:
+    label: dna qc metrics dir
+    doc: |
+      Intermediate output directory for dna qc metrics step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/DnaQCMetrics"
+  max_somatic_vaf_dir:
+    label: max somatic vaf dir
+    doc: |
+      Intermediate output directory for max somatic vaf step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/MaxSomaticVaf"
+  merged_annotation_dir:
+    label: merged annotation dir
+    doc: |
+      Intermediate output directory for merged annotation step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/MergedAnnotation"
+  msi_dir:
+    label: msi dir
+    doc: |
+      Intermediate output directory for msi step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/Msi"
+  phased_variants_dir:
+    label: phased variants dir
+    doc: |
+      Intermediate output directory for phased variants step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/PhasedVariants"
+  small_variant_filter_dir:
+    label: small variant filter dir
+    doc: |
+      Intermediate output directory for small variants filter step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/SmallVariantFilter"
+  stitched_realigned_dir:
+    label: stitched realigned dir
+    doc: |
+      Intermediate output directory for stitched realigned step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/StitchedRealigned"
+  tmb_dir:
+    label: tmb dir
+    doc: |
+      Intermediate output directory for tmb step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/Tmb"
+  variant_caller_dir:
+    label: variant caller dir
+    doc: |
+      Intermediate output directory for variant caller step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/VariantCaller"
+  variant_matching_dir:
+    label: variant matching dir
+    doc: |
+      Intermediate output directory for variant matching step
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_output_dir())/VariantMatching"
 
 successCodes:
   - 0

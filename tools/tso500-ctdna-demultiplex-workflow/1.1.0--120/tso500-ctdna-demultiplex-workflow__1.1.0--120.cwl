@@ -385,7 +385,28 @@ outputs:
     type: File
     outputBinding:
       glob: "$(get_dsdm_json_path())"
-
+  # Intermediate output dirs
+  fastq_validation_dir:
+    label: fastq_validation_dir
+    doc: |
+      Intermediate output dir for fastq_validation_dir
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_dir())/FastqValidation"
+  resource_verification_dir:
+    label: resource_verification_dir
+    doc: |
+      Intermediate output dir for resource_verification_dir
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_dir())/ResourceVerification"
+  samplesheet_validation_dir:
+    label: samplesheet_validation_dir
+    doc: |
+      Intermediate output dir for samplesheet_validation_dir
+    type: Directory?
+    outputBinding:
+      glob: "$(get_logs_intermediates_dir())/SamplesheetValidation"
 
 successCodes:
   - 0

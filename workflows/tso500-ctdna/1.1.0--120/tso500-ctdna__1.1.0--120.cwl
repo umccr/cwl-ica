@@ -40,6 +40,7 @@ requirements:
       types:
         - $import: ../../../schemas/tso500-sample/1.0.0/tso500-sample__1.0.0.yaml
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
+        - $import: ../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml
 
 inputs:
   tso500_samples:
@@ -150,6 +151,10 @@ steps:
       - id: output_dir
       - id: output_samplesheet
       - id: fastq_validation_dsdm
+      # Intermediate outputs
+      - id: fastq_validation_dir
+      - id: resource_verification_dir
+      - id: samplesheet_validation_dir
     run: ../../../tools/tso500-ctdna-demultiplex-workflow/1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
   # Analysis step
   run_tso500_ctdna_analysis_workflow_step:
@@ -172,6 +177,22 @@ steps:
     out:
       - id: output_dir
       - id: contamination_dsdm
+      # Intermediate output dirs
+      - id: align_collapse_fusion_caller_dir
+      - id: annotation_dir
+      - id: cnv_caller_dir
+      - id: contamination_dir
+      - id: dna_fusion_filtering_dir
+      - id: dna_qc_metrics_dir
+      - id: max_somatic_vaf_dir
+      - id: merged_annotation_dir
+      - id: msi_dir
+      - id: phased_variants_dir
+      - id: small_variant_filter_dir
+      - id: stitched_realigned_dir
+      - id: tmb_dir
+      - id: variant_caller_dir
+      - id: variant_matching_dir
     run: ../../../tools/tso500-ctdna-analysis-workflow/1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
   # Reporting workflow
   run_tso500_ctdna_reporting_workflow_step:
@@ -197,10 +218,32 @@ steps:
       - id: output_dir
       - id: results_dir
       - id: cleanup_dsdm
+      # Intermediate outputs
+      - id: cleanup_dir
+      - id: combined_variant_output_dir
+      - id: metrics_output_dir
+      - id: sample_analysis_results_dir
     run: ../../../tools/tso500-ctdna-reporting-workflow/1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
-
+  get_cttso_outputs_by_sample:
+    label: get cttso outputs by sample
+    doc: |
+      Get the CTTSO outputs per sample, contains all intermediate dirs and results dir
+      along with the sampleanalysis results json file
+    in:
+      tso500_samples:
+        source: tso500_samples
+      analysis_output_dir:
+        source: run_tso500_ctdna_analysis_workflow_step/output_dir
+      reporting_output_dir:
+        source: run_tso500_ctdna_reporting_workflow_step/output_dir
+      results_output_dir:
+        source: run_tso500_ctdna_reporting_workflow_step/results_dir
+    out:
+      - id: outputs_by_sample
+    run: ../../../expressions/get-tso500-outputs-per-sample/1.0.0/get-tso500-outputs-per-sample__1.0.0.cwl
 
 outputs:
+  # Top output directories
   demultiplex_workflow_output:
     label: demultiplex workflow output
     doc: |
@@ -225,5 +268,146 @@ outputs:
       Results directory, output from the reporting workflow
     type: Directory
     outputSource: run_tso500_ctdna_reporting_workflow_step/results_dir
-
+  # Sub demux output directories
+  fastq_validation_demux_dir:
+    label: fastq_validation_demux
+    doc: |
+      fastq_validation_demux_dir intermediate output directory
+    type: Directory?
+    outputSource: run_tso500_ctdna_demultiplex_workflow_step/fastq_validation_dir
+  resource_verification_demux_dir:
+    label: resource_verification_demux
+    doc: |
+      resource_verification_demux_dir intermediate output directory
+    type: Directory?
+    outputSource: run_tso500_ctdna_demultiplex_workflow_step/resource_verification_dir
+  samplesheet_validation_demux_dir:
+    label: samplesheet_validation_demux
+    doc: |
+      samplesheet_validation_demux_dir intermediate output directory
+    type: Directory?
+    outputSource: run_tso500_ctdna_demultiplex_workflow_step/samplesheet_validation_dir
+  # Sub analysis output directories
+  align_collapse_fusion_caller_analysis_dir:
+    label: align_collapse_fusion_caller_analysis_dir
+    doc: |
+      Intermediate output for align_collapse_fusion_caller_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/align_collapse_fusion_caller_dir
+  annotation_analysis_dir:
+    label: annotation_analysis_dir
+    doc: |
+      Intermediate output for annotation_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/annotation_dir
+  cnv_caller_analysis_dir:
+    label: cnv_caller_analysis_dir
+    doc: |
+      Intermediate output for cnv_caller_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/cnv_caller_dir
+  contamination_analysis_dir:
+    label: contamination_analysis_dir
+    doc: |
+      Intermediate output for contamination_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/contamination_dir
+  dna_fusion_filtering_analysis_dir:
+    label: dna_fusion_filtering_analysis_dir
+    doc: |
+      Intermediate output for dna_fusion_filtering_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/dna_fusion_filtering_dir
+  dna_qc_metrics_analysis_dir:
+    label: dna_qc_metrics_analysis_dir
+    doc: |
+      Intermediate output for dna_qc_metrics_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/dna_qc_metrics_dir
+  max_somatic_vaf_analysis_dir:
+    label: max_somatic_vaf_analysis_dir
+    doc: |
+      Intermediate output for max_somatic_vaf_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/max_somatic_vaf_dir
+  merged_annotation_analysis_dir:
+    label: merged_annotation_analysis_dir
+    doc: |
+      Intermediate output for merged_annotation_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/merged_annotation_dir
+  msi_analysis_dir:
+    label: msi_analysis_dir
+    doc: |
+      Intermediate output for msi_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/msi_dir
+  phased_variants_analysis_dir:
+    label: phased_variants_analysis_dir
+    doc: |
+      Intermediate output for phased_variants_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/phased_variants_dir
+  small_variant_filter_analysis_dir:
+    label: small_variant_filter_analysis_dir
+    doc: |
+      Intermediate output for small_variant_filter_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/small_variant_filter_dir
+  stitched_realigned_analysis_dir:
+    label: stitched_realigned_analysis_dir
+    doc: |
+      Intermediate output for stitched_realigned_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/stitched_realigned_dir
+  tmb_analysis_dir:
+    label: tmb_analysis_dir
+    doc: |
+      Intermediate output for tmb_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/tmb_dir
+  variant_caller_analysis_dir:
+    label: variant_caller_analysis_dir
+    doc: |
+      Intermediate output for variant_caller_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/variant_caller_dir
+  variant_matching_analysis_dir:
+    label: variant_matching_analysis_dir
+    doc: |
+      Intermediate output for variant_matching_analysis step of the analysis workflow
+    type: Directory?
+    outputSource: run_tso500_ctdna_analysis_workflow_step/variant_matching_dir
+  # Sub reporting output dirs
+  cleanup_dir:
+    label: cleanup_dir
+    doc: |
+      Intermediate output for cleanup_dir
+    type: Directory?
+    outputSource: run_tso500_ctdna_reporting_workflow_step/cleanup_dir
+  combined_variant_output_dir:
+    label: combined_variant_output_dir
+    doc: |
+      Intermediate output for combined_variant_output_dir
+    type: Directory?
+    outputSource: run_tso500_ctdna_reporting_workflow_step/combined_variant_output_dir
+  metrics_output_dir:
+    label: metrics_output_dir
+    doc: |
+      Intermediate output for metrics_output_dir
+    type: Directory?
+    outputSource: run_tso500_ctdna_reporting_workflow_step/metrics_output_dir
+  sample_analysis_results_dir:
+    label: sample_analysis_results_dir
+    doc: |
+      Intermediate output for sample_analysis_results_dir
+    type: Directory?
+    outputSource: run_tso500_ctdna_reporting_workflow_step/sample_analysis_results_dir
+  # Per sample outputs
+  outputs_by_sample:
+    label: outputs by sample
+    doc: |
+      The sample output directories from the analysis step
+    type: ../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml#tso500-outputs-by-sample[]
+    outputSource: get_cttso_outputs_by_sample/outputs_by_sample
 

@@ -1,0 +1,108 @@
+name: tso500-outputs-by-sample
+type: record
+
+fields:
+  sample_name:
+    label: sample name
+    doc: |
+      Name of the sample, matches the rgsm value of the fastq list row
+    type: string
+  sample_id:
+    label: sample id
+    doc: |
+      ID of the sample, matches the Sample_ID column in the sample sheet
+    type: string
+  # Each output is a step in the wdl task workflow
+  # Analysis outputs
+  align_collapse_fusion_caller_dir:
+    label: align collapse fusion caller dir
+    doc: |
+      Intermediate output directory for align collapse fusion caller step
+    type: Directory?
+  annotation_dir:
+    label: annotation dir
+    doc: |
+      Intermediate output directory for annotation step
+    type: Directory?
+  cnv_caller_dir:
+    label: cnv caller dir
+    doc: |
+      Intermediate output directory for cnv caller step
+    type: Directory?
+  contamination_dir:
+    label: contamination dir
+    doc: |
+      Intermediate output directory for contamination step
+    type: Directory?
+  dna_fusion_filtering_dir:
+    label: dna fusion filtering dir
+    doc: |
+      Intermediate output directory for dna fusion filtering step
+    type: Directory?
+  dna_qc_metrics_dir:
+    label: dna qc metrics dir
+    doc: |
+      Intermediate output directory for dna qc metrics step
+    type: Directory?
+  max_somatic_vaf_dir:
+    label: max somatic vaf dir
+    doc: |
+      Intermediate output directory for max somatic vaf step
+    type: Directory?
+  merged_annotation_dir:
+    label: merged annotation dir
+    doc: |
+      Intermediate output directory for merged annotation step
+    type: Directory?
+  msi_dir:
+    label: msi dir
+    doc: |
+      Intermediate output directory for msi step
+    type: Directory?
+  phased_variants_dir:
+    label: phased variants dir
+    doc: |
+      Intermediate output directory for phased variants step
+    type: Directory?
+  small_variant_filter_dir:
+    label: small variant filter dir
+    doc: |
+      Intermediate output directory for small variants filter step
+    type: Directory?
+  stitched_realigned_dir:
+    label: stitched realigned dir
+    doc: |
+      Intermediate output directory for stitched realigned step
+    type: Directory?
+  tmb_dir:
+    label: tmb dir
+    doc: |
+      Intermediate output directory for tmb step
+    type: Directory?
+  variant_caller_dir:
+    label: variant caller dir
+    doc: |
+      Intermediate output directory for variant caller step
+    type: Directory?
+  variant_matching_dir:
+    label: variant matching dir
+    doc: |
+      Intermediate output directory for variant matching step
+    type: Directory?
+  # Reporting outputs
+  combined_variant_output_dir:
+    label: combined variant output dir
+    doc: |
+      Intermediate output directory for combined variant output dir
+    type: Directory?
+  sample_analysis_results_json:
+    label: sample analysis results json
+    doc: |
+      The sample analysis results json file
+    type: File?
+  # Results outputs
+  results_dir:
+    label: results_dir
+    doc: |
+      Results directory for the given sample
+    type: Directory
