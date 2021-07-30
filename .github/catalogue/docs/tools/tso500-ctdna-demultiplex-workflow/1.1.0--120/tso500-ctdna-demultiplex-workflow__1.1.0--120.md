@@ -17,7 +17,7 @@ tso500-ctdna-demultiplex-workflow 1.1.0--120 tool
 
   
 > ID: tso500-ctdna-demultiplex-workflow--1.1.0.120  
-> md5sum: 64829a605ed798458fbe4772c8970248
+> md5sum: 13ed54cdb34d2d8647689167ecbf8178
 
 ### tso500-ctdna-demultiplex-workflow v(1.1.0.120) documentation
   
@@ -160,6 +160,21 @@ A list of tso500 samples each element has the following attributes:
 
 ## tso500-ctdna-demultiplex-workflow v(1.1.0.120) Outputs
 
+### fastq_validation_dir
+
+
+
+  
+> ID: tso500-ctdna-demultiplex-workflow--1.1.0.120/fastq_validation_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output dir for fastq_validation_dir
+  
+
+
 ### fastq validation dsdm
 
 
@@ -202,6 +217,36 @@ The output directory of all of the files
 **Output Type:** `File`  
 **Docs:**  
 AnalysisWorkflow ready sample sheet
+  
+
+
+### resource_verification_dir
+
+
+
+  
+> ID: tso500-ctdna-demultiplex-workflow--1.1.0.120/resource_verification_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output dir for resource_verification_dir
+  
+
+
+### samplesheet_validation_dir
+
+
+
+  
+> ID: tso500-ctdna-demultiplex-workflow--1.1.0.120/samplesheet_validation_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output dir for samplesheet_validation_dir
   
 
   
