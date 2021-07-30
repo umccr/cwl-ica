@@ -16,7 +16,7 @@ from pathlib import Path
 from utils.ica_utils import get_jwt_token_obj, \
     get_base_url, get_region_from_base_url, \
     create_personal_access_token, create_token_from_api_key_with_role, \
-    get_projects_list_with_personal_access_token, get_api_key, store_token
+    get_projects_list_with_token, get_api_key, store_token
 from utils.conda import get_conda_tokens_dir
 from utils.repo import get_tenant_yaml_path, read_yaml, get_cwl_ica_repo_path, get_project_yaml_path
 from utils.conda import get_conda_activate_dir
@@ -232,7 +232,8 @@ Example:
         personal_access_token = create_personal_access_token(base_url, api_key)
 
         # List projects with personal access token
-        personal_projects_list = get_projects_list_with_personal_access_token(base_url, personal_access_token)
+        personal_projects_list = [project.id
+                                  for project in get_projects_list_with_token(base_url, personal_access_token)]
 
         # Like --access-token input logic, compare
         if self.project_id not in personal_projects_list:

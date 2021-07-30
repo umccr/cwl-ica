@@ -191,7 +191,7 @@ def get_token_scopes(jwt_token_obj):
     return scopes_list
 
 
-def get_projects_list_with_personal_access_token(base_url, personal_access_token):
+def get_projects_list_with_token(base_url, personal_access_token):
     """
     List project using an api-key for authorization
     :param base_url:
@@ -234,7 +234,7 @@ def get_projects_list_with_personal_access_token(base_url, personal_access_token
                      "Make sure --api-key has correct scope")
         raise TokenMembershipsError
 
-    return [project.id for project in projects]
+    return projects
 
 
 def create_personal_access_token(base_url, api_key):

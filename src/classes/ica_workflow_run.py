@@ -31,12 +31,13 @@ class ICAWorkflowRun:
     - A set of engine-parameters
     """
 
-    def __init__(self, ica_workflow_run_instance_id, ica_workflow_id=None, ica_workflow_name=None, ica_workflow_version_name=None,
+    def __init__(self, ica_workflow_run_instance_id, ica_project_launch_context_id=None, ica_workflow_id=None, ica_workflow_name=None, ica_workflow_version_name=None,
                  ica_workflow_run_name=None, ica_input=None, ica_output=None, ica_engine_parameters=None,
                  workflow_start_time=None, workflow_end_time=None, workflow_duration=None,
                  ica_task_objs=None, project_token=None):
         """
         :param ica_workflow_run_instance_id:
+        :param ica_project_launch_context_id:
         :param ica_workflow_id:
         :param ica_workflow_name:
         :param ica_workflow_version_name:
@@ -61,6 +62,7 @@ class ICAWorkflowRun:
         # If we have the workflow id, assume we have everything else
         if ica_workflow_id is not None:
             self.ica_workflow_id = ica_workflow_id
+            self.ica_project_launch_context_id = ica_project_launch_context_id
             self.ica_workflow_name = ica_workflow_name
             self.ica_workflow_version_name = ica_workflow_version_name
             self.ica_workflow_run_name = ica_workflow_run_name
@@ -74,6 +76,8 @@ class ICAWorkflowRun:
         else:
             api_response: WorkflowRun =  self.get_run_instance(project_token)
             self.ica_workflow_id, self.ica_workflow_version_name = self.split_href_by_id_and_version(api_response.workflow_version.href)
+            self.ica_project_launch_context_id = [acl.split(":", 1)[-1]
+                                                  for acl in api_response.acl if acl.startswith("cid")][0]
             self.ica_workflow_name = self.get_workflow(self.ica_workflow_id, project_token).name
             self.ica_workflow_run_name = api_response.name
             self.ica_input = api_response.input if api_response.input is not None else {}
@@ -310,6 +314,7 @@ class ICAWorkflowRun:
         """
         return OrderedDict({
             "ica_workflow_run_instance_id": self.ica_workflow_run_instance_id,
+            "ica_project_launch_context_id": self.ica_project_launch_context_id,
             "ica_workflow_id": self.ica_workflow_id,
             "ica_workflow_name": self.ica_workflow_name,
             "ica_workflow_version_name": str(self.ica_workflow_version_name),
@@ -339,6 +344,7 @@ class ICAWorkflowRun:
 
         return cls(
                    ica_workflow_run_instance_id=workflow_run_dict.get("ica_workflow_run_instance_id", None),
+                   ica_project_launch_context_id=workflow_run_dict.get("ica_project_launch_context_id", None),
                    ica_workflow_id=workflow_run_dict.get("ica_workflow_id", None),
                    ica_workflow_name=workflow_run_dict.get("ica_workflow_name", None),
                    ica_workflow_version_name=workflow_run_dict.get("ica_workflow_version_name", None),

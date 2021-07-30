@@ -129,7 +129,7 @@ Command:
 
 
     ################################
-    Get Run-templates Commands  # Not yet implemented  v1.0 release
+    Get Run-templates Commands
     ################################
     copy-tool-submission-template       Copy a tool submission template for an upcoming tool run
     copy-workflow-submission-template   Copy a workflow submission template for an upcoming workflow run
@@ -446,6 +446,17 @@ def _dispatch():
         get_workflow_step_ids_obj = GetWorkflowStepIDs(command_argv)
         # Call command
         get_workflow_step_ids_obj()
+    # Get run templates
+    elif cmd == "copy-tool-submission-template":
+        from subcommands.query.copy_tool_submission_template import CopyToolSubmissionTemplate
+        copy_tool_submission_template_obj = CopyToolSubmissionTemplate(command_argv)
+        # Call command
+        copy_tool_submission_template_obj()
+    elif cmd == "copy-workflow-submission-template":
+        from subcommands.query.copy_workflow_submission_template import CopyWorkflowSubmissionTemplate
+        copy_workflow_submission_template_obj = CopyWorkflowSubmissionTemplate(command_argv)
+        # Call command
+        copy_workflow_submission_template_obj()
 
     # Github actions  # TODO - sync-schema / sync-expression
     elif cmd == "github-actions-sync-tools":
