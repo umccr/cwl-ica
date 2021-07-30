@@ -116,7 +116,7 @@ Command:
 
 
     #######################
-    Query workflow Commands  # Not yet implemented v1.0 release
+    Query workflow Commands
     #######################
     get-workflow-step-ids               Get the step ids of a CWL workflow
 
@@ -441,6 +441,11 @@ def _dispatch():
         register_workflow_run_instance_obj = RegisterWorkflowRunInstance(command_argv)
         # Call command
         register_workflow_run_instance_obj()
+    elif cmd == "get-workflow-step-ids":
+        from subcommands.query.get_workflow_step_ids import GetWorkflowStepIDs
+        get_workflow_step_ids_obj = GetWorkflowStepIDs(command_argv)
+        # Call command
+        get_workflow_step_ids_obj()
 
     # Github actions  # TODO - sync-schema / sync-expression
     elif cmd == "github-actions-sync-tools":
