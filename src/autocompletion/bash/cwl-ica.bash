@@ -43,6 +43,7 @@ Each project is linked to a tenancy id
 '$'\n''expression-init'$'\t''Register an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 '$'\n''expression-sync'$'\t''Sync an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 '$'\n''expression-validate'$'\t''Validate a CWL expression
+'$'\n''get-workflow-step-ids'$'\t''Get the step ids of a CWL workflow
 '$'\n''help'$'\t''Print help and exit
 '$'\n''list-categories'$'\t''List registered categories
 '$'\n''list-projects'$'\t''List registered projects
@@ -525,6 +526,23 @@ and update definition on ICA
         case ${MYWORDS[$INDEX-1]} in
           --expression-path)
             _cwl-ica_expression-validate_option_expression_path_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
+      get-workflow-step-ids)
+        OPTIONS+=('--workflow-path' 'A cwl workflow file
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --workflow-path)
+            _cwl-ica_get-workflow-step-ids_option_workflow_path_completion
           ;;
 
         esac
@@ -1047,6 +1065,11 @@ _cwl-ica_expression-validate_option_expression_path_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_expression_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl")"
     _cwl-ica_compreply "$param_expression_path"
+}
+_cwl-ica_get-workflow-step-ids_option_workflow_path_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_workflow_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl")"
+    _cwl-ica_compreply "$param_workflow_path"
 }
 _cwl-ica_list-projects_option_tenant_name_completion() {
     local CURRENT_WORD="${words[$cword]}"

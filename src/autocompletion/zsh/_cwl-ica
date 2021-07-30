@@ -37,6 +37,7 @@ Each project is linked to a tenancy id
 " expression-init\:"Register an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 " expression-sync\:"Sync an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 " expression-validate\:"Validate a CWL expression
+" get-workflow-step-ids\:"Get the step ids of a CWL workflow
 " help\:"Print help and exit
 " list-categories\:"List registered categories
 " list-projects\:"List registered projects
@@ -452,6 +453,19 @@ and update definition on ICA
                     '-h[Show command help]' \
                     '--expression-path[Path to the expression
 ]:expression-path:_cwl-ica_expression-validate_option_expression_path_completion' \
+                    && ret=0
+
+
+            ;;
+            get-workflow-step-ids)
+
+                # ---- Command: get-workflow-step-ids
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[A cwl workflow file
+]:workflow-path:_cwl-ica_get-workflow-step-ids_option_workflow_path_completion' \
                     && ret=0
 
 
@@ -920,6 +934,12 @@ _cwl-ica_expression-validate_option_expression_path_completion() {
     local CURRENT_WORD="$words[CURRENT]"
     IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl" ) )
     compadd -X "expression_path:" $__dynamic_completion
+}
+_cwl-ica_get-workflow-step-ids_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
 }
 _cwl-ica_list-projects_option_tenant_name_completion() {
     local __dynamic_completion
