@@ -136,7 +136,7 @@ Name of the sample - used for the prefix argument
 > ID: seq_datatype
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fa8c0ccf730>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f2461c14880>`  
 **Docs:**  
 The sequencing type either dna or rna
 
@@ -209,7 +209,7 @@ The output result tsv file
 
 ### ToC
   
-- [development_workflows](#development_workflows)  
+- [development_workflows](#project-development_workflows)  
 
 
 ### Project: development_workflows

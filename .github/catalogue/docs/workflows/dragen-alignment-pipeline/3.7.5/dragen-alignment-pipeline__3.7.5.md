@@ -141,7 +141,7 @@ Range: > 0
 > ID: edit_mode
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fa303e8f640>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f626d8dfeb0>`  
 **Docs:**  
 0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.
 
@@ -367,7 +367,7 @@ secondary alignments use hard clipping.
 > ID: map_orientations
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fa303e8fee0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f626d8dfd60>`  
 **Docs:**  
 Constrain orientations to accept forward-only, reverse-complement only, or any alignments.
 
@@ -566,7 +566,7 @@ Range: 0-255
 > ID: pe_orientation
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fa303e5f070>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f626d875f70>`  
 **Docs:**  
 Expected paired-end orientation: 0=FR, 1=RF, 2=FF.
 
@@ -901,7 +901,7 @@ The dragen multiQC output
 
 ### ToC
   
-- [development_workflows](#development_workflows)  
+- [development_workflows](#project-development_workflows)  
 
 
 ### Project: development_workflows

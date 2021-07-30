@@ -80,6 +80,11 @@ UMCCR CWL-ICA Catalogue
 
 ### samtools-merge
 
+#### Categories
+  
+- bam handlers  
+
+
 #### Versions
   
 - [1.12.0](.github/catalogue/docs/tools/samtools-merge/1.12.0/samtools-merge__1.12.0.md)  
@@ -101,12 +106,22 @@ UMCCR CWL-ICA Catalogue
 
 ### sambamba-sort-and-index
 
+#### Categories
+  
+- bam handler  
+
+
 #### Versions
   
 - [0.8.0](.github/catalogue/docs/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.md)  
 
 
 ### sambamba-slice-and-index
+
+#### Categories
+  
+- bam handler  
+
 
 #### Versions
   
@@ -115,6 +130,11 @@ UMCCR CWL-ICA Catalogue
 
 ### sambamba-view-and-index
 
+#### Categories
+  
+- bam handler  
+
+
 #### Versions
   
 - [0.8.0](.github/catalogue/docs/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.md)  
@@ -122,12 +142,22 @@ UMCCR CWL-ICA Catalogue
 
 ### optitype
 
+#### Categories
+  
+- hla  
+
+
 #### Versions
   
 - [1.3.5](.github/catalogue/docs/tools/optitype/1.3.5/optitype__1.3.5.md)  
 
 
 ### custom-subset-bam
+
+#### Categories
+  
+- bam handler  
+
 
 #### Versions
   
@@ -157,12 +187,22 @@ UMCCR CWL-ICA Catalogue
 
 ### custom-create-tso500-samplesheet
 
+#### Categories
+  
+- tso500  
+
+
 #### Versions
   
 - [1.0.0](.github/catalogue/docs/tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.md)  
 
 
 ### tso500-ctdna-demultiplex-workflow
+
+#### Categories
+  
+- tso500  
+
 
 #### Versions
   
@@ -171,12 +211,22 @@ UMCCR CWL-ICA Catalogue
 
 ### tso500-ctdna-analysis-workflow
 
+#### Categories
+  
+- tso500  
+
+
 #### Versions
   
 - [1.1.0--120](.github/catalogue/docs/tools/tso500-ctdna-analysis-workflow/1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.md)  
 
 
 ### tso500-ctdna-reporting-workflow
+
+#### Categories
+  
+- tso500  
+
 
 #### Versions
   
@@ -241,6 +291,12 @@ UMCCR CWL-ICA Catalogue
 
 ### multiqc
 
+#### Categories
+  
+- qc  
+- visual  
+
+
 #### Versions
   
 - [1.10.1](.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md)  
@@ -286,6 +342,11 @@ UMCCR CWL-ICA Catalogue
 
 ### optitype-pipeline
 
+#### Categories
+  
+- hla  
+
+
 #### Versions
   
 - [1.3.5](.github/catalogue/docs/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
@@ -299,6 +360,11 @@ UMCCR CWL-ICA Catalogue
 
 
 ### dragen-germline-pipeline
+
+#### Categories
+  
+- dragen  
+
 
 #### Versions
   
@@ -314,6 +380,11 @@ UMCCR CWL-ICA Catalogue
 
 ### tso500-ctdna
 
+#### Categories
+  
+- tso500  
+
+
 #### Versions
   
 - [1.1.0--120](.github/catalogue/docs/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md)  
@@ -327,6 +398,12 @@ UMCCR CWL-ICA Catalogue
 
 
 ### dragen-somatic-pipeline
+
+#### Categories
+  
+- dragen  
+- variant-calling  
+
 
 #### Versions
   
@@ -342,12 +419,23 @@ UMCCR CWL-ICA Catalogue
 
 ### dragen-alignment-pipeline
 
+#### Categories
+  
+- alignment  
+- dragen  
+
+
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
 
 
 ### dragen-wgs-qc-pipeline
+
+#### Categories
+  
+- dragen  
+
 
 #### Versions
   

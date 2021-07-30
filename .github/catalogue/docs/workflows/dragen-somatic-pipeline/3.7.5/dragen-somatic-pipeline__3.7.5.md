@@ -198,7 +198,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f31a7e6bee0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f4101787070>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -839,8 +839,8 @@ Bam file of the tumor sample
 
 ### ToC
   
-- [development_workflows](#development_workflows)  
-- [production_workflows](#production_workflows)  
+- [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
