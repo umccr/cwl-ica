@@ -683,8 +683,17 @@ subcommands:
   #######################
   # Query workflow Commands  # Not yet implemented v1.0 release
   #######################
-  # get-workflow-step-ids               Get the step ids of a CWL workflow
-
+  get-workflow-step-ids:
+    summary: |
+      Get the step ids of a CWL workflow
+    options:
+      - name: workflow-path
+        summary: |
+          A cwl workflow file
+        type: string
+        completion:
+          command_string: |-
+            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
 
   ##################
   # Run-list Commands  # Not yet implemented  v1.0 release
@@ -698,10 +707,3 @@ subcommands:
   ################################
   # copy-tool-submission-template       Copy a tool submission template for an upcoming tool run
   # copy-workflow-submission-template   Copy a workflow submission template for an upcoming workflow run
-
-
-  #####################
-  # Run-launch commands  # Not yet implemented v1.0 release
-  #####################
-  # launch-tool                         Launch a tool on ICA
-  # launch-workflow                     Launch a workflow on ICA
