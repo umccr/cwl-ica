@@ -155,6 +155,9 @@ tools:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome__3.7.5.cwl
         md5sum: 8eca9ab4d832b874eec8ed03284e6c06
+      - name: 3.8.4
+        path: 3.8.4/dragen-transcriptome__3.8.4.cwl
+        md5sum: 1164dc07f35924f483f17790b0e7aaf0
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling

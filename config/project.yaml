@@ -211,6 +211,16 @@ projects:
             ica_workflow_version_name: 3.8.4
             modification_time: 2021-08-03T11:40:14UTC
             run_instances: []
+      - name: dragen-transcriptome
+        path: dragen-transcriptome
+        ica_workflow_name: dragen-transcriptome_dev-wf
+        ica_workflow_id: wfl.1bdb5d1976474c39b8290d8b5dc0520e
+        versions:
+          - name: 3.8.4
+            path: 3.8.4/dragen-transcriptome__3.8.4.cwl
+            ica_workflow_version_name: 3.8.4
+            modification_time: 2021-08-03T11:47:50UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
