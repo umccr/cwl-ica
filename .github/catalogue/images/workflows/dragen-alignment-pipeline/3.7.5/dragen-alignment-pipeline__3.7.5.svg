@@ -16,911 +16,911 @@
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_outputs</title>
-<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="3862,-50.7909 3862,-539.6538 4526,-539.6538 4526,-50.7909 3862,-50.7909"/>
-<text text-anchor="middle" x="4452" y="-58.5909" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Outputs</text>
+<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="3963,-50.7909 3963,-539.6538 4627,-539.6538 4627,-50.7909 3963,-50.7909"/>
+<text text-anchor="middle" x="4553" y="-58.5909" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Outputs</text>
 </g>
-<!-- file:///tmp/tmp9bur_v82#enable_sort -->
+<!-- file:///tmp/tmp7ulsj0ux#edit_chain_limit -->
 <g id="node1" class="node">
-<title>file:///tmp/tmp9bur_v82#enable_sort</title>
-<g id="a_node1"><a xlink:title="Enable sorting after mapping/alignment.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="7320,-1778.2909 7320,-1815.2909 7420,-1815.2909 7420,-1778.2909 7320,-1778.2909"/>
-<text text-anchor="middle" x="7370" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">enable_sort</text>
+<title>file:///tmp/tmp7ulsj0ux#edit_chain_limit</title>
+<g id="a_node1"><a xlink:title="For edit&#45;mode 1 or 2: Maximum seed chain length in a read to qualify for seed editing.&#10;Range: &gt; 0&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="7331.5,-1778.2909 7331.5,-1815.2909 7462.5,-1815.2909 7462.5,-1778.2909 7331.5,-1778.2909"/>
+<text text-anchor="middle" x="7397" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_chain_limit</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="node57" class="node">
-<title>file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<g id="a_node57"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/dragen-alignment/3.7.5/dragen-alignment__3.7.5.md" xlink:title="Runs the alignment step on a dragen fpga&#10;Takes in a fastq list and corresponding mount paths from the predefined mount paths&#10;All other options available at the top of the workflow&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="3906.5,-1289.2909 3906.5,-1326.2909 4109.5,-1326.2909 4109.5,-1289.2909 3906.5,-1289.2909"/>
-<text text-anchor="middle" x="4008" y="-1304.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dragen&#45;alignment v(3.7.5)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#enable_sort&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge8" class="edge">
-<title>file:///tmp/tmp9bur_v82#enable_sort&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M7353.285,-1778.0214C7342.3802,-1767.0473 7327.2002,-1753.9784 7311,-1746.7909 6717.898,-1483.6506 4627.9209,-1344.583 4119.9066,-1314.2026"/>
-<polygon fill="#000000" stroke="#000000" points="4119.833,-1310.6921 4109.6424,-1313.5907 4119.4164,-1317.6796 4119.833,-1310.6921"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#output_file_prefix -->
-<g id="node2" class="node">
-<title>file:///tmp/tmp9bur_v82#output_file_prefix</title>
-<g id="a_node2"><a xlink:title="The prefix given to all output files&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="7599.5,-1778.2909 7599.5,-1815.2909 7742.5,-1815.2909 7742.5,-1778.2909 7599.5,-1778.2909"/>
-<text text-anchor="middle" x="7671" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">output_file_prefix</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge9" class="edge">
-<title>file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M7647.5637,-1778.2897C7632.3254,-1767.2723 7611.5345,-1754.0607 7591,-1746.7909 6924.8951,-1510.9722 4652.1113,-1349.9695 4120.0673,-1314.9567"/>
-<polygon fill="#000000" stroke="#000000" points="4119.9149,-1311.4393 4109.7071,-1314.2764 4119.4562,-1318.4242 4119.9149,-1311.4393"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#dragen_qc_step -->
+<!-- file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="node58" class="node">
-<title>file:///tmp/tmp9bur_v82#dragen_qc_step</title>
-<g id="a_node58"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md" xlink:title="The dragen qc step &#45; this takes in an array of dirs&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="7601,-819.2909 7601,-856.2909 7741,-856.2909 7741,-819.2909 7601,-819.2909"/>
-<text text-anchor="middle" x="7671" y="-834.0909" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc v(1.10.1)</text>
+<title>file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<g id="a_node58"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/dragen-alignment/3.7.5/dragen-alignment__3.7.5.md" xlink:title="Runs the alignment step on a dragen fpga&#10;Takes in a fastq list and corresponding mount paths from the predefined mount paths&#10;All other options available at the top of the workflow&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="4007.5,-1289.2909 4007.5,-1326.2909 4210.5,-1326.2909 4210.5,-1289.2909 4007.5,-1289.2909"/>
+<text text-anchor="middle" x="4109" y="-1304.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dragen&#45;alignment v(3.7.5)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step -->
-<g id="edge10" class="edge">
-<title>file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step</title>
-<path fill="none" stroke="#000000" d="M7666.8897,-1778.0646C7654.692,-1659.4388 7654.3784,-1012.771 7665.9488,-866.9928"/>
-<polygon fill="#000000" stroke="#000000" points="7669.4702,-866.91 7666.8773,-856.6374 7662.4982,-866.2848 7669.4702,-866.91"/>
+<!-- file:///tmp/tmp7ulsj0ux#edit_chain_limit&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge8" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#edit_chain_limit&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M7374.8549,-1778.1101C7360.6553,-1767.1694 7341.3188,-1754.1045 7322,-1746.7909 6732.8879,-1523.7706 4718.7199,-1355.2128 4220.9309,-1316.3079"/>
+<polygon fill="#000000" stroke="#000000" points="4221.1105,-1312.8113 4210.8685,-1315.523 4220.566,-1319.7901 4221.1105,-1312.8113"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step -->
-<g id="edge11" class="edge">
-<title>file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step</title>
-<path fill="none" stroke="#000000" d="M7671,-1778.0646C7671,-1659.4388 7671,-1012.771 7671,-866.9928"/>
-<polygon fill="#000000" stroke="#000000" points="7674.5001,-866.6374 7671,-856.6374 7667.5001,-866.6374 7674.5001,-866.6374"/>
+<!-- file:///tmp/tmp7ulsj0ux#remove_duplicates -->
+<g id="node2" class="node">
+<title>file:///tmp/tmp7ulsj0ux#remove_duplicates</title>
+<g id="a_node2"><a xlink:title="If true, remove duplicate alignment records instead of just flagging them.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="7161,-1778.2909 7161,-1815.2909 7313,-1815.2909 7313,-1778.2909 7161,-1778.2909"/>
+<text text-anchor="middle" x="7237" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">remove_duplicates</text>
+</a>
 </g>
-<!-- file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step -->
-<g id="edge12" class="edge">
-<title>file:///tmp/tmp9bur_v82#output_file_prefix&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step</title>
-<path fill="none" stroke="#000000" d="M7675.1103,-1778.0646C7687.308,-1659.4388 7687.6216,-1012.771 7676.0512,-866.9928"/>
-<polygon fill="#000000" stroke="#000000" points="7679.5018,-866.2848 7675.1227,-856.6374 7672.5298,-866.91 7679.5018,-866.2848"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#en_chimeric_aln -->
+<!-- file:///tmp/tmp7ulsj0ux#remove_duplicates&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge9" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#remove_duplicates&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M7211.5009,-1778.2296C7195.2569,-1767.3339 7173.3244,-1754.2743 7152,-1746.7909 6590.8057,-1549.8526 4700.7482,-1363.1221 4220.6413,-1318.0622"/>
+<polygon fill="#000000" stroke="#000000" points="4220.87,-1314.5684 4210.5871,-1317.1199 4220.2168,-1321.5378 4220.87,-1314.5684"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#generate_zs_tags -->
 <g id="node3" class="node">
-<title>file:///tmp/tmp9bur_v82#en_chimeric_aln</title>
-<g id="a_node3"><a xlink:title="Allows chimeric alignments to be output, as supplementary.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="7012,-1778.2909 7012,-1815.2909 7146,-1815.2909 7146,-1778.2909 7012,-1778.2909"/>
-<text text-anchor="middle" x="7079" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">en_chimeric_aln</text>
+<title>file:///tmp/tmp7ulsj0ux#generate_zs_tags</title>
+<g id="a_node3"><a xlink:title="Whether to generate ZS tags for alignment output records. Default is false.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="7001.5,-1778.2909 7001.5,-1815.2909 7142.5,-1815.2909 7142.5,-1778.2909 7001.5,-1778.2909"/>
+<text text-anchor="middle" x="7072" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">generate_zs_tags</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#en_chimeric_aln&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge13" class="edge">
-<title>file:///tmp/tmp9bur_v82#en_chimeric_aln&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M7056.4946,-1778.1828C7042.0812,-1767.2694 7022.484,-1754.2077 7003,-1746.7909 6456.3594,-1538.707 4595.8838,-1360.5726 4119.7242,-1317.6329"/>
-<polygon fill="#000000" stroke="#000000" points="4120.0241,-1314.1459 4109.7505,-1316.735 4119.3964,-1321.1177 4120.0241,-1314.1459"/>
+<!-- file:///tmp/tmp7ulsj0ux#generate_zs_tags&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge10" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#generate_zs_tags&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M7048.4772,-1778.2419C7033.4462,-1767.3508 7013.0697,-1754.2917 6993,-1746.7909 6466.5808,-1550.048 4685.5166,-1364.5045 4220.7054,-1318.5966"/>
+<polygon fill="#000000" stroke="#000000" points="4220.9282,-1315.1017 4210.6329,-1317.6033 4220.2412,-1322.0679 4220.9282,-1315.1017"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#mapq_max -->
+<!-- file:///tmp/tmp7ulsj0ux#gap_ext_pen -->
 <g id="node4" class="node">
-<title>file:///tmp/tmp9bur_v82#mapq_max</title>
-<g id="a_node4"><a xlink:title="Ceiling on reported MAPQ. Max 255&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="6900,-1778.2909 6900,-1815.2909 6994,-1815.2909 6994,-1778.2909 6900,-1778.2909"/>
-<text text-anchor="middle" x="6947" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">mapq_max</text>
+<title>file:///tmp/tmp7ulsj0ux#gap_ext_pen</title>
+<g id="a_node4"><a xlink:title="Score penalty for gap extension.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="6876.5,-1778.2909 6876.5,-1815.2909 6983.5,-1815.2909 6983.5,-1778.2909 6876.5,-1778.2909"/>
+<text text-anchor="middle" x="6930" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">gap_ext_pen</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#mapq_max&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge14" class="edge">
-<title>file:///tmp/tmp9bur_v82#mapq_max&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M6931.2681,-1778.1201C6920.968,-1767.1831 6906.5657,-1754.1187 6891,-1746.7909 6382.4289,-1507.3762 4587.089,-1353.0079 4119.8362,-1316.274"/>
-<polygon fill="#000000" stroke="#000000" points="4119.9546,-1312.7726 4109.7116,-1315.4801 4119.4074,-1319.7512 4119.9546,-1312.7726"/>
+<!-- file:///tmp/tmp7ulsj0ux#gap_ext_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge11" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#gap_ext_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M6911.8517,-1778.1855C6900.0946,-1767.2732 6883.8721,-1754.2116 6867,-1746.7909 6376.1635,-1530.9129 4674.5944,-1360.355 4220.8998,-1317.9608"/>
+<polygon fill="#000000" stroke="#000000" points="4221.0207,-1314.4569 4210.7389,-1317.0133 4220.3707,-1321.4267 4221.0207,-1314.4569"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#generate_sa_tags -->
+<!-- file:///tmp/tmp7ulsj0ux#match_score -->
 <g id="node5" class="node">
-<title>file:///tmp/tmp9bur_v82#generate_sa_tags</title>
-<g id="a_node5"><a xlink:title="Whether to generate SA:Z tags for records that have chimeric/supplemental alignments.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="6740,-1778.2909 6740,-1815.2909 6882,-1815.2909 6882,-1778.2909 6740,-1778.2909"/>
-<text text-anchor="middle" x="6811" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">generate_sa_tags</text>
+<title>file:///tmp/tmp7ulsj0ux#match_score</title>
+<g id="a_node5"><a xlink:title="Score increment for matching reference nucleotide.&#10;When global = 0, match&#45;score &gt; 0; When global = 1, match&#45;score &gt;= 0&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="6750,-1778.2909 6750,-1815.2909 6858,-1815.2909 6858,-1778.2909 6750,-1778.2909"/>
+<text text-anchor="middle" x="6804" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">match_score</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#generate_sa_tags&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge15" class="edge">
-<title>file:///tmp/tmp9bur_v82#generate_sa_tags&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M6786.7728,-1778.0646C6771.564,-1767.2496 6751.0863,-1754.3336 6731,-1746.7909 5766.1805,-1384.4873 4498.9899,-1321.0858 4119.8024,-1310.0803"/>
-<polygon fill="#000000" stroke="#000000" points="4119.7505,-1306.5776 4109.6551,-1309.7923 4119.5518,-1313.5747 4119.7505,-1306.5776"/>
+<!-- file:///tmp/tmp7ulsj0ux#match_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge12" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#match_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M6785.8322,-1778.2296C6774.0678,-1767.3338 6757.8445,-1754.2742 6741,-1746.7909 6274.6109,-1539.5961 4661.4291,-1363.8687 4220.9068,-1318.9183"/>
+<polygon fill="#000000" stroke="#000000" points="4221.0232,-1315.4121 4210.72,-1317.8808 4220.3139,-1322.3761 4221.0232,-1315.4121"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#generate_md_tags -->
+<!-- file:///tmp/tmp7ulsj0ux#pe_orientation -->
 <g id="node6" class="node">
-<title>file:///tmp/tmp9bur_v82#generate_md_tags</title>
-<g id="a_node6"><a xlink:title="Whether to generate MD tags with alignment output records. Default is false.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="6572.5,-1778.2909 6572.5,-1815.2909 6721.5,-1815.2909 6721.5,-1778.2909 6572.5,-1778.2909"/>
-<text text-anchor="middle" x="6647" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">generate_md_tags</text>
+<title>file:///tmp/tmp7ulsj0ux#pe_orientation</title>
+<g id="a_node6"><a xlink:title="Expected paired&#45;end orientation: 0=FR, 1=RF, 2=FF.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="6612,-1778.2909 6612,-1815.2909 6732,-1815.2909 6732,-1778.2909 6612,-1778.2909"/>
+<text text-anchor="middle" x="6672" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">pe_orientation</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#generate_md_tags&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge16" class="edge">
-<title>file:///tmp/tmp9bur_v82#generate_md_tags&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M6621.3947,-1778.1752C6605.3645,-1767.4006 6583.8575,-1754.4882 6563,-1746.7909 5660.2043,-1413.6239 4483.1835,-1330.7509 4119.7496,-1312.4843"/>
-<polygon fill="#000000" stroke="#000000" points="4119.916,-1308.9883 4109.7547,-1311.9879 4119.5688,-1315.9797 4119.916,-1308.9883"/>
+<!-- file:///tmp/tmp7ulsj0ux#pe_orientation&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge13" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#pe_orientation&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M6651.4764,-1778.0759C6638.4948,-1767.2651 6620.8449,-1754.3494 6603,-1746.7909 5738.6565,-1380.6858 4581.2641,-1319.8949 4220.8754,-1309.8008"/>
+<polygon fill="#000000" stroke="#000000" points="4220.7957,-1306.2974 4210.704,-1309.5235 4220.6049,-1313.2948 4220.7957,-1306.2974"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#rescue_sigmas -->
+<!-- file:///tmp/tmp7ulsj0ux#ann_sj_max_indel -->
 <g id="node7" class="node">
-<title>file:///tmp/tmp9bur_v82#rescue_sigmas</title>
-<g id="a_node7"><a xlink:title="Deviations from the mean read length used for rescue scan radius. Default is 2.5.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="6432,-1778.2909 6432,-1815.2909 6554,-1815.2909 6554,-1778.2909 6432,-1778.2909"/>
-<text text-anchor="middle" x="6493" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">rescue_sigmas</text>
+<title>file:///tmp/tmp7ulsj0ux#ann_sj_max_indel</title>
+<g id="a_node7"><a xlink:title="Maximum indel length to expect near an annotated splice junction.&#10;Range: 0 &#45; 63&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="6450.5,-1778.2909 6450.5,-1815.2909 6593.5,-1815.2909 6593.5,-1778.2909 6450.5,-1778.2909"/>
+<text text-anchor="middle" x="6522" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">ann_sj_max_indel</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#rescue_sigmas&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge17" class="edge">
-<title>file:///tmp/tmp9bur_v82#rescue_sigmas&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M6472.1189,-1778.1194C6458.9273,-1767.3245 6441.0197,-1754.4102 6423,-1746.7909 5587.8581,-1393.6659 4472.6454,-1324.2747 4119.8651,-1310.9091"/>
-<polygon fill="#000000" stroke="#000000" points="4119.7743,-1307.4035 4109.6512,-1310.5298 4119.5144,-1314.3986 4119.7743,-1307.4035"/>
+<!-- file:///tmp/tmp7ulsj0ux#ann_sj_max_indel&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge14" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#ann_sj_max_indel&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M6497.701,-1778.252C6482.466,-1767.5055 6461.9859,-1754.5956 6442,-1746.7909 5628.8962,-1429.2673 4564.3266,-1336.653 4220.9276,-1314.1364"/>
+<polygon fill="#000000" stroke="#000000" points="4220.9392,-1310.6299 4210.7335,-1313.4747 4220.4857,-1317.6152 4220.9392,-1310.6299"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#supp_min_score_adj -->
+<!-- file:///tmp/tmp7ulsj0ux#sec_aligns_hard -->
 <g id="node8" class="node">
-<title>file:///tmp/tmp9bur_v82#supp_min_score_adj</title>
-<g id="a_node8"><a xlink:title="Amount to increase minimum alignment score for supplementary alignments.&#10;This score is computed by host software as &quot;8 * match&#45;score&quot; for DNA, and is default 0 for RNA.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="6252.5,-1778.2909 6252.5,-1815.2909 6413.5,-1815.2909 6413.5,-1778.2909 6252.5,-1778.2909"/>
-<text text-anchor="middle" x="6333" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">supp_min_score_adj</text>
+<title>file:///tmp/tmp7ulsj0ux#sec_aligns_hard</title>
+<g id="a_node8"><a xlink:title="Set to force unmapped when not all secondary alignments can be output.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="6301.5,-1778.2909 6301.5,-1815.2909 6432.5,-1815.2909 6432.5,-1778.2909 6301.5,-1778.2909"/>
+<text text-anchor="middle" x="6367" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_aligns_hard</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#supp_min_score_adj&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge18" class="edge">
-<title>file:///tmp/tmp9bur_v82#supp_min_score_adj&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M6305.2552,-1778.1633C6288.233,-1767.5223 6265.6201,-1754.7531 6244,-1746.7909 5461.8446,-1458.743 4452.5746,-1347.4721 4119.8258,-1317.1085"/>
-<polygon fill="#000000" stroke="#000000" points="4119.9778,-1313.608 4109.7026,-1316.1907 4119.3458,-1320.5794 4119.9778,-1313.608"/>
+<!-- file:///tmp/tmp7ulsj0ux#sec_aligns_hard&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge15" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#sec_aligns_hard&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M6344.7025,-1778.2774C6330.6755,-1767.5402 6311.7373,-1754.6311 6293,-1746.7909 5542.1805,-1432.6289 4549.9102,-1338.3193 4220.5366,-1314.7029"/>
+<polygon fill="#000000" stroke="#000000" points="4220.7368,-1311.2083 4210.514,-1313.9914 4220.2411,-1318.1908 4220.7368,-1311.2083"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#gap_ext_pen -->
+<!-- file:///tmp/tmp7ulsj0ux#unpaired_pen -->
 <g id="node9" class="node">
-<title>file:///tmp/tmp9bur_v82#gap_ext_pen</title>
-<g id="a_node9"><a xlink:title="Score penalty for gap extension.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="6127.5,-1778.2909 6127.5,-1815.2909 6234.5,-1815.2909 6234.5,-1778.2909 6127.5,-1778.2909"/>
-<text text-anchor="middle" x="6181" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">gap_ext_pen</text>
+<title>file:///tmp/tmp7ulsj0ux#unpaired_pen</title>
+<g id="a_node9"><a xlink:title="Penalty for unpaired alignments in Phred scale.&#10;Range: 0 &#45; 255&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="6026,-1778.2909 6026,-1815.2909 6140,-1815.2909 6140,-1778.2909 6026,-1778.2909"/>
+<text text-anchor="middle" x="6083" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">unpaired_pen</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#gap_ext_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge19" class="edge">
-<title>file:///tmp/tmp9bur_v82#gap_ext_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M6162.8019,-1778.2101C6151.2263,-1767.4482 6135.375,-1754.537 6119,-1746.7909 5408.9139,-1410.8907 4444.5202,-1330.6971 4119.8637,-1312.6992"/>
-<polygon fill="#000000" stroke="#000000" points="4119.6908,-1309.1847 4109.5149,-1312.1347 4119.3094,-1316.1743 4119.6908,-1309.1847"/>
+<!-- file:///tmp/tmp7ulsj0ux#unpaired_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge16" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#unpaired_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M6063.0769,-1778.1277C6050.6848,-1767.4741 6033.9296,-1754.7041 6017,-1746.7909 5378.7553,-1448.4669 4523.2601,-1345.4398 4220.7011,-1317.0267"/>
+<polygon fill="#000000" stroke="#000000" points="4220.8881,-1313.5291 4210.6068,-1316.0872 4220.2394,-1320.4989 4220.8881,-1313.5291"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#map_orientations -->
+<!-- file:///tmp/tmp7ulsj0ux#generate_md_tags -->
 <g id="node10" class="node">
-<title>file:///tmp/tmp9bur_v82#map_orientations</title>
-<g id="a_node10"><a xlink:title="Constrain orientations to accept forward&#45;only, reverse&#45;complement only, or any alignments.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="5968.5,-1778.2909 5968.5,-1815.2909 6109.5,-1815.2909 6109.5,-1778.2909 5968.5,-1778.2909"/>
-<text text-anchor="middle" x="6039" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">map_orientations</text>
+<title>file:///tmp/tmp7ulsj0ux#generate_md_tags</title>
+<g id="a_node10"><a xlink:title="Whether to generate MD tags with alignment output records. Default is false.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="5858.5,-1778.2909 5858.5,-1815.2909 6007.5,-1815.2909 6007.5,-1778.2909 5858.5,-1778.2909"/>
+<text text-anchor="middle" x="5933" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">generate_md_tags</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#map_orientations&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge20" class="edge">
-<title>file:///tmp/tmp9bur_v82#map_orientations&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M6014.2495,-1778.2593C5999.0156,-1767.6524 5978.6934,-1754.8852 5959,-1746.7909 5292.621,-1472.9014 4424.596,-1354.584 4119.7182,-1319.5927"/>
-<polygon fill="#000000" stroke="#000000" points="4119.8811,-1316.0887 4109.5488,-1318.4326 4119.0876,-1323.0436 4119.8811,-1316.0887"/>
+<!-- file:///tmp/tmp7ulsj0ux#generate_md_tags&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge17" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#generate_md_tags&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M5906.7774,-1778.2435C5890.9522,-1767.7644 5870.0332,-1755.1335 5850,-1746.7909 5261.9576,-1501.9071 4503.369,-1368.2501 4221.2019,-1324.2855"/>
+<polygon fill="#000000" stroke="#000000" points="4221.3788,-1320.7711 4210.9604,-1322.6966 4220.3056,-1327.6884 4221.3788,-1320.7711"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#match_score -->
+<!-- file:///tmp/tmp7ulsj0ux#fastq_list_rows -->
 <g id="node11" class="node">
-<title>file:///tmp/tmp9bur_v82#match_score</title>
-<g id="a_node11"><a xlink:title="Score increment for matching reference nucleotide.&#10;When global = 0, match&#45;score &gt; 0; When global = 1, match&#45;score &gt;= 0&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="5842,-1778.2909 5842,-1815.2909 5950,-1815.2909 5950,-1778.2909 5842,-1778.2909"/>
-<text text-anchor="middle" x="5896" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">match_score</text>
+<title>file:///tmp/tmp7ulsj0ux#fastq_list_rows</title>
+<g id="a_node11"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="6158.5,-1778.2909 6158.5,-1815.2909 6283.5,-1815.2909 6283.5,-1778.2909 6158.5,-1778.2909"/>
+<text text-anchor="middle" x="6221" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_list_rows</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#match_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge21" class="edge">
-<title>file:///tmp/tmp9bur_v82#match_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M5877.0973,-1778.1561C5865.3091,-1767.5126 5849.3181,-1754.7432 5833,-1746.7909 5229.0081,-1452.4476 4414.1202,-1347.4678 4119.8263,-1317.7553"/>
-<polygon fill="#000000" stroke="#000000" points="4119.877,-1314.243 4109.5782,-1316.7299 4119.18,-1321.2082 4119.877,-1314.243"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#unpaired_pen -->
-<g id="node12" class="node">
-<title>file:///tmp/tmp9bur_v82#unpaired_pen</title>
-<g id="a_node12"><a xlink:title="Penalty for unpaired alignments in Phred scale.&#10;Range: 0 &#45; 255&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="5710,-1778.2909 5710,-1815.2909 5824,-1815.2909 5824,-1778.2909 5710,-1778.2909"/>
-<text text-anchor="middle" x="5767" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">unpaired_pen</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#unpaired_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge22" class="edge">
-<title>file:///tmp/tmp9bur_v82#unpaired_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M5746.7091,-1778.0519C5734.318,-1767.5069 5717.6896,-1754.874 5701,-1746.7909 5143.2275,-1476.6516 4398.698,-1358.2135 4119.7532,-1321.295"/>
-<polygon fill="#000000" stroke="#000000" points="4119.9972,-1317.797 4109.6262,-1319.9635 4119.0846,-1324.7373 4119.9972,-1317.797"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#generate_zs_tags -->
-<g id="node13" class="node">
-<title>file:///tmp/tmp9bur_v82#generate_zs_tags</title>
-<g id="a_node13"><a xlink:title="Whether to generate ZS tags for alignment output records. Default is false.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="5550.5,-1778.2909 5550.5,-1815.2909 5691.5,-1815.2909 5691.5,-1778.2909 5550.5,-1778.2909"/>
-<text text-anchor="middle" x="5621" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">generate_zs_tags</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#generate_zs_tags&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge23" class="edge">
-<title>file:///tmp/tmp9bur_v82#generate_zs_tags&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M5595.3648,-1778.1843C5580.153,-1767.8155 5560.153,-1755.3155 5541,-1746.7909 5031.8381,-1520.1756 4375.4833,-1378.4996 4118.2854,-1328.3092"/>
-<polygon fill="#000000" stroke="#000000" points="4118.6764,-1324.8197 4108.1922,-1326.3466 4117.3402,-1331.691 4118.6764,-1324.8197"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#edit_seed_num -->
-<g id="node14" class="node">
-<title>file:///tmp/tmp9bur_v82#edit_seed_num</title>
-<g id="a_node14"><a xlink:title="For edit&#45;mode 1 or 2: Requested number of seeds per read to allow editing on.&#10;Range: &gt; 0&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="5408,-1778.2909 5408,-1815.2909 5532,-1815.2909 5532,-1778.2909 5408,-1778.2909"/>
-<text text-anchor="middle" x="5470" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_seed_num</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#edit_seed_num&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge24" class="edge">
-<title>file:///tmp/tmp9bur_v82#edit_seed_num&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M5447.4711,-1778.2115C5434.0448,-1767.8517 5416.2948,-1755.3517 5399,-1746.7909 4942.2927,-1520.7254 4344.0827,-1378.8052 4109.0368,-1328.4298"/>
-<polygon fill="#000000" stroke="#000000" points="4109.6452,-1324.9809 4099.1348,-1326.3158 4108.1836,-1331.8266 4109.6452,-1324.9809"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#ann_sj_max_indel -->
-<g id="node15" class="node">
-<title>file:///tmp/tmp9bur_v82#ann_sj_max_indel</title>
-<g id="a_node15"><a xlink:title="Maximum indel length to expect near an annotated splice junction.&#10;Range: 0 &#45; 63&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="5246.5,-1778.2909 5246.5,-1815.2909 5389.5,-1815.2909 5389.5,-1778.2909 5246.5,-1778.2909"/>
-<text text-anchor="middle" x="5318" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">ann_sj_max_indel</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#ann_sj_max_indel&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge25" class="edge">
-<title>file:///tmp/tmp9bur_v82#ann_sj_max_indel&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M5291.0696,-1778.1836C5275.6827,-1768.0649 5255.7673,-1755.8116 5237,-1746.7909 4818.0455,-1545.4177 4281.2622,-1384.8576 4084.5872,-1329.0286"/>
-<polygon fill="#000000" stroke="#000000" points="4085.4948,-1325.6481 4074.9195,-1326.291 4083.5876,-1332.3833 4085.4948,-1325.6481"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#mapq_strict_js -->
-<g id="node16" class="node">
-<title>file:///tmp/tmp9bur_v82#mapq_strict_js</title>
-<g id="a_node16"><a xlink:title="Specific to RNA. When set to 0, a higher MAPQ value is returned, expressing confidence that the alignment is at least partially correct. When set to 1, a lower MAPQ value is returned, expressing the splice junction ambiguity.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="5106,-1778.2909 5106,-1815.2909 5228,-1815.2909 5228,-1778.2909 5106,-1778.2909"/>
-<text text-anchor="middle" x="5167" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">mapq_strict_js</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#mapq_strict_js&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge26" class="edge">
-<title>file:///tmp/tmp9bur_v82#mapq_strict_js&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M5143.9433,-1778.2064C5130.7136,-1768.0948 5113.4984,-1755.841 5097,-1746.7909 4731.0563,-1546.0559 4253.844,-1385.5909 4077.4517,-1329.3912"/>
-<polygon fill="#000000" stroke="#000000" points="4078.363,-1326.0084 4067.7727,-1326.3159 4076.2434,-1332.6797 4078.363,-1326.0084"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#pe_max_penalty -->
-<g id="node17" class="node">
-<title>file:///tmp/tmp9bur_v82#pe_max_penalty</title>
-<g id="a_node17"><a xlink:title="Maximum pairing score penalty, for unpaired or distant ends.&#10;Range: 0&#45;255&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4956,-1778.2909 4956,-1815.2909 5088,-1815.2909 5088,-1778.2909 4956,-1778.2909"/>
-<text text-anchor="middle" x="5022" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">pe_max_penalty</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#pe_max_penalty&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge27" class="edge">
-<title>file:///tmp/tmp9bur_v82#pe_max_penalty&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4996.2305,-1778.2112C4982.0351,-1768.3375 4963.9102,-1756.3091 4947,-1746.7909 4623.2148,-1564.5445 4210.9204,-1390.7137 4063.4933,-1330.2679"/>
-<polygon fill="#000000" stroke="#000000" points="4064.75,-1327.0004 4054.1694,-1326.4515 4062.0983,-1333.4788 4064.75,-1327.0004"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#max_rescues -->
-<g id="node18" class="node">
-<title>file:///tmp/tmp9bur_v82#max_rescues</title>
-<g id="a_node18"><a xlink:title="Maximum rescue alignments per read pair. Default is 10&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4828,-1778.2909 4828,-1815.2909 4938,-1815.2909 4938,-1778.2909 4828,-1778.2909"/>
-<text text-anchor="middle" x="4883" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">max_rescues</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#max_rescues&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge28" class="edge">
-<title>file:///tmp/tmp9bur_v82#max_rescues&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4861.1677,-1778.258C4849.1005,-1768.398 4833.6278,-1756.3678 4819,-1746.7909 4542.9413,-1566.0547 4185.7519,-1391.8039 4056.9749,-1330.7322"/>
-<polygon fill="#000000" stroke="#000000" points="4058.277,-1327.4763 4047.741,-1326.3616 4055.2822,-1333.8034 4058.277,-1327.4763"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#max_intron_bases -->
-<g id="node19" class="node">
-<title>file:///tmp/tmp9bur_v82#max_intron_bases</title>
-<g id="a_node19"><a xlink:title="Maximum intron length reported.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4664,-1778.2909 4664,-1815.2909 4810,-1815.2909 4810,-1778.2909 4664,-1778.2909"/>
-<text text-anchor="middle" x="4737" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">max_intron_bases</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#max_intron_bases&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge29" class="edge">
-<title>file:///tmp/tmp9bur_v82#max_intron_bases&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4709.3125,-1778.2187C4596.5438,-1702.5754 4171.8094,-1417.6713 4044.3687,-1332.1864"/>
-<polygon fill="#000000" stroke="#000000" points="4045.9696,-1329.0458 4035.7151,-1326.3817 4042.0701,-1334.8591 4045.9696,-1329.0458"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#preserve_map_align_order -->
-<g id="node20" class="node">
-<title>file:///tmp/tmp9bur_v82#preserve_map_align_order</title>
-<g id="a_node20"><a xlink:title="Produce output file that preserves original order of reads in the input file.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4438.5,-1778.2909 4438.5,-1815.2909 4645.5,-1815.2909 4645.5,-1778.2909 4438.5,-1778.2909"/>
-<text text-anchor="middle" x="4542" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">preserve_map_align_order</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#preserve_map_align_order&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge30" class="edge">
-<title>file:///tmp/tmp9bur_v82#preserve_map_align_order&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4521.7186,-1778.2187C4439.4448,-1702.878 4130.4774,-1419.9472 4035.7711,-1333.2218"/>
-<polygon fill="#000000" stroke="#000000" points="4038.0403,-1330.554 4028.3016,-1326.3817 4033.3129,-1335.7165 4038.0403,-1330.554"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#alt_aware -->
-<g id="node21" class="node">
-<title>file:///tmp/tmp9bur_v82#alt_aware</title>
-<g id="a_node21"><a xlink:title="Enables special processing for alt contigs, if alt liftover was used in hash table.&#10;Enabled by default if reference was built with liftover.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4334,-1778.2909 4334,-1815.2909 4420,-1815.2909 4420,-1778.2909 4334,-1778.2909"/>
-<text text-anchor="middle" x="4377" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">alt_aware</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#alt_aware&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge31" class="edge">
-<title>file:///tmp/tmp9bur_v82#alt_aware&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4362.9854,-1778.2187C4306.4186,-1703.2562 4094.7729,-1422.7827 4028.1869,-1334.5427"/>
-<polygon fill="#000000" stroke="#000000" points="4030.846,-1332.2559 4022.0286,-1326.3817 4025.2583,-1336.4723 4030.846,-1332.2559"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#reference_tar -->
-<g id="node22" class="node">
-<title>file:///tmp/tmp9bur_v82#reference_tar</title>
-<g id="a_node22"><a xlink:title="Path to ref data tarball&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4202,-1778.2909 4202,-1815.2909 4316,-1815.2909 4316,-1778.2909 4202,-1778.2909"/>
-<text text-anchor="middle" x="4259" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">reference_tar</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#reference_tar&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge32" class="edge">
-<title>file:///tmp/tmp9bur_v82#reference_tar&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4249.467,-1778.2187C4211.1058,-1703.4832 4067.895,-1424.4789 4022.1455,-1335.3493"/>
-<polygon fill="#000000" stroke="#000000" points="4025.2228,-1333.6799 4017.5425,-1326.3817 4018.9953,-1336.8765 4025.2228,-1333.6799"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#sec_aligns -->
-<g id="node23" class="node">
-<title>file:///tmp/tmp9bur_v82#sec_aligns</title>
-<g id="a_node23"><a xlink:title="Maximum secondary (suboptimal) alignments to report per read.&#10;Range: 0 &#45; 30&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4092.5,-1778.2909 4092.5,-1815.2909 4183.5,-1815.2909 4183.5,-1778.2909 4092.5,-1778.2909"/>
-<text text-anchor="middle" x="4138" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_aligns</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#sec_aligns&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge33" class="edge">
-<title>file:///tmp/tmp9bur_v82#sec_aligns&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4133.0626,-1778.2187C4113.2546,-1703.7101 4039.4713,-1426.1714 4015.5436,-1336.1665"/>
-<polygon fill="#000000" stroke="#000000" points="4018.8942,-1335.1468 4012.9423,-1326.3817 4012.1291,-1336.9453 4018.8942,-1335.1468"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#min_score_coeff -->
-<g id="node24" class="node">
-<title>file:///tmp/tmp9bur_v82#min_score_coeff</title>
-<g id="a_node24"><a xlink:title="Adjustment to aln&#45;min&#45;score per read base.&#10;Range: &#45;64 to 63.999&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3941.5,-1778.2909 3941.5,-1815.2909 4074.5,-1815.2909 4074.5,-1778.2909 3941.5,-1778.2909"/>
-<text text-anchor="middle" x="4008" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">min_score_coeff</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#min_score_coeff&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge34" class="edge">
-<title>file:///tmp/tmp9bur_v82#min_score_coeff&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M4008,-1778.2187C4008,-1703.7857 4008,-1426.7347 4008,-1336.4412"/>
-<polygon fill="#000000" stroke="#000000" points="4011.5001,-1336.3817 4008,-1326.3817 4004.5001,-1336.3818 4011.5001,-1336.3817"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#enable_duplicate_marking -->
-<g id="node25" class="node">
-<title>file:///tmp/tmp9bur_v82#enable_duplicate_marking</title>
-<g id="a_node25"><a xlink:title="Enable the flagging of duplicate output alignment records.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3717,-1778.2909 3717,-1815.2909 3923,-1815.2909 3923,-1778.2909 3717,-1778.2909"/>
-<text text-anchor="middle" x="3820" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">enable_duplicate_marking</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#enable_duplicate_marking&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge35" class="edge">
-<title>file:///tmp/tmp9bur_v82#enable_duplicate_marking&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M3827.1403,-1778.2187C3855.8148,-1703.6344 3962.7044,-1425.6076 3997.196,-1335.8929"/>
-<polygon fill="#000000" stroke="#000000" points="4000.5309,-1336.9717 4000.8526,-1326.3817 3993.9972,-1334.4597 4000.5309,-1336.9717"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#match_n_score -->
-<g id="node26" class="node">
-<title>file:///tmp/tmp9bur_v82#match_n_score</title>
-<g id="a_node26"><a xlink:title="(signed) Score increment for matching a reference &#39;N&#39; nucleotide IUB code.&#10;Range: &#45;16 to 15&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3430.5,-1778.2909 3430.5,-1815.2909 3555.5,-1815.2909 3555.5,-1778.2909 3430.5,-1778.2909"/>
-<text text-anchor="middle" x="3493" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">match_n_score</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#match_n_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge36" class="edge">
-<title>file:///tmp/tmp9bur_v82#match_n_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M3512.5597,-1778.2187C3591.8266,-1702.9537 3889.2823,-1420.5151 3980.9413,-1333.4836"/>
-<polygon fill="#000000" stroke="#000000" points="3983.579,-1335.8055 3988.4207,-1326.3817 3978.759,-1330.7293 3983.579,-1335.8055"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#enable_map_align -->
-<g id="node27" class="node">
-<title>file:///tmp/tmp9bur_v82#enable_map_align</title>
-<g id="a_node27"><a xlink:title="Enable use of BAM input files for mapper/aligner.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3267.5,-1778.2909 3267.5,-1815.2909 3412.5,-1815.2909 3412.5,-1778.2909 3267.5,-1778.2909"/>
-<text text-anchor="middle" x="3340" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">enable_map_align</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#enable_map_align&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge37" class="edge">
-<title>file:///tmp/tmp9bur_v82#enable_map_align&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M3365.3707,-1778.2187C3468.6001,-1702.6511 3857.1194,-1418.2409 3974.3234,-1332.4435"/>
-<polygon fill="#000000" stroke="#000000" points="3976.6023,-1335.1128 3982.604,-1326.3817 3972.4675,-1329.4644 3976.6023,-1335.1128"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#fastq_list_rows -->
-<g id="node28" class="node">
-<title>file:///tmp/tmp9bur_v82#fastq_list_rows</title>
-<g id="a_node28"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3573.5,-1778.2909 3573.5,-1815.2909 3698.5,-1815.2909 3698.5,-1778.2909 3573.5,-1778.2909"/>
-<text text-anchor="middle" x="3636" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_list_rows</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp9bur_v82#create_fastq_list_csv_step -->
-<g id="node56" class="node">
-<title>file:///tmp/tmp9bur_v82#create_fastq_list_csv_step</title>
-<g id="a_node56"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md" xlink:title="Create the fastq list csv to then run the germline tool.&#10;Takes in an array of fastq_list_row schema.&#10;Returns a csv file along with predefined_mount_path schema&#10;">
+<!-- file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step -->
+<g id="node59" class="node">
+<title>file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step</title>
+<g id="a_node59"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md" xlink:title="Create the fastq list csv to then run the germline tool.&#10;Takes in an array of fastq_list_row schema.&#10;Returns a csv file along with predefined_mount_path schema&#10;">
 <polygon fill="#fafad2" stroke="#000000" points="0,-1778.2909 0,-1815.2909 344,-1815.2909 344,-1778.2909 0,-1778.2909"/>
 <text text-anchor="middle" x="172" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;create&#45;csv&#45;from&#45;fastq&#45;list&#45;row v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#fastq_list_rows&#45;&gt;file:///tmp/tmp9bur_v82#create_fastq_list_csv_step -->
-<g id="edge38" class="edge">
-<title>file:///tmp/tmp9bur_v82#fastq_list_rows&#45;&gt;file:///tmp/tmp9bur_v82#create_fastq_list_csv_step</title>
-<path fill="none" stroke="#000000" d="M3610.7987,-1815.4144C3595.7315,-1825.3722 3575.7315,-1836.6222 3556,-1841.7909 3470.0929,-1864.2944 447.1872,-1852.2524 359,-1841.7909 320.2182,-1837.1904 277.8417,-1827.4011 243.2494,-1818.1243"/>
+<!-- file:///tmp/tmp7ulsj0ux#fastq_list_rows&#45;&gt;file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step -->
+<g id="edge18" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#fastq_list_rows&#45;&gt;file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step</title>
+<path fill="none" stroke="#000000" d="M6195.4497,-1815.4171C6180.1829,-1825.3758 6159.9329,-1836.6258 6140,-1841.7909 6062.2754,-1861.9314 438.7326,-1851.2494 359,-1841.7909 320.2182,-1837.1904 277.8417,-1827.4011 243.2494,-1818.1243"/>
 <polygon fill="#000000" stroke="#000000" points="243.8122,-1814.6502 233.2438,-1815.3976 241.9717,-1821.4039 243.8122,-1814.6502"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#supp_aligns -->
+<!-- file:///tmp/tmp7ulsj0ux#unclip_score -->
+<g id="node12" class="node">
+<title>file:///tmp/tmp7ulsj0ux#unclip_score</title>
+<g id="a_node12"><a xlink:title="Score bonus for reaching each edge of the read.&#10;Range: 0 &#45; 127&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="5733.5,-1778.2909 5733.5,-1815.2909 5840.5,-1815.2909 5840.5,-1778.2909 5733.5,-1778.2909"/>
+<text text-anchor="middle" x="5787" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">unclip_score</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#unclip_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge19" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#unclip_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M5768.0938,-1778.0716C5756.507,-1767.5334 5740.888,-1754.9007 5725,-1746.7909 5199.6309,-1478.6249 4491.9674,-1359.7784 4220.9594,-1322.0088"/>
+<polygon fill="#000000" stroke="#000000" points="4221.1084,-1318.4962 4210.723,-1320.5919 4220.1486,-1325.4301 4221.1084,-1318.4962"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#edit_mode -->
+<g id="node13" class="node">
+<title>file:///tmp/tmp7ulsj0ux#edit_mode</title>
+<g id="a_node13"><a xlink:title="0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="5624.5,-1778.2909 5624.5,-1815.2909 5715.5,-1815.2909 5715.5,-1778.2909 5624.5,-1778.2909"/>
+<text text-anchor="middle" x="5670" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_mode</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#edit_mode&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge20" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#edit_mode&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M5653.6734,-1777.8344C5643.7312,-1767.3489 5630.2312,-1754.8489 5616,-1746.7909 5138.9193,-1476.6593 4480.9501,-1359.979 4221.0625,-1322.3976"/>
+<polygon fill="#000000" stroke="#000000" points="4221.2568,-1318.8897 4210.861,-1320.9335 4220.2623,-1325.8187 4221.2568,-1318.8897"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#output_directory -->
+<g id="node14" class="node">
+<title>file:///tmp/tmp7ulsj0ux#output_directory</title>
+<g id="a_node14"><a xlink:title="The directory where all output files are placed&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="5469.5,-1778.2909 5469.5,-1815.2909 5606.5,-1815.2909 5606.5,-1778.2909 5469.5,-1778.2909"/>
+<text text-anchor="middle" x="5538" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">output_directory</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#output_directory&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge21" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#output_directory&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M5512.9677,-1778.1349C5498.365,-1767.877 5479.2718,-1755.5035 5461,-1746.7909 5008.7906,-1531.1634 4423.5963,-1381.4596 4200.6908,-1328.7191"/>
+<polygon fill="#000000" stroke="#000000" points="4201.208,-1325.2452 4190.6716,-1326.3562 4199.6011,-1332.0582 4201.208,-1325.2452"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#no_unpaired -->
+<g id="node15" class="node">
+<title>file:///tmp/tmp7ulsj0ux#no_unpaired</title>
+<g id="a_node15"><a xlink:title="If only properly paired alignments should be reported for paired reads.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="5346.5,-1778.2909 5346.5,-1815.2909 5451.5,-1815.2909 5451.5,-1778.2909 5346.5,-1778.2909"/>
+<text text-anchor="middle" x="5399" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">no_unpaired</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#no_unpaired&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge22" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#no_unpaired&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M5379.5791,-1778.283C5367.9388,-1767.947 5352.4388,-1755.447 5337,-1746.7909 4939.4056,-1523.8719 4407.68,-1380.0623 4198.7,-1328.8047"/>
+<polygon fill="#000000" stroke="#000000" points="4199.2391,-1325.3335 4188.6941,-1326.3608 4197.5781,-1332.1336 4199.2391,-1325.3335"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#max_rescues -->
+<g id="node16" class="node">
+<title>file:///tmp/tmp7ulsj0ux#max_rescues</title>
+<g id="a_node16"><a xlink:title="Maximum rescue alignments per read pair. Default is 10&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="5218,-1778.2909 5218,-1815.2909 5328,-1815.2909 5328,-1778.2909 5218,-1778.2909"/>
+<text text-anchor="middle" x="5273" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">max_rescues</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#max_rescues&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge23" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#max_rescues&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M5252.1675,-1778.0517C5240.1493,-1767.8917 5224.4047,-1755.641 5209,-1746.7909 4845.9499,-1538.2166 4364.4883,-1383.6974 4182.6913,-1329.2046"/>
+<polygon fill="#000000" stroke="#000000" points="4183.5471,-1325.8075 4172.9636,-1326.2987 4181.5434,-1332.5146 4183.5471,-1325.8075"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#supp_as_sec -->
+<g id="node17" class="node">
+<title>file:///tmp/tmp7ulsj0ux#supp_as_sec</title>
+<g id="a_node17"><a xlink:title="If supplementary alignments should be reported with secondary flag.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="5094,-1778.2909 5094,-1815.2909 5200,-1815.2909 5200,-1778.2909 5094,-1778.2909"/>
+<text text-anchor="middle" x="5147" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">supp_as_sec</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#supp_as_sec&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge24" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#supp_as_sec&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M5126.7599,-1778.2581C5115.099,-1768.1627 5099.8476,-1755.9079 5085,-1746.7909 4761.0697,-1547.8875 4331.5317,-1386.5174 4172.0796,-1329.7276"/>
+<polygon fill="#000000" stroke="#000000" points="4173.0175,-1326.3466 4162.4228,-1326.2986 4170.6752,-1332.9431 4173.0175,-1326.3466"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#aln_min_score -->
+<g id="node18" class="node">
+<title>file:///tmp/tmp7ulsj0ux#aln_min_score</title>
+<g id="a_node18"><a xlink:title="(signed) Minimum alignment score to report; baseline for MAPQ.&#10;&#10;When using local alignments (global = 0), aln&#45;min&#45;score is computed by the host software as &quot;22 * match&#45;score&quot;.&#10;&#10;When using global alignments (global = 1), aln&#45;min&#45;score is set to &#45;1000000.&#10;&#10;Host software computation may be overridden by setting aln&#45;min&#45;score in configuration file.&#10;&#10;Range: −2,147,483,648 to 2,147,483,647&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4956.5,-1778.2909 4956.5,-1815.2909 5075.5,-1815.2909 5075.5,-1778.2909 4956.5,-1778.2909"/>
+<text text-anchor="middle" x="5016" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">aln_min_score</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#aln_min_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge25" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#aln_min_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4992.0036,-1778.0886C4978.9996,-1768.2934 4962.4667,-1756.3764 4947,-1746.7909 4658.9456,-1568.2696 4290.8386,-1392.3339 4158.8554,-1330.7901"/>
+<polygon fill="#000000" stroke="#000000" points="4159.9383,-1327.4336 4149.3953,-1326.3864 4156.9841,-1333.7797 4159.9383,-1327.4336"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#dedup_min_qual -->
+<g id="node19" class="node">
+<title>file:///tmp/tmp7ulsj0ux#dedup_min_qual</title>
+<g id="a_node19"><a xlink:title="Minimum base quality for calculating read quality metric for deduplication.&#10;Range: 0&#45;63&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4804,-1778.2909 4804,-1815.2909 4938,-1815.2909 4938,-1778.2909 4804,-1778.2909"/>
+<text text-anchor="middle" x="4871" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dedup_min_qual</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#dedup_min_qual&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge26" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#dedup_min_qual&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4842.9033,-1778.185C4828.5917,-1768.7385 4810.8988,-1757.1074 4795,-1746.7909 4548.9322,-1587.1221 4251.1831,-1397.9455 4147.1051,-1331.9387"/>
+<polygon fill="#000000" stroke="#000000" points="4148.824,-1328.8843 4138.5045,-1326.4849 4145.0753,-1334.796 4148.824,-1328.8843"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#reference_tar -->
+<g id="node20" class="node">
+<title>file:///tmp/tmp7ulsj0ux#reference_tar</title>
+<g id="a_node20"><a xlink:title="Path to ref data tarball&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4672,-1778.2909 4672,-1815.2909 4786,-1815.2909 4786,-1778.2909 4672,-1778.2909"/>
+<text text-anchor="middle" x="4729" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">reference_tar</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#reference_tar&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge27" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#reference_tar&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4705.4524,-1778.2187C4609.7366,-1702.7267 4249.7605,-1418.8101 4140.5842,-1332.7017"/>
+<polygon fill="#000000" stroke="#000000" points="4142.5904,-1329.8264 4132.5711,-1326.3817 4138.2554,-1335.3226 4142.5904,-1329.8264"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#sec_phred_delta -->
+<g id="node21" class="node">
+<title>file:///tmp/tmp7ulsj0ux#sec_phred_delta</title>
+<g id="a_node21"><a xlink:title="Only secondary alignments with likelihood within this Phred of the primary are reported.&#10;Range: 0 &#45; 255&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4520,-1778.2909 4520,-1815.2909 4654,-1815.2909 4654,-1778.2909 4520,-1778.2909"/>
+<text text-anchor="middle" x="4587" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_phred_delta</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#sec_phred_delta&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge28" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#sec_phred_delta&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4568.8455,-1778.2187C4495.3475,-1703.0293 4219.7432,-1421.0826 4134.3718,-1333.7466"/>
+<polygon fill="#000000" stroke="#000000" points="4136.6657,-1331.0862 4127.1726,-1326.3817 4131.6599,-1335.9794 4136.6657,-1331.0862"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#seed_density -->
+<g id="node22" class="node">
+<title>file:///tmp/tmp7ulsj0ux#seed_density</title>
+<g id="a_node22"><a xlink:title="Requested density of seeds from reads queried in the hash table&#10;Range: 0 &#45; 1&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4392,-1778.2909 4392,-1815.2909 4502,-1815.2909 4502,-1778.2909 4392,-1778.2909"/>
+<text text-anchor="middle" x="4447" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">seed_density</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#seed_density&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge29" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#seed_density&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4434.1627,-1778.2187C4382.4005,-1703.3319 4188.8741,-1423.3485 4127.676,-1334.8104"/>
+<polygon fill="#000000" stroke="#000000" points="4130.4153,-1332.6178 4121.8501,-1326.3817 4124.6569,-1336.598 4130.4153,-1332.6178"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#mapq_max -->
+<g id="node23" class="node">
+<title>file:///tmp/tmp7ulsj0ux#mapq_max</title>
+<g id="a_node23"><a xlink:title="Ceiling on reported MAPQ. Max 255&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4280,-1778.2909 4280,-1815.2909 4374,-1815.2909 4374,-1778.2909 4280,-1778.2909"/>
+<text text-anchor="middle" x="4327" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">mapq_max</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#mapq_max&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge30" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#mapq_max&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4318.7203,-1778.2187C4285.4364,-1703.5588 4161.2721,-1425.0435 4121.4066,-1335.6205"/>
+<polygon fill="#000000" stroke="#000000" points="4124.5565,-1334.0901 4117.2879,-1326.3817 4118.163,-1336.9404 4124.5565,-1334.0901"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#verbose -->
+<g id="node24" class="node">
+<title>file:///tmp/tmp7ulsj0ux#verbose</title>
+<g id="a_node24"><a xlink:title="Enable verbose output from DRAGEN.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4188.5,-1778.2909 4188.5,-1815.2909 4261.5,-1815.2909 4261.5,-1778.2909 4188.5,-1778.2909"/>
+<text text-anchor="middle" x="4225" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">verbose</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#verbose&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge31" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#verbose&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4220.5943,-1778.2187C4202.9195,-1703.7101 4137.0821,-1426.1714 4115.7312,-1336.1665"/>
+<polygon fill="#000000" stroke="#000000" points="4119.1238,-1335.3038 4113.4101,-1326.3817 4112.3128,-1336.9196 4119.1238,-1335.3038"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#output_file_prefix -->
+<g id="node25" class="node">
+<title>file:///tmp/tmp7ulsj0ux#output_file_prefix</title>
+<g id="a_node25"><a xlink:title="The prefix given to all output files&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="7599.5,-1778.2909 7599.5,-1815.2909 7742.5,-1815.2909 7742.5,-1778.2909 7599.5,-1778.2909"/>
+<text text-anchor="middle" x="7671" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">output_file_prefix</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#dragen_qc_step -->
+<g id="node57" class="node">
+<title>file:///tmp/tmp7ulsj0ux#dragen_qc_step</title>
+<g id="a_node57"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md" xlink:title="The dragen qc step &#45; this takes in an array of dirs&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="7601,-819.2909 7601,-856.2909 7741,-856.2909 7741,-819.2909 7601,-819.2909"/>
+<text text-anchor="middle" x="7671" y="-834.0909" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc v(1.10.1)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step -->
+<g id="edge32" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step</title>
+<path fill="none" stroke="#000000" d="M7666.8897,-1778.0646C7654.692,-1659.4388 7654.3784,-1012.771 7665.9488,-866.9928"/>
+<polygon fill="#000000" stroke="#000000" points="7669.4702,-866.91 7666.8773,-856.6374 7662.4982,-866.2848 7669.4702,-866.91"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step -->
+<g id="edge33" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step</title>
+<path fill="none" stroke="#000000" d="M7671,-1778.0646C7671,-1659.4388 7671,-1012.771 7671,-866.9928"/>
+<polygon fill="#000000" stroke="#000000" points="7674.5001,-866.6374 7671,-856.6374 7667.5001,-866.6374 7674.5001,-866.6374"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step -->
+<g id="edge34" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step</title>
+<path fill="none" stroke="#000000" d="M7675.1103,-1778.0646C7687.308,-1659.4388 7687.6216,-1012.771 7676.0512,-866.9928"/>
+<polygon fill="#000000" stroke="#000000" points="7679.5018,-866.2848 7675.1227,-856.6374 7672.5298,-866.91 7679.5018,-866.2848"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge35" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#output_file_prefix&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M7647.2101,-1778.0659C7632.0005,-1767.1086 7611.3674,-1754.0417 7591,-1746.7909 6945.0396,-1516.831 4743.4917,-1351.8964 4220.9219,-1315.3973"/>
+<polygon fill="#000000" stroke="#000000" points="4220.9613,-1311.8916 4210.7421,-1314.6877 4220.4744,-1318.8747 4220.9613,-1311.8916"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#hard_clips -->
+<g id="node26" class="node">
+<title>file:///tmp/tmp7ulsj0ux#hard_clips</title>
+<g id="a_node26"><a xlink:title="Flags for hard clipping: [0] primary, [1] supplementary, [2] secondary.&#10;The hard&#45;clips option is used as a field of 3 bits, with values ranging from 0 to 7.&#10;The bits specify alignments, as follows:&#10; &#160;* Bit 0—primary alignments&#10; &#160;* Bit 1—supplementary alignments&#10; &#160;* Bit 2—secondary alignments&#10;Each bit determines whether local alignments of that type are reported with hard clipping (1)&#10;or soft clipping (0).&#10;The default is 6, meaning primary alignments use soft clipping and supplementary and&#10;secondary alignments use hard clipping.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3938.5,-1778.2909 3938.5,-1815.2909 4029.5,-1815.2909 4029.5,-1778.2909 3938.5,-1778.2909"/>
+<text text-anchor="middle" x="3984" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">hard_clips</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#hard_clips&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge36" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#hard_clips&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3988.7475,-1778.2187C4007.7937,-1703.7101 4078.7392,-1426.1714 4101.7465,-1336.1665"/>
+<polygon fill="#000000" stroke="#000000" points="4105.162,-1336.937 4104.2478,-1326.3817 4098.3801,-1335.2034 4105.162,-1336.937"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#global -->
+<g id="node27" class="node">
+<title>file:///tmp/tmp7ulsj0ux#global</title>
+<g id="a_node27"><a xlink:title="If alignment is global (Needleman&#45;Wunsch) rather than local (Smith&#45;Waterman).&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3860,-1778.2909 3860,-1815.2909 3920,-1815.2909 3920,-1778.2909 3860,-1778.2909"/>
+<text text-anchor="middle" x="3890" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">global</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#global&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge37" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#global&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3898.3176,-1778.2187C3931.7543,-1703.5588 4056.4881,-1425.0435 4096.5364,-1335.6205"/>
+<polygon fill="#000000" stroke="#000000" points="4099.781,-1336.9389 4100.6741,-1326.3817 4093.3924,-1334.0777 4099.781,-1336.9389"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#enable_map_align -->
+<g id="node28" class="node">
+<title>file:///tmp/tmp7ulsj0ux#enable_map_align</title>
+<g id="a_node28"><a xlink:title="Enable use of BAM input files for mapper/aligner.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3696.5,-1778.2909 3696.5,-1815.2909 3841.5,-1815.2909 3841.5,-1778.2909 3696.5,-1778.2909"/>
+<text text-anchor="middle" x="3769" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">enable_map_align</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#enable_map_align&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge38" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#enable_map_align&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3781.9132,-1778.2187C3833.9818,-1703.3319 4028.6532,-1423.3485 4090.2135,-1334.8104"/>
+<polygon fill="#000000" stroke="#000000" points="4093.2388,-1336.5902 4096.0739,-1326.3817 4087.4915,-1332.5941 4093.2388,-1336.5902"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#no_unclip_score -->
 <g id="node29" class="node">
-<title>file:///tmp/tmp9bur_v82#supp_aligns</title>
-<g id="a_node29"><a xlink:title="Maximum supplementary (chimeric) alignments to report per read.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3148.5,-1778.2909 3148.5,-1815.2909 3249.5,-1815.2909 3249.5,-1778.2909 3148.5,-1778.2909"/>
-<text text-anchor="middle" x="3199" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">supp_aligns</text>
+<title>file:///tmp/tmp7ulsj0ux#no_unclip_score</title>
+<g id="a_node29"><a xlink:title="When no&#45;unclip&#45;score is set to 1, any unclipped bonus (unclip&#45;score) contributing to an alignment is removed from the alignment score before further processing.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3546,-1778.2909 3546,-1815.2909 3678,-1815.2909 3678,-1778.2909 3546,-1778.2909"/>
+<text text-anchor="middle" x="3612" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">no_unclip_score</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#supp_aligns&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#no_unclip_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge39" class="edge">
-<title>file:///tmp/tmp9bur_v82#supp_aligns&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M3219.7066,-1778.0904C3230.9691,-1768.2957 3245.3532,-1756.3787 3259,-1746.7909 3512.9643,-1568.3655 3842.99,-1392.936 3962.3862,-1331.1311"/>
-<polygon fill="#000000" stroke="#000000" points="3964.3394,-1334.0616 3971.6173,-1326.362 3961.1264,-1327.8425 3964.3394,-1334.0616"/>
+<title>file:///tmp/tmp7ulsj0ux#no_unclip_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3630.8761,-1778.2187C3707.3725,-1702.9537 3994.4316,-1420.5151 4082.887,-1333.4836"/>
+<polygon fill="#000000" stroke="#000000" points="4085.4316,-1335.8901 4090.1051,-1326.3817 4080.5221,-1330.9003 4085.4316,-1335.8901"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#unclip_score -->
+<!-- file:///tmp/tmp7ulsj0ux#pe_max_penalty -->
 <g id="node30" class="node">
-<title>file:///tmp/tmp9bur_v82#unclip_score</title>
-<g id="a_node30"><a xlink:title="Score bonus for reaching each edge of the read.&#10;Range: 0 &#45; 127&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3023.5,-1778.2909 3023.5,-1815.2909 3130.5,-1815.2909 3130.5,-1778.2909 3023.5,-1778.2909"/>
-<text text-anchor="middle" x="3077" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">unclip_score</text>
+<title>file:///tmp/tmp7ulsj0ux#pe_max_penalty</title>
+<g id="a_node30"><a xlink:title="Maximum pairing score penalty, for unpaired or distant ends.&#10;Range: 0&#45;255&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3396,-1778.2909 3396,-1815.2909 3528,-1815.2909 3528,-1778.2909 3396,-1778.2909"/>
+<text text-anchor="middle" x="3462" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">pe_max_penalty</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#unclip_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#pe_max_penalty&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge40" class="edge">
-<title>file:///tmp/tmp9bur_v82#unclip_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M3098.3457,-1778.0668C3110.1818,-1768.1508 3125.4185,-1756.128 3140,-1746.7909 3432.3441,-1559.5925 3814.8728,-1389.9657 3954.2475,-1330.396"/>
-<polygon fill="#000000" stroke="#000000" points="3956.0317,-1333.4402 3963.8577,-1326.2985 3953.2862,-1327.0011 3956.0317,-1333.4402"/>
+<title>file:///tmp/tmp7ulsj0ux#pe_max_penalty&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3486.5731,-1778.2187C3586.5572,-1702.6511 3962.8627,-1418.2409 4076.3821,-1332.4435"/>
+<polygon fill="#000000" stroke="#000000" points="4078.535,-1335.2035 4084.4024,-1326.3817 4074.3142,-1329.6191 4078.535,-1335.2035"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#gap_open_pen -->
+<!-- file:///tmp/tmp7ulsj0ux#min_score_coeff -->
 <g id="node31" class="node">
-<title>file:///tmp/tmp9bur_v82#gap_open_pen</title>
-<g id="a_node31"><a xlink:title="Score penalty for opening a gap (insertion or deletion).&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2886.5,-1778.2909 2886.5,-1815.2909 3005.5,-1815.2909 3005.5,-1778.2909 2886.5,-1778.2909"/>
-<text text-anchor="middle" x="2946" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">gap_open_pen</text>
+<title>file:///tmp/tmp7ulsj0ux#min_score_coeff</title>
+<g id="a_node31"><a xlink:title="Adjustment to aln&#45;min&#45;score per read base.&#10;Range: &#45;64 to 63.999&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3244.5,-1778.2909 3244.5,-1815.2909 3377.5,-1815.2909 3377.5,-1778.2909 3244.5,-1778.2909"/>
+<text text-anchor="middle" x="3311" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">min_score_coeff</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#gap_open_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#min_score_coeff&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge41" class="edge">
-<title>file:///tmp/tmp9bur_v82#gap_open_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2969.1181,-1778.1513C2982.1409,-1768.1429 2998.9675,-1756.006 3015,-1746.7909 3350.7448,-1553.8131 3787.148,-1387.8354 3946.4065,-1329.81"/>
-<polygon fill="#000000" stroke="#000000" points="3947.839,-1333.0135 3956.0419,-1326.3081 3945.4478,-1326.4345 3947.839,-1333.0135"/>
+<title>file:///tmp/tmp7ulsj0ux#min_score_coeff&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3338.6408,-1778.2665C3352.9884,-1768.7376 3370.8503,-1757.0086 3387,-1746.7909 3644.139,-1584.1034 3958.5679,-1396.8529 4068.6459,-1331.6428"/>
+<polygon fill="#000000" stroke="#000000" points="4070.6181,-1334.5426 4077.4393,-1326.4357 4067.0514,-1328.5194 4070.6181,-1334.5426"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#pe_orientation -->
+<!-- file:///tmp/tmp7ulsj0ux#sec_aligns -->
 <g id="node32" class="node">
-<title>file:///tmp/tmp9bur_v82#pe_orientation</title>
-<g id="a_node32"><a xlink:title="Expected paired&#45;end orientation: 0=FR, 1=RF, 2=FF.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2748,-1778.2909 2748,-1815.2909 2868,-1815.2909 2868,-1778.2909 2748,-1778.2909"/>
-<text text-anchor="middle" x="2808" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">pe_orientation</text>
+<title>file:///tmp/tmp7ulsj0ux#sec_aligns</title>
+<g id="a_node32"><a xlink:title="Maximum secondary (suboptimal) alignments to report per read.&#10;Range: 0 &#45; 30&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3135.5,-1778.2909 3135.5,-1815.2909 3226.5,-1815.2909 3226.5,-1778.2909 3135.5,-1778.2909"/>
+<text text-anchor="middle" x="3181" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_aligns</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#pe_orientation&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#sec_aligns&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge42" class="edge">
-<title>file:///tmp/tmp9bur_v82#pe_orientation&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2831.0127,-1778.1255C2844.2286,-1767.9887 2861.4447,-1755.7365 2878,-1746.7909 3256.3686,-1542.3418 3750.6774,-1384.573 3934.7572,-1329.2275"/>
-<polygon fill="#000000" stroke="#000000" points="3935.7641,-1332.5796 3944.3379,-1326.3553 3933.7539,-1325.8744 3935.7641,-1332.5796"/>
+<title>file:///tmp/tmp7ulsj0ux#sec_aligns&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3199.2684,-1777.8458C3209.494,-1767.865 3222.8102,-1755.8509 3236,-1746.7909 3521.6918,-1550.5511 3907.4061,-1387.9318 4051.532,-1330.258"/>
+<polygon fill="#000000" stroke="#000000" points="4053.0884,-1333.4054 4061.08,-1326.4495 4050.4949,-1326.9036 4053.0884,-1333.4054"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#no_unpaired -->
+<!-- file:///tmp/tmp7ulsj0ux#edit_read_len -->
 <g id="node33" class="node">
-<title>file:///tmp/tmp9bur_v82#no_unpaired</title>
-<g id="a_node33"><a xlink:title="If only properly paired alignments should be reported for paired reads.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2624.5,-1778.2909 2624.5,-1815.2909 2729.5,-1815.2909 2729.5,-1778.2909 2624.5,-1778.2909"/>
-<text text-anchor="middle" x="2677" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">no_unpaired</text>
+<title>file:///tmp/tmp7ulsj0ux#edit_read_len</title>
+<g id="a_node33"><a xlink:title="For edit&#45;mode 1 or 2: Read length in which to try edit&#45;seed&#45;num edited seeds.&#10;Range: &gt; 0&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3004.5,-1778.2909 3004.5,-1815.2909 3117.5,-1815.2909 3117.5,-1778.2909 3004.5,-1778.2909"/>
+<text text-anchor="middle" x="3061" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_read_len</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#no_unpaired&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#edit_read_len&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge43" class="edge">
-<title>file:///tmp/tmp9bur_v82#no_unpaired&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2696.3877,-1778.2234C2708.0169,-1767.8676 2723.5169,-1755.3676 2739,-1746.7909 3148.4619,-1519.976 3696.2749,-1378.8949 3913.5212,-1328.5914"/>
-<polygon fill="#000000" stroke="#000000" points="3914.344,-1331.9935 3923.302,-1326.3363 3912.7713,-1325.1725 3914.344,-1331.9935"/>
+<title>file:///tmp/tmp7ulsj0ux#edit_read_len&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M3083.0119,-1778.1013C3095.438,-1768.0778 3111.536,-1755.9424 3127,-1746.7909 3456.5916,-1551.7407 3888.3196,-1387.4673 4047.0231,-1329.8353"/>
+<polygon fill="#000000" stroke="#000000" points="4048.4185,-1333.0525 4056.629,-1326.3563 4046.0348,-1326.4709 4048.4185,-1333.0525"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#sec_phred_delta -->
+<!-- file:///tmp/tmp7ulsj0ux#edit_seed_num -->
 <g id="node34" class="node">
-<title>file:///tmp/tmp9bur_v82#sec_phred_delta</title>
-<g id="a_node34"><a xlink:title="Only secondary alignments with likelihood within this Phred of the primary are reported.&#10;Range: 0 &#45; 255&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2472,-1778.2909 2472,-1815.2909 2606,-1815.2909 2606,-1778.2909 2472,-1778.2909"/>
-<text text-anchor="middle" x="2539" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_phred_delta</text>
+<title>file:///tmp/tmp7ulsj0ux#edit_seed_num</title>
+<g id="a_node34"><a xlink:title="For edit&#45;mode 1 or 2: Requested number of seeds per read to allow editing on.&#10;Range: &gt; 0&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2862,-1778.2909 2862,-1815.2909 2986,-1815.2909 2986,-1778.2909 2862,-1778.2909"/>
+<text text-anchor="middle" x="2924" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_seed_num</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#sec_phred_delta&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#edit_seed_num&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge44" class="edge">
-<title>file:///tmp/tmp9bur_v82#sec_phred_delta&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2564.0044,-1778.076C2578.598,-1767.799 2597.6915,-1755.4261 2616,-1746.7909 3080.081,-1527.9082 3680.9027,-1380.6303 3911.7992,-1328.6242"/>
-<polygon fill="#000000" stroke="#000000" points="3912.8594,-1331.9734 3921.85,-1326.368 3911.3262,-1325.1433 3912.8594,-1331.9734"/>
+<title>file:///tmp/tmp7ulsj0ux#edit_seed_num&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M2947.7642,-1778.2041C2961.3871,-1768.0918 2979.0931,-1755.838 2996,-1746.7909 3371.1815,-1546.0267 3858.6176,-1385.4595 4038.4047,-1329.3158"/>
+<polygon fill="#000000" stroke="#000000" points="4039.5064,-1332.6386 4048.0133,-1326.3233 4037.4248,-1325.9553 4039.5064,-1332.6386"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#no_unclip_score -->
+<!-- file:///tmp/tmp7ulsj0ux#match_n_score -->
 <g id="node35" class="node">
-<title>file:///tmp/tmp9bur_v82#no_unclip_score</title>
-<g id="a_node35"><a xlink:title="When no&#45;unclip&#45;score is set to 1, any unclipped bonus (unclip&#45;score) contributing to an alignment is removed from the alignment score before further processing.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2322,-1778.2909 2322,-1815.2909 2454,-1815.2909 2454,-1778.2909 2322,-1778.2909"/>
-<text text-anchor="middle" x="2388" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">no_unclip_score</text>
+<title>file:///tmp/tmp7ulsj0ux#match_n_score</title>
+<g id="a_node35"><a xlink:title="(signed) Score increment for matching a reference &#39;N&#39; nucleotide IUB code.&#10;Range: &#45;16 to 15&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2718.5,-1778.2909 2718.5,-1815.2909 2843.5,-1815.2909 2843.5,-1778.2909 2718.5,-1778.2909"/>
+<text text-anchor="middle" x="2781" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">match_n_score</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#no_unclip_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#match_n_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge45" class="edge">
-<title>file:///tmp/tmp9bur_v82#no_unclip_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2411.8597,-1778.0867C2426.0629,-1767.6853 2444.8129,-1755.1853 2463,-1746.7909 2972.6175,-1511.5727 3636.0007,-1374.8444 3896.2839,-1327.1444"/>
-<polygon fill="#000000" stroke="#000000" points="3896.9144,-1330.5873 3906.1234,-1325.3485 3895.6574,-1323.701 3896.9144,-1330.5873"/>
+<title>file:///tmp/tmp7ulsj0ux#match_n_score&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M2804.3061,-1778.1871C2817.9281,-1767.946 2835.7824,-1755.572 2853,-1746.7909 3271.0784,-1533.5695 3816.6625,-1382.2789 4024.0296,-1328.9188"/>
+<polygon fill="#000000" stroke="#000000" points="4025.1267,-1332.2508 4033.9437,-1326.3761 4023.3877,-1325.4702 4025.1267,-1332.2508"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#verbose -->
+<!-- file:///tmp/tmp7ulsj0ux#supp_min_score_adj -->
 <g id="node36" class="node">
-<title>file:///tmp/tmp9bur_v82#verbose</title>
-<g id="a_node36"><a xlink:title="Enable verbose output from DRAGEN.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2230.5,-1778.2909 2230.5,-1815.2909 2303.5,-1815.2909 2303.5,-1778.2909 2230.5,-1778.2909"/>
-<text text-anchor="middle" x="2267" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">verbose</text>
+<title>file:///tmp/tmp7ulsj0ux#supp_min_score_adj</title>
+<g id="a_node36"><a xlink:title="Amount to increase minimum alignment score for supplementary alignments.&#10;This score is computed by host software as &quot;8 * match&#45;score&quot; for DNA, and is default 0 for RNA.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2539.5,-1778.2909 2539.5,-1815.2909 2700.5,-1815.2909 2700.5,-1778.2909 2539.5,-1778.2909"/>
+<text text-anchor="middle" x="2620" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">supp_min_score_adj</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#verbose&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#supp_min_score_adj&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge46" class="edge">
-<title>file:///tmp/tmp9bur_v82#verbose&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2279.9041,-1778.1085C2288.1931,-1767.4482 2299.8498,-1754.6778 2313,-1746.7909 2847.0066,-1426.5213 3611.6825,-1337.7125 3895.9686,-1315.0083"/>
-<polygon fill="#000000" stroke="#000000" points="3896.5921,-1318.4701 3906.2867,-1314.1965 3896.043,-1311.4917 3896.5921,-1318.4701"/>
+<title>file:///tmp/tmp7ulsj0ux#supp_min_score_adj&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M2650.0449,-1778.0795C2667.1797,-1767.9282 2689.3054,-1755.677 2710,-1746.7909 3189.1129,-1541.0655 3797.155,-1383.5067 4021.0874,-1328.7395"/>
+<polygon fill="#000000" stroke="#000000" points="4021.9328,-1332.136 4030.8181,-1326.3653 4020.2735,-1325.3355 4021.9328,-1332.136"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#aln_min_score -->
+<!-- file:///tmp/tmp7ulsj0ux#generate_sa_tags -->
 <g id="node37" class="node">
-<title>file:///tmp/tmp9bur_v82#aln_min_score</title>
-<g id="a_node37"><a xlink:title="(signed) Minimum alignment score to report; baseline for MAPQ.&#10;&#10;When using local alignments (global = 0), aln&#45;min&#45;score is computed by the host software as &quot;22 * match&#45;score&quot;.&#10;&#10;When using global alignments (global = 1), aln&#45;min&#45;score is set to &#45;1000000.&#10;&#10;Host software computation may be overridden by setting aln&#45;min&#45;score in configuration file.&#10;&#10;Range: −2,147,483,648 to 2,147,483,647&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2093.5,-1778.2909 2093.5,-1815.2909 2212.5,-1815.2909 2212.5,-1778.2909 2093.5,-1778.2909"/>
-<text text-anchor="middle" x="2153" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">aln_min_score</text>
+<title>file:///tmp/tmp7ulsj0ux#generate_sa_tags</title>
+<g id="a_node37"><a xlink:title="Whether to generate SA:Z tags for records that have chimeric/supplemental alignments.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2379,-1778.2909 2379,-1815.2909 2521,-1815.2909 2521,-1778.2909 2379,-1778.2909"/>
+<text text-anchor="middle" x="2450" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">generate_sa_tags</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#aln_min_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#generate_sa_tags&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge47" class="edge">
-<title>file:///tmp/tmp9bur_v82#aln_min_score&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2174.0109,-1778.2546C2187.0309,-1767.6461 2204.5516,-1754.8788 2222,-1746.7909 2817.3168,-1470.845 3607.743,-1355.0373 3896.421,-1320.086"/>
-<polygon fill="#000000" stroke="#000000" points="3896.9668,-1323.5457 3906.4773,-1318.8766 3896.1309,-1316.5957 3896.9668,-1323.5457"/>
+<title>file:///tmp/tmp7ulsj0ux#generate_sa_tags&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M2475.9638,-1778.1466C2491.3685,-1767.7652 2511.6185,-1755.2652 2531,-1746.7909 3056.7314,-1516.9245 3734.0536,-1376.6856 3997.3781,-1327.5929"/>
+<polygon fill="#000000" stroke="#000000" points="3998.1369,-1331.0119 4007.3295,-1325.7444 3996.8584,-1324.1297 3998.1369,-1331.0119"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#seed_density -->
+<!-- file:///tmp/tmp7ulsj0ux#max_intron_bases -->
 <g id="node38" class="node">
-<title>file:///tmp/tmp9bur_v82#seed_density</title>
-<g id="a_node38"><a xlink:title="Requested density of seeds from reads queried in the hash table&#10;Range: 0 &#45; 1&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1965,-1778.2909 1965,-1815.2909 2075,-1815.2909 2075,-1778.2909 1965,-1778.2909"/>
-<text text-anchor="middle" x="2020" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">seed_density</text>
+<title>file:///tmp/tmp7ulsj0ux#max_intron_bases</title>
+<g id="a_node38"><a xlink:title="Maximum intron length reported.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2215,-1778.2909 2215,-1815.2909 2361,-1815.2909 2361,-1778.2909 2215,-1778.2909"/>
+<text text-anchor="middle" x="2288" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">max_intron_bases</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#seed_density&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#max_intron_bases&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge48" class="edge">
-<title>file:///tmp/tmp9bur_v82#seed_density&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M2039.5691,-1778.1069C2051.755,-1767.446 2068.2551,-1754.6755 2085,-1746.7909 2727.7325,-1444.1506 3591.6066,-1343.7199 3896.1185,-1316.5138"/>
-<polygon fill="#000000" stroke="#000000" points="3896.6243,-1319.9828 3906.2768,-1315.6149 3896.0072,-1313.0101 3896.6243,-1319.9828"/>
+<title>file:///tmp/tmp7ulsj0ux#max_intron_bases&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M2313.8763,-1778.2305C2329.5004,-1767.747 2350.1671,-1755.1159 2370,-1746.7909 2956.7144,-1500.5145 3714.8208,-1367.6882 3996.8473,-1324.1154"/>
+<polygon fill="#000000" stroke="#000000" points="3997.7321,-1327.5206 4007.0837,-1322.5409 3996.6678,-1320.6019 3997.7321,-1327.5206"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#mismatch_pen -->
+<!-- file:///tmp/tmp7ulsj0ux#sec_score_delta -->
 <g id="node39" class="node">
-<title>file:///tmp/tmp9bur_v82#mismatch_pen</title>
-<g id="a_node39"><a xlink:title="Score penalty for a mismatch.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1825.5,-1778.2909 1825.5,-1815.2909 1946.5,-1815.2909 1946.5,-1778.2909 1825.5,-1778.2909"/>
-<text text-anchor="middle" x="1886" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">mismatch_pen</text>
+<title>file:///tmp/tmp7ulsj0ux#sec_score_delta</title>
+<g id="a_node39"><a xlink:title="Secondary aligns allowed with pair score no more than this far below primary.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2065.5,-1778.2909 2065.5,-1815.2909 2196.5,-1815.2909 2196.5,-1778.2909 2065.5,-1778.2909"/>
+<text text-anchor="middle" x="2131" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_score_delta</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#mismatch_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#sec_score_delta&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge49" class="edge">
-<title>file:///tmp/tmp9bur_v82#mismatch_pen&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M1907.2706,-1778.0723C1920.4634,-1767.3991 1938.237,-1754.6278 1956,-1746.7909 2652.5602,-1439.4743 3579.3181,-1341.3539 3896.2536,-1315.6776"/>
-<polygon fill="#000000" stroke="#000000" points="3896.6735,-1319.1553 3906.3615,-1314.8667 3896.1136,-1312.1777 3896.6735,-1319.1553"/>
+<title>file:///tmp/tmp7ulsj0ux#sec_score_delta&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M2154.0462,-1778.2344C2168.2723,-1767.6187 2187.3209,-1754.8509 2206,-1746.7909 2850.4924,-1468.6932 3697.1116,-1353.2888 3997.4627,-1319.3105"/>
+<polygon fill="#000000" stroke="#000000" points="3997.9379,-1322.7792 4007.4843,-1318.1841 3997.156,-1315.823 3997.9379,-1322.7792"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#sec_score_delta -->
+<!-- file:///tmp/tmp7ulsj0ux#mapq_strict_js -->
 <g id="node40" class="node">
-<title>file:///tmp/tmp9bur_v82#sec_score_delta</title>
-<g id="a_node40"><a xlink:title="Secondary aligns allowed with pair score no more than this far below primary.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1676.5,-1778.2909 1676.5,-1815.2909 1807.5,-1815.2909 1807.5,-1778.2909 1676.5,-1778.2909"/>
-<text text-anchor="middle" x="1742" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_score_delta</text>
+<title>file:///tmp/tmp7ulsj0ux#mapq_strict_js</title>
+<g id="a_node40"><a xlink:title="Specific to RNA. When set to 0, a higher MAPQ value is returned, expressing confidence that the alignment is at least partially correct. When set to 1, a lower MAPQ value is returned, expressing the splice junction ambiguity.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1925,-1778.2909 1925,-1815.2909 2047,-1815.2909 2047,-1778.2909 1925,-1778.2909"/>
+<text text-anchor="middle" x="1986" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">mapq_strict_js</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#sec_score_delta&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#mapq_strict_js&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge50" class="edge">
-<title>file:///tmp/tmp9bur_v82#sec_score_delta&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M1764.6361,-1778.2833C1778.8662,-1767.5483 1798.0616,-1754.6394 1817,-1746.7909 2571.2042,-1434.2342 3566.0247,-1338.8907 3896.1988,-1314.8554"/>
-<polygon fill="#000000" stroke="#000000" points="3896.5233,-1318.3411 3906.2457,-1314.1311 3896.0199,-1311.3593 3896.5233,-1318.3411"/>
+<title>file:///tmp/tmp7ulsj0ux#mapq_strict_js&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M2007.6173,-1778.0826C2021.0138,-1767.4131 2039.0422,-1754.6421 2057,-1746.7909 2754.5847,-1441.8071 3680.6944,-1342.2108 3997.3573,-1315.9137"/>
+<polygon fill="#000000" stroke="#000000" points="3997.7771,-1319.3911 4007.4564,-1315.0828 3997.2031,-1312.4147 3997.7771,-1319.3911"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#remove_duplicates -->
+<!-- file:///tmp/tmp7ulsj0ux#preserve_map_align_order -->
 <g id="node41" class="node">
-<title>file:///tmp/tmp9bur_v82#remove_duplicates</title>
-<g id="a_node41"><a xlink:title="If true, remove duplicate alignment records instead of just flagging them.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1506,-1778.2909 1506,-1815.2909 1658,-1815.2909 1658,-1778.2909 1506,-1778.2909"/>
-<text text-anchor="middle" x="1582" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">remove_duplicates</text>
+<title>file:///tmp/tmp7ulsj0ux#preserve_map_align_order</title>
+<g id="a_node41"><a xlink:title="Produce output file that preserves original order of reads in the input file.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1699.5,-1778.2909 1699.5,-1815.2909 1906.5,-1815.2909 1906.5,-1778.2909 1699.5,-1778.2909"/>
+<text text-anchor="middle" x="1803" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">preserve_map_align_order</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#remove_duplicates&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#preserve_map_align_order&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge51" class="edge">
-<title>file:///tmp/tmp9bur_v82#remove_duplicates&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M1608.6988,-1778.0643C1625.108,-1767.3882 1646.9563,-1754.6168 1668,-1746.7909 2488.5293,-1441.6462 3553.0291,-1340.928 3896.1826,-1315.2436"/>
-<polygon fill="#000000" stroke="#000000" points="3896.6558,-1318.7182 3906.3692,-1314.4874 3896.1375,-1311.7374 3896.6558,-1318.7182"/>
+<title>file:///tmp/tmp7ulsj0ux#preserve_map_align_order&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M1839.3612,-1778.2601C1861.1335,-1767.7868 1889.6205,-1755.156 1916,-1746.7909 2693.2943,-1500.3059 3671.1312,-1362.7913 3997.3675,-1321.339"/>
+<polygon fill="#000000" stroke="#000000" points="3997.8153,-1324.8103 4007.2963,-1320.0815 3996.9358,-1317.8658 3997.8153,-1324.8103"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#edit_read_len -->
+<!-- file:///tmp/tmp7ulsj0ux#enable_duplicate_marking -->
 <g id="node42" class="node">
-<title>file:///tmp/tmp9bur_v82#edit_read_len</title>
-<g id="a_node42"><a xlink:title="For edit&#45;mode 1 or 2: Read length in which to try edit&#45;seed&#45;num edited seeds.&#10;Range: &gt; 0&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1374.5,-1778.2909 1374.5,-1815.2909 1487.5,-1815.2909 1487.5,-1778.2909 1374.5,-1778.2909"/>
-<text text-anchor="middle" x="1431" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_read_len</text>
+<title>file:///tmp/tmp7ulsj0ux#enable_duplicate_marking</title>
+<g id="a_node42"><a xlink:title="Enable the flagging of duplicate output alignment records.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1475,-1778.2909 1475,-1815.2909 1681,-1815.2909 1681,-1778.2909 1475,-1778.2909"/>
+<text text-anchor="middle" x="1578" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">enable_duplicate_marking</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#edit_read_len&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#enable_duplicate_marking&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge52" class="edge">
-<title>file:///tmp/tmp9bur_v82#edit_read_len&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M1450.4909,-1778.0474C1462.8567,-1767.2261 1479.7346,-1754.3095 1497,-1746.7909 1942.1154,-1552.9558 3468.6841,-1368.9118 3896.0266,-1320.2554"/>
-<polygon fill="#000000" stroke="#000000" points="3896.6799,-1323.7038 3906.2206,-1319.0967 3895.8893,-1316.7485 3896.6799,-1323.7038"/>
+<title>file:///tmp/tmp7ulsj0ux#enable_duplicate_marking&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M1614.0539,-1778.2072C1635.8391,-1767.6492 1664.4439,-1754.9502 1691,-1746.7909 2556.7655,-1480.7892 3649.3522,-1354.0755 3997.2766,-1318.5541"/>
+<polygon fill="#000000" stroke="#000000" points="3997.7574,-1322.0234 4007.3521,-1317.5298 3997.0493,-1315.0593 3997.7574,-1322.0234"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#dedup_min_qual -->
+<!-- file:///tmp/tmp7ulsj0ux#rescue_sigmas -->
 <g id="node43" class="node">
-<title>file:///tmp/tmp9bur_v82#dedup_min_qual</title>
-<g id="a_node43"><a xlink:title="Minimum base quality for calculating read quality metric for deduplication.&#10;Range: 0&#45;63&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1222,-1778.2909 1222,-1815.2909 1356,-1815.2909 1356,-1778.2909 1222,-1778.2909"/>
-<text text-anchor="middle" x="1289" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dedup_min_qual</text>
+<title>file:///tmp/tmp7ulsj0ux#rescue_sigmas</title>
+<g id="a_node43"><a xlink:title="Deviations from the mean read length used for rescue scan radius. Default is 2.5.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1335,-1778.2909 1335,-1815.2909 1457,-1815.2909 1457,-1778.2909 1335,-1778.2909"/>
+<text text-anchor="middle" x="1396" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">rescue_sigmas</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#dedup_min_qual&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#rescue_sigmas&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge53" class="edge">
-<title>file:///tmp/tmp9bur_v82#dedup_min_qual&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M1312.2242,-1778.0743C1326.8282,-1767.2629 1346.5349,-1754.3472 1366,-1746.7909 2296.2614,-1385.6685 3523.6091,-1321.4975 3896.1217,-1310.1873"/>
-<polygon fill="#000000" stroke="#000000" points="3896.469,-1313.6786 3906.3607,-1309.8833 3896.2612,-1306.6817 3896.469,-1313.6786"/>
+<title>file:///tmp/tmp7ulsj0ux#rescue_sigmas&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M1416.5391,-1778.2689C1429.7433,-1767.3879 1447.7849,-1754.33 1466,-1746.7909 1939.5988,-1550.7731 3556.6009,-1366.8955 3997.2964,-1319.5326"/>
+<polygon fill="#000000" stroke="#000000" points="3997.9171,-1322.9862 4007.4866,-1318.4392 3997.1703,-1316.0261 3997.9171,-1322.9862"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#supp_as_sec -->
+<!-- file:///tmp/tmp7ulsj0ux#map_orientations -->
 <g id="node44" class="node">
-<title>file:///tmp/tmp9bur_v82#supp_as_sec</title>
-<g id="a_node44"><a xlink:title="If supplementary alignments should be reported with secondary flag.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1098,-1778.2909 1098,-1815.2909 1204,-1815.2909 1204,-1778.2909 1098,-1778.2909"/>
-<text text-anchor="middle" x="1151" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">supp_as_sec</text>
+<title>file:///tmp/tmp7ulsj0ux#map_orientations</title>
+<g id="a_node44"><a xlink:title="Constrain orientations to accept forward&#45;only, reverse&#45;complement only, or any alignments.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1175.5,-1778.2909 1175.5,-1815.2909 1316.5,-1815.2909 1316.5,-1778.2909 1175.5,-1778.2909"/>
+<text text-anchor="middle" x="1246" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">map_orientations</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#supp_as_sec&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#map_orientations&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge54" class="edge">
-<title>file:///tmp/tmp9bur_v82#supp_as_sec&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M1168.802,-1778.1686C1180.3505,-1767.2499 1196.3129,-1754.1875 1213,-1746.7909 1710.1859,-1526.4124 3438.4737,-1358.8226 3896.0981,-1317.5857"/>
-<polygon fill="#000000" stroke="#000000" points="3896.6986,-1321.0459 3906.3449,-1316.6644 3896.0716,-1314.0741 3896.6986,-1321.0459"/>
+<title>file:///tmp/tmp7ulsj0ux#map_orientations&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M1269.8708,-1778.2878C1285.1109,-1767.4139 1305.7476,-1754.3569 1326,-1746.7909 2314.4017,-1377.542 3613.0794,-1318.8724 3997.3561,-1309.5513"/>
+<polygon fill="#000000" stroke="#000000" points="3997.4472,-1313.0502 4007.3617,-1309.3148 3997.2817,-1306.0522 3997.4472,-1313.0502"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#en_alt_hap_aln -->
+<!-- file:///tmp/tmp7ulsj0ux#enable_sort -->
 <g id="node45" class="node">
-<title>file:///tmp/tmp9bur_v82#en_alt_hap_aln</title>
-<g id="a_node45"><a xlink:title="Allows chimeric alignments to be output, as supplementary.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="956.5,-1778.2909 956.5,-1815.2909 1079.5,-1815.2909 1079.5,-1778.2909 956.5,-1778.2909"/>
-<text text-anchor="middle" x="1018" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">en_alt_hap_aln</text>
+<title>file:///tmp/tmp7ulsj0ux#enable_sort</title>
+<g id="a_node45"><a xlink:title="Enable sorting after mapping/alignment.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1057,-1778.2909 1057,-1815.2909 1157,-1815.2909 1157,-1778.2909 1057,-1778.2909"/>
+<text text-anchor="middle" x="1107" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">enable_sort</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#en_alt_hap_aln&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#enable_sort&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge55" class="edge">
-<title>file:///tmp/tmp9bur_v82#en_alt_hap_aln&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M1038.8359,-1778.1764C1052.23,-1767.2606 1070.5295,-1754.1986 1089,-1746.7909 1617.3759,-1534.883 3427.1915,-1360.14 3896.2488,-1317.6603"/>
-<polygon fill="#000000" stroke="#000000" points="3896.767,-1321.1278 3906.4113,-1316.7417 3896.1368,-1314.1563 3896.767,-1321.1278"/>
+<title>file:///tmp/tmp7ulsj0ux#enable_sort&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M1124.0985,-1778.1159C1135.2258,-1767.1773 1150.6676,-1754.1126 1167,-1746.7909 1690.917,-1511.9237 3524.2889,-1353.8598 3997.0838,-1316.3736"/>
+<polygon fill="#000000" stroke="#000000" points="3997.6329,-1319.8412 4007.3257,-1315.5636 3997.0809,-1312.863 3997.6329,-1319.8412"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#hard_clips -->
+<!-- file:///tmp/tmp7ulsj0ux#min_intron_bases -->
 <g id="node46" class="node">
-<title>file:///tmp/tmp9bur_v82#hard_clips</title>
-<g id="a_node46"><a xlink:title="Flags for hard clipping: [0] primary, [1] supplementary, [2] secondary.&#10;The hard&#45;clips option is used as a field of 3 bits, with values ranging from 0 to 7.&#10;The bits specify alignments, as follows:&#10; &#160;* Bit 0—primary alignments&#10; &#160;* Bit 1—supplementary alignments&#10; &#160;* Bit 2—secondary alignments&#10;Each bit determines whether local alignments of that type are reported with hard clipping (1)&#10;or soft clipping (0).&#10;The default is 6, meaning primary alignments use soft clipping and supplementary and&#10;secondary alignments use hard clipping.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="847.5,-1778.2909 847.5,-1815.2909 938.5,-1815.2909 938.5,-1778.2909 847.5,-1778.2909"/>
-<text text-anchor="middle" x="893" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">hard_clips</text>
+<title>file:///tmp/tmp7ulsj0ux#min_intron_bases</title>
+<g id="a_node46"><a xlink:title="Minimum reference deletion length reported as an intron.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="895.5,-1778.2909 895.5,-1815.2909 1038.5,-1815.2909 1038.5,-1778.2909 895.5,-1778.2909"/>
+<text text-anchor="middle" x="967" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">min_intron_bases</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#hard_clips&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#min_intron_bases&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge56" class="edge">
-<title>file:///tmp/tmp9bur_v82#hard_clips&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M908.3646,-1778.0709C918.4483,-1767.1154 932.5895,-1754.0488 948,-1746.7909 1221.1221,-1618.1592 3378.0553,-1376.5069 3896.3171,-1319.8803"/>
-<polygon fill="#000000" stroke="#000000" points="3896.8555,-1323.3424 3906.4164,-1318.7775 3896.0956,-1316.3837 3896.8555,-1323.3424"/>
+<title>file:///tmp/tmp7ulsj0ux#min_intron_bases&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M991.1671,-1778.1947C1006.597,-1767.2858 1027.4915,-1754.2246 1048,-1746.7909 1610.7021,-1542.8295 3515.3211,-1361.1302 3997.3978,-1317.6418"/>
+<polygon fill="#000000" stroke="#000000" points="3997.8465,-1321.1157 4007.4922,-1316.7327 3997.2185,-1314.1439 3997.8465,-1321.1157"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#sec_aligns_hard -->
+<!-- file:///tmp/tmp7ulsj0ux#mismatch_pen -->
 <g id="node47" class="node">
-<title>file:///tmp/tmp9bur_v82#sec_aligns_hard</title>
-<g id="a_node47"><a xlink:title="Set to force unmapped when not all secondary alignments can be output.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="698.5,-1778.2909 698.5,-1815.2909 829.5,-1815.2909 829.5,-1778.2909 698.5,-1778.2909"/>
-<text text-anchor="middle" x="764" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">sec_aligns_hard</text>
+<title>file:///tmp/tmp7ulsj0ux#mismatch_pen</title>
+<g id="a_node47"><a xlink:title="Score penalty for a mismatch.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="756.5,-1778.2909 756.5,-1815.2909 877.5,-1815.2909 877.5,-1778.2909 756.5,-1778.2909"/>
+<text text-anchor="middle" x="817" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">mismatch_pen</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#sec_aligns_hard&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#mismatch_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge57" class="edge">
-<title>file:///tmp/tmp9bur_v82#sec_aligns_hard&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M786.1499,-1778.1228C800.3513,-1767.1868 819.688,-1754.1224 839,-1746.7909 1419.5048,-1526.411 3403.3102,-1356.115 3896.3704,-1316.5233"/>
-<polygon fill="#000000" stroke="#000000" points="3896.6504,-1320.0122 3906.3388,-1315.7244 3896.0911,-1313.0346 3896.6504,-1320.0122"/>
+<title>file:///tmp/tmp7ulsj0ux#mismatch_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M837.463,-1778.0813C850.6386,-1767.1296 868.6768,-1754.0635 887,-1746.7909 1474.419,-1513.6429 3498.8931,-1352.5167 3997.4118,-1315.7713"/>
+<polygon fill="#000000" stroke="#000000" points="3997.7716,-1319.2544 4007.4879,-1315.0302 3997.2581,-1312.2732 3997.7716,-1319.2544"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#edit_mode -->
+<!-- file:///tmp/tmp7ulsj0ux#alt_aware -->
 <g id="node48" class="node">
-<title>file:///tmp/tmp9bur_v82#edit_mode</title>
-<g id="a_node48"><a xlink:title="0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="589.5,-1778.2909 589.5,-1815.2909 680.5,-1815.2909 680.5,-1778.2909 589.5,-1778.2909"/>
-<text text-anchor="middle" x="635" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_mode</text>
+<title>file:///tmp/tmp7ulsj0ux#alt_aware</title>
+<g id="a_node48"><a xlink:title="Enables special processing for alt contigs, if alt liftover was used in hash table.&#10;Enabled by default if reference was built with liftover.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="652,-1778.2909 652,-1815.2909 738,-1815.2909 738,-1778.2909 652,-1778.2909"/>
+<text text-anchor="middle" x="695" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">alt_aware</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#edit_mode&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#alt_aware&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge58" class="edge">
-<title>file:///tmp/tmp9bur_v82#edit_mode&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M650.3368,-1778.0115C660.4101,-1767.0336 674.55,-1753.9643 690,-1746.7909 1281.3046,-1472.2498 3385.2762,-1341.7088 3895.7956,-1313.6593"/>
-<polygon fill="#000000" stroke="#000000" points="3896.3161,-1317.1362 3906.1098,-1313.0947 3895.9334,-1310.1466 3896.3161,-1317.1362"/>
+<title>file:///tmp/tmp7ulsj0ux#alt_aware&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M709.6403,-1778.0012C719.295,-1767.0194 732.9147,-1753.9497 748,-1746.7909 1345.2867,-1463.3491 3483.3649,-1339.27 3997.3193,-1313.1635"/>
+<polygon fill="#000000" stroke="#000000" points="3997.5246,-1316.6577 4007.3349,-1312.6567 3997.1708,-1309.6666 3997.5246,-1316.6577"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#edit_chain_limit -->
+<!-- file:///tmp/tmp7ulsj0ux#en_chimeric_aln -->
 <g id="node49" class="node">
-<title>file:///tmp/tmp9bur_v82#edit_chain_limit</title>
-<g id="a_node49"><a xlink:title="For edit&#45;mode 1 or 2: Maximum seed chain length in a read to qualify for seed editing.&#10;Range: &gt; 0&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="440.5,-1778.2909 440.5,-1815.2909 571.5,-1815.2909 571.5,-1778.2909 440.5,-1778.2909"/>
-<text text-anchor="middle" x="506" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">edit_chain_limit</text>
+<title>file:///tmp/tmp7ulsj0ux#en_chimeric_aln</title>
+<g id="a_node49"><a xlink:title="Allows chimeric alignments to be output, as supplementary.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="500,-1778.2909 500,-1815.2909 634,-1815.2909 634,-1778.2909 500,-1778.2909"/>
+<text text-anchor="middle" x="567" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">en_chimeric_aln</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#edit_chain_limit&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#en_chimeric_aln&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge59" class="edge">
-<title>file:///tmp/tmp9bur_v82#edit_chain_limit&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M528.1236,-1778.0531C542.3152,-1767.0908 561.6507,-1754.0234 581,-1746.7909 1212.7629,-1510.6478 3379.102,-1350.62 3896.4119,-1315.2056"/>
-<polygon fill="#000000" stroke="#000000" points="3896.7528,-1318.6906 3906.491,-1314.5171 3896.2757,-1311.7069 3896.7528,-1318.6906"/>
+<title>file:///tmp/tmp7ulsj0ux#en_chimeric_aln&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M589.455,-1778.0485C603.8495,-1767.0845 623.4444,-1754.0169 643,-1746.7909 1283.0832,-1510.2754 3475.5534,-1350.3847 3997.0414,-1315.1365"/>
+<polygon fill="#000000" stroke="#000000" points="3997.459,-1318.6163 4007.2008,-1314.4513 3996.9879,-1311.6322 3997.459,-1318.6163"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#global -->
+<!-- file:///tmp/tmp7ulsj0ux#gap_open_pen -->
 <g id="node50" class="node">
-<title>file:///tmp/tmp9bur_v82#global</title>
-<g id="a_node50"><a xlink:title="If alignment is global (Needleman&#45;Wunsch) rather than local (Smith&#45;Waterman).&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="362,-1778.2909 362,-1815.2909 422,-1815.2909 422,-1778.2909 362,-1778.2909"/>
-<text text-anchor="middle" x="392" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">global</text>
+<title>file:///tmp/tmp7ulsj0ux#gap_open_pen</title>
+<g id="a_node50"><a xlink:title="Score penalty for opening a gap (insertion or deletion).&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="362.5,-1778.2909 362.5,-1815.2909 481.5,-1815.2909 481.5,-1778.2909 362.5,-1778.2909"/>
+<text text-anchor="middle" x="422" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">gap_open_pen</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#global&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#gap_open_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge60" class="edge">
-<title>file:///tmp/tmp9bur_v82#global&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M402.0443,-1777.9964C408.9527,-1767.0128 419.1871,-1753.9429 432,-1746.7909 1048.6464,-1402.5898 3359.692,-1324.0456 3896.2416,-1310.3065"/>
-<polygon fill="#000000" stroke="#000000" points="3896.3982,-1313.8037 3906.3062,-1310.051 3896.2206,-1306.806 3896.3982,-1313.8037"/>
+<title>file:///tmp/tmp7ulsj0ux#gap_open_pen&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M441.7947,-1778.2322C454.7754,-1767.1925 472.6839,-1753.9776 491,-1746.7909 1155.8365,-1485.931 3461.5107,-1343.7653 3997.2036,-1313.8059"/>
+<polygon fill="#000000" stroke="#000000" points="3997.4628,-1317.297 4007.2524,-1313.2455 3997.0729,-1310.3079 3997.4628,-1317.297"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#min_intron_bases -->
+<!-- file:///tmp/tmp7ulsj0ux#supp_aligns -->
 <g id="node51" class="node">
-<title>file:///tmp/tmp9bur_v82#min_intron_bases</title>
-<g id="a_node51"><a xlink:title="Minimum reference deletion length reported as an intron.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="7438.5,-1778.2909 7438.5,-1815.2909 7581.5,-1815.2909 7581.5,-1778.2909 7438.5,-1778.2909"/>
-<text text-anchor="middle" x="7510" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">min_intron_bases</text>
+<title>file:///tmp/tmp7ulsj0ux#supp_aligns</title>
+<g id="a_node51"><a xlink:title="Maximum supplementary (chimeric) alignments to report per read.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="7480.5,-1778.2909 7480.5,-1815.2909 7581.5,-1815.2909 7581.5,-1778.2909 7480.5,-1778.2909"/>
+<text text-anchor="middle" x="7531" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">supp_aligns</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#min_intron_bases&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#supp_aligns&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge61" class="edge">
-<title>file:///tmp/tmp9bur_v82#min_intron_bases&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M7485.8713,-1778.0876C7470.4559,-1767.1384 7449.5631,-1754.0725 7429,-1746.7909 6794.5,-1522.1096 4636.0124,-1353.4844 4119.6421,-1315.7422"/>
-<polygon fill="#000000" stroke="#000000" points="4119.8089,-1312.2451 4109.5807,-1315.0082 4119.2995,-1319.2266 4119.8089,-1312.2451"/>
+<title>file:///tmp/tmp7ulsj0ux#supp_aligns&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M7514.2909,-1778.0081C7503.3883,-1767.029 7488.2086,-1753.9596 7472,-1746.7909 6867.1806,-1479.2952 4734.3903,-1343.2269 4220.8432,-1313.8997"/>
+<polygon fill="#000000" stroke="#000000" points="4221.0178,-1310.4041 4210.835,-1313.33 4220.6199,-1317.3928 4221.0178,-1310.4041"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#output_directory -->
+<!-- file:///tmp/tmp7ulsj0ux#en_alt_hap_aln -->
 <g id="node52" class="node">
-<title>file:///tmp/tmp9bur_v82#output_directory</title>
-<g id="a_node52"><a xlink:title="The directory where all output files are placed&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="7164.5,-1778.2909 7164.5,-1815.2909 7301.5,-1815.2909 7301.5,-1778.2909 7164.5,-1778.2909"/>
-<text text-anchor="middle" x="7233" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">output_directory</text>
+<title>file:///tmp/tmp7ulsj0ux#en_alt_hap_aln</title>
+<g id="a_node52"><a xlink:title="Allows chimeric alignments to be output, as supplementary.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4047.5,-1778.2909 4047.5,-1815.2909 4170.5,-1815.2909 4170.5,-1778.2909 4047.5,-1778.2909"/>
+<text text-anchor="middle" x="4109" y="-1793.0909" font-family="Times,serif" font-size="14.00" fill="#000000">en_alt_hap_aln</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#output_directory&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
+<!-- file:///tmp/tmp7ulsj0ux#en_alt_hap_aln&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
 <g id="edge62" class="edge">
-<title>file:///tmp/tmp9bur_v82#output_directory&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M7209.8437,-1778.1475C7195.0289,-1767.2208 7174.9134,-1754.1576 7155,-1746.7909 6577.0714,-1532.9954 4611.159,-1358.0195 4119.9408,-1316.9303"/>
-<polygon fill="#000000" stroke="#000000" points="4119.9154,-1313.4161 4109.6588,-1316.0718 4119.3329,-1320.3918 4119.9154,-1313.4161"/>
+<title>file:///tmp/tmp7ulsj0ux#en_alt_hap_aln&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M4109,-1778.2187C4109,-1703.7857 4109,-1426.7347 4109,-1336.4412"/>
+<polygon fill="#000000" stroke="#000000" points="4112.5001,-1336.3817 4109,-1326.3817 4105.5001,-1336.3818 4112.5001,-1336.3817"/>
 </g>
-<!-- file:///tmp/tmp9bur_v82#dragen_alignment_output_directory -->
+<!-- file:///tmp/tmp7ulsj0ux#multiqc_output_directory -->
 <g id="node53" class="node">
-<title>file:///tmp/tmp9bur_v82#dragen_alignment_output_directory</title>
-<g id="a_node53"><a xlink:title="The output directory containing all alignment output files and qc metrics&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="3870.5,-349.2909 3870.5,-386.2909 4145.5,-386.2909 4145.5,-349.2909 3870.5,-349.2909"/>
-<text text-anchor="middle" x="4008" y="-364.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_alignment_output_directory</text>
+<title>file:///tmp/tmp7ulsj0ux#multiqc_output_directory</title>
+<g id="a_node53"><a xlink:title="The dragen multiQC output&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4419,-349.2909 4419,-386.2909 4619,-386.2909 4619,-349.2909 4419,-349.2909"/>
+<text text-anchor="middle" x="4519" y="-364.0909" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc_output_directory</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#dragen_bam_out -->
+<!-- file:///tmp/tmp7ulsj0ux#dragen_alignment_output_directory -->
 <g id="node54" class="node">
-<title>file:///tmp/tmp9bur_v82#dragen_bam_out</title>
-<g id="a_node54"><a xlink:title="The output alignment file&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4164,-349.2909 4164,-386.2909 4300,-386.2909 4300,-349.2909 4164,-349.2909"/>
-<text text-anchor="middle" x="4232" y="-364.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_bam_out</text>
+<title>file:///tmp/tmp7ulsj0ux#dragen_alignment_output_directory</title>
+<g id="a_node54"><a xlink:title="The output directory containing all alignment output files and qc metrics&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="3971.5,-349.2909 3971.5,-386.2909 4246.5,-386.2909 4246.5,-349.2909 3971.5,-349.2909"/>
+<text text-anchor="middle" x="4109" y="-364.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_alignment_output_directory</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#multiqc_output_directory -->
+<!-- file:///tmp/tmp7ulsj0ux#dragen_bam_out -->
 <g id="node55" class="node">
-<title>file:///tmp/tmp9bur_v82#multiqc_output_directory</title>
-<g id="a_node55"><a xlink:title="The dragen multiQC output&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="4318,-349.2909 4318,-386.2909 4518,-386.2909 4518,-349.2909 4318,-349.2909"/>
-<text text-anchor="middle" x="4418" y="-364.0909" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc_output_directory</text>
+<title>file:///tmp/tmp7ulsj0ux#dragen_bam_out</title>
+<g id="a_node55"><a xlink:title="The output alignment file&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="4265,-349.2909 4265,-386.2909 4401,-386.2909 4401,-349.2909 4265,-349.2909"/>
+<text text-anchor="middle" x="4333" y="-364.0909" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_bam_out</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge1" class="edge">
-<title>file:///tmp/tmp9bur_v82#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M221.7379,-1778.1795C255.1618,-1767.6118 300.2331,-1754.9123 341,-1746.7909 1727.3459,-1470.6097 3446.2493,-1344.1042 3896.1135,-1314.6767"/>
-<polygon fill="#000000" stroke="#000000" points="3896.4323,-1318.1634 3906.1835,-1314.0204 3895.977,-1311.1783 3896.4323,-1318.1634"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step -->
-<g id="edge2" class="edge">
-<title>file:///tmp/tmp9bur_v82#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp9bur_v82#run_dragen_alignment_step</title>
-<path fill="none" stroke="#000000" d="M237.4078,-1778.1795C273.1618,-1767.6118 318.2331,-1754.9123 359,-1746.7909 1738.7313,-1471.9274 3447.8542,-1345.3148 3896.1718,-1315.1046"/>
-<polygon fill="#000000" stroke="#000000" points="3896.465,-1318.5928 3906.2079,-1314.4302 3895.9957,-1311.6086 3896.465,-1318.5928"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_alignment_output_directory -->
-<g id="edge4" class="edge">
-<title>file:///tmp/tmp9bur_v82#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_alignment_output_directory</title>
-<path fill="none" stroke="#000000" d="M4008,-1289.0141C4008,-1171.7471 4008,-540.3176 4008,-396.8168"/>
-<polygon fill="#000000" stroke="#000000" points="4011.5001,-396.6125 4008,-386.6125 4004.5001,-396.6125 4011.5001,-396.6125"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_bam_out -->
-<g id="edge5" class="edge">
-<title>file:///tmp/tmp9bur_v82#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_bam_out</title>
-<path fill="none" stroke="#000000" d="M4012.4745,-1289.0141C4040.447,-1171.6296 4191.1889,-539.0517 4225.1856,-396.3869"/>
-<polygon fill="#000000" stroke="#000000" points="4228.6014,-397.1515 4227.5149,-386.6125 4221.792,-395.5288 4228.6014,-397.1515"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step -->
-<g id="edge3" class="edge">
-<title>file:///tmp/tmp9bur_v82#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step</title>
-<path fill="none" stroke="#000000" d="M4109.7927,-1294.7299C4643.4382,-1226.2578 7111.9923,-909.5173 7590.5301,-848.1161"/>
-<polygon fill="#000000" stroke="#000000" points="7591.3226,-851.5431 7600.7958,-846.7989 7590.4317,-844.6001 7591.3226,-851.5431"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#dragen_qc_step&#45;&gt;file:///tmp/tmp9bur_v82#multiqc_output_directory -->
-<g id="edge7" class="edge">
-<title>file:///tmp/tmp9bur_v82#dragen_qc_step&#45;&gt;file:///tmp/tmp9bur_v82#multiqc_output_directory</title>
-<path fill="none" stroke="#000000" d="M7600.7933,-827.6473C7184.5456,-767.507 5041.2218,-457.8353 4528.3531,-383.735"/>
-<polygon fill="#000000" stroke="#000000" points="4528.7577,-380.2572 4518.3599,-382.2912 4527.7567,-387.1852 4528.7577,-380.2572"/>
-</g>
-<!-- file:///tmp/tmp9bur_v82#create_dummy_file_step -->
-<g id="node59" class="node">
-<title>file:///tmp/tmp9bur_v82#create_dummy_file_step</title>
-<g id="a_node59"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
+<!-- file:///tmp/tmp7ulsj0ux#create_dummy_file_step -->
+<g id="node56" class="node">
+<title>file:///tmp/tmp7ulsj0ux#create_dummy_file_step</title>
+<g id="a_node56"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
 <polygon fill="#fafad2" stroke="#000000" points="7717.5,-1289.2909 7717.5,-1326.2909 7980.5,-1326.2909 7980.5,-1289.2909 7717.5,-1289.2909"/>
 <text text-anchor="middle" x="7849" y="-1304.0909" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp9bur_v82#create_dummy_file_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step -->
-<g id="edge6" class="edge">
-<title>file:///tmp/tmp9bur_v82#create_dummy_file_step&#45;&gt;file:///tmp/tmp9bur_v82#dragen_qc_step</title>
+<!-- file:///tmp/tmp7ulsj0ux#create_dummy_file_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step -->
+<g id="edge1" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#create_dummy_file_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step</title>
 <path fill="none" stroke="#000000" d="M7841.9123,-1289.0764C7814.3901,-1216.4052 7714.5061,-952.6667 7681.5965,-865.7705"/>
 <polygon fill="#000000" stroke="#000000" points="7684.826,-864.4155 7678.0111,-856.3034 7678.2798,-866.8948 7684.826,-864.4155"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#dragen_qc_step&#45;&gt;file:///tmp/tmp7ulsj0ux#multiqc_output_directory -->
+<g id="edge2" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#dragen_qc_step&#45;&gt;file:///tmp/tmp7ulsj0ux#multiqc_output_directory</title>
+<path fill="none" stroke="#000000" d="M7600.7467,-827.3154C7192.9812,-766.5128 5131.196,-459.0765 4629.2714,-384.2337"/>
+<polygon fill="#000000" stroke="#000000" points="4629.5368,-380.7347 4619.1299,-382.7215 4628.5044,-387.6581 4629.5368,-380.7347"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_alignment_output_directory -->
+<g id="edge4" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_alignment_output_directory</title>
+<path fill="none" stroke="#000000" d="M4109,-1289.0141C4109,-1171.7471 4109,-540.3176 4109,-396.8168"/>
+<polygon fill="#000000" stroke="#000000" points="4112.5001,-396.6125 4109,-386.6125 4105.5001,-396.6125 4112.5001,-396.6125"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_bam_out -->
+<g id="edge5" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_bam_out</title>
+<path fill="none" stroke="#000000" d="M4113.4745,-1289.0141C4141.447,-1171.6296 4292.1889,-539.0517 4326.1856,-396.3869"/>
+<polygon fill="#000000" stroke="#000000" points="4329.6014,-397.1515 4328.5149,-386.6125 4322.792,-395.5288 4329.6014,-397.1515"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step -->
+<g id="edge3" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step&#45;&gt;file:///tmp/tmp7ulsj0ux#dragen_qc_step</title>
+<path fill="none" stroke="#000000" d="M4210.8121,-1294.357C4734.8168,-1225.2155 7121.3805,-910.3123 7590.7368,-848.3815"/>
+<polygon fill="#000000" stroke="#000000" points="7591.3551,-851.8304 7600.8113,-847.0522 7590.4393,-844.8905 7591.3551,-851.8304"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge6" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M221.3419,-1778.2545C254.801,-1767.6459 300.0628,-1754.8786 341,-1746.7909 1768.7354,-1464.7237 3539.8977,-1342.1175 3997.2012,-1314.193"/>
+<polygon fill="#000000" stroke="#000000" points="3997.6645,-1317.6714 4007.4335,-1313.5706 3997.2394,-1310.6843 3997.6645,-1317.6714"/>
+</g>
+<!-- file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step -->
+<g id="edge7" class="edge">
+<title>file:///tmp/tmp7ulsj0ux#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp7ulsj0ux#run_dragen_alignment_step</title>
+<path fill="none" stroke="#000000" d="M236.9847,-1778.2545C272.801,-1767.6459 318.0628,-1754.8786 359,-1746.7909 1779.9386,-1466.0665 3541.042,-1343.2884 3997.0876,-1314.5983"/>
+<polygon fill="#000000" stroke="#000000" points="3997.5314,-1318.0774 4007.2927,-1313.9583 3997.0932,-1311.0911 3997.5314,-1318.0774"/>
 </g>
 </g>
 </svg>

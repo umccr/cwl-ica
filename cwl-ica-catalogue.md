@@ -322,6 +322,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.7.5/dragen-build-reference-tarball__3.7.5.md)  
+- [3.8.4](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.8.4/dragen-build-reference-tarball__3.8.4.md)  
 
 
 ## Workflows

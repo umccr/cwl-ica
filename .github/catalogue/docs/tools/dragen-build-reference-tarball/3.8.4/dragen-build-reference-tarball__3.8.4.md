@@ -1,27 +1,27 @@
 
-dragen-build-reference-tarball 3.7.5 tool
+dragen-build-reference-tarball 3.8.4 tool
 =========================================
 
 ## Table of Contents
   
-- [Overview](#dragen-build-reference-tarball-v375-overview)  
+- [Overview](#dragen-build-reference-tarball-v384-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-build-reference-tarball-v375-inputs)  
-- [Outputs](#dragen-build-reference-tarball-v375-outputs)  
+- [Inputs](#dragen-build-reference-tarball-v384-inputs)  
+- [Outputs](#dragen-build-reference-tarball-v384-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-build-reference-tarball v(3.7.5) Overview
+## dragen-build-reference-tarball v(3.8.4) Overview
 
 
 
   
-> ID: dragen-build-reference-tarball--3.7.5  
-> md5sum: 6125bf3e82c9bc95b6cee76a7cb11b27
+> ID: dragen-build-reference-tarball--3.8.4  
+> md5sum: cb459c90320320dd71056700bf913a23
 
-### dragen-build-reference-tarball v(3.7.5) documentation
+### dragen-build-reference-tarball v(3.8.4) documentation
   
-Documentation for dragen-build-reference-tarball v3.7.5
+Documentation for dragen-build-reference-tarball v3.8.4
 
 ### Categories
   
@@ -29,12 +29,12 @@ Documentation for dragen-build-reference-tarball v3.7.5
 
 ## Related Links
   
-- [CWL File Path](../../../../../../tools/dragen-build-reference-tarball/3.7.5/dragen-build-reference-tarball__3.7.5.cwl)  
+- [CWL File Path](../../../../../../tools/dragen-build-reference-tarball/3.8.4/dragen-build-reference-tarball__3.8.4.cwl)  
 
   
 
 
-## dragen-build-reference-tarball v(3.7.5) Inputs
+## dragen-build-reference-tarball v(3.8.4) Inputs
 
 ### enable cnv
 
@@ -77,7 +77,7 @@ To disable this requirement, set the --ht-alt-aware-validate option to false.
 > ID: ht_alt_liftover
   
 **Optional:** `True`  
-**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f030dd0a130>]`  
+**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f9fb13e02b0>]`  
 **Docs:**  
 The --ht-alt-liftover option specifies the path to the liftover file to build an ALT-aware hash table.
 This option is required when building from a reference with ALT contigs.
@@ -590,14 +590,14 @@ The output tarball will be this plus ".tar.gz"
   
 
 
-## dragen-build-reference-tarball v(3.7.5) Outputs
+## dragen-build-reference-tarball v(3.8.4) Outputs
 
 ### dragen reference tar
 
 
 
   
-> ID: dragen-build-reference-tarball--3.7.5/dragen_reference_tar  
+> ID: dragen-build-reference-tarball--3.8.4/dragen_reference_tar  
 
   
 **Optional:** `False`  
@@ -614,7 +614,6 @@ Output tarball containing the reference data
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
-- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -624,17 +623,7 @@ Output tarball containing the reference data
 
   
 **workflow name:** dragen-build-reference-tarball_dev-wf  
-**wfl version name:** 3.7.5  
-
-
-### Project: production_workflows
-
-
-> wfl id: wfl.9e5bdd810ef8404fabb29f8d71214131  
-
-  
-**workflow name:** dragen-build-reference-tarball_prod-wf  
-**wfl version name:** 3.7.5--210f67d  
+**wfl version name:** 3.8.4  
 
   
 
