@@ -209,7 +209,7 @@ projects:
           - name: 3.8.4
             path: 3.8.4/dragen-build-reference-tarball__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2021-08-03T02:01:29UTC
+            modification_time: 2021-08-03T11:40:14UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline

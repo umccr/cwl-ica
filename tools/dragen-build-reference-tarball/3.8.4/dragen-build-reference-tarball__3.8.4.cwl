@@ -30,7 +30,7 @@ hints:
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.7.5
+        dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.8.4
 
 requirements:
   InlineJavascriptRequirement:

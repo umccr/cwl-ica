@@ -204,5 +204,5 @@ tools:
         md5sum: 6125bf3e82c9bc95b6cee76a7cb11b27
       - name: 3.8.4
         path: 3.8.4/dragen-build-reference-tarball__3.8.4.cwl
-        md5sum: cb459c90320320dd71056700bf913a23
+        md5sum: f446aa06c779ae43e519c3b00d33f5fb
     categories: []
