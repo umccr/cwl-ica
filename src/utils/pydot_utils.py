@@ -89,7 +89,10 @@ def edit_cwl_dot(cwl_item, cwl_obj, dot_path: Path):
                 elif step_cwl_obj.cwl_obj.class_ == "ExpressionTool":
                     node.set_fillcolor("orange2")
 
-    dot_obj.write_dot(str(dot_path))
+    try:
+        dot_obj.write_dot(str(dot_path))
+    except AssertionError:
+        logger.warning("Generation of dot file failed")
 
 
 def get_step_path_from_step_obj(cwl_step_object, cwl_file_path) -> Path:
