@@ -38,13 +38,14 @@ from classes.ica_workflow_version import ICAWorkflowVersion
 from classes.ica_workflow_run import ICAWorkflowRun
 from subcommands.github_actions.create_markdown_file import add_toc_line
 
-def get_ica_section(cwl_file_path: Path, projects: List[Project],
+def get_ica_section(cwl_file_path: Path, item_type: str, projects: List[Project],
                     ica_workflow_objs: List[ICAWorkflow],
                     ica_workflow_version_objs: List[ICAWorkflowVersion],
                     md_file_obj: MdUtils, markdown_path: Path) -> MdUtils:
     """
     Returns the ica section for a md file object
     :param cwl_file_path,
+    :param item_type,
     :param projects,
     :param ica_workflow_objs
     :param ica_workflow_version_objs,
@@ -78,12 +79,20 @@ def get_ica_section(cwl_file_path: Path, projects: List[Project],
         if len(ica_workflow_version.run_instances) == 0:
             continue
 
-        # Create section header
-        md_file_obj.new_header(level=4, title="Run Instances", add_table_of_contents="n")
-
         # Iterate through run instances
         run_objs: List[ICAWorkflowRun] = [get_run_instance_obj_from_id(run_instance_id)
                                           for run_instance_id in ica_workflow_version.run_instances]
+
+        # Create section header
+        md_file_obj.new_header(level=4, title="Run Instances", add_table_of_contents="n")
+
+        # Add toc for run instances
+        md_file_obj.new_header(level=5, title=f"ToC", add_table_of_contents="n")
+        for run_obj in run_objs:
+            md_file_obj = add_toc_line(md_file_obj,
+                                       header_name=f"Run: {run_obj.ica_workflow_run_instance_id}",
+                                       link_text=f"Run {run_obj.ica_workflow_run_instance_id}")
+        md_file_obj.new_line("\n")
 
         for run_obj in run_objs:
             # Create a run section header
@@ -99,6 +108,13 @@ def get_ica_section(cwl_file_path: Path, projects: List[Project],
             md_file_obj.new_line(f"**Start Time:** {datetime.fromtimestamp(run_obj.workflow_start_time)} UTC")
             md_file_obj.new_line(f"**Duration:** {datetime.fromtimestamp(run_obj.workflow_end_time)} UTC")
             md_file_obj.new_line(f"**End Time:** {pd.to_timedelta(run_obj.workflow_duration, unit='seconds')}")
+            md_file_obj.new_line("\n")
+
+            md_file_obj.new_header(level=6, title=f"Reproduce Run", add_table_of_contents="n")
+            md_file_obj.insert_code("""
+                                    cwl-ica copy-{}-submission-template --ica-workflow-run-instance-id {}\n
+                                    bash {}.launch.sh
+                                    """.format(item_type, run_obj.ica_workflow_run_instance_id, run_obj.ica_workflow_run_instance_id))
             md_file_obj.new_line("\n")
 
             md_file_obj.new_header(level=6, title=f"Run Inputs", add_table_of_contents="n")
