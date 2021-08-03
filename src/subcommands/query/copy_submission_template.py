@@ -234,9 +234,4 @@ class CopySubmissionTemplate(Command):
                               f"    --data \"@{self.output_json_path}\"\n")
             else:
                 shell_h.write("# Submit command through ica binary\n")
-                shell_h.write(f"ica workflows versions launch {self.run_obj.ica_workflow_id} {self.run_obj.ica_workflow_version_name} {self.output_json_path}")
-
-
-
-
-
+                shell_h.write(f"ica workflows versions launch {self.run_obj.ica_workflow_id} {self.run_obj.ica_workflow_version_name} {self.output_json_path}\n")
