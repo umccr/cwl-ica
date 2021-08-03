@@ -1,5 +1,6 @@
 runs:
   - ica_workflow_run_instance_id: wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.32e346cdbb854f6487e7594ec17a81f9
     ica_workflow_name: dragen-somatic-pipeline_dev-wf
     ica_workflow_version_name: 3.7.5
@@ -57,6 +58,7 @@ runs:
         task_duration: 511
         task_metrics: eJyLjgUAARUAuQ==
   - ica_workflow_run_instance_id: wfr.1fd8c32d79c34e179a4c0d6754edd3a2
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.ff6ca1789f4e4eb0982ea3e01407aca8
     ica_workflow_name: dragen-wgs-qc-pipeline_dev-wf
     ica_workflow_version_name: 3.7.5
@@ -114,6 +116,7 @@ runs:
         task_duration: 751
         task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMyMzYwNjEw0lFQSi4oBQoZ6BkA2bmpuflFlRBurY4Cdl2mFki6jIjUZWpkjKTLmFhd5pa47TLEpcvM2JQMXeYGBuToMjUhQ5eFETl2WZiT4y9LY2QXGhKryxKvXbEAPS+gfQ==
   - ica_workflow_run_instance_id: wfr.d9ddc8eb7d544d32bdbe285fd45a4365
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.59e481580c6243b6b237ca2b08fa1270
     ica_workflow_name: bcl-conversion_dev-wf
     ica_workflow_version_name: 3.7.5
@@ -189,6 +192,7 @@ runs:
         task_duration: 507
         task_metrics: eJyLjgUAARUAuQ==
   - ica_workflow_run_instance_id: wfr.58436856778e4f70ae7856869571470c
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.32e346cdbb854f6487e7594ec17a81f9
     ica_workflow_name: dragen-somatic-pipeline_dev-wf
     ica_workflow_version_name: 3.7.5
@@ -246,6 +250,7 @@ runs:
         task_duration: 529
         task_metrics: eJyLjgUAARUAuQ==
   - ica_workflow_run_instance_id: wfr.f0fa0ea3972f405aa5af5003e1427428
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.286d4a2e82f048609d5b288a9d2868f6
     ica_workflow_name: dragen-transcriptome-pipeline_dev-wf
     ica_workflow_version_name: 3.7.5
