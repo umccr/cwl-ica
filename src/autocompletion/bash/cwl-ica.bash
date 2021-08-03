@@ -36,6 +36,8 @@ _cwl-ica() {
 '$'\n''configure-tenant'$'\t''Create mapping of tenancy ids to tenancy names, convenience to save time typing out tenancy names.
 Each project is linked to a tenancy id
 '$'\n''configure-user'$'\t''Add a user to user.yaml
+'$'\n''copy-tool-submission-template'$'\t''Copy a tool submission template for an upcoming tool run
+'$'\n''copy-workflow-submission-template'$'\t''Copy a workflow submission template for an upcoming workflow run
 '$'\n''create-expression-from-template'$'\t''Initialise an CWL expression from the cwl expression template
 '$'\n''create-schema-from-template'$'\t''Initialise a CWL schema from the cwl schema template
 '$'\n''create-tool-from-template'$'\t''Initialise a CWL tool from the cwl tool template
@@ -48,7 +50,9 @@ Each project is linked to a tenancy id
 '$'\n''list-categories'$'\t''List registered categories
 '$'\n''list-projects'$'\t''List registered projects
 '$'\n''list-tenants'$'\t''List registered tenants
+'$'\n''list-tool-runs'$'\t''List registered tool runs for a CWL tool in a given project
 '$'\n''list-users'$'\t''List registered users
+'$'\n''list-workflow-runs'$'\t''List registered workflows runs for a CWL workflow in a given project
 '$'\n''project-init'$'\t''Initialise a project in \${CWL_ICA_REPO_PATH}/config/project.yaml
 '$'\n''register-tool-run-instance'$'\t''Register an ICA workflow run instance of a tool for a given project
 '$'\n''register-workflow-run-instance'$'\t''Register an ICA workflow run instance of a workflow for a given project
@@ -397,6 +401,46 @@ and update definition on ICA
         ;;
         esac
       ;;
+      copy-tool-submission-template)
+        OPTIONS+=('--ica-workflow-run-instance-id' 'A ica workflow run instance id
+' '--prefix' 'The prefix to the outputs files and name attribute in the json file
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --ica-workflow-run-instance-id)
+            _cwl-ica_copy-tool-submission-template_option_ica_workflow_run_instance_id_completion
+          ;;
+          --prefix)
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
+      copy-workflow-submission-template)
+        OPTIONS+=('--ica-workflow-run-instance-id' 'A ica workflow run instance id
+' '--prefix' 'The prefix to the outputs files and name attribute in the json file
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --ica-workflow-run-instance-id)
+            _cwl-ica_copy-workflow-submission-template_option_ica_workflow_run_instance_id_completion
+          ;;
+          --prefix)
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
       create-expression-from-template)
         OPTIONS+=('--expression-name' 'The name of the expression
 ' '--expression-version' 'Version of the expression
@@ -582,9 +626,51 @@ and update definition on ICA
         __cwl-ica_handle_options_flags
         __comp_current_options true || return # no subcmds, no params/opts
       ;;
+      list-tool-runs)
+        OPTIONS+=('--tool-path' 'A cwl tool file
+' '--project' 'A project name
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --tool-path)
+            _cwl-ica_list-tool-runs_option_tool_path_completion
+          ;;
+          --project)
+            _cwl-ica_list-tool-runs_option_project_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
+      ;;
       list-users)
         __cwl-ica_handle_options_flags
         __comp_current_options true || return # no subcmds, no params/opts
+      ;;
+      list-workflow-runs)
+        OPTIONS+=('--workflow-path' 'A cwl workflow file
+' '--project' 'A project name
+')
+        __cwl-ica_handle_options_flags
+        case ${MYWORDS[$INDEX-1]} in
+          --workflow-path)
+            _cwl-ica_list-workflow-runs_option_workflow_path_completion
+          ;;
+          --project)
+            _cwl-ica_list-workflow-runs_option_project_completion
+          ;;
+
+        esac
+        case $INDEX in
+
+        *)
+            __comp_current_options || return
+        ;;
+        esac
       ;;
       project-init)
         OPTIONS+=('--project-id' 'The ICA project id
@@ -1036,6 +1122,16 @@ _cwl-ica_add-workflow-to-project_option_project_completion() {
     local param_project="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
     _cwl-ica_compreply "$param_project"
 }
+_cwl-ica_copy-tool-submission-template_option_ica_workflow_run_instance_id_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_ica_workflow_run_instance_id="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")')"
+    _cwl-ica_compreply "$param_ica_workflow_run_instance_id"
+}
+_cwl-ica_copy-workflow-submission-template_option_ica_workflow_run_instance_id_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_ica_workflow_run_instance_id="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")')"
+    _cwl-ica_compreply "$param_ica_workflow_run_instance_id"
+}
 _cwl-ica_create-expression-from-template_option_username_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_username="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")')"
@@ -1075,6 +1171,26 @@ _cwl-ica_list-projects_option_tenant_name_completion() {
     local CURRENT_WORD="${words[$cword]}"
     local param_tenant_name="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")')"
     _cwl-ica_compreply "$param_tenant_name"
+}
+_cwl-ica_list-tool-runs_option_tool_path_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_tool_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl")"
+    _cwl-ica_compreply "$param_tool_path"
+}
+_cwl-ica_list-tool-runs_option_project_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_project="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
+    _cwl-ica_compreply "$param_project"
+}
+_cwl-ica_list-workflow-runs_option_workflow_path_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_workflow_path="$(find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl")"
+    _cwl-ica_compreply "$param_workflow_path"
+}
+_cwl-ica_list-workflow-runs_option_project_completion() {
+    local CURRENT_WORD="${words[$cword]}"
+    local param_project="$(python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")')"
+    _cwl-ica_compreply "$param_project"
 }
 _cwl-ica_project-init_option_tenant_name_completion() {
     local CURRENT_WORD="${words[$cword]}"
