@@ -269,6 +269,14 @@ inputs:
     inputBinding:
       prefix: "--rrna-filter-enable"
       valueFrom: "$(self.toString())"
+  rrna-filter-contig:
+    label: name of the rRNA sequences to use for filtering
+    type: string
+    default: chrUn_GL000220v1
+    doc: |
+      Specify the name of the rRNA sequences to use for filtering.
+    inputBinding:
+      prefix: "--rrna-filter-contig"
 
 outputs:
   # Will also include mounted-files.txt
