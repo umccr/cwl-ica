@@ -82,7 +82,7 @@ The row of fastq lists.
 > ID: genome_version
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fea2fed3970>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f0262f464f0>`  
 **Docs:**  
 Either hg38 (default) or GRCh37?
 Used to set chromosome regions to filter down bam file for optitype workflow

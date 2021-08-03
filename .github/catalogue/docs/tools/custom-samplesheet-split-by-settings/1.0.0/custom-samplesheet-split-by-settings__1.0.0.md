@@ -89,7 +89,7 @@ The path to the original samplesheet csv file
 > ID: samplesheet_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f8c90ad3790>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fec0d62e1c0>`  
 **Docs:**  
 Set samplesheet to be in v1 or v2 format
 
