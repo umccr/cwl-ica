@@ -140,7 +140,7 @@ class CreateMarkdownFile(Command):
             # Not for expressions
             logger.info("Getting the ica section")
             from utils.ica_markdown_utils import get_ica_section
-            md_file = get_ica_section(self.cwl_file_path, self.projects, self.workflows,
+            md_file = get_ica_section(self.cwl_file_path, self.item_type, self.projects, self.workflows,
                                       self.workflow_versions, md_file, self.markdown_path)
 
         # Write out md file object
