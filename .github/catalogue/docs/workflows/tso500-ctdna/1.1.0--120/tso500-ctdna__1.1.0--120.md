@@ -19,7 +19,7 @@ tso500-ctdna 1.1.0--120 workflow
 
   
 > ID: tso500-ctdna--1.1.0--120  
-> md5sum: 90c8cf27bc4b7333389600403251d762
+> md5sum: ec548f9429f4df6619b30569f498bf5b
 
 ### tso500-ctdna v(1.1.0--120) documentation
   
@@ -52,6 +52,7 @@ This workflow completes the following steps:
 ### Uses
   
 - [custom-create-tso500-samplesheet 1.0.0](../../../tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.md)  
+- [get-tso500-outputs-per-sample 1.0.0 :construction:](../../../expressions/get-tso500-outputs-per-sample/1.0.0/get-tso500-outputs-per-sample__1.0.0.md)  
 - [tso500-ctdna-analysis-workflow 1.1.0--120](../../../tools/tso500-ctdna-analysis-workflow/1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.md)  
 - [tso500-ctdna-demultiplex-workflow 1.1.0--120](../../../tools/tso500-ctdna-demultiplex-workflow/1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.md)  
 - [tso500-ctdna-reporting-workflow 1.1.0--120](../../../tools/tso500-ctdna-reporting-workflow/1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.md)  
@@ -202,6 +203,24 @@ so that it matches the Sample_ID. This tool expects a v1 samplesheet as input
 [CWL File Help Page](../../../tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.md)  
 
 
+### get cttso outputs by sample
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/get_cttso_outputs_by_sample
+  
+**Step Type:** expression  
+**Docs:**
+  
+Get the CTTSO outputs per sample, contains all intermediate dirs and results dir
+along with the sampleanalysis results json file
+
+#### Links
+  
+[CWL File Path](../../../../../../expressions/get-tso500-outputs-per-sample/1.0.0/get-tso500-outputs-per-sample__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-tso500-outputs-per-sample/1.0.0/get-tso500-outputs-per-sample__1.0.0.md)  
+
+
 ### run tso500 ctdna analysis workflow step
 
 
@@ -259,6 +278,21 @@ Run the tso500 ctdna repair workflow step
 
 ## tso500-ctdna v(1.1.0--120) Outputs
 
+### align_collapse_fusion_caller_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/align_collapse_fusion_caller_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for align_collapse_fusion_caller_analysis step of the analysis workflow
+  
+
+
 ### analysis workflow output
 
 
@@ -271,6 +305,81 @@ Run the tso500 ctdna repair workflow step
 **Output Type:** `Directory`  
 **Docs:**  
 Intermediate output files from the analysis workflow steps
+  
+
+
+### annotation_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/annotation_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for annotation_analysis step of the analysis workflow
+  
+
+
+### cleanup_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/cleanup_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for cleanup_dir
+  
+
+
+### cnv_caller_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/cnv_caller_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for cnv_caller_analysis step of the analysis workflow
+  
+
+
+### combined_variant_output_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/combined_variant_output_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for combined_variant_output_dir
+  
+
+
+### contamination_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/contamination_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for contamination_analysis step of the analysis workflow
   
 
 
@@ -289,6 +398,141 @@ Intermediate output files from the demultiplex workflow steps
   
 
 
+### dna_fusion_filtering_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/dna_fusion_filtering_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for dna_fusion_filtering_analysis step of the analysis workflow
+  
+
+
+### dna_qc_metrics_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/dna_qc_metrics_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for dna_qc_metrics_analysis step of the analysis workflow
+  
+
+
+### fastq_validation_demux
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/fastq_validation_demux_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+fastq_validation_demux_dir intermediate output directory
+  
+
+
+### max_somatic_vaf_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/max_somatic_vaf_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for max_somatic_vaf_analysis step of the analysis workflow
+  
+
+
+### merged_annotation_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/merged_annotation_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for merged_annotation_analysis step of the analysis workflow
+  
+
+
+### metrics_output_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/metrics_output_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for metrics_output_dir
+  
+
+
+### msi_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/msi_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for msi_analysis step of the analysis workflow
+  
+
+
+### outputs by sample
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/outputs_by_sample  
+
+  
+**Optional:** `False`  
+**Output Type:** `tso500-outputs-by-sample[]`  
+**Docs:**  
+The sample output directories from the analysis step
+  
+
+
+### phased_variants_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/phased_variants_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for phased_variants_analysis step of the analysis workflow
+  
+
+
 ### reporting workflow output
 
 
@@ -304,6 +548,21 @@ Intermediate output files from the reporting workflow steps
   
 
 
+### resource_verification_demux
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/resource_verification_demux_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+resource_verification_demux_dir intermediate output directory
+  
+
+
 ### results
 
 
@@ -316,6 +575,111 @@ Intermediate output files from the reporting workflow steps
 **Output Type:** `Directory`  
 **Docs:**  
 Results directory, output from the reporting workflow
+  
+
+
+### sample_analysis_results_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/sample_analysis_results_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for sample_analysis_results_dir
+  
+
+
+### samplesheet_validation_demux
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/samplesheet_validation_demux_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+samplesheet_validation_demux_dir intermediate output directory
+  
+
+
+### small_variant_filter_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/small_variant_filter_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for small_variant_filter_analysis step of the analysis workflow
+  
+
+
+### stitched_realigned_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/stitched_realigned_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for stitched_realigned_analysis step of the analysis workflow
+  
+
+
+### tmb_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/tmb_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for tmb_analysis step of the analysis workflow
+  
+
+
+### variant_caller_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/variant_caller_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for variant_caller_analysis step of the analysis workflow
+  
+
+
+### variant_matching_analysis_dir
+
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/variant_matching_analysis_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output for variant_matching_analysis step of the analysis workflow
   
 
   
@@ -347,7 +711,7 @@ Results directory, output from the reporting workflow
 
   
 **workflow name:** tso500-ctdna_prod-wf  
-**wfl version name:** 1.1.0--120--1d8fe7b  
+**wfl version name:** 1.1.0--120--41d8a90  
 
 
 ### Project: collab-illumina-dev_workflows

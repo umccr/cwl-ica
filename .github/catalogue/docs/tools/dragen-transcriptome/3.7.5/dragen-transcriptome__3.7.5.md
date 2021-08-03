@@ -17,7 +17,7 @@ dragen-transcriptome 3.7.5 tool
 
   
 > ID: dragen-transcriptome--3.7.5  
-> md5sum: 3e8892098f60deddb31706161f95893f
+> md5sum: 8eca9ab4d832b874eec8ed03284e6c06
 
 ### dragen-transcriptome v(3.7.5) documentation
   
@@ -189,6 +189,19 @@ The prefix given to all output files.
 **Type:** `File`  
 **Docs:**  
 Path to ref data tarball.
+
+
+### name of the rRNA sequences to use for filtering
+
+
+
+  
+> ID: rrna-filter-contig
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+Specify the name of the rRNA sequences to use for filtering.
 
   
 

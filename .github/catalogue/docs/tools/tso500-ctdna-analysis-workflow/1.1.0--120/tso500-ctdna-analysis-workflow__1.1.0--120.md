@@ -17,7 +17,7 @@ tso500-ctdna-analysis-workflow 1.1.0--120 tool
 
   
 > ID: tso500-ctdna-analysis-workflow--1.1.0.120  
-> md5sum: 26f06d67bc0c1b8569f4d03d91335b44
+> md5sum: 131f6bd5a7772fd52d1f3b484c814820
 
 ### tso500-ctdna-analysis-workflow v(1.1.0.120) documentation
   
@@ -132,6 +132,66 @@ A list of tso500 samples each element has the following attributes:
 
 ## tso500-ctdna-analysis-workflow v(1.1.0.120) Outputs
 
+### align collapse fusion caller dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/align_collapse_fusion_caller_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for align collapse fusion caller step
+  
+
+
+### annotation dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/annotation_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for annotation step
+  
+
+
+### cnv caller dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/cnv_caller_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for cnv caller step
+  
+
+
+### contamination dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/contamination_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for contamination step
+  
+
+
 ### contamination dsdm
 
 
@@ -147,6 +207,81 @@ Contamination dsdm json, used as input for Reporting task
   
 
 
+### dna fusion filtering dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/dna_fusion_filtering_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for dna fusion filtering step
+  
+
+
+### dna qc metrics dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/dna_qc_metrics_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for dna qc metrics step
+  
+
+
+### max somatic vaf dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/max_somatic_vaf_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for max somatic vaf step
+  
+
+
+### merged annotation dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/merged_annotation_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for merged annotation step
+  
+
+
+### msi dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/msi_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for msi step
+  
+
+
 ### output directory
 
 
@@ -159,6 +294,96 @@ Contamination dsdm json, used as input for Reporting task
 **Output Type:** `Directory`  
 **Docs:**  
 Output files
+  
+
+
+### phased variants dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/phased_variants_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for phased variants step
+  
+
+
+### small variant filter dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/small_variant_filter_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for small variants filter step
+  
+
+
+### stitched realigned dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/stitched_realigned_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for stitched realigned step
+  
+
+
+### tmb dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/tmb_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for tmb step
+  
+
+
+### variant caller dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/variant_caller_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for variant caller step
+  
+
+
+### variant matching dir
+
+
+
+  
+> ID: tso500-ctdna-analysis-workflow--1.1.0.120/variant_matching_dir  
+
+  
+**Optional:** `True`  
+**Output Type:** `Directory`  
+**Docs:**  
+Intermediate output directory for variant matching step
   
 
   

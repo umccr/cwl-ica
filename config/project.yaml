@@ -129,7 +129,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T00:51:42UTC
+            modification_time: 2021-07-30T00:31:24UTC
             run_instances: []
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
@@ -139,7 +139,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T00:51:42UTC
+            modification_time: 2021-07-30T00:31:29UTC
             run_instances: []
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
@@ -149,7 +149,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T00:51:43UTC
+            modification_time: 2021-07-30T00:31:34UTC
             run_instances: []
       - name: multiqc
         path: multiqc
@@ -255,7 +255,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-07-28T12:14:51UTC
+            modification_time: 2021-07-30T00:36:38UTC
             run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline
@@ -288,9 +288,8 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-07-04T11:54:15UTC
-            run_instances:
-              - wfr.f0fa0ea3972f405aa5af5003e1427428
+            modification_time: 2021-08-03T01:02:11UTC
+            run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
@@ -349,6 +348,11 @@ projects:
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120--1d8fe7b
             modification_time: 2021-07-04T11:54:23UTC
+            run_instances: []
+          - name: 1.1.0--120
+            path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
+            ica_workflow_version_name: 1.1.0--120--41d8a90
+            modification_time: 2021-07-30T00:36:45UTC
             run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline
@@ -435,6 +439,11 @@ projects:
             ica_workflow_version_name: 3.7.5--c74952a
             modification_time: 2021-07-28T04:05:32UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--785012d
+            modification_time: 2021-08-03T01:02:20UTC
+            run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_prod-wf
@@ -490,7 +499,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T04:56:06UTC
+            modification_time: 2021-07-30T00:31:41UTC
             run_instances: []
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
@@ -500,7 +509,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T04:56:06UTC
+            modification_time: 2021-07-30T00:31:43UTC
             run_instances: []
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
@@ -510,7 +519,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-06-29T04:56:07UTC
+            modification_time: 2021-07-30T00:31:45UTC
             run_instances: []
       - name: custom-create-directory
         path: custom-create-directory
@@ -531,5 +540,5 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2021-07-29T06:45:34UTC
+            modification_time: 2021-07-30T00:36:53UTC
             run_instances: []

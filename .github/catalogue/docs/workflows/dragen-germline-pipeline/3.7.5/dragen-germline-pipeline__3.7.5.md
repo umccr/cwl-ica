@@ -195,7 +195,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f065285e520>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f5d0cc4fa60>`  
 **Docs:**  
 Specifies the sex of a sample
 
