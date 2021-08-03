@@ -120,9 +120,8 @@ Command:
     #######################
     get-workflow-step-ids               Get the step ids of a CWL workflow
 
-
     ##################
-    Run-list Commands  # Not yet implemented  v1.0 release
+    Run-list Commands
     ##################
     list-tool-runs                      List registered tool runs for a CWL tool in a given project
     list-workflow-runs                  List registered workflows runs for a CWL workflow in a given project
@@ -457,6 +456,19 @@ def _dispatch():
         copy_workflow_submission_template_obj = CopyWorkflowSubmissionTemplate(command_argv)
         # Call command
         copy_workflow_submission_template_obj()
+
+    elif cmd == "list-tool-runs":
+        from subcommands.listers.list_tool_runs import ListToolRuns
+        tool_runs_obj = ListToolRuns(command_argv)
+        # Call command
+        tool_runs_obj()
+    elif cmd == "list-workflow-runs":
+        # FIXME
+        from subcommands.listers.list_workflow_runs import ListWorkflowRuns
+        workflow_runs_obj = ListWorkflowRuns(command_argv)
+        # Call command
+        workflow_runs_obj()
+
 
     # Github actions  # TODO - sync-schema / sync-expression
     elif cmd == "github-actions-sync-tools":
