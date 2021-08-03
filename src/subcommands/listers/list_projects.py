@@ -6,7 +6,6 @@ List all projects registered in <CWL_ICA_REPO_PATH>/config/projects.yaml
 
 from classes.command import Command
 from utils.logging import get_logger
-from docopt import docopt
 import pandas as pd
 from utils.repo import get_tenant_yaml_path, read_yaml, get_project_yaml_path
 import os

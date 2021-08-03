@@ -129,7 +129,7 @@ class Initialiser(Command):
         self.write_item_yaml()
 
         # Write out projects
-        if self.args.get("--projects", None) is not None:
+        if not len(self.projects) == 0:
             logger.info(f"Adding \"{self.item_type}\" to projects")
             self.add_item_to_projects()
             logger.info(f"Updating \"{get_project_yaml_path()}\"")
