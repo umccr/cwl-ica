@@ -16,419 +16,419 @@
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_outputs</title>
-<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="1457,-20.8005 1457,-221.0051 2407,-221.0051 2407,-20.8005 1457,-20.8005"/>
-<text text-anchor="middle" x="2333" y="-28.6005" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Outputs</text>
+<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="1448,-20.8005 1448,-221.0051 2398,-221.0051 2398,-20.8005 1448,-20.8005"/>
+<text text-anchor="middle" x="2324" y="-28.6005" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Outputs</text>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bcl_input_directory -->
+<!-- file:///tmp/tmpi29b4bf1#runfolder_name -->
 <g id="node1" class="node">
-<title>file:///tmp/tmp33gtq43b#bcl_input_directory</title>
-<g id="a_node1"><a xlink:title="Path to the bcl files&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2427.5,-1102.3005 2427.5,-1139.3005 2584.5,-1139.3005 2584.5,-1102.3005 2427.5,-1102.3005"/>
-<text text-anchor="middle" x="2506" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bcl_input_directory</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#bcl_convert_step -->
-<g id="node19" class="node">
-<title>file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<g id="a_node19"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/bclConvert/3.7.5/bclConvert__3.7.5.md" xlink:title="BCLConvert is then scattered across each of the samplesheets.&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="1409.5,-517.3005 1409.5,-554.3005 1564.5,-554.3005 1564.5,-517.3005 1409.5,-517.3005"/>
-<text text-anchor="middle" x="1487" y="-532.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bclConvert v(3.7.5)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#bcl_input_directory&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
-<g id="edge14" class="edge">
-<title>file:///tmp/tmp33gtq43b#bcl_input_directory&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M2476.1313,-1102.1193C2380.9716,-1042.7802 2075.9571,-853.9526 1817,-708.8005 1716.9651,-652.7283 1597.2237,-591.3523 1533.0426,-558.9084"/>
-<polygon fill="#000000" stroke="#000000" points="1534.4896,-555.7182 1523.9853,-554.3356 1531.3347,-561.9669 1534.4896,-555.7182"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#interop_qc_step -->
-<g id="node23" class="node">
-<title>file:///tmp/tmp33gtq43b#interop_qc_step</title>
-<g id="a_node23"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md" xlink:title="Run the multiqc by first also generating the interop files for use&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="2574.5,-902.3005 2574.5,-939.3005 2761.5,-939.3005 2761.5,-902.3005 2574.5,-902.3005"/>
-<text text-anchor="middle" x="2668" y="-917.1005" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc&#45;interop v(1.2.1)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#bcl_input_directory&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step -->
-<g id="edge15" class="edge">
-<title>file:///tmp/tmp33gtq43b#bcl_input_directory&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step</title>
-<path fill="none" stroke="#000000" d="M2521.2406,-1101.985C2550.2001,-1066.2325 2613.2478,-988.3957 2646.4922,-947.3533"/>
-<polygon fill="#000000" stroke="#000000" points="2649.3434,-949.3939 2652.9179,-939.4203 2643.904,-944.988 2649.3434,-949.3939"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#runfolder_name -->
-<g id="node2" class="node">
-<title>file:///tmp/tmp33gtq43b#runfolder_name</title>
-<g id="a_node2"><a xlink:title="Required &#45; used in naming run specific folder, reports and headings&#10;">
+<title>file:///tmp/tmpi29b4bf1#runfolder_name</title>
+<g id="a_node1"><a xlink:title="Required &#45; used in naming run specific folder, reports and headings&#10;">
 <polygon fill="#94ddf4" stroke="#000000" points="2603,-1102.3005 2603,-1139.3005 2733,-1139.3005 2733,-1102.3005 2603,-1102.3005"/>
 <text text-anchor="middle" x="2668" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">runfolder_name</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bclconvert_qc_step -->
-<g id="node21" class="node">
-<title>file:///tmp/tmp33gtq43b#bclconvert_qc_step</title>
-<g id="a_node21"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/multiqc/1.11.0/multiqc__1.11.0.md" xlink:title="The bclconvert qc step &#45; from scatter this takes in an array of dirs&#10;">
+<!-- file:///tmp/tmpi29b4bf1#bclconvert_qc_step -->
+<g id="node20" class="node">
+<title>file:///tmp/tmpi29b4bf1#bclconvert_qc_step</title>
+<g id="a_node20"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/multiqc/1.11.0/multiqc__1.11.0.md" xlink:title="The bclconvert qc step &#45; from scatter this takes in an array of dirs&#10;">
 <polygon fill="#fafad2" stroke="#000000" points="2458,-324.3005 2458,-361.3005 2598,-361.3005 2598,-324.3005 2458,-324.3005"/>
 <text text-anchor="middle" x="2528" y="-339.1005" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc v(1.11.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step -->
-<g id="edge16" class="edge">
-<title>file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step -->
+<g id="edge14" class="edge">
+<title>file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step</title>
 <path fill="none" stroke="#000000" d="M2642.7183,-1102.2828C2612.5225,-1070.8809 2567.131,-1004.2929 2548,-939.8005 2485.4816,-729.0452 2500.3695,-458.6633 2517.575,-371.3446"/>
 <polygon fill="#000000" stroke="#000000" points="2521.0345,-371.9065 2519.7346,-361.3917 2514.1937,-370.4222 2521.0345,-371.9065"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step -->
-<g id="edge17" class="edge">
-<title>file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step -->
+<g id="edge15" class="edge">
+<title>file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step</title>
 <path fill="none" stroke="#000000" d="M2653.7587,-1102.2828C2630.5225,-1070.8809 2585.131,-1004.2929 2566,-939.8005 2503.5452,-729.2596 2518.3393,-459.2133 2525.3785,-371.6117"/>
 <polygon fill="#000000" stroke="#000000" points="2528.8875,-371.6485 2526.2324,-361.3917 2521.9118,-371.0655 2528.8875,-371.6485"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step -->
-<g id="edge18" class="edge">
-<title>file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step -->
+<g id="edge16" class="edge">
+<title>file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step</title>
 <path fill="none" stroke="#000000" d="M2664.799,-1102.2828C2648.5225,-1070.8809 2603.131,-1004.2929 2584,-939.8005 2521.5452,-729.2596 2536.3393,-459.2133 2533.2344,-371.6117"/>
 <polygon fill="#000000" stroke="#000000" points="2536.7188,-371.2071 2532.7303,-361.3917 2529.7273,-371.552 2536.7188,-371.2071"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step -->
-<g id="edge19" class="edge">
-<title>file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#interop_qc_step -->
+<g id="node21" class="node">
+<title>file:///tmp/tmpi29b4bf1#interop_qc_step</title>
+<g id="a_node21"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md" xlink:title="Run the multiqc by first also generating the interop files for use&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="2574.5,-902.3005 2574.5,-939.3005 2761.5,-939.3005 2761.5,-902.3005 2574.5,-902.3005"/>
+<text text-anchor="middle" x="2668" y="-917.1005" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc&#45;interop v(1.2.1)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step -->
+<g id="edge17" class="edge">
+<title>file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step</title>
 <path fill="none" stroke="#000000" d="M2659.7077,-1101.985C2653.3092,-1066.8296 2652.8069,-990.984 2658.2008,-949.4401"/>
 <polygon fill="#000000" stroke="#000000" points="2661.681,-949.8365 2659.7435,-939.4203 2654.7625,-948.7712 2661.681,-949.8365"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step -->
-<g id="edge20" class="edge">
-<title>file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step -->
+<g id="edge18" class="edge">
+<title>file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step</title>
 <path fill="none" stroke="#000000" d="M2668,-1101.985C2668,-1066.8296 2668,-990.984 2668,-949.4401"/>
 <polygon fill="#000000" stroke="#000000" points="2671.5001,-949.4203 2668,-939.4203 2664.5001,-949.4203 2671.5001,-949.4203"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step -->
-<g id="edge21" class="edge">
-<title>file:///tmp/tmp33gtq43b#runfolder_name&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step -->
+<g id="edge19" class="edge">
+<title>file:///tmp/tmpi29b4bf1#runfolder_name&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step</title>
 <path fill="none" stroke="#000000" d="M2676.2923,-1101.985C2682.6908,-1066.8296 2683.1931,-990.984 2677.7992,-949.4401"/>
 <polygon fill="#000000" stroke="#000000" points="2681.2375,-948.7712 2676.2565,-939.4203 2674.319,-949.8365 2681.2375,-948.7712"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#strict_mode_bcl_conversion -->
+<!-- file:///tmp/tmpi29b4bf1#first_tile_only_bcl_conversion -->
+<g id="node2" class="node">
+<title>file:///tmp/tmpi29b4bf1#first_tile_only_bcl_conversion</title>
+<g id="a_node2"><a xlink:title="true — Only process the first tile of the first swath of the&#10; &#160;top surface of each lane specified in the sample sheet.&#10;false — Process all tiles in each lane, as specified in the sample&#10; &#160;sheet.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1250,-1102.3005 1250,-1139.3005 1480,-1139.3005 1480,-1102.3005 1250,-1102.3005"/>
+<text text-anchor="middle" x="1365" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">first_tile_only_bcl_conversion</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#bcl_convert_step -->
+<g id="node22" class="node">
+<title>file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<g id="a_node22"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/bclConvert/3.7.5/bclConvert__3.7.5.md" xlink:title="BCLConvert is then scattered across each of the samplesheets.&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="1400.5,-517.3005 1400.5,-554.3005 1555.5,-554.3005 1555.5,-517.3005 1400.5,-517.3005"/>
+<text text-anchor="middle" x="1478" y="-532.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bclConvert v(3.7.5)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#first_tile_only_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
+<g id="edge20" class="edge">
+<title>file:///tmp/tmpi29b4bf1#first_tile_only_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M1368.6317,-1101.9991C1385.0684,-1016.9064 1452.552,-667.5443 1472.4522,-564.5215"/>
+<polygon fill="#000000" stroke="#000000" points="1475.9216,-565.0143 1474.3818,-554.532 1469.0487,-563.6867 1475.9216,-565.0143"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#bcl_input_directory -->
 <g id="node3" class="node">
-<title>file:///tmp/tmp33gtq43b#strict_mode_bcl_conversion</title>
-<g id="a_node3"><a xlink:title="true — Abort the program if any filter, locs, bcl, or bci lane&#10;files are missing or corrupt.&#10;false — Continue processing if any filter, locs, bcl, or bci lane files&#10;are missing. Return a warning message for each missing or corrupt&#10;file.&#10;">
+<title>file:///tmp/tmpi29b4bf1#bcl_input_directory</title>
+<g id="a_node3"><a xlink:title="Path to the bcl files&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2427.5,-1102.3005 2427.5,-1139.3005 2584.5,-1139.3005 2584.5,-1102.3005 2427.5,-1102.3005"/>
+<text text-anchor="middle" x="2506" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bcl_input_directory</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#bcl_input_directory&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step -->
+<g id="edge22" class="edge">
+<title>file:///tmp/tmpi29b4bf1#bcl_input_directory&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step</title>
+<path fill="none" stroke="#000000" d="M2521.2406,-1101.985C2550.2001,-1066.2325 2613.2478,-988.3957 2646.4922,-947.3533"/>
+<polygon fill="#000000" stroke="#000000" points="2649.3434,-949.3939 2652.9179,-939.4203 2643.904,-944.988 2649.3434,-949.3939"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#bcl_input_directory&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
+<g id="edge21" class="edge">
+<title>file:///tmp/tmpi29b4bf1#bcl_input_directory&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M2475.4236,-1102.2757C2378.031,-1043.4011 2066.0281,-855.8006 1803,-708.8005 1704.0826,-653.5179 1586.3088,-591.8378 1523.232,-559.1323"/>
+<polygon fill="#000000" stroke="#000000" points="1524.8205,-556.0135 1514.3312,-554.5214 1521.6006,-562.229 1524.8205,-556.0135"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#ignore_missing_samples -->
+<g id="node4" class="node">
+<title>file:///tmp/tmpi29b4bf1#ignore_missing_samples</title>
+<g id="a_node4"><a xlink:title="Remove the samples not present in the override cycles record&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1800.5,-1102.3005 1800.5,-1139.3005 1991.5,-1139.3005 1991.5,-1102.3005 1800.5,-1102.3005"/>
+<text text-anchor="middle" x="1896" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">ignore_missing_samples</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step -->
+<g id="node24" class="node">
+<title>file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step</title>
+<g id="a_node24"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md" xlink:title="Samplesheet is split by the different input types.&#10;These are generally a difference in override cycles parameters or adapter trimming settings&#10;This then scatters multiple bclconvert workflows split by sample id&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="1650.5,-902.3005 1650.5,-939.3005 1993.5,-939.3005 1993.5,-902.3005 1650.5,-902.3005"/>
+<text text-anchor="middle" x="1822" y="-917.1005" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;samplesheet&#45;split&#45;by&#45;settings v(1.0.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#ignore_missing_samples&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step -->
+<g id="edge23" class="edge">
+<title>file:///tmp/tmpi29b4bf1#ignore_missing_samples&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step</title>
+<path fill="none" stroke="#000000" d="M1889.0383,-1101.985C1875.9755,-1066.6803 1847.7293,-990.3391 1832.4015,-948.9127"/>
+<polygon fill="#000000" stroke="#000000" points="1835.642,-947.5844 1828.8893,-939.4203 1829.077,-950.0135 1835.642,-947.5844"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_outdir -->
+<g id="node5" class="node">
+<title>file:///tmp/tmpi29b4bf1#samplesheet_outdir</title>
+<g id="a_node5"><a xlink:title="Output directory of the samplesheets split by settings&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1624,-1102.3005 1624,-1139.3005 1782,-1139.3005 1782,-1102.3005 1624,-1102.3005"/>
+<text text-anchor="middle" x="1703" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">samplesheet_outdir</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_outdir&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step -->
+<g id="edge24" class="edge">
+<title>file:///tmp/tmpi29b4bf1#samplesheet_outdir&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step</title>
+<path fill="none" stroke="#000000" d="M1714.1952,-1101.985C1735.3347,-1066.4564 1781.2017,-989.3691 1805.7397,-948.1287"/>
+<polygon fill="#000000" stroke="#000000" points="1808.8157,-949.8038 1810.9212,-939.4203 1802.8,-946.2245 1808.8157,-949.8038"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#delete_undetermined_indices_bcl_conversion -->
+<g id="node6" class="node">
+<title>file:///tmp/tmpi29b4bf1#delete_undetermined_indices_bcl_conversion</title>
+<g id="a_node6"><a xlink:title="Delete undetermined indices on completion of the run&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="252,-1102.3005 252,-1139.3005 594,-1139.3005 594,-1102.3005 252,-1102.3005"/>
+<text text-anchor="middle" x="423" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">delete_undetermined_indices_bcl_conversion</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#delete_undetermined_indices_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
+<g id="edge25" class="edge">
+<title>file:///tmp/tmpi29b4bf1#delete_undetermined_indices_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M456.6111,-1102.1631C612.2535,-1015.859 1262.7116,-655.1784 1435.6299,-559.2948"/>
+<polygon fill="#000000" stroke="#000000" points="1437.3994,-562.3158 1444.4475,-554.4054 1434.0047,-556.1939 1437.3994,-562.3158"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#strict_mode_bcl_conversion -->
+<g id="node7" class="node">
+<title>file:///tmp/tmpi29b4bf1#strict_mode_bcl_conversion</title>
+<g id="a_node7"><a xlink:title="true — Abort the program if any filter, locs, bcl, or bci lane&#10;files are missing or corrupt.&#10;false — Continue processing if any filter, locs, bcl, or bci lane files&#10;are missing. Return a warning message for each missing or corrupt&#10;file.&#10;">
 <polygon fill="#94ddf4" stroke="#000000" points="16.5,-1102.3005 16.5,-1139.3005 233.5,-1139.3005 233.5,-1102.3005 16.5,-1102.3005"/>
 <text text-anchor="middle" x="125" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">strict_mode_bcl_conversion</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#strict_mode_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
-<g id="edge22" class="edge">
-<title>file:///tmp/tmp33gtq43b#strict_mode_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M168.3918,-1102.1631C369.9246,-1015.6016 1214.0778,-653.0248 1434.281,-558.4441"/>
-<polygon fill="#000000" stroke="#000000" points="1435.8769,-561.5679 1443.6839,-554.4054 1433.1143,-555.1361 1435.8769,-561.5679"/>
+<!-- file:///tmp/tmpi29b4bf1#strict_mode_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
+<g id="edge26" class="edge">
+<title>file:///tmp/tmpi29b4bf1#strict_mode_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M168.105,-1102.1631C368.3061,-1015.6016 1206.8812,-653.0248 1425.6294,-558.4441"/>
+<polygon fill="#000000" stroke="#000000" points="1427.1804,-561.5867 1434.9702,-554.4054 1424.4023,-555.1615 1427.1804,-561.5867"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#settings_by_samples -->
-<g id="node4" class="node">
-<title>file:///tmp/tmp33gtq43b#settings_by_samples</title>
-<g id="a_node4"><a xlink:title="List of settings by samples&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1858.5,-1102.3005 1858.5,-1139.3005 2023.5,-1139.3005 2023.5,-1102.3005 1858.5,-1102.3005"/>
-<text text-anchor="middle" x="1941" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">settings_by_samples</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step -->
-<g id="node25" class="node">
-<title>file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step</title>
-<g id="a_node25"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md" xlink:title="Samplesheet is split by the different input types.&#10;These are generally a difference in override cycles parameters or adapter trimming settings&#10;This then scatters multiple bclconvert workflows split by sample id&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="1665.5,-902.3005 1665.5,-939.3005 2008.5,-939.3005 2008.5,-902.3005 1665.5,-902.3005"/>
-<text text-anchor="middle" x="1837" y="-917.1005" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;samplesheet&#45;split&#45;by&#45;settings v(1.0.0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#settings_by_samples&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step -->
-<g id="edge23" class="edge">
-<title>file:///tmp/tmp33gtq43b#settings_by_samples&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="#000000" d="M1931.2159,-1101.985C1912.7799,-1066.531 1872.824,-989.6928 1851.3461,-948.3891"/>
-<polygon fill="#000000" stroke="#000000" points="1854.4011,-946.6777 1846.6823,-939.4203 1848.1906,-949.9072 1854.4011,-946.6777"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_output_format -->
-<g id="node5" class="node">
-<title>file:///tmp/tmp33gtq43b#samplesheet_output_format</title>
-<g id="a_node5"><a xlink:title="Convert headers to v2 samplesheet format&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1623.5,-1102.3005 1623.5,-1139.3005 1840.5,-1139.3005 1840.5,-1102.3005 1623.5,-1102.3005"/>
-<text text-anchor="middle" x="1732" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">samplesheet_output_format</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_output_format&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step -->
-<g id="edge24" class="edge">
-<title>file:///tmp/tmp33gtq43b#samplesheet_output_format&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="#000000" d="M1741.8781,-1101.985C1760.4915,-1066.531 1800.8315,-989.6928 1822.516,-948.3891"/>
-<polygon fill="#000000" stroke="#000000" points="1825.6751,-949.9012 1827.2246,-939.4203 1819.4773,-946.6473 1825.6751,-949.9012"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet -->
-<g id="node6" class="node">
-<title>file:///tmp/tmp33gtq43b#samplesheet</title>
-<g id="a_node6"><a xlink:title="The path to the full samplesheet&#10;">
+<!-- file:///tmp/tmpi29b4bf1#samplesheet -->
+<g id="node8" class="node">
+<title>file:///tmp/tmpi29b4bf1#samplesheet</title>
+<g id="a_node8"><a xlink:title="The path to the full samplesheet&#10;">
 <polygon fill="#94ddf4" stroke="#000000" points="1498.5,-1102.3005 1498.5,-1139.3005 1605.5,-1139.3005 1605.5,-1102.3005 1498.5,-1102.3005"/>
 <text text-anchor="middle" x="1552" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">samplesheet</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step -->
-<g id="edge25" class="edge">
-<title>file:///tmp/tmp33gtq43b#samplesheet&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="#000000" d="M1574.7127,-1102.0851C1586.5532,-1092.5057 1601.3729,-1080.7892 1615,-1070.8005 1678.3077,-1024.3956 1754.616,-973.9914 1799.2772,-945.0241"/>
-<polygon fill="#000000" stroke="#000000" points="1801.2813,-947.8961 1807.7742,-939.524 1797.4775,-942.0198 1801.2813,-947.8961"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_outdir -->
-<g id="node7" class="node">
-<title>file:///tmp/tmp33gtq43b#samplesheet_outdir</title>
-<g id="a_node7"><a xlink:title="Output directory of the samplesheets split by settings&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2251,-1102.3005 2251,-1139.3005 2409,-1139.3005 2409,-1102.3005 2251,-1102.3005"/>
-<text text-anchor="middle" x="2330" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">samplesheet_outdir</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_outdir&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step -->
-<g id="edge26" class="edge">
-<title>file:///tmp/tmp33gtq43b#samplesheet_outdir&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="#000000" d="M2300.096,-1102.204C2283.36,-1092.2087 2261.9125,-1080.0705 2242,-1070.8005 2127.2005,-1017.3569 1987.6079,-969.1456 1905.8967,-942.5223"/>
-<polygon fill="#000000" stroke="#000000" points="1906.8165,-939.1412 1896.2244,-939.3837 1904.6559,-945.7994 1906.8165,-939.1412"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#first_tile_only_bcl_conversion -->
-<g id="node8" class="node">
-<title>file:///tmp/tmp33gtq43b#first_tile_only_bcl_conversion</title>
-<g id="a_node8"><a xlink:title="true — Only process the first tile of the first swath of the&#10; &#160;top surface of each lane specified in the sample sheet.&#10;false — Process all tiles in each lane, as specified in the sample&#10; &#160;sheet.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="890,-1102.3005 890,-1139.3005 1120,-1139.3005 1120,-1102.3005 890,-1102.3005"/>
-<text text-anchor="middle" x="1005" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">first_tile_only_bcl_conversion</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#first_tile_only_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
+<!-- file:///tmp/tmpi29b4bf1#samplesheet&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step -->
 <g id="edge27" class="edge">
-<title>file:///tmp/tmp33gtq43b#first_tile_only_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M1020.4911,-1101.9991C1091.0979,-1016.3041 1382.5377,-662.5856 1465.1075,-562.3712"/>
-<polygon fill="#000000" stroke="#000000" points="1467.9088,-564.4754 1471.5665,-554.532 1462.5063,-560.0242 1467.9088,-564.4754"/>
+<title>file:///tmp/tmpi29b4bf1#samplesheet&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step</title>
+<path fill="none" stroke="#000000" d="M1574.8511,-1102.2707C1586.7283,-1092.7403 1601.5389,-1081.0117 1615,-1070.8005 1674.7495,-1025.4763 1745.8111,-974.6314 1787.2179,-945.3021"/>
+<polygon fill="#000000" stroke="#000000" points="1789.4467,-948.0127 1795.5888,-939.3798 1785.4038,-942.2982 1789.4467,-948.0127"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#delete_undetermined_indices_bcl_conversion -->
+<!-- file:///tmp/tmpi29b4bf1#bcl_only_lane_bcl_conversion -->
 <g id="node9" class="node">
-<title>file:///tmp/tmp33gtq43b#delete_undetermined_indices_bcl_conversion</title>
-<g id="a_node9"><a xlink:title="Delete undetermined indices on completion of the run&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1138,-1102.3005 1138,-1139.3005 1480,-1139.3005 1480,-1102.3005 1138,-1102.3005"/>
-<text text-anchor="middle" x="1309" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">delete_undetermined_indices_bcl_conversion</text>
+<title>file:///tmp/tmpi29b4bf1#bcl_only_lane_bcl_conversion</title>
+<g id="a_node9"><a xlink:title="Convert only the specified lane number. The value must&#10;be less than or equal to the number of lanes specified in the&#10;RunInfo.xml. Must be a single integer value.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="612,-1102.3005 612,-1139.3005 840,-1139.3005 840,-1102.3005 612,-1102.3005"/>
+<text text-anchor="middle" x="726" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bcl_only_lane_bcl_conversion</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#delete_undetermined_indices_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
+<!-- file:///tmp/tmpi29b4bf1#bcl_only_lane_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
 <g id="edge28" class="edge">
-<title>file:///tmp/tmp33gtq43b#delete_undetermined_indices_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M1314.7208,-1101.9991C1340.6384,-1016.8203 1447.1289,-666.8376 1478.3558,-564.2098"/>
-<polygon fill="#000000" stroke="#000000" points="1481.7379,-565.1178 1481.3005,-554.532 1475.041,-563.0801 1481.7379,-565.1178"/>
+<title>file:///tmp/tmpi29b4bf1#bcl_only_lane_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M750.1687,-1101.9991C860.88,-1015.8739 1319.5954,-659.0275 1445.7595,-560.8812"/>
+<polygon fill="#000000" stroke="#000000" points="1448.1773,-563.4347 1453.9212,-554.532 1443.8792,-557.9096 1448.1773,-563.4347"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bcl_only_lane_bcl_conversion -->
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_output_format -->
 <g id="node10" class="node">
-<title>file:///tmp/tmp33gtq43b#bcl_only_lane_bcl_conversion</title>
-<g id="a_node10"><a xlink:title="Convert only the specified lane number. The value must&#10;be less than or equal to the number of lanes specified in the&#10;RunInfo.xml. Must be a single integer value.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="252,-1102.3005 252,-1139.3005 480,-1139.3005 480,-1102.3005 252,-1102.3005"/>
-<text text-anchor="middle" x="366" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bcl_only_lane_bcl_conversion</text>
+<title>file:///tmp/tmpi29b4bf1#samplesheet_output_format</title>
+<g id="a_node10"><a xlink:title="Convert headers to v2 samplesheet format&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2192.5,-1102.3005 2192.5,-1139.3005 2409.5,-1139.3005 2409.5,-1102.3005 2192.5,-1102.3005"/>
+<text text-anchor="middle" x="2301" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">samplesheet_output_format</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bcl_only_lane_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_output_format&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step -->
 <g id="edge29" class="edge">
-<title>file:///tmp/tmp33gtq43b#bcl_only_lane_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M401.7138,-1102.1631C567.1752,-1015.8161 1258.9305,-654.8198 1442.2528,-559.152"/>
-<polygon fill="#000000" stroke="#000000" points="1444.1024,-562.1348 1451.3485,-554.4054 1440.8638,-555.929 1444.1024,-562.1348"/>
+<title>file:///tmp/tmpi29b4bf1#samplesheet_output_format&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step</title>
+<path fill="none" stroke="#000000" d="M2257.9842,-1102.2835C2235.8941,-1092.8084 2208.5339,-1081.1254 2184,-1070.8005 2075.3071,-1025.0579 1947.8323,-972.4863 1876.8485,-943.3076"/>
+<polygon fill="#000000" stroke="#000000" points="1877.7949,-939.9125 1867.2151,-939.3487 1875.1341,-946.3871 1877.7949,-939.9125"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#ignore_missing_samples -->
+<!-- file:///tmp/tmpi29b4bf1#bcl_sampleproject_subdirectories_bcl_conversion -->
 <g id="node11" class="node">
-<title>file:///tmp/tmp33gtq43b#ignore_missing_samples</title>
-<g id="a_node11"><a xlink:title="Remove the samples not present in the override cycles record&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2041.5,-1102.3005 2041.5,-1139.3005 2232.5,-1139.3005 2232.5,-1102.3005 2041.5,-1102.3005"/>
-<text text-anchor="middle" x="2137" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">ignore_missing_samples</text>
+<title>file:///tmp/tmpi29b4bf1#bcl_sampleproject_subdirectories_bcl_conversion</title>
+<g id="a_node11"><a xlink:title="true — Allows creation of Sample_Project subdirectories&#10;as specified in the sample sheet. This option must be set to true for&#10;the Sample_Project column in the data section to be used.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="858,-1102.3005 858,-1139.3005 1232,-1139.3005 1232,-1102.3005 858,-1102.3005"/>
+<text text-anchor="middle" x="1045" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bcl_sampleproject_subdirectories_bcl_conversion</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#ignore_missing_samples&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step -->
+<!-- file:///tmp/tmpi29b4bf1#bcl_sampleproject_subdirectories_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
 <g id="edge30" class="edge">
-<title>file:///tmp/tmp33gtq43b#ignore_missing_samples&#45;&gt;file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="#000000" d="M2109.0461,-1102.1646C2054.5603,-1065.8407 1934.1892,-985.5933 1873.4986,-945.1329"/>
-<polygon fill="#000000" stroke="#000000" points="1875.2542,-942.0968 1864.9922,-939.462 1871.3713,-947.9212 1875.2542,-942.0968"/>
+<title>file:///tmp/tmpi29b4bf1#bcl_sampleproject_subdirectories_bcl_conversion&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M1058.9163,-1101.9991C1122.2815,-1016.3901 1383.6318,-663.2956 1458.1091,-562.6738"/>
+<polygon fill="#000000" stroke="#000000" points="1460.9993,-564.6521 1464.1355,-554.532 1455.3729,-560.4875 1460.9993,-564.6521"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bcl_sampleproject_subdirectories_bcl_conversion -->
+<!-- file:///tmp/tmpi29b4bf1#settings_by_samples -->
 <g id="node12" class="node">
-<title>file:///tmp/tmp33gtq43b#bcl_sampleproject_subdirectories_bcl_conversion</title>
-<g id="a_node12"><a xlink:title="true — Allows creation of Sample_Project subdirectories&#10;as specified in the sample sheet. This option must be set to true for&#10;the Sample_Project column in the data section to be used.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="498,-1102.3005 498,-1139.3005 872,-1139.3005 872,-1102.3005 498,-1102.3005"/>
-<text text-anchor="middle" x="685" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bcl_sampleproject_subdirectories_bcl_conversion</text>
+<title>file:///tmp/tmpi29b4bf1#settings_by_samples</title>
+<g id="a_node12"><a xlink:title="List of settings by samples&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2009.5,-1102.3005 2009.5,-1139.3005 2174.5,-1139.3005 2174.5,-1102.3005 2009.5,-1102.3005"/>
+<text text-anchor="middle" x="2092" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">settings_by_samples</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bcl_sampleproject_subdirectories_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
+<!-- file:///tmp/tmpi29b4bf1#settings_by_samples&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step -->
 <g id="edge31" class="edge">
-<title>file:///tmp/tmp33gtq43b#bcl_sampleproject_subdirectories_bcl_conversion&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M710.7756,-1101.9991C828.966,-1015.7879 1319.041,-658.3142 1453.0181,-560.5878"/>
-<polygon fill="#000000" stroke="#000000" points="1455.3037,-563.2528 1461.3202,-554.532 1451.1785,-557.5975 1455.3037,-563.2528"/>
+<title>file:///tmp/tmpi29b4bf1#settings_by_samples&#45;&gt;file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step</title>
+<path fill="none" stroke="#000000" d="M2066.5991,-1101.985C2017.6279,-1065.71 1910.1703,-986.1118 1855.4493,-945.5777"/>
+<polygon fill="#000000" stroke="#000000" points="1857.2557,-942.5602 1847.1368,-939.4203 1853.089,-948.1851 1857.2557,-942.5602"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#fastq_directories -->
+<!-- file:///tmp/tmpi29b4bf1#interop_multiqc_out -->
 <g id="node13" class="node">
-<title>file:///tmp/tmp33gtq43b#fastq_directories</title>
-<g id="a_node13"><a xlink:title="The outputs from the bclconvert&#45;step&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1465,-132.3005 1465,-169.3005 1603,-169.3005 1603,-132.3005 1465,-132.3005"/>
-<text text-anchor="middle" x="1534" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_directories</text>
+<title>file:///tmp/tmpi29b4bf1#interop_multiqc_out</title>
+<g id="a_node13"><a xlink:title="multiqc directory output that contains interop data&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2228.5,-132.3005 2228.5,-169.3005 2389.5,-169.3005 2389.5,-132.3005 2228.5,-132.3005"/>
+<text text-anchor="middle" x="2309" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">interop_multiqc_out</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#fastq_list_rows -->
+<!-- file:///tmp/tmpi29b4bf1#fastq_directories -->
 <g id="node14" class="node">
-<title>file:///tmp/tmp33gtq43b#fastq_list_rows</title>
-<g id="a_node14"><a xlink:title="Contains the fastq list row schema for each of the output fastq files&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1621.5,-132.3005 1621.5,-169.3005 1746.5,-169.3005 1746.5,-132.3005 1621.5,-132.3005"/>
-<text text-anchor="middle" x="1684" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_list_rows</text>
+<title>file:///tmp/tmpi29b4bf1#fastq_directories</title>
+<g id="a_node14"><a xlink:title="The outputs from the bclconvert&#45;step&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1600,-132.3005 1600,-169.3005 1738,-169.3005 1738,-132.3005 1600,-132.3005"/>
+<text text-anchor="middle" x="1669" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_directories</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bclconvert_multiqc_out -->
+<!-- file:///tmp/tmpi29b4bf1#fastq_list_rows -->
 <g id="node15" class="node">
-<title>file:///tmp/tmp33gtq43b#bclconvert_multiqc_out</title>
-<g id="a_node15"><a xlink:title="multiqc directory output that contains bclconvert multiqc data&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2033,-132.3005 2033,-169.3005 2219,-169.3005 2219,-132.3005 2033,-132.3005"/>
-<text text-anchor="middle" x="2126" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bclconvert_multiqc_out</text>
+<title>file:///tmp/tmpi29b4bf1#fastq_list_rows</title>
+<g id="a_node15"><a xlink:title="Contains the fastq list row schema for each of the output fastq files&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1456.5,-132.3005 1456.5,-169.3005 1581.5,-169.3005 1581.5,-132.3005 1456.5,-132.3005"/>
+<text text-anchor="middle" x="1519" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_list_rows</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#split_sheets -->
+<!-- file:///tmp/tmpi29b4bf1#split_sheets -->
 <g id="node16" class="node">
-<title>file:///tmp/tmp33gtq43b#split_sheets</title>
+<title>file:///tmp/tmpi29b4bf1#split_sheets</title>
 <g id="a_node16"><a xlink:title="List of samplesheets split by override cycles&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1765,-132.3005 1765,-169.3005 1867,-169.3005 1867,-132.3005 1765,-132.3005"/>
-<text text-anchor="middle" x="1816" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">split_sheets</text>
+<polygon fill="#94ddf4" stroke="#000000" points="1756,-132.3005 1756,-169.3005 1858,-169.3005 1858,-132.3005 1756,-132.3005"/>
+<text text-anchor="middle" x="1807" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">split_sheets</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#interop_multiqc_out -->
+<!-- file:///tmp/tmpi29b4bf1#bclconvert_multiqc_out -->
 <g id="node17" class="node">
-<title>file:///tmp/tmp33gtq43b#interop_multiqc_out</title>
-<g id="a_node17"><a xlink:title="multiqc directory output that contains interop data&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="2237.5,-132.3005 2237.5,-169.3005 2398.5,-169.3005 2398.5,-132.3005 2237.5,-132.3005"/>
-<text text-anchor="middle" x="2318" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">interop_multiqc_out</text>
+<title>file:///tmp/tmpi29b4bf1#bclconvert_multiqc_out</title>
+<g id="a_node17"><a xlink:title="multiqc directory output that contains bclconvert multiqc data&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="2024,-132.3005 2024,-169.3005 2210,-169.3005 2210,-132.3005 2024,-132.3005"/>
+<text text-anchor="middle" x="2117" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">bclconvert_multiqc_out</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#split_sheets_dir -->
+<!-- file:///tmp/tmpi29b4bf1#split_sheets_dir -->
 <g id="node18" class="node">
-<title>file:///tmp/tmp33gtq43b#split_sheets_dir</title>
+<title>file:///tmp/tmpi29b4bf1#split_sheets_dir</title>
 <g id="a_node18"><a xlink:title="The directory containing the samplesheets used for each bcl convert&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1885,-132.3005 1885,-169.3005 2015,-169.3005 2015,-132.3005 1885,-132.3005"/>
-<text text-anchor="middle" x="1950" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">split_sheets_dir</text>
+<polygon fill="#94ddf4" stroke="#000000" points="1876,-132.3005 1876,-169.3005 2006,-169.3005 2006,-132.3005 1876,-132.3005"/>
+<text text-anchor="middle" x="1941" y="-147.1005" font-family="Times,serif" font-size="14.00" fill="#000000">split_sheets_dir</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#bcl_convert_step&#45;&gt;file:///tmp/tmp33gtq43b#fastq_directories -->
-<g id="edge3" class="edge">
-<title>file:///tmp/tmp33gtq43b#bcl_convert_step&#45;&gt;file:///tmp/tmp33gtq43b#fastq_directories</title>
-<path fill="none" stroke="#000000" d="M1488.3847,-517.0417C1491.2026,-480.0184 1498.0981,-394.9657 1507,-323.8005 1513.3666,-272.9035 1523.0706,-213.9412 1528.9465,-179.6585"/>
-<polygon fill="#000000" stroke="#000000" points="1532.4589,-179.886 1530.7106,-169.4364 1525.5609,-178.6954 1532.4589,-179.886"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#flatten_fastq_list_rows_array -->
-<g id="node20" class="node">
-<title>file:///tmp/tmp33gtq43b#flatten_fastq_list_rows_array</title>
-<g id="a_node20"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md" xlink:title="fastq list rows is an array and bcl convert is from a directory output.&#10;This scatters the arrays to a single array&#10;">
-<polygon fill="#ee9a00" stroke="#000000" points="1515.5,-324.3005 1515.5,-361.3005 1808.5,-361.3005 1808.5,-324.3005 1515.5,-324.3005"/>
-<text text-anchor="middle" x="1662" y="-339.1005" font-family="Times,serif" font-size="14.00" fill="#000000">flatten&#45;array&#45;fastq&#45;list&#45;schema v(1.0.0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp33gtq43b#bcl_convert_step&#45;&gt;file:///tmp/tmp33gtq43b#flatten_fastq_list_rows_array -->
-<g id="edge1" class="edge">
-<title>file:///tmp/tmp33gtq43b#bcl_convert_step&#45;&gt;file:///tmp/tmp33gtq43b#flatten_fastq_list_rows_array</title>
-<path fill="none" stroke="#000000" d="M1503.7797,-517.2948C1535.0586,-482.7987 1602.3495,-408.5865 1638.2684,-368.973"/>
-<polygon fill="#000000" stroke="#000000" points="1640.8896,-371.2928 1645.0139,-361.5337 1635.7039,-366.5908 1640.8896,-371.2928"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#bcl_convert_step&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step -->
-<g id="edge2" class="edge">
-<title>file:///tmp/tmp33gtq43b#bcl_convert_step&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step</title>
-<path fill="none" stroke="#000000" d="M1564.8185,-521.373C1757.1286,-485.719 2253.2637,-393.7362 2447.926,-357.6461"/>
-<polygon fill="#000000" stroke="#000000" points="2448.6087,-361.0792 2457.8031,-355.8149 2447.3326,-354.1965 2448.6087,-361.0792"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#flatten_fastq_list_rows_array&#45;&gt;file:///tmp/tmp33gtq43b#fastq_list_rows -->
-<g id="edge4" class="edge">
-<title>file:///tmp/tmp33gtq43b#flatten_fastq_list_rows_array&#45;&gt;file:///tmp/tmp33gtq43b#fastq_list_rows</title>
-<path fill="none" stroke="#000000" d="M1664.1495,-324.0411C1668.0121,-290.3315 1676.1487,-219.3212 1680.7144,-179.4746"/>
-<polygon fill="#000000" stroke="#000000" points="1684.2129,-179.6868 1681.8742,-169.3533 1677.2584,-178.8898 1684.2129,-179.6868"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#bclconvert_qc_step&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_multiqc_out -->
-<g id="edge7" class="edge">
-<title>file:///tmp/tmp33gtq43b#bclconvert_qc_step&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_multiqc_out</title>
-<path fill="none" stroke="#000000" d="M2489.0893,-324.2163C2415.2439,-288.9468 2254.97,-212.3981 2174.357,-173.8963"/>
-<polygon fill="#000000" stroke="#000000" points="2175.4642,-170.5465 2164.9322,-169.3949 2172.4473,-176.8631 2175.4642,-170.5465"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#create_dummy_file_step -->
-<g id="node22" class="node">
-<title>file:///tmp/tmp33gtq43b#create_dummy_file_step</title>
-<g id="a_node22"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
+<!-- file:///tmp/tmpi29b4bf1#create_dummy_file_step -->
+<g id="node19" class="node">
+<title>file:///tmp/tmpi29b4bf1#create_dummy_file_step</title>
+<g id="a_node19"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
 <polygon fill="#fafad2" stroke="#000000" points="2751.5,-1102.3005 2751.5,-1139.3005 3014.5,-1139.3005 3014.5,-1102.3005 2751.5,-1102.3005"/>
 <text text-anchor="middle" x="2883" y="-1117.1005" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#create_dummy_file_step&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step -->
-<g id="edge5" class="edge">
-<title>file:///tmp/tmp33gtq43b#create_dummy_file_step&#45;&gt;file:///tmp/tmp33gtq43b#bclconvert_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#create_dummy_file_step&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step -->
+<g id="edge1" class="edge">
+<title>file:///tmp/tmpi29b4bf1#create_dummy_file_step&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step</title>
 <path fill="none" stroke="#000000" d="M2874.4006,-1101.9544C2826.9767,-998.0228 2597.4604,-495.0264 2540.7097,-370.6545"/>
 <polygon fill="#000000" stroke="#000000" points="2543.8217,-369.0432 2536.4863,-361.3985 2537.4534,-371.9491 2543.8217,-369.0432"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#create_dummy_file_step&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step -->
-<g id="edge6" class="edge">
-<title>file:///tmp/tmp33gtq43b#create_dummy_file_step&#45;&gt;file:///tmp/tmp33gtq43b#interop_qc_step</title>
+<!-- file:///tmp/tmpi29b4bf1#create_dummy_file_step&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step -->
+<g id="edge2" class="edge">
+<title>file:///tmp/tmpi29b4bf1#create_dummy_file_step&#45;&gt;file:///tmp/tmpi29b4bf1#interop_qc_step</title>
 <path fill="none" stroke="#000000" d="M2862.7733,-1101.985C2824.0185,-1065.9339 2739.2643,-987.0928 2695.4473,-946.3328"/>
 <polygon fill="#000000" stroke="#000000" points="2697.7221,-943.6687 2688.0163,-939.4203 2692.9543,-948.794 2697.7221,-943.6687"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#interop_qc_step&#45;&gt;file:///tmp/tmp33gtq43b#interop_multiqc_out -->
-<g id="edge13" class="edge">
-<title>file:///tmp/tmp33gtq43b#interop_qc_step&#45;&gt;file:///tmp/tmp33gtq43b#interop_multiqc_out</title>
-<path fill="none" stroke="#000000" d="M2671.6758,-902.0691C2685.9524,-823.9006 2731.0117,-518.7275 2607,-323.8005 2557.1878,-245.5035 2458.0761,-197.7991 2389.9286,-172.8465"/>
-<polygon fill="#000000" stroke="#000000" points="2390.7028,-169.4061 2380.1083,-169.3291 2388.3424,-175.9961 2390.7028,-169.4061"/>
+<!-- file:///tmp/tmpi29b4bf1#bclconvert_qc_step&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_multiqc_out -->
+<g id="edge3" class="edge">
+<title>file:///tmp/tmpi29b4bf1#bclconvert_qc_step&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_multiqc_out</title>
+<path fill="none" stroke="#000000" d="M2488.2181,-324.2163C2412.5661,-288.8751 2248.1909,-212.0867 2165.938,-173.662"/>
+<polygon fill="#000000" stroke="#000000" points="2167.3453,-170.4564 2156.8038,-169.3949 2164.3825,-176.7985 2167.3453,-170.4564"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#get_batch_dirs -->
-<g id="node24" class="node">
-<title>file:///tmp/tmp33gtq43b#get_batch_dirs</title>
-<g id="a_node24"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md" xlink:title="Get the directory names of each of the directories we wish to scatter over&#10;">
-<polygon fill="#ee9a00" stroke="#000000" points="1520,-709.3005 1520,-746.3005 1808,-746.3005 1808,-709.3005 1520,-709.3005"/>
-<text text-anchor="middle" x="1664" y="-724.1005" font-family="Times,serif" font-size="14.00" fill="#000000">get&#45;samplesheet&#45;midfix&#45;regex v(1.0.0)</text>
+<!-- file:///tmp/tmpi29b4bf1#interop_qc_step&#45;&gt;file:///tmp/tmpi29b4bf1#interop_multiqc_out -->
+<g id="edge12" class="edge">
+<title>file:///tmp/tmpi29b4bf1#interop_qc_step&#45;&gt;file:///tmp/tmpi29b4bf1#interop_multiqc_out</title>
+<path fill="none" stroke="#000000" d="M2671.6968,-902.2883C2686.1976,-824.3664 2732.4578,-518.1101 2607,-323.8005 2555.8644,-244.6014 2454.7618,-197.3528 2384.5864,-172.73"/>
+<polygon fill="#000000" stroke="#000000" points="2385.4927,-169.3407 2374.898,-169.4048 2383.2202,-175.9616 2385.4927,-169.3407"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#bcl_convert_step&#45;&gt;file:///tmp/tmpi29b4bf1#fastq_directories -->
+<g id="edge6" class="edge">
+<title>file:///tmp/tmpi29b4bf1#bcl_convert_step&#45;&gt;file:///tmp/tmpi29b4bf1#fastq_directories</title>
+<path fill="none" stroke="#000000" d="M1502.6236,-517.2529C1538.9253,-488.3992 1605.9583,-429.041 1638,-361.8005 1666.718,-301.535 1670.3608,-221.4927 1670.0042,-179.427"/>
+<polygon fill="#000000" stroke="#000000" points="1673.5024,-179.2827 1669.8341,-169.3432 1666.5034,-179.4008 1673.5024,-179.2827"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#bcl_convert_step&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step -->
+<g id="edge4" class="edge">
+<title>file:///tmp/tmpi29b4bf1#bcl_convert_step&#45;&gt;file:///tmp/tmpi29b4bf1#bclconvert_qc_step</title>
+<path fill="none" stroke="#000000" d="M1555.6354,-521.5304C1749.163,-485.9581 2251.5075,-393.6224 2447.7669,-357.5481"/>
+<polygon fill="#000000" stroke="#000000" points="2448.5207,-360.9683 2457.7232,-355.718 2447.2552,-354.0836 2448.5207,-360.9683"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#flatten_fastq_list_rows_array -->
+<g id="node23" class="node">
+<title>file:///tmp/tmpi29b4bf1#flatten_fastq_list_rows_array</title>
+<g id="a_node23"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md" xlink:title="fastq list rows is an array and bcl convert is from a directory output.&#10;This scatters the arrays to a single array&#10;">
+<polygon fill="#ee9a00" stroke="#000000" points="1335.5,-324.3005 1335.5,-361.3005 1628.5,-361.3005 1628.5,-324.3005 1335.5,-324.3005"/>
+<text text-anchor="middle" x="1482" y="-339.1005" font-family="Times,serif" font-size="14.00" fill="#000000">flatten&#45;array&#45;fastq&#45;list&#45;schema v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp33gtq43b#get_batch_dirs&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
-<g id="edge8" class="edge">
-<title>file:///tmp/tmp33gtq43b#get_batch_dirs&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M1646.7062,-709.0411C1614.9013,-674.5409 1547.0779,-600.9697 1510.8975,-561.7232"/>
-<polygon fill="#000000" stroke="#000000" points="1513.4548,-559.3334 1504.1034,-554.3533 1508.3081,-564.0781 1513.4548,-559.3334"/>
+<!-- file:///tmp/tmpi29b4bf1#bcl_convert_step&#45;&gt;file:///tmp/tmpi29b4bf1#flatten_fastq_list_rows_array -->
+<g id="edge5" class="edge">
+<title>file:///tmp/tmpi29b4bf1#bcl_convert_step&#45;&gt;file:///tmp/tmpi29b4bf1#flatten_fastq_list_rows_array</title>
+<path fill="none" stroke="#000000" d="M1478.3835,-517.2948C1479.0821,-483.5893 1480.5665,-411.967 1481.4,-371.7501"/>
+<polygon fill="#000000" stroke="#000000" points="1484.9037,-371.6041 1481.6117,-361.5337 1477.9052,-371.459 1484.9037,-371.6041"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#split_sheets -->
-<g id="edge11" class="edge">
-<title>file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#split_sheets</title>
-<path fill="none" stroke="#000000" d="M1836.4913,-902.1482C1833.6974,-799.7062 1820.2199,-305.5294 1816.7936,-179.8982"/>
-<polygon fill="#000000" stroke="#000000" points="1820.2828,-179.452 1816.5114,-169.5512 1813.2854,-179.6429 1820.2828,-179.452"/>
+<!-- file:///tmp/tmpi29b4bf1#flatten_fastq_list_rows_array&#45;&gt;file:///tmp/tmpi29b4bf1#fastq_list_rows -->
+<g id="edge13" class="edge">
+<title>file:///tmp/tmpi29b4bf1#flatten_fastq_list_rows_array&#45;&gt;file:///tmp/tmpi29b4bf1#fastq_list_rows</title>
+<path fill="none" stroke="#000000" d="M1485.6151,-324.0411C1492.1251,-290.2596 1505.8539,-219.0182 1513.5233,-179.2201"/>
+<polygon fill="#000000" stroke="#000000" points="1516.9691,-179.835 1515.4247,-169.3533 1510.0956,-178.5103 1516.9691,-179.835"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#split_sheets_dir -->
-<g id="edge12" class="edge">
-<title>file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#split_sheets_dir</title>
-<path fill="none" stroke="#000000" d="M1839.7373,-902.1482C1854.7861,-799.6032 1927.439,-304.5346 1945.7853,-179.5201"/>
-<polygon fill="#000000" stroke="#000000" points="1949.2591,-179.9534 1947.2483,-169.5512 1942.3333,-178.937 1949.2591,-179.9534"/>
-</g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step -->
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#split_sheets -->
 <g id="edge9" class="edge">
-<title>file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#bcl_convert_step</title>
-<path fill="none" stroke="#000000" d="M1760.3357,-902.2062C1683.7371,-879.316 1569.2359,-832.4946 1511,-746.8005 1473.2704,-691.2814 1477.0685,-608.0054 1482.4089,-564.5374"/>
-<polygon fill="#000000" stroke="#000000" points="1485.91,-564.7626 1483.7755,-554.3851 1478.9726,-563.8287 1485.91,-564.7626"/>
+<title>file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#split_sheets</title>
+<path fill="none" stroke="#000000" d="M1821.6366,-902.1482C1819.641,-799.7062 1810.0142,-305.5294 1807.5668,-179.8982"/>
+<polygon fill="#000000" stroke="#000000" points="1811.0595,-179.4811 1807.3653,-169.5512 1804.0608,-179.6175 1811.0595,-179.4811"/>
 </g>
-<!-- file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#get_batch_dirs -->
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#split_sheets_dir -->
 <g id="edge10" class="edge">
-<title>file:///tmp/tmp33gtq43b#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmp33gtq43b#get_batch_dirs</title>
-<path fill="none" stroke="#000000" d="M1820.412,-902.2948C1789.5551,-867.8706 1723.2458,-793.8955 1687.6827,-754.2211"/>
-<polygon fill="#000000" stroke="#000000" points="1690.0729,-751.6439 1680.7919,-746.5337 1684.8605,-756.3162 1690.0729,-751.6439"/>
+<title>file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#split_sheets_dir</title>
+<path fill="none" stroke="#000000" d="M1824.8826,-902.1482C1840.7305,-799.6032 1917.2411,-304.5346 1936.5615,-179.5201"/>
+<polygon fill="#000000" stroke="#000000" points="1940.0337,-179.9684 1938.1022,-169.5512 1933.1158,-178.8992 1940.0337,-179.9684"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
+<g id="edge7" class="edge">
+<title>file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M1744.4397,-902.2019C1667.745,-879.401 1553.8589,-832.735 1497,-746.8005 1460.0481,-690.9527 1466.0469,-607.8156 1472.5933,-564.4552"/>
+<polygon fill="#000000" stroke="#000000" points="1476.0894,-564.762 1474.2437,-554.3292 1469.1806,-563.6359 1476.0894,-564.762"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#get_batch_dirs -->
+<g id="node25" class="node">
+<title>file:///tmp/tmpi29b4bf1#get_batch_dirs</title>
+<g id="a_node25"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md" xlink:title="Get the directory names of each of the directories we wish to scatter over&#10;">
+<polygon fill="#ee9a00" stroke="#000000" points="1506,-709.3005 1506,-746.3005 1794,-746.3005 1794,-709.3005 1506,-709.3005"/>
+<text text-anchor="middle" x="1650" y="-724.1005" font-family="Times,serif" font-size="14.00" fill="#000000">get&#45;samplesheet&#45;midfix&#45;regex v(1.0.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#get_batch_dirs -->
+<g id="edge8" class="edge">
+<title>file:///tmp/tmpi29b4bf1#samplesheet_split_by_settings_step&#45;&gt;file:///tmp/tmpi29b4bf1#get_batch_dirs</title>
+<path fill="none" stroke="#000000" d="M1805.5079,-902.2948C1774.8293,-867.8706 1708.9033,-793.8955 1673.5458,-754.2211"/>
+<polygon fill="#000000" stroke="#000000" points="1675.9611,-751.6706 1666.6949,-746.5337 1670.7352,-756.3279 1675.9611,-751.6706"/>
+</g>
+<!-- file:///tmp/tmpi29b4bf1#get_batch_dirs&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step -->
+<g id="edge11" class="edge">
+<title>file:///tmp/tmpi29b4bf1#get_batch_dirs&#45;&gt;file:///tmp/tmpi29b4bf1#bcl_convert_step</title>
+<path fill="none" stroke="#000000" d="M1633.1947,-709.0411C1602.417,-674.6846 1536.9294,-601.5821 1501.6635,-562.2156"/>
+<polygon fill="#000000" stroke="#000000" points="1503.8997,-559.4663 1494.6202,-554.3533 1498.6858,-564.1371 1503.8997,-559.4663"/>
 </g>
 </g>
 </svg>

@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f386d70bac0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f73f5ab5af0>`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
