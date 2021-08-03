@@ -698,12 +698,71 @@ subcommands:
   ##################
   # Run-list Commands  # Not yet implemented  v1.0 release
   ##################
-  # list-tool-runs                      List registered tool runs for a CWL tool in a given project
-  # list-workflow-runs                  List registered workflows runs for a CWL workflow in a given project
-
+  list-tool-runs:
+    summary: |
+      List registered tool runs for a CWL tool in a given project
+    options:
+      - name: tool-path
+        summary: |
+          A cwl tool file
+        type: string
+        completion:
+          command_string: |-
+            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
+      - name: project
+        summary: |
+          A project name
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+  list-workflow-runs:
+    summary: |
+      List registered workflows runs for a CWL workflow in a given project
+    options:
+      - name: workflow-path
+        summary: |
+          A cwl workflow file
+        type: string
+        completion:
+          command_string: |-
+            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+      - name: project
+        summary: |
+          A project name
+        type: string
+        completion:
+          command_string: |-
+            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
 
   ################################
   # Get Run-templates Commands  # Not yet implemented  v1.0 release
   ################################
-  # copy-tool-submission-template       Copy a tool submission template for an upcoming tool run
-  # copy-workflow-submission-template   Copy a workflow submission template for an upcoming workflow run
+  copy-tool-submission-template:
+    summary: |
+      Copy a tool submission template for an upcoming tool run
+    options:
+      - name: ica-workflow-run-instance-id
+        summary: |
+          A ica workflow run instance id
+        type: string
+        completion:
+          command_string: python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")'
+      - name: prefix
+        summary: |
+          The prefix to the outputs files and name attribute in the json file
+        type: string
+  copy-workflow-submission-template:
+    summary: |
+      Copy a workflow submission template for an upcoming workflow run
+    options:
+      - name: ica-workflow-run-instance-id
+        summary: |
+          A ica workflow run instance id
+        type: string
+        completion:
+          command_string: python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")'
+      - name: prefix
+        summary: |
+          The prefix to the outputs files and name attribute in the json file
+        type: string
