@@ -457,6 +457,9 @@ subcommands:
         completion:
           command_string: |-
             find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml"
+      - name: force
+        summary: |
+          Overwrite on ICA even if mod time in yaml is behind
   workflow-sync:
     summary: |
       Sync a workflows md5sum in ${CWL_ICA_REPO_PATH}/config/workflow.yaml
@@ -483,6 +486,9 @@ subcommands:
         completion:
           command_string: |-
             python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+      - name: force
+        summary: |
+          Overwrite on ICA even if mod time in yaml is behind
 
   #######################
   # Add-to-project Commands
@@ -752,6 +758,9 @@ subcommands:
         summary: |
           The prefix to the outputs files and name attribute in the json file
         type: string
+      - name: curl
+        summary: |
+          Use curl binary over ica binary to launch workflow
   copy-workflow-submission-template:
     summary: |
       Copy a workflow submission template for an upcoming workflow run
@@ -766,3 +775,6 @@ subcommands:
         summary: |
           The prefix to the outputs files and name attribute in the json file
         type: string
+      - name: curl
+        summary: |
+          Use curl binary over ica binary to launch workflow
