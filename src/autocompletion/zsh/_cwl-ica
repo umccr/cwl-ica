@@ -367,6 +367,8 @@ and update definition on ICA
 ]:ica-workflow-run-instance-id:_cwl-ica_copy-tool-submission-template_option_ica_workflow_run_instance_id_completion' \
                     '--prefix[The prefix to the outputs files and name attribute in the json file
 ]:prefix' \
+                    '--curl[Use curl binary over ica binary to launch workflow
+]:curl' \
                     && ret=0
 
 
@@ -382,6 +384,8 @@ and update definition on ICA
 ]:ica-workflow-run-instance-id:_cwl-ica_copy-workflow-submission-template_option_ica_workflow_run_instance_id_completion' \
                     '--prefix[The prefix to the outputs files and name attribute in the json file
 ]:prefix' \
+                    '--curl[Use curl binary over ica binary to launch workflow
+]:curl' \
                     && ret=0
 
 
@@ -676,6 +680,8 @@ to workflow names
                     '-h[Show command help]' \
                     '--schema-path[Path to the schema
 ]:schema-path:_cwl-ica_schema-sync_option_schema_path_completion' \
+                    '--force[Overwrite on ICA even if mod time in yaml is behind
+]:force' \
                     && ret=0
 
 
@@ -848,6 +854,8 @@ to workflow names
 ]:projects:_cwl-ica_workflow-sync_option_projects_completion' \
                     '--tenants[List of tenants to filter by when project set to '"'"'all'"'"'
 ]:tenants:_cwl-ica_workflow-sync_option_tenants_completion' \
+                    '--force[Overwrite on ICA even if mod time in yaml is behind
+]:force' \
                     && ret=0
 
 

@@ -404,6 +404,7 @@ and update definition on ICA
       copy-tool-submission-template)
         OPTIONS+=('--ica-workflow-run-instance-id' 'A ica workflow run instance id
 ' '--prefix' 'The prefix to the outputs files and name attribute in the json file
+' '--curl' 'Use curl binary over ica binary to launch workflow
 ')
         __cwl-ica_handle_options_flags
         case ${MYWORDS[$INDEX-1]} in
@@ -411,6 +412,8 @@ and update definition on ICA
             _cwl-ica_copy-tool-submission-template_option_ica_workflow_run_instance_id_completion
           ;;
           --prefix)
+          ;;
+          --curl)
           ;;
 
         esac
@@ -424,6 +427,7 @@ and update definition on ICA
       copy-workflow-submission-template)
         OPTIONS+=('--ica-workflow-run-instance-id' 'A ica workflow run instance id
 ' '--prefix' 'The prefix to the outputs files and name attribute in the json file
+' '--curl' 'Use curl binary over ica binary to launch workflow
 ')
         __cwl-ica_handle_options_flags
         case ${MYWORDS[$INDEX-1]} in
@@ -431,6 +435,8 @@ and update definition on ICA
             _cwl-ica_copy-workflow-submission-template_option_ica_workflow_run_instance_id_completion
           ;;
           --prefix)
+          ;;
+          --curl)
           ;;
 
         esac
@@ -777,11 +783,14 @@ to workflow names
       ;;
       schema-sync)
         OPTIONS+=('--schema-path' 'Path to the schema
+' '--force' 'Overwrite on ICA even if mod time in yaml is behind
 ')
         __cwl-ica_handle_options_flags
         case ${MYWORDS[$INDEX-1]} in
           --schema-path)
             _cwl-ica_schema-sync_option_schema_path_completion
+          ;;
+          --force)
           ;;
 
         esac
@@ -989,6 +998,7 @@ to workflow names
         OPTIONS+=('--workflow-path' 'Path to the workflow
 ' '--projects' 'List of projects to sync the workflow to
 ' '--tenants' 'List of tenants to filter by when project set to '"\\'"'all'"\\'"'
+' '--force' 'Overwrite on ICA even if mod time in yaml is behind
 ')
         __cwl-ica_handle_options_flags
         case ${MYWORDS[$INDEX-1]} in
@@ -1000,6 +1010,8 @@ to workflow names
           ;;
           --tenants)
             _cwl-ica_workflow-sync_option_tenants_completion
+          ;;
+          --force)
           ;;
 
         esac
