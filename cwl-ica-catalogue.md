@@ -273,6 +273,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-transcriptome/3.7.5/dragen-transcriptome__3.7.5.md)  
+- [3.8.4](.github/catalogue/docs/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
 
 
 ### arriba-fusion-calling
@@ -416,6 +417,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.md)  
+- [3.8.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
 
 
 ### dragen-alignment-pipeline

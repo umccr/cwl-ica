@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f73f5ab5af0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f51fe6cbb50>`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
@@ -459,6 +459,11 @@ The directory containing the samplesheets used for each bcl convert
 
 #### Run Instances
 
+##### ToC
+  
+- [Run wfr.d9ddc8eb7d544d32bdbe285fd45a4365](#run-wfrd9ddc8eb7d544d32bdbe285fd45a4365)  
+
+
 ##### Run wfr.d9ddc8eb7d544d32bdbe285fd45a4365
 
 
@@ -470,6 +475,18 @@ The directory containing the samplesheets used for each bcl convert
 **Start Time:** 2021-07-14 09:04:23 UTC  
 **Duration:** 2021-07-14 14:44:02 UTC  
 **End Time:** 0 days 05:39:38  
+
+
+###### Reproduce Run
+
+
+```
+
+                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.d9ddc8eb7d544d32bdbe285fd45a4365
+
+                                    bash wfr.d9ddc8eb7d544d32bdbe285fd45a4365.launch.sh
+                                    
+```  
 
 
 ###### Run Inputs

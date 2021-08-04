@@ -198,7 +198,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fa8e4e2d730>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f5d12eccdf0>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -855,6 +855,12 @@ Bam file of the tumor sample
 
 #### Run Instances
 
+##### ToC
+  
+- [Run wfr.e3c6b8ce7e4447cbbd321b5c96ef7670](#run-wfre3c6b8ce7e4447cbbd321b5c96ef7670)  
+- [Run wfr.58436856778e4f70ae7856869571470c](#run-wfr58436856778e4f70ae7856869571470c)  
+
+
 ##### Run wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
 
 
@@ -866,6 +872,18 @@ Bam file of the tumor sample
 **Start Time:** 2021-07-15 08:48:13 UTC  
 **Duration:** 2021-07-15 18:13:17 UTC  
 **End Time:** 0 days 09:25:03  
+
+
+###### Reproduce Run
+
+
+```
+
+                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
+
+                                    bash wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.launch.sh
+                                    
+```  
 
 
 ###### Run Inputs
@@ -1080,6 +1098,18 @@ Bam file of the tumor sample
 **Start Time:** 2021-07-15 08:48:10 UTC  
 **Duration:** 2021-07-15 15:01:03 UTC  
 **End Time:** 0 days 06:12:52  
+
+
+###### Reproduce Run
+
+
+```
+
+                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.58436856778e4f70ae7856869571470c
+
+                                    bash wfr.58436856778e4f70ae7856869571470c.launch.sh
+                                    
+```  
 
 
 ###### Run Inputs

@@ -17,7 +17,7 @@ dragen-build-reference-tarball 3.8.4 tool
 
   
 > ID: dragen-build-reference-tarball--3.8.4  
-> md5sum: cb459c90320320dd71056700bf913a23
+> md5sum: f446aa06c779ae43e519c3b00d33f5fb
 
 ### dragen-build-reference-tarball v(3.8.4) documentation
   
@@ -77,7 +77,7 @@ To disable this requirement, set the --ht-alt-aware-validate option to false.
 > ID: ht_alt_liftover
   
 **Optional:** `True`  
-**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f9fb13e02b0>]`  
+**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f8587657400>]`  
 **Docs:**  
 The --ht-alt-liftover option specifies the path to the liftover file to build an ALT-aware hash table.
 This option is required when building from a reference with ALT contigs.

@@ -260,6 +260,11 @@ Output directory from somalier step
 
 #### Run Instances
 
+##### ToC
+  
+- [Run wfr.1fd8c32d79c34e179a4c0d6754edd3a2](#run-wfr1fd8c32d79c34e179a4c0d6754edd3a2)  
+
+
 ##### Run wfr.1fd8c32d79c34e179a4c0d6754edd3a2
 
 
@@ -272,6 +277,18 @@ umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5
 **Start Time:** 2021-07-14 19:24:12 UTC  
 **Duration:** 2021-07-14 23:23:00 UTC  
 **End Time:** 0 days 03:58:48  
+
+
+###### Reproduce Run
+
+
+```
+
+                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.1fd8c32d79c34e179a4c0d6754edd3a2
+
+                                    bash wfr.1fd8c32d79c34e179a4c0d6754edd3a2.launch.sh
+                                    
+```  
 
 
 ###### Run Inputs
