@@ -112,9 +112,14 @@ def get_ica_section(cwl_file_path: Path, item_type: str, projects: List[Project]
 
             md_file_obj.new_header(level=6, title=f"Reproduce Run", add_table_of_contents="n")
             md_file_obj.insert_code("""
-                                    cwl-ica copy-{}-submission-template --ica-workflow-run-instance-id {}\n
-                                    bash {}.launch.sh
-                                    """.format(item_type, run_obj.ica_workflow_run_instance_id, run_obj.ica_workflow_run_instance_id))
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-{}-submission-template --ica-workflow-run-instance-id {}\n
+# Edit the input json file (optional)
+# vim {}.template.json \n
+# Run the launch script
+bash {}.launch.sh
+                                    """.format(item_type, run_obj.ica_workflow_run_instance_id, run_obj.ica_workflow_run_instance_id, run_obj.ica_workflow_run_instance_id),
+                                    language="bash")
             md_file_obj.new_line("\n")
 
             md_file_obj.new_header(level=6, title=f"Run Inputs", add_table_of_contents="n")
