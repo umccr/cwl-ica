@@ -7,7 +7,7 @@ Yet every project of mine has always had one, and probably always will.
 A refined goal is to actively reduce the number of functions in this file.
 """
 
-from utils.repo import read_yaml
+from utils.repo import read_yaml, get_cwl_ica_repo_path, get_blob_url, get_raw_url
 from utils.yaml import dump_yaml
 from pathlib import Path
 from utils.repo import get_project_yaml_path
@@ -15,10 +15,21 @@ from classes.project_production import ProductionProject
 from classes.project import Project
 from utils.logging import get_logger
 from utils.errors import CWLFileNameError
-from utils.repo import get_tenant_yaml_path
+from utils.repo import get_tenant_yaml_path, get_cwl_ica_repo_path
 import os
+from base64 import b64encode, b64decode
+import zlib
 
 logger = get_logger()
+
+
+def get_items_dir_from_cwl_file_path(cwl_file_path: Path) -> Path:
+    """
+    Get the absolute path of the items directory from the cwl file path
+    :param cwl_file_path:
+    :return:
+    """
+    return Path(list(cwl_file_path.absolute().relative_to(get_cwl_ica_repo_path()).parents)[-2]).absolute()
 
 
 def filter_projects_by_item(projects, item_name, item_type_key):
@@ -248,3 +259,103 @@ def get_name_version_tuple_from_cwl_file_path(cwl_file_path, items_dir):
         raise CWLFileNameError
 
     return name_file, version_file
+
+
+def encode_compressed_base64(uncompressed_string):
+    """
+    Compress string then base64 string
+
+    1. Encode to ascii
+    2. Convert to bytes for zlib compression
+    3. Encode as base64
+    4. Decode as ascii
+
+    :param uncompressed_string:
+    :return:
+    """
+
+    return b64encode(
+            zlib.compress(bytes(uncompressed_string.encode('ascii')))
+           ).decode('ascii')
+
+
+def decode_compressed_base64(compressed_string):
+    """
+    Might thing we do the opposite? Ah no
+    1. Decode base64
+    2. Decompress
+    3. Decode as ascii
+    :param compressed_string:
+    :return:
+    """
+
+    return zlib.decompress(
+             b64decode(compressed_string)
+           ).decode('ascii')
+
+def get_markdown_file_from_cwl_path(cwl_path: Path) -> Path:
+    """
+    From the cwl file path, get the path to the markdown file path
+    :param cwl_path:
+    :return:
+    """
+    # Get the relative path
+    relative_cwl_path = cwl_path.absolute().relative_to(get_cwl_ica_repo_path())
+
+    return get_cwl_ica_repo_path() / ".github/catalogue/docs" / relative_cwl_path.parent / (relative_cwl_path.stem + ".md")
+
+
+def get_blob_url_to_markdown_file_from_cwl_path(cwl_path: Path) -> str:
+    """
+    From the step id, get the url to the markdown file
+    :param cwl_path:
+    :return:
+    """
+    # Get the relative path to CWL_ICA_REPO_PATH and then prefix with catalogue docs path
+    markdown_path = get_markdown_file_from_cwl_path(cwl_path).absolute().relative_to(get_cwl_ica_repo_path())
+
+    return get_blob_url() + "/" + str(markdown_path)
+
+
+def get_blob_url_from_path(cwl_path: Path) -> str:
+    """
+    From the cwl path get the cwl url
+    :param cwl_path:
+    :return:
+    """
+
+    relative_cwl_path = cwl_path.absolute().relative_to(get_cwl_ica_repo_path())
+
+    return get_blob_url() + "/" + str(relative_cwl_path)
+
+
+def get_raw_url_from_path(cwl_path: Path) -> str:
+    """
+    From the path get the raw url
+    :param cwl_path:
+    :return:
+    """
+    relative_cwl_path = cwl_path.absolute().relative_to(get_cwl_ica_repo_path())
+
+    return get_raw_url() + "/" + str(relative_cwl_path)
+
+
+def get_graph_path_from_cwl_path(cwl_path: Path) -> Path:
+    """
+    From the cwl path get the path to the svg graph
+    :param cwl_path:
+    :return:
+    """
+    # Get the relative path
+    relative_cwl_path = cwl_path.absolute().relative_to(get_cwl_ica_repo_path())
+
+    return get_cwl_ica_repo_path() / ".github/catalogue/images" / relative_cwl_path.parent / (relative_cwl_path.stem + ".svg")
+
+
+def cwl_id_to_path(cwl_id: str) -> Path:
+    """
+    Returns the bit after '#' and converts to a path object
+    :param cwl_id:
+    :return:
+    """
+    return Path(cwl_id.rsplit("#", 1)[-1])

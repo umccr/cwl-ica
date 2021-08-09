@@ -1,0 +1,15 @@
+type: record
+name: predefined-mount-path
+
+fields:
+  file_obj:
+    label: file obj
+    doc: |
+      The file object
+    type: File
+  mount_path:
+    label: mount path
+    doc: |
+      The predefined mount path to the file
+      This will match the file in the csv
+    type: string

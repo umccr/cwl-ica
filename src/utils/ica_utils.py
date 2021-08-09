@@ -191,7 +191,7 @@ def get_token_scopes(jwt_token_obj):
     return scopes_list
 
 
-def get_projects_list_with_personal_access_token(base_url, personal_access_token):
+def get_projects_list_with_token(base_url, personal_access_token):
     """
     List project using an api-key for authorization
     :param base_url:
@@ -234,7 +234,7 @@ def get_projects_list_with_personal_access_token(base_url, personal_access_token
                      "Make sure --api-key has correct scope")
         raise TokenMembershipsError
 
-    return [project.id for project in projects]
+    return projects
 
 
 def create_personal_access_token(base_url, api_key):
@@ -396,11 +396,11 @@ def get_api_key(project_name, sh_env_var="CWL_ICA_API_KEY_SH", key_path_env_var=
         sh_env_path = Path(os.environ.get(sh_env_var))
 
     if not sh_env_path.is_file():
-        logger.warning(f"Could not find file \"{sh_env_var}\"")
+        logger.warning(f"Could not find file \"{sh_env_path}\"")
         return None
 
     if not os.access(sh_env_path, os.X_OK):
-        logger.warning(f"Found path \"{sh_env_var}\" however it is not executable")
+        logger.warning(f"Found path \"{sh_env_path}\" however it is not executable")
         return None
 
     # Run the file with the environment variables set

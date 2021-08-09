@@ -1,0 +1,36 @@
+schemas:
+  - name: fastq-list-row
+    path: fastq-list-row
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/fastq-list-row__1.0.0.yaml
+        md5sum: d2fd880cd942955394f66dc249b6bfe2
+    categories: []
+  - name: contig
+    path: contig
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/contig__1.0.0.yaml
+        md5sum: 4584d6b2739f4d02b934eead6fd1e328
+    categories: []
+  - name: predefined-mount-path
+    path: predefined-mount-path
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/predefined-mount-path__1.0.0.yaml
+        md5sum: da24a7c18dc1531382032a84fcaee2eb
+    categories: []
+  - name: tso500-sample
+    path: tso500-sample
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/tso500-sample__1.0.0.yaml
+        md5sum: 8c1b912aba28ab93bdce4f420f346380
+    categories: []
+  - name: settings-by-samples
+    path: settings-by-samples
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/settings-by-samples__1.0.0.yaml
+        md5sum: ffc6a9e9b8773c592a133e0e5ed864f2
+    categories: []

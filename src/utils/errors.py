@@ -69,6 +69,46 @@ class ICAWorkflowVersionCreationError(Exception):
     """
     pass
 
+class ICAWorkflowRunCreationError(Exception):
+    """
+    Could not create the run object
+    """
+    pass
+
+class ICAWorkflowRunExistsError(Exception):
+    """
+    The run already exists in run.yaml
+    """
+    pass
+
+
+class ICAWorkflowRunNotFoundError(Exception):
+    """
+    The workflow run does not exist
+    """
+    pass
+
+
+class ICATaskRunCreationError(Exception):
+    """
+    Could not create the ica workflow run
+    """
+    pass
+
+
+class UnknownDateTypeError(Exception):
+    """
+    When handling the modification time error
+    """
+    pass
+
+
+# Tasks
+class GetStepNameError(Exception):
+    """
+    Could not get the name of the step from the ica task launch value
+    """
+    pass
 
 # Items
 class ItemCreationError(Exception):
@@ -184,6 +224,13 @@ class UserNotFoundError(Exception):
     pass
 
 
+class MultipleAuthorsError(Exception):
+    """
+    Cannot have more than one author of a script
+    """
+    pass
+
+
 # Tenants
 class TenantExistsError(Exception):
     """
@@ -203,6 +250,12 @@ class TenantNotFoundError(Exception):
 class CategoryExistsError(Exception):
     """
     The category already exists in category.yaml
+    """
+    pass
+
+class CategoryNotFoundError(Exception):
+    """
+    The category does not exist in category.yaml
     """
     pass
 

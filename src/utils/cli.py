@@ -61,6 +61,8 @@ Command:
     schema-validate                     Validate a CWL schema
     tool-validate                       Validate a CWL tool ready for initialising on ICA
     workflow-validate                   Validate a CWL workflow ready for initialising on ICA
+    validate-config-yamls               Confirms configuration files are legit
+    validate-api-key-script             Confirm an api-key-script works for a given project
 
 
     ###############
@@ -75,8 +77,10 @@ Command:
     ########################
     Sync-to-project Commands
     ########################
+    expression-sync                     Sync an expression in ${CWL_ICA_REPO_PATH}/config/expression.yaml
     tool-sync                           Sync a tool's md5sum in ${CWL_ICA_REPO_PATH}/config/tool.yaml
                                         and update definition on ICA
+    schema-sync                         Sync a schema in ${CWL_ICA_REPO_PATH}/config/schema.yaml
     workflow-sync                       Sync a workflows's md5sum in ${CWL_ICA_REPO_PATH}/config/workflow.yaml
                                         and update definition on ICA
 
@@ -86,30 +90,45 @@ Command:
     #######################
     add-tool-to-project                 Add an existing tool to another project
     add-workflow-to-project             Add an existing workflow to another project
+    add-linked-project                  Link an existing project-id to an initialised project in project.yaml
+
+
+    ########################
+    Add-category Commands
+    ########################
+    add-category-to-tool                Add an existing category to an existing tool
+    add-category-to-workflow            Add an existing category to an existing workflow
+
+
+    ############################
+    Add-maintainer commands
+    ############################
+    add-maintainer-to-expression        Acknowledge a user as a maintainer of a cwl expression
+    add-maintainer-to-tool              Acknowledge a user as a maintainer of a cwl tool
+    add-maintainer-to-workflow          Acknowledge a user as a maintainer of a cwl workflow
 
 
     #############################
-    Run-register Commands  # Not yet implemented v1.0 release
+    Run-register Commands
     #############################
-    register-tool-run-instance-id       Register an ICA workflow run instance of a tool for a given project
-    register-workflow-run-instance-id   Register an ICA workflow run instance of a workflow for a given project
+    register-tool-run-instance          Register an ICA workflow run instance of a tool for a given project
+    register-workflow-run-instance      Register an ICA workflow run instance of a workflow for a given project
 
 
     #######################
-    Query workflow Commands  # Not yet implemented v1.0 release
+    Query workflow Commands
     #######################
     get-workflow-step-ids               Get the step ids of a CWL workflow
 
-
     ##################
-    Run-list Commands  # Not yet implemented  v1.0 release
+    Run-list Commands
     ##################
     list-tool-runs                      List registered tool runs for a CWL tool in a given project
     list-workflow-runs                  List registered workflows runs for a CWL workflow in a given project
 
 
     ################################
-    Get Run-templates Commands  # Not yet implemented  v1.0 release
+    Get Run-templates Commands
     ################################
     copy-tool-submission-template       Copy a tool submission template for an upcoming tool run
     copy-workflow-submission-template   Copy a workflow submission template for an upcoming workflow run
@@ -118,15 +137,17 @@ Command:
     #################################
     GitHub Actions Scripts
     #################################
-    github-actions-sync-tools           Sync all tools to tool.yaml and to all projects with that tool version
-    github-actions-sync-workflows       Sync workflows to workflow.yaml and to all projects with that workflow version
-    github-actions-build-catalogue      Create the catalogue markdown file    # Not yet implemented v1.0 release
+    github-actions-sync-tools                  Sync all tools to tool.yaml and to all projects with that tool version
+    github-actions-sync-workflows              Sync workflows to workflow.yaml and to all projects with that workflow version
+    github-actions-create-expression-markdown  Create a markdown help report file for a cwl expression
+    github-actions-create-tool-markdown        Create a markdown help report file for a cwl tool
+    github-actions-create-workflow-markdown    Create a markdown help report file for a cwl workflow
+    github-actions-create-catalogue            Create the catalogue markdown file
 """
 
 from docopt import docopt
-from __version__ import version
+from utils.__version__ import version
 import sys
-from classes.command import Command
 from utils.logging import set_basic_logger
 
 logger = set_basic_logger()
@@ -286,8 +307,20 @@ def _dispatch():
         workflow_validate_obj = WorkflowValidate(command_argv)
         # Call command
         workflow_validate_obj()
+    elif cmd == "validate-config-yamls":
+        from subcommands.validators.validate_config_yamls import ValidateConfigYamls
+        # Init command
+        validate_config_obj = ValidateConfigYamls(command_argv)
+        # Call command
+        validate_config_obj()
+    elif cmd == "validate-api-key-script":
+        from subcommands.validators.validate_api_key_script import ValidateApiKeyScript
+        # Init command
+        validate_api_key_script_obj = ValidateApiKeyScript(command_argv)
+        # Call command
+        validate_api_key_script_obj()
 
-    # Initialisation commands -- # TODO workflow, schema, expression
+    # Initialisation commands
     elif cmd == "expression-init":
         from subcommands.initialisers.expression_init import ExpressionInitialiser
         # Initialise command
@@ -313,7 +346,7 @@ def _dispatch():
         # Call command
         workflow_init_obj()
 
-    # Sync to project commands -- # TODO workflow, schema expression
+    # Sync to project commands
     elif cmd == "expression-sync":
         from subcommands.sync.sync_expression import ExpressionSync
         # Initialise Command
@@ -353,7 +386,91 @@ def _dispatch():
         # Call command
         workflow_add_obj()
 
-    # Github actions
+    # Add category to 'x' commands
+    elif cmd == "add-category-to-tool":
+        from subcommands.updaters.add_category_to_tool import AddCategoryToTool
+        # Initialise command
+        category_add_obj = AddCategoryToTool(command_argv)
+        # Call command
+        category_add_obj()
+    elif cmd == "add-category-to-workflow":
+        from subcommands.updaters.add_category_to_workflow import AddCategoryToWorkflow
+        # Initialise command
+        category_add_obj = AddCategoryToWorkflow(command_argv)
+        # Call command
+        category_add_obj()
+
+    # Add maintainer commands
+    elif cmd == "add-maintainer-to-expression":
+        from subcommands.updaters.add_maintainer_to_expression import AddMaintainerToExpression
+        # Initialise command
+        add_maintainer_obj = AddMaintainerToExpression(command_argv)
+        # Call command
+        add_maintainer_obj()
+    elif cmd == "add-maintainer-to-tool":
+        from subcommands.updaters.add_maintainer_to_tool import AddMaintainerToTool
+        # Initialise command
+        add_maintainer_obj = AddMaintainerToTool(command_argv)
+        # Call command
+        add_maintainer_obj()
+    elif cmd == "add-maintainer-to-workflow":
+        from subcommands.updaters.add_maintainer_to_workflow import AddMaintainerToWorkflow
+        # Initialise command
+        add_maintainer_obj = AddMaintainerToWorkflow(command_argv)
+        # Call command
+        add_maintainer_obj()
+
+    # Project update command
+    elif cmd == "add-linked-project":
+        from subcommands.updaters.add_linked_project import LinkProject
+        # Initialise command
+        link_project_obj = LinkProject(command_argv)
+        # Call command
+        link_project_obj()
+
+    # Register run instance commands
+    elif cmd == "register-tool-run-instance":
+        from subcommands.initialisers.run_tool_init import RegisterToolRunInstance
+        # Initialise command
+        register_tool_run_instance_obj = RegisterToolRunInstance(command_argv)
+        # Call command
+        register_tool_run_instance_obj()
+    elif cmd == "register-workflow-run-instance":
+        from subcommands.initialisers.run_workflow_init import RegisterWorkflowRunInstance
+        register_workflow_run_instance_obj = RegisterWorkflowRunInstance(command_argv)
+        # Call command
+        register_workflow_run_instance_obj()
+    elif cmd == "get-workflow-step-ids":
+        from subcommands.query.get_workflow_step_ids import GetWorkflowStepIDs
+        get_workflow_step_ids_obj = GetWorkflowStepIDs(command_argv)
+        # Call command
+        get_workflow_step_ids_obj()
+    # Get run templates
+    elif cmd == "copy-tool-submission-template":
+        from subcommands.query.copy_tool_submission_template import CopyToolSubmissionTemplate
+        copy_tool_submission_template_obj = CopyToolSubmissionTemplate(command_argv)
+        # Call command
+        copy_tool_submission_template_obj()
+    elif cmd == "copy-workflow-submission-template":
+        from subcommands.query.copy_workflow_submission_template import CopyWorkflowSubmissionTemplate
+        copy_workflow_submission_template_obj = CopyWorkflowSubmissionTemplate(command_argv)
+        # Call command
+        copy_workflow_submission_template_obj()
+
+    elif cmd == "list-tool-runs":
+        from subcommands.listers.list_tool_runs import ListToolRuns
+        tool_runs_obj = ListToolRuns(command_argv)
+        # Call command
+        tool_runs_obj()
+    elif cmd == "list-workflow-runs":
+        # FIXME
+        from subcommands.listers.list_workflow_runs import ListWorkflowRuns
+        workflow_runs_obj = ListWorkflowRuns(command_argv)
+        # Call command
+        workflow_runs_obj()
+
+
+    # Github actions  # TODO - sync-schema / sync-expression
     elif cmd == "github-actions-sync-tools":
         from subcommands.sync.sync_github_actions_tool import SyncGitHubActionsTool
         # Initialise command
@@ -366,6 +483,32 @@ def _dispatch():
         sync_workflows_obj = SyncGitHubActionsWorkflow(command_argv)
         # Call command
         sync_workflows_obj()
+    elif cmd == "github-actions-create-expression-markdown":
+        from subcommands.github_actions.create_expression_markdown_file import CreateExpressionMarkdownFile
+        # Initialise command
+        create_expression_markdown_obj = CreateExpressionMarkdownFile(command_argv)
+        # Call command
+        create_expression_markdown_obj()
+    elif cmd == "github-actions-create-tool-markdown":
+        from subcommands.github_actions.create_tool_markdown_file import CreateToolMarkdownFile
+        # Initialise command
+        create_tool_markdown_obj = CreateToolMarkdownFile(command_argv)
+        # Call command
+        create_tool_markdown_obj()
+    elif cmd == "github-actions-create-workflow-markdown":
+        from subcommands.github_actions.create_workflow_markdown_file import CreateWorkflowMarkdownFile
+        # Initialise command
+        create_workflow_markdown_obj = CreateWorkflowMarkdownFile(command_argv)
+        # Call command
+        create_workflow_markdown_obj()
+    elif cmd == "github-actions-create-catalogue":
+        from subcommands.github_actions.create_catalogue import CreateCatalogue
+        # Initialise command
+        create_catalogue_obj = CreateCatalogue(command_argv)
+        # Call command
+        create_catalogue_obj()
+
+    # NotImplemented Error
     else:
         print(__doc__)
         print(f"Could not find cmd \"{cmd}\". Please refer to usage above")

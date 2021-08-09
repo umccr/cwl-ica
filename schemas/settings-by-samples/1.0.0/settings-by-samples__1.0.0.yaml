@@ -1,0 +1,194 @@
+type: record
+name: settings-by-samples
+
+fields:
+  batch_name:
+    label: batch name
+    doc: |
+      The name for this combination of settings and sample ids.
+      Will be used as the midfix for the name of the sample sheet.
+      Will be used as the output directory in the bclconvert workflow
+    type: string
+  samples:
+    label: samples
+    doc: |
+      The list of Sample_IDs with these BClConvert settings
+    type: string[]
+  settings:
+    label: settings by override cylces
+    doc: |
+      Additional bcl convert settings
+    type:
+      - "null"  # Optional input
+      - type: record
+        name: settings
+        fields:
+          adapter_read_1:
+            label: adapter read 1
+            doc: |
+              The sequence of the Read 1
+              adapter to be masked or trimmed.
+              To trim multiple adapters, separate
+              the sequences with a plus sign (+)
+              to indicate independent adapters
+              that must be independently
+              assessed for masking or trimming
+              for each read.
+              Allowed characters: A, T, C, G.
+            type: string?
+          adapter_read_2:
+            label: adapter read 2
+            doc: |
+              The sequence of the Read 2
+              adapter to be masked or trimmed.
+              To trim multiple adapters, separate
+              the sequences with a plus sign (+)
+              to indicate independent adapters
+              that must be independently
+              assessed for masking or trimming
+              for each read.
+              Allowed characters: A, T, C, G.
+            type: string?
+          adapter_behavior:
+            label: adapter behavior
+            doc: |
+              Defines whether the software
+              masks or trims Read 1 and/or
+              Read 2 adapter sequence(s).
+              When AdapterRead1 or
+              AdapterRead2 is not specified, this
+              setting cannot be specified.
+              • mask—The software masks the
+              identified Read 1 and/or Read 2
+              sequence(s) with N.
+              • trim—The software trims the
+              identified Read 1 and/or Read 2
+              sequence(s)
+            type:
+              - "null"  # Optional
+              - type: enum
+                symbols:
+                  - mask
+                  - trim
+          adapter_stringency:
+            label: adapter stringency
+            doc: |
+              he minimum match rate that
+              triggers masking or trimming. This
+              value is calculated as MatchCount
+              / (MatchCount+MismatchCount).
+              Accepted values are 0.5–1. The
+              default value of 0.9 indicates that
+              only reads with ≥ 90% sequence
+              identity with the adapter are
+              trimmed.
+            type: float?
+          minimum_adapter_overlap:
+            label: minumum adapter overlap
+            doc: |
+              Do not trim any bases unless the
+              adapter matches are greater than
+              or equal to the user specified
+              number of bases. At least one
+              AdapterRead1 or
+              AdapterRead2 must be specified
+              to use
+              MinimumAdapterOverlap.
+              Allowed characters: 1, 2, 3.
+            type: int?
+          # Cycle, UMI and Tile specifications
+          barcode_mismatches_index_1:
+            label: barcode mismatches index 1
+            doc: |
+              The number of mismatches
+              allowed for index1. Accepted
+              values are 0, 1, or 2.
+            type: int?
+          barcode_mismatches_index_2:
+            label: barcode mismatches index 2
+            doc: |
+              The number of mismatches
+              allowed for index2. Accepted
+              values are 0, 1, or 2.
+            type: int?
+          create_fastq_for_index_reads:
+            label: create fastq for index reads
+            doc: |
+              Specifies whether software will
+              output fastqs for index reads. If
+              index reads are defined as a
+              UMI then fastqs for the UMI will
+              be output (if TrimUMI is also set
+              to 0). At least 1 index read must
+              be specified in the sample
+              sheet.
+              • 0—Fastq files will not be output
+              for index reads.
+              • 1—Fastq files will be output for
+              fastq reads.
+            type: boolean?
+          minimum_trimmed_read_length:
+            label: minimum trimmed read length
+            doc: |
+              The minimum read length after
+              adapter trimming. The software
+              trims adapter sequences from
+              reads to the value of this
+              parameter. Bases below the
+              specified value are masked with
+              N.
+            type: int?
+          mask_short_reads:
+            label: mask short reads
+            doc: |
+              The minimum read length
+              containing A, T, C, G values after
+              adapter trimming. Reads with
+              less than this number of bases
+              become completely masked. If
+              this value is less than 22, the
+              default becomes the
+              MinimumTrimmedReadLength.
+            type: int?
+          override_cycles:
+            label: override cycles
+            doc: |
+              Specifies the sequencing and
+              indexing cycles that should be
+              used when processing the data.
+              The following format must be
+              used:
+              * Must be same number of
+              semicolon delimited fields in
+              string as sequencing and
+              indexing reads specified in
+              RunInfo.xml
+              * Indexing reads are specified
+              with an I.
+              * Sequencing reads are specified
+              with a Y. UMI cycles are
+              specified with an U.
+              * Trimmed reads are specified
+              with N.
+              * The number of cycles specified
+              for each read must sum to the
+              number of cycles specified for
+              that read in the RunInfo.xml.
+              * Only one Y or I sequence can
+              be specified per read.
+              Example: Y151;I8;I8;Y151
+            type: string?
+          trim_umi:
+            label: trim umi
+            doc: |
+              Specifies whether UMI cycles
+              will be excluded from fastq files.
+              At least one UMI is required to
+              be specified in the Sample
+              Sheet when this setting is
+              provided.
+              • 0—UMI cycles will be output to
+              fastq files.
+              • 1— UMI cycles will not be
+              output to fastq files.
+            type: boolean?

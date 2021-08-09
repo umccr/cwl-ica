@@ -8,38 +8,10 @@ CWL_ICA_REPO_PATH_ENV_VAR = "CWL_ICA_REPO_PATH"
 ICA_BASE_URL_ENV_VAR = "ICA_BASE_URL"
 EXPIRY_DAYS_WARNING_TRIGGER = 7
 BASE_URL_NETLOC_REGEX = "(\S+).platform.illumina.com"
+PROJECT_ID_REGEX = "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 
 SCOPES_BY_ROLE = {
     "read-only": [
-        "BSSH.RUNS.READ",
-        "DCS.USAGES.READ",
-        "ENS.SUBSCRIPTIONS.MANAGE",
-        "GDS.FILES.DOWNLOAD",
-        "GDS.FILES.READ",
-        "GDS.FOLDERS.GRANT",
-        "GDS.FOLDERS.READ",
-        "GDS.VOLUMES.READ",
-        "GMS.ANALYSISCONFIGURATIONS.READ",
-        "GMS.ANALYSISDEFINITIONS.READ",
-        "GMS.ANALYSISFILES.READ",
-        "GMS.ANALYSISRUNS.READ",
-        "GMS.ANALYSISVERSIONDEFINITIONS.READ",
-        "GMS.BEADCHIPS.READ",
-        "GMS.MANIFESTS.READ",
-        "GMS.PRODUCTS.READ",
-        "GMS.RUNS.READ",
-        "GMS.SAMPLES.READ",
-        "GSS.ANALYSISDATASETS.READ",
-        "GSS.ANALYSISDEFINITIONS.READ",
-        "GSS.ANALYSISVERSIONS.READ",
-        "GSS.GENOMES.READ",
-        "GSS.INDEXADAPTERKITS.READ",
-        "GSS.LIBRARIES.READ",
-        "GSS.LIBRARYPOOLS.READ",
-        "GSS.LIBRARYPREPKITS.READ",
-        "GSS.SAMPLES.READ",
-        "GSS.SEQUENCINGRUNS.READ",
-        "IMS.INSTRUMENTS.READ",
         "TES.RUNS.READ",
         "TES.TASKS.READ",
         "TES.VERSIONS.READ",
@@ -50,143 +22,8 @@ SCOPES_BY_ROLE = {
     ],
     # Contributor has the same roles as ica roles as an admin
     "admin": [
-        "BSSH.RUNS.READ",
-        "DCS.USAGES.READ",
-        "ENS.SUBSCRIPTIONS.MANAGE",
-        "GDS.FILES.ARCHIVE",
-        "GDS.FILES.CREATE",
-        "GDS.FILES.DELETE",
-        "GDS.FILES.DOWNLOAD",
-        "GDS.FILES.READ",
-        "GDS.FILES.UPDATE",
-        "GDS.FOLDERS.ARCHIVE",
-        "GDS.FOLDERS.CREATE",
-        "GDS.FOLDERS.DELETE",
-        "GDS.FOLDERS.GRANT",
-        "GDS.FOLDERS.READ",
-        "GDS.FOLDERS.UPDATE",
-        "GDS.VOLUMES.ARCHIVE",
-        "GDS.VOLUMES.CREATE",
-        "GDS.VOLUMES.DELETE",
-        "GDS.VOLUMES.GRANT",
-        "GDS.VOLUMES.READ",
-        "GDS.VOLUMES.UPDATE",
-        "GMS.ANALYSISCONFIGURATIONS.CREATE",
-        "GMS.ANALYSISCONFIGURATIONS.GRANT",
-        "GMS.ANALYSISCONFIGURATIONS.READ",
-        "GMS.ANALYSISDEFINITIONS.CREATE",
-        "GMS.ANALYSISDEFINITIONS.GRANT",
-        "GMS.ANALYSISDEFINITIONS.READ",
-        "GMS.ANALYSISFILES.CREATE",
-        "GMS.ANALYSISFILES.GRANT",
-        "GMS.ANALYSISFILES.READ",
-        "GMS.ANALYSISRUNS.CREATE",
-        "GMS.ANALYSISRUNS.GRANT",
-        "GMS.ANALYSISRUNS.READ",
-        "GMS.ANALYSISVERSIONDEFINITIONS.CREATE",
-        "GMS.ANALYSISVERSIONDEFINITIONS.GRANT",
-        "GMS.ANALYSISVERSIONDEFINITIONS.READ",
-        "GMS.BEADCHIPS.CREATE",
-        "GMS.BEADCHIPS.DELETE",
-        "GMS.BEADCHIPS.GRANT",
-        "GMS.BEADCHIPS.READ",
-        "GMS.BEADCHIPS.UPDATE",
-        "GMS.MANIFESTS.CREATE",
-        "GMS.MANIFESTS.DELETE",
-        "GMS.MANIFESTS.GRANT",
-        "GMS.MANIFESTS.READ",
-        "GMS.MANIFESTS.UPDATE",
-        "GMS.PRODUCTS.CREATE",
-        "GMS.PRODUCTS.DELETE",
-        "GMS.PRODUCTS.GRANT",
-        "GMS.PRODUCTS.READ",
-        "GMS.PRODUCTS.UPDATE",
-        "GMS.RUNS.CREATE",
-        "GMS.RUNS.GRANT",
-        "GMS.RUNS.READ",
-        "GMS.RUNS.UPDATE",
-        "GMS.SAMPLES.CREATE",
-        "GMS.SAMPLES.GRANT",
-        "GMS.SAMPLES.READ",
-        "GSS.ANALYSISDATASET.CREATE",
-        "GSS.ANALYSISDATASET.GRANT",
-        "GSS.ANALYSISDATASET.READ",
-        "GSS.ANALYSISDATASET.UPDATE",
-        "GSS.ANALYSISDATASETS.CREATE",
-        "GSS.ANALYSISDATASETS.DELETE",
-        "GSS.ANALYSISDATASETS.GRANT",
-        "GSS.ANALYSISDATASETS.READ",
-        "GSS.ANALYSISDATASETS.UPDATE",
-        "GSS.ANALYSISDATASETTYPE.CREATE",
-        "GSS.ANALYSISDATASETTYPE.GRANT",
-        "GSS.ANALYSISDATASETTYPE.READ",
-        "GSS.ANALYSISDATASETTYPE.UPDATE",
-        "GSS.ANALYSISDATASETTYPES.CREATE",
-        "GSS.ANALYSISDATASETTYPES.GRANT",
-        "GSS.ANALYSISDATASETTYPES.READ",
-        "GSS.ANALYSISDATASETTYPES.UPDATE",
-        "GSS.ANALYSISDEFINITIONS.CREATE",
-        "GSS.ANALYSISDEFINITIONS.DELETE",
-        "GSS.ANALYSISDEFINITIONS.GRANT",
-        "GSS.ANALYSISDEFINITIONS.READ",
-        "GSS.ANALYSISDEFINITIONS.UPDATE",
-        "GSS.ANALYSISRUNS.CREATE",
-        "GSS.ANALYSISRUNS.DELETE",
-        "GSS.ANALYSISRUNS.GRANT",
-        "GSS.ANALYSISRUNS.READ",
-        "GSS.ANALYSISRUNS.UPDATE",
-        "GSS.ANALYSISVERSIONS.CREATE",
-        "GSS.ANALYSISVERSIONS.DELETE",
-        "GSS.ANALYSISVERSIONS.GRANT",
-        "GSS.ANALYSISVERSIONS.READ",
-        "GSS.ANALYSISVERSIONS.UPDATE",
-        "GSS.GENOMES.CREATE",
-        "GSS.GENOMES.GRANT",
-        "GSS.GENOMES.READ",
-        "GSS.GENOMES.UPDATE",
-        "GSS.INDEXADAPTERKITS.CREATE",
-        "GSS.INDEXADAPTERKITS.DELETE",
-        "GSS.INDEXADAPTERKITS.GRANT",
-        "GSS.INDEXADAPTERKITS.READ",
-        "GSS.INDEXADAPTERKITS.UPDATE",
-        "GSS.LI",
-        "GSS.LIBRARIES.CREATE",
-        "GSS.LIBRARIES.DELETE",
-        "GSS.LIBRARIES.GRANT",
-        "GSS.LIBRARIES.READ",
-        "GSS.LIBRARIES.UPDATE",
-        "GSS.LIBRARYPOOLS.CREATE",
-        "GSS.LIBRARYPOOLS.DELETE",
-        "GSS.LIBRARYPOOLS.GRANT",
-        "GSS.LIBRARYPOOLS.READ",
-        "GSS.LIBRARYPOOLS.UPDATE",
-        "GSS.LIBRARYPREPKITS.CREATE",
-        "GSS.LIBRARYPREPKITS.DELETE",
-        "GSS.LIBRARYPREPKITS.GRANT",
-        "GSS.LIBRARYPREPKITS.READ",
-        "GSS.LIBRARYPREPKITS.UPDATE",
-        "GSS.SAMPLES.CREATE",
-        "GSS.SAMPLES.DELETE",
-        "GSS.SAMPLES.GRANT",
-        "GSS.SAMPLES.READ",
-        "GSS.SAMPLES.UPDATE",
-        "GSS.SEQUENCINGRUNS.CREATE",
-        "GSS.SEQUENCINGRUNS.DELETE",
-        "GSS.SEQUENCINGRUNS.GRANT",
-        "GSS.SEQUENCINGRUNS.READ",
-        "GSS.SEQUENCINGRUNS.UPDATE",
-        "IMS.ASSETS.READ",
-        "IMS.ASSETVERSIONS.READ",
-        "IMS.INSTRUMENTS.CREATE",
-        "IMS.INSTRUMENTS.DELETE",
-        "IMS.INSTRUMENTS.GRANT",
-        "IMS.INSTRUMENTS.READ",
-        "IMS.INSTRUMENTS.UPDATE",
-        "TES.RUNS.CREATE",
-        "TES.RUNS.DELETE",
-        "TES.RUNS.GRANT",
+        # Removed ability to create/edit task runs
         "TES.RUNS.READ",
-        "TES.RUNS.UPDATE",
         "TES.TASKS.CREATE",
         "TES.TASKS.DELETE",
         "TES.TASKS.GRANT",
@@ -197,11 +34,8 @@ SCOPES_BY_ROLE = {
         "TES.VERSIONS.GRANT",
         "TES.VERSIONS.READ",
         "TES.VERSIONS.UPDATE",
-        "WES.RUNS.CREATE",
-        "WES.RUNS.DELETE",
-        "WES.RUNS.GRANT",
+        # Removed ability to create/edit workflow runs
         "WES.RUNS.READ",
-        "WES.RUNS.UPDATE",
         "WES.SIGNALS.CREATE",
         "WES.SIGNALS.DELETE",
         "WES.SIGNALS.GRANT",
@@ -218,4 +52,81 @@ SCOPES_BY_ROLE = {
         "WES.WORKFLOWS.READ",
         "WES.WORKFLOWS.UPDATE"
     ]
+}
+
+ICA_TES_INSTANCE_SIZES_BY_TYPE = {
+    "standard": {
+        "small": {
+            "cpu": 0.8,
+            "memory": 3
+        },
+        "medium": {
+            "cpu": 1.3,
+            "memory": 4.5
+        },
+        "large": {
+            "cpu": 2,
+            "memory": 7
+        },
+        "xlarge": {
+            "cpu": 4,
+            "memory": 14
+        },
+        "xxlarge": {
+            "cpu": 8,
+            "memory": 28
+        }
+    },
+    "standardHiCpu": {
+        "small": {
+            "cpu": 15.5,
+            "memory": 28
+        },
+        "medium": {
+            "cpu": 35.5,
+            "memory": 68
+        },
+        "large": {
+            "cpu": 71.5,
+            "memory": 140
+        },
+    },
+    "standardHiMem": {
+        "small": {
+            "cpu": 7.5,
+            "memory": 60
+        },
+        "medium": {
+            "cpu": 15.5,
+            "memory": 124
+        },
+        "large": {
+            "cpu": 47.5,
+            "memory": 380
+        },
+        "xlarge": {
+            "cpu": 95.5,
+            "memory": 764
+        }
+    },
+    "standardHighIo": {
+        "small": {
+            "cpu": 11.5,
+            "memory": 92
+        },
+    },
+    "fpga": {
+        "small": {
+            "cpu": 7.5,
+            "memory": 118
+        },
+        "medium": {
+            "cpu": 15.5,
+            "memory": 240
+        },
+        "large": {
+            "cpu": 63.5,
+            "memory": 972
+        }
+    }
 }

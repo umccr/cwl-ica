@@ -1,0 +1,1235 @@
+#compdef cwl-ica
+
+# Generated with perl module App::Spec v0.013
+
+_cwl-ica() {
+    local program=cwl-ica
+    typeset -A opt_args
+    local curcontext="$curcontext" state line context
+
+
+        # ---- Command: 
+        _arguments -s  \
+            '1: :->cmd1' \
+            '*: :->args' \
+            && ret=0
+
+
+        case $state in
+        cmd1)
+            _alternative 'args:cmd2:((add-category-to-tool\:"Add an existing category to an existing tool
+" add-category-to-workflow\:"Add an existing category to an existing workflow
+" add-linked-project\:"Add a linked project to another project
+" add-maintainer-to-expression\:"Add a maintainter to a cwl expression
+" add-maintainer-to-tool\:"Add a maintainter to a cwl tool
+" add-maintainer-to-workflow\:"Add a maintainter to a cwl workflow
+" add-tool-to-project\:"Add an existing tool to another project
+" add-workflow-to-project\:"Add an existing workflow to another project
+" category-init\:"Initialise a category in \${CWL_ICA_REPO_PATH}/config/category.yaml
+" configure-repo\:"One-time command to point to the cwl-ica git repository
+" configure-tenant\:"Create mapping of tenancy ids to tenancy names, convenience to save time typing out tenancy names.
+Each project is linked to a tenancy id
+" configure-user\:"Add a user to user.yaml
+" copy-tool-submission-template\:"Copy a tool submission template for an upcoming tool run
+" copy-workflow-submission-template\:"Copy a workflow submission template for an upcoming workflow run
+" create-expression-from-template\:"Initialise an CWL expression from the cwl expression template
+" create-schema-from-template\:"Initialise a CWL schema from the cwl schema template
+" create-tool-from-template\:"Initialise a CWL tool from the cwl tool template
+" create-workflow-from-template\:"Initialise a CWL workflow from the cwl workflow template
+" expression-init\:"Register an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
+" expression-sync\:"Sync an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
+" expression-validate\:"Validate a CWL expression
+" get-workflow-step-ids\:"Get the step ids of a CWL workflow
+" help\:"Print help and exit
+" list-categories\:"List registered categories
+" list-projects\:"List registered projects
+" list-tenants\:"List registered tenants
+" list-tool-runs\:"List registered tool runs for a CWL tool in a given project
+" list-users\:"List registered users
+" list-workflow-runs\:"List registered workflows runs for a CWL workflow in a given project
+" project-init\:"Initialise a project in \${CWL_ICA_REPO_PATH}/config/project.yaml
+" register-tool-run-instance\:"Register an ICA workflow run instance of a tool for a given project
+" register-workflow-run-instance\:"Register an ICA workflow run instance of a workflow for a given project
+" schema-init\:"Register a schema in \${CWL_ICA_REPO_PATH}/config/schema.yaml
+" schema-sync\:"Sync a schema in \${CWL_ICA_REPO_PATH}/config/schema.yaml
+" schema-validate\:"Validate a CWL schema
+" set-default-project\:"Set a project to the default project
+" set-default-tenant\:"Set a tenant to the default tenant
+" set-default-user\:"Set a user to the default user
+" tool-init\:"Register a tool in \${CWL_ICA_REPO_PATH}/config/tool.yaml and with ICA projects
+" tool-sync\:"Sync a tool md5sum in \${CWL_ICA_REPO_PATH}/config/tool.yaml
+and update definition on ICA
+" tool-validate\:"Validate a CWL tool ready for initialising on ICA
+" validate-api-key-script\:"Confirm your api-key script works for a given project
+" validate-config-yamls\:"Confirm all config yamls are legitimate
+" version\:"Print version and exit
+" workflow-init\:"Register a workflow in \${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
+" workflow-sync\:"Sync a workflows md5sum in \${CWL_ICA_REPO_PATH}/config/workflow.yaml
+and update definition on ICA
+" workflow-validate\:"Validate a CWL workflow ready for initialising on ICA
+"))'
+        ;;
+
+        args)
+            case $line[1] in
+            _meta)
+
+                # ---- Command: _meta
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '2: :->cmd2' \
+                    '*: :->args' \
+                    && ret=0
+
+
+                case $state in
+                cmd2)
+                    _alternative 'args:cmd3:((completion\:"Shell completion functions" pod\:"Pod documentation"))'
+                ;;
+
+                args)
+                    case $line[2] in
+                    completion)
+
+                        # ---- Command: _meta completion
+                        _arguments -s -C \
+                            '1: :->cmd1' \
+                            '2: :->cmd2' \
+                            '3: :->cmd3' \
+                            '*: :->args' \
+                            && ret=0
+
+
+                        case $state in
+                        cmd3)
+                            _alternative 'args:cmd4:((generate\:"Generate self completion"))'
+                        ;;
+
+                        args)
+                            case $line[3] in
+                            generate)
+
+                                # ---- Command: _meta completion generate
+                                _arguments -s -C \
+                                    '1: :->cmd1' \
+                                    '2: :->cmd2' \
+                                    '3: :->cmd3' \
+                                    '--help[Show command help]' \
+                                    '-h[Show command help]' \
+                                    '--name[name of the program (optional, override name in spec)]:name' \
+                                    '--zsh[for zsh]' \
+                                    '--bash[for bash]' \
+                                    && ret=0
+
+
+                            ;;
+                            esac
+
+                        ;;
+
+                        esac
+                    ;;
+                    pod)
+
+                        # ---- Command: _meta pod
+                        _arguments -s -C \
+                            '1: :->cmd1' \
+                            '2: :->cmd2' \
+                            '3: :->cmd3' \
+                            '*: :->args' \
+                            && ret=0
+
+
+                        case $state in
+                        cmd3)
+                            _alternative 'args:cmd4:((generate\:"Generate self pod"))'
+                        ;;
+
+                        args)
+                            case $line[3] in
+                            generate)
+
+                                # ---- Command: _meta pod generate
+                                _arguments -s -C \
+                                    '1: :->cmd1' \
+                                    '2: :->cmd2' \
+                                    '3: :->cmd3' \
+                                    '--help[Show command help]' \
+                                    '-h[Show command help]' \
+                                    && ret=0
+
+
+                            ;;
+                            esac
+
+                        ;;
+
+                        esac
+                    ;;
+                    esac
+
+                ;;
+
+                esac
+            ;;
+            add-category-to-tool)
+
+                # ---- Command: add-category-to-tool
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-name[Name of the tool
+]:tool-name:_cwl-ica_add-category-to-tool_option_tool_name_completion' \
+                    '--category-name[The name of the category
+]:category-name:_cwl-ica_add-category-to-tool_option_category_name_completion' \
+                    && ret=0
+
+
+            ;;
+            add-category-to-workflow)
+
+                # ---- Command: add-category-to-workflow
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-name[Name of the workflow
+]:workflow-name:_cwl-ica_add-category-to-workflow_option_workflow_name_completion' \
+                    '--category-name[The name of the category
+]:category-name:_cwl-ica_add-category-to-workflow_option_category_name_completion' \
+                    && ret=0
+
+
+            ;;
+            add-linked-project)
+
+                # ---- Command: add-linked-project
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--src-project[The name of your project in project.yaml
+]:src-project:_cwl-ica_add-linked-project_option_src_project_completion' \
+                    '--target-project[ID of the target project to receive all ica workflows and ica workflow versions
+]:target-project' \
+                    && ret=0
+
+
+            ;;
+            add-maintainer-to-expression)
+
+                # ---- Command: add-maintainer-to-expression
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--expression-path[Path to cwl expression
+]:expression-path:_cwl-ica_add-maintainer-to-expression_option_expression_path_completion' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_add-maintainer-to-expression_option_project_name_completion' \
+                    && ret=0
+
+
+            ;;
+            add-maintainer-to-tool)
+
+                # ---- Command: add-maintainer-to-tool
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-path[Path to cwl tool
+]:tool-path:_cwl-ica_add-maintainer-to-tool_option_tool_path_completion' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_add-maintainer-to-tool_option_project_name_completion' \
+                    && ret=0
+
+
+            ;;
+            add-maintainer-to-workflow)
+
+                # ---- Command: add-maintainer-to-workflow
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[Path to cwl workflow
+]:workflow-path:_cwl-ica_add-maintainer-to-workflow_option_workflow_path_completion' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_add-maintainer-to-workflow_option_project_name_completion' \
+                    && ret=0
+
+
+            ;;
+            add-tool-to-project)
+
+                # ---- Command: add-tool-to-project
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-path[Path to the tool
+]:tool-path:_cwl-ica_add-tool-to-project_option_tool_path_completion' \
+                    '--project[Name of the project
+]:project:_cwl-ica_add-tool-to-project_option_project_completion' \
+                    && ret=0
+
+
+            ;;
+            add-workflow-to-project)
+
+                # ---- Command: add-workflow-to-project
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[Path to the workflow
+]:workflow-path:_cwl-ica_add-workflow-to-project_option_workflow_path_completion' \
+                    '--project[Name of the project to add the workflow to
+]:project:_cwl-ica_add-workflow-to-project_option_project_completion' \
+                    && ret=0
+
+
+            ;;
+            category-init)
+
+                # ---- Command: category-init
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--category-name[Name of category
+]:category-name' \
+                    '--category-description[Category description
+]:category-description' \
+                    && ret=0
+
+
+            ;;
+            configure-repo)
+
+                # ---- Command: configure-repo
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--repo-path[path to local cwl-ica repository
+]:repo-path:_path_files -/' \
+                    && ret=0
+
+
+            ;;
+            configure-tenant)
+
+                # ---- Command: configure-tenant
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tenant-id[The id of the tenant
+]:tenant-id' \
+                    '--tenant-name[The name of the tenant
+]:tenant-name' \
+                    '--set-as-default[Set as default tenant
+]:set-as-default' \
+                    && ret=0
+
+
+            ;;
+            configure-user)
+
+                # ---- Command: configure-user
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--username[The name of the user
+]:username' \
+                    '--email[The users email address
+]:email' \
+                    '--identifier[The orcid ID of the user
+]:identifier' \
+                    '--set-as-default[Set as default user
+]:set-as-default' \
+                    && ret=0
+
+
+            ;;
+            copy-tool-submission-template)
+
+                # ---- Command: copy-tool-submission-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--ica-workflow-run-instance-id[A ica workflow run instance id
+]:ica-workflow-run-instance-id:_cwl-ica_copy-tool-submission-template_option_ica_workflow_run_instance_id_completion' \
+                    '--prefix[The prefix to the outputs files and name attribute in the json file
+]:prefix' \
+                    '--curl[Use curl binary over ica binary to launch workflow
+]:curl' \
+                    && ret=0
+
+
+            ;;
+            copy-workflow-submission-template)
+
+                # ---- Command: copy-workflow-submission-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--ica-workflow-run-instance-id[A ica workflow run instance id
+]:ica-workflow-run-instance-id:_cwl-ica_copy-workflow-submission-template_option_ica_workflow_run_instance_id_completion' \
+                    '--prefix[The prefix to the outputs files and name attribute in the json file
+]:prefix' \
+                    '--curl[Use curl binary over ica binary to launch workflow
+]:curl' \
+                    && ret=0
+
+
+            ;;
+            create-expression-from-template)
+
+                # ---- Command: create-expression-from-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--expression-name[The name of the expression
+]:expression-name' \
+                    '--expression-version[Version of the expression
+]:expression-version' \
+                    '--username[CWL Creator
+]:username:_cwl-ica_create-expression-from-template_option_username_completion' \
+                    && ret=0
+
+
+            ;;
+            create-schema-from-template)
+
+                # ---- Command: create-schema-from-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--schema-name[The name of the schema
+]:schema-name' \
+                    '--schema-version[Version of the schema
+]:schema-version' \
+                    && ret=0
+
+
+            ;;
+            create-tool-from-template)
+
+                # ---- Command: create-tool-from-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-name[The name of the tool
+]:tool-name' \
+                    '--tool-version[Version of the tool
+]:tool-version' \
+                    '--username[CWL Creator
+]:username:_cwl-ica_create-tool-from-template_option_username_completion' \
+                    && ret=0
+
+
+            ;;
+            create-workflow-from-template)
+
+                # ---- Command: create-workflow-from-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-name[The name of the workflow
+]:workflow-name' \
+                    '--workflow-version[Version of the workflow
+]:workflow-version' \
+                    '--username[CWL Creator
+]:username:_cwl-ica_create-workflow-from-template_option_username_completion' \
+                    && ret=0
+
+
+            ;;
+            expression-init)
+
+                # ---- Command: expression-init
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--expression-path[Path to the expression
+]:expression-path:_cwl-ica_expression-init_option_expression_path_completion' \
+                    && ret=0
+
+
+            ;;
+            expression-sync)
+
+                # ---- Command: expression-sync
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--expression-path[Path to the expression
+]:expression-path:_cwl-ica_expression-sync_option_expression_path_completion' \
+                    && ret=0
+
+
+            ;;
+            expression-validate)
+
+                # ---- Command: expression-validate
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--expression-path[Path to the expression
+]:expression-path:_cwl-ica_expression-validate_option_expression_path_completion' \
+                    && ret=0
+
+
+            ;;
+            get-workflow-step-ids)
+
+                # ---- Command: get-workflow-step-ids
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[A cwl workflow file
+]:workflow-path:_cwl-ica_get-workflow-step-ids_option_workflow_path_completion' \
+                    && ret=0
+
+
+            ;;
+            help)
+
+                # ---- Command: help
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    && ret=0
+
+
+            ;;
+            list-categories)
+
+                # ---- Command: list-categories
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    && ret=0
+
+
+            ;;
+            list-projects)
+
+                # ---- Command: list-projects
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tenant-name[Name of tenant
+]:tenant-name:_cwl-ica_list-projects_option_tenant_name_completion' \
+                    && ret=0
+
+
+            ;;
+            list-tenants)
+
+                # ---- Command: list-tenants
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    && ret=0
+
+
+            ;;
+            list-tool-runs)
+
+                # ---- Command: list-tool-runs
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-path[A cwl tool file
+]:tool-path:_cwl-ica_list-tool-runs_option_tool_path_completion' \
+                    '--project[A project name
+]:project:_cwl-ica_list-tool-runs_option_project_completion' \
+                    && ret=0
+
+
+            ;;
+            list-users)
+
+                # ---- Command: list-users
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    && ret=0
+
+
+            ;;
+            list-workflow-runs)
+
+                # ---- Command: list-workflow-runs
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[A cwl workflow file
+]:workflow-path:_cwl-ica_list-workflow-runs_option_workflow_path_completion' \
+                    '--project[A project name
+]:project:_cwl-ica_list-workflow-runs_option_project_completion' \
+                    && ret=0
+
+
+            ;;
+            project-init)
+
+                # ---- Command: project-init
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--project-id[The ICA project id
+]:project-id' \
+                    '--project-name[The name of the project
+]:project-name' \
+                    '--project-api-key-name[Required, this is NOT an api-key, but merely an api-key with a workgroup
+context that can create an access-token for this project
+]:project-api-key-name' \
+                    '--project-description[Required, a short summary of the project
+]:project-description' \
+                    '--project-abbr[Required, a quick abbreviation of the project name - used to append
+to workflow names
+]:project-abbr' \
+                    '--production[Optional, boolean, if set, the project is a production project
+]:production' \
+                    '--tenant-name[Optional, the tenant name
+]:tenant-name:_cwl-ica_project-init_option_tenant_name_completion' \
+                    '--set-as-default[Optional, set as the default project
+]:set-as-default' \
+                    && ret=0
+
+
+            ;;
+            register-tool-run-instance)
+
+                # ---- Command: register-tool-run-instance
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--ica-workflow-run-instance-id[A workflow run instance id (starts with wfr.)
+]:ica-workflow-run-instance-id' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_register-tool-run-instance_option_project_name_completion' \
+                    '--access-token[ica access token, if run instance was executed in a linked project context
+]:access-token' \
+                    && ret=0
+
+
+            ;;
+            register-workflow-run-instance)
+
+                # ---- Command: register-workflow-run-instance
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--ica-workflow-run-instance-id[A workflow run instance id (starts with wfr.)
+]:ica-workflow-run-instance-id' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_register-workflow-run-instance_option_project_name_completion' \
+                    '--access-token[ica access token, if run instance was executed in a linked project context
+]:access-token' \
+                    && ret=0
+
+
+            ;;
+            schema-init)
+
+                # ---- Command: schema-init
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--schema-path[Path to the schema
+]:schema-path:_cwl-ica_schema-init_option_schema_path_completion' \
+                    && ret=0
+
+
+            ;;
+            schema-sync)
+
+                # ---- Command: schema-sync
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--schema-path[Path to the schema
+]:schema-path:_cwl-ica_schema-sync_option_schema_path_completion' \
+                    '--force[Overwrite on ICA even if mod time in yaml is behind
+]:force' \
+                    && ret=0
+
+
+            ;;
+            schema-validate)
+
+                # ---- Command: schema-validate
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--schema-path[Path to the schema
+]:schema-path:_cwl-ica_schema-validate_option_schema_path_completion' \
+                    && ret=0
+
+
+            ;;
+            set-default-project)
+
+                # ---- Command: set-default-project
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--project-name[Name of project
+]:project-name:_cwl-ica_set-default-project_option_project_name_completion' \
+                    && ret=0
+
+
+            ;;
+            set-default-tenant)
+
+                # ---- Command: set-default-tenant
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tenant-name[Name of tenant
+]:tenant-name:_cwl-ica_set-default-tenant_option_tenant_name_completion' \
+                    && ret=0
+
+
+            ;;
+            set-default-user)
+
+                # ---- Command: set-default-user
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--username[Name of user
+]:username:_cwl-ica_set-default-user_option_username_completion' \
+                    && ret=0
+
+
+            ;;
+            tool-init)
+
+                # ---- Command: tool-init
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-path[Path to the tool
+]:tool-path:_cwl-ica_tool-init_option_tool_path_completion' \
+                    '--projects[List of projects to add the tool to
+]:projects:_cwl-ica_tool-init_option_projects_completion' \
+                    '--tenants[List of tenants to filter by when project set to '"'"'all'"'"'
+]:tenants:_cwl-ica_tool-init_option_tenants_completion' \
+                    '--categories[List of categories to add to tool
+]:categories:_cwl-ica_tool-init_option_categories_completion' \
+                    && ret=0
+
+
+            ;;
+            tool-sync)
+
+                # ---- Command: tool-sync
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-path[Path to the tool
+]:tool-path:_cwl-ica_tool-sync_option_tool_path_completion' \
+                    '--projects[List of projects to sync the tool to
+]:projects:_cwl-ica_tool-sync_option_projects_completion' \
+                    '--tenants[List of tenants to filter by when project set to '"'"'all'"'"'
+]:tenants:_cwl-ica_tool-sync_option_tenants_completion' \
+                    && ret=0
+
+
+            ;;
+            tool-validate)
+
+                # ---- Command: tool-validate
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-path[Path to the tool
+]:tool-path:_cwl-ica_tool-validate_option_tool_path_completion' \
+                    && ret=0
+
+
+            ;;
+            validate-api-key-script)
+
+                # ---- Command: validate-api-key-script
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--project-name[Name of your project
+]:project-name:_cwl-ica_validate-api-key-script_option_project_name_completion' \
+                    && ret=0
+
+
+            ;;
+            validate-config-yamls)
+
+                # ---- Command: validate-config-yamls
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    && ret=0
+
+
+            ;;
+            version)
+
+                # ---- Command: version
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    && ret=0
+
+
+            ;;
+            workflow-init)
+
+                # ---- Command: workflow-init
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[Path to the workflow
+]:workflow-path:_cwl-ica_workflow-init_option_workflow_path_completion' \
+                    '--projects[List of projects to add the tool to
+]:projects:_cwl-ica_workflow-init_option_projects_completion' \
+                    '--tenants[List of tenants to filter by when project set to '"'"'all'"'"'
+]:tenants:_cwl-ica_workflow-init_option_tenants_completion' \
+                    '--categories[List of categories to add to tool
+]:categories:_cwl-ica_workflow-init_option_categories_completion' \
+                    && ret=0
+
+
+            ;;
+            workflow-sync)
+
+                # ---- Command: workflow-sync
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[Path to the workflow
+]:workflow-path:_cwl-ica_workflow-sync_option_workflow_path_completion' \
+                    '--projects[List of projects to sync the workflow to
+]:projects:_cwl-ica_workflow-sync_option_projects_completion' \
+                    '--tenants[List of tenants to filter by when project set to '"'"'all'"'"'
+]:tenants:_cwl-ica_workflow-sync_option_tenants_completion' \
+                    '--force[Overwrite on ICA even if mod time in yaml is behind
+]:force' \
+                    && ret=0
+
+
+            ;;
+            workflow-validate)
+
+                # ---- Command: workflow-validate
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[Path to the workflow
+]:workflow-path:_cwl-ica_workflow-validate_option_workflow_path_completion' \
+                    && ret=0
+
+
+            ;;
+            esac
+
+        ;;
+
+        esac
+
+}
+
+_cwl-ica_add-category-to-tool_option_tool_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tool_yaml_path\n\nfor tool in read_yaml(get_tool_yaml_path())["tools"]:\n    print(tool.get("name"))\n""")' ) )
+    compadd -X "tool_name:" $__dynamic_completion
+}
+_cwl-ica_add-category-to-tool_option_category_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
+    compadd -X "category_name:" $__dynamic_completion
+}
+_cwl-ica_add-category-to-workflow_option_workflow_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_workflow_yaml_path\n\nfor workflow in read_yaml(get_workflow_yaml_path())["workflows"]:\n    print(workflow.get("name"))\n""")' ) )
+    compadd -X "workflow_name:" $__dynamic_completion
+}
+_cwl-ica_add-category-to-workflow_option_category_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
+    compadd -X "category_name:" $__dynamic_completion
+}
+_cwl-ica_add-linked-project_option_src_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "src_project:" $__dynamic_completion
+}
+_cwl-ica_add-maintainer-to-expression_option_expression_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "expression_path:" $__dynamic_completion
+}
+_cwl-ica_add-maintainer-to-expression_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_add-maintainer-to-tool_option_tool_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "tool_path:" $__dynamic_completion
+}
+_cwl-ica_add-maintainer-to-tool_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_add-maintainer-to-workflow_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+_cwl-ica_add-maintainer-to-workflow_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_add-tool-to-project_option_tool_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "tool_path:" $__dynamic_completion
+}
+_cwl-ica_add-tool-to-project_option_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project:" $__dynamic_completion
+}
+_cwl-ica_add-workflow-to-project_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+_cwl-ica_add-workflow-to-project_option_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project:" $__dynamic_completion
+}
+_cwl-ica_copy-tool-submission-template_option_ica_workflow_run_instance_id_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")' ) )
+    compadd -X "ica_workflow_run_instance_id:" $__dynamic_completion
+}
+_cwl-ica_copy-workflow-submission-template_option_ica_workflow_run_instance_id_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")' ) )
+    compadd -X "ica_workflow_run_instance_id:" $__dynamic_completion
+}
+_cwl-ica_create-expression-from-template_option_username_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")' ) )
+    compadd -X "username:" $__dynamic_completion
+}
+_cwl-ica_create-tool-from-template_option_username_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")' ) )
+    compadd -X "username:" $__dynamic_completion
+}
+_cwl-ica_create-workflow-from-template_option_username_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")' ) )
+    compadd -X "username:" $__dynamic_completion
+}
+_cwl-ica_expression-init_option_expression_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "expression_path:" $__dynamic_completion
+}
+_cwl-ica_expression-sync_option_expression_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "expression_path:" $__dynamic_completion
+}
+_cwl-ica_expression-validate_option_expression_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "expression_path:" $__dynamic_completion
+}
+_cwl-ica_get-workflow-step-ids_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+_cwl-ica_list-projects_option_tenant_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
+    compadd -X "tenant_name:" $__dynamic_completion
+}
+_cwl-ica_list-tool-runs_option_tool_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "tool_path:" $__dynamic_completion
+}
+_cwl-ica_list-tool-runs_option_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project:" $__dynamic_completion
+}
+_cwl-ica_list-workflow-runs_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+_cwl-ica_list-workflow-runs_option_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project:" $__dynamic_completion
+}
+_cwl-ica_project-init_option_tenant_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
+    compadd -X "tenant_name:" $__dynamic_completion
+}
+_cwl-ica_register-tool-run-instance_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_register-workflow-run-instance_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_schema-init_option_schema_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml" ) )
+    compadd -X "schema_path:" $__dynamic_completion
+}
+_cwl-ica_schema-sync_option_schema_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml" ) )
+    compadd -X "schema_path:" $__dynamic_completion
+}
+_cwl-ica_schema-validate_option_schema_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml" ) )
+    compadd -X "schema_path:" $__dynamic_completion
+}
+_cwl-ica_set-default-project_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_set-default-tenant_option_tenant_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
+    compadd -X "tenant_name:" $__dynamic_completion
+}
+_cwl-ica_set-default-user_option_username_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")' ) )
+    compadd -X "username:" $__dynamic_completion
+}
+_cwl-ica_tool-init_option_tool_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "tool_path:" $__dynamic_completion
+}
+_cwl-ica_tool-init_option_projects_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "projects:" $__dynamic_completion
+}
+_cwl-ica_tool-init_option_tenants_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
+    compadd -X "tenants:" $__dynamic_completion
+}
+_cwl-ica_tool-init_option_categories_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
+    compadd -X "categories:" $__dynamic_completion
+}
+_cwl-ica_tool-sync_option_tool_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "tool_path:" $__dynamic_completion
+}
+_cwl-ica_tool-sync_option_projects_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "projects:" $__dynamic_completion
+}
+_cwl-ica_tool-sync_option_tenants_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
+    compadd -X "tenants:" $__dynamic_completion
+}
+_cwl-ica_tool-validate_option_tool_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "tool_path:" $__dynamic_completion
+}
+_cwl-ica_validate-api-key-script_option_project_name_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "project_name:" $__dynamic_completion
+}
+_cwl-ica_workflow-init_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+_cwl-ica_workflow-init_option_projects_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "projects:" $__dynamic_completion
+}
+_cwl-ica_workflow-init_option_tenants_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
+    compadd -X "tenants:" $__dynamic_completion
+}
+_cwl-ica_workflow-init_option_categories_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")' ) )
+    compadd -X "categories:" $__dynamic_completion
+}
+_cwl-ica_workflow-sync_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+_cwl-ica_workflow-sync_option_projects_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")' ) )
+    compadd -X "projects:" $__dynamic_completion
+}
+_cwl-ica_workflow-sync_option_tenants_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")' ) )
+    compadd -X "tenants:" $__dynamic_completion
+}
+_cwl-ica_workflow-validate_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl" ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+
+__cwl-ica_dynamic_comp() {
+    local argname="$1"
+    local arg="$2"
+    local comp="arg:$argname:(("
+    local line
+    while read -r line; do
+        local name="$line"
+        local desc="$line"
+        name="${name%$'\t'*}"
+        desc="${desc/*$'\t'}"
+        comp="$comp$name"
+        if [[ -n "$desc" && "$name" != "$desc" ]]; then
+            comp="$comp\\:"'"'"$desc"'"'
+        fi
+        comp="$comp "
+    done <<< "$arg"
+
+    comp="$comp))"
+    _alternative "$comp"
+}
+

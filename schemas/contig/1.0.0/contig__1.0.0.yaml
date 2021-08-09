@@ -1,0 +1,19 @@
+type: record
+name: contig
+
+fields:
+  chromosome:
+    label: chromosome
+    doc: |
+      The name of the chromosome
+    type: string
+  start:
+    label: start position
+    doc: |
+      The start position of the chromosome of the region
+    type: int?
+  end:
+    label: end position
+    doc: |
+      The end position of the chromosome of the region
+    type: int?

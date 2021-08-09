@@ -1,0 +1,29 @@
+categories:
+  - name: alignment
+    description: |
+        Tool / Workflow performs alignment step
+  - name: bam handler
+    description: |
+        Tool manipulates / updates bam alignment files
+  - name: hla
+    description: |
+        Tool/workflow is used for hla typing
+  - name: demux-tools
+    description: |
+        custom tools utilised as part of  demultiplexing workflow
+  - name: tso500
+    description: |
+        tool/workflow is involved in the tso500 pipeline
+  - name: qc
+    description: |
+        Tool / Workflow is used for collecting / analysing quality
+        control purposes
+  - name: visual
+    description: |
+        Tool / Workflow has visual output (like a plot or html file)
+  - name: dragen
+    description: |
+        Tool / workflow uses the dragen fpga
+  - name: variant-calling
+    description: |
+        Tool / workflow outputs variant calling analysis
