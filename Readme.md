@@ -4,7 +4,7 @@ Please visit our [wiki page][wiki-page] to get started.
 
 ## Links
 
-* [Tools / Workflows Catalogue link][catalogue]
+* [Tools / Workflows Catalogue link][catalogue] :construction:
 * [Official ICA Docs][ica-docs]
 * [libica][libica]
 
