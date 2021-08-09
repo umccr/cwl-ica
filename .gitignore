@@ -138,17 +138,19 @@ scratches/
 .DS_STORE
 
 # Items in expressions / tools and workflows that don't end in .cwl
-expressions/**/*.*
-!expressions/**/*.cwl
-tools/**/*.*
-!tools/**/*.cwl
-workflows/**/*.*
-!workflows/**/*.cwl
+expressions/*/*/*
+!expressions/*/*/*.cwl
+
+tools/*/*/*
+!tools/*/*/*.cwl
+
+workflows/*/*/*
+!workflows/*/*/*.cwl
 
 #### Items in schemas that don't end in .yaml
-schemas/**/*.*
-!schemas/**/*.yaml
+schemas/*/*/*
+!schemas/*/*/*.yaml
 
-### Items in config that don't end in .yaml
-config/**/*.*
-!config/**/*.yaml
+#### Items in config that don't end in .yaml
+config/*/*/*
+!config/*/*/*.yaml
