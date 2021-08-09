@@ -3,7 +3,7 @@ name: Update auto completion yaml
 on:
   push:
    branches:
-    - beta-release  # To be moved to 'main'
+    - main  # To be moved to 'main'
    paths:
      # Template change
      - "src/autocompletion/templates/*.yaml"

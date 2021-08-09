@@ -3,7 +3,7 @@ name: Sync tools and sync workflows and create catalogue
 on:
   push:
    branches:
-    - beta-release  # TODO move to 'main'
+    - main  # TODO move to 'main'
    paths:
      # Workflow change
      - "**/*.cwl"
