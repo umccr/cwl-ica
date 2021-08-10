@@ -27,3 +27,24 @@ expressions:
         path: 1.0.0/flatten-array-fastq-list__1.0.0.cwl
         md5sum: 3fd2377b47c3641f64e43b530138ae02
     categories: []
+  - name: parse-int-array
+    path: parse-int-array
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/parse-int-array__1.0.0.cwl
+        md5sum: 910b29813ea555a3ac2bd45779cb9a47
+    categories: []
+  - name: parse-int
+    path: parse-int
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/parse-int__1.0.0.cwl
+        md5sum: 09a91ad5503a72e12b484f12f9e958ac
+    categories: []
+  - name: parse-file
+    path: parse-file
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/parse-file__1.0.0.cwl
+        md5sum: 36ec6774ad49393e036502ef632ea711
+    categories: []
