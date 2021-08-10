@@ -198,6 +198,9 @@ tools:
       - name: 1.0.0
         path: 1.0.0/custom-create-directory__1.0.0.cwl
         md5sum: 64731e790930737d925417c6166fa43a
+      - name: 2.0.0
+        path: 2.0.0/custom-create-directory__2.0.0.cwl
+        md5sum: 29ed263c6df13a5e21082e2178fc3555
     categories: []
   - name: dragen-build-reference-tarball
     path: dragen-build-reference-tarball
@@ -222,4 +225,53 @@ tools:
       - name: 0.3.1
         path: 0.3.1/mosdepth__0.3.1.cwl
         md5sum: c57f0d9638e93e36c64700781cd6ae2c
+    categories: []
+  - name: custom-tso500-make-region-coverage-qc
+    path: custom-tso500-make-region-coverage-qc
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-tso500-make-region-coverage-qc__1.0.0.cwl
+        md5sum: 4247234e8a63f23eb35370b03abe85b3
+    categories: []
+  - name: custom-tso500-make-exon-coverage-qc
+    path: custom-tso500-make-exon-coverage-qc
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-tso500-make-exon-coverage-qc__1.0.0.cwl
+        md5sum: 6722ee310f76f453e881664a948aec4d
+    categories: []
+  - name: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
+    path: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.cwl
+        md5sum: 7c33ea3dde4d78f9ecac8001ecccb36c
+    categories: []
+  - name: custom-tsv-to-json
+    path: custom-tsv-to-json
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-tsv-to-json__1.0.0.cwl
+        md5sum: 4c898290f676bc06a96a0bf2699a96a6
+    categories: []
+  - name: custom-tar-vcf-file-list
+    path: custom-tar-vcf-file-list
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-tar-vcf-file-list__1.0.0.cwl
+        md5sum: 7920f6899a4ac6fc622d794409e17b04
+    categories: []
+  - name: custom-gzip-file
+    path: custom-gzip-file
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-gzip-file__1.0.0.cwl
+        md5sum: 22080eaad91494919b311dab2f506d96
+    categories: []
+  - name: custom-tar-file-list
+    path: custom-tar-file-list
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-tar-file-list__1.0.0.cwl
+        md5sum: e08ec1e3c36c5da45ee07904b9d9ac85
     categories: []
