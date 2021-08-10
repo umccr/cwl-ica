@@ -19,8 +19,7 @@ s:author:
 id: get-custom-output-dir-entry-for-tso500-post-processing--1.0.0
 label: get-custom-output-dir-entry-for-tso500-post-processing v(1.0.0)
 doc: |
-    Documentation for get-custom-output-dir-entry-for-
-    tso500-post-processing v1.0.0
+    Create a custom-output-dir-entry 2.0.0 schema for the files and directories in the tso500 post-processing pipeline.
 
 requirements:
   SchemaDefRequirement:

@@ -22,7 +22,7 @@ requirements:
 id: parse-int--1.0.0
 label: parse-int v(1.0.0)
 doc: |
-    Documentation for parse-int v1.0.0
+    Parse an int. Useful in situations where the source needs to be a string, but the file needs to come from the valueFrom expression.
 
 inputs:
   input_int:

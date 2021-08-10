@@ -19,7 +19,8 @@ s:author:
 id: get-compresed-vcf-file-from-directory--1.0.0
 label: get-compresed-vcf-file-from-directory v(1.0.0)
 doc: |
-    Documentation for get-compresed-vcf-file-from-directory v1.0.0
+    Collect a bgzipped vcf file from the top level of a directory.
+    Also collect the respective vcf index file.
 
 requirements:
   LoadListingRequirement:

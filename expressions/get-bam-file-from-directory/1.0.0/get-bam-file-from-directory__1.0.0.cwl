@@ -19,7 +19,8 @@ s:author:
 id: get-bam-file-from-directory--1.0.0
 label: get-bam-file-from-directory v(1.0.0)
 doc: |
-    Documentation for get-bam-file-from-directory v1.0.0
+    Collect a bam file from the top level of the directory.
+    Also find its index file and append it as a secondary file
 
 requirements:
   LoadListingRequirement:

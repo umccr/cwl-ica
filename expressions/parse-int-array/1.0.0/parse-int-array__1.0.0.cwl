@@ -19,7 +19,7 @@ s:author:
 id: parse-int-array--1.0.0
 label: parse-int-array v(1.0.0)
 doc: |
-    Documentation for parse-int-array v1.0.0
+    Parse an array of ints. Useful in situations where the source needs to be a string, but the file needs to come from the valueFrom expression.
 
 inputs:
   input_int_array:

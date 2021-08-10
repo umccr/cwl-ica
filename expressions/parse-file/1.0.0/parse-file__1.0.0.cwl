@@ -19,7 +19,7 @@ s:author:
 id: parse-file--1.0.0
 label: parse-file v(1.0.0)
 doc: |
-    Documentation for parse-file v1.0.0
+    Parse a file. Useful in situations where the source needs to be a string, but the file needs to come from the valueFrom expression.
 
 requirements:
   InlineJavascriptRequirement: {}
