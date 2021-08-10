@@ -35,6 +35,15 @@ requirements:
           /*
           Converts AlignCollapseFusionCaller to align_collapse_fusion_caller
           */
+
+          /*
+          One exception, DnaQCMetrics should be dna_qc_metrics, not dna_q_c_metrics.
+          */
+          analysis_dir_basename = analysis_dir_basename.replace("QC", "Qc");
+
+          /*
+          Now convert from CamelCase to underscore
+          */
           return analysis_dir_basename.replace(/(?:^|\.?)([A-Z])/g, replace_upper_case).replace(/^_/, "");
         }
       # Get outputs for each task
