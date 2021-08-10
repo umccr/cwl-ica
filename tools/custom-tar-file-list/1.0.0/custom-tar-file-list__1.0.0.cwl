@@ -19,7 +19,8 @@ s:author:
 id: custom-tar-file-list--1.0.0
 label: custom-tar-file-list v(1.0.0)
 doc: |
-    Tar a list of files
+    Tar an array of files, uses compression and strictly no "tar bomb". Files are placed under dir name
+    with the output file being 'dir name.tar.gz'
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

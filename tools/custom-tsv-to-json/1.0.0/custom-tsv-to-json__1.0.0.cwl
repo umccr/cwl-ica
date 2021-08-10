@@ -14,8 +14,6 @@ s:author:
     s:name: Yinan Wang
     s:email: ywang16@illumina.com
 
-# TODO - link to original git repo
-
 s:maintainer:
   class: s:Person
   s:name: Alexis Lucattini
@@ -26,7 +24,9 @@ s:maintainer:
 id: custom-tsv-to-json--1.0.0
 label: custom-tsv-to-json v(1.0.0)
 doc: |
-    Documentation for custom-tsv-to-json v1.0.0
+    Given a tsv file (or csv / text file), strip the first set of rows as indicated in 'skip_rows' and convert
+    the remainder to a compressed json file (in orient format).
+    Original cwl tool can be found [here](https://github.com/YinanWang16/tso500-ctdna-post-processing/blob/main/cwl/tools/tsv2json/tsv2json.cwl)
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

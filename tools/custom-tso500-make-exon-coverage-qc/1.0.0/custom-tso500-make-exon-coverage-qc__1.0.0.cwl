@@ -14,8 +14,6 @@ s:author:
     s:name: Yinan Wang
     s:email: ywang16@illumina.com
 
-# TODO - link to original git repo
-
 s:maintainer:
   class: s:Person
   s:name: Alexis Lucattini
@@ -26,7 +24,11 @@ s:maintainer:
 id: custom-tso500-make-exon-coverage-qc--1.0.0
 label: custom-tso500-make-exon-coverage-qc v(1.0.0)
 doc: |
-    Documentation for custom-tso500-make-coverage-qc v1.0.0
+    Using the thresholds output from mosdepth, take in a tab delimited file of compressions and
+    reduce to those exons who've failed a fixed level of coverage.
+    The output of this cwl tool contains a header that is compatible with uploading the file to Pieriandx
+    Original CWL file [here](https://github.com/YinanWang16/tso500-ctdna-post-processing/blob/main/cwl/tools/mosdepth/mosdepth-thresholds-bed-to-coverage-QC-step.cwl)
+
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

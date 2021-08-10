@@ -14,8 +14,6 @@ s:author:
     s:name: Yinan Wang
     s:email: ywang16@illumina.com
 
-# TODO - link to original git repo
-
 s:maintainer:
   class: s:Person
   s:name: Alexis Lucattini
@@ -27,7 +25,8 @@ id: mosdepth--0.3.1
 label: mosdepth v(0.3.1)
 doc: |
     Output per-base dpeth in an easy to read format.
-    Full documentation can be found [here](https://github.com/brentp/mosdepth)
+    Full documentation can be found [here](https://github.com/brentp/mosdepth).
+    Original CWL file can be found [here](https://github.com/YinanWang16/tso500-ctdna-post-processing/blob/main/cwl/tools/mosdepth/mosdepth-make-thresholds-bed.cwl)
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

@@ -26,8 +26,8 @@ s:maintainer:
 id: custom-tso500-make-region-coverage-qc--1.0.0
 label: custom-tso500-make-region-coverage-qc v(1.0.0)
 doc: |
-    Documentation for custom-tso500-make-region-coverage-qc
-    v1.0.0
+  Collate the proportions of regions whose average coverage is greater than thresh 'x'
+  Original CWL file [here](https://github.com/YinanWang16/tso500-ctdna-post-processing/blob/main/cwl/tools/mosdepth/mosdepth-thresholds-bed-to-target-region-coverage-job.cwl)
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

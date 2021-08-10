@@ -19,7 +19,7 @@ s:author:
 id: custom-gzip-file--1.0.0
 label: custom-gzip-file v(1.0.0)
 doc: |
-    Documentation for custom-gzip-file v1.0.0
+    Compress a file with gzip. Output is the same name as the file but with '.gz' suffix
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:
