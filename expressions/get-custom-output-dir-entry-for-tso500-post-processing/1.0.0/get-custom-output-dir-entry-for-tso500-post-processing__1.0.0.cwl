@@ -155,7 +155,7 @@ expression: >-
               get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.stiched_realigned_dir,
                                                                            [
                                                                              inputs.sample_id + ".stitched.bam",
-                                                                             inputs.sample_id + ".stitchde.bam.bai"
+                                                                             inputs.sample_id + ".stitched.bam.bai"
                                                                            ],
                                                                            null,
                                                                            "top_dir"),
