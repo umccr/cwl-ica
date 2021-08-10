@@ -48,3 +48,24 @@ expressions:
         path: 1.0.0/parse-file__1.0.0.cwl
         md5sum: 36ec6774ad49393e036502ef632ea711
     categories: []
+  - name: get-compressed-vcf-file-from-directory
+    path: get-compressed-vcf-file-from-directory
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/get-compressed-vcf-file-from-directory__1.0.0.cwl
+        md5sum: 98e5b351b12740ade7d8eb969b02fa9e
+    categories: []
+  - name: get-custom-output-dir-entry-for-tso500-post-processing
+    path: get-custom-output-dir-entry-for-tso500-post-processing
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl
+        md5sum: 682e06309ebecb6cb1c5688e570e7f43
+    categories: []
+  - name: get-bam-file-from-directory
+    path: get-bam-file-from-directory
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/get-bam-file-from-directory__1.0.0.cwl
+        md5sum: a73d554afdc1569d03dbfd31b70f7ee1
+    categories: []
