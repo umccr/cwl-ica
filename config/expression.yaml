@@ -69,3 +69,10 @@ expressions:
         path: 1.0.0/get-bam-file-from-directory__1.0.0.cwl
         md5sum: a73d554afdc1569d03dbfd31b70f7ee1
     categories: []
+  - name: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
+    path: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
+    versions:
+      - name: 1.2.1--0
+        path: 1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.cwl
+        md5sum: 10900c8d1d5a71921ee4b5d23202287f
+    categories: []
