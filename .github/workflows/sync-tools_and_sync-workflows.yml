@@ -1,30 +1,33 @@
 name: Sync tools and sync workflows and create catalogue
 
 on:
-  push:
-   branches:
-    - main  # TODO move to 'main'
-   paths:
-     # Workflow change
-     - "**/*.cwl"
-     # GH change
-     - ".github/workflows/sync-tools_and_sync-workflows.yml"
-     - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
-     # Also for changes in the catalogue script
-     - ".github/create_catalogue.sh"
-     - "src/install.sh"
-     # Config files (say a merge conflict is resolved)
-     - "config/project.yaml"
-     - "config.tool.yaml"
-     - "config/workflow.yaml"
-     - "config/run.yaml"
-     # Also for catalogue creation script changes
-     - "src/subcommands/github_actions/create_catalogue.py"
-     - "src/subcommands/github_actions/create_markdown_file.py"
-     - "src/subcommands/sync/sync_github_actions.py"
+  pull_request_review:
+    types:
+      - "submitted"
+    branches:
+     - main
+    paths:
+      # Workflow change
+      - "**/*.cwl"
+      # GH change
+      - ".github/workflows/sync-tools_and_sync-workflows.yml"
+      - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
+      # Also for changes in the catalogue script
+      - ".github/create_catalogue.sh"
+      - "src/install.sh"
+      # Config files (say a merge conflict is resolved)
+      - "config/project.yaml"
+      - "config.tool.yaml"
+      - "config/workflow.yaml"
+      - "config/run.yaml"
+      # Also for catalogue creation script changes
+      - "src/subcommands/github_actions/create_catalogue.py"
+      - "src/subcommands/github_actions/create_markdown_file.py"
+      - "src/subcommands/sync/sync_github_actions.py"
 
 jobs:
   sync_tools_and_workflows_and_create_catalogue:
+    if: github.event.review.state == 'approved'
     name: sync-tools and sync-workflows and create-catalogue
     concurrency: git_commits
     runs-on: ubuntu-latest
