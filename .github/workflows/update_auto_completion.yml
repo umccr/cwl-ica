@@ -1,18 +1,21 @@
 name: Update auto completion yaml
 
 on:
-  push:
-   branches:
-    - main  # To be moved to 'main'
-   paths:
-     # Template change
-     - "src/autocompletion/templates/*.yaml"
-     # GH change
-     - ".github/workflows/update_auto_completion.yml"
-     - ".github/scripts/update_autocompletion.sh"
+  pull_request_review:
+    types:
+      - "submitted"
+    branches:
+      - main
+    paths:
+      # Template change
+      - "src/autocompletion/templates/*.yaml"
+      # GH change
+      - ".github/workflows/update_auto_completion.yml"
+      - ".github/scripts/update_autocompletion.sh"
 
 jobs:
   update_auto_completion_yaml:
+    if: github.event.review.state == 'approved'
     name: update autocompletion yaml
     concurrency: git_commits
     runs-on: ubuntu-latest
