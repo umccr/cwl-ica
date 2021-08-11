@@ -34,3 +34,10 @@ schemas:
         path: 1.0.0/settings-by-samples__1.0.0.yaml
         md5sum: ffc6a9e9b8773c592a133e0e5ed864f2
     categories: []
+  - name: umccrise-input
+    path: umccrise-input
+    versions:
+      - name: 1.2.1--0
+        path: 1.2.1--0/umccrise-input__1.2.1--0.yaml
+        md5sum: 3db4bff118ec7389022be4302ef375c9
+    categories: []
