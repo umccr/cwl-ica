@@ -19,7 +19,7 @@ s:author:
 id: bgzip--1.12.0
 label: bgzip v(1.12.0)
 doc: |
-    Documentation for bgzip v1.12.0
+    compress a file with bgzip. More info can be found [here](http://www.htslib.org/doc/bgzip.html)
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

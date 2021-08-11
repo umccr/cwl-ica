@@ -22,7 +22,7 @@ s:author:
 id: tabix--0.2.6
 label: tabix v(0.2.6)
 doc: |
-    Documentation for tabix v0.2.6
+    Add an index to a vcf file, more info can be found [here](http://www.htslib.org/doc/tabix.html)
 
 hints:
     ResourceRequirement:

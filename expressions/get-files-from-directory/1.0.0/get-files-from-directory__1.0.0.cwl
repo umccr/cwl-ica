@@ -19,7 +19,7 @@ s:author:
 id: get-files-from-directory--1.0.0
 label: get-files-from-directory v(1.0.0)
 doc: |
-    Documentation for get-files-from-directory v1.0.0
+    Given an array of strings, collect the matching files from the top level of a directory
 
 requirements:
   LoadListingRequirement:

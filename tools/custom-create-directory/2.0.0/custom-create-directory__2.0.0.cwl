@@ -19,7 +19,10 @@ s:author:
 id: custom-create-directory--2.0.0
 label: custom-create-directory v(2.0.0)
 doc: |
-    Documentation for custom-create-directory v2.0.0
+    Create a directory for output v2.0.0, uses the custom-output-dir-entry schema v2.0.0.
+    Can be of type - tarball, directory, filelist.
+    One can select a list of files from each directory, tarball to extract.
+    One can also select 'top_dir' or 'sub_dir' to determine if files go in the top directory or a sub directory.  
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

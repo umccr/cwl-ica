@@ -14,8 +14,6 @@ s:author:
     s:name: Yinan Wang
     s:email: ywang16@illumina.com
 
-# TODO - link to original git repo
-
 s:maintainer:
   class: s:Person
   s:name: Alexis Lucattini
@@ -27,8 +25,8 @@ s:maintainer:
 id: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json--1.0.0
 label: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json v(1.0.0)
 doc: |
-    Documentation for custom-tso500-align-collapse-fusion-
-    caller-csv-metrics-to-json v1.0.0
+    Collate a list of dragen metric csv files and output as a compressed json.
+    Original CWL File can be found [here](https://github.com/YinanWang16/tso500-ctdna-post-processing/blob/main/cwl/tools/tsv2json/tsv2json.cwl)
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/RequestResources.htm
 hints:
