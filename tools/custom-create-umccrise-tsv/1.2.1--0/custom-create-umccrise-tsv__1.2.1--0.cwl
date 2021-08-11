@@ -125,7 +125,7 @@ requirements:
               Write the umccrise tsv to the output file
               """
 
-              umccrise_df.to_csv(output_file, header=True, index=False)
+              umccrise_df.to_csv(output_file, header=True, index=False, sep="\t")
 
 
           def main():
