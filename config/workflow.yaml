@@ -80,3 +80,11 @@ workflows:
         md5sum: e8a5f7e0631cb9d14303f56d67e408d7
     categories:
       - dragen
+  - name: tso500-ctdna-post-processing-pipeline
+    path: tso500-ctdna-post-processing-pipeline
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
+        md5sum: e4c11f3b6ccb53a856deca1a05fc18e1
+    categories:
+      - tso500

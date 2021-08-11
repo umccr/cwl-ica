@@ -331,6 +331,16 @@ projects:
             modification_time: 2021-07-02T05:02:49UTC
             run_instances:
               - wfr.1fd8c32d79c34e179a4c0d6754edd3a2
+      - name: tso500-ctdna-post-processing-pipeline
+        path: tso500-ctdna-post-processing-pipeline
+        ica_workflow_name: tso500-ctdna-post-processing-pipeline_dev-wf
+        ica_workflow_id: wfl.8c296420b9934b1eb582a61e27bb598a
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0
+            modification_time: 2021-08-09T05:18:25UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
@@ -561,4 +571,14 @@ projects:
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
             modification_time: 2021-07-30T00:36:53UTC
+            run_instances: []
+      - name: tso500-ctdna-post-processing-pipeline
+        path: tso500-ctdna-post-processing-pipeline
+        ica_workflow_name: tso500-ctdna-post-processing-pipeline_clb-ilmn-dev_wf
+        ica_workflow_id: wfl.fb0b7f1dbe164fceb8d6db7e83384647
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0
+            modification_time: 2021-08-10T06:43:29UTC
             run_instances: []

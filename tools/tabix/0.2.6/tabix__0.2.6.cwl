@@ -8,6 +8,9 @@ $namespaces:
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
+# TODO - rename this to index-vcf-file and place as custom tool
+# TODO - OR abstract this tool and support gff, gtf or sam files as well.
+
 # Metadata
 s:author:
     class: s:Person
@@ -19,24 +22,57 @@ s:author:
 id: tabix--0.2.6
 label: tabix v(0.2.6)
 doc: |
-    Documentation for tabix v0.2.6
+    Add an index to a vcf file, more info can be found [here](http://www.htslib.org/doc/tabix.html)
 
 hints:
     ResourceRequirement:
         ilmn-tes:resources:
-            tier: standard/economy
-            type: standard/standardHiCpu/standardHiMem/standardHiIo/fpga
-            size: small/medium/large/xlarge/xxlarge
-        coresMin: 2
+            tier: standard
+            type: standard
+            size: medium
+        coresMin: 1
         ramMin: 4000
     DockerRequirement:
-        dockerPull: ubuntu:latest
+        dockerPull: quay.io/biocontainers/tabix:1.11--hdfd78af_0
 
-baseCommand: []
+requirements:
+  InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement:
+    listing:
+      - entryname: create_index.sh
+        entry: |
+          #!/usr/bin/env bash
 
-inputs: []
+          # Set pipe failure
+          set -euo pipefail
 
-outputs: []
+          # Copy file over
+          cp "$(inputs.vcf_file.path)" "$(inputs.vcf_file.basename)"
+
+          # Run tabix
+          tabix -p vcf "$(inputs.vcf_file.basename)"
+
+
+baseCommand: ["bash", "create_index.sh"]
+
+inputs:
+  vcf_file:
+    label: vcf file
+    doc: |
+      The input vcf file to be indexed
+    type: File
+
+outputs:
+  vcf_file_indexed:
+    label: vcf file indexed
+    doc: |
+      The indexed vcf file
+    type: File
+    outputBinding:
+      glob: "$(inputs.vcf_file.basename)"
+    secondaryFiles:
+      - pattern: ".tbi"
+        required: false
 
 successCodes:
   - 0
