@@ -100,6 +100,6 @@ workflows:
     versions:
       - name: 1.1.0--1.0.0
         path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
-        md5sum: 887bd33e3382b35c8e788ed0c78adc80
+        md5sum: b3a63916938f3e3152a428f2878a06c9
     categories:
       - tso500

@@ -619,11 +619,11 @@ steps:
           ${
             return self.align_collapse_fusion_caller_dir;
           }
-      stiched_realigned_dir:
+      variant_caller_dir:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return self.stitched_realigned_dir;
+            return self.variant_caller_dir;
           }
       merged_annotation_dir:
         source: tso500_outputs_by_sample

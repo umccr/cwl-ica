@@ -32,6 +32,7 @@ requirements:
         - $import: ../../../schemas/tso500-sample/1.0.0/tso500-sample__1.0.0.yaml
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
         - $import: ../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml
+        - $import: ../../../schemas/custom-output-dir-entry/2.0.0/custom-output-dir-entry__2.0.0.yaml
 
 inputs:
   # All of the inputs to the standadrd tso500 ctdna post processing pipeline
@@ -114,7 +115,7 @@ steps:
         valueFrom: |
           ${
             return [
-                     "TST500C_manifest.bed";
+                     "TST500C_manifest.bed"
                    ];
           }
     out:
@@ -160,6 +161,7 @@ steps:
       dragen_license_key:
         source: dragen_license_key
     out:
+      - results
       - outputs_by_sample
     run: ../../../workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.cwl
 
@@ -181,10 +183,42 @@ steps:
       - id: post_processing_output_directory
     run: ../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
 
-outputs:
-  post_processing_output_dirs_by_sample:
-    label: post processing output dirs by sample
+  ######################################
+  # Create the final directory structure
+  ######################################
+
+  # First create an expression to create the final directory structure schema
+  get_final_directory_output_for_tso500_pipeline:
+    label: create output directory
     doc: |
-      Each of the post processing output directories for each sample in the workflow
-    type: Directory[]
-    outputSource: run_tso_ctdna_post_processing_workflow_step/post_processing_output_directory
+      Create the output directory containing all the files and directories listed in the previous step.
+    in:
+      per_sample_post_processing_output_dirs:
+        source: run_tso_ctdna_post_processing_workflow_step/post_processing_output_directory
+      results_dir:
+        source: run_tso_ctdna_workflow_step/results
+    out:
+      - id: tso500_output_dir_entry_list
+    run: ../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-with-post-processing__1.0.0.cwl
+
+  # Then create the final directory structure
+  create_final_output_directory:
+    label: create output directory
+    doc: |
+      Create the output directory containing all the files listed in the previous step.
+    in:
+      output_directory_name:
+        valueFrom: "Results"
+      custom_output_dir_entry_list:
+        source: get_final_directory_output_for_tso500_pipeline/tso500_output_dir_entry_list
+    out:
+      - id: output_directory
+    run: ../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.cwl
+
+outputs:
+  output_results_dir:
+    label: output results dir
+    doc: |
+      The output directory
+    type: Directory
+    outputSource: create_final_output_directory/output_directory
