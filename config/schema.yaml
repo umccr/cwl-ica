@@ -40,4 +40,7 @@ schemas:
       - name: 1.2.1--0
         path: 1.2.1--0/umccrise-input__1.2.1--0.yaml
         md5sum: 3db4bff118ec7389022be4302ef375c9
+      - name: 1.2.2--0
+        path: 1.2.2--0/umccrise-input__1.2.2--0.yaml
+        md5sum: 3db4bff118ec7389022be4302ef375c9
     categories: []
