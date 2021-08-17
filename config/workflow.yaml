@@ -108,8 +108,8 @@ workflows:
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/umccrise-pipeline__1.2.1--0.cwl
-        md5sum: f343dd987bd33e5c13573eb309228cd2
+        md5sum: 6100f32cc0c1ecf82da6ea0da96f8622
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
-        md5sum: 3b86df618fd4de8579d729fd5e92b2a6
+        md5sum: c33e142c9012e50fec6e22452be1ef90
     categories: []

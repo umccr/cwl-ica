@@ -290,8 +290,8 @@ tools:
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/umccrise__1.2.1--0.cwl
-        md5sum: 4c76c146b47e1599b1c2d04d8e3d7d4b
+        md5sum: 728444df3f171fcd9e177820e1e4ca9b
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise__1.2.2--0.cwl
-        md5sum: 9ee7d96e35a73068a979f60b285562b4
+        md5sum: 89f0dde66527bc8523f87776437691da
     categories: []

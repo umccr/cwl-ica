@@ -32,7 +32,7 @@ hints:
         coresMin: 71
         ramMin: 140000
     DockerRequirement:
-        dockerPull: ubuntu:latest  # FIXME
+        dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:1.2.1-a8869605e8
 
 
 requirements:
