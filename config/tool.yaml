@@ -281,6 +281,9 @@ tools:
       - name: 1.2.1--0
         path: 1.2.1--0/custom-create-umccrise-tsv__1.2.1--0.cwl
         md5sum: bf05439e23c36ca3d472e00da0a8e931
+      - name: 1.2.2--0
+        path: 1.2.2--0/custom-create-umccrise-tsv__1.2.2--0.cwl
+        md5sum: 509829c573df82027546d1c47cafc1d9
     categories: []
   - name: umccrise
     path: umccrise
@@ -288,4 +291,7 @@ tools:
       - name: 1.2.1--0
         path: 1.2.1--0/umccrise__1.2.1--0.cwl
         md5sum: 4c76c146b47e1599b1c2d04d8e3d7d4b
+      - name: 1.2.2--0
+        path: 1.2.2--0/umccrise__1.2.2--0.cwl
+        md5sum: 9ee7d96e35a73068a979f60b285562b4
     categories: []
