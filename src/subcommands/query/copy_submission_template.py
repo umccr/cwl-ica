@@ -149,7 +149,7 @@ class CopySubmissionTemplate(Command):
                                         for project_dict in read_yaml(get_project_yaml_path())["projects"]]
 
         for project in projects_list:
-            ica_item_list: ICAWorkflow = project.get_items_by_item_type(self.item_type)
+            ica_item_list: List[ICAWorkflow] = project.get_items_by_item_type(self.item_type)
             for ica_workflow in ica_item_list:
                 version: ICAWorkflowVersion
                 for version in ica_workflow.versions:
@@ -212,6 +212,14 @@ class CopySubmissionTemplate(Command):
             # Add docs
             shell_h.write(f"# Use this script to launch the input json '{self.output_json_path.name}'\n\n")
 
+            # Source ica-ica-lazy functions (bash functions might be exported but doesn't help if user
+            # is running zsh
+            shell_h.write("# Source ica-ica-lazy functions if they exist\n")
+            shell_h.write("if [[-d \"$HOME/.ica-ica-lazy/functions\"]]; then\n")
+            shell_h.write("    for f in \"$HOME/.ica-ica-lazy/functions/\"*\".sh\"; do\n")
+            shell_h.write("        .  \"$f\"\n")
+            shell_h.write("    done\n")
+            shell_h.write("fi\n\n")
             # Then start with the context switch command
             shell_h.write(f"# Enter the right context to launch the workflow\n")
             shell_h.write(f"if ! type ica-context-switcher >/dev/null; then\n")
