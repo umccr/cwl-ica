@@ -44,11 +44,11 @@ inputs:
     doc: |
       The name of the output directory
     type: string
-  genomes_dir:
-    label: genomes_dir
+  genomes_tar:
+    label: genomes_tar
     doc: |
       The reference data bundle for the umccrise tool
-    type: Directory
+    type: File
   genome:
     label: genome
     doc: |
@@ -107,6 +107,11 @@ inputs:
     doc: |
       Can be used to limit the amount of memory allowed to be used
     type: string[]?
+  restarts:
+    label: restarts
+    doc: |
+      Number of attempts to complete a job
+    type: int?
 
 steps:
   create_mount_paths_and_umccrise_tsv_input_jsons_step:
@@ -143,8 +148,8 @@ steps:
         source: create_mount_paths_and_umccrise_tsv_input_jsons_step/predefined_mount_paths
       output_directory_name:
         source: output_directory_name
-      genomes_dir:
-        source: genomes_dir
+      genomes_tar:
+        source: genomes_tar
       genome:
         source: genome
       stage:
@@ -165,6 +170,8 @@ steps:
         source: dag
       resources:
         source: resources
+      restarts:
+        source: restarts
     out:
       - id: output_directory
     run: ../../../tools/umccrise/1.2.2--0/umccrise__1.2.2--0.cwl

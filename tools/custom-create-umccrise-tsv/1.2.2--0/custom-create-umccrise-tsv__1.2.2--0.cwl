@@ -117,6 +117,9 @@ requirements:
               # Drop na columns
               umccrise_df.dropna(axis='columns', how='all', inplace=True)
 
+              # Add in __WORK_DIR__ prefix to all paths
+              umccrise_df = umccrise_df.applymap(lambda x: "__WORK_DIR__/%s" % x if x.startswith("inputs/") else x)
+
               return umccrise_df
 
 

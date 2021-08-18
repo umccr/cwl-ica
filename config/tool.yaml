@@ -293,5 +293,5 @@ tools:
         md5sum: 728444df3f171fcd9e177820e1e4ca9b
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise__1.2.2--0.cwl
-        md5sum: 89f0dde66527bc8523f87776437691da
+        md5sum: a5ce633db177b8d7c369ed6151c8b64b
     categories: []

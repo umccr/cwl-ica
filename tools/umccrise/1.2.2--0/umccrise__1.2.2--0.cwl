@@ -51,14 +51,113 @@ requirements:
             return runtime.cores;
           }
         }
+      - var get_scratch_mount = function() {
+          /*
+          Get the scratch mount directory
+          */
+          return "/scratch";
+        }
+      - var get_name_root_from_tarball = function(tar_file) {
+          /*
+          Get the name of the reference folder
+          */
+          var tar_ball_regex = /(\S+)\.tar\.gz/g;
+          return tar_ball_regex.exec(tar_file)[1];
+        }
+      - var get_genomes_parent_dir = function(){
+          /*
+          Get the genomes directory
+          */
+          return get_scratch_mount() + "/" + "genome_dir";
+        }
+      - var get_scratch_working_parent_dir = function(){
+          /*
+          Get the parent directory for the working directory
+          By just on the off chance someone happens to stupidly set the output as 'genome'
+          */
+          return get_scratch_mount() + "/" + "working_dir";
+        }
+      - var get_scratch_working_dir = function(){
+          /*
+          Get the scratch working directory
+          */
+          return get_scratch_working_parent_dir() + "/" + inputs.output_directory_name;
+        }
+      - var get_scratch_input_dir = function(){
+          /*
+          Get the inputs directory in /scratch space
+          */
+          return get_scratch_mount() + "/" + "inputs";
+        }
+      - var get_genomes_dir_name = function(){
+          /*
+          Return the stripped basename of the genomes tarball
+          */
+          return get_name_root_from_tarball(inputs.genomes_tar.basename);
+        }
+      - var get_genomes_dir_path = function(){
+          /*
+          Get the genomes dir path
+          */
+          return get_genomes_parent_dir() + "/" + get_genomes_dir_name();
+        }
+      - var get_run_script_entryname = function(){
+          /*
+          Get the run script entry name
+          */
+          return "run-umccrise.sh";
+        }
+      - var get_run_script_entry = function(){
+          /*
+          Get the contents of the shell script
+          */
+          return "#!/usr/bin/env bash\n" +
+                 "\n" +
+                 "# Set to fail\n" +
+                 "set -euo pipefail\n" +
+                 "\n" +
+                 "# Create parent dir for genomes tmp dir\n" +
+                 "echo \"\$(date):\ Creating parent dir for workspace in scratch\" 1>&2\n" +
+                 "mkdir -p" + " " + "\"" + get_scratch_working_parent_dir() + "\"\n" +
+                 "\n" +
+                 "# Create parent dir for genomes tmp dir\n" +
+                 "echo \"\$(date):\ Creating parent dir for genomes\" 1>&2\n" +
+                 "mkdir -p" + " " + "\"" + get_genomes_parent_dir() + "\"\n" +
+                 "\n" +
+                 "# Untar umccrise genomes\n" +
+                 "echo \"\$(date):\ Extracting genomes directory into scratch space\" 1>&2\n" +
+                 "tar -C" + " " + "\"" + get_genomes_parent_dir() + "\"" + " " + "-xf" + " " + "\"" + inputs.genomes_tar.path + "\"" + "\n" +
+                 "\n" +
+                 "# Put inputs into scratch space\n" +
+                 "echo \"\$(date):\ Placing inputs into scratch space\" 1>&2\n" +
+                 "cp -r \"inputs/.\"" + " " + "\"" + get_scratch_input_dir() + "/\"" + "\n" +
+                 "\n" +
+                 "# Copy over modified umccrise tsv to run time directory\n" +
+                 "echo \"\$(date):\ Editing umccrise tsv file to turn relative paths to absolute paths in scratch space\" 1>&2\n" +
+                 "sed \"s%__WORK_DIR__%" + get_scratch_mount() + "%g\"" + " " + "\"" + inputs.umccrise_tsv.path + "\"" + " > " + "\"" + inputs.umccrise_tsv.basename + "\"\n" +
+                 "\n" +
+                 "# Run umccrise\n" +
+                 "echo \"\$(date):\ Running umccrise in scratch space\" 1>&2 \n" +
+                 "eval umccrise '\"\${@}\"'\n" +
+                 "\n" +
+                 "# Copy over working directory\n" +
+                 "echo \"\$(date):\ UMCCRise complete, copying over outputs into output directory\" 1>&2\n" +
+                 "cp -r" + " " + "\"" + get_scratch_working_dir() + "/.\"" + " " + "\"" + inputs.output_directory_name + "/\"" + "\n" +
+                 "\n" +
+                 "echo \"\$(date):\ Workflow complete!\" 1>&2\n";
+        }
   InitialWorkDirRequirement:
     listing: |
       ${
           /*
-          Initialise the array of files to mount
+          Initialise the array of files to mount - need to place the script in the runtime directory
           */
-
-          var e = [];
+          var e = [
+                    {
+                      "entryname": get_run_script_entryname(),
+                      "entry": get_run_script_entry()
+                    }
+                  ];
 
           /*
           Check if input_mounts record is defined
@@ -72,12 +171,23 @@ requirements:
           Iterate through each file to mount
           Mount that object at the same reference to the mount point index.
           */
-          inputs.umccrise_tsv_mount_paths.forEach(function(mount_path_record){
-            e.push({
-                'entry': mount_path_record.file_obj,
-                'entryname': mount_path_record.mount_path
-            });
-          });
+          for (var mount_record_iter=0; mount_record_iter < inputs.umccrise_tsv_mount_paths.length; mount_record_iter++){
+            /*
+            Assign object first
+            */
+            var mount_path_record = inputs.umccrise_tsv_mount_paths[mount_record_iter];
+
+            /*
+            Add mount path record to listing
+            */
+            e.push(
+                     {
+                        "entryname": mount_path_record.mount_path,
+                        "entry": mount_path_record.file_obj
+                     }
+                   );
+
+          }
 
           /*
           Return file paths
@@ -85,11 +195,22 @@ requirements:
           return e;
       }
 
-baseCommand: [ "umccrise" ]
+baseCommand: [ "bash" ]
 
 arguments:
+  # Before all other commands
+  - valueFrom: "$(get_run_script_entryname())"
+    position: -1
+  # Wherever
   - prefix: "--threads"
     valueFrom: "$(get_num_threads())"
+  - prefix: "--genomes-dir"
+    valueFrom: "$(get_genomes_dir_path())"
+  - prefix: "-o"
+    valueFrom: "$(get_scratch_working_dir())"
+  # After all other parameters
+  - valueFrom: "$(inputs.umccrise_tsv.basename)"
+    position: 100
 
 inputs:
   # Input / output mandatory options
@@ -98,8 +219,6 @@ inputs:
     doc: |
       CSV file that contains the row of samples ready to process
     type: File
-    inputBinding:
-      prefix: "--umccrise-tsv"
   umccrise_tsv_mount_paths:
     label: umccrise tsv mount paths
     doc: |
@@ -110,16 +229,12 @@ inputs:
     doc: |
       The name of the output directory
     type: string
-    inputBinding:
-      prefix: "-o"
   # Reference
-  genomes_dir:
-    label: genomes_dir
+  genomes_tar:
+    label: genomes tar
     doc: |
       The reference data bundle for the umccrise tool
-    type: Directory
-    inputBinding:
-      prefix: "--genomes-dir"
+    type: File
   sample:
     label: sample
     doc: |
@@ -219,6 +334,13 @@ inputs:
         items: string
         inputBinding:
           prefix: "--resources"
+  restarts:
+    label: restarts
+    doc: |
+      Number of attempts to complete a job
+    type: int?
+    inputBinding:
+      prefix: "--restart-times"
 
 outputs:
   output_directory:
