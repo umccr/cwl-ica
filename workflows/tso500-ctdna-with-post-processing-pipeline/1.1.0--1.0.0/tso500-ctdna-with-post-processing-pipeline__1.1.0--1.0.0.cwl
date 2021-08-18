@@ -111,30 +111,25 @@ steps:
     in:
       input_dir:
         source: resources_dir
-      file_basename_list:
-        valueFrom: |
-          ${
-            return [
-                     "TST500C_manifest.bed"
-                   ];
-          }
-    out:
-      - id: output_files
-    run: ../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl
-  parse_tso_manifest_file:
-    label: parse tso manifest file
-    doc: |
-      Scatter used below, easier to parse file in here than use a valueFrom expression from within the scatter
-    in:
-      input_file:
-        source: get_tso_manifest_bed_from_resources_dir/output_files
-        valueFrom: |
-          ${
-            return self[0]
-          }
+      file_basename:
+        valueFrom: "TST500C_manifest.bed"
     out:
       - id: output_file
-    run: ../../../expressions/parse-file/1.0.0/parse-file__1.0.0.cwl
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
+
+  get_sample_ids_from_tso500_sample_object:
+    label: get sample ids from tso500 sample objects
+    doc: |
+      Generate a list of sample ids from the tso500 sample objects
+    scatter: tso500_sample_object
+    in:
+      tso500_sample_object:
+        source: tso500_samples
+      attribute_name:
+        valueFrom: "sample_id"
+    out:
+      - id: attribute_value
+    run: ../../../expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.cwl
 
   ############################
   # Run the tso ctdna pipeline
@@ -178,7 +173,7 @@ steps:
       tso500_outputs_by_sample:
         source: run_tso_ctdna_workflow_step/outputs_by_sample
       tso_manifest_bed:
-        source: parse_tso_manifest_file/output_file
+        source: get_tso_manifest_bed_from_resources_dir/output_file
     out:
       - id: post_processing_output_directory
     run: ../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
@@ -215,6 +210,21 @@ steps:
       - id: output_directory
     run: ../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.cwl
 
+  # Collect the sample directory as an output
+  get_sample_output_directory:
+    label: sample output directory
+    doc: |
+      The sample output directory containing all of the samples post-processing files
+    scatter: sub_directory_basename
+    in:
+      input_dir:
+        source: create_final_output_directory/output_directory
+      sub_directory_basename:
+        source: get_sample_ids_from_tso500_sample_object/attribute_value
+    out:
+      - output_directory
+    run: ../../../expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.cwl
+
 outputs:
   output_results_dir:
     label: output results dir
@@ -222,3 +232,9 @@ outputs:
       The output directory
     type: Directory
     outputSource: create_final_output_directory/output_directory
+  output_results_dir_by_sample:
+    label: output results dir by sample
+    doc: |
+      The sample subdirectory of the results
+    type: Directory[]
+    outputSource: get_sample_output_directory/output_directory

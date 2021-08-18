@@ -68,7 +68,7 @@ inputs:
   input_dir:
     label: input dir
     doc: |
-      Input directory with the bam file present
+      Input directory with the file present
     type: Directory
   file_basename_list:
     label: file basename list
