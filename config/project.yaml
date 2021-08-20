@@ -367,7 +367,6 @@ projects:
             modification_time: 2021-08-20T02:17:58UTC
             run_instances:
               - wfr.070e013822304c0191e8195ce10a3b2b
-            run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
         ica_workflow_name: tso500-ctdna-with-post-processing-pipeline_dev-wf
