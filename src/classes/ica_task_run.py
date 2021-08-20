@@ -247,6 +247,9 @@ class ICATaskRun:
         cpu = None
         memory = None
 
+        if pod_metrics_dict.get("containers", None) is None:
+            return None
+
         for container in pod_metrics_dict.get('containers'):
             # Make sure this is a task dict
             if not container.get('name') == "task":

@@ -78,7 +78,7 @@ class RegisterRunInstance(Command):
         for project in read_yaml(get_project_yaml_path())["projects"]:
             if project.get("project_name") == self.project_name:
                 self.project_obj = Project.from_dict(project)
-            break
+                break
         else:
             raise ProjectNotFoundError
 

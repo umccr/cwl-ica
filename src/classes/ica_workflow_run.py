@@ -17,6 +17,7 @@ import re
 from utils.ica_utils import get_jwt_token_obj, get_region_from_base_url
 from utils.miscell import encode_compressed_base64, decode_compressed_base64
 from classes.ica_task_run import ICATaskRun
+from pathlib import Path
 
 logger = get_logger()
 
@@ -173,7 +174,9 @@ class ICAWorkflowRun:
     def get_task_step_name_from_absolute_path_and_state_name(absolute_path, state_name):
         """
 
-        # FIXME - how does a secondary subworkflow or secondary scattered task work?
+        # Scattered Subworkflow scattered task
+        # "AbsolutePath": "/run_tso_ctdna_post_processing_workflow_step-job-0/compress_vcf_files_step-job-1/bgzip__1.12.0.cwl_launch
+        # "Statename": "bgzip__1.12.0.cwl_launch"
 
         # Subworkflow task
         # "AbsolutePath": "/run_dragen_step-job-0/run_dragen_alignment_step_launch"
@@ -195,24 +198,28 @@ class ICAWorkflowRun:
         :return:
         """
 
+        # Simple
         if "/" + state_name == absolute_path:
             return re.sub("_launch$", "", state_name)
 
-        # Create the regex obj
-        re_abs_path_obj = re.match(r"^/(\w+)-job-\d+/(\S+)_launch$", absolute_path)
+        # Convert absolute path to path like object
+        absolute_path = Path(re.sub("_launch$", "", absolute_path))
 
-        # Check for a match
-        if re_abs_path_obj == None:
-            logger.error(f"Don't know how to handle step name \"{absolute_path}\"")
-            raise GetStepNameError
+        # Check if 'nameext' is '.cwl_launch' -> A scattered workflow, lets chop the end off
+        if absolute_path.suffix == ".cwl":
+            # Chop off the entire name
+            absolute_path = absolute_path.parent
 
-        # Check the second component for if it matches '.cwl' at the end
-        # Means we're in a scattered task, just return the first bit
-        if re.match(f"\S+.cwl", re_abs_path_obj.group(2)):
-            return re_abs_path_obj.group(1)
+        # Iterate through each item, truncate
+        workflow_steps = [re.match(r"^(\w+)(?:-job-\d+)?$", path_attr)
+                          for path_attr in str(absolute_path).split("/")
+                          if not path_attr == ""]
+        workflow_steps = [regex_obj.group(1)
+                          for regex_obj in
+                          workflow_steps
+                          if regex_obj is not None]
 
-        # Otherwise we're in a subworkflow, return both
-        return re_abs_path_obj.group(1) + "/" + re_abs_path_obj.group(2)
+        return "/".join(workflow_steps)
 
     def get_task_run_objs(self, project_token):
         """
