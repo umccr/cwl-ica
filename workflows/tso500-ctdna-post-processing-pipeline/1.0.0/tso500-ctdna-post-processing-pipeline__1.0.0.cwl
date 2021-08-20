@@ -371,7 +371,7 @@ steps:
       Compress the tmb, msi and sample analysis results jsons with gzip
     scatter: uncompressed_file
     # bgzip needs drastically less than usual given how small these files are!
-    hints:
+    requirements:
       ResourceRequirement:
         ilmn-tes:resources:
           tier: standard
@@ -397,7 +397,7 @@ steps:
       Zip up the compressed jsons into a tar ball.
       This is to limit the number of input files / directories into the final collection step.
     # tar needs drastically less than usual given how small these files are!
-    hints:
+    requirements:
       ResourceRequirement:
         ilmn-tes:resources:
           tier: standard
@@ -506,7 +506,7 @@ steps:
       Gather the compressed metric jsons files into a tar ball.
       This is to limit the number of input files / directories into the final collection step.
     # gzip needs drastically less than usual given how small these files are!
-    hints:
+    requirements:
       ResourceRequirement:
         ilmn-tes:resources:
           tier: standard
@@ -540,7 +540,7 @@ steps:
       Compress (and index) vcf files with bgzip
     scatter: uncompressed_vcf_file
     # bgzip needs drastically less than usual given how small these files are!
-    hints:
+    requirements:
       ResourceRequirement:
         ilmn-tes:resources:
           tier: standard
@@ -574,7 +574,7 @@ steps:
       Gather the vcf files into a tar ball.
       This is to limit the number of input files / directories into the final collection step.
     # tar needs drastically less than usual given how small these files are!
-    hints:
+    requirements:
       ResourceRequirement:
         ilmn-tes:resources:
           tier: standard
@@ -619,11 +619,11 @@ steps:
           ${
             return self.align_collapse_fusion_caller_dir;
           }
-      stiched_realigned_dir:
+      variant_caller_dir:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return self.stitched_realigned_dir;
+            return self.variant_caller_dir;
           }
       merged_annotation_dir:
         source: tso500_outputs_by_sample

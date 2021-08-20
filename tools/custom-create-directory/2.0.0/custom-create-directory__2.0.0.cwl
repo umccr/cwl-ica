@@ -76,7 +76,7 @@ requirements:
             We use the listing object but this will exist only when this function is called in the inputBinding
             */
             listing_obj = [
-                            {"entryname":key_name}
+                            {"entryname":schema_object[key_name]}
                           ];
 
           } else if (schema_object[key_name].hasOwnProperty("class") && (schema_object[key_name].class === "File" || schema_object[key_name].class === "Directory")) {

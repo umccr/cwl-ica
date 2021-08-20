@@ -80,10 +80,10 @@ inputs:
       * The raw bam file
       * The clean-stitched bam file
     type: Directory
-  stiched_realigned_dir:
-    label: stiched realigned caller directory
+  variant_caller_dir:
+    label: Variant caller directory
     doc: |
-      The stitched realigned directory
+      The variant caller directory
       We collect the following outputs from this directory -
       * The clean-stitched bam file
     type: Directory
@@ -151,10 +151,10 @@ expression: >-
                                                                            ],
                                                                            null,
                                                                            "top_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.stiched_realigned_dir,
+              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.variant_caller_dir,
                                                                            [
-                                                                             inputs.sample_id + ".stitched.bam",
-                                                                             inputs.sample_id + ".stitched.bam.bai"
+                                                                             inputs.sample_id + ".cleaned.stitched.bam",
+                                                                             inputs.sample_id + ".cleaned.stitched.bam.bai"
                                                                            ],
                                                                            null,
                                                                            "top_dir"),

@@ -105,10 +105,10 @@ requirements:
                 coverage_df['length'] = coverage_df.apply(lambda x: x['end'] - x['start'], axis='columns')
 
                 # Get Percentage of region in '100'
-                coverage_df['pct_100X'] = coverage_df.apply(lambda x: (100.0 * x['100X']) / x['length'], axis='columns')
+                coverage_df['pct_100X'] = coverage_df.apply(lambda x: round((100.0 * x['100X']) / x['length'], 1), axis='columns')
 
                 # Filter out regions where pct_100X > 50
-                coverage_df.query("pct_100X <= 50")
+                coverage_df.query("pct_100X <= 50", inplace=True)
 
                 # Get name from bed region
                 coverage_df['region_name_len'] = coverage_df['region'].apply(lambda x: len(x.split("_")))
@@ -123,7 +123,7 @@ requirements:
                 coverage_df.query("transcript_id.str.startswith('NM')", inplace=True)
 
                 # Get 250X as a percentage
-                coverage_df["pct_250X"] = coverage_df.apply(lambda x: (100.0 * x['250X']) / x['length'], axis='columns')
+                coverage_df["pct_250X"] = coverage_df.apply(lambda x: round((100.0 * x['250X']) / x['length'], 1), axis='columns')
 
                 # Strip Exon or Intron from the start of the ID
                 coverage_df["exon_id"] = coverage_df["exon_id"].apply(lambda x: re.sub("^(Exon|Intron)", "", x))
