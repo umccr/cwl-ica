@@ -581,3 +581,34 @@ runs:
         task_stop_time: 1629350138
         task_duration: 359
         task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.070e013822304c0191e8195ce10a3b2b
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.b10e715320844774b730b12c6e7fe185
+    ica_workflow_name: umccrise-pipeline_dev-wf
+    ica_workflow_version_name: 1.2.2--0
+    ica_workflow_run_name: umccrise-v1.2.2-test-run
+    ica_input: eJzN0k9PgzAYBvCvsnC2tGC2wa5Gk11M3LwZ07yUd4jpH9J2W+ay725BcRAPxtN2o0+ah9/b9hhVqI1Cxz3YaDE5RkKCc+EreqglRjeTqAH/1q6r0i0oLXGH0jQKtacWN2hRCyQleKBbJYStHdIkZnHC6HdzHJrj6iM6hS6z9c3W87K2KLyxB65BYVvu0YU4tPC+hZ/3toqf2Lsdt2bfEl+OQW+VrDXyndj8l9/+cywn5yhlKWN5mhCSZeVsPi1oFxeiqA3vtI0172EKuqk1yLA/yUmSkHTKHahGoqOPfL1azbOcZVlOeihB7VAVEglobTx4LONg7w9IG6tAXnSSIXs8g0UoD3EBqqN+jdmC1vdPd8sln7JGtE5nFPhaXOOVDKR/XER4ZZf2P/dnn9/OOvKIr0B7GIr3lbsy7q9k+IJOr6dPDDd8uQ==
+    ica_output: eJyFj8tuwyAQRX8lYl3bA4bYZN3/QDyGypJjKgb3FeXfC2qTLLro8ozO3Kt7YWkvr3sxYcnoS8qf7HS4sDV5W5a0VWAvgU7D8B5zDxMg8HEWYgTpgWuOM9fKIwc7OuGG/ex9Xgi7N96LXnQFqXR534afEhrawQRbrLmp5tHPng7MWcLNnrEV/ys3MadUmnxj/LijXy1Rg+f7tnql5aulb/u6Xis+Ek0dagiJ6m6zhPZItPVOcT4rL7wIWo7BahlDjFpCtOh45OxvSExrwPybUaGfgncgJosoj1IDn4UEmINWKEDFo2DXb/bwgOE=
+    ica_engine_parameters: eJy1kLFOwzAQhl+lysJCEp8DpO1KBxiqDoEHcO1rZJHYkX1uKFXfHdsVTIxltO+779f952K27mOjHUqy7lSsF0Wv/Lqu54OrWMuQQbPkvGEPksEKcAmrR4nARLPn+zqMUjrtsTxCxSteEnoqXTDF/aKwgaZAtzbXV61PCTROu/8J8YRTjhhsf3N5dGb3KD47KYjQRXPDfyvrkEibPsWN9ogJlXY6XU99NZ6Ekfh2mjARXXwp4dSLfp7C32invzK6RaXDmBiFBxGGCERqa1We3m3sbAYr1F0i9M9od0TntEIfmfMllY7+3eN1VRh9iFfldRHI5lU5D2TtkD6bilWccQacNdA2AJAANL02ORMqaCtWRgRYC0/AoC09OUHBl6PwqZnLN3pd0q8=
+    workflow_start_time: 1629425885
+    workflow_end_time: 1629428745
+    workflow_duration: 2859
+    ica_tasks:
+      - ica_task_run_instance_id: trn.81caf27a050642698aedd55d77dd6bee
+        task_step_name: create_umccrise_tsv_step
+        task_name: custom-create-umccrise-tsv__1.2.2--0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1629426240
+        task_stop_time: 1629426657
+        task_duration: 417
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.9e9e2ac87148408cb59561891cd02025
+        task_step_name: run_umccrise_step
+        task_name: umccrise__1.2.2--0.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1629426802
+        task_stop_time: 1629428079
+        task_duration: 1277
+        task_metrics: eJyd000KwjAQBeCrlK5LyGTyN15FXIh04SJYtC5EvHsDgk7EJ9JdUvhI5r1me+/nYxkv875M/aaj6MS7KMkPXX+YrvWTNbauy1hO59tz+xi6bypZ716KDP2rxGJFSFGQFcqRqLlCqzxUKSoVW5WRYrZKea3IMFRCWMGzfBB0Q4eTDwQz/KUSr1CRleI2eqpVQKfycC1j3HMKujFplSCVyavJmr8+4MZyeqfIJn8MFhET9VhcW1msg+0WTiL5cQ==

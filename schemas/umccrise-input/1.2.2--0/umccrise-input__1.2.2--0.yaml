@@ -1,0 +1,82 @@
+type: record
+name: umccrise-input
+fields:
+  sample:
+    label: sample
+    doc: |
+      The name of the sample
+    type: string
+  wgs:
+    label: wgs
+    doc: |
+      WGS tumor BAM, required
+    type: File
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
+  normal:
+    label: normal
+    doc: |
+      WGS normal BAM, required
+    type: File
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
+  exome:
+    label: exome
+    doc: |
+      optional tumor BAM
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: false
+  exome_normal:
+    label: exome normal
+    doc: |
+      optional normal BAM
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: false
+  rna:
+    label: rna
+    doc: |
+      optional WTS BAM, however required for neoantigens
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: false
+  rna_bcbio:
+    label: rna bcbio
+    doc: |
+      optional path to RNAseq bcbio workflow, required for neoantigens
+    type: Directory?
+  rna_sample:
+    label: rna sample
+    doc: |
+      sample name in the RNAseq bcbio workflow above, required for neoantigens
+    type: string?
+  somatic_vcf:
+    label: somatic vcf
+    doc: |
+      tumor/normal somatic VCF calls, optional. If not provided, SAGE will be run
+    type: File?
+    secondaryFiles:
+      - pattern: .tbi
+        required: true
+  germline_vcf:
+    label: germline vcf
+    doc: |
+      germline variant calls, optional
+    type: File?
+    secondaryFiles:
+      - pattern: .tbi
+        required: true
+  sv_vcf:
+    label: sv vcf
+    doc: |
+      SV calls, optional
+    type: File?
+    secondaryFiles:
+      - pattern: .tbi
+        required: true

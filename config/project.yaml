@@ -221,6 +221,16 @@ projects:
             ica_workflow_version_name: 3.8.4
             modification_time: 2021-08-03T11:47:50UTC
             run_instances: []
+      - name: umccrise
+        path: umccrise
+        ica_workflow_name: umccrise_dev-wf
+        ica_workflow_id: wfl.af61d2b172e84cbfa85eaf184226db8b
+        versions:
+          - name: 1.2.1--0
+            path: 1.2.1--0/umccrise__1.2.1--0.cwl
+            ica_workflow_version_name: 1.2.1--0
+            modification_time: 2021-08-11T09:39:02UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -351,6 +361,12 @@ projects:
             ica_workflow_version_name: 1.2.1--0
             modification_time: 2021-08-11T10:38:33UTC
             run_instances: []
+          - name: 1.2.2--0
+            path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
+            ica_workflow_version_name: 1.2.2--0
+            modification_time: 2021-08-20T02:17:58UTC
+            run_instances:
+              - wfr.070e013822304c0191e8195ce10a3b2b
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
         ica_workflow_name: tso500-ctdna-with-post-processing-pipeline_dev-wf
