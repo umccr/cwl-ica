@@ -526,8 +526,8 @@ projects:
         versions:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
-            ica_workflow_version_name: 1.1.0--1.0.0--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 1.1.0--1.0.0--87cab58
+            modification_time: 2021-08-20T06:05:08UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
