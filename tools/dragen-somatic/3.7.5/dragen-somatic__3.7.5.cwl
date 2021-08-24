@@ -212,7 +212,7 @@ inputs:
       to process.
       Read1File and Read2File may be presigned urls or use this in conjunction with
       the fastq_list_mount_paths inputs.
-    type: File
+    type: File?
     inputBinding:
       prefix: "--fastq-list"
   fastq_list_mount_paths:
