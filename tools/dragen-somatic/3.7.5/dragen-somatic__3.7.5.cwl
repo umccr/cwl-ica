@@ -137,18 +137,21 @@ requirements:
           since Read1File and Read2File are relative its position
           */
 
-          var e = [{
-                      "entryname": get_script_path(),
-                      "entry": get_script_contents()
-                    },
-                   {
-                      "entryname": get_fastq_list_path(),
-                      "entry": inputs.fastq_list
-                   },
-                   {
-                      "entryname": get_tumor_fastq_list_path(),
-                      "entry": inputs.tumor_fastq_list
-                   }];
+          var e = [{ 
+             "entryname": get_script_path(), 
+             "entry": get_script_contents() 
+           }, 
+          { 
+             "entryname": get_tumor_fastq_list_path(), 
+             "entry": inputs.tumor_fastq_list 
+          }];
+
+          if  (inputs.fastq_list !== null){
+          e.push({
+             "entryname": get_fastq_list_path(), 
+             "entry": inputs.fastq_list 
+            });
+          }
 
           /*
           Check if input_mounts record is defined
