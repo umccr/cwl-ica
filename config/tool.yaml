@@ -12,7 +12,7 @@ tools:
     versions:
       - name: 0.2.6
         path: 0.2.6/tabix__0.2.6.cwl
-        md5sum: 916ce72cb0d5275272e5356446b1c350
+        md5sum: bc2a1c49f74935479d75b7a85a0ec1ef
     categories: []
   - name: sambamba-merge-and-index
     path: sambamba-merge-and-index
@@ -147,7 +147,7 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic__3.7.5.cwl
-        md5sum: 476ffd3dba9f93e6aeea222d45d373cd
+        md5sum: 81d51cbee0d37ac55ef84bf8323ce46c
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -200,7 +200,7 @@ tools:
         md5sum: 64731e790930737d925417c6166fa43a
       - name: 2.0.0
         path: 2.0.0/custom-create-directory__2.0.0.cwl
-        md5sum: 29ed263c6df13a5e21082e2178fc3555
+        md5sum: 52557029b02ff7f5df78427603435985
     categories: []
   - name: dragen-build-reference-tarball
     path: dragen-build-reference-tarball
@@ -217,73 +217,73 @@ tools:
     versions:
       - name: 1.12.0
         path: 1.12.0/bgzip__1.12.0.cwl
-        md5sum: b02437a9e9c0ef8aef57648497efc18d
+        md5sum: a941c2a36bcf67845e567cc819d4540c
     categories: []
   - name: mosdepth
     path: mosdepth
     versions:
       - name: 0.3.1
         path: 0.3.1/mosdepth__0.3.1.cwl
-        md5sum: c57f0d9638e93e36c64700781cd6ae2c
+        md5sum: e436b2ed4f540260fbe23d9083d4f9d4
     categories: []
   - name: custom-tso500-make-region-coverage-qc
     path: custom-tso500-make-region-coverage-qc
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-make-region-coverage-qc__1.0.0.cwl
-        md5sum: 4247234e8a63f23eb35370b03abe85b3
+        md5sum: 5e19ae611db0596ff29c5800fbed983a
     categories: []
   - name: custom-tso500-make-exon-coverage-qc
     path: custom-tso500-make-exon-coverage-qc
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-make-exon-coverage-qc__1.0.0.cwl
-        md5sum: 6722ee310f76f453e881664a948aec4d
+        md5sum: 3949f76247815d897622d7f6c46ec23d
     categories: []
   - name: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
     path: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.cwl
-        md5sum: 7c33ea3dde4d78f9ecac8001ecccb36c
+        md5sum: 2af72e084bbe136f95168107828cfe85
     categories: []
   - name: custom-tsv-to-json
     path: custom-tsv-to-json
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tsv-to-json__1.0.0.cwl
-        md5sum: 4c898290f676bc06a96a0bf2699a96a6
+        md5sum: c0148d43a45228d210b88681a9563ff6
     categories: []
   - name: custom-tar-vcf-file-list
     path: custom-tar-vcf-file-list
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tar-vcf-file-list__1.0.0.cwl
-        md5sum: 7920f6899a4ac6fc622d794409e17b04
+        md5sum: f10fea13b4459d8da5da415499771220
     categories: []
   - name: custom-gzip-file
     path: custom-gzip-file
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-gzip-file__1.0.0.cwl
-        md5sum: 22080eaad91494919b311dab2f506d96
+        md5sum: f3152ef798d1afbeb2cdb652a8d8b9f8
     categories: []
   - name: custom-tar-file-list
     path: custom-tar-file-list
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tar-file-list__1.0.0.cwl
-        md5sum: e08ec1e3c36c5da45ee07904b9d9ac85
+        md5sum: 5ef823e36fdca3e099facc3a7f91fb17
     categories: []
   - name: custom-create-umccrise-tsv
     path: custom-create-umccrise-tsv
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/custom-create-umccrise-tsv__1.2.1--0.cwl
-        md5sum: bf05439e23c36ca3d472e00da0a8e931
+        md5sum: a9a20811b5ea3450aa0e97c25d9a3f1a
       - name: 1.2.2--0
         path: 1.2.2--0/custom-create-umccrise-tsv__1.2.2--0.cwl
-        md5sum: 509829c573df82027546d1c47cafc1d9
+        md5sum: 27ef6b74ebe003afbe5693e87a44d63d
     categories: []
   - name: umccrise
     path: umccrise
@@ -293,5 +293,5 @@ tools:
         md5sum: 728444df3f171fcd9e177820e1e4ca9b
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise__1.2.2--0.cwl
-        md5sum: a5ce633db177b8d7c369ed6151c8b64b
+        md5sum: b45335f64405758c5c16651ee583e1e9
     categories: []

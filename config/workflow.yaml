@@ -34,7 +34,7 @@ workflows:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
-        md5sum: ec548f9429f4df6619b30569f498bf5b
+        md5sum: 49a75e54a74e3b7920c972bec4d42bfb
     categories:
       - tso500
   - name: bcl-conversion
@@ -49,7 +49,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
-        md5sum: 1e102e38c9fcdbbbe41f9a013f3ceb61
+        md5sum: 605e6e7e39454132389ab3ec24437371
     categories:
       - dragen
       - variant-calling
@@ -85,7 +85,7 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
-        md5sum: 1337811eedededc771cbb1e600448fb9
+        md5sum: b0a72afc88786e8e0bf4099d2859bdfd
     categories:
       - tso500
   - name: umccrise-pipeline
@@ -93,7 +93,10 @@ workflows:
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/umccrise-pipeline__1.2.1--0.cwl
-        md5sum: f343dd987bd33e5c13573eb309228cd2
+        md5sum: 6100f32cc0c1ecf82da6ea0da96f8622
+      - name: 1.2.2--0
+        path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
+        md5sum: 54fb347935cbbf36c5a36b7e4df6240d
     categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline

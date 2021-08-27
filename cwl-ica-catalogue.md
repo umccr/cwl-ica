@@ -15,6 +15,14 @@ UMCCR CWL-ICA Catalogue
 - [create-contig-obj-for-hla-chr6-region](#create-contig-obj-for-hla-chr6-region)  
 - [get-samplesheet-midfix-regex](#get-samplesheet-midfix-regex)  
 - [flatten-array-fastq-list](#flatten-array-fastq-list)  
+- [parse-int-array](#parse-int-array)  
+- [parse-int](#parse-int)  
+- [parse-file](#parse-file)  
+- [get-compressed-vcf-file-from-directory](#get-compressed-vcf-file-from-directory)  
+- [get-custom-output-dir-entry-for-tso500-post-processing](#get-custom-output-dir-entry-for-tso500-post-processing)  
+- [get-bam-file-from-directory](#get-bam-file-from-directory)  
+- [create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema](#create-predefined-mount-paths-and-umccrise-row-
+from-umccrise-schema)  
 
 
 ### get-faidx-file-from-reference-file
@@ -43,6 +51,56 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.0.0](.github/catalogue/docs/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md)  
+
+
+### parse-int-array
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/expressions/parse-int-array/1.0.0/parse-int-array__1.0.0.md)  
+
+
+### parse-int
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/expressions/parse-int/1.0.0/parse-int__1.0.0.md)  
+
+
+### parse-file
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/expressions/parse-file/1.0.0/parse-file__1.0.0.md)  
+
+
+### get-compressed-vcf-file-from-directory
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/expressions/get-compressed-vcf-file-from-directory/1.0.0/get-compressed-vcf-file-from-directory__1.0.0.md)  
+
+
+### get-custom-output-dir-entry-for-tso500-post-processing
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.md)  
+
+
+### get-bam-file-from-directory
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/expressions/get-bam-file-from-directory/1.0.0/get-bam-file-from-directory__1.0.0.md)  
+
+
+### create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
+
+#### Versions
+  
+- [1.2.1--0](.github/catalogue/docs/expressions/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema/1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.md)  
+- [1.2.2--0](.github/catalogue/docs/expressions/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema/1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.md)  
 
 
 ## Tools
@@ -76,6 +134,18 @@ UMCCR CWL-ICA Catalogue
 - [dragen-alignment](#dragen-alignment)  
 - [custom-create-directory](#custom-create-directory)  
 - [dragen-build-reference-tarball](#dragen-build-reference-tarball)  
+- [bgzip](#bgzip)  
+- [mosdepth](#mosdepth)  
+- [custom-tso500-make-region-coverage-qc](#custom-tso500-make-region-coverage-qc)  
+- [custom-tso500-make-exon-coverage-qc](#custom-tso500-make-exon-coverage-qc)  
+- [custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json](#custom-tso500-align-collapse-fusion-caller-csv-
+metrics-to-json)  
+- [custom-tsv-to-json](#custom-tsv-to-json)  
+- [custom-tar-vcf-file-list](#custom-tar-vcf-file-list)  
+- [custom-gzip-file](#custom-gzip-file)  
+- [custom-tar-file-list](#custom-tar-file-list)  
+- [custom-create-umccrise-tsv](#custom-create-umccrise-tsv)  
+- [umccrise](#umccrise)  
 
 
 ### samtools-merge
@@ -316,6 +386,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.0.0](.github/catalogue/docs/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
+- [2.0.0](.github/catalogue/docs/tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
 
 
 ### dragen-build-reference-tarball
@@ -324,6 +395,85 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.7.5/dragen-build-reference-tarball__3.7.5.md)  
 - [3.8.4](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.8.4/dragen-build-reference-tarball__3.8.4.md)  
+
+
+### bgzip
+
+#### Versions
+  
+- [1.12.0](.github/catalogue/docs/tools/bgzip/1.12.0/bgzip__1.12.0.md)  
+
+
+### mosdepth
+
+#### Versions
+  
+- [0.3.1](.github/catalogue/docs/tools/mosdepth/0.3.1/mosdepth__0.3.1.md)  
+
+
+### custom-tso500-make-region-coverage-qc
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tso500-make-region-coverage-qc/1.0.0/custom-tso500-make-region-coverage-qc__1.0.0.md)  
+
+
+### custom-tso500-make-exon-coverage-qc
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tso500-make-exon-coverage-qc/1.0.0/custom-tso500-make-exon-coverage-qc__1.0.0.md)  
+
+
+### custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json/1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.md)  
+
+
+### custom-tsv-to-json
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tsv-to-json/1.0.0/custom-tsv-to-json__1.0.0.md)  
+
+
+### custom-tar-vcf-file-list
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tar-vcf-file-list/1.0.0/custom-tar-vcf-file-list__1.0.0.md)  
+
+
+### custom-gzip-file
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-gzip-file/1.0.0/custom-gzip-file__1.0.0.md)  
+
+
+### custom-tar-file-list
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.md)  
+
+
+### custom-create-umccrise-tsv
+
+#### Versions
+  
+- [1.2.1--0](.github/catalogue/docs/tools/custom-create-umccrise-tsv/1.2.1--0/custom-create-umccrise-tsv__1.2.1--0.md)  
+- [1.2.2--0](.github/catalogue/docs/tools/custom-create-umccrise-tsv/1.2.2--0/custom-create-umccrise-tsv__1.2.2--0.md)  
+
+
+### umccrise
+
+#### Versions
+  
+- [1.2.1--0](.github/catalogue/docs/tools/umccrise/1.2.1--0/umccrise__1.2.1--0.md)  
+- [1.2.2--0](.github/catalogue/docs/tools/umccrise/1.2.2--0/umccrise__1.2.2--0.md)  
 
 
 ## Workflows
@@ -340,6 +490,10 @@ UMCCR CWL-ICA Catalogue
 - [dragen-transcriptome-pipeline](#dragen-transcriptome-pipeline)  
 - [dragen-alignment-pipeline](#dragen-alignment-pipeline)  
 - [dragen-wgs-qc-pipeline](#dragen-wgs-qc-pipeline)  
+- [tso500-ctdna-post-processing-pipeline](#tso500-ctdna-post-processing-pipeline)  
+- [umccrise-pipeline](#umccrise-pipeline)  
+- [tso500-ctdna-with-post-processing-pipeline](#tso500-ctdna-with-post-processing-pipeline)  
+- [umccrise-pipeline](#umccrise-pipeline)  
 
 
 ### optitype-pipeline
@@ -443,4 +597,44 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-wgs-qc-pipeline/3.7.5/dragen-wgs-qc-pipeline__3.7.5.md)  
+
+
+### tso500-ctdna-post-processing-pipeline
+
+#### Categories
+  
+- tso500  
+
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
+
+
+### umccrise-pipeline
+
+#### Versions
+  
+- [1.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.1--0/umccrise-pipeline__1.2.1--0.md)  
+- [1.2.2--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.2--0/umccrise-pipeline__1.2.2--0.md)  
+
+
+### tso500-ctdna-with-post-processing-pipeline
+
+#### Categories
+  
+- tso500  
+
+
+#### Versions
+  
+- [1.1.0--1.0.0](.github/catalogue/docs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.md)  
+
+
+### umccrise-pipeline
+
+#### Versions
+  
+- [1.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.1--0/umccrise-pipeline__1.2.1--0.md)  
+- [1.2.2--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.2--0/umccrise-pipeline__1.2.2--0.md)  
 

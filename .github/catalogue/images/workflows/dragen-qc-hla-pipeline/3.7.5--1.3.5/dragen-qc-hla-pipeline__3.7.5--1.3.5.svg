@@ -11,400 +11,400 @@
 <polygon fill="#eeeeee" stroke="transparent" points="-4,4 -4,-935.882 1817,-935.882 1817,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_inputs</title>
-<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="422,-682.794 422,-908.4384 1498,-908.4384 1498,-682.794 422,-682.794"/>
-<text text-anchor="middle" x="1430" y="-690.594" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Inputs</text>
+<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="504,-682.794 504,-908.4384 1579,-908.4384 1579,-682.794 504,-682.794"/>
+<text text-anchor="middle" x="1511" y="-690.594" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Inputs</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_outputs</title>
 <polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="8,-23.4436 8,-249.088 1805,-249.088 1805,-23.4436 8,-23.4436"/>
 <text text-anchor="middle" x="1731" y="-31.2436" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Outputs</text>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name -->
+<!-- file:///tmp/tmp_ujb__s0#sample_name -->
 <g id="node1" class="node">
-<title>file:///tmp/tmp1yd2gi3t#sample_name</title>
+<title>file:///tmp/tmp_ujb__s0#sample_name</title>
 <g id="a_node1"><a xlink:title="What is the name of the sample?&#10;Used to pre&#45;fill out many other inputs.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1092,-810.9436 1092,-847.9436 1206,-847.9436 1206,-810.9436 1092,-810.9436"/>
-<text text-anchor="middle" x="1149" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">sample_name</text>
+<polygon fill="#94ddf4" stroke="#000000" points="1173,-810.9436 1173,-847.9436 1287,-847.9436 1287,-810.9436 1173,-810.9436"/>
+<text text-anchor="middle" x="1230" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">sample_name</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_germline_step -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_germline_step -->
 <g id="node17" class="node">
-<title>file:///tmp/tmp1yd2gi3t#dragen_germline_step</title>
-<g id="a_node17"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md" xlink:title="Runs the dragen germline 3.7.5 workflow&#10;">
-<polygon fill="#ee7ae9" stroke="#000000" points="847,-584.9436 847,-621.9436 1103,-621.9436 1103,-584.9436 847,-584.9436"/>
-<text text-anchor="middle" x="975" y="-599.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen&#45;germline&#45;pipeline v(3.7.5)</text>
+<title>file:///tmp/tmp_ujb__s0#dragen_germline_step</title>
+<g id="a_node17"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md" xlink:title="Runs the dragen germline 3.7.5 workflow&#10;">
+<polygon fill="#ee7ae9" stroke="#000000" points="725,-584.9436 725,-621.9436 981,-621.9436 981,-584.9436 725,-584.9436"/>
+<text text-anchor="middle" x="853" y="-599.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen&#45;germline&#45;pipeline v(3.7.5)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step -->
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step -->
 <g id="edge16" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step</title>
-<path fill="none" stroke="#000000" d="M1130.5182,-810.5637C1096.1534,-770.4986 1023.8441,-676.8491 991.2345,-630.4634"/>
-<polygon fill="#000000" stroke="#000000" points="994.0183,-628.3357 985.445,-622.1108 988.2651,-632.3234 994.0183,-628.3357"/>
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step</title>
+<path fill="none" stroke="#000000" d="M1199.0286,-810.8456C1185.587,-801.0799 1169.7738,-789.1579 1155,-779.4436 1063.9709,-719.5884 951.4884,-659.0347 892.7226,-626.9049"/>
+<polygon fill="#000000" stroke="#000000" points="894.2155,-623.732 883.7637,-621.9968 890.8522,-629.8711 894.2155,-623.732"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step -->
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step -->
 <g id="edge17" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step</title>
-<path fill="none" stroke="#000000" d="M1138.41,-810.5637C1110.9682,-770.332 1038.5888,-676.0694 999.8888,-629.8872"/>
-<polygon fill="#000000" stroke="#000000" points="1002.4344,-627.4774 993.2993,-622.1108 997.0939,-632.0028 1002.4344,-627.4774"/>
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step</title>
+<path fill="none" stroke="#000000" d="M1215.0321,-810.8456C1203.587,-801.0799 1187.7738,-789.1579 1173,-779.4436 1081.5963,-719.3421 968.5623,-658.5363 904.1179,-626.5097"/>
+<polygon fill="#000000" stroke="#000000" points="905.4872,-623.2825 894.9707,-621.9968 902.3901,-629.5601 905.4872,-623.2825"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#qc_step -->
+<!-- file:///tmp/tmp_ujb__s0#somalier_step -->
 <g id="node18" class="node">
-<title>file:///tmp/tmp1yd2gi3t#qc_step</title>
-<g id="a_node18"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md" xlink:title="Runs multiqc on the run folder&#10;Uses a dummy file so that the folder can be placed in &#39;stream&#39; mode.&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="1079,-367.9436 1079,-404.9436 1219,-404.9436 1219,-367.9436 1079,-367.9436"/>
-<text text-anchor="middle" x="1149" y="-382.7436" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc v(1.10.1)</text>
+<title>file:///tmp/tmp_ujb__s0#somalier_step</title>
+<g id="a_node18"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md" xlink:title="Runs the somalier extract function to call the fingerprint on the germline bam file&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="1390.5,-367.9436 1390.5,-404.9436 1593.5,-404.9436 1593.5,-367.9436 1390.5,-367.9436"/>
+<text text-anchor="middle" x="1492" y="-382.7436" font-family="Times,serif" font-size="14.00" fill="#000000">somalier&#45;extract v(0.2.13)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step -->
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step -->
 <g id="edge18" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step</title>
-<path fill="none" stroke="#000000" d="M1143.1334,-810.6914C1133.3721,-741.273 1132.9726,-498.6008 1141.935,-415.0023"/>
-<polygon fill="#000000" stroke="#000000" points="1145.4239,-415.3059 1143.1675,-404.9541 1138.476,-414.4536 1145.4239,-415.3059"/>
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step</title>
+<path fill="none" stroke="#000000" d="M1238.1571,-810.6914C1274.5164,-740.9192 1419.1178,-496.1226 1472.3947,-413.7365"/>
+<polygon fill="#000000" stroke="#000000" points="1475.5938,-415.2394 1478.1362,-404.9541 1469.7347,-411.409 1475.5938,-415.2394"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step -->
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step -->
 <g id="edge19" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step</title>
-<path fill="none" stroke="#000000" d="M1149,-810.6914C1149,-741.273 1149,-498.6008 1149,-415.0023"/>
-<polygon fill="#000000" stroke="#000000" points="1152.5001,-414.9541 1149,-404.9541 1145.5001,-414.9542 1152.5001,-414.9541"/>
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step</title>
+<path fill="none" stroke="#000000" d="M1244.0238,-810.6914C1290.1005,-741.0607 1434.5614,-497.1149 1479.0519,-414.2398"/>
+<polygon fill="#000000" stroke="#000000" points="1482.3823,-415.4295 1483.9687,-404.9541 1476.196,-412.1539 1482.3823,-415.4295"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step -->
-<g id="edge20" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step</title>
-<path fill="none" stroke="#000000" d="M1154.8666,-810.6914C1164.6279,-741.273 1165.0274,-498.6008 1156.065,-415.0023"/>
-<polygon fill="#000000" stroke="#000000" points="1159.524,-414.4536 1154.8325,-404.9541 1152.5761,-415.3059 1159.524,-414.4536"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#optitype_step -->
+<!-- file:///tmp/tmp_ujb__s0#optitype_step -->
 <g id="node19" class="node">
-<title>file:///tmp/tmp1yd2gi3t#optitype_step</title>
-<g id="a_node19"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md" xlink:title="Run the optitype pipeline&#10;">
-<polygon fill="#ee7ae9" stroke="#000000" points="419.5,-367.9436 419.5,-404.9436 616.5,-404.9436 616.5,-367.9436 419.5,-367.9436"/>
-<text text-anchor="middle" x="518" y="-382.7436" font-family="Times,serif" font-size="14.00" fill="#000000">optitype&#45;pipeline v(1.3.5)</text>
+<title>file:///tmp/tmp_ujb__s0#optitype_step</title>
+<g id="a_node19"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md" xlink:title="Run the optitype pipeline&#10;">
+<polygon fill="#ee7ae9" stroke="#000000" points="429.5,-367.9436 429.5,-404.9436 626.5,-404.9436 626.5,-367.9436 429.5,-367.9436"/>
+<text text-anchor="middle" x="528" y="-382.7436" font-family="Times,serif" font-size="14.00" fill="#000000">optitype&#45;pipeline v(1.3.5)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step -->
-<g id="edge21" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step</title>
-<path fill="none" stroke="#000000" d="M1125.5042,-810.9346C1113.0473,-801.3035 1097.3837,-789.4776 1083,-779.4436 976.9308,-705.4499 944.5435,-695.7527 838,-622.4436 730.6278,-548.5643 607.572,-455.2891 550.3719,-411.4148"/>
-<polygon fill="#000000" stroke="#000000" points="552.1573,-408.3729 542.0945,-405.0578 547.8937,-413.9246 552.1573,-408.3729"/>
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step -->
+<g id="edge20" class="edge">
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step</title>
+<path fill="none" stroke="#000000" d="M1208.8663,-810.7288C1196.4539,-800.4519 1180.085,-788.079 1164,-779.4436 978.111,-679.6464 888.009,-744.62 716,-622.4436 634.7552,-564.7361 570.4407,-462.4696 542.7598,-413.7375"/>
+<polygon fill="#000000" stroke="#000000" points="545.8106,-412.0222 537.8695,-405.0087 539.7037,-415.4436 545.8106,-412.0222"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#somalier_step -->
+<!-- file:///tmp/tmp_ujb__s0#qc_step -->
 <g id="node20" class="node">
-<title>file:///tmp/tmp1yd2gi3t#somalier_step</title>
-<g id="a_node20"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md" xlink:title="Runs the somalier extract function to call the fingerprint on the germline bam file&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="1394.5,-367.9436 1394.5,-404.9436 1597.5,-404.9436 1597.5,-367.9436 1394.5,-367.9436"/>
-<text text-anchor="middle" x="1496" y="-382.7436" font-family="Times,serif" font-size="14.00" fill="#000000">somalier&#45;extract v(0.2.13)</text>
+<title>file:///tmp/tmp_ujb__s0#qc_step</title>
+<g id="a_node20"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md" xlink:title="Runs multiqc on the run folder&#10;Uses a dummy file so that the folder can be placed in &#39;stream&#39; mode.&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="1232,-367.9436 1232,-404.9436 1372,-404.9436 1372,-367.9436 1232,-367.9436"/>
+<text text-anchor="middle" x="1302" y="-382.7436" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc v(1.10.1)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step -->
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step -->
+<g id="edge21" class="edge">
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step</title>
+<path fill="none" stroke="#000000" d="M1224.0013,-810.6921C1224.4648,-774.4671 1242.4934,-692.2746 1254,-622.4436 1266.278,-547.9312 1276.321,-459.4682 1287.6165,-414.9925"/>
+<polygon fill="#000000" stroke="#000000" points="1291.0398,-415.7467 1290.3591,-405.1738 1284.2978,-413.8635 1291.0398,-415.7467"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step -->
 <g id="edge22" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step</title>
-<path fill="none" stroke="#000000" d="M1164.8085,-810.8948C1176.4753,-801.2528 1192.3772,-789.4291 1207,-779.4436 1315.9738,-705.0281 1388.2519,-733.8332 1459,-622.4436 1500.1473,-557.659 1496.2817,-462.4228 1494.545,-415.1908"/>
-<polygon fill="#000000" stroke="#000000" points="1498.0385,-414.9394 1494.2002,-405.0643 1491.0426,-415.1777 1498.0385,-414.9394"/>
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step</title>
+<path fill="none" stroke="#000000" d="M1234.2883,-810.6921C1242.4648,-774.4671 1260.4934,-692.2746 1272,-622.4436 1284.2521,-548.0884 1294.2787,-459.8414 1299.0283,-415.2746"/>
+<polygon fill="#000000" stroke="#000000" points="1302.5254,-415.4858 1300.0939,-405.1738 1295.564,-414.7514 1302.5254,-415.4858"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step -->
+<!-- file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step -->
 <g id="edge23" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sample_name&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step</title>
-<path fill="none" stroke="#000000" d="M1180.8603,-810.8948C1194.4753,-801.2528 1210.3772,-789.4291 1225,-779.4436 1333.9738,-705.0281 1406.2519,-733.8332 1477,-622.4436 1518.234,-557.5226 1514.2652,-462.0217 1505.5853,-414.8931"/>
-<polygon fill="#000000" stroke="#000000" points="1509.0054,-414.1482 1503.5526,-405.0643 1502.1504,-415.566 1509.0054,-414.1482"/>
+<title>file:///tmp/tmp_ujb__s0#sample_name&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step</title>
+<path fill="none" stroke="#000000" d="M1244.5753,-810.6921C1260.4648,-774.4671 1278.4934,-692.2746 1290,-622.4436 1302.2521,-548.0884 1312.2787,-459.8414 1310.5117,-415.2746"/>
+<polygon fill="#000000" stroke="#000000" points="1313.9954,-414.9148 1309.8287,-405.1738 1307.0114,-415.3871 1313.9954,-414.9148"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#reference_tar_dragen -->
+<!-- file:///tmp/tmp_ujb__s0#fastq_list_rows -->
 <g id="node2" class="node">
-<title>file:///tmp/tmp1yd2gi3t#reference_tar_dragen</title>
-<g id="a_node2"><a xlink:title="Path to ref data tarball&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="758,-810.9436 758,-847.9436 930,-847.9436 930,-810.9436 758,-810.9436"/>
-<text text-anchor="middle" x="844" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">reference_tar_dragen</text>
+<title>file:///tmp/tmp_ujb__s0#fastq_list_rows</title>
+<g id="a_node2"><a xlink:title="The row of fastq lists.&#10; &#160;Each row has the following attributes:&#10; &#160;&#160;&#160;* RGID&#10; &#160;&#160;&#160;* RGLB&#10; &#160;&#160;&#160;* RGSM&#10; &#160;&#160;&#160;* Lane&#10; &#160;&#160;&#160;* Read1File&#10; &#160;&#160;&#160;* Read2File (optional)&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="839.5,-810.9436 839.5,-847.9436 964.5,-847.9436 964.5,-810.9436 839.5,-810.9436"/>
+<text text-anchor="middle" x="902" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_list_rows</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#reference_tar_dragen&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step -->
+<!-- file:///tmp/tmp_ujb__s0#fastq_list_rows&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step -->
 <g id="edge24" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#reference_tar_dragen&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step</title>
-<path fill="none" stroke="#000000" d="M854.9437,-810.5637C878.0706,-770.6652 931.9999,-677.627 959.0013,-631.0445"/>
-<polygon fill="#000000" stroke="#000000" points="962.1928,-632.5177 964.1796,-622.1108 956.1366,-629.0072 962.1928,-632.5177"/>
+<title>file:///tmp/tmp_ujb__s0#fastq_list_rows&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step</title>
+<path fill="none" stroke="#000000" d="M897.9066,-810.5637C889.3102,-770.9151 869.3362,-678.7903 859.1752,-631.9252"/>
+<polygon fill="#000000" stroke="#000000" points="862.5868,-631.1421 857.0473,-622.1108 855.7458,-632.6254 862.5868,-631.1421"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#genome_version -->
+<!-- file:///tmp/tmp_ujb__s0#genome_version -->
 <g id="node3" class="node">
-<title>file:///tmp/tmp1yd2gi3t#genome_version</title>
+<title>file:///tmp/tmp_ujb__s0#genome_version</title>
 <g id="a_node3"><a xlink:title="Either hg38 (default) or GRCh37?&#10;Used to set chromosome regions to filter down bam file for optitype workflow&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="430.5,-810.9436 430.5,-847.9436 563.5,-847.9436 563.5,-810.9436 430.5,-810.9436"/>
-<text text-anchor="middle" x="497" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">genome_version</text>
+<polygon fill="#94ddf4" stroke="#000000" points="512.5,-810.9436 512.5,-847.9436 645.5,-847.9436 645.5,-810.9436 512.5,-810.9436"/>
+<text text-anchor="middle" x="579" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">genome_version</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step -->
-<g id="node23" class="node">
-<title>file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step</title>
-<g id="a_node23"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md" xlink:title="Get the hla regions for input into the optitype workflow&#10;">
-<polygon fill="#ee7ae9" stroke="#000000" points="390,-584.9436 390,-621.9436 604,-621.9436 604,-584.9436 390,-584.9436"/>
-<text text-anchor="middle" x="497" y="-599.7436" font-family="Times,serif" font-size="14.00" fill="#000000">get&#45;hla&#45;regions&#45;bed v(1.0.0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#genome_version&#45;&gt;file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step -->
-<g id="edge25" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#genome_version&#45;&gt;file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step</title>
-<path fill="none" stroke="#000000" d="M497,-810.5637C497,-770.9984 497,-679.1772 497,-632.2211"/>
-<polygon fill="#000000" stroke="#000000" points="500.5001,-632.1108 497,-622.1108 493.5001,-632.1108 500.5001,-632.1108"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#hla_reference_fasta -->
-<g id="node4" class="node">
-<title>file:///tmp/tmp1yd2gi3t#hla_reference_fasta</title>
-<g id="a_node4"><a xlink:title="Reference to align / filter large output bam to before running through optitype tool&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="582,-810.9436 582,-847.9436 740,-847.9436 740,-810.9436 582,-810.9436"/>
-<text text-anchor="middle" x="661" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">hla_reference_fasta</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#hla_reference_fasta&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step -->
-<g id="edge26" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#hla_reference_fasta&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step</title>
-<path fill="none" stroke="#000000" d="M658.9976,-810.9023C654.172,-769.4588 640.2344,-666.5128 613,-584.4436 591.9113,-520.8939 555.0492,-451.3557 533.9794,-413.9519"/>
-<polygon fill="#000000" stroke="#000000" points="536.9659,-412.1231 528.9822,-405.158 530.8799,-415.5815 536.9659,-412.1231"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#fastq_list_rows -->
-<g id="node5" class="node">
-<title>file:///tmp/tmp1yd2gi3t#fastq_list_rows</title>
-<g id="a_node5"><a xlink:title="The row of fastq lists.&#10; &#160;Each row has the following attributes:&#10; &#160;&#160;&#160;* RGID&#10; &#160;&#160;&#160;* RGLB&#10; &#160;&#160;&#160;* RGSM&#10; &#160;&#160;&#160;* Lane&#10; &#160;&#160;&#160;* Read1File&#10; &#160;&#160;&#160;* Read2File (optional)&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="948.5,-810.9436 948.5,-847.9436 1073.5,-847.9436 1073.5,-810.9436 948.5,-810.9436"/>
-<text text-anchor="middle" x="1011" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">fastq_list_rows</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#fastq_list_rows&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step -->
-<g id="edge27" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#fastq_list_rows&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_germline_step</title>
-<path fill="none" stroke="#000000" d="M1007.9926,-810.5637C1001.6902,-770.9984 987.0638,-679.1772 979.584,-632.2211"/>
-<polygon fill="#000000" stroke="#000000" points="983.0031,-631.4357 977.9735,-622.1108 976.0903,-632.5369 983.0031,-631.4357"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#sites_somalier -->
-<g id="node6" class="node">
-<title>file:///tmp/tmp1yd2gi3t#sites_somalier</title>
-<g id="a_node6"><a xlink:title="gzipped vcf file. Required for somalier sites&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1224.5,-810.9436 1224.5,-847.9436 1343.5,-847.9436 1343.5,-810.9436 1224.5,-810.9436"/>
-<text text-anchor="middle" x="1284" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">sites_somalier</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#sites_somalier&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step -->
-<g id="edge28" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#sites_somalier&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step</title>
-<path fill="none" stroke="#000000" d="M1310.0249,-810.8677C1366.4277,-769.9714 1496.6715,-671.8673 1519,-622.4436 1550.3563,-553.037 1524.3787,-460.6917 1507.5594,-414.8121"/>
-<polygon fill="#000000" stroke="#000000" points="1510.745,-413.3412 1503.9292,-405.2298 1504.199,-415.8212 1510.745,-413.3412"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#reference_fasta -->
-<g id="node7" class="node">
-<title>file:///tmp/tmp1yd2gi3t#reference_fasta</title>
-<g id="a_node7"><a xlink:title="The reference fasta file with a .fai index.&#10;Required for somalier and optitype steps&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1362,-810.9436 1362,-847.9436 1490,-847.9436 1490,-810.9436 1362,-810.9436"/>
-<text text-anchor="middle" x="1426" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">reference_fasta</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#reference_fasta&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step -->
-<g id="edge30" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#reference_fasta&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step</title>
-<path fill="none" stroke="#000000" d="M1443.1464,-810.7376C1473.2406,-776.4864 1534.5049,-700.0552 1557,-622.4436 1578.7222,-547.4988 1537.5088,-458.084 1512.7502,-413.922"/>
-<polygon fill="#000000" stroke="#000000" points="1515.7604,-412.1356 1507.7453,-405.2067 1509.6902,-415.6215 1515.7604,-412.1356"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#get_faidx_file_step -->
+<!-- file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step -->
 <g id="node22" class="node">
-<title>file:///tmp/tmp1yd2gi3t#get_faidx_file_step</title>
-<g id="a_node22"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.md" xlink:title="Get the index of the reference fasta as its own file.&#10;Used by the get&#45;regions&#45;bed workflow&#10;">
-<polygon fill="#ee9a00" stroke="#000000" points="107.5,-810.9436 107.5,-847.9436 412.5,-847.9436 412.5,-810.9436 107.5,-810.9436"/>
-<text text-anchor="middle" x="260" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">get&#45;faidx&#45;file&#45;from&#45;reference&#45;file v(1.0.0)</text>
+<title>file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step</title>
+<g id="a_node22"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md" xlink:title="Get the hla regions for input into the optitype workflow&#10;">
+<polygon fill="#ee7ae9" stroke="#000000" points="417,-584.9436 417,-621.9436 631,-621.9436 631,-584.9436 417,-584.9436"/>
+<text text-anchor="middle" x="524" y="-599.7436" font-family="Times,serif" font-size="14.00" fill="#000000">get&#45;hla&#45;regions&#45;bed v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#reference_fasta&#45;&gt;file:///tmp/tmp1yd2gi3t#get_faidx_file_step -->
+<!-- file:///tmp/tmp_ujb__s0#genome_version&#45;&gt;file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step -->
+<g id="edge25" class="edge">
+<title>file:///tmp/tmp_ujb__s0#genome_version&#45;&gt;file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step</title>
+<path fill="none" stroke="#000000" d="M574.4053,-810.5637C564.7563,-770.9151 542.3366,-678.7903 530.9314,-631.9252"/>
+<polygon fill="#000000" stroke="#000000" points="534.3083,-630.9996 528.5429,-622.1108 527.5069,-632.6549 534.3083,-630.9996"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#reference_tar_dragen -->
+<g id="node4" class="node">
+<title>file:///tmp/tmp_ujb__s0#reference_tar_dragen</title>
+<g id="a_node4"><a xlink:title="Path to ref data tarball&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="983,-810.9436 983,-847.9436 1155,-847.9436 1155,-810.9436 983,-810.9436"/>
+<text text-anchor="middle" x="1069" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">reference_tar_dragen</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#reference_tar_dragen&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step -->
+<g id="edge26" class="edge">
+<title>file:///tmp/tmp_ujb__s0#reference_tar_dragen&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_germline_step</title>
+<path fill="none" stroke="#000000" d="M1050.9555,-810.5637C1012.4244,-770.2488 922.039,-675.6789 878,-629.601"/>
+<polygon fill="#000000" stroke="#000000" points="880.2808,-626.9218 870.8413,-622.1108 875.2204,-631.7583 880.2808,-626.9218"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#reference_fasta -->
+<g id="node5" class="node">
+<title>file:///tmp/tmp_ujb__s0#reference_fasta</title>
+<g id="a_node5"><a xlink:title="The reference fasta file with a .fai index.&#10;Required for somalier and optitype steps&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1305,-810.9436 1305,-847.9436 1433,-847.9436 1433,-810.9436 1305,-810.9436"/>
+<text text-anchor="middle" x="1369" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">reference_fasta</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#reference_fasta&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step -->
+<g id="edge27" class="edge">
+<title>file:///tmp/tmp_ujb__s0#reference_fasta&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step</title>
+<path fill="none" stroke="#000000" d="M1377.6137,-810.7307C1393.7916,-774.9042 1428.8954,-693.833 1449,-622.4436 1469.6503,-549.1164 1482.7437,-460.0889 1488.5365,-415.2343"/>
+<polygon fill="#000000" stroke="#000000" points="1492.0391,-415.4336 1489.8207,-405.0736 1485.0943,-414.5558 1492.0391,-415.4336"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#get_faidx_file_step -->
+<g id="node21" class="node">
+<title>file:///tmp/tmp_ujb__s0#get_faidx_file_step</title>
+<g id="a_node21"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.md" xlink:title="Get the index of the reference fasta as its own file.&#10;Used by the get&#45;regions&#45;bed workflow&#10;">
+<polygon fill="#ee9a00" stroke="#000000" points="189.5,-810.9436 189.5,-847.9436 494.5,-847.9436 494.5,-810.9436 189.5,-810.9436"/>
+<text text-anchor="middle" x="342" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">get&#45;faidx&#45;file&#45;from&#45;reference&#45;file v(1.0.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#reference_fasta&#45;&gt;file:///tmp/tmp_ujb__s0#get_faidx_file_step -->
+<g id="edge28" class="edge">
+<title>file:///tmp/tmp_ujb__s0#reference_fasta&#45;&gt;file:///tmp/tmp_ujb__s0#get_faidx_file_step</title>
+<path fill="none" stroke="#000000" d="M1343.101,-848.0723C1327.6347,-858.0319 1307.1347,-869.2819 1287,-874.4436 1203.2633,-895.9101 594.6969,-885.7873 509,-874.4436 474.4842,-869.8747 436.9752,-860.2129 406.2654,-851.009"/>
+<polygon fill="#000000" stroke="#000000" points="407.1321,-847.6142 396.546,-848.0439 405.0895,-854.3096 407.1321,-847.6142"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#sites_somalier -->
+<g id="node6" class="node">
+<title>file:///tmp/tmp_ujb__s0#sites_somalier</title>
+<g id="a_node6"><a xlink:title="gzipped vcf file. Required for somalier sites&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1451.5,-810.9436 1451.5,-847.9436 1570.5,-847.9436 1570.5,-810.9436 1451.5,-810.9436"/>
+<text text-anchor="middle" x="1511" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">sites_somalier</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#sites_somalier&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step -->
 <g id="edge29" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#reference_fasta&#45;&gt;file:///tmp/tmp1yd2gi3t#get_faidx_file_step</title>
-<path fill="none" stroke="#000000" d="M1400.101,-848.0723C1384.6347,-858.0319 1364.1347,-869.2819 1344,-874.4436 1245.3027,-899.7454 528.0078,-887.814 427,-874.4436 392.4842,-869.8747 354.9752,-860.2129 324.2654,-851.009"/>
-<polygon fill="#000000" stroke="#000000" points="325.1321,-847.6142 314.546,-848.0439 323.0895,-854.3096 325.1321,-847.6142"/>
+<title>file:///tmp/tmp_ujb__s0#sites_somalier&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step</title>
+<path fill="none" stroke="#000000" d="M1510.1957,-810.6914C1507.2184,-741.273 1496.8104,-498.6008 1493.2249,-415.0023"/>
+<polygon fill="#000000" stroke="#000000" points="1496.7193,-414.7949 1492.7939,-404.9541 1489.7257,-415.095 1496.7193,-414.7949"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_output_directory -->
+<!-- file:///tmp/tmp_ujb__s0#hla_reference_fasta -->
+<g id="node7" class="node">
+<title>file:///tmp/tmp_ujb__s0#hla_reference_fasta</title>
+<g id="a_node7"><a xlink:title="Reference to align / filter large output bam to before running through optitype tool&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="664,-810.9436 664,-847.9436 822,-847.9436 822,-810.9436 664,-810.9436"/>
+<text text-anchor="middle" x="743" y="-825.7436" font-family="Times,serif" font-size="14.00" fill="#000000">hla_reference_fasta</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#hla_reference_fasta&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step -->
+<g id="edge30" class="edge">
+<title>file:///tmp/tmp_ujb__s0#hla_reference_fasta&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step</title>
+<path fill="none" stroke="#000000" d="M735.9733,-810.6727C720.2588,-769.1919 680.4652,-666.8662 640,-584.4436 609.354,-522.0214 567.8804,-451.7988 544.9717,-414.0365"/>
+<polygon fill="#000000" stroke="#000000" points="547.7563,-411.8799 539.5653,-405.1598 541.7779,-415.5211 547.7563,-411.8799"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#multiqc_output_file -->
 <g id="node8" class="node">
-<title>file:///tmp/tmp1yd2gi3t#dragen_output_directory</title>
-<g id="a_node8"><a xlink:title="Output directory for dragen&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="816.5,-151.9436 816.5,-188.9436 1011.5,-188.9436 1011.5,-151.9436 816.5,-151.9436"/>
-<text text-anchor="middle" x="914" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_output_directory</text>
+<title>file:///tmp/tmp_ujb__s0#multiqc_output_file</title>
+<g id="a_node8"><a xlink:title="Output html for multiqc&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1417,-151.9436 1417,-188.9436 1573,-188.9436 1573,-151.9436 1417,-151.9436"/>
+<text text-anchor="middle" x="1495" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc_output_file</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#multiqc_output_file -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_vcf_output -->
 <g id="node9" class="node">
-<title>file:///tmp/tmp1yd2gi3t#multiqc_output_file</title>
-<g id="a_node9"><a xlink:title="Output html for multiqc&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1199,-151.9436 1199,-188.9436 1355,-188.9436 1355,-151.9436 1199,-151.9436"/>
-<text text-anchor="middle" x="1277" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc_output_file</text>
+<title>file:///tmp/tmp_ujb__s0#dragen_vcf_output</title>
+<g id="a_node9"><a xlink:title="Output vcf file for dragen germline run&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="851.5,-151.9436 851.5,-188.9436 1002.5,-188.9436 1002.5,-151.9436 851.5,-151.9436"/>
+<text text-anchor="middle" x="927" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_vcf_output</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#multiqc_output_directory -->
+<!-- file:///tmp/tmp_ujb__s0#optitype_result_matrix -->
 <g id="node10" class="node">
-<title>file:///tmp/tmp1yd2gi3t#multiqc_output_directory</title>
-<g id="a_node10"><a xlink:title="Output directory with multiqc data and html&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1373,-151.9436 1373,-188.9436 1573,-188.9436 1573,-151.9436 1373,-151.9436"/>
-<text text-anchor="middle" x="1473" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc_output_directory</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#optitype_output_directory -->
-<g id="node11" class="node">
-<title>file:///tmp/tmp1yd2gi3t#optitype_output_directory</title>
-<g id="a_node11"><a xlink:title="Output directory for optitype files&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="416,-151.9436 416,-188.9436 620,-188.9436 620,-151.9436 416,-151.9436"/>
-<text text-anchor="middle" x="518" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">optitype_output_directory</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_vcf_output -->
-<g id="node12" class="node">
-<title>file:///tmp/tmp1yd2gi3t#dragen_vcf_output</title>
-<g id="a_node12"><a xlink:title="Output vcf file for dragen germline run&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1029.5,-151.9436 1029.5,-188.9436 1180.5,-188.9436 1180.5,-151.9436 1029.5,-151.9436"/>
-<text text-anchor="middle" x="1105" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_vcf_output</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#somalier_output_directory -->
-<g id="node13" class="node">
-<title>file:///tmp/tmp1yd2gi3t#somalier_output_directory</title>
-<g id="a_node13"><a xlink:title="Output directory from somalier step&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="1591,-151.9436 1591,-188.9436 1797,-188.9436 1797,-151.9436 1591,-151.9436"/>
-<text text-anchor="middle" x="1694" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">somalier_output_directory</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#optitype_coverage_plot -->
-<g id="node14" class="node">
-<title>file:///tmp/tmp1yd2gi3t#optitype_coverage_plot</title>
-<g id="a_node14"><a xlink:title="Output coverage pdf from optitype step&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="214,-151.9436 214,-188.9436 398,-188.9436 398,-151.9436 214,-151.9436"/>
-<text text-anchor="middle" x="306" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">optitype_coverage_plot</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#optitype_result_matrix -->
-<g id="node15" class="node">
-<title>file:///tmp/tmp1yd2gi3t#optitype_result_matrix</title>
-<g id="a_node15"><a xlink:title="Output matrix file from optitype step&#10;">
+<title>file:///tmp/tmp_ujb__s0#optitype_result_matrix</title>
+<g id="a_node10"><a xlink:title="Output matrix file from optitype step&#10;">
 <polygon fill="#94ddf4" stroke="#000000" points="16,-151.9436 16,-188.9436 196,-188.9436 196,-151.9436 16,-151.9436"/>
 <text text-anchor="middle" x="106" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">optitype_result_matrix</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_bam_output -->
+<!-- file:///tmp/tmp_ujb__s0#optitype_coverage_plot -->
+<g id="node11" class="node">
+<title>file:///tmp/tmp_ujb__s0#optitype_coverage_plot</title>
+<g id="a_node11"><a xlink:title="Output coverage pdf from optitype step&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="436,-151.9436 436,-188.9436 620,-188.9436 620,-151.9436 436,-151.9436"/>
+<text text-anchor="middle" x="528" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">optitype_coverage_plot</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#dragen_bam_output -->
+<g id="node12" class="node">
+<title>file:///tmp/tmp_ujb__s0#dragen_bam_output</title>
+<g id="a_node12"><a xlink:title="Output alignment file for dragen germline run&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1021,-151.9436 1021,-188.9436 1181,-188.9436 1181,-151.9436 1021,-151.9436"/>
+<text text-anchor="middle" x="1101" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_bam_output</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#multiqc_output_directory -->
+<g id="node13" class="node">
+<title>file:///tmp/tmp_ujb__s0#multiqc_output_directory</title>
+<g id="a_node13"><a xlink:title="Output directory with multiqc data and html&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1199,-151.9436 1199,-188.9436 1399,-188.9436 1399,-151.9436 1199,-151.9436"/>
+<text text-anchor="middle" x="1299" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">multiqc_output_directory</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#optitype_output_directory -->
+<g id="node14" class="node">
+<title>file:///tmp/tmp_ujb__s0#optitype_output_directory</title>
+<g id="a_node14"><a xlink:title="Output directory for optitype files&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="214,-151.9436 214,-188.9436 418,-188.9436 418,-151.9436 214,-151.9436"/>
+<text text-anchor="middle" x="316" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">optitype_output_directory</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#somalier_output_directory -->
+<g id="node15" class="node">
+<title>file:///tmp/tmp_ujb__s0#somalier_output_directory</title>
+<g id="a_node15"><a xlink:title="Output directory from somalier step&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="1591,-151.9436 1591,-188.9436 1797,-188.9436 1797,-151.9436 1591,-151.9436"/>
+<text text-anchor="middle" x="1694" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">somalier_output_directory</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#dragen_output_directory -->
 <g id="node16" class="node">
-<title>file:///tmp/tmp1yd2gi3t#dragen_bam_output</title>
-<g id="a_node16"><a xlink:title="Output alignment file for dragen germline run&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="638,-151.9436 638,-188.9436 798,-188.9436 798,-151.9436 638,-151.9436"/>
-<text text-anchor="middle" x="718" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_bam_output</text>
+<title>file:///tmp/tmp_ujb__s0#dragen_output_directory</title>
+<g id="a_node16"><a xlink:title="Output directory for dragen&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="638.5,-151.9436 638.5,-188.9436 833.5,-188.9436 833.5,-151.9436 638.5,-151.9436"/>
+<text text-anchor="middle" x="736" y="-166.7436" font-family="Times,serif" font-size="14.00" fill="#000000">dragen_output_directory</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_output_directory -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_vcf_output -->
 <g id="edge4" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_output_directory</title>
-<path fill="none" stroke="#000000" d="M972.3789,-584.8381C962.798,-516.8294 929.6314,-281.4009 918.0383,-199.1089"/>
-<polygon fill="#000000" stroke="#000000" points="921.4722,-198.3937 916.6113,-188.9797 914.5406,-199.3702 921.4722,-198.3937"/>
+<title>file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_vcf_output</title>
+<path fill="none" stroke="#000000" d="M856.1797,-584.8381C867.8143,-516.76 908.1195,-280.9203 922.1441,-198.8574"/>
+<polygon fill="#000000" stroke="#000000" points="925.5975,-199.4264 923.8322,-188.9797 918.6975,-198.2472 925.5975,-199.4264"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_vcf_output -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_bam_output -->
 <g id="edge5" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_vcf_output</title>
-<path fill="none" stroke="#000000" d="M980.5859,-584.8381C1001.0459,-516.6906 1071.9759,-280.4393 1096.5445,-198.6069"/>
-<polygon fill="#000000" stroke="#000000" points="1099.9115,-199.5638 1099.4349,-188.9797 1093.2071,-197.5509 1099.9115,-199.5638"/>
+<title>file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_bam_output</title>
+<path fill="none" stroke="#000000" d="M863.6563,-584.8381C902.7671,-516.5518 1038.5517,-279.4763 1085.1547,-198.1089"/>
+<polygon fill="#000000" stroke="#000000" points="1088.4505,-199.3968 1090.3835,-188.9797 1082.3763,-195.9177 1088.4505,-199.3968"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_bam_output -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_output_directory -->
 <g id="edge6" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#dragen_bam_output</title>
-<path fill="none" stroke="#000000" d="M963.957,-584.8381C923.3444,-516.413 782.1421,-278.5118 734.127,-197.6147"/>
-<polygon fill="#000000" stroke="#000000" points="737.1157,-195.7927 729.0018,-188.9797 731.0961,-199.3655 737.1157,-195.7927"/>
+<title>file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#dragen_output_directory</title>
+<path fill="none" stroke="#000000" d="M847.9727,-584.8381C829.5774,-516.76 765.8517,-280.9203 743.6776,-198.8574"/>
+<polygon fill="#000000" stroke="#000000" points="746.996,-197.7205 741.0086,-188.9797 740.2384,-199.5465 746.996,-197.7205"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step -->
 <g id="edge1" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step</title>
-<path fill="none" stroke="#000000" d="M989.8351,-584.9423C1020.641,-546.5234 1091.6508,-457.9653 1127.4853,-413.2752"/>
-<polygon fill="#000000" stroke="#000000" points="1130.4301,-415.1975 1133.9553,-405.2063 1124.9689,-410.8184 1130.4301,-415.1975"/>
+<title>file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_step</title>
+<path fill="none" stroke="#000000" d="M907.4808,-584.9423C1024.9935,-545.0358 1301.8071,-451.0318 1427.6792,-408.2865"/>
+<polygon fill="#000000" stroke="#000000" points="1428.8607,-411.5816 1437.2041,-405.0519 1426.6097,-404.9534 1428.8607,-411.5816"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step -->
 <g id="edge2" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step</title>
-<path fill="none" stroke="#000000" d="M936.0364,-584.9423C852.7516,-545.3957 657.5835,-452.7228 566.4626,-409.4553"/>
-<polygon fill="#000000" stroke="#000000" points="567.7236,-406.1796 557.1889,-405.0519 564.721,-412.503 567.7236,-406.1796"/>
+<title>file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step</title>
+<path fill="none" stroke="#000000" d="M825.2907,-584.9423C766.6743,-545.8046 630.1281,-454.6337 564.4984,-410.8133"/>
+<polygon fill="#000000" stroke="#000000" points="566.3609,-407.8484 556.1008,-405.2063 562.4739,-413.67 566.3609,-407.8484"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step -->
+<!-- file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step -->
 <g id="edge3" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#dragen_germline_step&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_step</title>
-<path fill="none" stroke="#000000" d="M1019.4202,-584.9423C1114.7525,-545.2357 1338.6705,-451.9723 1442.0052,-408.9328"/>
-<polygon fill="#000000" stroke="#000000" points="1443.4373,-412.1278 1451.3229,-405.0519 1440.7459,-405.6659 1443.4373,-412.1278"/>
+<title>file:///tmp/tmp_ujb__s0#dragen_germline_step&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step</title>
+<path fill="none" stroke="#000000" d="M891.2815,-584.9423C973.1084,-545.3957 1164.8599,-452.7228 1254.3858,-409.4553"/>
+<polygon fill="#000000" stroke="#000000" points="1256.0165,-412.5546 1263.4971,-405.0519 1252.9704,-406.2521 1256.0165,-412.5546"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#qc_step&#45;&gt;file:///tmp/tmp1yd2gi3t#multiqc_output_file -->
+<!-- file:///tmp/tmp_ujb__s0#somalier_step&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_output_directory -->
 <g id="edge7" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#qc_step&#45;&gt;file:///tmp/tmp1yd2gi3t#multiqc_output_file</title>
-<path fill="none" stroke="#000000" d="M1160.1352,-367.6528C1182.7922,-329.4192 1234.3405,-242.4314 1260.7477,-197.8693"/>
-<polygon fill="#000000" stroke="#000000" points="1263.8946,-199.4243 1265.9816,-189.037 1257.8725,-195.8557 1263.8946,-199.4243"/>
+<title>file:///tmp/tmp_ujb__s0#somalier_step&#45;&gt;file:///tmp/tmp_ujb__s0#somalier_output_directory</title>
+<path fill="none" stroke="#000000" d="M1509.5728,-367.6528C1545.7024,-329.0193 1628.3849,-240.6063 1669.6465,-196.485"/>
+<polygon fill="#000000" stroke="#000000" points="1672.3376,-198.7315 1676.6117,-189.037 1667.2249,-193.9502 1672.3376,-198.7315"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#qc_step&#45;&gt;file:///tmp/tmp1yd2gi3t#multiqc_output_directory -->
-<g id="edge8" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#qc_step&#45;&gt;file:///tmp/tmp1yd2gi3t#multiqc_output_directory</title>
-<path fill="none" stroke="#000000" d="M1176.9045,-367.8406C1235.5183,-328.7647 1371.401,-238.1762 1436.6935,-194.6479"/>
-<polygon fill="#000000" stroke="#000000" points="1438.6687,-197.5376 1445.0478,-189.0784 1434.7858,-191.7133 1438.6687,-197.5376"/>
+<!-- file:///tmp/tmp_ujb__s0#optitype_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_result_matrix -->
+<g id="edge10" class="edge">
+<title>file:///tmp/tmp_ujb__s0#optitype_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_result_matrix</title>
+<path fill="none" stroke="#000000" d="M491.6553,-367.8406C414.7673,-328.4856 235.7961,-236.8795 151.4799,-193.7224"/>
+<polygon fill="#000000" stroke="#000000" points="152.9034,-190.5192 142.4069,-189.0784 149.7139,-196.7504 152.9034,-190.5192"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#optitype_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_output_directory -->
+<!-- file:///tmp/tmp_ujb__s0#optitype_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_coverage_plot -->
+<g id="edge11" class="edge">
+<title>file:///tmp/tmp_ujb__s0#optitype_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_coverage_plot</title>
+<path fill="none" stroke="#000000" d="M528,-367.6528C528,-329.8191 528,-244.2459 528,-199.2816"/>
+<polygon fill="#000000" stroke="#000000" points="531.5001,-199.037 528,-189.037 524.5001,-199.0371 531.5001,-199.037"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#optitype_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_output_directory -->
 <g id="edge12" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#optitype_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_output_directory</title>
-<path fill="none" stroke="#000000" d="M518,-367.6528C518,-329.8191 518,-244.2459 518,-199.2816"/>
-<polygon fill="#000000" stroke="#000000" points="521.5001,-199.037 518,-189.037 514.5001,-199.0371 521.5001,-199.037"/>
+<title>file:///tmp/tmp_ujb__s0#optitype_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_output_directory</title>
+<path fill="none" stroke="#000000" d="M509.5573,-367.6528C471.5606,-328.9393 384.5039,-240.24 341.2908,-196.2115"/>
+<polygon fill="#000000" stroke="#000000" points="343.7518,-193.7223 334.2492,-189.037 338.756,-198.6256 343.7518,-193.7223"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#optitype_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_coverage_plot -->
-<g id="edge13" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#optitype_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_coverage_plot</title>
-<path fill="none" stroke="#000000" d="M499.5573,-367.6528C461.5606,-328.9393 374.5039,-240.24 331.2908,-196.2115"/>
-<polygon fill="#000000" stroke="#000000" points="333.7518,-193.7223 324.2492,-189.037 328.756,-198.6256 333.7518,-193.7223"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#optitype_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_result_matrix -->
+<!-- file:///tmp/tmp_ujb__s0#qc_step&#45;&gt;file:///tmp/tmp_ujb__s0#multiqc_output_file -->
 <g id="edge14" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#optitype_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_result_matrix</title>
-<path fill="none" stroke="#000000" d="M482.5165,-367.8406C407.4506,-328.4856 232.7204,-236.8795 150.4022,-193.7224"/>
-<polygon fill="#000000" stroke="#000000" points="152.026,-190.6219 141.5442,-189.0784 148.7757,-196.8216 152.026,-190.6219"/>
+<title>file:///tmp/tmp_ujb__s0#qc_step&#45;&gt;file:///tmp/tmp_ujb__s0#multiqc_output_file</title>
+<path fill="none" stroke="#000000" d="M1318.7899,-367.6528C1353.2382,-329.0993 1431.9814,-240.9722 1471.4861,-196.7596"/>
+<polygon fill="#000000" stroke="#000000" points="1474.3334,-198.826 1478.3864,-189.037 1469.1135,-194.162 1474.3334,-198.826"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#somalier_step&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_output_directory -->
+<!-- file:///tmp/tmp_ujb__s0#qc_step&#45;&gt;file:///tmp/tmp_ujb__s0#multiqc_output_directory -->
 <g id="edge15" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#somalier_step&#45;&gt;file:///tmp/tmp1yd2gi3t#somalier_output_directory</title>
-<path fill="none" stroke="#000000" d="M1513.2248,-367.6528C1548.6389,-329.0193 1629.6842,-240.6063 1670.1287,-196.485"/>
-<polygon fill="#000000" stroke="#000000" points="1672.7788,-198.7737 1676.956,-189.037 1667.6187,-194.0436 1672.7788,-198.7737"/>
+<title>file:///tmp/tmp_ujb__s0#qc_step&#45;&gt;file:///tmp/tmp_ujb__s0#multiqc_output_directory</title>
+<path fill="none" stroke="#000000" d="M1301.739,-367.6528C1301.2135,-329.8191 1300.025,-244.2459 1299.4005,-199.2816"/>
+<polygon fill="#000000" stroke="#000000" points="1302.8969,-198.9874 1299.2582,-189.037 1295.8976,-199.0847 1302.8969,-198.9874"/>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#create_dummy_file_step -->
-<g id="node21" class="node">
-<title>file:///tmp/tmp1yd2gi3t#create_dummy_file_step</title>
-<g id="a_node21"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="1195.5,-584.9436 1195.5,-621.9436 1458.5,-621.9436 1458.5,-584.9436 1195.5,-584.9436"/>
-<text text-anchor="middle" x="1327" y="-599.7436" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
+<!-- file:///tmp/tmp_ujb__s0#get_faidx_file_step&#45;&gt;file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step -->
+<g id="edge8" class="edge">
+<title>file:///tmp/tmp_ujb__s0#get_faidx_file_step&#45;&gt;file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step</title>
+<path fill="none" stroke="#000000" d="M357.2042,-810.5637C389.536,-770.4153 465.1996,-676.4595 502.4732,-630.1747"/>
+<polygon fill="#000000" stroke="#000000" points="505.4209,-632.0946 508.9671,-622.1108 499.9689,-627.704 505.4209,-632.0946"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step -->
+<g id="edge9" class="edge">
+<title>file:///tmp/tmp_ujb__s0#get_hla_regions_bed_step&#45;&gt;file:///tmp/tmp_ujb__s0#optitype_step</title>
+<path fill="none" stroke="#000000" d="M524.341,-584.9423C525.0389,-547.0825 526.6343,-460.5322 527.4689,-415.2539"/>
+<polygon fill="#000000" stroke="#000000" points="530.9692,-415.2691 527.6541,-405.2063 523.9703,-415.14 530.9692,-415.2691"/>
+</g>
+<!-- file:///tmp/tmp_ujb__s0#create_dummy_file_step -->
+<g id="node23" class="node">
+<title>file:///tmp/tmp_ujb__s0#create_dummy_file_step</title>
+<g id="a_node23"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="999.5,-584.9436 999.5,-621.9436 1262.5,-621.9436 1262.5,-584.9436 999.5,-584.9436"/>
+<text text-anchor="middle" x="1131" y="-599.7436" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmp1yd2gi3t#create_dummy_file_step&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step -->
-<g id="edge9" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#create_dummy_file_step&#45;&gt;file:///tmp/tmp1yd2gi3t#qc_step</title>
-<path fill="none" stroke="#000000" d="M1311.8238,-584.9423C1280.2442,-546.4436 1207.3653,-457.5968 1170.7812,-412.997"/>
-<polygon fill="#000000" stroke="#000000" points="1173.4388,-410.7182 1164.3906,-405.2063 1168.0266,-415.1577 1173.4388,-410.7182"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#get_faidx_file_step&#45;&gt;file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step -->
-<g id="edge10" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#get_faidx_file_step&#45;&gt;file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step</title>
-<path fill="none" stroke="#000000" d="M279.7988,-810.5637C322.2507,-770.0822 422.0694,-674.8964 470.1658,-629.0323"/>
-<polygon fill="#000000" stroke="#000000" points="472.6025,-631.5449 477.4242,-622.1108 467.7717,-626.479 472.6025,-631.5449"/>
-</g>
-<!-- file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step -->
-<g id="edge11" class="edge">
-<title>file:///tmp/tmp1yd2gi3t#get_hla_regions_bed_step&#45;&gt;file:///tmp/tmp1yd2gi3t#optitype_step</title>
-<path fill="none" stroke="#000000" d="M498.7904,-584.9423C502.4543,-547.0825 510.8301,-460.5322 515.2119,-415.2539"/>
-<polygon fill="#000000" stroke="#000000" points="518.7046,-415.4969 516.1843,-405.2063 511.7372,-414.8226 518.7046,-415.4969"/>
+<!-- file:///tmp/tmp_ujb__s0#create_dummy_file_step&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step -->
+<g id="edge13" class="edge">
+<title>file:///tmp/tmp_ujb__s0#create_dummy_file_step&#45;&gt;file:///tmp/tmp_ujb__s0#qc_step</title>
+<path fill="none" stroke="#000000" d="M1145.5794,-584.9423C1175.8541,-546.5234 1245.6396,-457.9653 1280.8562,-413.2752"/>
+<polygon fill="#000000" stroke="#000000" points="1283.7743,-415.227 1287.2147,-405.2063 1278.2762,-410.8944 1283.7743,-415.227"/>
 </g>
 </g>
 </svg>

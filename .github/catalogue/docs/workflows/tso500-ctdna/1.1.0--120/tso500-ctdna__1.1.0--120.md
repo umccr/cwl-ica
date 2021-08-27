@@ -19,7 +19,7 @@ tso500-ctdna 1.1.0--120 workflow
 
   
 > ID: tso500-ctdna--1.1.0--120  
-> md5sum: ec548f9429f4df6619b30569f498bf5b
+> md5sum: 49a75e54a74e3b7920c972bec4d42bfb
 
 ### tso500-ctdna v(1.1.0--120) documentation
   
@@ -43,7 +43,7 @@ This workflow completes the following steps:
 
 ## Visual Workflow Overview
   
-[![tso500-ctdna__1.1.0--120.svg](../../../../images/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)
+[![tso500-ctdna__1.1.0--120.svg](../../../../images/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.cwl)  
@@ -56,6 +56,11 @@ This workflow completes the following steps:
 - [tso500-ctdna-analysis-workflow 1.1.0--120](../../../tools/tso500-ctdna-analysis-workflow/1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.md)  
 - [tso500-ctdna-demultiplex-workflow 1.1.0--120](../../../tools/tso500-ctdna-demultiplex-workflow/1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.md)  
 - [tso500-ctdna-reporting-workflow 1.1.0--120](../../../tools/tso500-ctdna-reporting-workflow/1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.md)  
+
+
+### Used By
+  
+- [tso500-ctdna-with-post-processing-pipeline 1.1.0--1.0.0](../../tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.md)  
 
   
 
@@ -711,7 +716,7 @@ Intermediate output for variant_matching_analysis step of the analysis workflow
 
   
 **workflow name:** tso500-ctdna_prod-wf  
-**wfl version name:** 1.1.0--120--41d8a90  
+**wfl version name:** 1.1.0--120--09e7d14  
 
 
 ### Project: collab-illumina-dev_workflows

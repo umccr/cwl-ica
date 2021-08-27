@@ -33,7 +33,7 @@ Uses fastq_list_row objects to files as inputs.
 
 ## Visual Workflow Overview
   
-[![dragen-qc-hla-pipeline__3.7.5--1.3.5.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.svg)
+[![dragen-qc-hla-pipeline__3.7.5--1.3.5.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl)  
@@ -82,7 +82,7 @@ The row of fastq lists.
 > ID: genome_version
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fd5b6a86580>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f04ec7b1370>`  
 **Docs:**  
 Either hg38 (default) or GRCh37?
 Used to set chromosome regions to filter down bam file for optitype workflow
@@ -193,7 +193,7 @@ Runs the dragen germline 3.7.5 workflow
 [CWL File Help Page](../../dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)
 #### Subworkflow overview
   
-[![dragen-germline-pipeline__3.7.5.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)  
+[![dragen-germline-pipeline__3.7.5.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)  
 
 
 ### get faidx file step
@@ -231,7 +231,7 @@ Get the hla regions for input into the optitype workflow
 [CWL File Help Page](../../get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md)
 #### Subworkflow overview
   
-[![get-hla-regions-bed__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)  
+[![get-hla-regions-bed__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)  
 
 
 ### optitype
@@ -251,7 +251,7 @@ Run the optitype pipeline
 [CWL File Help Page](../../optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)
 #### Subworkflow overview
   
-[![optitype-pipeline__1.3.5.svg](../../../../images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)  
+[![optitype-pipeline__1.3.5.svg](../../../../images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)  
 
 
 ### qc step

@@ -136,7 +136,7 @@ Name of the sample - used for the prefix argument
 > ID: seq_datatype
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f5bad849670>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f09f52ac550>`  
 **Docs:**  
 The sequencing type either dna or rna
 

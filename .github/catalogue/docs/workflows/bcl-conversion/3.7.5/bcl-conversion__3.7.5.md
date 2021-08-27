@@ -31,7 +31,7 @@ Runs bcl-convert v3.7.5 with multiqc output of the bcl input directory
 
 ## Visual Workflow Overview
   
-[![bcl-conversion__3.7.5.svg](../../../../images/workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.svg)
+[![bcl-conversion__3.7.5.svg](../../../../images/workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.cwl)  
@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f51fe6cbb50>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f99b9b5c2e0>`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
@@ -480,11 +480,16 @@ The directory containing the samplesheets used for each bcl convert
 ###### Reproduce Run
 
 
-```
+```bash
 
-                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.d9ddc8eb7d544d32bdbe285fd45a4365
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.d9ddc8eb7d544d32bdbe285fd45a4365
 
-                                    bash wfr.d9ddc8eb7d544d32bdbe285fd45a4365.launch.sh
+# Edit the input json file (optional)
+# vim wfr.d9ddc8eb7d544d32bdbe285fd45a4365.template.json 
+
+# Run the launch script
+bash wfr.d9ddc8eb7d544d32bdbe285fd45a4365.launch.sh
                                     
 ```  
 
@@ -1430,7 +1435,7 @@ The directory containing the samplesheets used for each bcl convert
   
 
   
-[![umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg](../../../../images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)  
+[![umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg](../../../../images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/bcl-conversion/3.7.5/umccr__automated__bcl_convert__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__1626253458__wfr.d9ddc8eb7d544d32bdbe285fd45a4365.svg)  
 
 
 ### Project: production_workflows

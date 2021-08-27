@@ -231,6 +231,16 @@ projects:
             ica_workflow_version_name: 1.2.1--0
             modification_time: 2021-08-11T09:39:02UTC
             run_instances: []
+      - name: dragen-somatic
+        path: dragen-somatic
+        ica_workflow_name: dragen-somatic_dev-wf
+        ica_workflow_id: wfl.8f8f70998abd4dbd85200e1692b1ef94
+        versions:
+          - name: 3.7.5
+            path: 3.7.5/dragen-somatic__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5
+            modification_time: 2021-08-27T02:32:55UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -420,6 +430,11 @@ projects:
             ica_workflow_version_name: 1.1.0--120--41d8a90
             modification_time: 2021-07-30T00:36:45UTC
             run_instances: []
+          - name: 1.1.0--120
+            path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
+            ica_workflow_version_name: 1.1.0--120--09e7d14
+            modification_time: 2021-08-27T02:40:04UTC
+            run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline
         ica_workflow_name: dragen-somatic-pipeline_prod-wf
@@ -439,6 +454,11 @@ projects:
             path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--1d8fe7b
             modification_time: 2021-07-04T11:54:27UTC
+            run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--09e7d14
+            modification_time: 2021-08-27T02:40:08UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion

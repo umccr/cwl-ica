@@ -77,7 +77,7 @@ To disable this requirement, set the --ht-alt-aware-validate option to false.
 > ID: ht_alt_liftover
   
 **Optional:** `True`  
-**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f5b8c494640>]`  
+**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fb9977488b0>]`  
 **Docs:**  
 The --ht-alt-liftover option specifies the path to the liftover file to build an ALT-aware hash table.
 This option is required when building from a reference with ALT contigs.

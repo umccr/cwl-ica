@@ -33,7 +33,7 @@ Documentation for dragen-alignment-pipeline v3.7.5
 
 ## Visual Workflow Overview
   
-[![dragen-alignment-pipeline__3.7.5.svg](../../../../images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)
+[![dragen-alignment-pipeline__3.7.5.svg](../../../../images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl)  
@@ -141,7 +141,7 @@ Range: > 0
 > ID: edit_mode
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f4e8929c220>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f426f4c2400>`  
 **Docs:**  
 0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.
 
@@ -367,7 +367,7 @@ secondary alignments use hard clipping.
 > ID: map_orientations
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f4e89228b80>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f426f4a3370>`  
 **Docs:**  
 Constrain orientations to accept forward-only, reverse-complement only, or any alignments.
 
@@ -566,7 +566,7 @@ Range: 0-255
 > ID: pe_orientation
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f4e89249070>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f426f490190>`  
 **Docs:**  
 Expected paired-end orientation: 0=FR, 1=RF, 2=FF.
 

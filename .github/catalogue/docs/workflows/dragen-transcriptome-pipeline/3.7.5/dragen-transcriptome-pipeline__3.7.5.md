@@ -33,7 +33,7 @@ More information on the documentation can be found [here](https://sapac.support.
 
 ## Visual Workflow Overview
   
-[![dragen-transcriptome-pipeline__3.7.5.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.svg)
+[![dragen-transcriptome-pipeline__3.7.5.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl)  
