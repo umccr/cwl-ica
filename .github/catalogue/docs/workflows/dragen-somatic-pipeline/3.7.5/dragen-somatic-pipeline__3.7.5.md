@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.7.5 workflow
 
   
 > ID: dragen-somatic-pipeline--3.7.5  
-> md5sum: 1e102e38c9fcdbbbe41f9a013f3ceb61
+> md5sum: 605e6e7e39454132389ab3ec24437371
 
 ### dragen-somatic-pipeline v(3.7.5) documentation
   
@@ -37,7 +37,7 @@ More information on the documentation can be found [here](https://sapac.support.
 
 ## Visual Workflow Overview
   
-[![dragen-somatic-pipeline__3.7.5.svg](../../../../images/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.svg)
+[![dragen-somatic-pipeline__3.7.5.svg](../../../../images/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.cwl)  
@@ -198,7 +198,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f5d12eccdf0>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f55a938bf70>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -877,11 +877,16 @@ Bam file of the tumor sample
 ###### Reproduce Run
 
 
-```
+```bash
 
-                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
 
-                                    bash wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.launch.sh
+# Edit the input json file (optional)
+# vim wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.template.json 
+
+# Run the launch script
+bash wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.launch.sh
                                     
 ```  
 
@@ -1084,7 +1089,7 @@ Bam file of the tumor sample
   
 
   
-[![umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)  
+[![umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00913__1626338891__wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.svg)  
 
 
 ##### Run wfr.58436856778e4f70ae7856869571470c
@@ -1103,11 +1108,16 @@ Bam file of the tumor sample
 ###### Reproduce Run
 
 
-```
+```bash
 
-                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.58436856778e4f70ae7856869571470c
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.58436856778e4f70ae7856869571470c
 
-                                    bash wfr.58436856778e4f70ae7856869571470c.launch.sh
+# Edit the input json file (optional)
+# vim wfr.58436856778e4f70ae7856869571470c.template.json 
+
+# Run the launch script
+bash wfr.58436856778e4f70ae7856869571470c.launch.sh
                                     
 ```  
 
@@ -1310,7 +1320,7 @@ Bam file of the tumor sample
   
 
   
-[![umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)  
+[![umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.7.5/umccr__automated__tumor_normal__SBJ00910__1626338884__wfr.58436856778e4f70ae7856869571470c.svg)  
 
 
 ### Project: production_workflows
@@ -1320,7 +1330,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.7.5--1d8fe7b  
+**wfl version name:** 3.7.5--09e7d14  
 
   
 

@@ -37,7 +37,7 @@ We then convert this bam file back to fastq and run through optitype v1.3.5 (wit
 
 ## Visual Workflow Overview
   
-[![optitype-pipeline__1.3.5.svg](../../../../images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)
+[![optitype-pipeline__1.3.5.svg](../../../../images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.cwl)  

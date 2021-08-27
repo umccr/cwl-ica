@@ -17,11 +17,11 @@ tabix 0.2.6 tool
 
   
 > ID: tabix--0.2.6  
-> md5sum: 916ce72cb0d5275272e5356446b1c350
+> md5sum: bc2a1c49f74935479d75b7a85a0ec1ef
 
 ### tabix v(0.2.6) documentation
   
-Documentation for tabix v0.2.6
+Add an index to a vcf file, more info can be found [here](http://www.htslib.org/doc/tabix.html)
 
 ### Categories
   
@@ -31,14 +31,47 @@ Documentation for tabix v0.2.6
   
 - [CWL File Path](../../../../../../tools/tabix/0.2.6/tabix__0.2.6.cwl)  
 
+
+### Used By
+  
+- [tso500-ctdna-post-processing-pipeline 1.0.0](../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
+
   
 
 
 ## tabix v(0.2.6) Inputs
+
+### vcf file
+
+
+
+  
+> ID: vcf_file
+  
+**Optional:** `False`  
+**Type:** `File`  
+**Docs:**  
+The input vcf file to be indexed
+
   
 
 
 ## tabix v(0.2.6) Outputs
+
+### vcf file indexed
+
+
+
+  
+> ID: tabix--0.2.6/vcf_file_indexed  
+
+  
+**Optional:** `False`  
+**Output Type:** `File`  
+**Docs:**  
+The indexed vcf file
+  
+
   
 
 

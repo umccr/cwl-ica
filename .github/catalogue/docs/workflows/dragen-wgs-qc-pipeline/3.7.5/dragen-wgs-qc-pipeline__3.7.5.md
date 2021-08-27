@@ -32,7 +32,7 @@ Documentation for dragen-alignment-pipeline v3.7.5
 
 ## Visual Workflow Overview
   
-[![dragen-wgs-qc-pipeline__3.7.5.svg](../../../../images/workflows/dragen-wgs-qc-pipeline/3.7.5/dragen-wgs-qc-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-wgs-qc-pipeline/3.7.5/dragen-wgs-qc-pipeline__3.7.5.svg)
+[![dragen-wgs-qc-pipeline__3.7.5.svg](../../../../images/workflows/dragen-wgs-qc-pipeline/3.7.5/dragen-wgs-qc-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-wgs-qc-pipeline/3.7.5/dragen-wgs-qc-pipeline__3.7.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/dragen-wgs-qc-pipeline/3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl)  
@@ -156,7 +156,7 @@ All other options available at the top of the workflow
 [CWL File Help Page](../../dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)
 #### Subworkflow overview
   
-[![dragen-alignment-pipeline__3.7.5.svg](../../../../images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)  
+[![dragen-alignment-pipeline__3.7.5.svg](../../../../images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)  
 
 
 ### somalier
@@ -282,11 +282,16 @@ umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5
 ###### Reproduce Run
 
 
-```
+```bash
 
-                                    cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.1fd8c32d79c34e179a4c0d6754edd3a2
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.1fd8c32d79c34e179a4c0d6754edd3a2
 
-                                    bash wfr.1fd8c32d79c34e179a4c0d6754edd3a2.launch.sh
+# Edit the input json file (optional)
+# vim wfr.1fd8c32d79c34e179a4c0d6754edd3a2.template.json 
+
+# Run the launch script
+bash wfr.1fd8c32d79c34e179a4c0d6754edd3a2.launch.sh
                                     
 ```  
 
@@ -410,7 +415,7 @@ umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5
   
 
   
-[![umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg](../../../../images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)  
+[![umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg](../../../../images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-wgs-qc-pipeline/3.7.5/umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650__wfr.1fd8c32d79c34e179a4c0d6754edd3a2.svg)  
 
 
 ### Project: production_workflows

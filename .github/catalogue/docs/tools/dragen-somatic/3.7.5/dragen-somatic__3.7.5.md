@@ -17,7 +17,7 @@ dragen-somatic 3.7.5 tool
 
   
 > ID: dragen-somatic--3.7.5  
-> md5sum: 476ffd3dba9f93e6aeea222d45d373cd
+> md5sum: 81d51cbee0d37ac55ef84bf8323ce46c
 
 ### dragen-somatic v(3.7.5) documentation
   
@@ -112,7 +112,7 @@ caller. Default is false.
   
 > ID: fastq_list
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files for normal sample
@@ -196,7 +196,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fb4bd349c10>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f77bf4bfb80>`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -732,6 +732,25 @@ Exists only if --enable-sv is set to true.
 Bam file of the tumor sample.
 Exists only if --enable-map-align-output set to true
   
+
+  
+
+
+## ICA
+
+### ToC
+  
+- [development_workflows](#project-development_workflows)  
+
+
+### Project: development_workflows
+
+
+> wfl id: wfl.8f8f70998abd4dbd85200e1692b1ef94  
+
+  
+**workflow name:** dragen-somatic_dev-wf  
+**wfl version name:** 3.7.5  
 
   
 

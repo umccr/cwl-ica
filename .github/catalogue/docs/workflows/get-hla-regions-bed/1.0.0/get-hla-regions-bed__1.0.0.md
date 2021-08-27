@@ -36,7 +36,7 @@ Step 4 -> Merges the list from step 2 and step 3 and creates a regions bed file
 
 ## Visual Workflow Overview
   
-[![get-hla-regions-bed__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)
+[![get-hla-regions-bed__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.cwl)  
@@ -80,7 +80,7 @@ May be extracted from a secondary files reference file if this is a subworkflow
 > ID: genome_version
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fa776542340>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7fe9c800c670>`  
 **Docs:**  
 The name of the genome determines the chr6 contig we create
 

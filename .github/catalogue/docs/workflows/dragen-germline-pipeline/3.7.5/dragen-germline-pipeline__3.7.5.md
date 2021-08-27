@@ -34,7 +34,7 @@ More information on the documentation can be found [here](https://sapac.support.
 
 ## Visual Workflow Overview
   
-[![dragen-germline-pipeline__3.7.5.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/beta-release/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)
+[![dragen-germline-pipeline__3.7.5.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)
 ## Related Links
   
 - [CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.cwl)  
@@ -195,7 +195,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f32ef242550>`  
+**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f8fe5553c10>`  
 **Docs:**  
 Specifies the sex of a sample
 

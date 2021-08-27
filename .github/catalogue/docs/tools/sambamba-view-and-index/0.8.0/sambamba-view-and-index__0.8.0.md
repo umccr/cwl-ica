@@ -130,7 +130,7 @@ Name of the output file
 > ID: output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f462ecbb250>`  
+**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f92f8e06580>`  
 **Docs:**  
 The output file format of the filtered bam file.
 Can be bam, sam or cram. Sam by default.

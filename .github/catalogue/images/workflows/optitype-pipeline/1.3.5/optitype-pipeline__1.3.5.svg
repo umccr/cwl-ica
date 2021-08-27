@@ -11,256 +11,256 @@
 <polygon fill="#eeeeee" stroke="transparent" points="-4,4 -4,-696.881 965.5,-696.881 965.5,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_inputs</title>
-<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="282,-596.961 282,-683.8532 654,-683.8532 654,-596.961 282,-596.961"/>
-<text text-anchor="middle" x="586" y="-604.761" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Inputs</text>
+<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="269.5,-596.961 269.5,-683.8532 641.5,-683.8532 641.5,-596.961 269.5,-596.961"/>
+<text text-anchor="middle" x="573.5" y="-604.761" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Inputs</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_outputs</title>
-<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="8,-9.0278 8,-95.92 428,-95.92 428,-9.0278 8,-9.0278"/>
-<text text-anchor="middle" x="354" y="-16.8278" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Outputs</text>
+<polygon fill="#eeeeee" stroke="#000000" stroke-dasharray="5,2" points="533.5,-9.0278 533.5,-95.92 953.5,-95.92 953.5,-9.0278 533.5,-9.0278"/>
+<text text-anchor="middle" x="879.5" y="-16.8278" font-family="Times,serif" font-size="14.00" fill="#000000">Workflow Outputs</text>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sample_name -->
+<!-- file:///tmp/tmpplj0if1f#sample_name -->
 <g id="node1" class="node">
-<title>file:///tmp/tmpwrmng04x#sample_name</title>
+<title>file:///tmp/tmpplj0if1f#sample_name</title>
 <g id="a_node1"><a xlink:title="Used for file naming throughout workflow&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="290,-634.5278 290,-671.5278 404,-671.5278 404,-634.5278 290,-634.5278"/>
-<text text-anchor="middle" x="347" y="-649.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sample_name</text>
+<polygon fill="#94ddf4" stroke="#000000" points="519.5,-634.5278 519.5,-671.5278 633.5,-671.5278 633.5,-634.5278 519.5,-634.5278"/>
+<text text-anchor="middle" x="576.5" y="-649.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sample_name</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step -->
+<!-- file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step -->
 <g id="node7" class="node">
-<title>file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step</title>
-<g id="a_node7"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.md" xlink:title="Convert our truncated bam file to paired fastq files&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="243.5,-213.5278 243.5,-250.5278 432.5,-250.5278 432.5,-213.5278 243.5,-213.5278"/>
-<text text-anchor="middle" x="338" y="-228.3278" font-family="Times,serif" font-size="14.00" fill="#000000">samtools&#45;fastq v(1.12.0)</text>
+<title>file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step</title>
+<g id="a_node7"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.md" xlink:title="Use sambamba sort to sort indexed bam by readname&#10;This is a prerequisite for samtools&#45;fastq when using paired data&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="364.5,-297.5278 364.5,-334.5278 624.5,-334.5278 624.5,-297.5278 364.5,-297.5278"/>
+<text text-anchor="middle" x="494.5" y="-312.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;sort&#45;and&#45;index v(0.8.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step -->
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step -->
 <g id="edge11" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step</title>
-<path fill="none" stroke="#000000" d="M332.5562,-634.1243C315.5449,-603.2297 291,-539.6768 291,-483.0278 291,-483.0278 291,-483.0278 291,-399.0278 291,-349.1766 307.2983,-292.9943 321.0752,-260.1549"/>
-<polygon fill="#000000" stroke="#000000" points="324.3935,-261.3058 325.249,-250.7456 317.9948,-258.4674 324.3935,-261.3058"/>
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step</title>
+<path fill="none" stroke="#000000" d="M583.6844,-634.3607C600.2722,-588.0068 636.4381,-465.2495 590.5,-380.0278 581.3177,-362.9933 565.3939,-349.7012 549.1246,-339.7528"/>
+<polygon fill="#000000" stroke="#000000" points="550.5063,-336.5103 540.0911,-334.5674 547.0214,-342.5812 550.5063,-336.5103"/>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step -->
-<g id="edge12" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step</title>
-<path fill="none" stroke="#000000" d="M343.7631,-634.1243C333.5449,-603.2297 309,-539.6768 309,-483.0278 309,-483.0278 309,-483.0278 309,-399.0278 309,-349.3915 325.1581,-293.4785 333.906,-260.5808"/>
-<polygon fill="#000000" stroke="#000000" points="337.3342,-261.3039 336.4559,-250.7456 330.5582,-259.5471 337.3342,-261.3039"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#optitype_step -->
+<!-- file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step -->
 <g id="node8" class="node">
-<title>file:///tmp/tmpwrmng04x#optitype_step</title>
-<g id="a_node8"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/optitype/1.3.5/optitype__1.3.5.md" xlink:title="Run the optitype pipeline on our smaller fastq files&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="138.5,-130.5278 138.5,-167.5278 273.5,-167.5278 273.5,-130.5278 138.5,-130.5278"/>
-<text text-anchor="middle" x="206" y="-145.3278" font-family="Times,serif" font-size="14.00" fill="#000000">optitype v(1.3.5)</text>
+<title>file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step</title>
+<g id="a_node8"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.md" xlink:title="Convert our truncated bam file to paired fastq files&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="529,-213.5278 529,-250.5278 718,-250.5278 718,-213.5278 529,-213.5278"/>
+<text text-anchor="middle" x="623.5" y="-228.3278" font-family="Times,serif" font-size="14.00" fill="#000000">samtools&#45;fastq v(1.12.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step -->
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step -->
+<g id="edge12" class="edge">
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step</title>
+<path fill="none" stroke="#000000" d="M587.5808,-634.1718C609.0649,-604.3366 652.5,-543.4132 652.5,-483.0278 652.5,-483.0278 652.5,-483.0278 652.5,-399.0278 652.5,-349.3915 636.3419,-293.4785 627.594,-260.5808"/>
+<polygon fill="#000000" stroke="#000000" points="630.9418,-259.5471 625.0441,-250.7456 624.1658,-261.3039 630.9418,-259.5471"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step -->
 <g id="edge13" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step</title>
-<path fill="none" stroke="#000000" d="M309.7329,-634.308C265.1678,-606.8077 197,-551.2809 197,-483.0278 197,-483.0278 197,-483.0278 197,-316.0278 197,-267.5777 197,-211.2208 199.5034,-177.9249"/>
-<polygon fill="#000000" stroke="#000000" points="203.0257,-177.8395 200.4519,-167.5621 196.0549,-177.2014 203.0257,-177.8395"/>
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step</title>
+<path fill="none" stroke="#000000" d="M599.0057,-634.1718C627.0649,-604.3366 670.5,-543.4132 670.5,-483.0278 670.5,-483.0278 670.5,-483.0278 670.5,-399.0278 670.5,-349.1766 654.2017,-292.9943 640.4248,-260.1549"/>
+<polygon fill="#000000" stroke="#000000" points="643.5052,-258.4674 636.251,-250.7456 637.1065,-261.3058 643.5052,-258.4674"/>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step -->
-<g id="edge14" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step</title>
-<path fill="none" stroke="#000000" d="M321.6821,-634.308C283.1678,-606.8077 215,-551.2809 215,-483.0278 215,-483.0278 215,-483.0278 215,-316.0278 215,-267.5777 215,-211.2208 212.4966,-177.9249"/>
-<polygon fill="#000000" stroke="#000000" points="215.9451,-177.2014 211.5481,-167.5621 208.9743,-177.8395 215.9451,-177.2014"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step -->
+<!-- file:///tmp/tmpplj0if1f#optitype_step -->
 <g id="node9" class="node">
-<title>file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step</title>
-<g id="a_node9"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.md" xlink:title="Takes in a sorted unmapped file and returns a sorted bam&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="696.5,-547.5278 696.5,-584.5278 961.5,-584.5278 961.5,-547.5278 696.5,-547.5278"/>
-<text text-anchor="middle" x="829" y="-562.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;view&#45;and&#45;index v(0.8.0)</text>
+<title>file:///tmp/tmpplj0if1f#optitype_step</title>
+<g id="a_node9"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/optitype/1.3.5/optitype__1.3.5.md" xlink:title="Run the optitype pipeline on our smaller fastq files&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="688,-130.5278 688,-167.5278 823,-167.5278 823,-130.5278 688,-130.5278"/>
+<text text-anchor="middle" x="755.5" y="-145.3278" font-family="Times,serif" font-size="14.00" fill="#000000">optitype v(1.3.5)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step -->
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step -->
 <g id="edge15" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step</title>
-<path fill="none" stroke="#000000" d="M365.3838,-634.3689C377.7137,-623.1406 394.9508,-609.7566 413,-603.0278 467.694,-582.6375 612.5916,-590.2992 685.9086,-585.055"/>
-<polygon fill="#000000" stroke="#000000" points="686.5191,-588.5159 696.1873,-584.1828 685.9271,-581.541 686.5191,-588.5159"/>
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step</title>
+<path fill="none" stroke="#000000" d="M614.5247,-634.387C664.7542,-608.7414 746.5,-557.1722 746.5,-483.0278 746.5,-483.0278 746.5,-483.0278 746.5,-316.0278 746.5,-267.5777 746.5,-211.2208 749.0034,-177.9249"/>
+<polygon fill="#000000" stroke="#000000" points="752.5257,-177.8395 749.9519,-167.5621 745.5549,-177.2014 752.5257,-177.8395"/>
 </g>
-<!-- file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step -->
-<g id="node11" class="node">
-<title>file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step</title>
-<g id="a_node11"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.md" xlink:title="Merge the hla and unmapped files into one sorted bam&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="391,-380.5278 391,-417.5278 669,-417.5278 669,-380.5278 391,-380.5278"/>
-<text text-anchor="middle" x="530" y="-395.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;merge&#45;and&#45;index v(0.8.0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step -->
-<g id="edge17" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step</title>
-<path fill="none" stroke="#000000" d="M355.5561,-634.3378C365.8388,-612.6055 384.1987,-576.0129 404,-547.0278 435.1447,-501.438 477.9477,-453.6677 504.7845,-425.127"/>
-<polygon fill="#000000" stroke="#000000" points="507.5731,-427.2725 511.9075,-417.6048 502.4903,-422.4594 507.5731,-427.2725"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step -->
-<g id="node12" class="node">
-<title>file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step</title>
-<g id="a_node12"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.md" xlink:title="Takes in the sorted full bam and hla regions bed and returns&#10;a subsetted bam by hla region&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="413.5,-547.5278 413.5,-584.5278 678.5,-584.5278 678.5,-547.5278 413.5,-547.5278"/>
-<text text-anchor="middle" x="546" y="-562.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;slice&#45;and&#45;index v(0.8.0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step -->
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step -->
 <g id="edge16" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step</title>
-<path fill="none" stroke="#000000" d="M367.344,-634.397C379.7533,-623.8893 396.3823,-611.2576 413,-603.0278 425.0115,-597.0792 438.1223,-591.9638 451.2789,-587.6015"/>
-<polygon fill="#000000" stroke="#000000" points="452.3831,-590.9232 460.852,-584.5571 450.2616,-584.2524 452.3831,-590.9232"/>
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step</title>
+<path fill="none" stroke="#000000" d="M626.9697,-634.387C682.7542,-608.7414 764.5,-557.1722 764.5,-483.0278 764.5,-483.0278 764.5,-483.0278 764.5,-316.0278 764.5,-267.5777 764.5,-211.2208 761.9966,-177.9249"/>
+<polygon fill="#000000" stroke="#000000" points="765.4451,-177.2014 761.0481,-167.5621 758.4743,-177.8395 765.4451,-177.2014"/>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step -->
-<g id="node13" class="node">
-<title>file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step</title>
-<g id="a_node13"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.md" xlink:title="Use sambamba sort to sort indexed bam by readname&#10;This is a prerequisite for samtools&#45;fastq when using paired data&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="337,-297.5278 337,-334.5278 597,-334.5278 597,-297.5278 337,-297.5278"/>
-<text text-anchor="middle" x="467" y="-312.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;sort&#45;and&#45;index v(0.8.0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step -->
-<g id="edge18" class="edge">
-<title>file:///tmp/tmpwrmng04x#sample_name&#45;&gt;file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step</title>
-<path fill="none" stroke="#000000" d="M344.6828,-634.244C339.8761,-587.6239 333.019,-464.307 382,-380.0278 391.3885,-363.8734 406.6276,-350.4934 421.6283,-340.2172"/>
-<polygon fill="#000000" stroke="#000000" points="423.9074,-342.9104 430.387,-334.5279 420.0943,-337.0401 423.9074,-342.9104"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#bam_sorted -->
-<g id="node2" class="node">
-<title>file:///tmp/tmpwrmng04x#bam_sorted</title>
-<g id="a_node2"><a xlink:title="The path to the aligned bam file">
-<polygon fill="#94ddf4" stroke="#000000" points="544.5,-634.5278 544.5,-671.5278 645.5,-671.5278 645.5,-634.5278 544.5,-634.5278"/>
-<text text-anchor="middle" x="595" y="-649.3278" font-family="Times,serif" font-size="14.00" fill="#000000">bam_sorted</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#bam_sorted&#45;&gt;file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step -->
-<g id="edge19" class="edge">
-<title>file:///tmp/tmpwrmng04x#bam_sorted&#45;&gt;file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step</title>
-<path fill="none" stroke="#000000" d="M644.9119,-634.4708C681.4148,-620.8992 731.0767,-602.4351 769.62,-588.1049"/>
-<polygon fill="#000000" stroke="#000000" points="771.0114,-591.3218 779.1649,-584.5562 768.572,-584.7606 771.0114,-591.3218"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#bam_sorted&#45;&gt;file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step -->
-<g id="edge20" class="edge">
-<title>file:///tmp/tmpwrmng04x#bam_sorted&#45;&gt;file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step</title>
-<path fill="none" stroke="#000000" d="M584.3677,-634.1501C577.6441,-622.2122 568.8428,-606.5853 561.366,-593.3102"/>
-<polygon fill="#000000" stroke="#000000" points="564.4002,-591.5652 556.4432,-584.5697 558.301,-595.0004 564.4002,-591.5652"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#regions_bed -->
-<g id="node3" class="node">
-<title>file:///tmp/tmpwrmng04x#regions_bed</title>
-<g id="a_node3"><a xlink:title="The bed file used to slice the bam file&#10;This should contain the HLA region on chrom 6 and any extra HLA contigs (for hg38)&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="422,-634.5278 422,-671.5278 526,-671.5278 526,-634.5278 422,-634.5278"/>
-<text text-anchor="middle" x="474" y="-649.3278" font-family="Times,serif" font-size="14.00" fill="#000000">regions_bed</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#regions_bed&#45;&gt;file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step -->
-<g id="edge21" class="edge">
-<title>file:///tmp/tmpwrmng04x#regions_bed&#45;&gt;file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step</title>
-<path fill="none" stroke="#000000" d="M489.6229,-634.1501C499.6925,-621.9826 512.9337,-605.9829 524.053,-592.547"/>
-<polygon fill="#000000" stroke="#000000" points="526.9756,-594.5052 530.6549,-584.5697 521.5828,-590.0422 526.9756,-594.5052"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#output_directory -->
-<g id="node4" class="node">
-<title>file:///tmp/tmpwrmng04x#output_directory</title>
-<g id="a_node4"><a xlink:title="The output directory of the optitype step&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="282.5,-46.5278 282.5,-83.5278 419.5,-83.5278 419.5,-46.5278 282.5,-46.5278"/>
-<text text-anchor="middle" x="351" y="-61.3278" font-family="Times,serif" font-size="14.00" fill="#000000">output_directory</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#coverage_plot -->
-<g id="node5" class="node">
-<title>file:///tmp/tmpwrmng04x#coverage_plot</title>
-<g id="a_node5"><a xlink:title="The coverage plot output from the optitype directory. Can be used as a QC method for determining&#10;how certain the allele prediction was.&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="147.5,-46.5278 147.5,-83.5278 264.5,-83.5278 264.5,-46.5278 147.5,-46.5278"/>
-<text text-anchor="middle" x="206" y="-61.3278" font-family="Times,serif" font-size="14.00" fill="#000000">coverage_plot</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#result_matrix -->
-<g id="node6" class="node">
-<title>file:///tmp/tmpwrmng04x#result_matrix</title>
-<g id="a_node6"><a xlink:title="Subattribute of the optitype directory, contains the likelihood information for each HLA allele&#10;">
-<polygon fill="#94ddf4" stroke="#000000" points="16.5,-46.5278 16.5,-83.5278 129.5,-83.5278 129.5,-46.5278 16.5,-46.5278"/>
-<text text-anchor="middle" x="73" y="-61.3278" font-family="Times,serif" font-size="14.00" fill="#000000">result_matrix</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step -->
-<g id="edge1" class="edge">
-<title>file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step</title>
-<path fill="none" stroke="#000000" d="M302.6361,-213.4009C282.615,-201.547 257.8508,-186.0722 238.3458,-173.266"/>
-<polygon fill="#000000" stroke="#000000" points="240.0585,-170.2021 229.7901,-167.5924 236.1899,-176.036 240.0585,-170.2021"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step -->
-<g id="edge2" class="edge">
-<title>file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpwrmng04x#optitype_step</title>
-<path fill="none" stroke="#000000" d="M314.1172,-213.4009C296.1951,-201.3868 271.315,-185.6533 249.8904,-172.7483"/>
-<polygon fill="#000000" stroke="#000000" points="251.6388,-169.7158 241.2589,-167.5924 248.0491,-175.7253 251.6388,-169.7158"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#optitype_step&#45;&gt;file:///tmp/tmpwrmng04x#output_directory -->
-<g id="edge3" class="edge">
-<title>file:///tmp/tmpwrmng04x#optitype_step&#45;&gt;file:///tmp/tmpwrmng04x#output_directory</title>
-<path fill="none" stroke="#000000" d="M238.1802,-130.3854C259.3933,-118.0965 287.3589,-101.8957 310.1398,-88.6985"/>
-<polygon fill="#000000" stroke="#000000" points="312.0113,-91.6593 318.9098,-83.618 308.5024,-85.6022 312.0113,-91.6593"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#optitype_step&#45;&gt;file:///tmp/tmpwrmng04x#coverage_plot -->
-<g id="edge4" class="edge">
-<title>file:///tmp/tmpwrmng04x#optitype_step&#45;&gt;file:///tmp/tmpwrmng04x#coverage_plot</title>
-<path fill="none" stroke="#000000" d="M206,-130.3854C206,-119.619 206,-105.85 206,-93.7288"/>
-<polygon fill="#000000" stroke="#000000" points="209.5001,-93.6179 206,-83.618 202.5001,-93.618 209.5001,-93.6179"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#optitype_step&#45;&gt;file:///tmp/tmpwrmng04x#result_matrix -->
-<g id="edge5" class="edge">
-<title>file:///tmp/tmpwrmng04x#optitype_step&#45;&gt;file:///tmp/tmpwrmng04x#result_matrix</title>
-<path fill="none" stroke="#000000" d="M176.483,-130.3854C157.1977,-118.2052 131.8277,-102.1821 111.0346,-89.0496"/>
-<polygon fill="#000000" stroke="#000000" points="112.7584,-85.9987 102.4345,-83.618 109.0204,-91.9172 112.7584,-85.9987"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#subset_unmapped_bam -->
+<!-- file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step -->
 <g id="node10" class="node">
-<title>file:///tmp/tmpwrmng04x#subset_unmapped_bam</title>
-<g id="a_node10"><a xlink:href="https://github.com/umccr/cwl-ica/blob/beta-release/.github/catalogue/docs/tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.md" xlink:title="Takes in a list of n reads and randomly reduces the bam to that number of reads&#10;">
-<polygon fill="#fafad2" stroke="#000000" points="645,-464.5278 645,-501.5278 869,-501.5278 869,-464.5278 645,-464.5278"/>
-<text text-anchor="middle" x="757" y="-479.3278" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;subset&#45;bam v(1.12.0)</text>
+<title>file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step</title>
+<g id="a_node10"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.md" xlink:title="Takes in a sorted unmapped file and returns a sorted bam&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="283,-547.5278 283,-584.5278 548,-584.5278 548,-547.5278 283,-547.5278"/>
+<text text-anchor="middle" x="415.5" y="-562.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;view&#45;and&#45;index v(0.8.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step&#45;&gt;file:///tmp/tmpwrmng04x#subset_unmapped_bam -->
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step -->
+<g id="edge14" class="edge">
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step</title>
+<path fill="none" stroke="#000000" d="M554.5756,-634.3243C541.958,-624.1756 525.4777,-611.9242 509.5,-603.0278 499.9973,-597.7367 489.5824,-592.8378 479.2548,-588.4516"/>
+<polygon fill="#000000" stroke="#000000" points="480.403,-585.1394 469.8234,-584.571 477.7394,-591.6128 480.403,-585.1394"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step -->
+<g id="node12" class="node">
+<title>file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step</title>
+<g id="a_node12"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.md" xlink:title="Merge the hla and unmapped files into one sorted bam&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="303.5,-380.5278 303.5,-417.5278 581.5,-417.5278 581.5,-380.5278 303.5,-380.5278"/>
+<text text-anchor="middle" x="442.5" y="-395.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;merge&#45;and&#45;index v(0.8.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step -->
+<g id="edge17" class="edge">
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step</title>
+<path fill="none" stroke="#000000" d="M578.495,-634.3127C581.3716,-598.1681 582.9369,-517.6038 547.5,-464.0278 535.7602,-446.2788 517.3393,-432.5217 499.183,-422.3293"/>
+<polygon fill="#000000" stroke="#000000" points="500.7932,-419.2214 490.3216,-417.6102 497.5028,-425.4 500.7932,-419.2214"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step -->
+<g id="node13" class="node">
+<title>file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step</title>
+<g id="a_node13"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.md" xlink:title="Takes in the sorted full bam and hla regions bed and returns&#10;a subsetted bam by hla region&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="0,-547.5278 0,-584.5278 265,-584.5278 265,-547.5278 0,-547.5278"/>
+<text text-anchor="middle" x="132.5" y="-562.3278" font-family="Times,serif" font-size="14.00" fill="#000000">sambamba&#45;slice&#45;and&#45;index v(0.8.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step -->
+<g id="edge18" class="edge">
+<title>file:///tmp/tmpplj0if1f#sample_name&#45;&gt;file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step</title>
+<path fill="none" stroke="#000000" d="M557.7618,-634.4351C545.2149,-623.2332 527.7114,-609.8538 509.5,-603.0278 462.8465,-585.5409 339.7495,-589.9799 275.4802,-585.0574"/>
+<polygon fill="#000000" stroke="#000000" points="275.5903,-581.5532 265.3168,-584.1428 274.9629,-588.5251 275.5903,-581.5532"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#bam_sorted -->
+<g id="node2" class="node">
+<title>file:///tmp/tmpplj0if1f#bam_sorted</title>
+<g id="a_node2"><a xlink:title="The path to the aligned bam file">
+<polygon fill="#94ddf4" stroke="#000000" points="400,-634.5278 400,-671.5278 501,-671.5278 501,-634.5278 400,-634.5278"/>
+<text text-anchor="middle" x="450.5" y="-649.3278" font-family="Times,serif" font-size="14.00" fill="#000000">bam_sorted</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#bam_sorted&#45;&gt;file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step -->
+<g id="edge19" class="edge">
+<title>file:///tmp/tmpplj0if1f#bam_sorted&#45;&gt;file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step</title>
+<path fill="none" stroke="#000000" d="M442.9055,-634.1501C438.1953,-622.4418 432.0575,-607.185 426.7848,-594.0787"/>
+<polygon fill="#000000" stroke="#000000" points="429.9389,-592.5408 422.9594,-584.5697 423.4447,-595.1535 429.9389,-592.5408"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#bam_sorted&#45;&gt;file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step -->
+<g id="edge20" class="edge">
+<title>file:///tmp/tmpplj0if1f#bam_sorted&#45;&gt;file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step</title>
+<path fill="none" stroke="#000000" d="M433.4161,-634.32C422.2943,-623.3691 406.8532,-610.303 390.5,-603.0278 387.4772,-601.683 333.3428,-593.8411 275.4402,-585.7208"/>
+<polygon fill="#000000" stroke="#000000" points="275.751,-582.2302 265.3623,-584.3099 274.7804,-589.1626 275.751,-582.2302"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#regions_bed -->
+<g id="node3" class="node">
+<title>file:///tmp/tmpplj0if1f#regions_bed</title>
+<g id="a_node3"><a xlink:title="The bed file used to slice the bam file&#10;This should contain the HLA region on chrom 6 and any extra HLA contigs (for hg38)&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="277.5,-634.5278 277.5,-671.5278 381.5,-671.5278 381.5,-634.5278 277.5,-634.5278"/>
+<text text-anchor="middle" x="329.5" y="-649.3278" font-family="Times,serif" font-size="14.00" fill="#000000">regions_bed</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#regions_bed&#45;&gt;file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step -->
+<g id="edge21" class="edge">
+<title>file:///tmp/tmpplj0if1f#regions_bed&#45;&gt;file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step</title>
+<path fill="none" stroke="#000000" d="M287.2386,-634.3641C256.9861,-621.0039 216.0899,-602.9431 183.9385,-588.7443"/>
+<polygon fill="#000000" stroke="#000000" points="185.2532,-585.4988 174.6915,-584.6606 182.4253,-591.9022 185.2532,-585.4988"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#result_matrix -->
+<g id="node4" class="node">
+<title>file:///tmp/tmpplj0if1f#result_matrix</title>
+<g id="a_node4"><a xlink:title="Subattribute of the optitype directory, contains the likelihood information for each HLA allele&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="832,-46.5278 832,-83.5278 945,-83.5278 945,-46.5278 832,-46.5278"/>
+<text text-anchor="middle" x="888.5" y="-61.3278" font-family="Times,serif" font-size="14.00" fill="#000000">result_matrix</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#coverage_plot -->
+<g id="node5" class="node">
+<title>file:///tmp/tmpplj0if1f#coverage_plot</title>
+<g id="a_node5"><a xlink:title="The coverage plot output from the optitype directory. Can be used as a QC method for determining&#10;how certain the allele prediction was.&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="697,-46.5278 697,-83.5278 814,-83.5278 814,-46.5278 697,-46.5278"/>
+<text text-anchor="middle" x="755.5" y="-61.3278" font-family="Times,serif" font-size="14.00" fill="#000000">coverage_plot</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#output_directory -->
+<g id="node6" class="node">
+<title>file:///tmp/tmpplj0if1f#output_directory</title>
+<g id="a_node6"><a xlink:title="The output directory of the optitype step&#10;">
+<polygon fill="#94ddf4" stroke="#000000" points="542,-46.5278 542,-83.5278 679,-83.5278 679,-46.5278 542,-46.5278"/>
+<text text-anchor="middle" x="610.5" y="-61.3278" font-family="Times,serif" font-size="14.00" fill="#000000">output_directory</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step&#45;&gt;file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step -->
+<g id="edge1" class="edge">
+<title>file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step&#45;&gt;file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step</title>
+<path fill="none" stroke="#000000" d="M523.1293,-297.3854C541.7511,-285.2596 566.2219,-269.3251 586.339,-256.2256"/>
+<polygon fill="#000000" stroke="#000000" points="588.4806,-259.0078 594.9507,-250.618 584.6609,-253.1418 588.4806,-259.0078"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step -->
+<g id="edge2" class="edge">
+<title>file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step</title>
+<path fill="none" stroke="#000000" d="M647.3828,-213.4009C665.3049,-201.3868 690.185,-185.6533 711.6096,-172.7483"/>
+<polygon fill="#000000" stroke="#000000" points="713.4509,-175.7253 720.2411,-167.5924 709.8612,-169.7158 713.4509,-175.7253"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step -->
+<g id="edge3" class="edge">
+<title>file:///tmp/tmpplj0if1f#unmapped_and_hla_bam_to_fastq_step&#45;&gt;file:///tmp/tmpplj0if1f#optitype_step</title>
+<path fill="none" stroke="#000000" d="M658.8639,-213.4009C678.885,-201.547 703.6492,-186.0722 723.1542,-173.266"/>
+<polygon fill="#000000" stroke="#000000" points="725.3101,-176.036 731.7099,-167.5924 721.4415,-170.2021 725.3101,-176.036"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#optitype_step&#45;&gt;file:///tmp/tmpplj0if1f#result_matrix -->
 <g id="edge6" class="edge">
-<title>file:///tmp/tmpwrmng04x#get_unmapped_file_from_sorted_bam_step&#45;&gt;file:///tmp/tmpwrmng04x#subset_unmapped_bam</title>
-<path fill="none" stroke="#000000" d="M812.6621,-547.1938C802.9961,-536.0511 790.6022,-521.7637 779.9641,-509.5003"/>
-<polygon fill="#000000" stroke="#000000" points="782.4699,-507.0476 773.2733,-501.7872 777.1822,-511.6346 782.4699,-507.0476"/>
+<title>file:///tmp/tmpplj0if1f#optitype_step&#45;&gt;file:///tmp/tmpplj0if1f#result_matrix</title>
+<path fill="none" stroke="#000000" d="M785.017,-130.3854C804.3023,-118.2052 829.6723,-102.1821 850.4654,-89.0496"/>
+<polygon fill="#000000" stroke="#000000" points="852.4796,-91.9172 859.0655,-83.618 848.7416,-85.9987 852.4796,-91.9172"/>
 </g>
-<!-- file:///tmp/tmpwrmng04x#subset_unmapped_bam&#45;&gt;file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step -->
+<!-- file:///tmp/tmpplj0if1f#optitype_step&#45;&gt;file:///tmp/tmpplj0if1f#coverage_plot -->
 <g id="edge7" class="edge">
-<title>file:///tmp/tmpwrmng04x#subset_unmapped_bam&#45;&gt;file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step</title>
-<path fill="none" stroke="#000000" d="M706.9029,-464.4896C672.3849,-451.7164 626.3474,-434.6805 589.8901,-421.1898"/>
-<polygon fill="#000000" stroke="#000000" points="590.9542,-417.8516 580.361,-417.6636 588.5249,-424.4166 590.9542,-417.8516"/>
+<title>file:///tmp/tmpplj0if1f#optitype_step&#45;&gt;file:///tmp/tmpplj0if1f#coverage_plot</title>
+<path fill="none" stroke="#000000" d="M755.5,-130.3854C755.5,-119.619 755.5,-105.85 755.5,-93.7288"/>
+<polygon fill="#000000" stroke="#000000" points="759.0001,-93.6179 755.5,-83.618 752.0001,-93.618 759.0001,-93.6179"/>
 </g>
-<!-- file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step&#45;&gt;file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step -->
-<g id="edge9" class="edge">
-<title>file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step&#45;&gt;file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step</title>
-<path fill="none" stroke="#000000" d="M515.7043,-380.1938C507.3272,-369.1572 496.6083,-355.0355 487.36,-342.8512"/>
-<polygon fill="#000000" stroke="#000000" points="490.073,-340.6365 481.2391,-334.7872 484.4972,-344.8687 490.073,-340.6365"/>
-</g>
-<!-- file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step&#45;&gt;file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step -->
+<!-- file:///tmp/tmpplj0if1f#optitype_step&#45;&gt;file:///tmp/tmpplj0if1f#output_directory -->
 <g id="edge8" class="edge">
-<title>file:///tmp/tmpwrmng04x#get_bam_slice_from_bed_step&#45;&gt;file:///tmp/tmpwrmng04x#merge_hla_and_unmapped_bam_files_step</title>
-<path fill="none" stroke="#000000" d="M544.2266,-547.5178C541.4514,-518.5518 536.06,-462.2792 532.7698,-427.9375"/>
-<polygon fill="#000000" stroke="#000000" points="536.2192,-427.2413 531.7814,-417.6207 529.2511,-427.9089 536.2192,-427.2413"/>
+<title>file:///tmp/tmpplj0if1f#optitype_step&#45;&gt;file:///tmp/tmpplj0if1f#output_directory</title>
+<path fill="none" stroke="#000000" d="M723.3198,-130.3854C702.1067,-118.0965 674.1411,-101.8957 651.3602,-88.6985"/>
+<polygon fill="#000000" stroke="#000000" points="652.9976,-85.6022 642.5902,-83.618 649.4887,-91.6593 652.9976,-85.6022"/>
 </g>
-<!-- file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step&#45;&gt;file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step -->
+<!-- file:///tmp/tmpplj0if1f#subset_unmapped_bam -->
+<g id="node11" class="node">
+<title>file:///tmp/tmpplj0if1f#subset_unmapped_bam</title>
+<g id="a_node11"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.md" xlink:title="Takes in a list of n reads and randomly reduces the bam to that number of reads&#10;">
+<polygon fill="#fafad2" stroke="#000000" points="314.5,-464.5278 314.5,-501.5278 538.5,-501.5278 538.5,-464.5278 314.5,-464.5278"/>
+<text text-anchor="middle" x="426.5" y="-479.3278" font-family="Times,serif" font-size="14.00" fill="#000000">custom&#45;subset&#45;bam v(1.12.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step&#45;&gt;file:///tmp/tmpplj0if1f#subset_unmapped_bam -->
+<g id="edge4" class="edge">
+<title>file:///tmp/tmpplj0if1f#get_unmapped_file_from_sorted_bam_step&#45;&gt;file:///tmp/tmpplj0if1f#subset_unmapped_bam</title>
+<path fill="none" stroke="#000000" d="M417.9961,-547.1938C419.3744,-536.7939 421.1157,-523.6547 422.6632,-511.9784"/>
+<polygon fill="#000000" stroke="#000000" points="426.1696,-512.1604 424.0138,-501.7872 419.2302,-511.2407 426.1696,-512.1604"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#subset_unmapped_bam&#45;&gt;file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step -->
+<g id="edge5" class="edge">
+<title>file:///tmp/tmpplj0if1f#subset_unmapped_bam&#45;&gt;file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step</title>
+<path fill="none" stroke="#000000" d="M430.0509,-464.3854C432.1017,-453.619 434.7243,-439.85 437.0331,-427.7288"/>
+<polygon fill="#000000" stroke="#000000" points="440.526,-428.0963 438.959,-417.618 433.6496,-426.7864 440.526,-428.0963"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step&#45;&gt;file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step -->
+<g id="edge9" class="edge">
+<title>file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step&#45;&gt;file:///tmp/tmpplj0if1f#sort_merged_bam_by_name_step</title>
+<path fill="none" stroke="#000000" d="M454.2996,-380.1938C461.0811,-369.3695 469.7218,-355.5775 477.2532,-343.5563"/>
+<polygon fill="#000000" stroke="#000000" points="480.4039,-345.1197 482.7471,-334.7872 474.4719,-341.4033 480.4039,-345.1197"/>
+</g>
+<!-- file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step&#45;&gt;file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step -->
 <g id="edge10" class="edge">
-<title>file:///tmp/tmpwrmng04x#sort_merged_bam_by_name_step&#45;&gt;file:///tmp/tmpwrmng04x#unmapped_and_hla_bam_to_fastq_step</title>
-<path fill="none" stroke="#000000" d="M438.3707,-297.3854C419.7489,-285.2596 395.2781,-269.3251 375.161,-256.2256"/>
-<polygon fill="#000000" stroke="#000000" points="376.8391,-253.1418 366.5493,-250.618 373.0194,-259.0078 376.8391,-253.1418"/>
+<title>file:///tmp/tmpplj0if1f#get_bam_slice_from_bed_step&#45;&gt;file:///tmp/tmpplj0if1f#merge_hla_and_unmapped_bam_files_step</title>
+<path fill="none" stroke="#000000" d="M162.0405,-547.5116C196.1168,-526.4116 254.0661,-491.3213 305.5,-464.0278 333.5636,-449.1357 365.6131,-433.8396 391.6542,-421.8297"/>
+<polygon fill="#000000" stroke="#000000" points="393.3288,-424.9122 400.9579,-417.5605 390.4093,-418.55 393.3288,-424.9122"/>
 </g>
 </g>
 </svg>
