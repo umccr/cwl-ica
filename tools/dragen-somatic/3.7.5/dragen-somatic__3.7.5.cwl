@@ -138,19 +138,24 @@ requirements:
           */
 
           var e = [{ 
-             "entryname": get_script_path(), 
-             "entry": get_script_contents() 
-           }, 
-          { 
-             "entryname": get_tumor_fastq_list_path(), 
-             "entry": inputs.tumor_fastq_list 
-          }];
+                      "entryname": get_script_path(), 
+                      "entry": get_script_contents() 
+                    }, 
+                    { 
+                      "entryname": get_tumor_fastq_list_path(), 
+                      "entry": inputs.tumor_fastq_list 
+                    }];
 
-          if  (inputs.fastq_list !== null){
-          e.push({
-             "entryname": get_fastq_list_path(), 
-             "entry": inputs.fastq_list 
-            });
+          /*
+          Check if fastq_list parameter is defined
+          It could be null in case of TO execution
+          */
+
+          if (inputs.fastq_list !== null){
+              e.push({
+                      "entryname": get_fastq_list_path(), 
+                      "entry": inputs.fastq_list 
+                      });
           }
 
           /*
