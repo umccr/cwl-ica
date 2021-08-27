@@ -232,7 +232,10 @@ class CopySubmissionTemplate(Command):
 
             # Check if 'ica-check-cwl-inputs' is in the path and then run it!
             shell_h.write("if [[ type \"ica-check-cwl-inputs\" ]]; then\n")
-            shell_h.write(f"    ica-check-cwl-inputs --input-json {self.output_json_path}\n")
+            shell_h.write(f"    ica-check-cwl-inputs \\\n")
+            shell_h.write(f"        --input-json {self.output_json_path} \\\n")
+            shell_h.write(f"        --ica-workflow-id {self.run_obj.ica_workflow_id} \\\n")
+            shell_h.write(f"        --ica-workflow-version-name {self.run_obj.ica_workflow_version_name}\n")
             shell_h.write("fi\n\n")
 
             # Then set the launch command
