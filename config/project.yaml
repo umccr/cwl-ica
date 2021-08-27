@@ -229,7 +229,7 @@ projects:
           - name: 1.2.1--0
             path: 1.2.1--0/umccrise__1.2.1--0.cwl
             ica_workflow_version_name: 1.2.1--0
-            modification_time: 2021-08-11T09:39:02UTC
+            modification_time: 2021-08-27T00:54:55UTC
             run_instances: []
       - name: dragen-somatic
         path: dragen-somatic
@@ -369,7 +369,7 @@ projects:
           - name: 1.2.1--0
             path: 1.2.1--0/umccrise-pipeline__1.2.1--0.cwl
             ica_workflow_version_name: 1.2.1--0
-            modification_time: 2021-08-11T10:38:33UTC
+            modification_time: 2021-08-27T01:03:25UTC
             run_instances: []
           - name: 1.2.2--0
             path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
@@ -434,6 +434,11 @@ projects:
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120--09e7d14
             modification_time: 2021-08-27T02:40:04UTC
+            run_instances: []
+          - name: 1.1.0--120
+            path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
+            ica_workflow_version_name: 1.1.0--120--297e8b3
+            modification_time: 2021-08-27T01:03:29UTC
             run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline

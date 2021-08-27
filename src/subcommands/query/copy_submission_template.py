@@ -215,7 +215,7 @@ class CopySubmissionTemplate(Command):
             # Source ica-ica-lazy functions (bash functions might be exported but doesn't help if user
             # is running zsh
             shell_h.write("# Source ica-ica-lazy functions if they exist\n")
-            shell_h.write("if [[-d \"$HOME/.ica-ica-lazy/functions\"]]; then\n")
+            shell_h.write("if [[ -d \"$HOME/.ica-ica-lazy/functions\" ]]; then\n")
             shell_h.write("    for f in \"$HOME/.ica-ica-lazy/functions/\"*\".sh\"; do\n")
             shell_h.write("        .  \"$f\"\n")
             shell_h.write("    done\n")
@@ -228,6 +228,14 @@ class CopySubmissionTemplate(Command):
             shell_h.write(f"    ica projects enter '{self.launch_project_name}'\n")
             if self.is_curl:
                 shell_h.write(f"    export ICA_ACCESS_TOKEN=\"$(yq eval '.access-token' ~/.ica/.session.{get_region_from_base_url(get_base_url())}.yaml)\"\n")
+            shell_h.write("fi\n\n")
+
+            # Check if 'ica-check-cwl-inputs' is in the path and then run it!
+            shell_h.write("if [[ type \"ica-check-cwl-inputs\" ]]; then\n")
+            shell_h.write(f"    ica-check-cwl-inputs \\\n")
+            shell_h.write(f"        --input-json {self.output_json_path} \\\n")
+            shell_h.write(f"        --ica-workflow-id {self.run_obj.ica_workflow_id} \\\n")
+            shell_h.write(f"        --ica-workflow-version-name {self.run_obj.ica_workflow_version_name}\n")
             shell_h.write("fi\n\n")
 
             # Then set the launch command
