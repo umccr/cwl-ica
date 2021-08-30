@@ -112,14 +112,22 @@ Example
         # Import the item object
         self.import_item_obj()
 
+        # Import the item version object
+        self.import_item_version_obj()
+
+        # Get ICA workflow versions
+        self.projects, self.workflows, self.workflow_versions = self.get_ica_workflow_versions()
+
+        if self.is_markdown_md5sum_match() and self.is_markdown_project_match() and self.is_run_match():
+            self.create_markdown = False
+            return
+
         # Import the cwl object
         self.import_cwl_obj()
 
         # Get the cwl name
         self.cwl_name = cwl_id_to_path(self.cwl_obj.id)
 
-        # Get ICA workflow versions
-        self.projects, self.workflows, self.workflow_versions = self.get_ica_workflow_versions()
 
     def import_item_obj(self):
         """
@@ -246,8 +254,23 @@ Example
         :return:
         """
 
-        # FIXME - eventually don't build the cwl svg file if it already exists? Or only if the workflow has changed - somehow?
+        # Get the path to the svg
+        svg_path = get_graph_path_from_cwl_path(self.cwl_file_path)
 
+        # Create the md file visual header
+        md_file_obj.new_header(level=2, title="Visual Workflow Overview", add_table_of_contents='n')
+        md_file_obj.new_line(md_file_obj.new_inline_link(link=get_raw_url_from_path(svg_path),
+                                                         text=md_file_obj.new_inline_image(path=relpath(svg_path.absolute(), self.markdown_path.absolute().parent),
+                                                                                           text=svg_path.name)),
+                             wrap_width=0)
+
+        if svg_path.is_file() and self.is_markdown_md5sum_match():
+            # The workflow hasn't changed, we don't need to create the dot file
+            logger.info("The workflow md5sum hasn't changed, no need to update the svg file")
+            return md_file_obj
+
+        # We need to build / rebuild the svg
+        # Build the dot file and svg file
         temp_dot_file = NamedTemporaryFile(delete=False)
 
         # Build the cwl dot file
@@ -255,9 +278,6 @@ Example
 
         # Edit the dot file
         edit_cwl_dot(self.cwl_item, self.cwl_obj, Path(temp_dot_file.name))
-
-        # Save the dot file as an svg
-        svg_path = get_graph_path_from_cwl_path(self.cwl_file_path)
 
         # Create the svg path directory
         if not svg_path.is_dir():
@@ -269,12 +289,6 @@ Example
 
         # Build the cwl svg graph
         build_cwl_svg(temp_dot_file.name, svg_path, ratio_value)
-
-        md_file_obj.new_header(level=2, title="Visual Workflow Overview", add_table_of_contents='n')
-        md_file_obj.new_line(md_file_obj.new_inline_link(link=get_raw_url_from_path(svg_path),
-                                                         text=md_file_obj.new_inline_image(path=relpath(svg_path.absolute(), self.markdown_path.absolute().parent),
-                                                                                           text=svg_path.name)),
-                             wrap_width=0)
 
         return md_file_obj
 

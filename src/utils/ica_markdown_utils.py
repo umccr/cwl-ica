@@ -36,7 +36,7 @@ from classes.project import Project
 from classes.ica_workflow import ICAWorkflow
 from classes.ica_workflow_version import ICAWorkflowVersion
 from classes.ica_workflow_run import ICAWorkflowRun
-from subcommands.github_actions.create_markdown_file import add_toc_line
+from utils.create_markdown_utils import add_toc_line
 
 def get_ica_section(cwl_file_path: Path, item_type: str, projects: List[Project],
                     ica_workflow_objs: List[ICAWorkflow],

@@ -106,14 +106,23 @@ Example
         # Import the item object
         self.import_item_obj()
 
+        # Import the item version object
+        self.import_item_version_obj()
+
+        # Get ICA tool versions
+        self.projects, self.workflows, self.workflow_versions = self.get_ica_workflow_versions()
+
+        if self.is_markdown_md5sum_match() and self.is_markdown_project_match() and self.is_run_match():
+            logger.info(f"Md5sum matches, projects match and runs match. Skipping creation of {self.markdown_path}")
+            self.create_markdown = False
+            return
+
         # Import the cwl object
         self.import_cwl_obj()
 
         # Get the cwl name
         self.cwl_name = cwl_id_to_path(self.cwl_obj.id)
 
-        # Get ICA tool versions
-        self.projects, self.workflows, self.workflow_versions = self.get_ica_workflow_versions()
 
     def import_item_obj(self):
         """
