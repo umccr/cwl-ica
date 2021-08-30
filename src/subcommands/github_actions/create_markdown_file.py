@@ -50,8 +50,11 @@ from mdutils.mdutils import MdUtils
 from classes.project_production import ProductionProject
 from classes.ica_workflow_version import ICAWorkflowVersion
 from classes.ica_workflow import ICAWorkflow
+from classes.ica_workflow_run import ICAWorkflowRun
 from utils.miscell import get_name_version_tuple_from_cwl_file_path, cwl_id_to_path, get_markdown_file_from_cwl_path
 from utils.pydot_utils import get_step_path_from_step_obj
+from utils.ica_markdown_utils import get_run_instance_obj_from_id
+from utils.create_markdown_utils import add_toc_line
 from os.path import relpath
 import re
 from utils.errors import ItemVersionNotFoundError
@@ -87,6 +90,8 @@ class CreateMarkdownFile(Command):
         self.item_name = None  # type: Optional[str]
         self.item_version = None  # type: Optional[str]
         self.item_obj = None  # type: Optional[Item]
+        self.item_version_obj = None  # type: Optional[ItemVersion]
+        self.create_markdown = True
         self.cwl_item = None  # type: Optional[CWL]
         self.cwl_obj = None  # Is of the cwl_item.parser type -> set in subcommands
         self.projects = None  # type: Optional[List[Project]]
@@ -102,6 +107,10 @@ class CreateMarkdownFile(Command):
         Build the mdobject
         :return:
         """
+
+        if not self.create_markdown:
+            logger.info("Markdown file exists with matching md5sum, projects and workflows... skipping!")
+            return
 
         # Initialise mdutils object
         logger.info("Initialising the markdown file object")
@@ -167,6 +176,134 @@ class CreateMarkdownFile(Command):
         :return:
         """
         raise NotImplementedError
+
+    def import_item_version_obj(self):
+        """
+        Import the item version object from the item object
+        :return:
+        """
+        if self.item_obj is None:
+            return
+        version: ItemVersion
+        for version in self.item_obj.versions:
+            if version.name == self.item_version:
+                self.item_version_obj = version
+
+    def is_markdown_md5sum_match(self):
+        """
+        Check if the md5sum on the markdown matches
+        :return:
+        """
+        item_md5sum = self.item_version_obj.md5sum
+        if not self.markdown_path.is_file():
+            return False
+
+        # Get the md5sum from the markdown file
+        with open(self.markdown_path, "r") as markdown_h:
+            for line in markdown_h.readlines():
+                if line.strip().startswith("> md5sum: "):
+                    if item_md5sum == line.strip().rsplit(" ")[-1]:
+                        logger.info("Item md5sum matches that in markdown file")
+                        return True
+                    logger.info("Item md5sum does NOT match that in markdown file")
+                    return False
+            return False
+
+    def is_markdown_project_match(self):
+        """
+        Iterate over the projects, workflow and workflow versions,
+
+        If a line matches
+        ### Project: <project_name> i.e "### Project: development_workflows"
+
+        Find the workflow id for this project
+        > wfl id: <workflow_id> i.e "> wfl id: wfl.7747fed243b4422eb1c40cb1fa9fea75"
+
+        Find the workflow version name
+        > **wfl version name:** <workflow version name>  i.e "**wfl version name:** 1.3.5"
+
+        ...without first finding another "### Project:"
+        :return:
+        """
+        if not self.markdown_path.is_file():
+            return False
+
+        logger.info("Checking if the projects in project.yaml match that in the existing markdown file")
+        for project, workflow, workflow_version in zip(self.projects, self.workflows, self.workflow_versions):
+            # Reset booleans
+            has_project = False
+            has_workflow = False
+            has_workflow_version = False
+            # Open up the file (we do this for each iterable)
+            with open(self.markdown_path, "r") as markdown_h:
+                for line in markdown_h.readlines():
+                    if has_project and has_workflow and has_workflow_version:
+                        # We have them all! move on to next iterable
+                        break
+                    if line.strip() == f"### Project: {project.project_name}":
+                        # We have the project
+                        has_project = True
+                        continue
+                    # Check we haven't reached another project already
+                    if has_project and line.strip().startswith("### Project"):
+                        # We've reached another project without finding the workflow or workflow version
+                        logger.info("Found the project but not the workflow or workflow version")
+                        return False
+                    if line.strip() == f"> wfl id: {workflow.ica_workflow_id}":
+                        has_workflow = True
+                    if line.strip() == f"**wfl version name:** {workflow_version.ica_workflow_version_name}":
+                        has_workflow_version = True
+
+            # We've gone through the whole file, make sure we've got the project, workflow and workflow version
+            if has_project and has_workflow and has_workflow_version:
+                # We're good! Move on to next iterable combo
+                continue
+            # We did not find them all!
+            logger.info(f"Did not find project/workflow/workflow-version combo "
+                        f"{project.project_name}/{workflow.ica_workflow_id}/{workflow_version.ica_workflow_version_name} "
+                        f"markdown file {self.markdown_path} will be re-created.")
+            return False
+
+        # We've found all of the projects, workflows and workflow versions in the markdown.
+        logger.info("All projects, workflows and workflow versions match!")
+        return True
+
+
+    def is_run_match(self):
+        """
+        Iterate through all of the runs of this workflow and make sure that they exist at:
+        "#### Run run.id" i.e "#### Run wfr.e3c6b8ce7e4447cbbd321b5c96ef7670"
+        :return:
+        """
+
+        logger.info("Making sure all of the run objects are in this markdown file")
+
+        # Can't match if the markdown path doesn't exist
+        if not self.markdown_path.is_file():
+            return False
+
+        # Iterate through run instances
+        for workflow_version in self.workflow_versions:
+            run_objs: List[ICAWorkflowRun] = [get_run_instance_obj_from_id(run_instance_id)
+                                              for run_instance_id in workflow_version.run_instances]
+
+            # We may not have any runs
+            if len(run_objs) == 0:
+                continue
+
+            for run_obj in run_objs:
+                # Open up the file (we do this for each iterable)
+                with open(self.markdown_path, "r") as markdown_h:
+                    for line in markdown_h.readlines():
+                        if line.strip() == f"##### Run {run_obj.ica_workflow_run_instance_id}":
+                            break
+                    else:
+                        # We didn't find the header for this run object
+                        logger.info(f"Could not find run {run_obj.ica_workflow_run_instance_id} in {self.markdown_path}")
+                        return False
+
+        # We've found all of the run objects
+        return True
 
     def import_cwl_obj(self):
         """
@@ -515,22 +652,5 @@ class CreateMarkdownFile(Command):
         return included_projects, included_workflows, included_workflow_versions
 
 
-def add_toc_line(md_file_obj: MdUtils, header_name: str, link_text: str) -> MdUtils:
-    """
-    Add a line to top level of toc
-    :param md_file_obj:
-    :param header_name:
-    :param link_text:
-    :return:
-    """
 
-    md_file_obj.new_line("- {}".format(
-        md_file_obj.new_inline_link(
-            link="#{}".format(
-                re.sub(r"[^a-z0-9_\-]", "", header_name.lower().replace(' ', '-'))
-            ),
-            text=link_text)
-    ))
-
-    return md_file_obj
 

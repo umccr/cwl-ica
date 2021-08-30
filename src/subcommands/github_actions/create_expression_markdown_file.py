@@ -106,6 +106,13 @@ Example
         # Import the item object
         self.import_item_obj()
 
+        # Import the item version object
+        self.import_item_version_obj()
+
+        if self.is_markdown_md5sum_match():
+            self.markdown_md5sum_matches = True
+            return
+
         # Import the cwl object
         self.import_cwl_obj()
 
