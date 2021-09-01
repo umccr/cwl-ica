@@ -612,3 +612,47 @@ runs:
         task_stop_time: 1629428079
         task_duration: 1277
         task_metrics: eJyd000KwjAQBeCrlK5LyGTyN15FXIh04SJYtC5EvHsDgk7EJ9JdUvhI5r1me+/nYxkv875M/aaj6MS7KMkPXX+YrvWTNbauy1hO59tz+xi6bypZ716KDP2rxGJFSFGQFcqRqLlCqzxUKSoVW5WRYrZKea3IMFRCWMGzfBB0Q4eTDwQz/KUSr1CRleI2eqpVQKfycC1j3HMKujFplSCVyavJmr8+4MZyeqfIJn8MFhET9VhcW1msg+0WTiL5cQ==
+  - ica_workflow_run_instance_id: wfr.3bf2bc688d0d442489cadfcdb2bf9842
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.2e690932bedc4204b2bcb697bb249207
+    ica_workflow_name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar_dev-wf
+    ica_workflow_version_name: 1.0.0
+    ica_workflow_run_name: create-dragen-v8-hg38-altaware-cnv-anchored-reference
+    ica_input: eJxtjkEOwiAQRa/SsHYgphvSvV6jGWG0JBQQBhptenfFtfv//nu7iJVT5dm6TIZjfolpEMtj1NA0oGfcMBOY0ACDWWImK06DyHSnTMHQzJi/xC6Mx1I6e3We+sRHg+xi+P0xpzIpVUaJK75jwK1IE1dVC50hZQuFnrDUG2BKFhnVxToT56ZVT5n/dsimZbcfxwdqqUTE
+    ica_output: eJyNkEFuwkAMRa+CptsmQ9UopByAa4zMjEkiOePIM0kqEHevg6BdlAVL+79vWe9ieMrjlJ3nYRRMCYMTPKFg9OgyiNlvLobYQ+456mDakPbWBpyReBwwZvvLFwEy2CDQYnQdpE4PHAmTnRvbtZ+NBcqwgGDh41xA9B0LhltUzE3xNC31h7I9m/eNOULCCAOuX7zaWXlhzi91HgX8vvH3E54gpXU+9ITrIvXn9YddXVfV9uOrrnTX5TyqFrU4cFyoZGmtXygz05vaQHn4216VvjsPvTjV6ZJ619T1QYE4Ef1HTkwB5Y+4/gA4PplP
+    ica_engine_parameters: eJy9kbFuwjAQhl8FZWGp4zhBEFjL0A6IgXZGF/sSrCZ2ZF+SUsS7Nw4qEx3b0b7v93e+u0SDdR9b7VCSdedoM4sq5TecD6WLs6JMC7nMc5WoxSJd5GsJqpSqSItynS9SLh0CIVMOKjSsz9mpynIGNcEADpk0PQMjT9ahYg5LdGgkRk+zyHbUdvRAq7DH2rYNGuL3BFNAwG+W4wn86UhQ1Oh5n/Ng5A+NPIioafe/uf7ui9wTtj74a1v9r3kUTuIGPg8SiNCN2iy9z/yARNpUoZfG9tMypG3PtyG9Gk/jm/h2bjEQh/GkwKkX/dx2j9GD/prQHSrdNYFRWEJXj8BI7ayaqvOtHUxtQc0DoX9K+x6d0wr9yFyuYV3o3z3eomB0iZ6mOHRkp6gcarK2DpdZnMRpkiYiTTKxyoQQAUBTaTM5RSxWccJGRCQrsRSJWDFPDqjzrAEfJnP9Bjr2ACQ=
+    workflow_start_time: 1630401398
+    workflow_end_time: 1630403740
+    workflow_duration: 2341
+    ica_tasks:
+      - ica_task_run_instance_id: trn.298326bcc0eb4c5ab698264c0b6747ba
+        task_step_name: main
+        task_name: main
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1630401477
+        task_stop_time: 1630403175
+        task_duration: 1698
+        task_metrics: eJyd0rEKwkAMBuBXOW4uJblcchdfRToU6eBwWLQOIr57rZODSPm3JPAR8pPjMy7nNt2Wsc3xENiEMiUS60I8zff3iPqtblO7XB+fll5d+K2cv5TvVKwKqMQVUQXZJRm5S9wAlVUApYzcpVAaJkga5siuog6oykiGtWRAOfQb7umfGlbuhPfX
+  - ica_workflow_run_instance_id: wfr.f0f2f6f602e54d3ebcbc1837d1fc7074
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.2e690932bedc4204b2bcb697bb249207
+    ica_workflow_name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar_dev-wf
+    ica_workflow_version_name: 1.0.0
+    ica_workflow_run_name: create-dragen-v8-GRCh37-cnv-anchored-reference
+    ica_input: eJxNjkEOwiAQRa/SsBaI6cKmW6PuvUAzDmMgaQFhwGjTuyuJC7c/7+e9VYTCsfBkXCLkkF5i7MTlerT9QdZBoq8SPNqQyIhdJxLdKZFHmhjSF10FzpBzO53dTA2ZAwK74NtmmWMetc69ggXewcMzKwyLLpn2MiYjMz2kLTcJMRpg0CfjMEx10L+G/wBVB9W02/YBWsU+fg==
+    ica_output: eJyFkEFqwzAQRa8S1G1s2Q3UIdtAu88FhCJNbMNYY0ayUxJy946K3VIK7UrM15M+8+6KpjROyTgaRoYYwRuGCzAEByZZVofNXSE5m3oKMqjWx4PWHmZAGgcISX/xhbfJas+2hWA6Gzv54IwQ9bzXb6djt2uWo3BhLmxwHTH4NZv3P+JSysv2prYbdbYRgh0g1/8LZ5CJ0t/wSsL7J7i8dWhjzPNrj5CD2N9ya1PVL9Xzrq4bybqURjEgwgYKVyyJW+2umIjwSRYHXlVVD6EXvb5nI+ZMFMVya3ovQJgQfyMXQg/8TTw+AJp3ju8=
+    ica_engine_parameters: eJy9kUFvwiAYhv+K6cXLKNA6a7xqsu1gTOZ2NggfLVkLDXytc8b/vlIzT+64HYHn/R54OSdH5z/WxoNE50/JcpKUKiwpPWqfaqYzPddzlsHjTOVwkAfJF3mhuJYFK2ZUehAIRHlRgiX9gjy9rqq8INL2RFhZOQ+KeNDgwUpIHiaJ67Dt8I5PQQ+1axuwSG8JogQKeh2/r0So9igONQTaL+hVRe8YaRRh025/c/3B22hAaEMU1678J+VgGo2N+NxJgQh+8OXZreUdIBpbxks0rh/rl649XWt5sQGHmfB2aiESu2GlhFfPZtV299Gd+RrRDSjTNZFRoEVXD8BAbZwaT6drd7S1E2oaCfNztO3Be6MgDMz5Ej8IwnuAa1RYoyHgGBcdujEqjzU6V8fNPGVpxjLGM5bzIuecRwBsaezo5CkvUkYGhLOCzznjBQnoBXaBNCLEZi7fmGL1IA==
+    workflow_start_time: 1630462039
+    workflow_end_time: 1630464488
+    workflow_duration: 2449
+    ica_tasks:
+      - ica_task_run_instance_id: trn.7aaad92ea2a34ecdb413cb48eeb0278d
+        task_step_name: main
+        task_name: main
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1630462142
+        task_stop_time: 1630463733
+        task_duration: 1591
+        task_metrics: eJyd0r0KwkAQBOBXOa4OsntzP1lfRSwkpLA4DCYWIr57DisLCWa63YWPhWFOL79c6zgvlzr5o9MMiTlk6zvnh+nRTnIoba5jvd2fn1XenfupSgpfyv5UfaBUMUIZEqMs71eQpIRSZX5pITJEiMIoA6HAdANRI6OYbiBhM/nzCk602yE=
