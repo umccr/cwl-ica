@@ -122,7 +122,7 @@ jobs:
           # Get current branch
           echo "DEBUG: Getting the current branch" 1>&2
           CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-          echo "DEBUG: Current branch is: ${CURRENT_BRANCH}"
+          echo "DEBUG: Current branch is: ${CURRENT_BRANCH}" 1>&2
 
           # Pull first - not needed if this is done on non-main branch
           #git pull --rebase origin "${CURRENT_BRANCH}"

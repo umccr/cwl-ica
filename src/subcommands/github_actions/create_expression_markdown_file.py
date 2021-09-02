@@ -110,7 +110,7 @@ Example
         self.import_item_version_obj()
 
         if self.is_markdown_md5sum_match():
-            self.markdown_md5sum_matches = True
+            self.create_markdown = False
             return
 
         # Import the cwl object

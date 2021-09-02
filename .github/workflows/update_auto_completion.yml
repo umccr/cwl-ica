@@ -49,8 +49,16 @@ jobs:
       - name: Push code
         id: git_push
         run: |
-          # Pull first
-          git pull --rebase origin "${GITHUB_HEAD_REF}"
+          # For debugging purposes
+          echo "DEBUG: GITHUB_HEAD_REF env var: ${GITHUB_HEAD_REF}" 1>&2
 
-          # Push after
-          git push origin "${GITHUB_HEAD_REF}"
+          # Get current branch
+          echo "DEBUG: Getting the current branch" 1>&2
+          CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          echo "DEBUG: Current branch is: ${CURRENT_BRANCH}" 1>&2
+
+          # Pull first - not needed if this is done on non-main branch
+          #git pull --rebase origin "${CURRENT_BRANCH}"
+
+          # Just push
+          git push

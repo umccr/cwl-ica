@@ -583,7 +583,7 @@ class CreateMarkdownFile(Command):
                         if re.search(self.cwl_file_path.name, line):
                             break
                     else:
-                        logger.info(f"Couldn't find {self.cwl_file_path.name} in a quick text search of {version.cwl_file_path}")
+                        logger.debug(f"Couldn't find {self.cwl_file_path.name} in a quick text search of {version.cwl_file_path}")
                         # Didn't find a match for this filename, skipping
                         continue
 
