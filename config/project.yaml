@@ -421,6 +421,16 @@ projects:
             ica_workflow_version_name: 3.7.5--210f67d
             modification_time: 2021-07-07T02:43:13UTC
             run_instances: []
+      - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
+        path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
+        ica_workflow_name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar_prod-wf
+        ica_workflow_id: wfl.925c7ba0199a4ad6bb5341a3cffd191d
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
     workflows:
       - name: tso500-ctdna
         path: tso500-ctdna
