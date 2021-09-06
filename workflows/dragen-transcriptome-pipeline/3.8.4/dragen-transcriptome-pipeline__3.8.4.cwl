@@ -191,7 +191,7 @@ steps:
   arriba_drawing_step:
     label: arriba drawing step
     doc: |
-      Run Arriba's drawing script for fusions predicted by previous step.
+      Run Arriba drawing script for fusions predicted by previous step.
     in:
       annotation:
         source: annotation_file
@@ -222,7 +222,7 @@ steps:
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
-  # Step-56: Create dummy file for the qc step
+  # Step-6: Create dummy file for the qc step
   create_dummy_file_step:
     label: Create dummy file
     doc: |
@@ -231,7 +231,7 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-  # Step-67: Create multiQC report
+  # Step-7: Create multiQC report
   dragen_qc_step:
     label: dragen qc step
     doc: |
@@ -259,7 +259,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
+    run: ../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl
 
 outputs:
   # The dragen output directory
