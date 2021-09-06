@@ -236,9 +236,6 @@ steps:
     label: dragen qc step
     doc: |
       The dragen qc step - this takes in an array of dirs
-    requirements:
-      DockerRequirement:
-        dockerPull: umccr/multiqc-dragen:1.9
     in:
       input_directories:
         source: run_dragen_transcriptome_step/dragen_transcriptome_directory

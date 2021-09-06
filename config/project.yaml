@@ -340,7 +340,7 @@ projects:
           - name: 3.8.4
             path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2021-09-06T11:45:48UTC
+            modification_time: 2021-09-06T23:31:59UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
