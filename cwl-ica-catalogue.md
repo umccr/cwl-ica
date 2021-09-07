@@ -146,6 +146,8 @@ metrics-to-json)
 - [custom-tar-file-list](#custom-tar-file-list)  
 - [custom-create-umccrise-tsv](#custom-create-umccrise-tsv)  
 - [umccrise](#umccrise)  
+- [custom-create-umccr-dragen-refdata-tarball-from-illumina-tar](#custom-create-umccr-dragen-refdata-tarball-from-
+illumina-tar)  
 
 
 ### samtools-merge
@@ -474,6 +476,13 @@ metrics-to-json)
   
 - [1.2.1--0](.github/catalogue/docs/tools/umccrise/1.2.1--0/umccrise__1.2.1--0.md)  
 - [1.2.2--0](.github/catalogue/docs/tools/umccrise/1.2.2--0/umccrise__1.2.2--0.md)  
+
+
+### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar/1.0.0/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar__1.0.0.md)  
 
 
 ## Workflows
