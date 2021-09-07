@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.8.4 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.8.4  
-> md5sum: dd6448b6c7f0eb8644acef28e55e0b06
+> md5sum: 81ba46a4c49c82673fe3b4f74e63052e
 
 ### dragen-transcriptome-pipeline v(3.8.4) documentation
   
@@ -46,7 +46,7 @@ More information on the documentation can be found [here](https://sapac.support.
 - [custom-create-directory 1.0.0](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 - [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-- [multiqc 1.10.1](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
+- [multiqc 1.11.0](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
 - [dragen-transcriptome 3.8.4](../../../tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
 
   
@@ -257,7 +257,7 @@ Path to ref data tarball
 **Step Type:** tool  
 **Docs:**
   
-Run Arriba's drawing script for fusions predicted by previous step.
+Run Arriba drawing script for fusions predicted by previous step.
 
 #### Links
   
@@ -348,8 +348,8 @@ The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
 
 
 ### run dragen transcriptome step
