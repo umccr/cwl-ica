@@ -302,3 +302,10 @@ tools:
         path: 1.0.0/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar__1.0.0.cwl
         md5sum: 8257c838637a3ddc40e0a7ddb2853727
     categories: []
+  - name: dragen-umi
+    path: dragen-umi
+    versions:
+      - name: 3.8.4
+        path: 3.8.4/dragen-umi__3.8.4.cwl
+        md5sum: 1084b854e98ee9ca509392b9568b2fdf
+    categories: []
