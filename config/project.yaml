@@ -312,7 +312,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-07-04T11:54:07UTC
+            modification_time: 2021-09-09T04:18:00UTC
             run_instances:
               - wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
               - wfr.58436856778e4f70ae7856869571470c
