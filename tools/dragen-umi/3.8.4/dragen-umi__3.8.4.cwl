@@ -609,6 +609,15 @@ inputs:
         required: true
     inputBinding:
       prefix: "--dbsnp"
+  # cnv pipeline
+  enable_cnv:
+    label: enable cnv calling
+    type: boolean?
+    doc: |
+      Enable CNV processing in the DRAGEN Host Software.
+    inputBinding:
+      prefix: --enable-cnv
+      valueFrom: "$(self.toString())"
   # Miscell
   lic_instance_id_location:
     label: license instance id location
