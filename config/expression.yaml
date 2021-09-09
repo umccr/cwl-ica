@@ -11,7 +11,7 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.cwl
-        md5sum: a592eeffe3208dcd7d12bdbda11e4e65
+        md5sum: edd04eddfc2ad0985a68a3a5843d915c
     categories: []
   - name: get-samplesheet-midfix-regex
     path: get-samplesheet-midfix-regex
@@ -25,49 +25,49 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/flatten-array-fastq-list__1.0.0.cwl
-        md5sum: 3fd2377b47c3641f64e43b530138ae02
+        md5sum: 9c35f9205f9ce613b754f06f004b1de6
     categories: []
   - name: parse-int-array
     path: parse-int-array
     versions:
       - name: 1.0.0
         path: 1.0.0/parse-int-array__1.0.0.cwl
-        md5sum: 910b29813ea555a3ac2bd45779cb9a47
+        md5sum: 0cbe7e9f567a4b6e18c9f8af6fc79bce
     categories: []
   - name: parse-int
     path: parse-int
     versions:
       - name: 1.0.0
         path: 1.0.0/parse-int__1.0.0.cwl
-        md5sum: 09a91ad5503a72e12b484f12f9e958ac
+        md5sum: 54572449b52b935bb80007b224b0dd3e
     categories: []
   - name: parse-file
     path: parse-file
     versions:
       - name: 1.0.0
         path: 1.0.0/parse-file__1.0.0.cwl
-        md5sum: 36ec6774ad49393e036502ef632ea711
+        md5sum: 6b7a5626a907a0c97fd8b75e45760080
     categories: []
   - name: get-compressed-vcf-file-from-directory
     path: get-compressed-vcf-file-from-directory
     versions:
       - name: 1.0.0
         path: 1.0.0/get-compressed-vcf-file-from-directory__1.0.0.cwl
-        md5sum: 98e5b351b12740ade7d8eb969b02fa9e
+        md5sum: a0d6c8ea819df1701d5b8361df7015ce
     categories: []
   - name: get-custom-output-dir-entry-for-tso500-post-processing
     path: get-custom-output-dir-entry-for-tso500-post-processing
     versions:
       - name: 1.0.0
         path: 1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl
-        md5sum: 682e06309ebecb6cb1c5688e570e7f43
+        md5sum: 1afc87e1641576f93d51abe0ff71b5e0
     categories: []
   - name: get-bam-file-from-directory
     path: get-bam-file-from-directory
     versions:
       - name: 1.0.0
         path: 1.0.0/get-bam-file-from-directory__1.0.0.cwl
-        md5sum: a73d554afdc1569d03dbfd31b70f7ee1
+        md5sum: 6b3d67af802121ad5d6e5964b97e255c
     categories: []
   - name: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
     path: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
