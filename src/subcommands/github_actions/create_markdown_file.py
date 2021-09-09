@@ -444,10 +444,12 @@ class CreateMarkdownFile(Command):
             i_o_type_list = []
 
             for i_o_type_i in i_o_type:
+                print(f"Printing type: {i_o_type_i}")
+                # This is an optional type
                 if i_o_type_i == 'null':
+                    i_o_optional = True
                     continue
                 i_o_type_list.append(i_o_type_i)
-                i_o_optional = True
 
             if len(i_o_type_list) == 1:
                 i_o_type = i_o_type_list[0]
@@ -476,6 +478,10 @@ class CreateMarkdownFile(Command):
                     logger.warning(f"Could not handle input/output of type {type(i_o_type)} with items of type {type(i_o_type.items)}")
                     break
 
+        # Check if item is an enum schema
+        if isinstance(i_o_type, self.cwl_item.parser.EnumSchema):
+            # Return the list of possible symbols
+            i_o_type = f"[ {' | '.join([symbol.split('#', 1)[-1] for symbol in i_o_type.symbols])} ]"
 
         return i_o_type, i_o_optional
 

@@ -54,6 +54,18 @@ done
 echo "Installing cwl-ica software into conda env" 1>&2
 bash src/install.sh --yes
 
+# Now run the github-schema-sync-command
+echo "Syncing all schemas" 1>&2
+conda run \
+  --name "${CONDA_ENV_NAME}" \
+  cwl-ica github-actions-sync-schemas
+
+# Now run the github-expression-sync-command
+echo "Syncing all expressions" 1>&2
+conda run \
+  --name "${CONDA_ENV_NAME}" \
+  cwl-ica github-actions-sync-expressions
+
 # Now run the github-tool-sync-command
 echo "Syncing all tools" 1>&2
 conda run \
