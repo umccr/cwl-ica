@@ -239,7 +239,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-somatic__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-08-27T02:32:55UTC
+            modification_time: 2021-09-09T00:37:03UTC
             run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
