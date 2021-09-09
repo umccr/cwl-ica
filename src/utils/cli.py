@@ -137,6 +137,8 @@ Command:
     #################################
     GitHub Actions Scripts
     #################################
+    github-actions-sync-schemas                Sync all schemas to schema.yaml
+    github-actions-sync-expressions            Sync all expressions to expression.yaml
     github-actions-sync-tools                  Sync all tools to tool.yaml and to all projects with that tool version
     github-actions-sync-workflows              Sync workflows to workflow.yaml and to all projects with that workflow version
     github-actions-create-expression-markdown  Create a markdown help report file for a cwl expression
@@ -470,7 +472,19 @@ def _dispatch():
         workflow_runs_obj()
 
 
-    # Github actions  # TODO - sync-schema / sync-expression
+    # Github actions
+    elif cmd == "github-actions-sync-schemas":
+        from subcommands.sync.sync_github_actions_schema import SyncGitHubActionsSchema
+        # Initialise command
+        sync_schemas_obj = SyncGitHubActionsSchema(command_argv)
+        # Call command
+        sync_schemas_obj()
+    elif cmd == "github-actions-sync-expressions":
+        from subcommands.sync.sync_github_actions_expression import SyncGitHubActionsExpression
+        # Initialise command
+        sync_expressions_obj = SyncGitHubActionsExpression(command_argv)
+        # Call command
+        sync_expressions_obj()
     elif cmd == "github-actions-sync-tools":
         from subcommands.sync.sync_github_actions_tool import SyncGitHubActionsTool
         # Initialise command
