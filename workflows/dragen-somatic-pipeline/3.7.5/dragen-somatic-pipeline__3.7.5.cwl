@@ -333,6 +333,12 @@ inputs:
     secondaryFiles:
       - pattern: ".tbi"
         required: true
+  # cnv pipeline
+  enable_cnv:
+    label: enable cnv calling
+    doc: |
+      Enable CNV processing in the DRAGEN Host Software.
+    type: boolean?
   # Miscell
   lic_instance_id_location:
     label: license instance id location
@@ -461,6 +467,8 @@ steps:
         source: vc_enable_non_homref_normal_filter
       dbsnp_annotation:
         source: dbsnp_annotation
+      enable_cnv:
+        source: enable_cnv
       lic_instance_id_location:
         source: lic_instance_id_location
     out:

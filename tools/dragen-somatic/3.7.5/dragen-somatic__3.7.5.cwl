@@ -584,9 +584,9 @@ inputs:
   # cnv pipeline
   enable_cnv:
     label: enable cnv calling
-    type: boolean?
     doc: |
       Enable CNV processing in the DRAGEN Host Software.
+    type: boolean?
     inputBinding:
       prefix: --enable-cnv
       valueFrom: "$(self.toString())"
