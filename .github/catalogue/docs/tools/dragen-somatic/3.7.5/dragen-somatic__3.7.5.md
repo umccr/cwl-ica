@@ -17,7 +17,7 @@ dragen-somatic 3.7.5 tool
 
   
 > ID: dragen-somatic--3.7.5  
-> md5sum: 81d51cbee0d37ac55ef84bf8323ce46c
+> md5sum: fc3c37fdfb9c0e5e7adb7cd8ba9227ec
 
 ### dragen-somatic v(3.7.5) documentation
   
@@ -59,6 +59,19 @@ In Germline, Tumor-Normal somatic, or Tumor-Only somatic modes,
 DRAGEN can look up variant calls in a dbSNP database and add annotations for any matches that it finds there.
 To enable the dbSNP database search, set the --dbsnp option to the full path to the dbSNP database
 VCF or .vcf.gz file, which must be sorted in reference order.
+
+
+### enable cnv calling
+
+
+
+  
+> ID: enable_cnv
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable CNV processing in the DRAGEN Host Software.
 
 
 ### enable duplicate marking
@@ -196,7 +209,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f77bf4bfb80>`  
+**Type:** `[ male | female ]`  
 **Docs:**  
 Specifies the sex of a sample
 

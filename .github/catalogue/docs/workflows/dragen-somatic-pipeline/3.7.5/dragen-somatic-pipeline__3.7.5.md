@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.7.5 workflow
 
   
 > ID: dragen-somatic-pipeline--3.7.5  
-> md5sum: 605e6e7e39454132389ab3ec24437371
+> md5sum: 28d88d8c5cedbea21d7684f738bd212f
 
 ### dragen-somatic-pipeline v(3.7.5) documentation
   
@@ -198,7 +198,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f55a938bf70>`  
+**Type:** `[ male | female ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -1330,7 +1330,7 @@ bash wfr.58436856778e4f70ae7856869571470c.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.7.5--09e7d14  
+**wfl version name:** 3.7.5--5de6976  
 
   
 
