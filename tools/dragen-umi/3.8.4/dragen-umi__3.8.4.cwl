@@ -155,14 +155,14 @@ inputs:
     label: fastq file1
     doc: |
       Path to R1 fastq file
-    type: File
+    type: File?
     inputBinding:
       prefix: "--fastq-file1"
   fastq_file2:
     label: fastq file2
     doc: |
       Path to R3 fastq file
-    type: File
+    type: File?
     inputBinding:
       prefix: "--fastq-file2"
   umi_fastq:
@@ -173,6 +173,27 @@ inputs:
     type: File?
     inputBinding:
       prefix: "--umi-fastq"
+  # BAM inputs - Currently UMI Dragen pipeline does not support tumor-normal mode. 
+  # To run ctDNA samples in this setting, bam files created separately from tumour-only 
+  # UMI pipeline and normal sample can be used as an input for doing variant calling.
+  tumor_bam_input:
+    label: tumor bam
+    doc: |
+      Path to tumor bam
+    type: File?
+    secondaryFiles:
+      - .bai
+    inputBinding:
+      prefix: "--tumor-bam-input"
+  bam_input:
+    label: normal bam
+    doc: |
+      Path to normal bam
+    type: File?
+    secondaryFiles:
+      - .bai
+    inputBinding:
+      prefix: "--bam-input"
   # Output naming options
   output_file_prefix:
     label: output file prefix
@@ -638,7 +659,7 @@ outputs:
     doc: Output directory containing all outputs of the dragen UMI run
     type: Directory
     outputBinding:
-      glob: "$(inputs.out_dir)"
+      glob: "$(inputs.output_directory)"
 
 successCodes:
   - 0
