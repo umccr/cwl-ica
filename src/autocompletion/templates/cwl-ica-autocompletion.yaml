@@ -98,7 +98,9 @@ subcommands:
         completion:
           # This prints out all of the tenants from tenant.yaml
           command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+            python - <<EOF
+            __cwl-ica_list_tenant_names.py
+            EOF
       - name: set-as-default
         summary: |
           Optional, set as the default project
@@ -129,8 +131,10 @@ subcommands:
           Name of tenant
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_tenant_names.py
+            EOF
   set-default-project:
     summary: |
       Set a project to the default project
@@ -140,8 +144,10 @@ subcommands:
           Name of project
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
   set-default-user:
     summary: |
       Set a user to the default user
@@ -151,8 +157,10 @@ subcommands:
           Name of user
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
 
   #########################
   # List Commands
@@ -169,8 +177,10 @@ subcommands:
           Name of tenant
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_tenant_names.py
+            EOF
   list-tenants:
     summary: |
       List registered tenants
@@ -199,8 +209,10 @@ subcommands:
           CWL Creator
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
   create-schema-from-template:
     summary: |
       Initialise a CWL schema from the cwl schema template
@@ -230,8 +242,10 @@ subcommands:
           CWL Creator
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
   create-workflow-from-template:
     summary: |
       Initialise a CWL workflow from the cwl workflow template
@@ -249,8 +263,10 @@ subcommands:
           CWL Creator
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_user_yaml_path\n\nfor user in read_yaml(get_user_yaml_path())["users"]:\n    print(user.get("username"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
 
 
   ###################
@@ -265,8 +281,10 @@ subcommands:
           Path to the expression
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_expression_paths.py
+            EOF
   schema-validate:
     summary: |
       Validate a CWL schema
@@ -276,8 +294,10 @@ subcommands:
           Path to the schema
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_schema_paths.py
+            EOF
   tool-validate:
     summary: |
       Validate a CWL tool ready for initialising on ICA
@@ -287,8 +307,10 @@ subcommands:
           Path to the tool
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_tool_paths.py
+            EOF
   workflow-validate:
     summary: |
       Validate a CWL workflow ready for initialising on ICA
@@ -298,8 +320,10 @@ subcommands:
           Path to the workflow
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_workflow_paths.py
+            EOF
   validate-config-yamls:
     summary: |
       Confirm all config yamls are legitimate
@@ -312,8 +336,10 @@ subcommands:
           Name of your project
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
 
   ###############
   # Init Commands
@@ -327,8 +353,10 @@ subcommands:
           Path to the expression
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_unregistered_expression_paths.py
+            EOF
   schema-init:
     summary: |
       Register a schema in ${CWL_ICA_REPO_PATH}/config/schema.yaml
@@ -338,8 +366,10 @@ subcommands:
           Path to the schema
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_unregistered_schema_paths.py
+            EOF
   tool-init:
     summary: |
       Register a tool in ${CWL_ICA_REPO_PATH}/config/tool.yaml and with ICA projects
@@ -350,28 +380,36 @@ subcommands:
         type: string
         completion:
           command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
+            python - <<EOF
+            __cwl-ica_list_unregistered_tool_paths.py
+            EOF
       - name: projects
         summary: |
           List of projects to add the tool to
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
       - name: tenants
         summary: |
           List of tenants to filter by when project set to 'all'
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_tenant_names.py
+            EOF
       - name: categories
         summary: |
           List of categories to add to tool
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_category_names.py
+            EOF
   workflow-init:
     summary: |
       Register a workflow in ${CWL_ICA_REPO_PATH}/config/workflow.yaml and with ICA projects
@@ -381,30 +419,37 @@ subcommands:
           Path to the workflow
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_unregistered_workflow_paths.py
+            EOF
       - name: projects
         summary: |
           List of projects to add the tool to
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
       - name: tenants
         summary: |
           List of tenants to filter by when project set to 'all'
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_tenant_names.py
+            EOF
       - name: categories
         summary: |
           List of categories to add to tool
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
-
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_category_names.py
+            EOF
 
   ########################
   # Sync-to-project Commands
@@ -418,8 +463,10 @@ subcommands:
           Path to the expression
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_expression_paths.py
+            EOF
   tool-sync:
     summary: |
       Sync a tool md5sum in ${CWL_ICA_REPO_PATH}/config/tool.yaml
@@ -430,22 +477,28 @@ subcommands:
           Path to the tool
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_tool_paths.py
+            EOF
       - name: projects
         summary: |
           List of projects to sync the tool to
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
       - name: tenants
         summary: |
           List of tenants to filter by when project set to 'all'
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_tenant_names.py
+            EOF
   schema-sync:
     summary: |
       Sync a schema in ${CWL_ICA_REPO_PATH}/config/schema.yaml
@@ -455,8 +508,10 @@ subcommands:
           Path to the schema
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_schemas_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_schemas_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_schemas_dir().absolute())\n""")')" -name "*.yaml"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_schema_paths.py
+            EOF
       - name: force
         summary: |
           Overwrite on ICA even if mod time in yaml is behind
@@ -470,22 +525,28 @@ subcommands:
           Path to the workflow
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_workflow_paths.py
+            EOF
       - name: projects
         summary: |
           List of projects to sync the workflow to
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
       - name: tenants
         summary: |
           List of tenants to filter by when project set to 'all'
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tenant_yaml_path\n\nfor tenant in read_yaml(get_tenant_yaml_path())["tenants"]:\n    print(tenant.get("tenant_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_tenant_names.py
+            EOF
       - name: force
         summary: |
           Overwrite on ICA even if mod time in yaml is behind
@@ -502,15 +563,19 @@ subcommands:
           Path to the tool
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_tool_paths.py
+            EOF
       - name: project
         summary: |
           Name of the project
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
   add-workflow-to-project:
     summary: |
       Add an existing workflow to another project
@@ -520,15 +585,19 @@ subcommands:
           Path to the workflow
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_workflow_paths.py
+            EOF
       - name: project
         summary: |
           Name of the project to add the workflow to
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_workflow_paths.py
+            EOF
   add-linked-project:
     summary: |
       Add a linked project to another project
@@ -538,8 +607,10 @@ subcommands:
           The name of your project in project.yaml
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
       - name: target-project
         summary: |
           ID of the target project to receive all ica workflows and ica workflow versions
@@ -557,15 +628,20 @@ subcommands:
           Name of the tool
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_tool_yaml_path\n\nfor tool in read_yaml(get_tool_yaml_path())["tools"]:\n    print(tool.get("name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_tool_names.py
+            EOF
+
       - name: category-name
         summary: |
           The name of the category
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_category_names.py
+            EOF
   add-category-to-workflow:
     summary: |
       Add an existing category to an existing workflow
@@ -575,15 +651,19 @@ subcommands:
           Name of the workflow
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_workflow_yaml_path\n\nfor workflow in read_yaml(get_workflow_yaml_path())["workflows"]:\n    print(workflow.get("name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_workflow_names.py
+            EOF
       - name: category-name
         summary: |
           The name of the category
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_category_yaml_path\n\nfor category in read_yaml(get_category_yaml_path())["categories"]:\n    print(category.get("name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_category_names.py
+            EOF
 
   #########################
   # Add maintainer commands
@@ -597,15 +677,20 @@ subcommands:
           Path to cwl expression
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_expressions_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_expressions_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_expressions_dir().absolute())\n""")')" -name "*.cwl"
-      - name: project-name
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_all_expression_paths.py
+            EOF
+
+      - name: username
         summary: |
-          Name of project
+          Name of maintainer
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
   add-maintainer-to-tool:
     summary: |
       Add a maintainter to a cwl tool
@@ -615,15 +700,19 @@ subcommands:
           Path to cwl tool
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
-      - name: project-name
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_all_tool_paths.py
+            EOF
+      - name: username
         summary: |
-          Name of project
+          Name of maintainer
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
 
   add-maintainer-to-workflow:
     summary: |
@@ -634,15 +723,19 @@ subcommands:
           Path to cwl workflow
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
-      - name: project-name
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_workflow_paths.py
+            EOF
+      - name: username
         summary: |
           Name of project
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
 
   #############################
   # Run-register Commands
@@ -660,8 +753,10 @@ subcommands:
           Name of project
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
       - name: access-token
         summary: |
           ica access token, if run instance was executed in a linked project context
@@ -679,8 +774,10 @@ subcommands:
           Name of project
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
       - name: access-token
         summary: |
           ica access token, if run instance was executed in a linked project context
@@ -698,8 +795,10 @@ subcommands:
           A cwl workflow file
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_user_names.py
+            EOF
 
   ##################
   # Run-list Commands  # Not yet implemented  v1.0 release
@@ -713,15 +812,19 @@ subcommands:
           A cwl tool file
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_tools_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_tools_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_tools_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_tool_paths.py
+            EOF
       - name: project
         summary: |
           A project name
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
   list-workflow-runs:
     summary: |
       List registered workflows runs for a CWL workflow in a given project
@@ -731,15 +834,19 @@ subcommands:
           A cwl workflow file
         type: string
         completion:
-          command_string: |-
-            find "$(python -c 'exec("""\nfrom utils.repo import get_workflows_dir\nfrom pathlib import Path\nfrom os import getcwd\n\ntry:\n  print(get_workflows_dir().absolute().relative_to(Path(getcwd())))\nexcept ValueError:\n  print(get_workflows_dir().absolute())\n""")')" -name "*.cwl"
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_registered_workflows.py
+            EOF
       - name: project
         summary: |
           A project name
         type: string
         completion:
-          command_string: |-
-            python -c 'exec("""\nfrom utils.repo import read_yaml, get_project_yaml_path\n\nfor project in read_yaml(get_project_yaml_path())["projects"]:\n    print(project.get("project_name"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_project_names.py
+            EOF
 
   ################################
   # Get Run-templates Commands  # Not yet implemented  v1.0 release
@@ -753,7 +860,10 @@ subcommands:
           A ica workflow run instance id
         type: string
         completion:
-          command_string: python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_run_instance_ids.py
+            EOF
       - name: prefix
         summary: |
           The prefix to the outputs files and name attribute in the json file
@@ -770,7 +880,10 @@ subcommands:
           A ica workflow run instance id
         type: string
         completion:
-          command_string: python -c 'exec("""\nfrom utils.repo import read_yaml, get_run_yaml_path\n\nfor run in read_yaml(get_run_yaml_path())["runs"]:\n    print(run.get("ica_workflow_run_instance_id"))\n""")'
+          command_string: |
+            python - <<EOF
+            __cwl-ica_list_run_instance_ids.py
+            EOF
       - name: prefix
         summary: |
           The prefix to the outputs files and name attribute in the json file
