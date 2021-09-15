@@ -300,6 +300,107 @@ inputs:
     inputBinding:
       prefix: "--enable-sv"
       valueFrom: "$(self.toString())"
+  # Structural Variant Caller Options
+  sv_call_regions_bed:
+    label: sv call regions bed
+    doc: |
+      Specifies a BED file containing the set of regions to call. 
+    type: File?
+    inputBinding:
+      prefix: "--sv-call-regions-bed"
+      valueFrom: "$(get_ref_path(self))"
+  sv_region:
+    label: sv region
+    doc: |
+      Limit the analysis to a specified region of the genome for debugging purposes. 
+      This option can be specified multiple times to build a list of regions. 
+      The value must be in the format “chr:startPos-endPos”.. 
+    type: string?
+    inputBinding:
+      prefix: "--sv-region"
+      valueFrom: "$(self.toString())"
+  sv_exome:
+    label: sv exome
+    doc: |
+      Set to true to configure the variant caller for targeted sequencing inputs, 
+      which includes disabling high depth filters. 
+      In integrated mode, the default is to autodetect targeted sequencing input, 
+      and in standalone mode the default is false.
+    type: boolean?
+    inputBinding:
+      prefix: "--sv-exome"
+      valueFrom: "$(self.toString())"
+  sv_output_contigs:
+    label: sv output contigs
+    doc: |
+      Set to true to have assembled contig sequences output in a VCF file. The default is false.
+    type: boolean?
+    inputBinding:
+      prefix: "--sv-output-contigs"
+      valueFrom: "$(self.toString())"
+  sv_forcegt_vcf:
+    label: sv forcegt vcf
+    doc: |
+      Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted 
+      in the output VCF even if not found in the sample data. 
+      The variants are merged with any additional variants discovered directly from the sample data.
+    type: File?
+    inputBinding:
+      prefix: "--sv-forcegt-vcf"
+      valueFrom: "$(get_ref_path(self))"
+  sv_discovery:
+    label: sv discovery
+    doc: |
+      Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used. 
+      When set to false, SV discovery is disabled and only the forced genotyping input variants 
+      are processed. The default is true.
+    type: boolean?
+    inputBinding:
+      prefix: "--sv-discovery"
+      valueFrom: "$(self.toString())"
+  sv_se_overlap_pair_evidence:
+    label: sv use overlap pair evidence
+    doc: |
+      Allow overlapping read pairs to be considered as evidence. 
+      By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
+    type: boolean?
+    inputBinding:
+      prefix: "--sv-use-overlap-pair-evidence"
+      valueFrom: "$(self.toString())"
+  sv_somatic_ins_tandup_hotspot_regions_bed:
+    label: sv somatic ins tandup hotspot regions bed
+    doc: |
+      Specify a BED of ITD hotspot regions to increase sensitivity for calling ITDs in somatic variant analysis.
+      By default, DRAGEN SV automatically selects areference-specific hotspots BED file from 
+      /opt/edico/config/sv_somatic_ins_tandup_hotspot_*.bed.
+    type: File?
+    inputBinding:
+      prefix: "--sv-somatic-ins-tandup-hotspot-regions-bed"
+      valueFrom: "$(get_ref_path(self))"
+  sv_enable_somatic_ins_tandup_hotspot_regions:
+    label: sv enable somatic ins tandup hotspot regions
+    doc: |
+      Enable or disable the ITD hotspot region input. The default is true in somatic variant analysis.
+    type: boolean?
+    inputBinding:
+      prefix: "--sv-enable-somatic-ins-tandup-hotspot-regions"
+      valueFrom: "$(self.toString())"
+  sv_enable_liquid_tumor_mode:
+    label: sv enable liquid tumor mode
+    doc: |
+      Enable liquid tumor mode. 
+    type: boolean?
+    inputBinding:
+      prefix: "--sv-enable-liquid-tumor-mode"
+      valueFrom: "$(self.toString())"  
+  sv_tin_contam_tolerance:
+    label: sv tin contam tolerance
+    doc: |
+      Set the Tumor-in-Normal (TiN) contamination tolerance level. 
+      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. 
+    type: float?
+    inputBinding:
+      prefix: "--sv-tin-contam-tolerance"
   # Variant calling optons
   vc_target_bed:
     label: vc target bed
