@@ -148,6 +148,7 @@ metrics-to-json)
 - [umccrise](#umccrise)  
 - [custom-create-umccr-dragen-refdata-tarball-from-illumina-tar](#custom-create-umccr-dragen-refdata-tarball-from-
 illumina-tar)  
+- [dragen-umi](#dragen-umi)  
 
 
 ### samtools-merge
@@ -483,6 +484,13 @@ illumina-tar)
 #### Versions
   
 - [1.0.0](.github/catalogue/docs/tools/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar/1.0.0/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar__1.0.0.md)  
+
+
+### dragen-umi
+
+#### Versions
+  
+- [3.8.4](.github/catalogue/docs/tools/dragen-umi/3.8.4/dragen-umi__3.8.4.md)  
 
 
 ## Workflows

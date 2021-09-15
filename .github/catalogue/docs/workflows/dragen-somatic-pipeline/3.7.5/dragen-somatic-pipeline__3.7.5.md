@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.7.5 workflow
 
   
 > ID: dragen-somatic-pipeline--3.7.5  
-> md5sum: 28d88d8c5cedbea21d7684f738bd212f
+> md5sum: 90f8ccedf9d3566739425c519ed79d03
 
 ### dragen-somatic-pipeline v(3.7.5) documentation
   
@@ -70,6 +70,19 @@ In Germline, Tumor-Normal somatic, or Tumor-Only somatic modes,
 DRAGEN can look up variant calls in a dbSNP database and add annotations for any matches that it finds there.
 To enable the dbSNP database search, set the --dbsnp option to the full path to the dbSNP database
 VCF or .vcf.gz file, which must be sorted in reference order.
+
+
+### enable cnv calling
+
+
+
+  
+> ID: enable_cnv
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable CNV processing in the DRAGEN Host Software.
 
 
 ### enable duplicate marking
@@ -1330,7 +1343,7 @@ bash wfr.58436856778e4f70ae7856869571470c.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.7.5--5de6976  
+**wfl version name:** 3.7.5--40a7a9e  
 
   
 

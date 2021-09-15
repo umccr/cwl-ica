@@ -253,6 +253,16 @@ projects:
             run_instances:
               - wfr.3bf2bc688d0d442489cadfcdb2bf9842
               - wfr.f0f2f6f602e54d3ebcbc1837d1fc7074
+      - name: dragen-umi
+        path: dragen-umi
+        ica_workflow_name: dragen-umi_dev-wf
+        ica_workflow_id: wfl.834780d221224322aa6fbe8e5bf15f35
+        versions:
+          - name: 3.8.4
+            path: 3.8.4/dragen-umi__3.8.4.cwl
+            ica_workflow_version_name: 3.8.4
+            modification_time: 2021-09-15T00:21:47UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -491,6 +501,11 @@ projects:
             path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--5de6976
             modification_time: 2021-09-09T04:45:46UTC
+            run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--40a7a9e
+            modification_time: 2021-09-15T00:55:22UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
