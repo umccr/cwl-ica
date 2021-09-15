@@ -765,6 +765,72 @@ inputs:
     type: int?
     inputBinding:
       prefix: --tmb-db-threshold
+  # HLA calling
+  enable_hla:
+    label: enable hla
+    doc: |
+      Enable HLA typing by setting --enable-hla flag to true
+    type: boolean?
+    inputBinding:
+      prefix: --enable-hla
+      valueFrom: "$(self.toString())"
+  hla_bed_file:
+    label: hla bed file
+    doc: |
+      Use the HLA region BED input file to specify the region to extract HLA reads from. 
+      DRAGEN HLA Caller parses the input file for regions within the BED file, and then 
+      extracts reads accordingly to align with the HLA allele reference.
+    type: File?
+    inputBinding:
+      prefix: --hla-bed-file
+  hla_reference_file:
+    label: hla reference file
+    doc: |
+      Use the HLA allele reference file to specify the reference alleles to align against.
+      The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.
+      If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. 
+      The reference HLA sequences are obtained from the IMGT/HLA database.
+    type: File?
+    inputBinding:
+      prefix: --hla-reference-file
+  hla_allele_frequency_file:
+    label: hla allele frequency file
+    doc: |
+      Use the population-level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.
+      The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.
+      If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. 
+      Population-level allele frequencies can be obtained from the Allele Frequency Net database.
+    type: File?
+    inputBinding:
+      prefix: --hla-allele-frequency-file
+  hla_tiebreaker_threshold:
+    label: hla tiebreaker threshold
+    doc: |
+      If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele, 
+      the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based 
+      on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to 
+      the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
+    type: float?
+    inputBinding:
+      prefix: --hla-tiebreaker-threshold
+  hla_zygosity_threshold:
+    label: hla zygosity threshold
+    doc: |
+      If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, 
+      then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value. 
+      The default value is 0.15.
+    type: float?
+    inputBinding:
+      prefix: --hla zygosity threshold
+  hla_min_reads:
+    label: hla min reads
+    doc: |
+      Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. 
+      The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a 
+      lower threshold value.
+    type: int?
+    inputBinding:
+      prefix: --hla-min-reads
   # Miscell
   lic_instance_id_location:
     label: license instance id location
