@@ -502,6 +502,11 @@ projects:
             ica_workflow_version_name: 3.7.5--5de6976
             modification_time: 2021-09-09T04:45:46UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--40a7a9e
+            modification_time: 2021-09-15T00:55:22UTC
+            run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_prod-wf

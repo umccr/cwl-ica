@@ -1,31 +1,30 @@
 
-dragen-somatic 3.7.5 tool
-=========================
+dragen-umi 3.8.4 tool
+=====================
 
 ## Table of Contents
   
-- [Overview](#dragen-somatic-v375-overview)  
+- [Overview](#dragen-umi-v384-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-somatic-v375-inputs)  
-- [Outputs](#dragen-somatic-v375-outputs)  
+- [Inputs](#dragen-umi-v384-inputs)  
+- [Outputs](#dragen-umi-v384-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-somatic v(3.7.5) Overview
+## dragen-umi v(3.8.4) Overview
 
 
 
   
-> ID: dragen-somatic--3.7.5  
-> md5sum: 2bcb01913c07577e2674cc5a5553af86
+> ID: dragen-umi--3.8.4  
+> md5sum: 5443b25b76dc9b27709ea047f7b527b9
 
-### dragen-somatic v(3.7.5) documentation
+### dragen-umi v(3.8.4) documentation
   
-Run tumor-normal dragen somatic pipeline
-v 3.7.5.
-Workflow takes in two separate lists of object stor version of the fastq_list.csv equivalent
-See the fastq_list_row schema definitions for more information.
-More information on the documentation can be found [here](https://sapac.support.illumina.com/content/dam/illumina-support/help/Illumina_DRAGEN_Bio_IT_Platform_v3_7_1000000141465/Content/SW/Informatics/Dragen/GPipelineSomCom_appDRAG.htm)
+DRAGEN can process data from whole genome and hybrid-capture assays with unique molecular identifiers (UMI).
+This workflow can take forward, reverse and UMI tumor fastqs as inputs and perform the analysis in tumor-only mode.
+In additon, BAM from tumor and normal samples can be used as an input to perform analysis in tumor-normal mode. 
+More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v38/Content/SW/DRAGEN/UMIs_fDG.htm)
 
 ### Categories
   
@@ -33,17 +32,38 @@ More information on the documentation can be found [here](https://sapac.support.
 
 ## Related Links
   
-- [CWL File Path](../../../../../../tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.cwl)  
-
-
-### Used By
-  
-- [dragen-somatic-pipeline 3.7.5](../../../workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.md)  
+- [CWL File Path](../../../../../../tools/dragen-umi/3.8.4/dragen-umi__3.8.4.cwl)  
 
   
 
 
-## dragen-somatic v(3.7.5) Inputs
+## dragen-umi v(3.8.4) Inputs
+
+### normal bam
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to normal bam
+
+
+### bin memory
+
+
+
+  
+> ID: bin_memory
+  
+**Optional:** `True`  
+**Type:** `long`  
+**Docs:**  
+bin memory
+
 
 ### dbsnp annotation
 
@@ -104,6 +124,20 @@ running map/align. Default is false if
 running the variant caller.
 
 
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+The map/align system produces a BAM file sorted by 
+reference sequence and position by default. 
+
+
 ### enable sv
 
 
@@ -118,33 +152,30 @@ Enable/disable structural variant
 caller. Default is false.
 
 
-### fastq list
+### fastq file1
 
 
 
   
-> ID: fastq_list
+> ID: fastq_file1
   
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-CSV file that contains a list of FASTQ files for normal sample
-to process.
-Read1File and Read2File may be presigned urls or use this in conjunction with
-the fastq_list_mount_paths inputs.
+Path to R1 fastq file
 
 
-### fastq list mount paths
+### fastq file2
 
 
 
   
-> ID: fastq_list_mount_paths
+> ID: fastq_file2
   
 **Optional:** `True`  
-**Type:** `predefined-mount-path[]`  
+**Type:** `File`  
 **Docs:**  
-Path to fastq list mount path
+Path to R3 fastq file
 
 
 ### license instance id location
@@ -162,6 +193,19 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
+### min map quality
+
+
+
+  
+> ID: min_map_quality
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Filter reads with low mapping quanlity
+
+
 ### output directory
 
 
@@ -172,7 +216,7 @@ which is a path inside the dragen container
 **Optional:** `False`  
 **Type:** `string`  
 **Docs:**  
-Required - The output directory.
+The directory where all output files are placed.
 
 
 ### output file prefix
@@ -185,7 +229,7 @@ Required - The output directory.
 **Optional:** `False`  
 **Type:** `string`  
 **Docs:**  
-Required - the output file prefix
+The prefix given to all output files.
 
 
 ### reference tar
@@ -198,7 +242,59 @@ Required - the output file prefix
 **Optional:** `False`  
 **Type:** `File`  
 **Docs:**  
-Path to ref data tarball
+Path to ref data tarball.
+
+
+### rgid
+
+
+
+  
+> ID: rgid
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+The read group ID of the normal sample
+
+
+### rgid tumor
+
+
+
+  
+> ID: rgid_tumor
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+The read group ID of the tumor sample
+
+
+### rgsm tumor
+
+
+
+  
+> ID: rgsm
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+The sample name of the normal sample
+
+
+### rgsm tumor
+
+
+
+  
+> ID: rgsm_tumor
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+The sample name of the tumor sample
 
 
 ### sample sex
@@ -214,33 +310,126 @@ Path to ref data tarball
 Specifies the sex of a sample
 
 
-### tumor fastq list
+### tumor bam
 
 
 
   
-> ID: tumor_fastq_list
-  
-**Optional:** `False`  
-**Type:** `File`  
-**Docs:**  
-CSV file that contains a list of FASTQ files
-to process.
-Read1File and Read2File may be presigned urls or use this in conjunction with
-the fastq_list_mount_paths inputs.
-
-
-### tumor fastq list mount paths
-
-
-
-  
-> ID: tumor_fastq_list_mount_paths
+> ID: tumor_bam_input
   
 **Optional:** `True`  
-**Type:** `predefined-mount-path[]`  
+**Type:** `File`  
 **Docs:**  
-Path to fastq list mount path
+Path to tumor bam
+
+
+### umi correction table
+
+
+
+  
+> ID: umi_correction_table
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Enter the path to a customized correction table.
+
+
+### umi emit multiplicity
+
+
+
+  
+> ID: umi_emit_multiplicity
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+Set the consensus sequence type to output.
+Default value is "both" that outputs both simplex and duplex sequences.
+
+
+### umi enable
+
+
+
+  
+> ID: umi_enable
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+To enable read collapsing, set the --umi-enable option to true. 
+If using the --umi-library-type option, --umi-enable is not required.
+
+
+### umi fastq
+
+
+
+  
+> ID: umi_fastq
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to R2 fastq file (UMI). Made optional to be able to use this 
+file for normal samples as well (without UMIs)
+
+
+### umi library type
+
+
+
+  
+> ID: umi_library_type
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+Value should be 'random-simplex' for our use case. 
+Set the batch option for different UMIs correction
+
+
+### umi metrics interval file
+
+
+
+  
+> ID: umi_metrics_interval_file
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Valid target BED file
+
+
+### umi min spporting reads
+
+
+
+  
+> ID: umi_min_supporting_reads
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+The number of matching UMI inputs reads required 
+to generate a consensus read.
+
+
+### umi source
+
+
+
+  
+> ID: umi_source
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+Value should be 'fastq' if UMI info is in separate fastq file
 
 
 ### vc af call threshold
@@ -652,99 +841,20 @@ The default value is 500 for germline mode and 50 for somatic mode.
   
 
 
-## dragen-somatic v(3.7.5) Outputs
+## dragen-umi v(3.8.4) Outputs
 
-### dragen somatic output directory
+### dragen UMI analysis output
 
 
 
   
-> ID: dragen-somatic--3.7.5/dragen_somatic_output_directory  
+> ID: dragen-umi--3.8.4/dragen_umi_output_directory  
 
   
 **Optional:** `False`  
 **Output Type:** `Directory`  
 **Docs:**  
-Output directory containing all outputs of the somatic dragen run
-  
-
-
-### output normal bam
-
-
-
-  
-> ID: dragen-somatic--3.7.5/normal_bam_out  
-
-  
-**Optional:** `True`  
-**Output Type:** `File`  
-**Docs:**  
-Bam file of the normal sample
-Exists only if --enable-map-align-output set to true
-  
-
-
-### somatic snv vcf filetered
-
-
-
-  
-> ID: dragen-somatic--3.7.5/somatic_snv_vcf_hard_filtered_out  
-
-  
-**Optional:** `True`  
-**Output Type:** `File`  
-**Docs:**  
-Output of the snv vcf filtered tumor calls
-  
-
-
-### somatic snv vcf
-
-
-
-  
-> ID: dragen-somatic--3.7.5/somatic_snv_vcf_out  
-
-  
-**Optional:** `True`  
-**Output Type:** `File`  
-**Docs:**  
-Output of the snv vcf tumor calls
-  
-
-
-### somatic sv vcf filetered
-
-
-
-  
-> ID: dragen-somatic--3.7.5/somatic_structural_vcf_out  
-
-  
-**Optional:** `True`  
-**Output Type:** `File`  
-**Docs:**  
-Output of the sv vcf filtered tumor calls.
-Exists only if --enable-sv is set to true.
-  
-
-
-### output tumor bam
-
-
-
-  
-> ID: dragen-somatic--3.7.5/tumor_bam_out  
-
-  
-**Optional:** `True`  
-**Output Type:** `File`  
-**Docs:**  
-Bam file of the tumor sample.
-Exists only if --enable-map-align-output set to true
-  
+Output directory containing all outputs of the dragen UMI run  
 
   
 
@@ -759,11 +869,11 @@ Exists only if --enable-map-align-output set to true
 ### Project: development_workflows
 
 
-> wfl id: wfl.8f8f70998abd4dbd85200e1692b1ef94  
+> wfl id: wfl.834780d221224322aa6fbe8e5bf15f35  
 
   
-**workflow name:** dragen-somatic_dev-wf  
-**wfl version name:** 3.7.5  
+**workflow name:** dragen-umi_dev-wf  
+**wfl version name:** 3.8.4  
 
   
 
