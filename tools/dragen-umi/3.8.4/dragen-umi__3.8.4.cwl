@@ -18,7 +18,10 @@ s:author:
 id: dragen-umi--3.8.4
 label: dragen-umi v(3.8.4)
 doc: |
-    Documentation for dragen-umi v3.8.4
+    DRAGEN can process data from whole genome and hybrid-capture assays with unique molecular identifiers (UMI).
+    This workflow can take forward, reverse and UMI tumor fastqs as inputs and perform the analysis in tumor-only mode.
+    In additon, BAM from tumor and normal samples can be used as an input to perform analysis in tumor-normal mode. 
+    More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v38/Content/SW/DRAGEN/UMIs_fDG.htm)
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:
@@ -176,6 +179,7 @@ inputs:
   # BAM inputs - Currently UMI Dragen pipeline does not support tumor-normal mode. 
   # To run ctDNA samples in this setting, bam files created separately from tumour-only 
   # UMI pipeline and normal sample can be used as an input for doing variant calling.
+  # bam_input and tumor_bam_input are incompatible with fastq-file* inputs.
   tumor_bam_input:
     label: tumor bam
     doc: |

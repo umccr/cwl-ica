@@ -261,7 +261,7 @@ projects:
           - name: 3.8.4
             path: 3.8.4/dragen-umi__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2021-09-10T06:44:26UTC
+            modification_time: 2021-09-15T00:21:47UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline
