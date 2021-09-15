@@ -398,6 +398,7 @@ inputs:
     type: float?
     inputBinding:
       prefix: "--sv-tin-contam-tolerance"
+  
   # Variant calling optons
   vc_target_bed:
     label: vc target bed
@@ -695,6 +696,16 @@ inputs:
     inputBinding:
       prefix: --enable-cnv
       valueFrom: "$(self.toString())"
+  # HRD
+  enable_hrd:
+    label: enable hrd
+    doc: |
+      Set to true to enable HRD scoring to quantify genomic instability.
+      Requires somatic CNV calls.
+    type: boolean?
+    inputBinding:
+      prefix: --enable-hrd
+      valueFrom: "$(self.toString())"
   # QC options
   qc_coverage_region_1:
     label: qc coverage region 1
@@ -727,6 +738,33 @@ inputs:
     inputBinding:
       prefix: --qc-coverage-ignore-overlaps
       valueFrom: "$(self.toString())"
+  # TMB options
+  enable_tmb:
+    label: enable tmb
+    doc: |
+      Enables TMB. If set, the small variant caller, Illumina Annotation Engine, 
+      and the related callability report are enabled.
+    type: boolean?
+    inputBinding:
+      prefix: --enable-tmb
+      valueFrom: "$(self.toString())"
+  tmb_vaf_threshold:
+    label: tmb vaf threshold
+    doc: |
+      Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out. 
+      The default value is 0.05.
+    type: float?
+    inputBinding:
+      prefix: --tmb-db-threshold
+  tmb_db_threshold:
+    label: tmb db threshold
+    doc: |
+      Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome 
+      to be considered a germline variant.  Variant calls that have the same positions and allele are ignored
+      from the TMB calculation. The default value is 10.
+    type: int?
+    inputBinding:
+      prefix: --tmb-db-threshold
   # Miscell
   lic_instance_id_location:
     label: license instance id location
