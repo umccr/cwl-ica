@@ -308,7 +308,6 @@ inputs:
     type: File?
     inputBinding:
       prefix: "--sv-call-regions-bed"
-      valueFrom: "$(get_ref_path(self))"
   sv_region:
     label: sv region
     doc: |
@@ -347,7 +346,6 @@ inputs:
     type: File?
     inputBinding:
       prefix: "--sv-forcegt-vcf"
-      valueFrom: "$(get_ref_path(self))"
   sv_discovery:
     label: sv discovery
     doc: |
@@ -376,7 +374,6 @@ inputs:
     type: File?
     inputBinding:
       prefix: "--sv-somatic-ins-tandup-hotspot-regions-bed"
-      valueFrom: "$(get_ref_path(self))"
   sv_enable_somatic_ins_tandup_hotspot_regions:
     label: sv enable somatic ins tandup hotspot regions
     doc: |
@@ -597,11 +594,19 @@ inputs:
     label: vc tin contam tolerance
     type: float?
     doc: |
-     --vc-tin-contam-tolerance enables liquid tumor mode and allows you to
+      vc-tin-contam-tolerance enables liquid tumor mode and allows you to
       set the maximum contamination TiN tolerance. The maximum contamination TiN tolerance must be
       greater than zero. For example, vc-tin-contam-tolerance=-0.1.
     inputBinding:
       prefix: --vc-tin-contam-tolerance
+  vc_enable_orientation_bias_filter:
+    label: vc enable orientation bias filter
+    type: float?
+    doc: |
+      Enables the orientation bias filter. The default value is false, which means the option is disabled.
+    inputBinding:
+      prefix: --vc-enable-orientation-bias-filter
+      valueFrom: "$(self.toString())"
   # Post somatic calling filtering options
   vc_sq_call_threshold:
     label: vc sq call threshold
@@ -689,6 +694,38 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: --enable-cnv
+      valueFrom: "$(self.toString())"
+  # QC options
+  qc_coverage_region_1:
+    label: qc coverage region 1
+    doc: |
+      Generates coverage region report using bed file 1.
+    type: File?
+    inputBinding:
+      prefix: --qc-coverage-region-1
+  qc_coverage_region_2:
+    label: qc coverage region 2
+    doc: |
+      Generates coverage region report using bed file 2.
+    type: File?
+    inputBinding:
+      prefix: --qc-coverage-region-2
+  qc_coverage_region_3:
+    label: qc coverage region 3
+    doc: |
+      Generates coverage region report using bed file 3.
+    type: File?
+    inputBinding:
+      prefix: --qc-coverage-region-3
+  qc_coverage_ignore_overlaps:
+    label: qc coverage ignore overlaps
+    doc: |
+      Set to true to resolve all of the alignments for each fragment and avoid double-counting any 
+      overlapping bases. This might result in marginally longer run times. 
+      This option also requires setting --enable-map-align=true.
+    type: boolean?
+    inputBinding:
+      prefix: --qc-coverage-ignore-overlaps
       valueFrom: "$(self.toString())"
   # Miscell
   lic_instance_id_location:
