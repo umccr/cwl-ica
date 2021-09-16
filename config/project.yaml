@@ -176,6 +176,11 @@ projects:
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-29T00:51:44UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-alignment__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2021-09-16T00:36:00UTC
+            run_instances: []
       - name: arriba-drawing
         path: arriba-drawing
         ica_workflow_name: arriba-drawing_dev-wf
@@ -357,6 +362,11 @@ projects:
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-07-02T05:02:42UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2021-09-16T00:34:57UTC
+            run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
         ica_workflow_name: dragen-wgs-qc-pipeline_dev-wf
@@ -368,6 +378,11 @@ projects:
             modification_time: 2021-07-02T05:02:49UTC
             run_instances:
               - wfr.1fd8c32d79c34e179a4c0d6754edd3a2
+          - name: 3.9.3
+            path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2021-09-16T00:36:50UTC
+            run_instances: []
       - name: tso500-ctdna-post-processing-pipeline
         path: tso500-ctdna-post-processing-pipeline
         ica_workflow_name: tso500-ctdna-post-processing-pipeline_dev-wf

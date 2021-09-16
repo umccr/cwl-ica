@@ -69,6 +69,9 @@ workflows:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
         md5sum: 7d1f53b5a952427be5dbcd1165795907
+      - name: 3.9.3
+        path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
+        md5sum: 59794b83fda17ccbf41185bb15e5e5c7
     categories:
       - alignment
       - dragen
@@ -78,6 +81,9 @@ workflows:
       - name: 3.7.5
         path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
         md5sum: e8a5f7e0631cb9d14303f56d67e408d7
+      - name: 3.9.3
+        path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
+        md5sum: 096845cdc2273395f7bb309de9797e5b
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
