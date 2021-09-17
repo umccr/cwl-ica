@@ -31,7 +31,7 @@ hints:
         coresMin: 16
         ramMin: 240000
     DockerRequirement:
-        dockerPull: "http://699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.9.3"
+        dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.9.3"
 
 requirements:
   SchemaDefRequirement:

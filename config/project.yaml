@@ -179,7 +179,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-16T00:36:00UTC
+            modification_time: 2021-09-17T01:41:16UTC
             run_instances: []
       - name: arriba-drawing
         path: arriba-drawing
@@ -249,7 +249,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-15T23:46:38UTC
+            modification_time: 2021-09-17T01:41:53UTC
             run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -329,7 +329,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-16T04:00:41UTC
+            modification_time: 2021-09-17T01:44:08UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -386,7 +386,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-16T00:36:50UTC
+            modification_time: 2021-09-17T01:43:28UTC
             run_instances: []
       - name: tso500-ctdna-post-processing-pipeline
         path: tso500-ctdna-post-processing-pipeline

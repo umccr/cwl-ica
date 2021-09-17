@@ -150,7 +150,7 @@ tools:
         md5sum: 2bcb01913c07577e2674cc5a5553af86
       - name: 3.9.3
         path: 3.9.3/dragen-somatic__3.9.3.cwl
-        md5sum: 373a41c927d2fbaca577a880333d2274
+        md5sum: e8a82171076c1c54d265eb80942e47d5
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -196,7 +196,7 @@ tools:
         md5sum: b6b90c6e5016c4718c73813b10699a32
       - name: 3.9.3
         path: 3.9.3/dragen-alignment__3.9.3.cwl
-        md5sum: 842c8b82f2dcb36c26cde1df4ae8db8c
+        md5sum: 84d0540ee7938589d9b0fda55b087a97
     categories: []
   - name: custom-create-directory
     path: custom-create-directory

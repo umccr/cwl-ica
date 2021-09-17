@@ -52,7 +52,7 @@ workflows:
         md5sum: 90f8ccedf9d3566739425c519ed79d03
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
-        md5sum: a3e9c92a66adee0b08df516f835c6c78
+        md5sum: 735712bafaf727e9e7745fcefbe32d83
     categories:
       - dragen
       - variant-calling
@@ -86,7 +86,7 @@ workflows:
         md5sum: e8a5f7e0631cb9d14303f56d67e408d7
       - name: 3.9.3
         path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
-        md5sum: 096845cdc2273395f7bb309de9797e5b
+        md5sum: fcd42d588dc19c05ca5920d96717f7f4
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
