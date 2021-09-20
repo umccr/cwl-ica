@@ -249,7 +249,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-17T01:41:53UTC
+            modification_time: 2021-09-20T01:23:01UTC
             run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -329,7 +329,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-17T01:44:08UTC
+            modification_time: 2021-09-20T01:57:54UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -387,7 +387,8 @@ projects:
             path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
             modification_time: 2021-09-17T01:43:28UTC
-            run_instances: []
+            run_instances:
+              - wfr.8bb7083dc6e74a2f9c21edd65e627a2e
       - name: tso500-ctdna-post-processing-pipeline
         path: tso500-ctdna-post-processing-pipeline
         ica_workflow_name: tso500-ctdna-post-processing-pipeline_dev-wf

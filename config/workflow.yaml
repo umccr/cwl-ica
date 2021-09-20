@@ -52,7 +52,7 @@ workflows:
         md5sum: 90f8ccedf9d3566739425c519ed79d03
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
-        md5sum: 735712bafaf727e9e7745fcefbe32d83
+        md5sum: d9b0122cd41247dd14b9fb3581b32270
     categories:
       - dragen
       - variant-calling

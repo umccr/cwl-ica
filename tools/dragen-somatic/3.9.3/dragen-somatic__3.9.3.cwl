@@ -687,7 +687,10 @@ inputs:
         required: true
     inputBinding:
       prefix: "--dbsnp"
-  # cnv pipeline
+  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf, 
+  # --cnv-population-b-allele-vcf, or cnv-use-somatic-vc-baf.
+  # If known, specify the sex of the sample. 
+  # If the sample sex is not specified, the caller attempts to estimate the sample sex from tumor alignments. 
   enable_cnv:
     label: enable cnv calling
     doc: |
@@ -695,6 +698,56 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: --enable-cnv
+      valueFrom: "$(self.toString())"
+  cnv_normal_b_allele_vcf:
+    label: cnv normal b allele vcf
+    doc: |
+      Specify a matched normal SNV VCF.
+    type: File?
+    inputBinding:
+      prefix: --cnv-normal-b-allele-vcf
+  cnv_population_b_allele_vcf:
+    label: cnv population b allele vcf
+    doc: |
+      Specify a population SNP catalog.
+    type: File?
+    inputBinding:
+      prefix: --cnv-population-b-allele-vcf
+  cnv_use_somatic_vc_baf:
+    label: cnv use somatic vc baf
+    doc: |
+      If running in tumor-normal mode with the SNV caller enabled, use this option 
+      to specify the germline heterozygous sites. 
+    type: boolean?
+    inputBinding:
+      prefix: --cnv-use-somatic-vc-baf
+      valueFrom: "$(self.toString())"
+  # For more info on following options - see 
+  # https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/SomaticWGSModes.htm#Germline
+  cnv_normal_cnv_vcf:
+    label: cnv normal cnv vcf
+    doc: |
+      Specify germline CNVs from the matched normal sample.
+    type: boolean?
+    inputBinding:
+      prefix: --cnv-normal-cnv-vcf
+      valueFrom: "$(self.toString())"
+  cnv_use_somatic_vc_vaf:
+    label: cnv use somatic vc vaf
+    doc: |
+      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
+      the tumor model for the sample. 
+    type: boolean?
+    inputBinding:
+      prefix: --cnv-use-somatic-vc-vaf
+      valueFrom: "$(self.toString())"
+  cnv_somatic_enable_het_calling:
+    label: cnv somatic enable het calling
+    doc: |
+      Enable HET-calling mode for heterogeneous segments.
+    type: boolean?
+    inputBinding:
+      prefix: --cnv-somatic-enable-het-calling
       valueFrom: "$(self.toString())"
   # HRD
   enable_hrd:

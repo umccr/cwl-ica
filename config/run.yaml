@@ -656,3 +656,60 @@ runs:
         task_stop_time: 1630463733
         task_duration: 1591
         task_metrics: eJyd0r0KwkAQBOBXOa4OsntzP1lfRSwkpLA4DCYWIr57DisLCWa63YWPhWFOL79c6zgvlzr5o9MMiTlk6zvnh+nRTnIoba5jvd2fn1XenfupSgpfyv5UfaBUMUIZEqMs71eQpIRSZX5pITJEiMIoA6HAdANRI6OYbiBhM/nzCk602yE=
+  - ica_workflow_run_instance_id: wfr.8bb7083dc6e74a2f9c21edd65e627a2e
+    ica_workflow_id: wfl.ff6ca1789f4e4eb0982ea3e01407aca8
+    ica_workflow_name: dragen-wgs-qc-pipeline_dev-wf
+    ica_workflow_version_name: 3.9.3
+    ica_workflow_run_name: Dragen-3.9-WGS-QC
+    ica_input: eJzNUU1PwzAM/StTzixpVtai3apODPF1YBVMQsgKbdpFSpstycbHtP9OGugADSEhOHCI7Th+79nOBpXM2CVIYSxo9WDQqHe7QZI13EX0oIc0ZwVQd9mgXDLTFqBjITlyb1LlzArVtLmqMCNCVnWe677n7BfMsn7B12RAgzg4giQIaBhAQKMIkpP4LDsdT2cDcjOZQmaWl6xR5DpNU3IxnjkEjSM4dz6IDyOYutih4YqCc9jz4+oZbbsGB/+lwcEXDVaiaBuYpEmSOYOTJJ1kWZpiir9VxvtCyPPJ+5bvc87UbW6HQNs7l1Yru1hZKITmuVX66SMMCs0q3qD3stJtDRaal+Jxj5+XXPMm59COxn62bQferfpVlLijam7IvAqPvHEre/vNTsgy/bcyIY7x0IfApIW5hRBiGGIn1H2VEZYbMKpmUvBfyHcMxBNiP+A6L73M9gVJmg1d
+    ica_output: eJzFk8FOwzAMhl9lKlfWpm3atFxBcOGCOHBAqMoSd1RKk5GkGmPau5Ns61axTRMSGocc/tj+7c+SlwHXdAqyoqKZyhakrVRnZ52teKOBWaUXwc1oGQjFqG2UdCKYcnMTRfNah8VkQlCRcpYDwTSpS5bEwHmeQZ4QmkB0tzYfp2E5fnl4Hj/dRht3Ez0mMUIE59Wmf3A9CibUgKQt+B5Hwj6klbI+3Gv43EkmqDFe3O0Gd7+m+fJ+shNi5eQWdkJbj3kRsp0OXddTmH1syNjHfrD2qTve+0bAADXO3NxpkZQoKfwvMCU51Quf5vNflycncK/xThddSd/0gOfYLoZ72u9jXf9u7cxNylTbKjkXodLTiM2FVUpcuZ6geyS0evtdustuO2GbD/Y/tzG4ze0cZ67leMFf3I9RrfMG/U+L6Nuf4x/m/QX2nrZyXJUBYxxm1XBfaIwMcY5RFjNMSZ7ilLIyi2PCEAHCCCR5Fhya1Epwt8iNhxPOg5co5rROaYxpgUmZM1TwkqQ1KgjmweobMsjFFA==
+    ica_engine_parameters: eJytkLFOwzAQhl8FZelCEtuBuO3aSsBQVSggZte+RBaJHdmXhlL13bFdwcTY0b7v/073n7PZus+tdiDRulO2vss65ddlObeuWB4OnCwrJWvgD4K1K8koKFU/Qs24YFBunejA5FWxyj+emvx1k93fZXbCccKbKcurz0c1DuP+xnaPMCZ3b7vbWYMsSQfx1UiBCC4oK/bXTgOI2nRxz2CPEFFpx9P1uBfjURgJb6cRItGElxJOPevNOP2PNvo7oTtQehoio6AVUx+AQO2sStPF1s6mt0ItIqF/R/sjOKcV+MCcL7Fm8O8erlFhdAseU1xMaFNUzj1a28fPqiAFI4xQRirKK0ppBMB02qSdtKC8IHlAKOG0poTy3KMTOPl8ED42c/kBL33KLw==
+    workflow_start_time: 1631843074
+    workflow_end_time: 1631851785
+    workflow_duration: 8710
+    ica_tasks:
+      - ica_task_run_instance_id: trn.5bce25cc8729479693afc52339526e2b
+        task_step_name: run_dragen_step/create_fastq_list_csv_step
+        task_name: custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1631843291
+        task_stop_time: 1631843785
+        task_duration: 494
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.ab1f44fc478e4490a1f069056e93b67e
+        task_step_name: run_dragen_step/create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1631843261
+        task_stop_time: 1631843785
+        task_duration: 524
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.aa3d8f921eac4cbf9c5dd569fe3d4d34
+        task_step_name: run_dragen_step/run_dragen_alignment_step
+        task_name: dragen-alignment__3.9.3.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1631844083
+        task_stop_time: 1631848530
+        task_duration: 4446
+        task_metrics: eJydlL1OAzEQhF8lSh1Z3n+bV0EUCKWgOBFBKBDKu2OqWx/MFelykT7NemZnH7+P19fl/HF9Xi7HhwO5UFMj66fD8eXy+ftX4fF7OS9v71/js5Z6Ox3+pZjkHqrVOyiRpGXFMiZeHHLdV06LTpyVhjj1dUorNWMcxRBm1BIWE9Z2sLCE9WnIHVNcMtYmbFgLsS5QjYsgLMwhJvhtjRRiuoMFVtvJrQt2MrCTfceSVhRgXo0h1uHbnJIlPi+XVvg2p2TJFmMYt7MQGlIFxu3csZrCwo2VhDupDgNwnYozDxn4bRqchpyOie7kZqIQ28nNejpdWiRzRoUQ52lNSGa90TjIRT6wMuuNggfkQrEeYVtaKg9R8Q0H52x9DY/4jx5Mr6ddGdx8nHERomZfeD6zg0O+RI3IHG04lPuIoWVfthzyM7h65rZ3HVUv2BnnXmEOIRRwTu6lQy6m3G3DQT9V8JyMexTaCeY3OL09/QCuZVSQ
+      - ica_task_run_instance_id: trn.625c636caade4e0fb5e0d68b063b5702
+        task_step_name: run_dragen_step/dragen_qc_step
+        task_name: multiqc__1.10.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1631848765
+        task_stop_time: 1631849271
+        task_duration: 505
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDM2tDCxNDS00FFQSi4oBQoZAFm5qbn5RZUgjp5BbSwAlIcOoA==
+      - ica_task_run_instance_id: trn.2b2fc5fa93db442a9352edbca42a2f34
+        task_step_name: run_somalier_step
+        task_name: somalier-extract__0.2.13.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1631849561
+        task_stop_time: 1631850391
+        task_duration: 829
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDM2tDCxNDM11VFQSi4oBQoZ6BkB2bmpuflFlWCuQa2OAlZd5oZmSLqMidVlbo7bLkNcuiyM8bgQty5LQ9wuxKnLEiU0iNNlamBgaEKOLnMDkv1lamBobEKOLku8umIBaSiSPQ==

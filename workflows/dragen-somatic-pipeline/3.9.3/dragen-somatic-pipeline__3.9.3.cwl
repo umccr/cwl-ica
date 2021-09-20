@@ -408,6 +408,40 @@ inputs:
     doc: |
       Enable CNV processing in the DRAGEN Host Software.
     type: boolean?
+  cnv_normal_b_allele_vcf:
+    label: cnv normal b allele vcf
+    doc: |
+      Specify a matched normal SNV VCF.
+    type: File?
+  cnv_population_b_allele_vcf:
+    label: cnv population b allele vcf
+    doc: |
+      Specify a population SNP catalog.
+    type: File?
+  cnv_use_somatic_vc_baf:
+    label: cnv use somatic vc baf
+    doc: |
+      If running in tumor-normal mode with the SNV caller enabled, use this option 
+      to specify the germline heterozygous sites. 
+    type: boolean?
+  # For more info on following options - see 
+  # https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/SomaticWGSModes.htm#Germline
+  cnv_normal_cnv_vcf:
+    label: cnv normal cnv vcf
+    doc: |
+      Specify germline CNVs from the matched normal sample.
+    type: boolean?
+  cnv_use_somatic_vc_vaf:
+    label: cnv use somatic vc vaf
+    doc: |
+      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
+      the tumor model for the sample. 
+    type: boolean?
+  cnv_somatic_enable_het_calling:
+    label: cnv somatic enable het calling
+    doc: |
+      Enable HET-calling mode for heterogeneous segments. 
+    type: boolean?
   # HRD
   enable_hrd:
     label: enable hrd
@@ -660,8 +694,21 @@ steps:
         source: vc_enable_non_homref_normal_filter
       dbsnp_annotation:
         source: dbsnp_annotation
+      #cnv options
       enable_cnv:
         source: enable_cnv
+      cnv_normal_b_allele_vcf:
+        source: cnv_normal_b_allele_vcf
+      cnv_population_b_allele_vcf:
+        source: cnv_population_b_allele_vcf
+      cnv_use_somatic_vc_baf:
+        source: cnv_use_somatic_vc_baf
+      cnv_normal_cnv_vcf:
+        source: cnv_normal_cnv_vcf
+      cnv_use_somatic_vc_vaf:
+        source: cnv_use_somatic_vc_vaf
+      cnv_somatic_enable_het_calling:
+        source: cnv_somatic_enable_het_calling
       enable_hrd:
         source: enable_hrd
       qc_coverage_region_1:
