@@ -200,7 +200,7 @@ class Initialiser(Command):
         :return:
         """
         # Check path is relative to item path
-        if not cwl_path.absolute().relative_to(self.item_dir):
+        if not cwl_path.absolute().resolve().relative_to(self.item_dir):
             logger.error(f"Expected item of type \"{self.item_type}\" to be in \"{self.item_dir}\"")
             raise ItemDirectoryNotFoundError
 
