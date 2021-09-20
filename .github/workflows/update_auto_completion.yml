@@ -33,7 +33,7 @@ jobs:
              --user "$(id -u):$(id -g)" \
              --volume  "$PWD:$PWD" \
              --workdir "$PWD" \
-             umccr/appspec:0.006 \
+             quay.io/alexiswl4/appspec:0.006 \
                bash ".github/scripts/update_autocompletion.sh"
       # Commit to github
       - id: commit_configuration_yaml_files
