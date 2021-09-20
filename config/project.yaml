@@ -330,7 +330,8 @@ projects:
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
             modification_time: 2021-09-20T01:57:54UTC
-            run_instances: []
+            run_instances:
+              - wfr.b19291caab384e78b7661a85c3f82003
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_dev-wf
