@@ -20,7 +20,7 @@ label: dragen-transcriptome v(3.9.3)
 doc: |
     Documentation for dragen-transcriptome v3.9.3
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
+# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
         ilmn-tes:resources:
