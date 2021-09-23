@@ -270,8 +270,8 @@ inputs:
       valueFrom: "$(self.toString())"
   rrna_filter_contig:
     label: name of the rRNA sequences to use for filtering
-    type: string
-    default: chrUn_GL000220v1
+    type: string?
+    #default: chrUn_GL000220v1
     doc: |
       Specify the name of the rRNA sequences to use for filtering.
     inputBinding:
