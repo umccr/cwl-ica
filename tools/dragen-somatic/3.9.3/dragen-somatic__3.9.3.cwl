@@ -18,7 +18,10 @@ s:author:
 id: dragen-somatic--3.9.3
 label: dragen-somatic v(3.9.3)
 doc: |
-    Documentation for dragen-somatic v3.9.3
+  Run tumor-normal dragen somatic pipeline v 3.9.3.
+  Workflow takes in two separate lists of object stor version of the fastq_list.csv equivalent
+  See the fastq_list_row schema definitions for more information.
+  More information on the documentation can be found [here](https://sapac.support.illumina.com/content/dam/illumina-support/help/Illumina_DRAGEN_Bio_IT_Platform_v3_7_1000000141465/Content/SW/Informatics/Dragen/GPipelineSomCom_appDRAG.htm).   
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:

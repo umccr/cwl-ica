@@ -150,7 +150,7 @@ tools:
         md5sum: 2bcb01913c07577e2674cc5a5553af86
       - name: 3.9.3
         path: 3.9.3/dragen-somatic__3.9.3.cwl
-        md5sum: 018be07131a0dcace08eecb101dc555f
+        md5sum: ed76932fe1fddc00faa9644509b1683b
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
