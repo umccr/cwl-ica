@@ -148,6 +148,9 @@ tools:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic__3.7.5.cwl
         md5sum: 2bcb01913c07577e2674cc5a5553af86
+      - name: 3.9.3
+        path: 3.9.3/dragen-somatic__3.9.3.cwl
+        md5sum: ed76932fe1fddc00faa9644509b1683b
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -158,6 +161,9 @@ tools:
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome__3.8.4.cwl
         md5sum: 1164dc07f35924f483f17790b0e7aaf0
+      - name: 3.9.3
+        path: 3.9.3/dragen-transcriptome__3.9.3.cwl
+        md5sum: d0398bddeb3b145fbd7f67ba9542f762
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
@@ -191,6 +197,9 @@ tools:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment__3.7.5.cwl
         md5sum: b6b90c6e5016c4718c73813b10699a32
+      - name: 3.9.3
+        path: 3.9.3/dragen-alignment__3.9.3.cwl
+        md5sum: 84d0540ee7938589d9b0fda55b087a97
     categories: []
   - name: custom-create-directory
     path: custom-create-directory

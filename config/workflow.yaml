@@ -50,6 +50,9 @@ workflows:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
         md5sum: 90f8ccedf9d3566739425c519ed79d03
+      - name: 3.9.3
+        path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+        md5sum: d9b0122cd41247dd14b9fb3581b32270
     categories:
       - dragen
       - variant-calling
@@ -62,6 +65,9 @@ workflows:
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
         md5sum: 81ba46a4c49c82673fe3b4f74e63052e
+      - name: 3.9.3
+        path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+        md5sum: cf68ea6c4b1353b42d07b83744a8f1ce
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -69,6 +75,9 @@ workflows:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
         md5sum: 7d1f53b5a952427be5dbcd1165795907
+      - name: 3.9.3
+        path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
+        md5sum: 59794b83fda17ccbf41185bb15e5e5c7
     categories:
       - alignment
       - dragen
@@ -78,6 +87,9 @@ workflows:
       - name: 3.7.5
         path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
         md5sum: e8a5f7e0631cb9d14303f56d67e408d7
+      - name: 3.9.3
+        path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
+        md5sum: fcd42d588dc19c05ca5920d96717f7f4
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
