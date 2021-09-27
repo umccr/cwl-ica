@@ -50,6 +50,13 @@ for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
     export "${project_token_env_var_name}"="${project_token}"
 done
 
+# Install mamba for faster installation of conda environment
+echo "Installing mamba"
+conda install --yes \
+  --name base \
+  --channel conda-forge \
+  mamba
+
 # Install cwl-ica through installation script
 echo "Installing cwl-ica software into conda env" 1>&2
 bash src/install.sh --yes
