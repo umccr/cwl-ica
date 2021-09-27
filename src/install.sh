@@ -135,6 +135,17 @@ get_conda_version() {
   echo "${version}"
 }
 
+has_mamba(){
+  : '
+  Check if mamba exists
+  '
+  if ! type mamba 1>/dev/null 2>&1; then
+    return 1
+  fi
+  return 0
+
+}
+
 has_conda_env() {
   : '
   Check if a conda environment exists
@@ -190,6 +201,19 @@ check_conda_version() {
   fi
 }
 
+run_mamba_create() {
+  : '
+  Run the mamba create command
+  '
+  local name="$1"
+  local env_file="$2"
+
+  conda env create \
+    --quiet \
+    --name="${name}" \
+    --file="${env_file}"
+}
+
 run_conda_create() {
   : '
   Run the conda create command
@@ -203,6 +227,21 @@ run_conda_create() {
     --name="${name}" \
     --file="${env_file}"
 }
+
+run_mamba_update() {
+  : '
+  Run the conda update command
+  '
+
+  local name="$1"
+  local env_file="$2"
+
+  mamba env update \
+    --quiet \
+    --name="${name}" \
+    --file="${env_file}"
+}
+
 
 run_conda_update() {
   : '
@@ -311,7 +350,11 @@ conda_env_file="$(get_this_path)/cwl-ica-conda-env.yaml"
 if ! has_conda_env; then
   if [[ "${yes}" == "true" ]]; then
     echo_stderr "Creating cwl-ica conda env"
-    run_conda_create "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
+    if has_mamba; then
+      run_mamba_create "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
+    else
+      run_conda_create "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
+    fi
   else
     echo_stderr "cwl-ica conda env does not exist - would you like to create one?"
     select yn in "Yes" "No"; do
@@ -328,7 +371,11 @@ if ! has_conda_env; then
 else
   if [[ "${yes}" == "true" ]]; then
     echo_stderr "Updating cwl-ica conda env"
-    run_conda_update "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
+    if has_mamba; then
+      run_mamba_update "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
+    else
+      run_conda_update "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
+    fi
   else
     echo_stderr "Found conda env 'cwl-ica' - would you like to run an update?"
     select yn in "Yes" "No"; do
