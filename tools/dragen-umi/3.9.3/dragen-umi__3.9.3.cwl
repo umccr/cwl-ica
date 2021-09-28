@@ -325,6 +325,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--umi-enable"
+      valueFrom: "$(self.toString())"
   umi_emit_multiplicity:
     label: umi emit multiplicity
     doc: |
@@ -353,6 +354,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--vc-enable-umi-solid"
+      valueFrom: "$(self.toString())"
   vc_enable_umi_liquid:
     label: vc enable umi liquid
     doc: |
@@ -360,6 +362,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--vc-enable-umi-liquid"
+      valueFrom: "$(self.toString())"
   umi_correction_scheme:
     label: umi correction scheme
     doc: |
