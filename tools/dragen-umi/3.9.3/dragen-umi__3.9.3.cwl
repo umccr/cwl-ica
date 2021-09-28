@@ -330,7 +330,13 @@ inputs:
     doc: |
       Set the consensus sequence type to output.
       Default value is "both" that outputs both simplex and duplex sequences.
-    type: string?
+    type:
+      - "null"
+      - type: enum
+        symbols:
+          - both
+          - duplex
+          - simplex
     inputBinding:
       prefix: "--umi-emit-multiplicity"
   umi_correction_table:
@@ -340,6 +346,48 @@ inputs:
     type: File?
     inputBinding:
       prefix: "--umi-correction-table"
+  vc_enable_umi_solid:
+    label: vc enable umi solid
+    doc: |
+      Enables solid tumor UMI settings. The default value is false.
+    type: boolean?
+    inputBinding:
+      prefix: "--vc-enable-umi-solid"
+  vc_enable_umi_liquid:
+    label: vc enable umi liquid
+    doc: |
+      Enables liquid tumor UMI settings. The default value is false.
+    type: boolean?
+    inputBinding:
+      prefix: "--vc-enable-umi-liquid"
+  umi_correction_scheme:
+    label: umi correction scheme
+    doc: |
+      Describes the methodology to use for correcting sequencing errors in UMIs.
+    type:
+      - "null"
+      - type: enum
+        symbols:
+          - lookup
+          - random
+          - none
+          - positional
+    inputBinding:
+      prefix: "--umi-correction-scheme"
+  umi_nonrandom_whitelist:
+    label: umi nonrandom whitelist
+    doc: |
+      Provides the path to a file containing valid nonrandom UMIs sequences. Enter one path per line.
+    type: File?
+    inputBinding:
+      prefix: "--umi-nonrandom-whitelist"
+  umi_fuzzy_window_size:
+    label: umi fuzzy window size
+    doc: |
+      Collapses reads with matching UMIs and alignment positions up to the distance specified.
+    type: int?
+    inputBinding:
+      prefix: "--umi-fuzzy-window-size"
   bin_memory:
     label: bin memory
     doc: |
@@ -347,13 +395,6 @@ inputs:
     type: long?
     inputBinding:
       prefix: "--bin_memory"
-  min_map_quality:
-    label: min map quality
-    doc: |
-      Filter reads with low mapping quanlity
-    type: int?
-    inputBinding:
-      prefix: "--umi-min-map-quality"
   # Variant calling optons
   vc_target_bed:
     label: vc target bed

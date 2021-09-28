@@ -319,5 +319,5 @@ tools:
         md5sum: 5443b25b76dc9b27709ea047f7b527b9
       - name: 3.9.3
         path: 3.9.3/dragen-umi__3.9.3.cwl
-        md5sum: e3332fbc3cdd95ce684a5ec96175e639
+        md5sum: 54392526559a4cf1f107172e7cecc1ef
     categories: []
