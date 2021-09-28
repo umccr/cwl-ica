@@ -23,7 +23,7 @@ doc: |
     In additon, BAM from tumor and normal samples can be used as an input to perform analysis in tumor-normal mode. 
     More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/UMIs.htm)
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
+# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
         ilmn-tes:resources:
