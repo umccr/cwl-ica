@@ -146,6 +146,18 @@ has_mamba(){
 
 }
 
+get_conda_binary(){
+  : '
+  Use mamba if possible
+  '
+  if has_mamba; then
+    echo "mamba"
+  else
+    echo "conda"
+  fi
+
+}
+
 has_conda_env() {
   : '
   Check if a conda environment exists
@@ -201,19 +213,6 @@ check_conda_version() {
   fi
 }
 
-run_mamba_create() {
-  : '
-  Run the mamba create command
-  '
-  local name="$1"
-  local env_file="$2"
-
-  conda env create \
-    --quiet \
-    --name="${name}" \
-    --file="${env_file}"
-}
-
 run_conda_create() {
   : '
   Run the conda create command
@@ -222,26 +221,11 @@ run_conda_create() {
   local name="$1"
   local env_file="$2"
 
-  conda env create \
+  "$(get_conda_binary)" env create \
     --quiet \
     --name="${name}" \
     --file="${env_file}"
 }
-
-run_mamba_update() {
-  : '
-  Run the conda update command
-  '
-
-  local name="$1"
-  local env_file="$2"
-
-  mamba env update \
-    --quiet \
-    --name="${name}" \
-    --file="${env_file}"
-}
-
 
 run_conda_update() {
   : '
@@ -251,7 +235,7 @@ run_conda_update() {
   local name="$1"
   local env_file="$2"
 
-  conda env update \
+  "$(get_conda_binary)" env update \
     --quiet \
     --name="${name}" \
     --file="${env_file}"
@@ -340,6 +324,9 @@ if ! check_rsync; then
   exit 1
 fi
 
+if ! has_mamba; then
+  echo_stderr "'mamba' not found, if you find that the installation of the conda env is slow, please try again by installing mamba through 'conda install -c conda-forge mamba'"
+fi
 
 #########################
 # CREATE/UPDATE CONDA ENV
@@ -350,11 +337,7 @@ conda_env_file="$(get_this_path)/cwl-ica-conda-env.yaml"
 if ! has_conda_env; then
   if [[ "${yes}" == "true" ]]; then
     echo_stderr "Creating cwl-ica conda env"
-    if has_mamba; then
-      run_mamba_create "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
-    else
-      run_conda_create "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
-    fi
+    run_conda_create "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
   else
     echo_stderr "cwl-ica conda env does not exist - would you like to create one?"
     select yn in "Yes" "No"; do
@@ -371,11 +354,7 @@ if ! has_conda_env; then
 else
   if [[ "${yes}" == "true" ]]; then
     echo_stderr "Updating cwl-ica conda env"
-    if has_mamba; then
-      run_mamba_update "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
-    else
-      run_conda_update "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
-    fi
+    run_conda_update "${CWL_ICA_CONDA_ENV_NAME}" "${conda_env_file}"
   else
     echo_stderr "Found conda env 'cwl-ica' - would you like to run an update?"
     select yn in "Yes" "No"; do
