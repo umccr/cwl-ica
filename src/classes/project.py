@@ -8,7 +8,7 @@ We also introduce the subclass ProductionProject that only updates workflows on 
 ProductionProject ica workflow versions hold a 7 digit git commit id suffix at the end of them.
 """
 
-from utils.conda import get_conda_tokens_dir, create_tokens_dir
+from utils.conda import get_conda_tokens_dir
 from ruamel.yaml.comments import CommentedMap as OrderedDict
 from classes.ica_workflow import ICAWorkflow
 from classes.ica_workflow_version import ICAWorkflowVersion
@@ -21,7 +21,6 @@ from utils.errors import InvalidTokenError, CWLApiKeyNotFoundError, \
 from utils.ica_utils import get_base_url, get_jwt_token_obj, get_token_memberships, \
     get_token_expiry, check_token_expiry, get_api_key, create_token_from_api_key_with_role, get_region_from_base_url,\
     store_token
-from utils.globals import SCOPES_BY_ROLE
 from utils.yaml import to_multiline_string
 
 logger = get_logger()
@@ -278,7 +277,7 @@ class Project:
 
     # Compare item version and ICA workflow version
     @staticmethod
-    def compare_item_version_and_ica_workflow_version(ica_workflow_version, md5sum):
+    def compare_item_version_and_ica_workflow_version(ica_workflow_version: ICAWorkflowVersion, md5sum: str) -> bool:
         """
         Get item version and ica workflow version
         :return:
@@ -286,6 +285,10 @@ class Project:
         # Set the workflow version object
         if ica_workflow_version.get_workflow_version_md5sum() == md5sum:
             logger.info("Workflow is up-to-date, skipping")
+            # Compare modification times
+            if not ica_workflow_version.get_workflow_version_modification_time() == ica_workflow_version.modification_time:
+                logger.warning("Workflow definintion matches but modification time stamp is out-of-date, updating modification time stamp")
+                ica_workflow_version.modification_time = ica_workflow_version.get_workflow_version_modification_time()
             return False
 
         # Modification time passed, md5sum is different, time to update the workflow

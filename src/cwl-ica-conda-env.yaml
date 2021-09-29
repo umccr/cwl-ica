@@ -25,3 +25,4 @@ dependencies:
     - PyJWT
     - tabulate
     - mdutils
+    - deepdiff

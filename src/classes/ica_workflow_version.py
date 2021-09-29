@@ -12,6 +12,7 @@ from pathlib import Path
 from tempfile import NamedTemporaryFile
 import json
 from datetime import datetime
+from utils.miscell import summarise_differences_of_two_dicts
 
 logger = get_logger()
 
@@ -148,9 +149,12 @@ class ICAWorkflowVersion:
         configuration = self.get_ica_wes_configuration(access_token)
 
         # Check update is okay first or if we've set force to okay
-        if not self.check_update_okay():
+        if not self.check_update_okay(force=force):
             if not force:
                 # Update should NOT happen
+                logger.warning(f"Not updating workflow, definition has changed elsewhere: "
+                               f"Showing differences in definitions:\n"
+                               f"{summarise_differences_of_two_dicts(workflow_definition, json.loads(self.workflow_version_obj.definition))}")
                 return
             else:
                 logger.warning("Overriding ICA workflow version definition with --force")
@@ -248,7 +252,7 @@ class ICAWorkflowVersion:
         # Calculate md5sum
         return workflow_modification_time
 
-    def check_update_okay(self):
+    def check_update_okay(self, force=False):
         """
         An update would not be allowed on a workflow if the modification time on ICA does NOT match the
         modification time on the yaml file. This means it has been updated else where and
@@ -258,13 +262,14 @@ class ICAWorkflowVersion:
         # Add workflow version
         if self.get_workflow_version_modification_time() <= self.modification_time:
             return True
-        else:
+        elif not force:
             logger.warning(f"Cannot update workflow \"{self.ica_workflow_id}\" "
                            f"version \"{self.ica_workflow_version_name}\".  "
                            f"It has been modified elsewhere but the "
                            f"modification was not recorded in project.yaml file. "
                            f"Another user may be editing this workflow but has not pushed changes or you have not pulled the changes")
-            return False
+        # Regardless of if force or not, still return false
+        return False
 
     def to_dict(self):
         """
