@@ -19,6 +19,8 @@ from utils.repo import get_tenant_yaml_path, get_cwl_ica_repo_path
 import os
 from base64 import b64encode, b64decode
 import zlib
+from deepdiff import DeepDiff
+import json
 
 logger = get_logger()
 
@@ -359,3 +361,17 @@ def cwl_id_to_path(cwl_id: str) -> Path:
     :return:
     """
     return Path(cwl_id.rsplit("#", 1)[-1])
+
+
+def summarise_differences_of_two_dicts(dict_1: Dict, dict_2: Dict) -> str:
+    """
+    Summarise the difference of two dicts with deepdiff
+    Credit: https://stackoverflow.com/a/50912266/6946787
+    :param dict_1:
+    :param dict_2:
+    :return:
+    """
+
+    diff = DeepDiff(dict_1, dict_2)
+
+    return json.dumps(json.loads(diff.to_json()), indent=4)
