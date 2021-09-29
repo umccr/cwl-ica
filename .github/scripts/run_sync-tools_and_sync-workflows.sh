@@ -54,7 +54,7 @@ done
 
 # Create conda env first
 echo "## DEBUG creating cwl-ica manually first because we're having some hanging problems" 1>&2
-conda create --name "${CONDA_ENV_NAME}" pip
+mamba create --name "${CONDA_ENV_NAME}" pip
 
 # Upgrade pip
 echo "## DEBUG Upgrading pip to latest version in cwl-ica conda env" 1>&2
@@ -67,6 +67,12 @@ echo "## DEBUG Forcing installation of setuptools to less than version 58 which 
 conda run \
  --name "${CONDA_ENV_NAME}" \
  pip install "setuptools<58"
+
+echo "Updating the conda environment with some --verbose logs so we can see what's going on" 1>&2
+mamba env update \
+    --verbose \
+    --name="${CONDA_ENV_NAME}" \
+    --file="src/cwl-ica-conda-env.yaml"
 
 echo "## DEBUG Continuing on as usual" 1>&2
 ## END DEBUG
