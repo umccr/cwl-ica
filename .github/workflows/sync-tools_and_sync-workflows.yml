@@ -66,11 +66,12 @@ jobs:
                        --name base \
                        --channel defaults \
                        conda && \
-                     echo 'Installing mamba' 1>&2 && \
+                     echo 'Installing mamba and pip' 1>&2 && \
                      conda install --yes \
                        --name base \
                        --channel conda-forge \
-                       mamba && \
+                       mamba \
+                       pip && \
                      echo 'Adding user groups' 1>&2 && \
                      addgroup \
                        --gid \"$(id -g)\" \

@@ -50,6 +50,27 @@ for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
     export "${project_token_env_var_name}"="${project_token}"
 done
 
+## DEBUG
+
+# Create conda env first
+echo "## DEBUG creating cwl-ica manually first because we're having some hanging problems" 1>&2
+conda create --name "${CONDA_ENV_NAME}" pip
+
+# Upgrade pip
+echo "## DEBUG Upgrading pip to latest version in cwl-ica conda env" 1>&2
+conda run \
+  --name "${CONDA_ENV_NAME}" \
+  pip install --upgrade pip
+
+# Install setuptools from pip
+echo "## DEBUG Forcing installation of setuptools to less than version 58 which seems to be causing some errors" 1>&2
+conda run \
+ --name "${CONDA_ENV_NAME}" \
+ pip install "setuptools<58"
+
+echo "## DEBUG Continuing on as usual" 1>&2
+## END DEBUG
+
 # Install cwl-ica through installation script
 echo "Installing cwl-ica software into conda env" 1>&2
 bash src/install.sh --yes
