@@ -66,7 +66,7 @@ conda run \
 echo "## DEBUG Forcing installation of setuptools to less than version 58 which seems to be causing some errors" 1>&2
 conda run \
  --name "${CONDA_ENV_NAME}" \
- pip install "setuptools<58"
+ bash -c "pip install setuptools<58"
 
 echo "Updating the conda environment with some --verbose logs so we can see what's going on" 1>&2
 mamba env update \
