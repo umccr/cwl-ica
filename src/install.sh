@@ -294,10 +294,11 @@ echo_stderr "Checking conda, jq and node/nodejs/docker are installed"
 
 if ! has_mamba; then
   echo_stderr "'mamba' not found, if you find that the installation of the conda env is slow, please try again by installing mamba through 'conda install -c conda-forge mamba'"
-elif ! has_conda; then
-  echo_stderr "Error, could not find conda binary."
-  echo_stderr "Please install conda and ensure it is in your \"\$PATH\" environment variable before continuing"
-  exit 1
+  if ! has_conda; then
+    echo_stderr "Error, could not find conda binary."
+    echo_stderr "Please install conda and ensure it is in your \"\$PATH\" environment variable before continuing"
+    exit 1
+  fi
 fi
 
 if ! has_jq; then

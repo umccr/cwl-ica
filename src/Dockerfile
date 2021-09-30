@@ -56,7 +56,7 @@ RUN echo "Adding in package and env paths to conda arc" 1>&2 && \
     echo 'envs_dirs' >> "/home/${CONDA_USER_NAME}/.condarc" && \
     echo '  - $HOME/.conda/envs' >> "/home/${CONDA_USER_NAME}/.condarc" && \
     echo "Installing into a conda env" 1>&2 && \
-    (cd "/home/${CONDA_USER_NAME}" && bash "cwl-ica-src/install.sh" -y ) \
+    (cd "/home/${CONDA_USER_NAME}" && bash "cwl-ica-src/install.sh" -y )
 
 # Set environment variables for user
 ENV CONDA_PREFIX="/home/${CONDA_USER_NAME}/.conda/envs/${CONDA_ENV_NAME}"
