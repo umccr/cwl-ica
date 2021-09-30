@@ -1,0 +1,58 @@
+FROM docker.io/condaforge/mamabaforge-pypy3:4.10.3-1
+
+# Set args
+ARG CONDA_GROUP_NAME="cwl_ica_group"
+ARG CONDA_GROUP_ID=1000
+ARG CONDA_USER_NAME="cwl_ica_user"
+ARG CONDA_USER_ID=1000
+ARG CONDA_ENV_NAME="cwl-ica"
+
+# Copy over src/ to .
+COPY . ./src
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+    echo Updating Apt 1>&2 && \
+    apt-get update -y -q && \
+    echo Installing jq, nodejs, rsync, graphviz and parallel 1>&2 && \
+    apt-get install -y -q \
+      jq \
+      nodejs \
+      rsync \
+      graphviz \
+      parallel && \
+    echo Cleaning up after apt installations 1>&2 && \
+    apt-get clean -y && \
+    echo Installing yq 1>&2 && \
+    wget https://github.com/mikefarah/yq/releases/download/v4.11.2/yq_linux_amd64 \
+        --output-document /usr/bin/yq && \
+    chmod +x /usr/bin/yq && \
+    echo Updating mamba 1>&2 && \
+    mamba update --yes \
+      --name base \
+      --channel defaults \
+      mamba && \
+    echo Adding user groups 1>&2 && \
+    addgroup \
+      --gid "${CONDA_GROUP_ID}" \
+      "${CONDA_GROUP_NAME}" && \
+    adduser \
+      --disabled-password \
+      --gid "${CONDA_GROUP_ID}" \
+      --uid "${CONDA_USER_ID}" "${CONDA_USER_NAME}"
+
+# Switch to conda user
+USER "${CONDA_USER_NAME}"
+
+# Add conda command
+RUN echo "Adding in package and env paths to conda arc" 1>&2 && \
+    conda config --append pkgs_dirs "\$HOME/.conda/pkgs" && \
+    conda config --append envs_dirs "\$HOME/.conda/envs" && \
+    echo "Installing into a conda env" 1>&2 && \
+    bash install "src/install.sh" -y
+
+# Set environment variables for user
+ENV CONDA_PREFIX="/home/${CONDA_USER_NAME}/.conda/envs/${CONDA_ENV_NAME}"
+ENV CONDA_DEFAULT_ENV="${CONDA_ENV_NAME}"
+ENV PATH="/home/${CONDA_USER_NAME}/.conda/envs/${CONDA_ENV_NAME}/bin:${PATH}"
+
+CMD "cwl-ica"
