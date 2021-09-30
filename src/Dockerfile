@@ -1,4 +1,4 @@
-FROM docker.io/condaforge/mamabaforge-pypy3:4.10.3-1
+FROM docker.io/condaforge/mambaforge-pypy3:4.10.3-6
 
 # Set args
 ARG CONDA_GROUP_NAME="cwl_ica_group"
@@ -7,8 +7,8 @@ ARG CONDA_USER_NAME="cwl_ica_user"
 ARG CONDA_USER_ID=1000
 ARG CONDA_ENV_NAME="cwl-ica"
 
-# Copy over src/ to .
-COPY . ./src
+# Copy over src/ to . for user
+COPY . "/cwl-ica-src-temp/"
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     echo Updating Apt 1>&2 && \
@@ -23,11 +23,13 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo Cleaning up after apt installations 1>&2 && \
     apt-get clean -y && \
     echo Installing yq 1>&2 && \
-    wget https://github.com/mikefarah/yq/releases/download/v4.11.2/yq_linux_amd64 \
-        --output-document /usr/bin/yq && \
+    wget --quiet \
+        --output-document /usr/bin/yq \
+        https://github.com/mikefarah/yq/releases/download/v4.11.2/yq_linux_amd64 && \
     chmod +x /usr/bin/yq && \
     echo Updating mamba 1>&2 && \
     mamba update --yes \
+      --quiet \
       --name base \
       --channel defaults \
       mamba && \
@@ -38,7 +40,10 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     adduser \
       --disabled-password \
       --gid "${CONDA_GROUP_ID}" \
-      --uid "${CONDA_USER_ID}" "${CONDA_USER_NAME}"
+      --uid "${CONDA_USER_ID}" "${CONDA_USER_NAME}" && \
+    cp -r "/cwl-ica-src-temp/." "/home/${CONDA_USER_NAME}/cwl-ica-src/" && \
+    chown -R "${CONDA_USER_ID}:${CONDA_GROUP_ID}" "/home/${CONDA_USER_NAME}/cwl-ica-src/" && \
+    rm -rf  "/cwl-ica-src-temp/"
 
 # Switch to conda user
 USER "${CONDA_USER_NAME}"
@@ -48,7 +53,7 @@ RUN echo "Adding in package and env paths to conda arc" 1>&2 && \
     conda config --append pkgs_dirs "\$HOME/.conda/pkgs" && \
     conda config --append envs_dirs "\$HOME/.conda/envs" && \
     echo "Installing into a conda env" 1>&2 && \
-    bash install "src/install.sh" -y
+    (cd "/home/${CONDA_USER_NAME}" && bash "cwl-ica-src/install.sh" -y )
 
 # Set environment variables for user
 ENV CONDA_PREFIX="/home/${CONDA_USER_NAME}/.conda/envs/${CONDA_ENV_NAME}"
