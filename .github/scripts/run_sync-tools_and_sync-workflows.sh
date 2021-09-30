@@ -54,7 +54,7 @@ done
 
 # Create conda env first
 echo "## DEBUG creating cwl-ica manually first because we're having some hanging problems" 1>&2
-mamba create --name "${CONDA_ENV_NAME}" pip
+mamba create --yes --name "${CONDA_ENV_NAME}" pip
 
 # Upgrade pip
 echo "## DEBUG Upgrading pip to latest version in cwl-ica conda env" 1>&2
