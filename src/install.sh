@@ -130,7 +130,7 @@ _verlt() {
 
 get_conda_version() {
   local version
-  version="$($(get_conda_binary) --version | cut -d' ' -f2)"
+  version="$($(get_conda_binary) --version | grep conda | cut -d' ' -f2)"
 
   echo "${version}"
 }
