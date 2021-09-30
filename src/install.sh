@@ -130,7 +130,7 @@ _verlt() {
 
 get_conda_version() {
   local version
-  version="$(conda --version | cut -d' ' -f2)"
+  version="$($(get_conda_binary) --version | cut -d' ' -f2)"
 
   echo "${version}"
 }
@@ -292,7 +292,9 @@ set -u
 # Installations
 echo_stderr "Checking conda, jq and node/nodejs/docker are installed"
 
-if ! has_conda; then
+if ! has_mamba; then
+  echo_stderr "'mamba' not found, if you find that the installation of the conda env is slow, please try again by installing mamba through 'conda install -c conda-forge mamba'"
+elif ! has_conda; then
   echo_stderr "Error, could not find conda binary."
   echo_stderr "Please install conda and ensure it is in your \"\$PATH\" environment variable before continuing"
   exit 1
@@ -322,10 +324,6 @@ fi
 if ! check_rsync; then
   echo_stderr "Failed at rsync check stage"
   exit 1
-fi
-
-if ! has_mamba; then
-  echo_stderr "'mamba' not found, if you find that the installation of the conda env is slow, please try again by installing mamba through 'conda install -c conda-forge mamba'"
 fi
 
 #########################
