@@ -7,12 +7,10 @@ Yet every project of mine has always had one, and probably always will.
 A refined goal is to actively reduce the number of functions in this file.
 """
 
-from utils.repo import read_yaml, get_cwl_ica_repo_path, get_blob_url, get_raw_url
+from utils.repo import read_yaml, get_blob_url, get_raw_url
 from utils.yaml import dump_yaml
 from pathlib import Path
 from utils.repo import get_project_yaml_path
-from classes.project_production import ProductionProject
-from classes.project import Project
 from utils.logging import get_logger
 from utils.errors import CWLFileNameError
 from utils.repo import get_tenant_yaml_path, get_cwl_ica_repo_path
@@ -21,6 +19,7 @@ from base64 import b64encode, b64decode
 import zlib
 from deepdiff import DeepDiff
 import json
+from typing import Dict
 
 logger = get_logger()
 
@@ -102,6 +101,10 @@ def set_projects(project_list):
     :param: A list of projects
     :return:
     """
+
+    # Required imports for this function
+    from classes.project_production import ProductionProject
+    from classes.project import Project
 
     all_projects_list = read_yaml(get_project_yaml_path())['projects']
     new_project_list = []
