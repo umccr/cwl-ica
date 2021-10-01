@@ -316,8 +316,8 @@ tools:
     versions:
       - name: 3.8.4
         path: 3.8.4/dragen-umi__3.8.4.cwl
-        md5sum: 5443b25b76dc9b27709ea047f7b527b9
+        md5sum: 90c35e4db6a2e3202bd628049dd19c31
       - name: 3.9.3
         path: 3.9.3/dragen-umi__3.9.3.cwl
-        md5sum: 974f73b91d8621cf1bdda1350d0e21cd
+        md5sum: a9e764f4b6c304a0e3ea3a58caa59b24
     categories: []

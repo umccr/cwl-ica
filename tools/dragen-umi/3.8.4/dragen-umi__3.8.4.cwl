@@ -157,17 +157,31 @@ inputs:
   fastq_file1:
     label: fastq file1
     doc: |
-      Path to R1 fastq file
+      FASTQ file to send to card (may be gzipped)
     type: File?
     inputBinding:
       prefix: "--fastq-file1"
   fastq_file2:
     label: fastq file2
     doc: |
-      Path to R3 fastq file
+      Second FASTQ file with paired-end reads (may be gzipped - R3 fastq file)
     type: File?
     inputBinding:
       prefix: "--fastq-file2"
+  tumor_fastq1:
+    label: tumor fastq1
+    doc: |
+      FASTQ file of tumor reads for somatic mode
+    type: File?
+    inputBinding:
+      prefix: "--tumor-fastq1"
+  tumor_fastq2:
+    label: tumor fastq2
+    doc: |
+      Second FASTQ file of tumor reads for somatic mode
+    type: File?
+    inputBinding:
+      prefix: "--tumor-fastq2"
   umi_fastq:
     label: umi fastq
     doc: |
@@ -245,9 +259,22 @@ inputs:
   # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
-  # --enable-map-align-output to keep bams
+  # If using tumor and normal bam inputs, set --enable-map-align to false as
+  # Dragen cannot enable map-align with multiple bam/cram inputs.
+  # Use --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_map_align:
+    label: enable map align output
+    doc: |
+      Enables saving the output from the
+      map/align stage. Default is true when only
+      running map/align. Default is false if
+      running the variant caller.
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align"
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -330,7 +357,13 @@ inputs:
     doc: |
       Set the consensus sequence type to output.
       Default value is "both" that outputs both simplex and duplex sequences.
-    type: string?
+    type:
+      - "null"
+      - type: enum
+        symbols:
+          - both
+          - duplex
+          - simplex
     inputBinding:
       prefix: "--umi-emit-multiplicity"
   umi_correction_table:
@@ -340,6 +373,50 @@ inputs:
     type: File?
     inputBinding:
       prefix: "--umi-correction-table"
+  vc_enable_umi_solid:
+    label: vc enable umi solid
+    doc: |
+      Enables solid tumor UMI settings. The default value is false.
+    type: boolean?
+    inputBinding:
+      prefix: "--vc-enable-umi-solid"
+      valueFrom: "$(self.toString())"
+  vc_enable_umi_liquid:
+    label: vc enable umi liquid
+    doc: |
+      Enables liquid tumor UMI settings. The default value is false.
+    type: boolean?
+    inputBinding:
+      prefix: "--vc-enable-umi-liquid"
+      valueFrom: "$(self.toString())"
+  umi_correction_scheme:
+    label: umi correction scheme
+    doc: |
+      Describes the methodology to use for correcting sequencing errors in UMIs.
+    type:
+      - "null"
+      - type: enum
+        symbols:
+          - lookup
+          - random
+          - none
+          - positional
+    inputBinding:
+      prefix: "--umi-correction-scheme"
+  umi_nonrandom_whitelist:
+    label: umi nonrandom whitelist
+    doc: |
+      Provides the path to a file containing valid nonrandom UMIs sequences. Enter one path per line.
+    type: File?
+    inputBinding:
+      prefix: "--umi-nonrandom-whitelist"
+  umi_fuzzy_window_size:
+    label: umi fuzzy window size
+    doc: |
+      Collapses reads with matching UMIs and alignment positions up to the distance specified.
+    type: int?
+    inputBinding:
+      prefix: "--umi-fuzzy-window-size"
   bin_memory:
     label: bin memory
     doc: |
@@ -634,14 +711,59 @@ inputs:
         required: true
     inputBinding:
       prefix: "--dbsnp"
-  # cnv pipeline
+  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf or
+  # --cnv-population-b-allele-vcf.
+  # cnv-use-somatic-vc-baf is not available in Dragen3.8.
+  # If known, specify the sex of the sample. 
+  # If the sample sex is not specified, the caller attempts to estimate the sample sex from tumor alignments. 
   enable_cnv:
     label: enable cnv calling
-    type: boolean?
     doc: |
       Enable CNV processing in the DRAGEN Host Software.
+    type: boolean?
     inputBinding:
       prefix: --enable-cnv
+      valueFrom: "$(self.toString())"
+  cnv_normal_b_allele_vcf:
+    label: cnv normal b allele vcf
+    doc: |
+      Specify a matched normal SNV VCF.
+    type: File?
+    inputBinding:
+      prefix: --cnv-normal-b-allele-vcf
+  cnv_population_b_allele_vcf:
+    label: cnv population b allele vcf
+    doc: |
+      Specify a population SNP catalog.
+    type: File?
+    inputBinding:
+      prefix: --cnv-population-b-allele-vcf
+  # For more info on following options - see 
+  # https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/SomaticWGSModes.htm#Germline
+  cnv_normal_cnv_vcf:
+    label: cnv normal cnv vcf
+    doc: |
+      Specify germline CNVs from the matched normal sample.
+    type: boolean?
+    inputBinding:
+      prefix: --cnv-normal-cnv-vcf
+      valueFrom: "$(self.toString())"
+  cnv_use_somatic_vc_vaf:
+    label: cnv use somatic vc vaf
+    doc: |
+      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
+      the tumor model for the sample. 
+    type: boolean?
+    inputBinding:
+      prefix: --cnv-use-somatic-vc-vaf
+      valueFrom: "$(self.toString())"
+  cnv_somatic_enable_het_calling:
+    label: cnv somatic enable het calling
+    doc: |
+      Enable HET-calling mode for heterogeneous segments.
+    type: boolean?
+    inputBinding:
+      prefix: --cnv-somatic-enable-het-calling
       valueFrom: "$(self.toString())"
   # Miscell
   lic_instance_id_location:

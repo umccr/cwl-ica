@@ -246,8 +246,21 @@ inputs:
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
   # --enable-map-align-output to keep bams
+  # If using tumor and normal bam inputs, set --enable-map-align to false as
+  # Dragen cannot enable map-align with multiple bam/cram inputs.
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_map_align:
+    label: enable map align output
+    doc: |
+      Enables saving the output from the
+      map/align stage. Default is true when only
+      running map/align. Default is false if
+      running the variant caller.
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align"
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |
