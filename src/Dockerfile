@@ -19,7 +19,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       nodejs \
       rsync \
       graphviz \
-      parallel && \
+      parallel \
+      gcc \
+      python3-dev && \
     echo Cleaning up after apt installations 1>&2 && \
     apt-get clean -y && \
     echo Installing yq 1>&2 && \
@@ -51,10 +53,8 @@ ENV USER="${CONDA_USER_NAME}"
 
 # Add conda command
 RUN echo "Adding in package and env paths to conda arc" 1>&2 && \
-    echo 'pkgs_dirs' >> "/home/${CONDA_USER_NAME}/.condarc" && \
-    echo '  - $HOME/.conda/pkgs' >> "/home/${CONDA_USER_NAME}/.condarc" && \
-    echo 'envs_dirs' >> "/home/${CONDA_USER_NAME}/.condarc" && \
-    echo '  - $HOME/.conda/envs' >> "/home/${CONDA_USER_NAME}/.condarc" && \
+    conda config --append pkgs_dirs "\$HOME/.conda/pkgs" && \
+    conda config --append envs_dirs "\$HOME/.conda/envs" && \
     echo "Installing into a conda env" 1>&2 && \
     (cd "/home/${CONDA_USER_NAME}" && bash "cwl-ica-src/install.sh" -y )
 
