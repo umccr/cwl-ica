@@ -4,8 +4,7 @@
 set -euo pipefail
 
 # Set Globals
-CONDA_ENV_NAME="cwl-ica"
-CWL_ICA_REPO_PATH="$PWD"
+export CWL_ICA_REPO_PATH="$PWD"
 N_PARALLEL_JOBS="2"
 
 # FUNCTIONS
@@ -62,11 +61,6 @@ get_cwl_paths_array_from_yaml(){
   echo "${cwl_paths_array[@]}"
 }
 
-
-
-# Exports
-export CWL_ICA_REPO_PATH
-
 # Check env vars
 if [[ ! -v GITHUB_REPOSITORY ]]; then
   echo_stderr "Error - expected env var GITHUB_REPOSITORY"
@@ -78,10 +72,6 @@ if [[ ! -v GITHUB_SERVER_URL ]]; then
   exit 1
 fi
 
-# Install cwl-ica through installation script
-echo_stderr "Installing cwl-ica software into conda env"
-bash src/install.sh --yes
-
 # Now create the markdowns for the cwl expressions
 if [[ -f "config/expression.yaml" ]]; then
   # Get the array of cwl expression paths
@@ -91,9 +81,7 @@ if [[ -f "config/expression.yaml" ]]; then
   echo_stderr "Creating markdowns for expressions"
   parallel \
     --jobs "${N_PARALLEL_JOBS}" \
-    conda run \
-      --name "${CONDA_ENV_NAME}" \
-      cwl-ica github-actions-create-expression-markdown \
+    cwl-ica github-actions-create-expression-markdown \
         --expression-path "{}" \
     ::: "${cwl_expression_paths_array[@]}"
 fi
@@ -108,9 +96,7 @@ if [[ -f "config/tool.yaml" ]]; then
   echo_stderr "Creating markdowns for tools"
   parallel \
     --jobs "${N_PARALLEL_JOBS}" \
-    conda run \
-      --name "${CONDA_ENV_NAME}" \
-      cwl-ica github-actions-create-tool-markdown \
+    cwl-ica github-actions-create-tool-markdown \
         --tool-path "{}" \
     ::: "${cwl_tool_paths_array[@]}"
 fi
@@ -123,16 +109,12 @@ if [[ -f "config/workflow.yaml" ]]; then
   echo_stderr "Creating markdowns for workflows"
   parallel \
     --jobs "${N_PARALLEL_JOBS}" \
-    conda run \
-      --name "${CONDA_ENV_NAME}" \
-      cwl-ica github-actions-create-workflow-markdown \
+    cwl-ica github-actions-create-workflow-markdown \
         --workflow-path "{}" \
     ::: "${cwl_workflow_paths_array[@]}"
 fi
 
 # Now create the catalogue
 echo_stderr "Building the CWL Catalogue"
-conda run \
-      --name "${CONDA_ENV_NAME}" \
-      cwl-ica github-actions-create-catalogue \
+cwl-ica github-actions-create-catalogue \
         --output-path "cwl-ica-catalogue.md"

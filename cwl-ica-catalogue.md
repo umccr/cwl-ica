@@ -339,6 +339,7 @@ illumina-tar)
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.md)  
+- [3.9.3](.github/catalogue/docs/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 
 
 ### dragen-transcriptome
@@ -347,6 +348,7 @@ illumina-tar)
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-transcriptome/3.7.5/dragen-transcriptome__3.7.5.md)  
 - [3.8.4](.github/catalogue/docs/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
+- [3.9.3](.github/catalogue/docs/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
 
 
 ### arriba-fusion-calling
@@ -382,6 +384,7 @@ illumina-tar)
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-alignment/3.7.5/dragen-alignment__3.7.5.md)  
+- [3.9.3](.github/catalogue/docs/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
 
 
 ### custom-create-directory
@@ -581,6 +584,7 @@ illumina-tar)
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.md)  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
 
 
 ### dragen-transcriptome-pipeline
@@ -589,6 +593,7 @@ illumina-tar)
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.md)  
 - [3.8.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
 
 
 ### dragen-alignment-pipeline
@@ -602,6 +607,7 @@ illumina-tar)
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
 
 
 ### dragen-wgs-qc-pipeline
@@ -614,6 +620,7 @@ illumina-tar)
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-wgs-qc-pipeline/3.7.5/dragen-wgs-qc-pipeline__3.7.5.md)  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-wgs-qc-pipeline/3.9.3/dragen-wgs-qc-pipeline__3.9.3.md)  
 
 
 ### tso500-ctdna-post-processing-pipeline
