@@ -45,10 +45,10 @@ jobs:
         run: |
           docker run \
             --rm \
-            --user "cwl_ica_user:cwl_ica_group" \
+            --user "$(id -u):$(id -g)" \
             --volume "$PWD:$PWD" \
             --workdir "$PWD" \
-            --env USER="$(id -nu)" \
+            --env USER="$(id -u)" \
             --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
             --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
             --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
