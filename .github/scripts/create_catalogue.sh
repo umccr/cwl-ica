@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # Set Globals
-CWL_ICA_REPO_PATH="$PWD"
+export CWL_ICA_REPO_PATH="$PWD"
 N_PARALLEL_JOBS="2"
 
 # FUNCTIONS
@@ -60,11 +60,6 @@ get_cwl_paths_array_from_yaml(){
   # Return array
   echo "${cwl_paths_array[@]}"
 }
-
-
-
-# Exports
-export CWL_ICA_REPO_PATH
 
 # Check env vars
 if [[ ! -v GITHUB_REPOSITORY ]]; then

@@ -4,10 +4,7 @@
 set -euo pipefail
 
 # Set Globals
-CWL_ICA_REPO_PATH="$PWD"
-
-# Exports
-export CWL_ICA_REPO_PATH
+export CWL_ICA_REPO_PATH="$PWD"
 
 # Check env vars
 if [[ ! -v GIT_COMMIT_ID ]]; then
