@@ -4,7 +4,6 @@
 set -euo pipefail
 
 # Set Globals
-CONDA_ENV_NAME="cwl-ica"
 CWL_ICA_REPO_PATH="$PWD"
 
 # Exports
@@ -50,60 +49,20 @@ for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
     export "${project_token_env_var_name}"="${project_token}"
 done
 
-## DEBUG
-
-# Create conda env first
-echo "## DEBUG creating cwl-ica manually first because we're having some hanging problems" 1>&2
-mamba create --yes --name "${CONDA_ENV_NAME}" pip
-
-# Upgrade pip
-echo "## DEBUG Upgrading pip to latest version in cwl-ica conda env" 1>&2
-conda run \
-  --name "${CONDA_ENV_NAME}" \
-  pip install --upgrade pip
-
-# Install setuptools from pip
-echo "## DEBUG Forcing installation of setuptools to less than version 58 which seems to be causing some errors" 1>&2
-conda run \
-  --name "${CONDA_ENV_NAME}" \
-  bash -c 'pip install "setuptools<58"'
-
-
-echo "Updating the conda environment with some --verbose logs so we can see what's going on" 1>&2
-mamba env update \
-    --verbose \
-    --name="${CONDA_ENV_NAME}" \
-    --file="src/cwl-ica-conda-env.yaml"
-
-echo "## DEBUG Continuing on as usual" 1>&2
-## END DEBUG
-
-# Install cwl-ica through installation script
-echo "Installing cwl-ica software into conda env" 1>&2
-bash src/install.sh --yes
-
 # Now run the github-schema-sync-command
 echo "Syncing all schemas" 1>&2
-conda run \
-  --name "${CONDA_ENV_NAME}" \
-  cwl-ica github-actions-sync-schemas
+cwl-ica github-actions-sync-schemas
 
 # Now run the github-expression-sync-command
 echo "Syncing all expressions" 1>&2
-conda run \
-  --name "${CONDA_ENV_NAME}" \
-  cwl-ica github-actions-sync-expressions
+cwl-ica github-actions-sync-expressions
 
 # Now run the github-tool-sync-command
 echo "Syncing all tools" 1>&2
-conda run \
-  --name "${CONDA_ENV_NAME}" \
-  cwl-ica github-actions-sync-tools \
+cwl-ica github-actions-sync-tools \
 
 # Now run the github-workflow-sync-command
 echo "Syncing all workflows" 1>&2
-conda run \
-  --name "${CONDA_ENV_NAME}" \
-  cwl-ica github-actions-sync-workflows
+cwl-ica github-actions-sync-workflows
 
 

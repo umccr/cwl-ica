@@ -40,65 +40,20 @@ jobs:
       - name: Get git commit ID
         id: get_git_commit_id
         run: echo "::set-output name=git_commit_id::$(git log --format="%H" -n1 | cut -c1-7)"
-      # Create container with user
-      - name: Create container with user added
-        run: |
-          docker run --name anaconda3_with_user \
-            continuumio/anaconda3:2021.05 \
-              sh -c "export DEBIAN_FRONTEND=noninteractive && \
-                     echo 'Updating Apt' 1>&2 && \
-                     apt-get update -y -q && \
-                     echo 'Installing jq, nodejs, rsync, graphviz and parallel' 1>&2 && \
-                     apt-get install -y -q \
-                       jq \
-                       nodejs \
-                       rsync \
-                       graphviz \
-                       parallel && \
-                     echo 'Cleaning up after apt installations' 1>&2 && \
-                     apt-get clean -y && \
-                     echo 'Installing yq' 1>&2 && \
-                     wget https://github.com/mikefarah/yq/releases/download/v4.11.2/yq_linux_amd64 \
-                         --output-document /usr/bin/yq && \
-                     chmod +x /usr/bin/yq && \
-                     echo 'Updating conda' 1>&2 && \
-                     conda update --yes \
-                       --name base \
-                       --channel defaults \
-                       conda && \
-                     echo 'Installing mamba and pip' 1>&2 && \
-                     conda install --yes \
-                       --name base \
-                       --channel conda-forge \
-                       mamba \
-                       pip && \
-                     echo 'Adding user groups' 1>&2 && \
-                     addgroup \
-                       --gid \"$(id -g)\" \
-                       \"$(id -ng)\" && \
-                     adduser \
-                       --disabled-password \
-                       --gid \"$(id -g)\" \
-                       --uid \"$(id -u)\" \"$(id -nu)\""
-      - name: Commit Container to image
-        run: |
-          docker commit anaconda3_with_user continuumio/anaconda3:2021.05-user
       # Sync tools and workflows
       - name: sync-tools and sync-workflows
         run: |
           docker run \
             --rm \
-            --user "$(id -u):$(id -g)" \
-            --volume  "$PWD:$PWD" \
+            --user "cwl_ica_user:cwl_ica_group" \
+            --volume "$PWD:$PWD" \
             --workdir "$PWD" \
             --env USER="$(id -nu)" \
             --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
             --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
             --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
-            continuumio/anaconda3:2021.05-user \
-              sh -c "conda config --append pkgs_dirs \"\$HOME/.conda/pkgs\" && \
-                     conda config --append envs_dirs \"\$HOME/.conda/envs\" && \
-                     bash \".github/scripts/run_sync-tools_and_sync-workflows.sh\""
+            quay.io/umccr/cwl-ica:0.9.3 \
+              bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Create Catalogue
       - name: create catalogue
         run: |
@@ -110,10 +65,8 @@ jobs:
             --env USER="$(id -nu)" \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
-            continuumio/anaconda3:2021.05-user \
-              sh -c "conda config --append pkgs_dirs \"\$HOME/.conda/pkgs\" && \
-                     conda config --append envs_dirs \"\$HOME/.conda/envs\" && \
-                     bash \".github/scripts/create_catalogue.sh\""
+            quay.io/umccr/cwl-ica:0.9.3 \
+              bash ".github/scripts/create_catalogue.sh"
       # Commit config files
       - name: Commit catalogue files
         uses: EndBug/add-and-commit@v7.2.1
