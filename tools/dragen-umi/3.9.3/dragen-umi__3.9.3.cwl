@@ -15,15 +15,15 @@ s:author:
     s:email: sehrish.kanwal@umccr.org
 
 # ID/Docs
-id: dragen-umi--3.8.4
-label: dragen-umi v(3.8.4)
+id: dragen-umi--3.9.3
+label: dragen-umi v(3.9.3)
 doc: |
     DRAGEN can process data from whole genome and hybrid-capture assays with unique molecular identifiers (UMI).
     This workflow can take forward, reverse and UMI tumor fastqs as inputs and perform the analysis in tumor-only mode.
     In additon, BAM from tumor and normal samples can be used as an input to perform analysis in tumor-normal mode. 
-    More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v38/Content/SW/DRAGEN/UMIs_fDG.htm)
+    More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/UMIs.htm)
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
+# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
         ilmn-tes:resources:
@@ -31,7 +31,7 @@ hints:
             type: fpga
             size: medium
     DockerRequirement:
-        dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.8.4"
+        dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.9.3"
 
 requirements:
   InlineJavascriptRequirement:
@@ -157,31 +157,17 @@ inputs:
   fastq_file1:
     label: fastq file1
     doc: |
-      FASTQ file to send to card (may be gzipped)
+      Path to R1 fastq file
     type: File?
     inputBinding:
       prefix: "--fastq-file1"
   fastq_file2:
     label: fastq file2
     doc: |
-      Second FASTQ file with paired-end reads (may be gzipped - R3 fastq file)
+      Path to R3 fastq file
     type: File?
     inputBinding:
       prefix: "--fastq-file2"
-  tumor_fastq1:
-    label: tumor fastq1
-    doc: |
-      FASTQ file of tumor reads for somatic mode
-    type: File?
-    inputBinding:
-      prefix: "--tumor-fastq1"
-  tumor_fastq2:
-    label: tumor fastq2
-    doc: |
-      Second FASTQ file of tumor reads for somatic mode
-    type: File?
-    inputBinding:
-      prefix: "--tumor-fastq2"
   umi_fastq:
     label: umi fastq
     doc: |
@@ -259,9 +245,9 @@ inputs:
   # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
+  # --enable-map-align-output to keep bams
   # If using tumor and normal bam inputs, set --enable-map-align to false as
   # Dragen cannot enable map-align with multiple bam/cram inputs.
-  # Use --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
   enable_map_align:
@@ -352,6 +338,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--umi-enable"
+      valueFrom: "$(self.toString())"
   umi_emit_multiplicity:
     label: umi emit multiplicity
     doc: |
@@ -424,13 +411,6 @@ inputs:
     type: long?
     inputBinding:
       prefix: "--bin_memory"
-  min_map_quality:
-    label: min map quality
-    doc: |
-      Filter reads with low mapping quanlity
-    type: int?
-    inputBinding:
-      prefix: "--umi-min-map-quality"
   # Variant calling optons
   vc_target_bed:
     label: vc target bed
@@ -711,59 +691,14 @@ inputs:
         required: true
     inputBinding:
       prefix: "--dbsnp"
-  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf or
-  # --cnv-population-b-allele-vcf.
-  # cnv-use-somatic-vc-baf is not available in Dragen3.8.
-  # If known, specify the sex of the sample. 
-  # If the sample sex is not specified, the caller attempts to estimate the sample sex from tumor alignments. 
+  # cnv pipeline
   enable_cnv:
     label: enable cnv calling
+    type: boolean?
     doc: |
       Enable CNV processing in the DRAGEN Host Software.
-    type: boolean?
     inputBinding:
       prefix: --enable-cnv
-      valueFrom: "$(self.toString())"
-  cnv_normal_b_allele_vcf:
-    label: cnv normal b allele vcf
-    doc: |
-      Specify a matched normal SNV VCF.
-    type: File?
-    inputBinding:
-      prefix: --cnv-normal-b-allele-vcf
-  cnv_population_b_allele_vcf:
-    label: cnv population b allele vcf
-    doc: |
-      Specify a population SNP catalog.
-    type: File?
-    inputBinding:
-      prefix: --cnv-population-b-allele-vcf
-  # For more info on following options - see 
-  # https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/SomaticWGSModes.htm#Germline
-  cnv_normal_cnv_vcf:
-    label: cnv normal cnv vcf
-    doc: |
-      Specify germline CNVs from the matched normal sample.
-    type: boolean?
-    inputBinding:
-      prefix: --cnv-normal-cnv-vcf
-      valueFrom: "$(self.toString())"
-  cnv_use_somatic_vc_vaf:
-    label: cnv use somatic vc vaf
-    doc: |
-      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
-      the tumor model for the sample. 
-    type: boolean?
-    inputBinding:
-      prefix: --cnv-use-somatic-vc-vaf
-      valueFrom: "$(self.toString())"
-  cnv_somatic_enable_het_calling:
-    label: cnv somatic enable het calling
-    doc: |
-      Enable HET-calling mode for heterogeneous segments.
-    type: boolean?
-    inputBinding:
-      prefix: --cnv-somatic-enable-het-calling
       valueFrom: "$(self.toString())"
   # Miscell
   lic_instance_id_location:
