@@ -1,10 +1,9 @@
 cwlVersion: v1.1
-class: CommandLineTool
+class: Workflow
 
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -15,209 +14,53 @@ s:author:
     s:email: sehrish.kanwal@umccr.org
 
 # ID/Docs
-id: dragen-germline--3.9.3
-label: dragen-germline v(3.9.3)
+id: dragen-germline-pipeline--3.9.3
+label: dragen-germline-pipeline v(3.9.3)
 doc: |
-    Documentation for dragen-germline v3.9.3
-
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
-hints:
-    ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
-        coresMin: 16
-        ramMin: 240000
-    DockerRequirement:
-        dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.7.5"
+  Workflow takes in dragen param along with object store version of a fastq_list.csv equivalent.
+  See the fastq_list_row schema definitions for more information.
+  More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/FrontPages/DRAGEN.htm)
 
 requirements:
-  SchemaDefRequirement:
-    types:
-      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
-  InlineJavascriptRequirement:
-    expressionLib:
-      - var get_script_path = function(){
-          /*
-          Abstract script path, can then be referenced in baseCommand attribute too
-          Makes things more readable.  FIXME
-          */
-          return "scripts/run-dragen-script.sh";
-        }
-      - var get_dragen_bin_path = function(){
-          /*
-          Return the path of the dragen binary
-          */
-          return "/opt/edico/bin/dragen";
-        }
-      - var get_scratch_mount = function(){
-          /*
-          Return the path of the scratch directory space
-          */
-          return "/ephemeral/";
-        }
-      - var get_intermediate_results_dir = function() {
-          /*
-          Place of the intermediate results files
-          */
-          return get_scratch_mount() + "intermediate-results/";
-        }
-      - var get_fastq_list_path = function() {
-          /*
-          The fastq list path must be placed in working directory
-          */
-          return "fastq_list.csv"
-        }
-      - var get_ref_mount = function() {
-          /*
-          Return the path of where the reference data is to be staged
-          */
-          return get_scratch_mount() + "ref/";
-        }
-      - var get_name_root_from_tarball = function(tar_file) {
-          /*
-          Get the name of the reference folder
-          */
-          var tar_ball_regex = /(\S+)\.tar\.gz/g;
-          return tar_ball_regex.exec(tar_file)[1];
-        }
-      - var get_ref_path = function(input_obj) {
-          /*
-          Return the path of where the reference data is staged + the reference name
-          */
-          return get_ref_mount() + get_name_root_from_tarball(input_obj.basename) + "/";
-        }
-      - var get_script_contents = function(){
-          /*
-          Split dirent out from the listing JS.
-          Makes things a little more readable
-          Split arguments over multiple lines for greater readability
-          Use full long arguments where possible
-          */
-          return "#!/usr/bin/env bash\n" +
-                 "\n" +
-                 "# Fail on non-zero exit of subshell\n" +
-                 "set -euo pipefail\n" +
-                 "\n" +
-                 "# Initialise dragen\n" +
-                 "/opt/edico/bin/dragen \\\n" +
-                 "  --partial-reconfig DNA-MAPPER \\\n" +
-                 "  --ignore-version-check true\n" +
-                 "\n" +
-                 "# Create directories\n" +
-                 "mkdir --parents \\\n" +
-                 "  \"" + get_ref_mount() + "\" \\\n" +
-                 "  \"" + get_intermediate_results_dir() + "\" \\\n" +
-                 "  \"" + inputs.output_directory + "\"\n" +
-                 "\n" +
-                 "# untar ref data into scratch space\n" +
-                 "tar \\\n" +
-                 "  --directory \"" + get_ref_mount() + "\" \\\n" +
-                 "  --extract \\\n" +
-                 "  --file \"" + inputs.reference_tar.path + "\"\n" +
-                 "\n" +
-                 "# Run dragen command and import options from cli\n" +
-                 "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
-        }
-  InitialWorkDirRequirement:
-    listing: |
-      ${
-          /*
-          Initialise the array of files to mount
-          Add in the script path and the script contents
-          We also add in the fastq-list.csv into the working directory,
-          since Read1File and Read2File are relative its position
-          */
+    InlineJavascriptRequirement: {}
+    ScatterFeatureRequirement: {}
+    MultipleInputFeatureRequirement: {}
+    StepInputExpressionRequirement: {}
+    SchemaDefRequirement:
+      types:
+        - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
+        - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
 
-          var e = [{
-                      "entryname": get_script_path(),
-                      "entry": get_script_contents()
-                    },
-                   {
-                      "entryname": get_fastq_list_path(),
-                      "entry": inputs.fastq_list
-                   }];
-
-          /*
-          Check if input_mounts record is defined
-          The fastq-list.csv could be using presigned urls instead
-          */
-          if (inputs.fastq_list_mount_paths === null){
-              return e;
-          }
-
-          /*
-          Iterate through each file to mount
-          Mount that object at the same reference to the mount point index.
-          */
-          inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
-            e.push({
-                'entry': mount_path_record.file_obj,
-                'entryname': mount_path_record.mount_path
-            });
-          });
-
-          /*
-          Return file paths
-          */
-          return e;
-      }
-
-
-baseCommand: [ "bash" ]
-
-arguments:
-  # Script path
-  - valueFrom: "$(get_script_path())"
-    position: -1
-  # Parameters that are always true
-  - prefix: "--enable-variant-caller"
-    valueFrom: "true"
-  - prefix: "--intermediate-results-dir"
-    valueFrom: "$(get_intermediate_results_dir())"
-
-
+# Declare inputs
 inputs:
-  # File inputs
-  fastq_list:
-    label: fastq list
+  fastq_list_rows:
+    label: Row of fastq lists
     doc: |
-      CSV file that contains a list of FASTQ files
-      to process.
-      Read1File and Read2File may be presigned urls or use this in conjunction with
-      the fastq_list_mount_paths inputs.
-    type: File
-    inputBinding:
-      prefix: "--fastq-list"
-  fastq_list_mount_paths:
-    label: fastq list mount paths
-    doc: |
-      Path to fastq list mount path
-    type: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml#predefined-mount-path[]?
+      The row of fastq lists.
+      Each row has the following attributes:
+        * RGID
+        * RGLB
+        * RGSM
+        * Lane
+        * Read1File
+        * Read2File (optional)
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
   reference_tar:
     label: reference tar
     doc: |
       Path to ref data tarball
     type: File
-    inputBinding:
-      prefix: "--ref-dir"
-      valueFrom: "$(get_ref_path(self))"
   # Output naming options
   output_file_prefix:
     label: output file prefix
     doc: |
       The prefix given to all output files
     type: string
-    inputBinding:
-      prefix: "--output-file-prefix"
   output_directory:
     label: output directory
     doc: |
       The directory where all output files are placed
     type: string
-    inputBinding:
-      prefix: "--output-directory"
   # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
@@ -227,45 +70,35 @@ inputs:
   enable_map_align_output:
     label: enable map align output
     doc: |
-      Do you wish to have the output bam files present
+      Enables saving the output from the
+      map/align stage. Default is true when only
+      running map/align. Default is false if
+      running the variant caller.
     type: boolean?
-    inputBinding:
-      prefix: "--enable-map-align-output"
-      valueFrom: "$(self.toString())"
   enable_duplicate_marking:
     label: enable duplicate marking
     doc: |
-      Mark identical alignments as duplicates
+      Enable the flagging of duplicate output
+      alignment records.
     type: boolean?
-    inputBinding:
-      prefix: "--enable-duplicate-marking"
-      valueFrom: "$(self.toString())"
   dedup_min_qual:
     label: deduplicate minimum quality
     doc: |
       Specifies the Phred quality score below which a base should be excluded from the quality score
       calculation used for choosing among duplicate reads.
     type: int?
-    inputBinding:
-      prefix: "--dedup-min-qual"
-      valueFrom: "$(self.toString())"
   enable_sv:
     label: enable sv
     doc: |
       Enable/disable structural variant
       caller. Default is false.
     type: boolean?
-    inputBinding:
-      prefix: "--enable-sv"
-      valueFrom: "$(self.toString())"
   # Structural Variant Caller Options
   sv_call_regions_bed:
     label: sv call regions bed
     doc: |
       Specifies a BED file containing the set of regions to call. 
     type: File?
-    inputBinding:
-      prefix: "--sv-call-regions-bed"
   sv_region:
     label: sv region
     doc: |
@@ -273,9 +106,6 @@ inputs:
       This option can be specified multiple times to build a list of regions. 
       The value must be in the format “chr:startPos-endPos”.. 
     type: string?
-    inputBinding:
-      prefix: "--sv-region"
-      valueFrom: "$(self.toString())"
   sv_exome:
     label: sv exome
     doc: |
@@ -284,17 +114,11 @@ inputs:
       In integrated mode, the default is to autodetect targeted sequencing input, 
       and in standalone mode the default is false.
     type: boolean?
-    inputBinding:
-      prefix: "--sv-exome"
-      valueFrom: "$(self.toString())"
   sv_output_contigs:
     label: sv output contigs
     doc: |
       Set to true to have assembled contig sequences output in a VCF file. The default is false.
     type: boolean?
-    inputBinding:
-      prefix: "--sv-output-contigs"
-      valueFrom: "$(self.toString())"
   sv_forcegt_vcf:
     label: sv forcegt vcf
     doc: |
@@ -302,8 +126,6 @@ inputs:
       in the output VCF even if not found in the sample data. 
       The variants are merged with any additional variants discovered directly from the sample data.
     type: File?
-    inputBinding:
-      prefix: "--sv-forcegt-vcf"
   sv_discovery:
     label: sv discovery
     doc: |
@@ -311,34 +133,23 @@ inputs:
       When set to false, SV discovery is disabled and only the forced genotyping input variants 
       are processed. The default is true.
     type: boolean?
-    inputBinding:
-      prefix: "--sv-discovery"
-      valueFrom: "$(self.toString())"
   sv_se_overlap_pair_evidence:
     label: sv use overlap pair evidence
     doc: |
       Allow overlapping read pairs to be considered as evidence. 
       By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
     type: boolean?
-    inputBinding:
-      prefix: "--sv-use-overlap-pair-evidence"
-      valueFrom: "$(self.toString())"
   sv_enable_liquid_tumor_mode:
     label: sv enable liquid tumor mode
     doc: |
       Enable liquid tumor mode. 
-    type: boolean?
-    inputBinding:
-      prefix: "--sv-enable-liquid-tumor-mode"
-      valueFrom: "$(self.toString())"  
+    type: boolean? 
   sv_tin_contam_tolerance:
     label: sv tin contam tolerance
     doc: |
       Set the Tumor-in-Normal (TiN) contamination tolerance level. 
       You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. 
     type: float?
-    inputBinding:
-      prefix: "--sv-tin-contam-tolerance"
   # Variant calling optons
   vc_target_bed:
     label: vc target bed
@@ -346,8 +157,6 @@ inputs:
       This is an optional command line input that restricts processing of the small variant caller,
       target bed related coverage, and callability metrics to regions specified in a BED file.
     type: File?
-    inputBinding:
-      prefix: "--vc-target-bed"
   vc_target_bed_padding:
     label: vc target bed padding
     doc: |
@@ -355,70 +164,48 @@ inputs:
       BED regions with the specified value.
       For example, if a BED region is 1:1000-2000 and a padding value of 100 is used,
       it is equivalent to using a BED region of 1:900-2100 and a padding value of 0.
-
       Any padding added to --vc-target-bed-padding is used by the small variant caller
       and by the target bed coverage/callability reports. The default padding is 0.
     type: int?
-    inputBinding:
-      prefix: "--vc-target-bed-padding"
   vc_target_coverage:
     label: vc target coverage
     doc: |
       The --vc-target-coverage option specifies the target coverage for down-sampling.
       The default value is 500 for germline mode and 50 for somatic mode.
     type: int?
-    inputBinding:
-      prefix: "--vc-target-coverage"
   vc_enable_gatk_acceleration:
     label: vc enable gatk acceleration
     doc: |
       If is set to true, the variant caller runs in GATK mode
       (concordant with GATK 3.7 in germline mode and GATK 4.0 in somatic mode).
     type: boolean?
-    inputBinding:
-      prefix: "--vc-enable-gatk-acceleration"
-      valueFrom: "$(self.toString())"
   vc_remove_all_soft_clips:
     label: vc remove all soft clips
     doc: |
       If is set to true, the variant caller does not use soft clips of reads to determine variants.
     type: boolean?
-    inputBinding:
-      prefix: "--vc-remove-all-soft-clips"
-      valueFrom: "$(self.toString())"
   vc_decoy_contigs:
     label: vc decoy contigs
     doc: |
       The --vc-decoy-contigs option specifies a comma-separated list of contigs to skip during variant calling.
       This option can be set in the configuration file.
     type: string?
-    inputBinding:
-      prefix: "--vc-decoy-contigs"
   vc_enable_decoy_contigs:
     label: vc enable decoy contigs
     doc: |
       If --vc-enable-decoy-contigs is set to true, variant calls on the decoy contigs are enabled.
       The default value is false.
     type: boolean?
-    inputBinding:
-      prefix: "--vc-enable-decoy-contigs"
-      valueFrom: "$(self.toString())"
   vc_enable_phasing:
     label: vc enable phasing
     doc: |
       The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
     type: boolean?
-    inputBinding:
-      prefix: "--vc-enable-phasing"
-      valueFrom: "$(self.toString())"
   vc_enable_vcf_output:
     label: vc enable vcf output
     doc: |
       The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
-    inputBinding:
-      prefix: "--vc-enable-vcf-output"
-      valueFrom: "$(self.toString())"
   # Downsampling options
   vc_max_reads_per_active_region:
     label: vc max reads per active region
@@ -426,16 +213,12 @@ inputs:
       specifies the maximum number of reads covering a given active region.
       Default is 10000 for the germline workflow
     type: int?
-    inputBinding:
-      prefix: "--vc-max-reads-per-active-region"
   vc_max_reads_per_raw_region:
     label: vc max reads per raw region
     doc: |
       specifies the maximum number of reads covering a given raw region.
       Default is 30000 for the germline workflow
     type: int?
-    inputBinding:
-      prefix: "--vc-max-read-per-raw-region"
   # Ploidy support
   sample_sex:
     label: sample sex
@@ -453,9 +236,6 @@ inputs:
     doc: |
       Enable or disable the ROH caller by setting this option to true or false. Enabled by default for human autosomes only.
     type: boolean?
-    inputBinding:
-      prefix: "--vc-enable-roh"
-      valueFrom: "$(self.toString())"
   vc_roh_blacklist_bed:
     label: vc roh blacklist bed
     doc: |
@@ -463,16 +243,12 @@ inputs:
       DRAGEN distributes blacklist files for all popular human genomes and automatically selects a blacklist to
       match the genome in use, unless this option is used explicitly select a file.
     type: File?
-    inputBinding:
-      prefix: "--vc-roh-blacklist-bed"
   # BAF options
   vc_enable_baf:
     label: vc enable baf
     doc: |
       Enable or disable B-allele frequency output. Enabled by default.
     type: File?
-    inputBinding:
-      prefix: "--vc-enable-baf"
   # Germline variant small hard filtering options
   vc_hard_filter:
     label: vc hard fitler
@@ -483,8 +259,6 @@ inputs:
       the true variants from noise, and therefore the dependency on post-VCF filtering is substantially reduced.
       For this reason, the default post-VCF filtering in DRAGEN is very simple
     type: string?
-    inputBinding:
-      prefix: "--vc-hard-filter"
   # dbSNP annotation
   dbsnp_annotation:
     label: dbsnp annotation
@@ -497,68 +271,34 @@ inputs:
     secondaryFiles:
       - pattern: ".tbi"
         required: true
-    inputBinding:
-      prefix: "--dbsnp"
-  # Force genotyping
-  vc_forcegt_vcf:
-    label: vc forcegt vcf
-    doc: |
-      AGENsupports force genotyping (ForceGT) for Germline SNV variant calling.
-      To use ForceGT, use the --vc-forcegt-vcf option with a list of small variants to force genotype.
-      The input list of small variants can be a .vcf or .vcf.gz file.
-
-      The current limitations of ForceGT are as follows:
-      *	ForceGT is supported for Germline SNV variant calling in the V3 mode.
-      The V1, V2, and V2+ modes are not supported.
-      *	ForceGT is not supported for Somatic SNV variant calling.
-      *	ForceGT variants do not propagate through Joint Genotyping.
-    type: File?
-    secondaryFiles:
-      - pattern: ".tbi"
-        required: true
-    inputBinding:
-      prefix: "--vc-forcegt-vcf"
-  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf, 
-  # More info at https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/CNVExamples_fDG_dtREF.htm?Highlight=cnv-normal-b-allele-vcf
+  # cnv pipeline
   enable_cnv:
     label: enable cnv calling
     doc: |
       Enable CNV processing in the DRAGEN Host Software.
     type: boolean?
-    inputBinding:
-      prefix: --enable-cnv
-      valueFrom: "$(self.toString())"
   cnv_enable_self_normalization:
     label: cnv enable self normalization
     doc: |
       Enable CNV self normalization. 
       Self Normalization requires that the DRAGEN hash table be generated with the enable-cnv=true option.
     type: boolean?
-    inputBinding:
-      prefix: --cnv-enable-self-normalization
-      valueFrom: "$(self.toString())"
   # QC options
   qc_coverage_region_1:
     label: qc coverage region 1
     doc: |
       Generates coverage region report using bed file 1.
     type: File?
-    inputBinding:
-      prefix: --qc-coverage-region-1
   qc_coverage_region_2:
     label: qc coverage region 2
     doc: |
       Generates coverage region report using bed file 2.
     type: File?
-    inputBinding:
-      prefix: --qc-coverage-region-2
   qc_coverage_region_3:
     label: qc coverage region 3
     doc: |
       Generates coverage region report using bed file 3.
     type: File?
-    inputBinding:
-      prefix: --qc-coverage-region-3
   qc_coverage_ignore_overlaps:
     label: qc coverage ignore overlaps
     doc: |
@@ -566,45 +306,12 @@ inputs:
       overlapping bases. This might result in marginally longer run times. 
       This option also requires setting --enable-map-align=true.
     type: boolean?
-    inputBinding:
-      prefix: --qc-coverage-ignore-overlaps
-      valueFrom: "$(self.toString())"
-  # TMB options
-  enable_tmb:
-    label: enable tmb
-    doc: |
-      Enables TMB. If set, the small variant caller, Illumina Annotation Engine, 
-      and the related callability report are enabled.
-    type: boolean?
-    inputBinding:
-      prefix: --enable-tmb
-      valueFrom: "$(self.toString())"
-  tmb_vaf_threshold:
-    label: tmb vaf threshold
-    doc: |
-      Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out. 
-      The default value is 0.05.
-    type: float?
-    inputBinding:
-      prefix: --tmb-db-threshold
-  tmb_db_threshold:
-    label: tmb db threshold
-    doc: |
-      Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome 
-      to be considered a germline variant.  Variant calls that have the same positions and allele are ignored
-      from the TMB calculation. The default value is 10.
-    type: int?
-    inputBinding:
-      prefix: --tmb-db-threshold
   # HLA calling
   enable_hla:
     label: enable hla
     doc: |
       Enable HLA typing by setting --enable-hla flag to true
     type: boolean?
-    inputBinding:
-      prefix: --enable-hla
-      valueFrom: "$(self.toString())"
   hla_bed_file:
     label: hla bed file
     doc: |
@@ -612,8 +319,6 @@ inputs:
       DRAGEN HLA Caller parses the input file for regions within the BED file, and then 
       extracts reads accordingly to align with the HLA allele reference.
     type: File?
-    inputBinding:
-      prefix: --hla-bed-file
   hla_reference_file:
     label: hla reference file
     doc: |
@@ -622,8 +327,6 @@ inputs:
       If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. 
       The reference HLA sequences are obtained from the IMGT/HLA database.
     type: File?
-    inputBinding:
-      prefix: --hla-reference-file
   hla_allele_frequency_file:
     label: hla allele frequency file
     doc: |
@@ -632,8 +335,6 @@ inputs:
       If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. 
       Population-level allele frequencies can be obtained from the Allele Frequency Net database.
     type: File?
-    inputBinding:
-      prefix: --hla-allele-frequency-file
   hla_tiebreaker_threshold:
     label: hla tiebreaker threshold
     doc: |
@@ -642,8 +343,6 @@ inputs:
       on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to 
       the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
     type: float?
-    inputBinding:
-      prefix: --hla-tiebreaker-threshold
   hla_zygosity_threshold:
     label: hla zygosity threshold
     doc: |
@@ -651,8 +350,6 @@ inputs:
       then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value. 
       The default value is 0.15.
     type: float?
-    inputBinding:
-      prefix: --hla zygosity threshold
   hla_min_reads:
     label: hla min reads
     doc: |
@@ -660,8 +357,6 @@ inputs:
       The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a 
       lower threshold value.
     type: int?
-    inputBinding:
-      prefix: --hla-min-reads
   # Miscellaneous options
   lic_instance_id_location:
     label: license instance id location
@@ -670,23 +365,184 @@ inputs:
       Optional value, default set to /opt/instance-identity
       which is a path inside the dragen container
     type:
-      - File?
-      - string?
-    default: "/opt/instance-identity"
-    inputBinding:
-      prefix: "--lic-instance-id-location"
+      - "null"
+      - File
+      - string
+steps:
+  # Create fastq_list.csv
+  create_fastq_list_csv_step:
+    label: create fastq list csv step
+    doc: |
+      Create the fastq list csv to then run the germline tool.
+      Takes in an array of fastq_list_row schema.
+      Returns a csv file along with predefined_mount_path schema
+    in:
+      fastq_list_rows:
+        source: fastq_list_rows
+    out:
+      - id: fastq_list_csv_out
+      - id: predefined_mount_paths_out
+    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
+  # Run dragen germline workflow
+  run_dragen_germline_step:
+    label: run dragen germline step
+    doc: |
+      Runs the dragen germline workflow on the FPGA.
+      Takes in a fastq list and corresponding mount paths from the predefined_mount_paths.
+      All other options available at the top of the workflow
+    in:
+      fastq_list:
+        source: create_fastq_list_csv_step/fastq_list_csv_out
+      fastq_list_mount_paths:
+        source: create_fastq_list_csv_step/predefined_mount_paths_out
+      reference_tar:
+        source: reference_tar
+      output_file_prefix:
+        source: output_file_prefix
+      output_directory:
+        source: output_directory
+      enable_map_align_output:
+        source: enable_map_align_output
+      enable_duplicate_marking:
+        source: enable_duplicate_marking
+      dedup_min_qual:
+        source: dedup_min_qual
+      vc_target_bed:
+        source: vc_target_bed
+      vc_target_bed_padding:
+        source: vc_target_bed_padding
+      vc_target_coverage:
+        source: vc_target_coverage
+      vc_enable_gatk_acceleration:
+        source: vc_enable_gatk_acceleration
+      vc_remove_all_soft_clips:
+        source: vc_remove_all_soft_clips
+      vc_decoy_contigs:
+        source: vc_decoy_contigs
+      vc_enable_decoy_contigs:
+        source: vc_enable_decoy_contigs
+      vc_enable_phasing:
+        source: vc_enable_phasing
+      vc_enable_vcf_output:
+        source: vc_enable_vcf_output
+      vc_max_reads_per_active_region:
+        source: vc_max_reads_per_active_region
+      vc_max_reads_per_raw_region:
+        source: vc_max_reads_per_raw_region
+      sample_sex:
+        source: sample_sex
+      vc_enable_roh:
+        source: vc_enable_roh
+      vc_roh_blacklist_bed:
+        source: vc_roh_blacklist_bed
+      vc_enable_baf:
+        source: vc_enable_baf
+      vc_hard_filter:
+        source: vc_hard_filter
+      enable_sv:
+        source: enable_sv
+      # Structural Variant Caller Options
+      sv_call_regions_bed:
+        source: sv_call_regions_bed
+      sv_region:
+        source: sv_region
+      sv_exome:
+        source: sv_exome
+      sv_output_contigs:
+        source: sv_output_contigs
+      sv_forcegt_vcf:
+        source: sv_forcegt_vcf
+      sv_discovery:
+        source: sv_discovery
+      sv_se_overlap_pair_evidence:
+        source: sv_se_overlap_pair_evidence
+      sv_enable_liquid_tumor_mode:
+        source: sv_enable_liquid_tumor_mode
+      sv_tin_contam_tolerance:
+        source: sv_tin_contam_tolerance
+      dbsnp_annotation:
+        source: dbsnp_annotation
+      #cnv options
+      enable_cnv:
+        source: enable_cnv
+      cnv_enable_self_normalization:
+        source: cnv_enable_self_normalization
+      #qc options
+      qc_coverage_region_1:
+        source: qc_coverage_region_1
+      qc_coverage_region_2:
+        source: qc_coverage_region_2
+      qc_coverage_region_3:
+        source: qc_coverage_region_3
+      qc_coverage_ignore_overlaps:
+        source: qc_coverage_ignore_overlaps
+      #hla
+      enable_hla:
+        source: enable_hla
+      hla_bed_file:
+        source: hla_bed_file
+      hla_reference_file:
+        source: hla_reference_file
+      hla_allele_frequency_file:
+        source: hla_allele_frequency_file
+      hla_tiebreaker_threshold:
+        source: hla_tiebreaker_threshold
+      hla_zygosity_threshold:
+        source: hla_zygosity_threshold
+      hla_min_reads:
+        source: hla_min_reads
+      lic_instance_id_location:
+        source: lic_instance_id_location
+    out:
+      - id: dragen_germline_output_directory
+      - id: dragen_bam_out
+      - id: dragen_vcf_out
+    run: ../../../tools/dragen-germline/3.7.5/dragen-germline__3.7.5.cwl
+  # Create dummy file for the qc step
+  create_dummy_file_step:
+    label: Create dummy file
+    doc: |
+      Intermediate step for letting multiqc-interop be placed in stream mode
+    in: { }
+    out:
+      - id: dummy_file_output
+    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+  dragen_qc_step:
+    label: dragen qc step
+    doc: |
+      The dragen qc step - this takes in an array of dirs
+    requirements:
+      DockerRequirement:
+        dockerPull: umccr/multiqc-dragen:1.9
+    in:
+      input_directories:
+        source: run_dragen_germline_step/dragen_germline_output_directory
+        valueFrom: |
+          ${
+            return [self];
+          }
+      output_directory_name:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_germline_multiqc"
+      output_filename:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_germline_multiqc.html"
+      title:
+        source: output_file_prefix
+        valueFrom: "UMCCR MultiQC Dragen Germline Report for $(self)"
+      dummy_file:
+        source: create_dummy_file_step/dummy_file_output
+    out:
+      - id: output_directory
+    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
 
 outputs:
-  # Will also include mounted-files.txt
   dragen_germline_output_directory:
     label: dragen germline output directory
     doc: |
       The output directory containing all germline output files
     type: Directory
-    outputBinding:
-      glob: "$(inputs.output_directory)"
-  # Optional files to be used in downstream workflows.
-  # Whilst these files reside inside the germline directory, specifying them here as outputs
+    outputSource: run_dragen_germline_step/dragen_germline_output_directory
   # provides easier access and reference
   # Only exists if --enable-map-align-output is set to true#
   dragen_bam_out:
@@ -694,21 +550,22 @@ outputs:
     doc: |
       The output bam file, exists only if --enable-map-align-output is set to true
     type: File?
-    outputBinding:
-      glob: "$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
     secondaryFiles:
       - ".bai"
+    outputSource: run_dragen_germline_step/dragen_bam_out
   # Should always be available as an output
   dragen_vcf_out:
     label: dragen vcf out
     doc: |
       The output germline vcf file
     type: File?
-    outputBinding:
-      glob: "$(inputs.output_directory)/$(inputs.output_file_prefix).vcf.gz"
     secondaryFiles:
       - ".tbi"
-
-
-successCodes:
-  - 0
+    outputSource: run_dragen_germline_step/dragen_vcf_out
+  # The multiqc output directory
+  multiqc_output_directory:
+    label: multiqc output directory
+    doc: |
+      The output directory for multiqc
+    type: Directory
+    outputSource: dragen_qc_step/output_directory

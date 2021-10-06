@@ -83,7 +83,7 @@ tools:
         md5sum: 54dd1c2214ab62a252ba9fb195af749d
       - name: 3.9.3
         path: 3.9.3/dragen-germline__3.9.3.cwl
-        md5sum: 71c1ef654cd2769f2a7e725dd2980932
+        md5sum: 8e347466359e0cd6e73cf35db263ef42
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
