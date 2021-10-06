@@ -845,3 +845,66 @@ runs:
         task_stop_time: 1632453046
         task_duration: 565
         task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.affca1fb24e34cbca115844c3f9f6c57
+    ica_workflow_id: wfl.834780d221224322aa6fbe8e5bf15f35
+    ica_workflow_name: dragen-umi_dev-wf
+    ica_workflow_version_name: 3.8.4
+    ica_workflow_run_name: Dragen3.8-TN-SBJ00471_plasma
+    ica_input: eJzFkk1LAzEQhv9KydlsKhVcelNEULAerOcwTWZ3A/lYJtn1o/S/O63YFqngRbwl7/sy88wka7GCoF3shyLmk7UwHnLmk7h1HsXZRPhkoLgUt1pr81ypIRhDkjAjkOmUKTeLK/V0fT+dXlye654LBNDPD3eKI4MvWS4e5ayq95Ef7hWDiA13NHHUMVEAr1cavEePejTNf+N1QFY2zhcktBUDVe37jhcjrBiRsRmi0IAHLUDPE7h2i9eAz0dWPkqnofD+tXWEpiR62w6zb79ciEOE+6PuCRv3eiLEOsNFg7oA/XZfFkf0qQ8Yi9oXkBYKKEvQYtQd5I4rMnVWY626dlYr8AVegFDy2BKi6RJvZWfJsZYn3YqhvnZWhpBI//3XW357S/ZOCnoH9PkFNx/yYP0w
+    ica_output: eJxlj8sKwjAQRX+lZG1NRUHpTulGwW7UdYjJWANJUzIJqKX/bgLagi7PvYd59EQ63kDLglHMBt8Fz6RyILx1T1JmPdFWcK9sG4E0EktKgxHC5Q4QuBN3KnxVb+lpdyiK1XrBOs3RcHY57mlUgvaYn+t8Od+MSmQyy8iVI7TcQBr8U6XYWetT9WV4jCjiCkxQjZfGFNUrzWqD1kPE6RkWz2YIiPELpuTH+VduVktwkzG8AVJZXiQ=
+    ica_engine_parameters: eJy1kL1uwjAURl8FZWFpEjsJhLK1zVAqAUNgRsa5Sa0mdmRfQyni3WsHtUNFp6qbf849n/2dg6PSb4XQwFHpUzAfBU1l5nF8rHXE6pozWu+TDNKM792aTmZZxtP6vp7ySR4XmjUg02gWblZh+fhCSJbTXd8y07HgbhQoi73FG3bbca5DDQaY5q8xx2L1EP8Q7LbLRewQ26Lxfhfjndj169+0f350bBB642Na1fxLgPMO/o69l5whgnb2NPkuqwREIRsf2akDeJSr/nT98kIaZJLD5tSDJ0q3q5iunsVTb2+jpfgY0CVUwnaeqaBmrtOFdNRSVcPtuFBH2SpWjT0hvq7WB9BaVGAcc7748sFsDVxHmRQ1GBzGmUU1jPJji0q1/jCNSJSQhNCEpDRPKaUeANkIOWTSiOYRCR1CSU6nlNA8NKgZWhN2zPhmLp9HW9V6
+    workflow_start_time: 1633348017
+    workflow_end_time: 1633365451
+    workflow_duration: 17433
+    ica_tasks:
+      - ica_task_run_instance_id: trn.ee69eb70e6944eac98a872a08cab2e18
+        task_step_name: main
+        task_name: main
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1633348167
+        task_stop_time: 1633364659
+        task_duration: 16492
+        task_metrics: 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
+  - ica_workflow_run_instance_id: wfr.96ea5cf11b2843c9b9b7a88070b48e3e
+    ica_workflow_id: wfl.834780d221224322aa6fbe8e5bf15f35
+    ica_workflow_name: dragen-umi_dev-wf
+    ica_workflow_version_name: 3.8.4
+    ica_workflow_run_name: Dragen3.8-NO-SBJ00471
+    ica_input: eJy9UstOwzAQ/BXkM47jFtSoNyhCAkGRijhbi71xIjlOWDvhUfXfcYtKSwGJE7fVzHh2xvaSoYdHh0r7gU2PSnABj4+2YAOdAldbr9o+dn1Mikj9niDsHyohxCdV1g5lQpdMOwghTewyQSwJXKsh1q1fY9aEqRB9ozVxwoBAuhI6XszPxP35dZ6fTKTqkkED6uH2aofNZgs5yWV+qm5kkedyNFGLkUpDtlmf2Te2+pJl9L9Z5PcsH3enTE2oY0uv65VbDz6/4+OsYDvZOrPqCMv65Rdh4pDQa1QR6K/tDA7o2q5BH8WnATcQQRgCi15VEKrkmJ41iKEQlR0XAlyEZyDk6Xtw8LpqCc2G4kPBf2SzFGrbnGxtDkpsCtjQHMKrdw9fzXs=
+    ica_output: eJxtj7EKwjAQhl9FMltTUVC6KV0UrIM4h5icNZA0JZeAWvruJlDbQcfv/o+7+zsiHa+hYcEoZoNvg2dSORDeuhcpZh3RVnCvbBOB1BILSoMRwmUOELgTDyp8We3oZX/M8/VmyVrN0XB2PR1oVIL2mFXnbLXYjsrAZD4jN47QcANp+Z84Rc5an+Ivw3NEEU9hgnL8OE5RvdO+JmjdR5xKsfg+Q0CMbZiSg/Or3K2W4Caj/wCY/1+h
+    ica_engine_parameters: eJytkrFuwjAURX8FZWFpEjuhJLC1zVAqAUPaGRn7JbWa2JH9QkoR/147iE50qTraPvc8+8qnYNDmo5AGOGpzDJaToBZ2GcdDZaLFHNg9ryjdJ/ks5Yv9Yp+xPCcZ2c9ySCEuDKtBpVEebrZh+fhCyCyjwd0k0D12Pd7Q9i3nJjRggRn+HnMsNg/xNbnrGmZbtntbr2KH9A1aL3Z+78S22/6m/fttY4vQWe9vdP2/ZiccxS37LDlDBOO0afJTTwmIUtV+VqsP4FGuu+PlkStlkSkOr8cOPFG6lWBGPMunrr+NlvJrRNcgZN96RkDFXIsr5ai1FuPptNCDajQTU0/I69H2AMZIAdYxp7OvG+ybhUuUKVmBxTHOetRjlA8Nat34zTQiUUISQhOS0iyldPwEoGqpxpk0ollEQodQktE5JTQLLRqGvQ1bZn0z52/3lcq8
+    workflow_start_time: 1633325075
+    workflow_end_time: 1633332665
+    workflow_duration: 7590
+    ica_tasks:
+      - ica_task_run_instance_id: trn.94ca5a5b1fb649d4998c28ec045e16d7
+        task_step_name: main
+        task_name: main
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1633325198
+        task_stop_time: 1633330813
+        task_duration: 5614
+        task_metrics: eJydls1qWzEQhV/FeH25aDT/fZXSRQhZdGES0nQRQt+9ogtfSe4Rxjtfw8cZnZkz0vev88fPy8uvj6fL2/nbiYyZqybxdjo/v/1uf5U92+/Ly+X1/fPfZ/mznf5PuVwp2ut9lJWaB1VHTNo35LIcnO46cLQn4kjtyskePVbrTgir5FdM99JjTHtAzMsCg0UyP4ZlQKziFohyh9GEQUuU6CHMsZOLfht717e8G0vuMJ4wRphrWZxNEBZ1ZQnGuuTcYoqwZF9gBrE8iqxjcNpwIcyL1iNwPFopDPvtRF1Qp86J7g45P8qkaVC0QFe8cvR6PnCE66wRvZ5MHPSFVVccSp0LGfSlcWhYXJw3tPgU586VC/YFR8E1Y6UH+9D2Q68XEwd98d6Xaawbh1atuy3rREvTg4c6R47hZvHIRf8Y+5mjLyMn0JcolPh8AnMUxRLnSOD5glj6Omk6H/IzKIc88KSH+hftSsfzKXDOWvsY50/x+bi7h258wfMSUh/zUxYPlsahvIfqou+G9YwI+4n3brS7r+d40kP7JdoixL4Y1vPMDe4Jx1wzFPc9cJ1Jg55NenA+0+sG91LAPmTpc8TjA3fhZ5ZIrGewziStOH+O9foXLpWbOUN9yJZ4rLeok3k4X53qRHlITsJ9x/OSovKQno57d/YT7YlUF1xnYj1jzBl+h6Qt9ovh91m6+opDezdjfL/4vXrheF7a+dC9mSl4rg3ft5m50IP3EZei+J1livrAhQp+Rxqcl8Z1+8UmjFuZP/4CR2c10A==
+  - ica_workflow_run_instance_id: wfr.d068fc090a204a08823974db7b255f88
+    ica_workflow_id: wfl.834780d221224322aa6fbe8e5bf15f35
+    ica_workflow_name: dragen-umi_dev-wf
+    ica_workflow_version_name: 3.8.4
+    ica_workflow_run_name: Dragen3.8-TO-SBJ00471_plasma
+    ica_input: eJy9kEtLBDEQhP+KzNlsMrOCqzdFBEVFFM+hTXpnAnnZyYyu4n83M+u64gM8ea2qrnyVlwo93FuUyg/V4c4SbMLdnY3oIEqwpvUy9Dn2uSQy9Z8CadhK64jUhlDlQKviVLfH50Ls7dfs7vKMzWeLaptbmnIfCZfm6bdkMZHQK5QZqIReKmUhpTF+Wq7HiA0Ksgl+1FqdDjnXOKAN0aHP/KOAacjANUGLXnaQutJY+BMfFrxr5wsONsMjELLyDwy86gKhniw2LNiP7qxAzdrn6nUkbY2WuXeBvm6ZdrTJ/e5OhlxCyg/1X0f2TilihAmBVMdVPrk64ptiGUuBA1n6t9r1zXl9IPbFnrxohBDzg0be1FKIeja9vBnyCab5X5j5d5jemTXK/5I0P5NYc09AK5lXEccnCbwOjiXjosWn6j3ljJepjzFQNr6VhKBH6ObdTqEnNZ2vh72+AbUqHzw=
+    ica_output: eJxtj7EKwjAQhl+lZDamoqB0U7ooqIM6h5icNZA2JZeAWvruJqDtoON3/8fd/R1RTlTQ8FBrboNvg+dKO5Deuicpso4YK4XXtolAKoUFY6GW0lEHCMLJO5O+PKzZabPL88VyxlsjsBb8st+yqATjkZ6PdD5dDQqNWRqQSUauAqERNaTt//KUOWt9yr8MjwFlPIYJyuHnOEX9SgubYEwfcazFYwGOgBj7cK0+zq9ys0aBG43+DVdTYEM=
+    ica_engine_parameters: eJy1kLFuwjAURX8FZWFpEjsBEtjaZiiVKENgRsZ+Sa0mdmS/QCni32sHtUNFp6qj/c47177n4KjNWyENcNTmFCxGQS3sIo6PlYkEmeUVJ3PCEjJhJM+TdJ5NxD7bJ9NpledxYVgNKo3ycLMOy4dnQiYZ3XUNsy0L7kaB7rHr8Ya9bzk3oQELzPDXmGPxch//EOy2q2XskL5B6/0uxjux7da/af/86NgidNbHNLr+lwDnHfwtey85QwTj7GnyXVYJiFLVPrLVB/Ao193p+uWlssgUh82pA0+U7iSYEU/ysetvo6X8GNAVCNm3nhFQMdfpUjlqpcUwHRf6qBrNxNgT8mu0PoAxUoB1zPniywe7tXBdZUpWYHFYZz3qYZUfG9S68ZdpRKKEJIQmJKVZSin1AKhaqiGTRjSLSOgQSjI6o4RmoUXDsLdhy6xv5vIJJQHRrA==
+    workflow_start_time: 1633324958
+    workflow_end_time: 1633330118
+    workflow_duration: 5160
+    ica_tasks:
+      - ica_task_run_instance_id: trn.62fb4ac7ba954289aff9195abb140496
+        task_step_name: main
+        task_name: main
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1633325081
+        task_stop_time: 1633329069
+        task_duration: 3987
+        task_metrics: eJyd1stuVDEMBuBXGc26imI7vvEqiAVCXbAYUUFZIMS795TFHCflj1B3MyN9csZ27Hz8fX3+env88fz59nT9cCETEVYXfbhcvzz9fP2p8fH59nj79v3X8bW3/ufh8m+V71GhdCpuVNngxsgl9dNpG5OjltC53N2YGeNjWpdRmFam0giyHCiaawvESP3OpOXEvAliTKMwX9iAzCsb/8ukdInM9d6yjMJkYYrY0N0hIVPSdzE/C0B9TmVwc+SM8+68xcQMNrNZuTor26TSFbNohliQQ5b4v4VlSeXEqBPOZQqXcFMzJ+FTJs5J4gp4L/NkZQLHghPhaAoL51SmycoMXlRnMcgC1ts5IaPe8SlFYQVeK4dK4IMMu00NRjA+54BD1nX04mx1MJ7mxuEx66a1ejq7TfmObsHxHNfBp7zo6mBzhmzjwbxEEo4XcGsdi3yTz4Dxopf988YlnBDR/ewzXfts46gsZVrWK1HCRguKrLBPkANWMLjcJFo2MzFeKEcFrUaUGRq8gyHOG4hHUwzZwYEjjvqOewPxYye0vFqOp9ySHMbJMTqfBEsZAy+WsDJ8jyfg1N+xCeeS2OEdEfWBy3PT/GWfXgAOgwp+
