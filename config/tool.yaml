@@ -81,6 +81,9 @@ tools:
       - name: 3.7.5
         path: 3.7.5/dragen-germline__3.7.5.cwl
         md5sum: 54dd1c2214ab62a252ba9fb195af749d
+      - name: 3.9.3
+        path: 3.9.3/dragen-germline__3.9.3.cwl
+        md5sum: 71c1ef654cd2769f2a7e725dd2980932
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet

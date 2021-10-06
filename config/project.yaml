@@ -111,6 +111,11 @@ projects:
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-29T00:51:41UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-germline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2021-10-06T00:00:01UTC
+            run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
         ica_workflow_name: custom-create-tso500-samplesheet_dev-wf
