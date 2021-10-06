@@ -497,7 +497,7 @@ steps:
       - id: dragen_germline_output_directory
       - id: dragen_bam_out
       - id: dragen_vcf_out
-    run: ../../../tools/dragen-germline/3.7.5/dragen-germline__3.7.5.cwl
+    run: ../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.cwl
   # Create dummy file for the qc step
   create_dummy_file_step:
     label: Create dummy file

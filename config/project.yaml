@@ -114,7 +114,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-germline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-10-06T01:42:13UTC
+            modification_time: 2021-10-06T08:02:32UTC
             run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
@@ -322,7 +322,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-10-06T01:41:17UTC
+            modification_time: 2021-10-06T08:07:30UTC
             run_instances:
               - wfr.7dacdea8724147cc9a7a680afb23702b
       - name: dragen-qc-hla-pipeline
