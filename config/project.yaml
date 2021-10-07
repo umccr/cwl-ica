@@ -324,7 +324,7 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2021-10-07T00:44:23UTC
             run_instances:
-              - wfr.7dacdea8724147cc9a7a680afb23702b
+              - wfr.d058e5f7be4b4683a9b1a59b8f67f91b
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
         ica_workflow_name: dragen-qc-hla-pipeline_dev-wf
