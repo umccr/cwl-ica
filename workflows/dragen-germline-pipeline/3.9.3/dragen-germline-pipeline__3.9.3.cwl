@@ -513,7 +513,7 @@ steps:
       The dragen qc step - this takes in an array of dirs
     requirements:
       DockerRequirement:
-        dockerPull: umccr/multiqc-dragen:1.9
+        dockerPull: quay.io/umccr/multiqc-dragen:1.12-dev
     in:
       input_directories:
         source: run_dragen_germline_step/dragen_germline_output_directory

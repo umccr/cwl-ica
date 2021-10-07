@@ -322,7 +322,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-10-06T08:07:30UTC
+            modification_time: 2021-10-07T00:44:23UTC
             run_instances:
               - wfr.7dacdea8724147cc9a7a680afb23702b
       - name: dragen-qc-hla-pipeline
