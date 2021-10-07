@@ -1,30 +1,30 @@
 
-dragen-umi 3.8.4 tool
+dragen-umi 3.9.3 tool
 =====================
 
 ## Table of Contents
   
-- [Overview](#dragen-umi-v384-overview)  
+- [Overview](#dragen-umi-v393-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-umi-v384-inputs)  
-- [Outputs](#dragen-umi-v384-outputs)  
+- [Inputs](#dragen-umi-v393-inputs)  
+- [Outputs](#dragen-umi-v393-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-umi v(3.8.4) Overview
+## dragen-umi v(3.9.3) Overview
 
 
 
   
-> ID: dragen-umi--3.8.4  
-> md5sum: 90c35e4db6a2e3202bd628049dd19c31
+> ID: dragen-umi--3.9.3  
+> md5sum: a9e764f4b6c304a0e3ea3a58caa59b24
 
-### dragen-umi v(3.8.4) documentation
+### dragen-umi v(3.9.3) documentation
   
 DRAGEN can process data from whole genome and hybrid-capture assays with unique molecular identifiers (UMI).
 This workflow can take forward, reverse and UMI tumor fastqs as inputs and perform the analysis in tumor-only mode.
 In additon, BAM from tumor and normal samples can be used as an input to perform analysis in tumor-normal mode. 
-More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v38/Content/SW/DRAGEN/UMIs_fDG.htm)
+More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/UMIs.htm)
 
 ### Categories
   
@@ -32,12 +32,12 @@ More information on the documentation can be found [here](https://support-docs.i
 
 ## Related Links
   
-- [CWL File Path](../../../../../../tools/dragen-umi/3.8.4/dragen-umi__3.8.4.cwl)  
+- [CWL File Path](../../../../../../tools/dragen-umi/3.9.3/dragen-umi__3.9.3.cwl)  
 
   
 
 
-## dragen-umi v(3.8.4) Inputs
+## dragen-umi v(3.9.3) Inputs
 
 ### normal bam
 
@@ -63,72 +63,6 @@ Path to normal bam
 **Type:** `long`  
 **Docs:**  
 bin memory
-
-
-### cnv normal b allele vcf
-
-
-
-  
-> ID: cnv_normal_b_allele_vcf
-  
-**Optional:** `True`  
-**Type:** `File`  
-**Docs:**  
-Specify a matched normal SNV VCF.
-
-
-### cnv normal cnv vcf
-
-
-
-  
-> ID: cnv_normal_cnv_vcf
-  
-**Optional:** `True`  
-**Type:** `boolean`  
-**Docs:**  
-Specify germline CNVs from the matched normal sample.
-
-
-### cnv population b allele vcf
-
-
-
-  
-> ID: cnv_population_b_allele_vcf
-  
-**Optional:** `True`  
-**Type:** `File`  
-**Docs:**  
-Specify a population SNP catalog.
-
-
-### cnv somatic enable het calling
-
-
-
-  
-> ID: cnv_somatic_enable_het_calling
-  
-**Optional:** `True`  
-**Type:** `boolean`  
-**Docs:**  
-Enable HET-calling mode for heterogeneous segments.
-
-
-### cnv use somatic vc vaf
-
-
-
-  
-> ID: cnv_use_somatic_vc_vaf
-  
-**Optional:** `True`  
-**Type:** `boolean`  
-**Docs:**  
-Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
-the tumor model for the sample. 
 
 
 ### dbsnp annotation
@@ -244,7 +178,7 @@ caller. Default is false.
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-FASTQ file to send to card (may be gzipped)
+Path to R1 fastq file
 
 
 ### fastq file2
@@ -257,7 +191,7 @@ FASTQ file to send to card (may be gzipped)
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Second FASTQ file with paired-end reads (may be gzipped - R3 fastq file)
+Path to R3 fastq file
 
 
 ### license instance id location
@@ -273,19 +207,6 @@ Second FASTQ file with paired-end reads (may be gzipped - R3 fastq file)
 You may wish to place your own in.
 Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
-
-
-### min map quality
-
-
-
-  
-> ID: min_map_quality
-  
-**Optional:** `True`  
-**Type:** `int`  
-**Docs:**  
-Filter reads with low mapping quanlity
 
 
 ### output directory
@@ -403,32 +324,6 @@ Specifies the sex of a sample
 **Type:** `File`  
 **Docs:**  
 Path to tumor bam
-
-
-### tumor fastq1
-
-
-
-  
-> ID: tumor_fastq1
-  
-**Optional:** `True`  
-**Type:** `File`  
-**Docs:**  
-FASTQ file of tumor reads for somatic mode
-
-
-### tumor fastq2
-
-
-
-  
-> ID: tumor_fastq2
-  
-**Optional:** `True`  
-**Type:** `File`  
-**Docs:**  
-Second FASTQ file of tumor reads for somatic mode
 
 
 ### umi correction scheme
@@ -1014,14 +909,14 @@ The default value is 500 for germline mode and 50 for somatic mode.
   
 
 
-## dragen-umi v(3.8.4) Outputs
+## dragen-umi v(3.9.3) Outputs
 
 ### dragen UMI analysis output
 
 
 
   
-> ID: dragen-umi--3.8.4/dragen_umi_output_directory  
+> ID: dragen-umi--3.9.3/dragen_umi_output_directory  
 
   
 **Optional:** `False`  
@@ -1046,7 +941,7 @@ Output directory containing all outputs of the dragen UMI run
 
   
 **workflow name:** dragen-umi_dev-wf  
-**wfl version name:** 3.8.4  
+**wfl version name:** 3.9.3  
 
   
 

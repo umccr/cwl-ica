@@ -256,6 +256,7 @@ illumina-tar)
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)  
+- [3.9.3](.github/catalogue/docs/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
 
 
 ### custom-create-tso500-samplesheet
@@ -494,6 +495,7 @@ illumina-tar)
 #### Versions
   
 - [3.8.4](.github/catalogue/docs/tools/dragen-umi/3.8.4/dragen-umi__3.8.4.md)  
+- [3.9.3](.github/catalogue/docs/tools/dragen-umi/3.9.3/dragen-umi__3.9.3.md)  
 
 
 ## Workflows
@@ -545,6 +547,7 @@ illumina-tar)
 #### Versions
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
 
 
 ### dragen-qc-hla-pipeline
