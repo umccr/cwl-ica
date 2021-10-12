@@ -1048,5 +1048,341 @@ Output directory containing all outputs of the dragen UMI run
 **workflow name:** dragen-umi_dev-wf  
 **wfl version name:** 3.8.4  
 
+
+#### Run Instances
+
+##### ToC
+  
+- [Run wfr.affca1fb24e34cbca115844c3f9f6c57](#run-wfraffca1fb24e34cbca115844c3f9f6c57)  
+- [Run wfr.96ea5cf11b2843c9b9b7a88070b48e3e](#run-wfr96ea5cf11b2843c9b9b7a88070b48e3e)  
+- [Run wfr.d068fc090a204a08823974db7b255f88](#run-wfrd068fc090a204a08823974db7b255f88)  
+
+
+##### Run wfr.affca1fb24e34cbca115844c3f9f6c57
+
+
+
+  
+> Run Name: Dragen3.8-TN-SBJ00471_plasma  
+
+  
+**Start Time:** 2021-10-04 11:46:57 UTC  
+**Duration:** 2021-10-04 16:37:31 UTC  
+**End Time:** 0 days 04:50:33  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.affca1fb24e34cbca115844c3f9f6c57
+
+# Edit the input json file (optional)
+# vim wfr.affca1fb24e34cbca115844c3f9f6c57.template.json 
+
+# Run the launch script
+bash wfr.affca1fb24e34cbca115844c3f9f6c57.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "bam_input": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-NO-3.8/SBJ00471-NO-3.8/SBJ00471-NO-3.8.bam"
+    },
+    "cnv_normal_b_allele_vcf": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-NO-3.8/SBJ00471-NO-3.8/SBJ00471-NO-3.8.hard-filtered.vcf.gz"
+    },
+    "enable_cnv": true,
+    "enable_map_align": false,
+    "enable_sv": true,
+    "output_directory": "SBJ00471-TN",
+    "output_file_prefix": "SBJ00471-TN",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "tumor_bam_input": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-TO-3.8/SBJ00471-UMI-3.8/SBJ00471-UMI-3.8_tumor.bam"
+    }
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.affca1fb24e34cbca115844c3f9f6c57/Dragen3.8-TN-SBJ00471_plasma",
+    "outputDirectory": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-TN-3.8",
+    "tmpOutputDirectory": "gds://wfr.affca1fb24e34cbca115844c3f9f6c57/Dragen3.8-TN-SBJ00471_plasma/steps",
+    "logDirectory": "gds://wfr.affca1fb24e34cbca115844c3f9f6c57/Dragen3.8-TN-SBJ00471_plasma/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.17.0-202107161017-stratus-master"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_umi_output_directory": {
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-TN-3.8/SBJ00471-TN",
+        "basename": "SBJ00471-TN",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_dir_gds_session_id": null,
+    "output_dir_gds_folder_id": null
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![Dragen3.8-TN-SBJ00471_plasma__wfr.affca1fb24e34cbca115844c3f9f6c57.svg](../../../../images/runs/tools/dragen-umi/3.8.4/Dragen3.8-TN-SBJ00471_plasma__wfr.affca1fb24e34cbca115844c3f9f6c57.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/tools/dragen-umi/3.8.4/Dragen3.8-TN-SBJ00471_plasma__wfr.affca1fb24e34cbca115844c3f9f6c57.svg)  
+
+
+##### Run wfr.96ea5cf11b2843c9b9b7a88070b48e3e
+
+
+
+  
+> Run Name: Dragen3.8-NO-SBJ00471  
+
+  
+**Start Time:** 2021-10-04 05:24:35 UTC  
+**Duration:** 2021-10-04 07:31:05 UTC  
+**End Time:** 0 days 02:06:30  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.96ea5cf11b2843c9b9b7a88070b48e3e
+
+# Edit the input json file (optional)
+# vim wfr.96ea5cf11b2843c9b9b7a88070b48e3e.template.json 
+
+# Run the launch script
+bash wfr.96ea5cf11b2843c9b9b7a88070b48e3e.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "enable_cnv": false,
+    "enable_map_align_output": true,
+    "enable_sv": false,
+    "fastq_file1": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/SBJ00471_CCR170105_L1800127_R2_001.fastq.gz"
+    },
+    "fastq_file2": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/SBJ00471_CCR170105_L1800127_R1_001.fastq.gz"
+    },
+    "output_directory": "SBJ00471-NO-3.8",
+    "output_file_prefix": "SBJ00471-NO-3.8",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "rgid": "SBJ00471-NO",
+    "rgsm": "SBJ00471-NO"
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.96ea5cf11b2843c9b9b7a88070b48e3e/Dragen3.8-NO-SBJ00471",
+    "outputDirectory": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-NO-3.8",
+    "tmpOutputDirectory": "gds://wfr.96ea5cf11b2843c9b9b7a88070b48e3e/Dragen3.8-NO-SBJ00471/steps",
+    "logDirectory": "gds://wfr.96ea5cf11b2843c9b9b7a88070b48e3e/Dragen3.8-NO-SBJ00471/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.17.0-202107161017-stratus-master"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_umi_output_directory": {
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-NO-3.8/SBJ00471-NO-3.8",
+        "basename": "SBJ00471-NO-3.8",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_dir_gds_session_id": null,
+    "output_dir_gds_folder_id": null
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![Dragen3.8-NO-SBJ00471__wfr.96ea5cf11b2843c9b9b7a88070b48e3e.svg](../../../../images/runs/tools/dragen-umi/3.8.4/Dragen3.8-NO-SBJ00471__wfr.96ea5cf11b2843c9b9b7a88070b48e3e.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/tools/dragen-umi/3.8.4/Dragen3.8-NO-SBJ00471__wfr.96ea5cf11b2843c9b9b7a88070b48e3e.svg)  
+
+
+##### Run wfr.d068fc090a204a08823974db7b255f88
+
+
+
+  
+> Run Name: Dragen3.8-TO-SBJ00471_plasma  
+
+  
+**Start Time:** 2021-10-04 05:22:38 UTC  
+**Duration:** 2021-10-04 06:48:38 UTC  
+**End Time:** 0 days 01:26:00  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.d068fc090a204a08823974db7b255f88
+
+# Edit the input json file (optional)
+# vim wfr.d068fc090a204a08823974db7b255f88.template.json 
+
+# Run the launch script
+bash wfr.d068fc090a204a08823974db7b255f88.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "enable_cnv": false,
+    "enable_map_align_output": true,
+    "enable_sv": true,
+    "output_directory": "SBJ00471-UMI-3.8",
+    "output_file_prefix": "SBJ00471-UMI-3.8",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "rgid_tumor": "SBJ00471-UMI",
+    "rgsm_tumor": "SBJ00471-UMI",
+    "tumor_fastq1": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/SBJ00471_PRJ190704_L2000392_R1_001.fastq.gz"
+    },
+    "tumor_fastq2": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/SBJ00471_PRJ190704_L2000392_R3_001.fastq.gz"
+    },
+    "umi_fastq": {
+        "class": "File",
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/SBJ00471_PRJ190704_L2000392_R2_001.fastq.gz"
+    },
+    "umi_library_type": "random-simplex",
+    "umi_min_supporting_reads": 2,
+    "umi_source": "fastq"
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.d068fc090a204a08823974db7b255f88/Dragen3.8-TO-SBJ00471_plasma",
+    "outputDirectory": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-TO-3.8",
+    "tmpOutputDirectory": "gds://wfr.d068fc090a204a08823974db7b255f88/Dragen3.8-TO-SBJ00471_plasma/steps",
+    "logDirectory": "gds://wfr.d068fc090a204a08823974db7b255f88/Dragen3.8-TO-SBJ00471_plasma/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.17.0-202107161017-stratus-master"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_umi_output_directory": {
+        "location": "gds://umccr-research/ctDNA/SBJ00471_plasma_UMI/results-TO-3.8/SBJ00471-UMI-3.8",
+        "basename": "SBJ00471-UMI-3.8",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_dir_gds_session_id": null,
+    "output_dir_gds_folder_id": null
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![Dragen3.8-TO-SBJ00471_plasma__wfr.d068fc090a204a08823974db7b255f88.svg](../../../../images/runs/tools/dragen-umi/3.8.4/Dragen3.8-TO-SBJ00471_plasma__wfr.d068fc090a204a08823974db7b255f88.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/tools/dragen-umi/3.8.4/Dragen3.8-TO-SBJ00471_plasma__wfr.d068fc090a204a08823974db7b255f88.svg)  
+
   
 
