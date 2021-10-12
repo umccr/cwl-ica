@@ -425,6 +425,7 @@ The output directory for multiqc
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -587,6 +588,16 @@ bash wfr.784173de5b4342b797f04259ebd04df6.launch.sh
 
   
 [![Dragen-3.9.3-WTS-QC1.12dev__wfr.784173de5b4342b797f04259ebd04df6.svg](../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-WTS-QC1.12dev__wfr.784173de5b4342b797f04259ebd04df6.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-WTS-QC1.12dev__wfr.784173de5b4342b797f04259ebd04df6.svg)  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.7e5ba7470b5549a6b4bf6d95daaa1214  
+
+  
+**workflow name:** dragen-transcriptome-pipeline_prod-wf  
+**wfl version name:** 3.9.3--9961e75  
 
   
 
