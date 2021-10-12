@@ -282,7 +282,10 @@ projects:
             path: 3.8.4/dragen-umi__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
             modification_time: 2021-10-01T06:06:40UTC
-            run_instances: []
+            run_instances:
+              - wfr.affca1fb24e34cbca115844c3f9f6c57
+              - wfr.96ea5cf11b2843c9b9b7a88070b48e3e
+              - wfr.d068fc090a204a08823974db7b255f88
           - name: 3.9.3
             path: 3.9.3/dragen-umi__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
