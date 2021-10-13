@@ -40,7 +40,7 @@ Documentation for dragen-wgs-qc-pipeline v3.9.3
 
 ### Uses
   
-- [dragen-alignment-pipeline 3.9.3 :construction:](../../dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
+- [dragen-alignment-pipeline 3.9.3](../../dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
 - [somalier-extract 0.2.13 :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
   
@@ -153,7 +153,7 @@ All other options available at the top of the workflow
 #### Links
   
 [CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.cwl)  
-[CWL File Help Page :construction:](../../dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)
+[CWL File Help Page](../../dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)
 #### Subworkflow overview
   
 [![dragen-alignment-pipeline__3.9.3.svg](../../../../images/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)  
@@ -245,6 +245,7 @@ Output directory from somalier step
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -414,6 +415,16 @@ bash wfr.8bb7083dc6e74a2f9c21edd65e627a2e.launch.sh
 
   
 [![Dragen-3.9-WGS-QC__wfr.8bb7083dc6e74a2f9c21edd65e627a2e.svg](../../../../images/runs/workflows/dragen-wgs-qc-pipeline/3.9.3/Dragen-3.9-WGS-QC__wfr.8bb7083dc6e74a2f9c21edd65e627a2e.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-wgs-qc-pipeline/3.9.3/Dragen-3.9-WGS-QC__wfr.8bb7083dc6e74a2f9c21edd65e627a2e.svg)  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.23f61cb1baab412a8c37dc93bed6c2af  
+
+  
+**workflow name:** dragen-wgs-qc-pipeline_prod-wf  
+**wfl version name:** 3.9.3--0d6bc70  
 
   
 
