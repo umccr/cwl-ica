@@ -564,6 +564,11 @@ projects:
             ica_workflow_version_name: 3.7.5--40a7a9e
             modification_time: 2021-09-15T00:55:22UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_prod-wf
@@ -663,6 +668,11 @@ projects:
             path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--67a9d2b
             modification_time: 2021-07-02T05:02:57UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--__GIT_COMMIT_ID__
+            modification_time:
             run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
