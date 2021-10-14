@@ -158,6 +158,7 @@ steps:
     out:
       - results
       - outputs_by_sample
+      - samplesheet_validation_demux_dir
     run: ../../../workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.cwl
 
   ############################################
@@ -178,6 +179,23 @@ steps:
       - id: post_processing_output_directory
     run: ../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
 
+  ##########################################
+  # Get intermediate samplesheet from folder
+  ##########################################
+  get_intermediate_samplesheet_from_validation_step:
+    label: get intermediate samplesheet from validation step
+    doc: |
+      Get the intermediate samplesheet from the validation step.
+      Returns a V1 samplesheet
+    in:
+      input_dir:
+        source: run_tso_ctdna_workflow_step/samplesheet_validation_demux_dir
+      file_basename:
+        valueFrom: "SampleSheet_Intermediate.csv"
+    out:
+      - id: output_file
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
+
   ######################################
   # Create the final directory structure
   ######################################
@@ -192,6 +210,8 @@ steps:
         source: run_tso_ctdna_post_processing_workflow_step/post_processing_output_directory
       results_dir:
         source: run_tso_ctdna_workflow_step/results
+      samplesheet_csv:
+        source: get_intermediate_samplesheet_from_validation_step/output_file
     out:
       - id: tso500_output_dir_entry_list
     run: ../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-with-post-processing__1.0.0.cwl
