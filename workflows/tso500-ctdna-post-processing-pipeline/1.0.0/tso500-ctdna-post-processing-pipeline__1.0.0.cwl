@@ -152,17 +152,15 @@ steps:
           ${
             return self.tmb_dir;
           }
-      file_basename_list:
+      file_basename:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return [
-                     self.sample_id + ".tmb.json"
-                   ];
+            return self.sample_id + ".tmb.json";
           }
     out:
-      - id: output_files
-    run: ../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl
+      - id: output_file
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
   get_msi_json_intermediate_step:
     label: get msi json intermediate step
     doc: |
@@ -174,17 +172,15 @@ steps:
           ${
             return self.msi_dir;
           }
-      file_basename_list:
+      file_basename:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return [
-                     self.sample_id + ".msi.json"
-                   ];
+            return self.sample_id + ".msi.json";
           }
     out:
-      - id: output_files
-    run: ../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl
+      - id: output_file
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
   get_tmb_trace_tsv_intermediate_step:
     label: get tmb trace tsv intermediate step
     doc: |
@@ -196,17 +192,15 @@ steps:
           ${
             return self.tmb_dir;
           }
-      file_basename_list:
+      file_basename:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return [
-                     self.sample_id + "_TMB_Trace.tsv"
-                   ];
+            return self.sample_id + "_TMB_Trace.tsv";
           }
     out:
-      - id: output_files
-    run: ../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl
+      - id: output_file
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
   get_fragment_length_hist_csv_intermediate_step:
     label: get fragment length hist csv intermediate step
     doc: |
@@ -218,17 +212,15 @@ steps:
           ${
             return self.align_collapse_fusion_caller_dir;
           }
-      file_basename_list:
+      file_basename:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return [
-                     self.sample_id + ".fragment_length_hist.csv"
-                   ];
+            return self.sample_id + ".fragment_length_hist.csv";
           }
     out:
-      - id: output_files
-    run: ../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl
+      - id: output_file
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
   get_fusion_csv_intermediate_step:
     label: get fusion csv intermediate step
     doc: |
@@ -240,17 +232,15 @@ steps:
           ${
             return self.results_dir;
           }
-      file_basename_list:
+      file_basename:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return [
-                     self.sample_id + "_Fusions.csv"
-                   ];
+            return self.sample_id + "_Fusions.csv";
           }
     out:
-      - id: output_files
-    run: ../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl
+      - id: output_file
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
   get_sample_analysis_results_intermediate_step:
     label: get sample analysis results intermediate step
     doc: |
@@ -382,8 +372,8 @@ steps:
     in:
       uncompressed_file:
         source:
-          - get_tmb_json_intermediate_step/output_files
-          - get_msi_json_intermediate_step/output_files
+          - get_tmb_json_intermediate_step/output_file
+          - get_msi_json_intermediate_step/output_file
           - get_sample_analysis_results_intermediate_step/output_file
         linkMerge: merge_flattened
     out:
@@ -461,9 +451,9 @@ steps:
     in:
       tsv_file:
         source:
-          - get_tmb_trace_tsv_intermediate_step/output_files
-          - get_fragment_length_hist_csv_intermediate_step/output_files
-          - get_fusion_csv_intermediate_step/output_files
+          - get_tmb_trace_tsv_intermediate_step/output_file
+          - get_fragment_length_hist_csv_intermediate_step/output_file
+          - get_fusion_csv_intermediate_step/output_file
           - make_exon_coverage_qc_step/failed_coverage_txt
           - make_per_coverage_threshold_qc_step/target_region_coverage_metrics
         linkMerge: merge_flattened
@@ -635,6 +625,8 @@ steps:
         source: make_exon_coverage_qc_step/failed_coverage_txt
       dragen_metrics_compressed_json_file:
         source: dragen_metrics_to_json_step/metrics_json_gz_out
+      fusion_csv:
+        source: get_fusion_csv_intermediate_step/output_file
       vcf_tarball:
         source: gather_compressed_vcf_files_into_tar_step/output_compressed_tar_file
       compressed_metrics_tarball:

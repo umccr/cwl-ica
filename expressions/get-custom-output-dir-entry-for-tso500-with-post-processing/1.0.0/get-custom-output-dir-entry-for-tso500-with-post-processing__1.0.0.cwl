@@ -75,8 +75,11 @@ requirements:
                                                                                "dsdm.json"
                                                                              ],
                                                                              null,
-                                                                             "top_dir")
-              ];
+                                                                             "top_dir"),
+                get_custom_output_dir_entry_from_file_list([inputs.samplesheet_csv],
+                                                           null,
+                                                           "top_dir")
+          ];
 
           /*
           Iterate through sample output directories
@@ -111,6 +114,11 @@ inputs:
     doc: |
       The results directory from the tso500 workflow
     type: Directory
+  samplesheet_csv:
+    label: samplesheet
+    doc: |
+      The intermediate samplesheet
+    type: File
 
 
 outputs:
