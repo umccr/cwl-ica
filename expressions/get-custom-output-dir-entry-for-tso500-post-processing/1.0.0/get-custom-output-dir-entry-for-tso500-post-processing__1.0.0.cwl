@@ -105,6 +105,11 @@ inputs:
     doc: |
       Compressed dragen metrics file
     type: File
+  fusion_csv:
+    label: fusion csv
+    doc: |
+      The fusion csv file
+    type: File
   # Type 3 inputs
   vcf_tarball:
     label: vcf tarball
@@ -167,7 +172,8 @@ expression: >-
                                                                            "top_dir"),
               get_custom_output_dir_entry_from_file_list([
                                                            inputs.coverage_qc_file,
-                                                           inputs.dragen_metrics_compressed_json_file
+                                                           inputs.dragen_metrics_compressed_json_file,
+                                                           inputs.fusion_csv
                                                          ],
                                                          null,
                                                          "top_dir"),
