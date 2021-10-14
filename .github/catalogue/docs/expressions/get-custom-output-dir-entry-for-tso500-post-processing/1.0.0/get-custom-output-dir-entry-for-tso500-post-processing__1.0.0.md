@@ -16,7 +16,7 @@ get-custom-output-dir-entry-for-tso500-post-processing 1.0.0 expression
 
   
 > ID: get-custom-output-dir-entry-for-tso500-post-processing--1.0.0  
-> md5sum: 1afc87e1641576f93d51abe0ff71b5e0
+> md5sum: 860b82e7ac48b72f404e33a4048b02fc
 
 ### get-custom-output-dir-entry-for-tso500-post-processing v(1.0.0) documentation
   
@@ -115,6 +115,19 @@ The output from the make coverage qc step
 **Type:** `File`  
 **Docs:**  
 Compressed dragen metrics file
+
+
+### fusion csv
+
+
+
+  
+> ID: fusion_csv
+  
+**Optional:** `False`  
+**Type:** `File`  
+**Docs:**  
+The fusion csv file
 
 
 ### merged annotation dir

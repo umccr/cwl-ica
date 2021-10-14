@@ -19,7 +19,7 @@ tso500-ctdna-post-processing-pipeline 1.0.0 workflow
 
   
 > ID: tso500-ctdna-post-processing-pipeline--1.0.0  
-> md5sum: b0a72afc88786e8e0bf4099d2859bdfd
+> md5sum: ad4bba2926082fab2ec72c575368331f
 
 ### tso500-ctdna-post-processing-pipeline v(1.0.0) documentation
   
@@ -63,14 +63,14 @@ The workflow has 6 main steps
 - [custom-tar-file-list 1.0.0](../../../tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.md)  
 - [custom-tar-vcf-file-list 1.0.0](../../../tools/custom-tar-vcf-file-list/1.0.0/custom-tar-vcf-file-list__1.0.0.md)  
 - [get-files-from-directory 1.0.0 :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
-- [get-files-from-directory 1.0.0 :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
-- [get-files-from-directory 1.0.0 :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
-- [get-files-from-directory 1.0.0 :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
+- [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
+- [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
+- [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 - [parse-int 1.0.0](../../../expressions/parse-int/1.0.0/parse-int__1.0.0.md)  
 - [get-bam-file-from-directory 1.0.0](../../../expressions/get-bam-file-from-directory/1.0.0/get-bam-file-from-directory__1.0.0.md)  
 - [parse-file 1.0.0](../../../expressions/parse-file/1.0.0/parse-file__1.0.0.md)  
-- [get-files-from-directory 1.0.0 :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
-- [get-files-from-directory 1.0.0 :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
+- [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
+- [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 - [get-files-from-directory 1.0.0 :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
 - [parse-int 1.0.0](../../../expressions/parse-int/1.0.0/parse-int__1.0.0.md)  
 - [tabix 0.2.6](../../../tools/tabix/0.2.6/tabix__0.2.6.md)  
@@ -306,8 +306,8 @@ Get the fragment length hist csv from the AlignCollapseFusionCaller directory
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 
 
 ### get fusion csv intermediate step
@@ -323,8 +323,8 @@ Get the fusions csv file from the results folder
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 
 
 ### get msi json intermediate step
@@ -340,8 +340,8 @@ Get the MSI json file from the MSI directory
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 
 
 ### get one val for skip rows parameter
@@ -410,8 +410,8 @@ Get the tmb json file from the TMB directory
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 
 
 ### get tmb trace tsv intermediate step
@@ -427,8 +427,8 @@ Get the tmb trace tsv file from the TMB Directory
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-files-from-directory/1.0.0/get-files-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 
 
 ### get vcf files intermediate step
