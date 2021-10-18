@@ -4,6 +4,8 @@
 All these thigns that could go wrong
 """
 
+# Save namespace issue
+from jwt import InvalidTokenError
 
 # CWL
 class InvalidAuthorshipError(Exception):
@@ -181,11 +183,11 @@ class CWLAccessTokenNotFoundError(Exception):
     pass
 
 
-class InvalidTokenError(Exception):
-    """
-    The token is not valid for this project
-    """
-    pass
+# class InvalidTokenError(Exception):
+#     """
+#     The token is not valid for this project
+#     """
+#     pass
 
 
 class CWLApiKeyNotFoundError(Exception):
