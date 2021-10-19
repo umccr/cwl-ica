@@ -68,7 +68,7 @@ EOF
   # Overwrite shebang
   sed -i '1c#!/usr/bin/env bash' "bash/${CWL_ICA_NAMEROOT}.bash"
 
-  # Secondly convert any EOF) to EOF\n)
+  # Secondly convert any EOF) to EOF\n) (this also needs to be repeated for zsh)
   sed -i  $'s/EOF)/EOF\\\n)/' "bash/${CWL_ICA_NAMEROOT}.bash"
 
   # Run the zsh completion script
@@ -77,6 +77,8 @@ EOF
     --name "${CWL_ICA_NAMEROOT}" \
     --zsh > "zsh/_${CWL_ICA_NAMEROOT}"
 
+  # Repeat for zsh
+  sed -i $'s/EOF\ )/EOF\\\n)/' "zsh/_${CWL_ICA_NAMEROOT}"
 )
 
 # Delete the 'global' tempfiles
