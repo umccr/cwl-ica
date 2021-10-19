@@ -78,7 +78,7 @@ EOF
     --zsh > "zsh/_${CWL_ICA_NAMEROOT}"
 
   # Repeat for zsh
-  sed -i $'s/EOF)/EOF\\\n)/' "zsh/_${CWL_ICA_NAMEROOT}"
+  sed -i $'s/EOF\ )/EOF\\\n)/' "zsh/_${CWL_ICA_NAMEROOT}"
 )
 
 # Delete the 'global' tempfiles
