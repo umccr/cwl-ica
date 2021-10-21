@@ -657,6 +657,7 @@ runs:
         task_duration: 1591
         task_metrics: eJyd0r0KwkAQBOBXOa4OsntzP1lfRSwkpLA4DCYWIr57DisLCWa63YWPhWFOL79c6zgvlzr5o9MMiTlk6zvnh+nRTnIoba5jvd2fn1XenfupSgpfyv5UfaBUMUIZEqMs71eQpIRSZX5pITJEiMIoA6HAdANRI6OYbiBhM/nzCk602yE=
   - ica_workflow_run_instance_id: wfr.8bb7083dc6e74a2f9c21edd65e627a2e
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.ff6ca1789f4e4eb0982ea3e01407aca8
     ica_workflow_name: dragen-wgs-qc-pipeline_dev-wf
     ica_workflow_version_name: 3.9.3
@@ -714,6 +715,7 @@ runs:
         task_duration: 829
         task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDM2tDCxNDM11VFQSi4oBQoZ6BkB2bmpuflFlWCuQa2OAlZd5oZmSLqMidVlbo7bLkNcuiyM8bgQty5LQ9wuxKnLEiU0iNNlamBgaEKOLnMDkv1lamBobEKOLku8umIBaSiSPQ==
   - ica_workflow_run_instance_id: wfr.b19291caab384e78b7661a85c3f82003
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.32e346cdbb854f6487e7594ec17a81f9
     ica_workflow_name: dragen-somatic-pipeline_dev-wf
     ica_workflow_version_name: 3.9.3
@@ -771,6 +773,7 @@ runs:
         task_duration: 554
         task_metrics: eJyLjgUAARUAuQ==
   - ica_workflow_run_instance_id: wfr.784173de5b4342b797f04259ebd04df6
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.286d4a2e82f048609d5b288a9d2868f6
     ica_workflow_name: dragen-transcriptome-pipeline_dev-wf
     ica_workflow_version_name: 3.9.3
