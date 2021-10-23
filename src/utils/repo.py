@@ -286,12 +286,14 @@ def read_yaml(yaml_file):
 
     return yaml_obj
 
+
 def get_branch_name() -> str:
     """
     # TODO - add to globals and also convert to 'main' at some point
     :return:
     """
     return 'main'
+
 
 def get_blob_url() -> str:
     return get_cwl_ica_repo_url() + f"/blob/{get_branch_name()}"
