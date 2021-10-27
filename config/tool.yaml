@@ -329,5 +329,5 @@ tools:
     versions:
       - name: 1.13.0
         path: 1.13.0/bcftools-view__1.13.0.cwl
-        md5sum: a80fed34e1600253c54f6f764dd21845
+        md5sum: 8bab58bac2eb173d780b89e9fdbca9ca
     categories: []

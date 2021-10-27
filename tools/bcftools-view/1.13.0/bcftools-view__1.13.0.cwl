@@ -107,6 +107,8 @@ inputs:
         items: string
     inputBinding:
       prefix: "--regions"
+      itemSeparator: ","
+      separate: false
   regions_file:
     label: regions file
     doc: |
@@ -173,6 +175,8 @@ inputs:
         items: string
     inputBinding:
       prefix: "--samples"
+      itemSeparator: ","
+      separate: false
   samples_file:
     label: samples file
     doc: |
@@ -268,6 +272,8 @@ inputs:
         items: string
     inputBinding:
       prefix: "--types"
+      itemSeparator: ","
+      separate: false
   exclude_types:
     label: exclude types
     doc: |
@@ -278,7 +284,8 @@ inputs:
         items: string
     inputBinding:
       prefix: "--exclude-types"
-   
+      itemSeparator: ","
+      separate: false
 outputs:
   filtered_vcf:
     label: filtered vcf
