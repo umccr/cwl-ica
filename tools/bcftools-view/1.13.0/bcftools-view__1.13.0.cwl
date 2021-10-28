@@ -56,7 +56,6 @@ inputs:
     default: "filtered.vcf.gz"
     inputBinding:
       prefix: "--output"
-      valueFrom: "$(self.toString())"
   drop_genotypes:
     label: drop genotypes
     doc: |
@@ -71,6 +70,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--header-only"
+      valueFrom: "$(self.toString())"
   no_header:
     label: no header
     doc: |
@@ -78,6 +78,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--no-header"
+      valueFrom: "$(self.toString())"
   compression_level:
     label: compression level
     doc: |
@@ -150,6 +151,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--trim-alt-alleles"
+      valueFrom: "$(self.toString())"
   force_samples:
     label: force samples
     doc: |
@@ -157,6 +159,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--force-samples"
+      valueFrom: "$(self.toString())"
   no_update:
     label: no update
     doc: |
@@ -164,6 +167,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--no-update"
+      valueFrom: "$(self.toString())"
   samples:
     label: samples
     doc: |
@@ -240,6 +244,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--known"
+      valueFrom: "$(self.toString())"
   min_alleles:
     label: min alleles
     doc: |
@@ -262,6 +267,7 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--novel"
+      valueFrom: "$(self.toString())"
   types:
     label: types
     doc: |
