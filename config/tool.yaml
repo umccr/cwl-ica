@@ -324,3 +324,10 @@ tools:
         path: 3.9.3/dragen-umi__3.9.3.cwl
         md5sum: a9e764f4b6c304a0e3ea3a58caa59b24
     categories: []
+  - name: bcftools-view
+    path: bcftools-view
+    versions:
+      - name: 1.13.0
+        path: 1.13.0/bcftools-view__1.13.0.cwl
+        md5sum: 2ee45f43160d17d0ef7d7a1dddbe14dd
+    categories: []

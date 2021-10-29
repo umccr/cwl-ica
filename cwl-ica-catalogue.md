@@ -149,6 +149,7 @@ metrics-to-json)
 - [custom-create-umccr-dragen-refdata-tarball-from-illumina-tar](#custom-create-umccr-dragen-refdata-tarball-from-
 illumina-tar)  
 - [dragen-umi](#dragen-umi)  
+- [bcftools-view](#bcftools-view)  
 
 
 ### samtools-merge
@@ -496,6 +497,13 @@ illumina-tar)
   
 - [3.8.4](.github/catalogue/docs/tools/dragen-umi/3.8.4/dragen-umi__3.8.4.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-umi/3.9.3/dragen-umi__3.9.3.md)  
+
+
+### bcftools-view
+
+#### Versions
+  
+- [1.13.0](.github/catalogue/docs/tools/bcftools-view/1.13.0/bcftools-view__1.13.0.md)  
 
 
 ## Workflows

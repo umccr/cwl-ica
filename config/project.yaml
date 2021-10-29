@@ -291,6 +291,16 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2021-10-01T06:36:36UTC
             run_instances: []
+      - name: bcftools-view
+        path: bcftools-view
+        ica_workflow_name: bcftools-view_dev-wf
+        ica_workflow_id: wfl.14a46d288c1a45b7b7413b995fdd60e3
+        versions:
+          - name: 1.13.0
+            path: 1.13.0/bcftools-view__1.13.0.cwl
+            ica_workflow_version_name: 1.13.0
+            modification_time: 2021-10-27T23:59:18UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
