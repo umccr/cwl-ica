@@ -222,7 +222,7 @@ class CopySubmissionTemplate(Command):
             shell_h.write("fi\n\n")
             # Then start with the context switch command
             shell_h.write(f"# Enter the right context to launch the workflow\n")
-            shell_h.write(f"if ! type ica-context-switcher >/dev/null; then\n")
+            shell_h.write(f"if type ica-context-switcher >/dev/null; then\n")
             shell_h.write(f"    ica-context-switcher --project-name '{self.launch_project_name}' --scope 'admin'\n")
             shell_h.write(f"else\n")
             shell_h.write(f"    ica projects enter '{self.launch_project_name}'\n")
@@ -231,7 +231,7 @@ class CopySubmissionTemplate(Command):
             shell_h.write("fi\n\n")
 
             # Check if 'ica-check-cwl-inputs' is in the path and then run it!
-            shell_h.write("if [[ type \"ica-check-cwl-inputs\" ]]; then\n")
+            shell_h.write("if type \"ica-check-cwl-inputs\"; then\n")
             shell_h.write(f"    ica-check-cwl-inputs \\\n")
             shell_h.write(f"        --input-json {self.output_json_path} \\\n")
             shell_h.write(f"        --ica-workflow-id {self.run_obj.ica_workflow_id} \\\n")
