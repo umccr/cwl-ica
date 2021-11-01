@@ -20,7 +20,7 @@ dependencies:
     - mdutils
     - pyyaml
     - requests
-    - ruamel.yaml
+    - ruamel.yaml==0.16.5
     - verboselogs
     - semantic_version
     - python-dateutil
