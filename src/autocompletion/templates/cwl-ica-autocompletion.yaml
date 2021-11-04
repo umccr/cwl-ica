@@ -784,7 +784,7 @@ subcommands:
         type: string
 
   #######################
-  # Query workflow Commands  # Not yet implemented v1.0 release
+  # Query workflow Commands
   #######################
   get-workflow-step-ids:
     summary: |
@@ -801,7 +801,7 @@ subcommands:
             EOF
 
   ##################
-  # Run-list Commands  # Not yet implemented  v1.0 release
+  # Run-list Commands
   ##################
   list-tool-runs:
     summary: |
@@ -848,8 +848,77 @@ subcommands:
             __cwl-ica_list_project_names.py
             EOF
 
+  ####################################
+  # Create submission templates commands
+  ####################################
+  create-tool-submission-template:
+    summary: |
+      Create a ICA input template and bash script for a tool
+    options:
+      - name: tool-path
+        summary: |
+          Path to CWL tool
+        type: string
+        completion:
+          command_string: |
+            python - <<EOF
+              __cwl-ica_list_all_tool_paths.py
+            EOF
+      - name: prefix
+        summary: |
+          Output prefix name
+        type: string
+      - name: project
+        summary: |
+          Project that tool belongs to
+        type: string
+        completion:
+          command_string: |
+            python - <<EOF
+              __cwl-ica_list_project_names.py
+            EOF
+      - name: launch-project
+        summary: |
+          Name of the launch project
+        type: string
+      - name: curl
+        summary: |
+          Use curl binary over ica binary to launch tool
+  create-workflow-submission-template:
+    summary: |
+      Create a ICA input template and bash script for a workflow
+    options:
+      - name: workflow-path
+        summary: |
+          Path to CWL workflow
+        type: string
+        completion:
+          command_string: |
+            python - <<EOF
+              __cwl-ica_list_all_workflow_paths.py
+            EOF
+      - name: prefix
+        summary: |
+          Output prefix name
+        type: string
+      - name: project
+        summary: |
+          Project that workflow belongs to
+        type: string
+        completion:
+          command_string: |
+            python - <<EOF
+              __cwl-ica_list_project_names.py
+            EOF
+      - name: launch-project
+        summary: |
+          Name of the launch project
+        type: string
+      - name: curl
+        summary: |
+          Use curl binary over ica binary to launch workflow
   ################################
-  # Get Run-templates Commands  # Not yet implemented  v1.0 release
+  # Get Run-templates Commands
   ################################
   copy-tool-submission-template:
     summary: |

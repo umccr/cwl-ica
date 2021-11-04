@@ -108,6 +108,13 @@ Command:
     add-maintainer-to-workflow          Acknowledge a user as a maintainer of a cwl workflow
 
 
+    ###################################
+    Submission Template Commands
+    ###################################
+    create-tool-submission-template         Create a input template and run script for a tool on ICA
+    create-workflow-submission-template     Create a input template and run script for a workflow on ICA
+
+
     #############################
     Run-register Commands
     #############################
@@ -470,6 +477,18 @@ def _dispatch():
         workflow_runs_obj = ListWorkflowRuns(command_argv)
         # Call command
         workflow_runs_obj()
+
+
+    elif cmd == "create-tool-submission-template":
+        from subcommands.query.create_tool_submission_template import CreateToolSubmissionTemplate
+        create_tool_template_obj = CreateToolSubmissionTemplate(command_argv)
+        # Call command
+        create_tool_template_obj()
+    elif cmd == "create-workflow-submission-template":
+        from subcommands.query.create_workflow_submission_template import CreateWorkflowSubmissionTemplate
+        create_workflow_template_obj = CreateWorkflowSubmissionTemplate(command_argv)
+        # Call command
+        create_workflow_template_obj()
 
 
     # Github actions

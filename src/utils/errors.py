@@ -348,3 +348,10 @@ class CheckArgumentError(Exception):
     Very broad error message category, something failed in the arguments section
     """
     pass
+
+# Yaml utils
+class CWLTypeNotFoundError(Exception):
+    """
+    Raise error if we don't know how to handle the cwl type in the template creation
+    """
+    pass
