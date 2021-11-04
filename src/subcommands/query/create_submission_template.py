@@ -17,19 +17,28 @@ If an input can be of multiple types (i.e a file OR a string), we choose the fir
 
 from classes.command import Command
 from utils.logging import get_logger
+from utils.errors import ItemVersionNotFoundError, ItemNotFoundError
 from utils.ica_utils import get_base_url, get_region_from_base_url
-
+from utils.input_template_utils import create_input_dict
+from ruamel.yaml.comments import \
+    CommentedMap as OrderedDict
+from ruamel.yaml import YAML
+from ruamel.yaml.main import round_trip_dump
 from pathlib import Path
 from typing import Optional, List
 from classes.project import Project
 from utils.errors import CheckArgumentError
 from classes.cwl import CWL
 from classes.cwl_schema import CWLSchema
-import json
 from utils.project import get_project_object_from_project_name
 from typing import Dict
 import re
 from utils.miscell import get_name_version_tuple_from_cwl_file_path
+from classes.ica_workflow import ICAWorkflow
+from classes.item import Item
+from classes.item_version import ItemVersion
+from utils.repo import read_yaml
+from utils.globals import BLOCK_YAML_INDENTATION_LEVEL, YAML_INDENTATION_LEVEL
 
 logger = get_logger()
 
@@ -46,7 +55,7 @@ class CreateSubmissionTemplate(Command):
     Checks if the 'context-switcher' command is available and uses that
     """
 
-    def __init__(self, command_argv, item_dir=None, item_type=None, item_type_key=None):
+    def __init__(self, command_argv, item_dir=None, item_type=None, item_type_key=None, item_yaml_path=None):
         # Collect args from doc strings
         super().__init__(command_argv)
 
@@ -54,6 +63,7 @@ class CreateSubmissionTemplate(Command):
         self.item_dir = item_dir  # type: Optional[Path]
         self.item_type = item_type  # type: Optional[str]
         self.item_type_key = item_type_key  # type: Optional[str]
+        self.item_yaml_path = item_yaml_path  # type: Optional[Path]
         self.item_name = None  # type: Optional[str]
         self.item_version = None  # type: Optional[str]
         self.cwl_file_path = None  # type: Optional[Path]
@@ -63,9 +73,12 @@ class CreateSubmissionTemplate(Command):
         self.launch_name = None  # type: Optional[str]
         self.project_obj = None  # type: Optional[Project]
         self.cwl_obj = None  # type: Optional[CWL]
+        self.input_template_object = None  # type: Optional[OrderedDict]
         self.launch_project_name = None  # type: Optional[str]
         self.is_curl = None  # type: Optional[bool]
         self.cwl_inputs = None  # type: Optional[Dict]
+        self.ica_workflow_id = None  # type: Optional[str]
+        self.ica_workflow_version_name = None  # type: Optional[str]
 
         # Check help
         self.check_length(command_argv)
@@ -92,7 +105,7 @@ class CreateSubmissionTemplate(Command):
         logger.info(f"Writing wrapper script to {self.output_shell_path}")
         self.write_shell_script()
 
-    def get_item_arg(self) -> str:
+    def get_item_arg(self) -> Path:
         """
         Get --workflow-path or --tool-path from args
         :return:
@@ -107,12 +120,20 @@ class CreateSubmissionTemplate(Command):
         """
 
         # Get path
-        item_path_arg = self.get_item_arg()
+        item_path_arg: Path = self.get_item_arg()
+
+        if not item_path_arg.is_file():
+            logger.error(f"Could not find {item_path_arg}")
+            raise FileNotFoundError
 
         # Check dir
-        output_prefix_arg = self.args.get("--prefix")
+        output_prefix_arg = Path(self.args.get("--prefix"))
+
+        if not output_prefix_arg.absolute().resolve().parent.is_dir():
+            logger.error(f"Please create the parent directory of {output_prefix_arg}")
 
         # Get name and version from item path
+        self.cwl_file_path = item_path_arg
         self.item_name, self.item_version = get_name_version_tuple_from_cwl_file_path(cwl_file_path=self.cwl_file_path,
                                                                                       items_dir=self.item_dir)
 
@@ -122,6 +143,31 @@ class CreateSubmissionTemplate(Command):
             logger.error("--project must be defined")
             raise CheckArgumentError
         self.project_obj = get_project_object_from_project_name(project_name)
+
+        # Get ica workflow id and ica workflow version name
+        ica_workflow_list: List[ICAWorkflow] = self.project_obj.get_items_by_item_type(self.item_type)
+
+        for ica_workflow in ica_workflow_list:
+            # Get right workflow object
+            if not ica_workflow.name == self.item_name:
+                continue
+            # Assign workflow id
+            self.ica_workflow_id = ica_workflow.ica_workflow_id
+            # Get version name
+            for ica_workflow_version in reversed(ica_workflow.versions):  # Reversed for production projects
+                if not ica_workflow_version.name == self.item_version:
+                    continue
+                # Assign workflow version name
+                self.ica_workflow_version_name = ica_workflow_version.ica_workflow_version_name
+                break
+            else:
+                logger.error(f"Could not get workflow version to match {self.item_name}/{self.item_version}")
+                raise ItemVersionNotFoundError
+            break
+        else:
+            logger.error(f"Could not get workflow id to match {self.item_name}/{self.item_version}")
+            raise ItemNotFoundError
+
 
         # Get the launch project name (this is used in the ica-context-switcher OR ica projects enter command)
         launch_project_name = self.args.get("--launch-project")
@@ -142,8 +188,44 @@ class CreateSubmissionTemplate(Command):
         # Set is_curl
         self.is_curl = True if self.args.get("--curl", False) else False
 
+        # Load cwl
+        items: List[Dict] = self.get_item_list()
+
+        # Iterate through item list
+        for item_ in items:
+            if not item_.get('name') == self.item_name:
+                continue
+            version: Dict
+            for version in item_.get('versions'):
+                if not version.get("name") == self.item_version:
+                    continue
+                version_object = self.version_loader(version, self.cwl_file_path)
+                version_object.set_cwl_object()
+                self.cwl_obj = version_object.cwl_obj
+                break
+            else:
+                logger.error(f"Could not find {self.item_version} in {self.item_name}")
+                raise ItemVersionNotFoundError
+            break
+        else:
+            logger.error(f"Could not find {self.item_name}/{self.item_version} in {self.item_type}.yaml")
+            raise ItemNotFoundError
+
         # Get inputs from object
         self.cwl_inputs = self.get_cwl_inputs_from_object()
+
+        # Initialise yaml template
+        self.input_template_object = YAML().map()
+
+    def version_loader(self, version: Dict, cwl_file_path: Path) -> ItemVersion:
+        raise NotImplementedError
+
+    def get_item_list(self):
+        """
+        Load the yaml file
+        :return:
+        """
+        return read_yaml(self.item_yaml_path)[self.item_type_key]
 
     def get_cwl_inputs_from_object(self) -> Dict:
         """
@@ -177,73 +259,71 @@ class CreateSubmissionTemplate(Command):
                 "doc": input_item.doc,
                 "optional": False
             }
+            input_item_type = input_item.type
 
+            # Check if we need to go through a second time
+            was_in_optional_list = False
             # Check if we get an array (this likely means first option is null)
-            if isinstance(input_item, list):
+            if isinstance(input_item_type, list):
+                was_in_optional_list = True
                 # Check elements are in array
-                if len(input_item) < 1:
+                if len(input_item_type) < 1:
                     logger.warning("Input item has no length, skipping")
                     continue
                 # Check if first option is null (means an optional item)
-                elif input_item[0] == 'null':
+                elif input_item_type[0] == 'null':
                     # Pop null item
-                    _ = input_item.pop(0)
+                    _ = input_item_type.pop(0)
                     input_obj["optional"] = True
 
-                if len(input_item) == 0:
+                if len(input_item_type) == 0:
                     logger.warning("Input item has no length, skipping")
                     continue
-                elif len(input_item) == 1:
-                    input_item = input_item[0]
-                elif all([isinstance(_item.type, str) for _item in input_item]):
-                    input_obj["cwl_type"] = [_item.type for _item in input_item]
+                elif len(input_item_type) == 1:
+                    input_item_type = input_item_type[0]
+                    input_obj["cwl_type"] = input_item_type
+                elif all([isinstance(_item, str) for _item in input_item_type]):
+                    input_obj["cwl_type"] = [_item for _item in input_item_type]
                 else:
                     logger.warning("Can't handle multiple types that aren't simple")
                     continue
 
-            # Handle InputArraySchema objects
-            if isinstance(input_item, list):
-                # Handled above
-                pass
-            elif isinstance(input_item.type, self.cwl_obj.parser.InputArraySchema):
-                # Is schema?
-                input_obj["is_array"] = 1
-                # Handle double arrays
-                while isinstance(input_item.type, self.cwl_obj.parser.InputArraySchema):
-                    input_item.type = input_item.type.items
-                    input_obj["is_array"] += 1
-                # Schemas
-                if '#' in input_item.type.items:
-                    # You may say I'm a schema... but I'm not the only one
-                    input_obj["cwl_type"] = "schema"
-                    # Read schema
-                    relative_schema_file_path, schema_name = input_item.type.items.split("#", 1)
-                    relative_schema_file_path = Path(relative_schema_file_path)
-                    schema_version = re.sub(r"\.yaml$", "", relative_schema_file_path.name.rsplit("__", 1)[-1])
-                    # Save schema
-                    input_obj["schema_obj"] = CWLSchema(self.cwl_file_path.parent.joinpath(input_item.type.items.split("#")).resolve(),
-                                                        schema_name,
-                                                        schema_version)
-                # Not schemas
+            # Handle InputArraySchema objects (and double arrays)
+            while isinstance(input_item_type, self.cwl_obj.parser.InputArraySchema):
+                if not "is_array" in input_obj.keys():
+                    input_obj["is_array"] = 1
                 else:
-                    # Just a regular array
-                    input_obj["cwl_type"] = input_item.type.items
-                    # Check for secondary files
-                    if hasattr(input_item.type, "secondaryFiles") and input_item.type.secondaryFiles is not None:
-                        input_obj["secondary_files"] = input_item.type.secondaryFiles
+                    input_obj["is_array"] += 1
+                input_item_type = input_item_type.items
+
+            # Schemas
+            if isinstance(input_item_type, str) and "#" in input_item_type:
+                # You may say I'm a schema... but I'm not the only one
+                input_obj["cwl_type"] = "schema"
+                # Read schema
+                relative_schema_file_path, schema_name = input_item_type.split("#", 1)
+                relative_schema_file_path = Path(relative_schema_file_path)
+                schema_version = re.sub(r"\.yaml$", "", relative_schema_file_path.name.rsplit("__", 1)[-1])
+                # Save schema
+                input_obj["schema_obj"] = CWLSchema(self.cwl_file_path.parent.joinpath(relative_schema_file_path).resolve(),
+                                                    schema_name,
+                                                    schema_version).cwl_obj
             # Handle InputEnumSchema objects
-            elif isinstance(input_item.type, self.cwl_obj.parser.InputEnumSchema):
+            elif isinstance(input_item_type, self.cwl_obj.parser.InputEnumSchema):
                 # Assign value to the first symbol
                 input_obj["cwl_type"] = "enum"
-                input_obj["symbols"] = [symbol.split("#", 1) for symbol in input_item.type.symbols][0]
-            elif isinstance(input_item.type, str):
+                input_obj["symbols"] = [symbol.split("#", 1)[-1] for symbol in input_item_type.symbols]
+            elif isinstance(input_item_type, str):
                 # The low hanging fruit
-                input_obj["cwl_type"] = input_item.type
+                input_obj["cwl_type"] = input_item_type
                 # Check for secondary files
                 if hasattr(input_item, "secondaryFiles") and input_item.secondaryFiles is not None:
                     input_obj["secondary_files"] = input_item.secondaryFiles
+            elif isinstance(input_item_type, list):
+                # Handled in check for multiple types
+                continue
             else:
-                logger.warning(f"Don't know what to do with {input_item}, skipping")
+                logger.warning(f"Don't know what to do with {input_item} of type {input_item_type}, skipping")
                 continue
 
             inputs[input_id] = input_obj
@@ -259,15 +339,12 @@ class CreateSubmissionTemplate(Command):
         """
         return Path(input_id.split("#")[-1]).name
 
-
-
     @staticmethod
     def get_json_for_input_attribute(input_type: str) -> Dict:
         """
         :return:
         """
         raise NotImplementedError
-
 
     @staticmethod
     def get_json_for_schema_input_attribute(schema_dict, optional=False):
@@ -278,19 +355,59 @@ class CreateSubmissionTemplate(Command):
         """
         raise NotImplementedError
 
+    def set_name_as_commented_map(self):
+        """
+        Use the launch name attribute, with the following comments
+        # Workflow Run Name
+        name:
+        :return:
+        """
 
-    def get_name_as_commented_map(self):
+        # Get the name object as a commented map
+        self.input_template_object["name"] = self.launch_name
 
-
-    def get_default_engine_parameters_as_commented_map(self):
+        # Add the comment above the name input - indent is zero since we're at the top key
+        self.input_template_object.yaml_set_comment_before_after_key(key="name",
+                                                                     before="Name of the workflow run",
+                                                                     indent=0)
+    def set_default_engine_parameters_as_commented_map(self):
         """
         Return engine parameters as a commented map
         So we can add in comments
         """
-        # TODO
+        self.input_template_object["engineParameters"]: OrderedDict = OrderedDict({
+            "workDirectory": None,
+            "outputDirectory": None
+        })
 
-    def get_cwl_inputs_as_commented_map(self):
-        # TODO
+        # Add keys to each
+        self.input_template_object.get("engineParameters").yaml_set_comment_before_after_key(key="workDirectory",
+                                                                                             before="Set the gds path to the logs and intermediate files",
+                                                                                             indent=YAML_INDENTATION_LEVEL)
+        self.input_template_object.get("engineParameters").yaml_set_comment_before_after_key(key="outputDirectory",
+                                                                                             before="Set the gds path to the workflow outputs",
+                                                                                             indent=YAML_INDENTATION_LEVEL)
+
+        # Add eol comment
+        self.input_template_object.get("engineParameters").yaml_add_eol_comment(key="workDirectory",
+                                                                                comment="gds://path/to/work/dir/")
+        self.input_template_object.get("engineParameters").yaml_add_eol_comment(key="outputDirectory",
+                                                                                comment="gds://path/to/output/dir/")
+
+        self.input_template_object.yaml_set_comment_before_after_key(key="engineParameters",
+                                                                     before=f"\nICA Engine Parameters",
+                                                                     indent=0)
+
+    def set_cwl_inputs_as_commented_map(self):
+        """
+        Get cwl inputs as a commented map
+        Uses the input template utils functions
+        :return:
+        """
+        self.input_template_object["inputs"] = create_input_dict(self.cwl_inputs)
+        self.input_template_object.yaml_set_comment_before_after_key(key="inputs",
+                                                                     before=f"\nInputs to {self.item_type} {self.item_name}/{self.item_version}",
+                                                                     indent=0)
 
     def write_yaml_file(self):
         """
@@ -298,79 +415,88 @@ class CreateSubmissionTemplate(Command):
         Add in the name, engine-parameters, and
         """
 
-        # Requires the name, input and engine parameters
+        # Step 1: Populate the yaml file with name, input and engine parameters
+        self.set_name_as_commented_map()
+        self.set_cwl_inputs_as_commented_map()
+        self.set_default_engine_parameters_as_commented_map()
 
-        # Step 1: Initialise CommentedMap
-
-        # Step 2: Set values for name, input and engineParameters
-
-        # Step 3: Write out yaml file
-
+        # Step 2: Write out yaml file
+        with open(self.output_yaml_path, 'w') as yaml_h:
+            round_trip_dump(self.input_template_object, yaml_h,
+                            indent=YAML_INDENTATION_LEVEL,
+                            block_seq_indent=BLOCK_YAML_INDENTATION_LEVEL)
 
     def write_json_file(self):
-        """
-        Write the json file containing the run json object as specified in the run yaml
-        :return:
-        """
-
-        # Get engine parameters pop any unnecessary ones
-        engine_parameters = self.run_obj.ica_engine_parameters.copy()
-        unnecessary_engine_parameters = [
-            'tesUseInputManifest',
-            'cwltool',
-            'engine',
-        ]
-
-        for parameter in unnecessary_engine_parameters:
-            if parameter in list(engine_parameters.keys()):
-                _ = engine_parameters.pop(parameter)
-
-        run_dict = {
-            "name": self.launch_name,
-            "input": self.run_obj.ica_input,
-            "engineParameters": engine_parameters
-        }
-        with open(self.output_json_path, 'w') as json_h:
-            json.dump(run_dict, json_h, indent=4)
+        raise NotImplementedError
+        # """
+        # Write the json file containing the run json object as specified in the run yaml
+        # :return:
+        # """
+        #
+        # # Get engine parameters pop any unnecessary ones
+        # engine_parameters = self.run_obj.ica_engine_parameters.copy()
+        # unnecessary_engine_parameters = [
+        #     'tesUseInputManifest',
+        #     'cwltool',
+        #     'engine',
+        # ]
+        #
+        # for parameter in unnecessary_engine_parameters:
+        #     if parameter in list(engine_parameters.keys()):
+        #         _ = engine_parameters.pop(parameter)
+        #
+        # run_dict = {
+        #     "name": self.launch_name,
+        #     "input": self.run_obj.ica_input,
+        #     "engineParameters": engine_parameters
+        # }
+        # with open(self.output_json_path, 'w') as json_h:
+        #     json.dump(run_dict, json_h, indent=4)
 
     def write_shell_script(self):
         """
         Write the script that builds the launch object
         :return:
         """
+        launch_binary = 'curl' if self.is_curl else 'ica'
 
         with open(self.output_shell_path, 'w') as shell_h:
             # Start with the shebang
             shell_h.write("#!/usr/bin/env bash\n\n")
 
             # Fail on non-zero exit
-            shell_h.write(f"# Fail on non-zero exit")
+            shell_h.write(f"# Fail on non-zero exit\n")
             shell_h.write(f"set -euo pipefail\n\n")
 
             # Add docs
-            shell_h.write(f"# Use this script to launch the input json '{self.output_json_path.name}'\n\n")
+            #shell_h.write(f"# Use this script to launch the input json '{self.output_json_path.name}'\n\n")
+
+            # Check yq is present
+            shell_h.write(f"# Check yq and {launch_binary} is in path\n")
+            shell_h.write(f"echo 'Checking yq and {launch_binary} are installed' 1>&2\n")
+            shell_h.write(f"if ! type yq {launch_binary} >/dev/null 1>&2; then\n")
+            shell_h.write(f"    echo \"Error: Please ensure install 'yq' and '{launch_binary}' before continuing\"\n")
+            shell_h.write("fi\n\n")
+
 
             # Source ica-ica-lazy functions (bash functions might be exported but doesn't help if user
             # is running zsh
             shell_h.write("# Source ica-ica-lazy functions if they exist\n")
-            shell_h.write("if [[ -d \"$HOME/.ica-ica-lazy/functions\" ]]; then\n")
-            shell_h.write("    for f in \"$HOME/.ica-ica-lazy/functions/\"*\".sh\"; do\n")
+            shell_h.write("echo 'Sourcing ica-ica-lazy package if present' 1>&2\n")
+            shell_h.write("if [[ -n \"${ICA_ICA_LAZY_HOME}\" ]]; then\n")
+            shell_h.write("    for f in \"${ICA_ICA_LAZY_HOME}/functions/\"*\".sh\"; do\n")
             shell_h.write("        .  \"$f\"\n")
             shell_h.write("    done\n")
             shell_h.write("fi\n\n")
 
             # Check binaries
-            # Can we enter the right context?
-            # Check yq is present,
-            # Check ica-context-switcher or ica is present or ICA_ACCESS_TOKEN is set?
-            # TODO Set with case statement
-
 
             # Run checks with each case statement
             # Then start with the context switch command
             # Work with case statement
             shell_h.write(f"# Enter the right context to launch the workflow\n")
-            shell_h.write(f"if ! type ica-context-switcher >/dev/null; then\n")
+            shell_h.write(f"echo 'Entering launch project context' 1>&2\n")
+            shell_h.write(f"if type ica-context-switcher >/dev/null 2>&1; then\n")
             shell_h.write(f"    ica-context-switcher --project-name '{self.launch_project_name}' --scope 'admin'\n")
             # TODO - check if ica-access-token is present and check it is the right project context
             shell_h.write(f"else\n")
@@ -379,27 +505,33 @@ class CreateSubmissionTemplate(Command):
                 shell_h.write(f"    export ICA_ACCESS_TOKEN=\"$(yq eval '.access-token' ~/.ica/.session.{get_region_from_base_url(get_base_url())}.yaml)\"\n")
             shell_h.write("fi\n\n")
 
+            # Create temp file ready for launch
+            shell_h.write("# Convert yaml into json with yq\n")
+            shell_h.write(f"echo 'Converting {self.output_yaml_path.absolute().resolve().relative_to(self.output_shell_path.absolute().resolve().parent)} to json' 1>&2\n")
+            shell_h.write(f"json_path=$(mktemp {self.output_yaml_path.stem}.XXX.json)\n")
+            shell_h.write(f"yq eval --output-format=json '.' {self.output_yaml_path.absolute().resolve().relative_to(self.output_shell_path.absolute().resolve().parent)} > \"$json_path\"\n\n")
+
             # Check if 'ica-check-cwl-inputs' is in the path and then run it!
-            shell_h.write("if [[ type \"ica-check-cwl-inputs\" ]]; then\n")
+            shell_h.write("# Validate workflow inputs against ICA workflow version\n")
+            shell_h.write("echo 'Validating workflow inputs against ICA workflow version definition (if ica-ica-lazy is installed)' 1>&2\n")
+            shell_h.write("if type \"ica-check-cwl-inputs\" >/dev/null 2>&1; then\n")
             shell_h.write(f"    ica-check-cwl-inputs \\\n")
-            shell_h.write(f"      --input-json {self.output_json_path} \\\n")
-            shell_h.write(f"      --ica-workflow-id {self.run_obj.ica_workflow_id} \\\n")
-            shell_h.write(f"      --ica-workflow-version-name {self.run_obj.ica_workflow_version_name}\n")
+            shell_h.write(f"      --input-json \"$json_path\" \\\n")
+            shell_h.write(f"      --ica-workflow-id \"{self.ica_workflow_id}\" \\\n")
+            shell_h.write(f"      --ica-workflow-version-name \"{self.ica_workflow_version_name}\"\n")
             shell_h.write("fi\n\n")
 
             # Then set the launch command
             if self.is_curl:
                 shell_h.write("# Submit command through curl\n")
+                shell_h.write("echo 'Launching ica workflow through curl' 1>&2")
                 shell_h.write(f"curl \\\n"
                               f"    --request POST \\\n"
-                              f"    --url \"{get_base_url()}/v1/workflows/{self.run_obj.ica_workflow_id}/versions/{self.run_obj.ica_workflow_version_name}:launch\" \\\n"
+                              f"    --url \"{get_base_url()}/v1/workflows/{self.ica_workflow_id}/versions/{self.ica_workflow_version_name}:launch\" \\\n"
                               f"    --header \"Accept: application/json\" \\\n"
                               f"    --header \"Context-Type: application/json\" \\\n"
                               f"    --header \"Authorization: Bearer ${{ICA_ACCESS_TOKEN}}\" \\\n"
-                              f"    --data \"@{self.output_json_path}\"\n")
+                              f"    --data \"@$json_path\"\n")
             else:
                 shell_h.write("# Submit command through ica binary\n")
-                shell_h.write(f"ica workflows versions launch {self.run_obj.ica_workflow_id} {self.run_obj.ica_workflow_version_name} {self.output_json_path}\n")
-
-
-
+                shell_h.write(f"ica workflows versions launch \"{self.ica_workflow_id}\" \"{self.ica_workflow_version_name}\" \"$json_path\"\n")
