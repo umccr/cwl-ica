@@ -35,7 +35,9 @@ Each project is linked to a tenancy id
 " create-expression-from-template\:"Initialise an CWL expression from the cwl expression template
 " create-schema-from-template\:"Initialise a CWL schema from the cwl schema template
 " create-tool-from-template\:"Initialise a CWL tool from the cwl tool template
+" create-tool-submission-template\:"Create a ICA input template and bash script for a tool
 " create-workflow-from-template\:"Initialise a CWL workflow from the cwl workflow template
+" create-workflow-submission-template\:"Create a ICA input template and bash script for a workflow
 " expression-init\:"Register an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 " expression-sync\:"Sync an expression in \${CWL_ICA_REPO_PATH}/config/expression.yaml
 " expression-validate\:"Validate a CWL expression
@@ -439,6 +441,27 @@ and update definition on ICA
 
 
             ;;
+            create-tool-submission-template)
+
+                # ---- Command: create-tool-submission-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--tool-path[Path to CWL tool
+]:tool-path:_cwl-ica_create-tool-submission-template_option_tool_path_completion' \
+                    '--prefix[Output prefix name
+]:prefix' \
+                    '--project[Project that tool belongs to
+]:project:_cwl-ica_create-tool-submission-template_option_project_completion' \
+                    '--launch-project[Name of the launch project
+]:launch-project' \
+                    '--curl[Use curl binary over ica binary to launch tool
+]:curl' \
+                    && ret=0
+
+
+            ;;
             create-workflow-from-template)
 
                 # ---- Command: create-workflow-from-template
@@ -452,6 +475,27 @@ and update definition on ICA
 ]:workflow-version' \
                     '--username[CWL Creator
 ]:username:_cwl-ica_create-workflow-from-template_option_username_completion' \
+                    && ret=0
+
+
+            ;;
+            create-workflow-submission-template)
+
+                # ---- Command: create-workflow-submission-template
+                _arguments -s -C \
+                    '1: :->cmd1' \
+                    '--help[Show command help]' \
+                    '-h[Show command help]' \
+                    '--workflow-path[Path to CWL workflow
+]:workflow-path:_cwl-ica_create-workflow-submission-template_option_workflow_path_completion' \
+                    '--prefix[Output prefix name
+]:prefix' \
+                    '--project[Project that workflow belongs to
+]:project:_cwl-ica_create-workflow-submission-template_option_project_completion' \
+                    '--launch-project[Name of the launch project
+]:launch-project' \
+                    '--curl[Use curl binary over ica binary to launch workflow
+]:curl' \
                     && ret=0
 
 
@@ -1584,6 +1628,113 @@ EOF
  ) )
     compadd -X "username:" $__dynamic_completion
 }
+_cwl-ica_create-tool-submission-template_option_tool_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python - <<EOF
+#!/usr/bin/env python3
+
+"""
+List the unregistered tool paths
+"""
+
+from utils.repo import get_tool_yaml_path
+from utils.repo import get_tools_dir
+from utils.miscell import read_yaml
+from pathlib import Path
+from os import getcwd
+from os.path import relpath
+
+tool_paths = [s_file.relative_to(get_tools_dir())
+              for s_file in get_tools_dir().glob("**/*.cwl")]
+
+# Get the current word value
+if not "${CURRENT_WORD}" == "":
+    current_word_value = "${CURRENT_WORD}"
+else:
+    current_word_value = None
+
+# Resolve the current path
+# If getcwd() is "/c/Users/awluc"
+# 1. Non relative paths: current_word_value = "/etc" -> current_path_resolved = "/etc"
+# 2. Relative parent path: current_word_value = "../../Program Files" -> current_path_resolved = "/c/Program Files"
+# 3. Subfolder: current_word_value = "OneDrive" -> current_path_resolved = "/c/Users/awluc/OneDrive"
+# 4. Subfolder of tools dir = "OneDrive/GitHub/UMCCR/tools/contig/" -> current path resolved
+if current_word_value is not None:
+    if current_word_value.endswith("/"):
+        current_path_resolved = Path(getcwd()).joinpath(Path(current_word_value)).resolve()
+    else:
+        current_path_resolved = Path(getcwd()).joinpath(Path(current_word_value).parent).resolve()
+
+else:
+    current_word_value = ""
+    current_path_resolved = Path(getcwd()).absolute()
+
+# Is the current_path_resolved a subpath of the tools directory?
+try:
+    _ = current_path_resolved.relative_to(get_tools_dir())
+    in_tools_dir = True
+except ValueError:
+    in_tools_dir = False
+
+if in_tools_dir:
+    current_path_resolved_relative_to_tools_dir = current_path_resolved.relative_to(get_tools_dir())
+    if current_path_resolved_relative_to_tools_dir == Path("."):
+        for s_path in tool_paths:
+            if current_word_value.endswith("/"):
+                print(Path(current_word_value) / s_path)
+            else:
+                print(Path(current_word_value).parent / s_path)
+    else:
+        for s_path in tool_paths:
+            if str(s_path).startswith(str(current_path_resolved_relative_to_tools_dir)):
+                if current_word_value.endswith("/"):
+                    print(Path(current_word_value) / s_path.relative_to(current_path_resolved_relative_to_tools_dir))
+                else:
+                    print(Path(current_word_value).parent / s_path.relative_to(
+                        current_path_resolved_relative_to_tools_dir))
+
+else:
+    # Now get the tools yaml path relative to the current path
+    try:
+        tools_dir = get_tools_dir().relative_to(current_path_resolved)
+    except ValueError:
+        # We could be in a different mount point OR just in a subdirectory
+        if str(get_tools_dir().absolute()) in str(relpath(get_tools_dir(), current_path_resolved)):
+            # Separate mount point
+            tools_dir = get_tools_dir().absolute()
+        else:
+            tools_dir = Path(relpath(get_tools_dir(), current_path_resolved))
+
+    # Now iterate through paths
+    for s_path in tool_paths:
+        if current_word_value.endswith("/"):
+            print(Path(current_word_value) / tools_dir.joinpath(s_path))
+        else:
+            print(Path(current_word_value).parent / tools_dir.joinpath(s_path))
+EOF
+ ) )
+    compadd -X "tool_path:" $__dynamic_completion
+}
+_cwl-ica_create-tool-submission-template_option_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python - <<EOF
+#!/usr/bin/env python
+
+"""
+List all of the project names in the project.yaml file
+"""
+from utils.repo import get_project_yaml_path
+from utils.miscell import read_yaml
+
+# Import yaml and print each project name
+for project in read_yaml(get_project_yaml_path())["projects"]:
+    print(project["project_name"])
+EOF
+ ) )
+    compadd -X "project:" $__dynamic_completion
+}
 _cwl-ica_create-workflow-from-template_option_username_completion() {
     local __dynamic_completion
     local CURRENT_WORD="$words[CURRENT]"
@@ -1602,6 +1753,114 @@ for user in read_yaml(get_user_yaml_path())["users"]:
 EOF
  ) )
     compadd -X "username:" $__dynamic_completion
+}
+_cwl-ica_create-workflow-submission-template_option_workflow_path_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python - <<EOF
+#!/usr/bin/env python3
+
+"""
+List the unregistered workflow paths
+"""
+
+from utils.repo import get_workflow_yaml_path
+from utils.repo import get_workflows_dir
+from utils.miscell import read_yaml
+from pathlib import Path
+from os import getcwd
+from os.path import relpath
+
+workflow_paths = [s_file.relative_to(get_workflows_dir())
+                  for s_file in get_workflows_dir().glob("**/*.cwl")]
+
+# Get the current word value
+if not "${CURRENT_WORD}" == "":
+    current_word_value = "${CURRENT_WORD}"
+else:
+    current_word_value = None
+
+# Resolve the current path
+# If getcwd() is "/c/Users/awluc"
+# 1. Non relative paths: current_word_value = "/etc" -> current_path_resolved = "/etc"
+# 2. Relative parent path: current_word_value = "../../Program Files" -> current_path_resolved = "/c/Program Files"
+# 3. Subfolder: current_word_value = "OneDrive" -> current_path_resolved = "/c/Users/awluc/OneDrive"
+# 4. Subfolder of workflows dir = "OneDrive/GitHub/UMCCR/workflows/contig/" -> current path resolved
+if current_word_value is not None:
+    if current_word_value.endswith("/"):
+        current_path_resolved = Path(getcwd()).joinpath(Path(current_word_value)).resolve()
+    else:
+        current_path_resolved = Path(getcwd()).joinpath(Path(current_word_value).parent).resolve()
+
+else:
+    current_word_value = ""
+    current_path_resolved = Path(getcwd()).absolute()
+
+# Is the current_path_resolved a subpath of the workflows directory?
+try:
+    _ = current_path_resolved.relative_to(get_workflows_dir())
+    in_workflows_dir = True
+except ValueError:
+    in_workflows_dir = False
+
+if in_workflows_dir:
+    current_path_resolved_relative_to_workflows_dir = current_path_resolved.relative_to(get_workflows_dir())
+    if current_path_resolved_relative_to_workflows_dir == Path("."):
+        for s_path in workflow_paths:
+            if current_word_value.endswith("/"):
+                print(Path(current_word_value) / s_path)
+            else:
+                print(Path(current_word_value).parent / s_path)
+    else:
+        for s_path in workflow_paths:
+            if str(s_path).startswith(str(current_path_resolved_relative_to_workflows_dir)):
+                if current_word_value.endswith("/"):
+                    print(
+                        Path(current_word_value) / s_path.relative_to(current_path_resolved_relative_to_workflows_dir))
+                else:
+                    print(Path(current_word_value).parent / s_path.relative_to(
+                        current_path_resolved_relative_to_workflows_dir))
+
+else:
+    # Now get the workflows yaml path relative to the current path
+    try:
+        workflows_dir = get_workflows_dir().relative_to(current_path_resolved)
+    except ValueError:
+        # We could be in a different mount point OR just in a subdirectory
+        if str(get_workflows_dir().absolute()) in str(relpath(get_workflows_dir(), current_path_resolved)):
+            # Separate mount point
+            workflows_dir = get_workflows_dir().absolute()
+        else:
+            workflows_dir = Path(relpath(get_workflows_dir(), current_path_resolved))
+
+    # Now iterate through paths
+    for s_path in workflow_paths:
+        if current_word_value.endswith("/"):
+            print(Path(current_word_value) / workflows_dir.joinpath(s_path))
+        else:
+            print(Path(current_word_value).parent / workflows_dir.joinpath(s_path))
+EOF
+ ) )
+    compadd -X "workflow_path:" $__dynamic_completion
+}
+_cwl-ica_create-workflow-submission-template_option_project_completion() {
+    local __dynamic_completion
+    local CURRENT_WORD="$words[CURRENT]"
+    IFS=$'\n' __dynamic_completion=( $( python - <<EOF
+#!/usr/bin/env python
+
+"""
+List all of the project names in the project.yaml file
+"""
+from utils.repo import get_project_yaml_path
+from utils.miscell import read_yaml
+
+# Import yaml and print each project name
+for project in read_yaml(get_project_yaml_path())["projects"]:
+    print(project["project_name"])
+EOF
+ ) )
+    compadd -X "project:" $__dynamic_completion
 }
 _cwl-ica_expression-init_option_expression_path_completion() {
     local __dynamic_completion
