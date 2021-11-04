@@ -68,7 +68,8 @@ jobs:
             quay.io/umccr/cwl-ica:0.9.3 \
               bash ".github/scripts/create_catalogue.sh"
       # Commit config files
-      - name: Commit catalogue files
+      - id: commit_catalogue_files
+        name: Commit catalogue files
         uses: EndBug/add-and-commit@v7.2.1
         with:
           add: "[ 'config/', 'cwl-ica-catalogue.md', '.github/catalogue/' ]"
@@ -80,6 +81,7 @@ jobs:
       # Push config files
       - name: Push code
         id: git_push
+        if: steps.commit_catalogue_files.outputs.committed == true
         run: |
           # Get current branch
           echo "DEBUG: Getting the current branch" 1>&2

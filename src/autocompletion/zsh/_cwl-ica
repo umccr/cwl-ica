@@ -2057,7 +2057,8 @@ from utils.miscell import read_yaml
 
 for tenant in read_yaml(get_tenant_yaml_path())["tenants"]:
     print(tenant["tenant_name"])
-EOF ) )
+EOF
+) )
     compadd -X "tenant_name:" $__dynamic_completion
 }
 _cwl-ica_register-tool-run-instance_option_project_name_completion() {
@@ -2516,7 +2517,8 @@ else:
             print(Path(current_word_value) / tools_dir.joinpath(s_path))
         else:
             print(Path(current_word_value).parent / tools_dir.joinpath(s_path))
-EOF ) )
+EOF
+) )
     compadd -X "tool_path:" $__dynamic_completion
 }
 _cwl-ica_tool-init_option_projects_completion() {

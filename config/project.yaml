@@ -111,6 +111,11 @@ projects:
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-06-29T00:51:41UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-germline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2021-10-06T08:02:32UTC
+            run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
         ica_workflow_name: custom-create-tso500-samplesheet_dev-wf
@@ -276,7 +281,25 @@ projects:
           - name: 3.8.4
             path: 3.8.4/dragen-umi__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2021-09-15T00:21:47UTC
+            modification_time: 2021-10-01T06:06:40UTC
+            run_instances:
+              - wfr.affca1fb24e34cbca115844c3f9f6c57
+              - wfr.96ea5cf11b2843c9b9b7a88070b48e3e
+              - wfr.d068fc090a204a08823974db7b255f88
+          - name: 3.9.3
+            path: 3.9.3/dragen-umi__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2021-10-01T06:36:36UTC
+            run_instances: []
+      - name: bcftools-view
+        path: bcftools-view
+        ica_workflow_name: bcftools-view_dev-wf
+        ica_workflow_id: wfl.14a46d288c1a45b7b7413b995fdd60e3
+        versions:
+          - name: 1.13.0
+            path: 1.13.0/bcftools-view__1.13.0.cwl
+            ica_workflow_version_name: 1.13.0
+            modification_time: 2021-10-27T23:59:18UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline
@@ -309,6 +332,12 @@ projects:
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-09-30T05:45:06UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2021-10-07T00:44:23UTC
+            run_instances:
+              - wfr.d058e5f7be4b4683a9b1a59b8f67f91b
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
         ica_workflow_name: dragen-qc-hla-pipeline_dev-wf
@@ -545,6 +574,11 @@ projects:
             ica_workflow_version_name: 3.7.5--40a7a9e
             modification_time: 2021-09-15T00:55:22UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--0d6bc70
+            modification_time: 2021-10-13T10:18:28UTC
+            run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_prod-wf
@@ -615,6 +649,11 @@ projects:
             ica_workflow_version_name: 3.7.5--785012d
             modification_time: 2021-08-03T01:02:20UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--9961e75
+            modification_time: 2021-10-12T05:27:23UTC
+            run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_prod-wf
@@ -640,6 +679,11 @@ projects:
             ica_workflow_version_name: 3.7.5--67a9d2b
             modification_time: 2021-07-02T05:02:57UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--0d6bc70
+            modification_time: 2021-10-13T10:18:37UTC
+            run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
         ica_workflow_name: tso500-ctdna-with-post-processing-pipeline_prod-wf
@@ -649,6 +693,11 @@ projects:
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0--87cab58
             modification_time: 2021-08-20T06:05:08UTC
+            run_instances: []
+          - name: 1.1.0--1.0.0
+            path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
+            ica_workflow_version_name: 1.1.0--1.0.0--570feb0
+            modification_time: 2021-10-14T08:57:34UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
@@ -744,3 +793,4 @@ projects:
             modification_time: 2021-10-12T21:04:15UTC
             run_instances:
               - wfr.d92a2d28bbfe46fe878f6513fdb06723
+              - wfr.c419c549d0c349538ba811f65c8ed684

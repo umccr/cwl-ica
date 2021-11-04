@@ -10,6 +10,6 @@ Please visit our [wiki page][wiki-page] to get started.
 
 
 [catalogue]: cwl-ica-catalogue.md
-[ica-docs]: https://support-docs.illumina.com/SW/ICA/ICA_Home/Content/SW/FrontPages/ICA.htm
+[ica-docs]: https://support-docs.illumina.com/SW/ICA/Content/SW/FrontPages/ICA.htm
 [libica]: https://pypi.org/project/libica/
 [wiki-page]: https://github.com/umccr/cwl-ica/wiki

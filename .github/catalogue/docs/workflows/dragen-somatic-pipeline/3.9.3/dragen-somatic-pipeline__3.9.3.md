@@ -1306,6 +1306,7 @@ Bam file of the tumor sample
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -1556,6 +1557,16 @@ bash wfr.b19291caab384e78b7661a85c3f82003.launch.sh
 
   
 [![Dragen-3.9-somatic-pipeline__wfr.b19291caab384e78b7661a85c3f82003.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.9.3/Dragen-3.9-somatic-pipeline__wfr.b19291caab384e78b7661a85c3f82003.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.9.3/Dragen-3.9-somatic-pipeline__wfr.b19291caab384e78b7661a85c3f82003.svg)  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.aa0ccece4e004839aa7374d1d6530633  
+
+  
+**workflow name:** dragen-somatic-pipeline_prod-wf  
+**wfl version name:** 3.9.3--0d6bc70  
 
   
 
