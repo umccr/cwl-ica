@@ -99,6 +99,7 @@ inputs:
     doc: |
       From this directory we collect the following outputs:
       * CombinedVariantOutput.tsv
+    type: Directory
   # Type 2 inputs
   coverage_qc_file:
     label: coverage qc file
