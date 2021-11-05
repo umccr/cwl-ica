@@ -50,7 +50,7 @@ jobs:
       # Push config files
       - name: Push code
         id: git_push
-        if: steps.commit_configuration_yaml_files.outputs.committed == true
+        if: steps.commit_configuration_yaml_files.outputs.committed == 'true'
         run: |
           # For debugging purposes
           # Get current branch

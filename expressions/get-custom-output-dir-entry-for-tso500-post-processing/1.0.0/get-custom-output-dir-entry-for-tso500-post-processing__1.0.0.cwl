@@ -94,6 +94,12 @@ inputs:
       From this directory we collect the following outputs:
       * The MergedSmallVariantsAnnotated compressed json file
     type: Directory
+  combined_variant_output_dir:
+    label: combined variant output dir
+    doc: |
+      From this directory we collect the following outputs:
+      * CombinedVariantOutput.tsv
+    type: Directory
   # Type 2 inputs
   coverage_qc_file:
     label: coverage qc file
@@ -167,6 +173,12 @@ expression: >-
                                                                            [
                                                                              inputs.sample_id + "_MergedSmallVariantsAnnotated.json.gz",
                                                                              inputs.sample_id + "_MergedSmallVariantsAnnotated.json.gz.jsi"
+                                                                           ],
+                                                                           null,
+                                                                           "top_dir"),
+              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.combined_variant_output_dir,
+                                                                           [
+                                                                             inputs.sample_id + "_CombinedVariantOutput.tsv"
                                                                            ],
                                                                            null,
                                                                            "top_dir"),
