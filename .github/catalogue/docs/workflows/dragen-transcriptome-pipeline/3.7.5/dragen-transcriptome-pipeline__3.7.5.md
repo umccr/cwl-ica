@@ -438,6 +438,158 @@ The output directory for multiqc
 **wfl version name:** 3.7.5  
 
 
+#### Run Instances
+
+##### ToC
+  
+- [Run wfr.f0fa0ea3972f405aa5af5003e1427428](#run-wfrf0fa0ea3972f405aa5af5003e1427428)  
+
+
+##### Run wfr.f0fa0ea3972f405aa5af5003e1427428
+
+
+
+  
+> Run Name: Dragen-WTS-MDX210147  
+
+  
+**Start Time:** 2021-07-17 06:31:29 UTC  
+**Duration:** 2021-07-17 08:46:37 UTC  
+**End Time:** 0 days 02:15:07  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.f0fa0ea3972f405aa5af5003e1427428
+
+# Edit the input json file (optional)
+# vim wfr.f0fa0ea3972f405aa5af5003e1427428.template.json 
+
+# Run the launch script
+bash wfr.f0fa0ea3972f405aa5af5003e1427428.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "annotation_file": {
+        "class": "File",
+        "location": "gds://stratus-sehrish2/data/wts/ref-transcripts.non-zero-length.gtf"
+    },
+    "blacklist": {
+        "class": "File",
+        "location": "gds://stratus-sehrish2/data/arriba-blacklist.tsv.gz"
+    },
+    "cytobands": {
+        "class": "File",
+        "location": "gds://stratus-sehrish2/data/arriba/cytobands_hg38_GRCh38_2018-02-23.tsv"
+    },
+    "fastq_list_rows": [
+        {
+            "lane": 1,
+            "read_1": {
+                "class": "File",
+                "location": "gds://stratus-sehrish2/data/wts/2021-07-01_WTS_NebRNA/VCCC/MDX210147_L2100702_S5_L001_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://stratus-sehrish2/data/wts/2021-07-01_WTS_NebRNA/VCCC/MDX210147_L2100702_S5_L001_R2_001.fastq.gz"
+            },
+            "rgid": "S5",
+            "rglb": "UnknownLibrary",
+            "rgsm": "S5"
+        }
+    ],
+    "output_directory": "testing",
+    "output_file_prefix": "BALL-Test",
+    "protein_domains": {
+        "class": "File",
+        "location": "gds://stratus-sehrish2/data/arriba/protein_domains_hg38_GRCh38_2018-03-06.gff3"
+    },
+    "reference_fasta": {
+        "class": "File",
+        "location": "gds://stratus-sehrish2/hg38.fa"
+    },
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://umccr-refdata-dev/dragen/genomes/hg38/3.7.5/hg38_alt_ht_3_7_5.tar.gz"
+    }
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.f0fa0ea3972f405aa5af5003e1427428/Dragen-WTS-MDX210147",
+    "outputDirectory": "gds://stratus-sehrish2/dragen-wts/MDX210147_L2100702",
+    "tmpOutputDirectory": "gds://wfr.f0fa0ea3972f405aa5af5003e1427428/Dragen-WTS-MDX210147/steps",
+    "logDirectory": "gds://wfr.f0fa0ea3972f405aa5af5003e1427428/Dragen-WTS-MDX210147/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.16.0-202106091735-develop"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "arriba_output_directory": {
+        "location": "gds://stratus-sehrish2/dragen-wts/MDX210147_L2100702/arriba_outputs",
+        "basename": "arriba_outputs",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "dragen_transcriptome_output_directory": {
+        "location": "gds://stratus-sehrish2/dragen-wts/MDX210147_L2100702/testing",
+        "basename": "testing",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "multiqc_output_directory": {
+        "location": "gds://stratus-sehrish2/dragen-wts/MDX210147_L2100702/BALL-Test_dragen_transcriptome_multiqc",
+        "basename": "BALL-Test_dragen_transcriptome_multiqc",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_dir_gds_session_id": null,
+    "output_dir_gds_folder_id": null
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg](../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.7.5/Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.7.5/Dragen-WTS-MDX210147__wfr.f0fa0ea3972f405aa5af5003e1427428.svg)  
+
+
 ### Project: production_workflows
 
 
