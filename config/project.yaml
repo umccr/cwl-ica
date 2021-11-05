@@ -396,7 +396,8 @@ projects:
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
             modification_time: 2021-08-03T01:02:11UTC
-            run_instances: []
+            run_instances:
+              - wfr.f0fa0ea3972f405aa5af5003e1427428
           - name: 3.8.4
             path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
