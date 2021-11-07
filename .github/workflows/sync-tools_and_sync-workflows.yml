@@ -27,7 +27,7 @@ on:
 
 jobs:
   sync_tools_and_workflows_and_create_catalogue:
-    if: github.event.review.state == 'approved'
+    if: ${{ github.event.review.state == 'approved' }}
     name: sync-tools and sync-workflows and create-catalogue
     concurrency: git_commits
     runs-on: ubuntu-latest
@@ -81,7 +81,7 @@ jobs:
       # Push config files
       - name: Push code
         id: git_push
-        if: steps.commit_catalogue_files.outputs.committed == 'true'
+        if: ${{ steps.commit_catalogue_files.outputs.committed == 'true' }}
         run: |
           # Get current branch
           echo "DEBUG: Getting the current branch" 1>&2

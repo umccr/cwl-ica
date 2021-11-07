@@ -15,7 +15,7 @@ on:
 
 jobs:
   update_auto_completion_yaml:
-    if: github.event.review.state == 'approved'
+    if: ${{ github.event.review.state == 'approved' }}
     name: update autocompletion yaml
     concurrency: git_commits
     runs-on: ubuntu-latest
@@ -50,7 +50,7 @@ jobs:
       # Push config files
       - name: Push code
         id: git_push
-        if: steps.commit_configuration_yaml_files.outputs.committed == 'true'
+        if: ${{ steps.commit_configuration_yaml_files.outputs.committed == 'true' }}
         run: |
           # For debugging purposes
           # Get current branch
