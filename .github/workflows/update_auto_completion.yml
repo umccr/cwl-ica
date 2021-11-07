@@ -16,7 +16,7 @@ on:
 
 jobs:
   update_auto_completion_yaml:
-    if: ${{ github.event.review.state == 'approved' }}
+    if: ${{ github.event.review.state == 'approved' || github.event_name == 'workflow_dispatch' }}
     name: update autocompletion yaml
     concurrency: git_commits
     runs-on: ubuntu-latest

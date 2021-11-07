@@ -28,7 +28,7 @@ on:
 
 jobs:
   sync_tools_and_workflows_and_create_catalogue:
-    if: ${{ github.event.review.state == 'approved' }}
+    if: ${{ github.event.review.state == 'approved' || github.event_name == 'workflow_dispatch' }}
     name: sync-tools and sync-workflows and create-catalogue
     concurrency: git_commits
     runs-on: ubuntu-latest
