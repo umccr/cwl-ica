@@ -16,7 +16,7 @@ get-custom-output-dir-entry-for-tso500-post-processing 1.0.0 expression
 
   
 > ID: get-custom-output-dir-entry-for-tso500-post-processing--1.0.0  
-> md5sum: 860b82e7ac48b72f404e33a4048b02fc
+> md5sum: 5668cede7bfd2062ff07ad4ac20889a9
 
 ### get-custom-output-dir-entry-for-tso500-post-processing v(1.0.0) documentation
   
@@ -55,6 +55,20 @@ We collect the following outputs from this directory -
 * The evidence bam file
 * The raw bam file
 * The clean-stitched bam file
+
+
+### combined variant output dir
+
+
+
+  
+> ID: combined_variant_output_dir
+  
+**Optional:** `False`  
+**Type:** `Directory`  
+**Docs:**  
+From this directory we collect the following outputs:
+* CombinedVariantOutput.tsv
 
 
 ### compressed metrics tarball
