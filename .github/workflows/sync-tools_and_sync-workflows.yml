@@ -1,6 +1,7 @@
 name: Sync tools and sync workflows and create catalogue
 
 on:
+  workflow_dispatch:
   pull_request_review:
     types:
       - "submitted"
