@@ -57,6 +57,7 @@ jobs:
           # Get current branch
           echo "DEBUG: Getting the current branch" 1>&2
           echo "DEBUG: The current branch is ${{ github.event.pull_request.head.ref }}"
+          echo "DEBUG: $(printenv)"
 
           CURRENT_BRANCH="${{ github.event.pull_request.head.ref }}"
           echo "DEBUG: Current branch is: ${CURRENT_BRANCH}" 1>&2
