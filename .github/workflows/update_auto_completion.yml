@@ -53,12 +53,8 @@ jobs:
         id: git_push
         if: ${{ steps.commit_configuration_yaml_files.outputs.committed == 'true' }}
         run: |
-          # For debugging purposes
           # Get current branch
-          echo "DEBUG: Getting the current branch" 1>&2
-          echo "DEBUG: The current branch is ${{ github.event.pull_request.head.ref }}"
-          echo "DEBUG: $(printenv)"
-          if [[ -n "{{ github.event.pull_request.head.ref }}" ]]; then
+          if [[ -n "${{ github.event.pull_request.head.ref }}" ]]; then
             # When its a pr even
             CURRENT_BRANCH="${{ github.event.pull_request.head.ref }}"
           elif [[ -n "${GITHUB_REF_NAME-}" ]]; then
