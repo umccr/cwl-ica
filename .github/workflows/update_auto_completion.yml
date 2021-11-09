@@ -58,9 +58,16 @@ jobs:
           echo "DEBUG: Getting the current branch" 1>&2
           echo "DEBUG: The current branch is ${{ github.event.pull_request.head.ref }}"
           echo "DEBUG: $(printenv)"
-
-          CURRENT_BRANCH="${{ github.event.pull_request.head.ref }}"
-          echo "DEBUG: Current branch is: ${CURRENT_BRANCH}" 1>&2
+          if [[ -n "{{ github.event.pull_request.head.ref }}" ]]; then
+            # When its a pr even
+            CURRENT_BRANCH="${{ github.event.pull_request.head.ref }}"
+          elif [[ -n "${GITHUB_REF_NAME-}" ]]; then
+            # Manual workflow
+            CURRENT_BRANCH="${GITHUB_REF_NAME}"
+          else
+            echo "DEBUG: $(printenv | grep GITHUB_)"
+            echo "Cannot get the ref name"
+          fi
 
           # Pull first (might have had another action complete a commit)
           git pull --rebase origin "${CURRENT_BRANCH}"
