@@ -13,6 +13,12 @@ s:author:
     s:name: Sehrish Kanwal
     s:email: sehrish.kanwal@umccr.org
 
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
+
 # ID/Docs
 id: dragen-somatic-pipeline--3.9.3
 label: dragen-somatic-pipeline v(3.9.3)
@@ -125,21 +131,21 @@ inputs:
   sv_call_regions_bed:
     label: sv call regions bed
     doc: |
-      Specifies a BED file containing the set of regions to call. 
+      Specifies a BED file containing the set of regions to call.
     type: File?
   sv_region:
     label: sv region
     doc: |
-      Limit the analysis to a specified region of the genome for debugging purposes. 
-      This option can be specified multiple times to build a list of regions. 
-      The value must be in the format “chr:startPos-endPos”.. 
+      Limit the analysis to a specified region of the genome for debugging purposes.
+      This option can be specified multiple times to build a list of regions.
+      The value must be in the format “chr:startPos-endPos”..
     type: string?
   sv_exome:
     label: sv exome
     doc: |
-      Set to true to configure the variant caller for targeted sequencing inputs, 
-      which includes disabling high depth filters. 
-      In integrated mode, the default is to autodetect targeted sequencing input, 
+      Set to true to configure the variant caller for targeted sequencing inputs,
+      which includes disabling high depth filters.
+      In integrated mode, the default is to autodetect targeted sequencing input,
       and in standalone mode the default is false.
     type: boolean?
   sv_output_contigs:
@@ -150,28 +156,28 @@ inputs:
   sv_forcegt_vcf:
     label: sv forcegt vcf
     doc: |
-      Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted 
-      in the output VCF even if not found in the sample data. 
+      Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted
+      in the output VCF even if not found in the sample data.
       The variants are merged with any additional variants discovered directly from the sample data.
     type: File?
   sv_discovery:
     label: sv discovery
     doc: |
-      Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used. 
-      When set to false, SV discovery is disabled and only the forced genotyping input variants 
+      Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used.
+      When set to false, SV discovery is disabled and only the forced genotyping input variants
       are processed. The default is true.
     type: boolean?
   sv_se_overlap_pair_evidence:
     label: sv use overlap pair evidence
     doc: |
-      Allow overlapping read pairs to be considered as evidence. 
+      Allow overlapping read pairs to be considered as evidence.
       By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
     type: boolean?
   sv_somatic_ins_tandup_hotspot_regions_bed:
     label: sv somatic ins tandup hotspot regions bed
     doc: |
       Specify a BED of ITD hotspot regions to increase sensitivity for calling ITDs in somatic variant analysis.
-      By default, DRAGEN SV automatically selects areference-specific hotspots BED file from 
+      By default, DRAGEN SV automatically selects areference-specific hotspots BED file from
       /opt/edico/config/sv_somatic_ins_tandup_hotspot_*.bed.
     type: File?
   sv_enable_somatic_ins_tandup_hotspot_regions:
@@ -182,13 +188,13 @@ inputs:
   sv_enable_liquid_tumor_mode:
     label: sv enable liquid tumor mode
     doc: |
-      Enable liquid tumor mode. 
-    type: boolean? 
+      Enable liquid tumor mode.
+    type: boolean?
   sv_tin_contam_tolerance:
     label: sv tin contam tolerance
     doc: |
-      Set the Tumor-in-Normal (TiN) contamination tolerance level. 
-      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. 
+      Set the Tumor-in-Normal (TiN) contamination tolerance level.
+      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
     type: float?
   # Variant calling optons
   vc_target_bed:
@@ -421,10 +427,10 @@ inputs:
   cnv_use_somatic_vc_baf:
     label: cnv use somatic vc baf
     doc: |
-      If running in tumor-normal mode with the SNV caller enabled, use this option 
-      to specify the germline heterozygous sites. 
+      If running in tumor-normal mode with the SNV caller enabled, use this option
+      to specify the germline heterozygous sites.
     type: boolean?
-  # For more info on following options - see 
+  # For more info on following options - see
   # https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/SomaticWGSModes.htm#Germline
   cnv_normal_cnv_vcf:
     label: cnv normal cnv vcf
@@ -434,13 +440,13 @@ inputs:
   cnv_use_somatic_vc_vaf:
     label: cnv use somatic vc vaf
     doc: |
-      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
-      the tumor model for the sample. 
+      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select
+      the tumor model for the sample.
     type: boolean?
   cnv_somatic_enable_het_calling:
     label: cnv somatic enable het calling
     doc: |
-      Enable HET-calling mode for heterogeneous segments. 
+      Enable HET-calling mode for heterogeneous segments.
     type: boolean?
   # HRD
   enable_hrd:
@@ -468,27 +474,27 @@ inputs:
   qc_coverage_ignore_overlaps:
     label: qc coverage ignore overlaps
     doc: |
-      Set to true to resolve all of the alignments for each fragment and avoid double-counting any 
-      overlapping bases. This might result in marginally longer run times. 
+      Set to true to resolve all of the alignments for each fragment and avoid double-counting any
+      overlapping bases. This might result in marginally longer run times.
       This option also requires setting --enable-map-align=true.
     type: boolean?
   # TMB options
   enable_tmb:
     label: enable tmb
     doc: |
-      Enables TMB. If set, the small variant caller, Illumina Annotation Engine, 
+      Enables TMB. If set, the small variant caller, Illumina Annotation Engine,
       and the related callability report are enabled.
     type: boolean?
   tmb_vaf_threshold:
     label: tmb vaf threshold
     doc: |
-      Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out. 
+      Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out.
       The default value is 0.05.
     type: float?
   tmb_db_threshold:
     label: tmb db threshold
     doc: |
-      Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome 
+      Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome
       to be considered a germline variant.  Variant calls that have the same positions and allele are ignored
       from the TMB calculation. The default value is 10.
     type: int?
@@ -501,8 +507,8 @@ inputs:
   hla_bed_file:
     label: hla bed file
     doc: |
-      Use the HLA region BED input file to specify the region to extract HLA reads from. 
-      DRAGEN HLA Caller parses the input file for regions within the BED file, and then 
+      Use the HLA region BED input file to specify the region to extract HLA reads from.
+      DRAGEN HLA Caller parses the input file for regions within the BED file, and then
       extracts reads accordingly to align with the HLA allele reference.
     type: File?
   hla_reference_file:
@@ -510,7 +516,7 @@ inputs:
     doc: |
       Use the HLA allele reference file to specify the reference alleles to align against.
       The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.
-      If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. 
+      If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/.
       The reference HLA sequences are obtained from the IMGT/HLA database.
     type: File?
   hla_allele_frequency_file:
@@ -518,29 +524,29 @@ inputs:
     doc: |
       Use the population-level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.
       The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.
-      If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. 
+      If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/.
       Population-level allele frequencies can be obtained from the Allele Frequency Net database.
     type: File?
   hla_tiebreaker_threshold:
     label: hla tiebreaker threshold
     doc: |
-      If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele, 
-      the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based 
-      on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to 
+      If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele,
+      the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based
+      on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to
       the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
     type: float?
   hla_zygosity_threshold:
     label: hla zygosity threshold
     doc: |
-      If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, 
-      then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value. 
+      If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele,
+      then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value.
       The default value is 0.15.
     type: float?
   hla_min_reads:
     label: hla min reads
     doc: |
-      Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. 
-      The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a 
+      Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing.
+      The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a
       lower threshold value.
     type: int?
   # Miscell
