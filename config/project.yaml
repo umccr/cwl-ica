@@ -376,6 +376,7 @@ projects:
             modification_time: 2021-11-10T06:44:04UTC
             run_instances:
               - wfr.b19291caab384e78b7661a85c3f82003
+              - wfr.128790246e9c48f39e14d8f8ef7d868e
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_dev-wf

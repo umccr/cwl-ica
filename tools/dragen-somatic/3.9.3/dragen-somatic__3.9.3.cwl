@@ -162,7 +162,7 @@ requirements:
           # Get new normal file name prefix from the fastq_list.csv
           new_normal_file_name_prefix="\$(cat "$(get_fastq_list_path())" | tail -n1 | cut -d"," -f3)_normal"
 
-          # Ensure file were moving to does not exist yet
+          # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
           if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
             # Move normal bam, normal bam index and normal bam md5sum
             (
