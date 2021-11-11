@@ -296,7 +296,7 @@ subcommands:
         completion:
           command_string: |
             python - <<EOF
-            __cwl-ica_list_registered_schema_paths.py
+            __cwl-ica_list_all_schema_paths.py
             EOF
   tool-validate:
     summary: |
@@ -309,7 +309,7 @@ subcommands:
         completion:
           command_string: |
             python - <<EOF
-            __cwl-ica_list_registered_tool_paths.py
+            __cwl-ica_list_all_tool_paths.py
             EOF
   workflow-validate:
     summary: |
@@ -322,7 +322,7 @@ subcommands:
         completion:
           command_string: |
             python - <<EOF
-            __cwl-ica_list_registered_workflow_paths.py
+            __cwl-ica_list_all_workflow_paths.py
             EOF
   validate-config-yamls:
     summary: |
@@ -881,6 +881,14 @@ subcommands:
         summary: |
           Name of the launch project
         type: string
+      - name: ica-workflow-run-instance-id
+        summary: |
+          The workflow run instance id, starts with wfr.
+        type: string
+      - name: access-token
+        summary: |
+          The ica access token, ideally use env var ICA_ACCESS_TOKEN instead
+        type: string
       - name: curl
         summary: |
           Use curl binary over ica binary to launch tool
@@ -913,6 +921,14 @@ subcommands:
       - name: launch-project
         summary: |
           Name of the launch project
+        type: string
+      - name: ica-workflow-run-instance-id
+        summary: |
+          The workflow run instance id, starts with wfr.
+        type: string
+      - name: access-token
+        summary: |
+          The ica access token, ideally use env var ICA_ACCESS_TOKEN instead
         type: string
       - name: curl
         summary: |
