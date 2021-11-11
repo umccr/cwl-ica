@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: 98529f8de6795fae8abc70522022656f
+> md5sum: 81febfecfabc43315cb1a569433b1a3a
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -105,7 +105,7 @@ Specify a population SNP catalog.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Enable HET-calling mode for heterogeneous segments. 
+Enable HET-calling mode for heterogeneous segments.
 
 
 ### cnv use somatic vc baf
@@ -118,8 +118,8 @@ Enable HET-calling mode for heterogeneous segments.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-If running in tumor-normal mode with the SNV caller enabled, use this option 
-to specify the germline heterozygous sites. 
+If running in tumor-normal mode with the SNV caller enabled, use this option
+to specify the germline heterozygous sites.
 
 
 ### cnv use somatic vc vaf
@@ -132,8 +132,8 @@ to specify the germline heterozygous sites.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
-the tumor model for the sample. 
+Use the variant allele frequencies (VAFs) from the somatic SNVs to help select
+the tumor model for the sample.
 
 
 ### dbsnp annotation
@@ -246,7 +246,7 @@ caller. Default is false.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Enables TMB. If set, the small variant caller, Illumina Annotation Engine, 
+Enables TMB. If set, the small variant caller, Illumina Annotation Engine,
 and the related callability report are enabled.
 
 
@@ -282,7 +282,7 @@ Each row has the following attributes:
 **Docs:**  
 Use the population-level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.
 The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.
-If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. 
+If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/.
 Population-level allele frequencies can be obtained from the Allele Frequency Net database.
 
 
@@ -296,8 +296,8 @@ Population-level allele frequencies can be obtained from the Allele Frequency Ne
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Use the HLA region BED input file to specify the region to extract HLA reads from. 
-DRAGEN HLA Caller parses the input file for regions within the BED file, and then 
+Use the HLA region BED input file to specify the region to extract HLA reads from.
+DRAGEN HLA Caller parses the input file for regions within the BED file, and then
 extracts reads accordingly to align with the HLA allele reference.
 
 
@@ -311,8 +311,8 @@ extracts reads accordingly to align with the HLA allele reference.
 **Optional:** `True`  
 **Type:** `int`  
 **Docs:**  
-Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. 
-The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a 
+Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing.
+The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a
 lower threshold value.
 
 
@@ -328,7 +328,7 @@ lower threshold value.
 **Docs:**  
 Use the HLA allele reference file to specify the reference alleles to align against.
 The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.
-If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. 
+If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/.
 The reference HLA sequences are obtained from the IMGT/HLA database.
 
 
@@ -342,9 +342,9 @@ The reference HLA sequences are obtained from the IMGT/HLA database.
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele, 
-the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based 
-on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to 
+If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele,
+the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based
+on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to
 the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
 
 
@@ -358,8 +358,8 @@ the top hit), then the allele is included into the candidate set for tie breakin
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, 
-then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value. 
+If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele,
+then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value.
 The default value is 0.15.
 
 
@@ -414,8 +414,8 @@ Required - the output file prefix
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Set to true to resolve all of the alignments for each fragment and avoid double-counting any 
-overlapping bases. This might result in marginally longer run times. 
+Set to true to resolve all of the alignments for each fragment and avoid double-counting any
+overlapping bases. This might result in marginally longer run times.
 This option also requires setting --enable-map-align=true.
 
 
@@ -494,7 +494,7 @@ Specifies the sex of a sample
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Specifies a BED file containing the set of regions to call. 
+Specifies a BED file containing the set of regions to call.
 
 
 ### sv discovery
@@ -507,8 +507,8 @@ Specifies a BED file containing the set of regions to call.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used. 
-When set to false, SV discovery is disabled and only the forced genotyping input variants 
+Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used.
+When set to false, SV discovery is disabled and only the forced genotyping input variants
 are processed. The default is true.
 
 
@@ -522,7 +522,7 @@ are processed. The default is true.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Enable liquid tumor mode. 
+Enable liquid tumor mode.
 
 
 ### sv enable somatic ins tandup hotspot regions
@@ -548,9 +548,9 @@ Enable or disable the ITD hotspot region input. The default is true in somatic v
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Set to true to configure the variant caller for targeted sequencing inputs, 
-which includes disabling high depth filters. 
-In integrated mode, the default is to autodetect targeted sequencing input, 
+Set to true to configure the variant caller for targeted sequencing inputs,
+which includes disabling high depth filters.
+In integrated mode, the default is to autodetect targeted sequencing input,
 and in standalone mode the default is false.
 
 
@@ -564,8 +564,8 @@ and in standalone mode the default is false.
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted 
-in the output VCF even if not found in the sample data. 
+Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted
+in the output VCF even if not found in the sample data.
 The variants are merged with any additional variants discovered directly from the sample data.
 
 
@@ -592,9 +592,9 @@ Set to true to have assembled contig sequences output in a VCF file. The default
 **Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
-Limit the analysis to a specified region of the genome for debugging purposes. 
-This option can be specified multiple times to build a list of regions. 
-The value must be in the format “chr:startPos-endPos”.. 
+Limit the analysis to a specified region of the genome for debugging purposes.
+This option can be specified multiple times to build a list of regions.
+The value must be in the format “chr:startPos-endPos”..
 
 
 ### sv use overlap pair evidence
@@ -607,7 +607,7 @@ The value must be in the format “chr:startPos-endPos”..
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Allow overlapping read pairs to be considered as evidence. 
+Allow overlapping read pairs to be considered as evidence.
 By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
 
 
@@ -622,7 +622,7 @@ By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if 
 **Type:** `File`  
 **Docs:**  
 Specify a BED of ITD hotspot regions to increase sensitivity for calling ITDs in somatic variant analysis.
-By default, DRAGEN SV automatically selects areference-specific hotspots BED file from 
+By default, DRAGEN SV automatically selects areference-specific hotspots BED file from
 /opt/edico/config/sv_somatic_ins_tandup_hotspot_*.bed.
 
 
@@ -636,8 +636,8 @@ By default, DRAGEN SV automatically selects areference-specific hotspots BED fil
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-Set the Tumor-in-Normal (TiN) contamination tolerance level. 
-You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. 
+Set the Tumor-in-Normal (TiN) contamination tolerance level.
+You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
 
 
 ### tmb db threshold
@@ -650,7 +650,7 @@ You can enter any value between 0–1. The default maximum TiN contamination tol
 **Optional:** `True`  
 **Type:** `int`  
 **Docs:**  
-Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome 
+Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome
 to be considered a germline variant.  Variant calls that have the same positions and allele are ignored
 from the TMB calculation. The default value is 10.
 
@@ -665,7 +665,7 @@ from the TMB calculation. The default value is 10.
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out. 
+Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out.
 The default value is 0.05.
 
 
@@ -1324,6 +1324,7 @@ Bam file of the tumor sample
 ##### ToC
   
 - [Run wfr.b19291caab384e78b7661a85c3f82003](#run-wfrb19291caab384e78b7661a85c3f82003)  
+- [Run wfr.128790246e9c48f39e14d8f8ef7d868e](#run-wfr128790246e9c48f39e14d8f8ef7d868e)  
 
 
 ##### Run wfr.b19291caab384e78b7661a85c3f82003
@@ -1559,6 +1560,199 @@ bash wfr.b19291caab384e78b7661a85c3f82003.launch.sh
 [![Dragen-3.9-somatic-pipeline__wfr.b19291caab384e78b7661a85c3f82003.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.9.3/Dragen-3.9-somatic-pipeline__wfr.b19291caab384e78b7661a85c3f82003.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.9.3/Dragen-3.9-somatic-pipeline__wfr.b19291caab384e78b7661a85c3f82003.svg)  
 
 
+##### Run wfr.128790246e9c48f39e14d8f8ef7d868e
+
+
+
+  
+> Run Name: test-run  
+
+  
+**Start Time:** 2021-11-10 08:43:11 UTC  
+**Duration:** 2021-11-10 12:15:12 UTC  
+**End Time:** 0 days 03:32:00  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.128790246e9c48f39e14d8f8ef7d868e
+
+# Edit the input json file (optional)
+# vim wfr.128790246e9c48f39e14d8f8ef7d868e.template.json 
+
+# Run the launch script
+bash wfr.128790246e9c48f39e14d8f8ef7d868e.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "enable_map_align_output": true,
+    "fastq_list_rows": [
+        {
+            "lane": 1,
+            "read_1": {
+                "class": "File",
+                "location": "gds://umccr-temp-data-dev/stephen/qc_reference_sample_data/1_raw/Chen/180718_A00130_0068_BH5M73DSXX_E199_PRJ180495_Missing_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://umccr-temp-data-dev/stephen/qc_reference_sample_data/1_raw/Chen/180718_A00130_0068_BH5M73DSXX_E199_PRJ180495_Missing_R2_001.fastq.gz"
+            },
+            "rgid": "TCATCCTT+AGCGAGCT.1.180718_A00130_0068_BH5M73DSXX.PRJ180495_UnknownLibrary",
+            "rglb": "UnknownLibrary",
+            "rgsm": "PRJ180495"
+        }
+    ],
+    "output_directory": "PRJ180494_dragen_somatic",
+    "output_file_prefix": "PRJ180494",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "tumor_fastq_list_rows": [
+        {
+            "lane": 1,
+            "read_1": {
+                "class": "File",
+                "location": "gds://umccr-temp-data-dev/stephen/qc_reference_sample_data/1_raw/Chen/180718_A00130_0068_BH5M73DSXX_E199_PRJ180494_Missing_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://umccr-temp-data-dev/stephen/qc_reference_sample_data/1_raw/Chen/180718_A00130_0068_BH5M73DSXX_E199_PRJ180494_Missing_R2_001.fastq.gz"
+            },
+            "rgid": "GACGTCTT+GGTTCACC.1.180718_A00130_0068_BH5M73DSXX.PRJ180494_UnknownLibrary",
+            "rglb": "UnknownLibrary",
+            "rgsm": "PRJ180494"
+        }
+    ]
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run",
+    "outputDirectory": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs",
+    "tmpOutputDirectory": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/steps",
+    "logDirectory": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.18.0-202109141250-stratus-master"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_somatic_output_directory": {
+        "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic",
+        "basename": "PRJ180494_dragen_somatic",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "multiqc_output_directory": {
+        "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic_multiqc",
+        "basename": "PRJ180494_dragen_somatic_multiqc",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "normal_bam_out": null,
+    "somatic_snv_vcf_hard_filtered_out": {
+        "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic/PRJ180494.hard-filtered.vcf.gz",
+        "basename": "PRJ180494.hard-filtered.vcf.gz",
+        "nameroot": "PRJ180494.hard-filtered.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 6924725,
+        "secondaryFiles": [
+            {
+                "basename": "PRJ180494.hard-filtered.vcf.gz.tbi",
+                "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic/PRJ180494.hard-filtered.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "PRJ180494.hard-filtered.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_snv_vcf_out": {
+        "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic/PRJ180494.vcf.gz",
+        "basename": "PRJ180494.vcf.gz",
+        "nameroot": "PRJ180494.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 6525413,
+        "secondaryFiles": [
+            {
+                "basename": "PRJ180494.vcf.gz.tbi",
+                "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic/PRJ180494.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "PRJ180494.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_structural_vcf_out": null,
+    "tumor_bam_out": {
+        "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic/PRJ180494_tumor.bam",
+        "basename": "PRJ180494_tumor.bam",
+        "nameroot": "PRJ180494_tumor",
+        "nameext": ".bam",
+        "class": "File",
+        "size": 130905159229,
+        "secondaryFiles": [
+            {
+                "basename": "PRJ180494_tumor.bam.bai",
+                "location": "gds://wfr.128790246e9c48f39e14d8f8ef7d868e/test-run/outputs/PRJ180494_dragen_somatic/PRJ180494_tumor.bam.bai",
+                "class": "File",
+                "nameroot": "PRJ180494_tumor.bam",
+                "nameext": ".bai",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "output_dir_gds_session_id": "ssn.41d09b561d554528a7cfcf5d67e6fd02",
+    "output_dir_gds_folder_id": "fol.b57f57339e194b6ffda008d9a06feefb"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![test-run__wfr.128790246e9c48f39e14d8f8ef7d868e.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.9.3/test-run__wfr.128790246e9c48f39e14d8f8ef7d868e.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.9.3/test-run__wfr.128790246e9c48f39e14d8f8ef7d868e.svg)  
+
+
 ### Project: production_workflows
 
 
@@ -1566,7 +1760,7 @@ bash wfr.b19291caab384e78b7661a85c3f82003.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--0d6bc70  
+**wfl version name:** 3.9.3--22e0420  
 
   
 

@@ -14,6 +14,12 @@ s:author:
     s:name: Sehrish Kanwal
     s:email: sehrish.kanwal@umccr.org
 
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
+
 # ID/Docs
 id: dragen-somatic--3.9.3
 label: dragen-somatic v(3.9.3)
@@ -21,7 +27,7 @@ doc: |
   Run tumor-normal dragen somatic pipeline v 3.9.3.
   Workflow takes in two separate lists of object stor version of the fastq_list.csv equivalent
   See the fastq_list_row schema definitions for more information.
-  More information on the documentation can be found [here](https://sapac.support.illumina.com/content/dam/illumina-support/help/Illumina_DRAGEN_Bio_IT_Platform_v3_7_1000000141465/Content/SW/Informatics/Dragen/GPipelineSomCom_appDRAG.htm).   
+  More information on the documentation can be found [here](https://sapac.support.illumina.com/content/dam/illumina-support/help/Illumina_DRAGEN_Bio_IT_Platform_v3_7_1000000141465/Content/SW/Informatics/Dragen/GPipelineSomCom_appDRAG.htm).
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
@@ -44,7 +50,7 @@ requirements:
       - var get_script_path = function(){
           /*
           Abstract script path, can then be referenced in baseCommand attribute too
-          Makes things more readable.  FIXME
+          Makes things more readable.
           */
           return "scripts/run-dragen-script.sh";
         }
@@ -97,109 +103,141 @@ requirements:
           */
           return get_ref_mount() + get_name_root_from_tarball(input_obj.basename) + "/";
         }
-      - var get_script_contents = function(){
+      - var get_value_as_str = function(input_parameter){
+          if (input_parameter === null){
+            return "";
+          } else {
+            return input_parameter.toString();
+          }
+        }
+      - var get_dragen_eval_line = function(){
           /*
-          Split dirent out from the listing JS.
-          Makes things a little more readable
-          Split arguments over multiple lines for greater readability
-          Use full long arguments where possible
+          ICA is inconsistent with cwl when it comes to handling @
           */
-        return "#!/usr/bin/env bash\n" +
-               "\n" +
-               "# Fail on non-zero exit of subshell\n" +
-               "set -euo pipefail\n" +
-               "\n" +
-               "# Initialise dragen\n" +
-               "/opt/edico/bin/dragen \\\n" +
-               "  --partial-reconfig DNA-MAPPER \\\n" +
-               "  --ignore-version-check true\n" +
-               "\n" +
-               "# Create directories\n" +
-               "mkdir --parents \\\n" +
-               "  \"" + get_ref_mount() + "\" \\\n" +
-               "  \"" + get_intermediate_results_dir() + "\" \\\n" +
-               "  \"" + inputs.output_directory + "\"\n" +
-               "\n" +
-               "# untar ref data into scratch space\n" +
-               "tar \\\n" +
-               "  --directory \"" + get_ref_mount() + "\" \\\n" +
-               "  --extract \\\n" +
-               "  --file \"" + inputs.reference_tar.path + "\"\n" +
-               "\n" +
-               "# Run dragen command and import options from cli\n" +
-               "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
-               }
+          return "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
+        }
   InitialWorkDirRequirement:
-    listing: |
-      ${
-          /*
-          Initialise the array of files to mount
-          Add in the script path and the script contents
-          We also add in the fastq-list.csv into the working directory,
-          since Read1File and Read2File are relative its position
-          */
+    listing:
+      - entryname: $(get_script_path())
+        entry: |
+          #!/usr/bin/env bash
 
-          var e = [{ 
-                      "entryname": get_script_path(), 
-                      "entry": get_script_contents() 
-                    }, 
-                    { 
-                      "entryname": get_tumor_fastq_list_path(), 
-                      "entry": inputs.tumor_fastq_list 
-                    }];
+          # Fail on non-zero exit of subshell
+          set -euo pipefail
 
-          /*
-          Check if fastq_list parameter is defined
-          It could be null in case of TO execution
-          */
+          # Initialise dragen
+          /opt/edico/bin/dragen \\
+            --partial-reconfig DNA-MAPPER \\
+            --ignore-version-check true
 
-          if (inputs.fastq_list !== null){
-              e.push({
-                      "entryname": get_fastq_list_path(), 
-                      "entry": inputs.fastq_list 
-                      });
-          }
+          # Create directories
+          mkdir --parents \\
+            "$(get_ref_mount())" \\
+            "$(get_intermediate_results_dir())" \\
+            "$(inputs.output_directory)"
 
-          /*
-          Check if input_mounts record is defined
-          The fastq_list.csv could be using presigned urls instead
-          */
-          if (inputs.fastq_list_mount_paths !== null){
-              /*
-              Iterate through each file to mount
-              Mount that object at the same reference to the mount point index.
-              */
-              inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
+          # untar ref data into scratch space
+          tar \\
+            --directory "$(get_ref_mount())" \\
+            --extract \\
+            --file "$(inputs.reference_tar.path)"
+
+          # Run dragen command and import options from cli
+          $(get_dragen_eval_line())
+
+          # Check if --enable-map-align-output is set
+          if [[ ! "$(get_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
+            echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
+            echo "Exiting" 1>&2
+            exit
+          fi
+
+          # Ensure that the third column is RGSM, otherwise exit
+          if [[ ! "\$(cat "$(get_fastq_list_path())" | head -n1 | cut -d"," -f3)" == "RGSM" ]]; then
+            echo "Could not confirm that RGSM was the right value in the path, not moving the normal bam" 1>&2
+            echo "Exiting" 1>&2
+            exit
+          fi
+
+          # Get new normal file name prefix from the fastq_list.csv
+          new_normal_file_name_prefix="\$(cat "$(get_fastq_list_path())" | tail -n1 | cut -d"," -f3)_normal"
+
+          # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
+          if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
+            # Move normal bam, normal bam index and normal bam md5sum
+            (
+              cd "$(inputs.output_directory)"
+              mv "$(inputs.output_file_prefix).bam" "\${new_normal_file_name_prefix}.bam"
+              mv "$(inputs.output_file_prefix).bam.bai" "\${new_normal_file_name_prefix}.bam.bai"
+              mv "$(inputs.output_file_prefix).bam.md5sum" "\${new_normal_file_name_prefix}.bam.md5sum"
+            )
+          fi
+      - |
+        ${
+            /*
+            Initialise the array of files to mount
+            Add in the script path and the script contents
+            We also add in the fastq-list.csv into the working directory,
+            since Read1File and Read2File are relative its position
+            */
+
+            var e = [{
+                        "entryname": get_tumor_fastq_list_path(),
+                        "entry": inputs.tumor_fastq_list
+                      }];
+
+            /*
+            Check if fastq_list parameter is defined
+            It could be null in case of TO execution
+            */
+
+            if (inputs.fastq_list !== null){
                 e.push({
-                    'entry': mount_path_record.file_obj,
-                    'entryname': mount_path_record.mount_path
+                        "entryname": get_fastq_list_path(),
+                        "entry": inputs.fastq_list
+                        });
+            }
+
+            /*
+            Check if input_mounts record is defined
+            The fastq_list.csv could be using presigned urls instead
+            */
+            if (inputs.fastq_list_mount_paths !== null){
+                /*
+                Iterate through each file to mount
+                Mount that object at the same reference to the mount point index.
+                */
+                inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
+                  e.push({
+                      'entry': mount_path_record.file_obj,
+                      'entryname': mount_path_record.mount_path
+                  });
                 });
-              });
-          }
+            }
 
-          /*
-          Iterate through each tumor list file
-          The tumor_fastq_list.csv could be using presigned urls instead
-          */
-          if (inputs.tumor_fastq_list_mount_paths !== null){
-              /*
-              Iterate through each file to mount
-              Mount that object at the same reference to the mount point index.
-              */
-              inputs.tumor_fastq_list_mount_paths.forEach(function(mount_path_record){
-                e.push({
-                    'entry': mount_path_record.file_obj,
-                    'entryname': mount_path_record.mount_path
+            /*
+            Iterate through each tumor list file
+            The tumor_fastq_list.csv could be using presigned urls instead
+            */
+            if (inputs.tumor_fastq_list_mount_paths !== null){
+                /*
+                Iterate through each file to mount
+                Mount that object at the same reference to the mount point index.
+                */
+                inputs.tumor_fastq_list_mount_paths.forEach(function(mount_path_record){
+                  e.push({
+                      'entry': mount_path_record.file_obj,
+                      'entryname': mount_path_record.mount_path
+                  });
                 });
-              });
-          }
+            }
 
 
-          /*
-          Return file paths
-          */
-          return e;
-      }
+            /*
+            Return file paths
+            */
+            return e;
+        }
 
 baseCommand: ["bash"]
 
@@ -307,16 +345,16 @@ inputs:
   sv_call_regions_bed:
     label: sv call regions bed
     doc: |
-      Specifies a BED file containing the set of regions to call. 
+      Specifies a BED file containing the set of regions to call.
     type: File?
     inputBinding:
       prefix: "--sv-call-regions-bed"
   sv_region:
     label: sv region
     doc: |
-      Limit the analysis to a specified region of the genome for debugging purposes. 
-      This option can be specified multiple times to build a list of regions. 
-      The value must be in the format “chr:startPos-endPos”.. 
+      Limit the analysis to a specified region of the genome for debugging purposes.
+      This option can be specified multiple times to build a list of regions.
+      The value must be in the format “chr:startPos-endPos”..
     type: string?
     inputBinding:
       prefix: "--sv-region"
@@ -324,9 +362,9 @@ inputs:
   sv_exome:
     label: sv exome
     doc: |
-      Set to true to configure the variant caller for targeted sequencing inputs, 
-      which includes disabling high depth filters. 
-      In integrated mode, the default is to autodetect targeted sequencing input, 
+      Set to true to configure the variant caller for targeted sequencing inputs,
+      which includes disabling high depth filters.
+      In integrated mode, the default is to autodetect targeted sequencing input,
       and in standalone mode the default is false.
     type: boolean?
     inputBinding:
@@ -343,8 +381,8 @@ inputs:
   sv_forcegt_vcf:
     label: sv forcegt vcf
     doc: |
-      Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted 
-      in the output VCF even if not found in the sample data. 
+      Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted
+      in the output VCF even if not found in the sample data.
       The variants are merged with any additional variants discovered directly from the sample data.
     type: File?
     inputBinding:
@@ -352,8 +390,8 @@ inputs:
   sv_discovery:
     label: sv discovery
     doc: |
-      Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used. 
-      When set to false, SV discovery is disabled and only the forced genotyping input variants 
+      Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used.
+      When set to false, SV discovery is disabled and only the forced genotyping input variants
       are processed. The default is true.
     type: boolean?
     inputBinding:
@@ -362,7 +400,7 @@ inputs:
   sv_se_overlap_pair_evidence:
     label: sv use overlap pair evidence
     doc: |
-      Allow overlapping read pairs to be considered as evidence. 
+      Allow overlapping read pairs to be considered as evidence.
       By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
     type: boolean?
     inputBinding:
@@ -372,7 +410,7 @@ inputs:
     label: sv somatic ins tandup hotspot regions bed
     doc: |
       Specify a BED of ITD hotspot regions to increase sensitivity for calling ITDs in somatic variant analysis.
-      By default, DRAGEN SV automatically selects areference-specific hotspots BED file from 
+      By default, DRAGEN SV automatically selects areference-specific hotspots BED file from
       /opt/edico/config/sv_somatic_ins_tandup_hotspot_*.bed.
     type: File?
     inputBinding:
@@ -388,20 +426,20 @@ inputs:
   sv_enable_liquid_tumor_mode:
     label: sv enable liquid tumor mode
     doc: |
-      Enable liquid tumor mode. 
+      Enable liquid tumor mode.
     type: boolean?
     inputBinding:
       prefix: "--sv-enable-liquid-tumor-mode"
-      valueFrom: "$(self.toString())"  
+      valueFrom: "$(self.toString())"
   sv_tin_contam_tolerance:
     label: sv tin contam tolerance
     doc: |
-      Set the Tumor-in-Normal (TiN) contamination tolerance level. 
-      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. 
+      Set the Tumor-in-Normal (TiN) contamination tolerance level.
+      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
     type: float?
     inputBinding:
       prefix: "--sv-tin-contam-tolerance"
-  
+
   # Variant calling optons
   vc_target_bed:
     label: vc target bed
@@ -690,10 +728,10 @@ inputs:
         required: true
     inputBinding:
       prefix: "--dbsnp"
-  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf, 
+  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf,
   # --cnv-population-b-allele-vcf, or cnv-use-somatic-vc-baf.
-  # If known, specify the sex of the sample. 
-  # If the sample sex is not specified, the caller attempts to estimate the sample sex from tumor alignments. 
+  # If known, specify the sex of the sample.
+  # If the sample sex is not specified, the caller attempts to estimate the sample sex from tumor alignments.
   enable_cnv:
     label: enable cnv calling
     doc: |
@@ -719,13 +757,13 @@ inputs:
   cnv_use_somatic_vc_baf:
     label: cnv use somatic vc baf
     doc: |
-      If running in tumor-normal mode with the SNV caller enabled, use this option 
-      to specify the germline heterozygous sites. 
+      If running in tumor-normal mode with the SNV caller enabled, use this option
+      to specify the germline heterozygous sites.
     type: boolean?
     inputBinding:
       prefix: --cnv-use-somatic-vc-baf
       valueFrom: "$(self.toString())"
-  # For more info on following options - see 
+  # For more info on following options - see
   # https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/SomaticWGSModes.htm#Germline
   cnv_normal_cnv_vcf:
     label: cnv normal cnv vcf
@@ -738,8 +776,8 @@ inputs:
   cnv_use_somatic_vc_vaf:
     label: cnv use somatic vc vaf
     doc: |
-      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select 
-      the tumor model for the sample. 
+      Use the variant allele frequencies (VAFs) from the somatic SNVs to help select
+      the tumor model for the sample.
     type: boolean?
     inputBinding:
       prefix: --cnv-use-somatic-vc-vaf
@@ -787,8 +825,8 @@ inputs:
   qc_coverage_ignore_overlaps:
     label: qc coverage ignore overlaps
     doc: |
-      Set to true to resolve all of the alignments for each fragment and avoid double-counting any 
-      overlapping bases. This might result in marginally longer run times. 
+      Set to true to resolve all of the alignments for each fragment and avoid double-counting any
+      overlapping bases. This might result in marginally longer run times.
       This option also requires setting --enable-map-align=true.
     type: boolean?
     inputBinding:
@@ -798,7 +836,7 @@ inputs:
   enable_tmb:
     label: enable tmb
     doc: |
-      Enables TMB. If set, the small variant caller, Illumina Annotation Engine, 
+      Enables TMB. If set, the small variant caller, Illumina Annotation Engine,
       and the related callability report are enabled.
     type: boolean?
     inputBinding:
@@ -807,7 +845,7 @@ inputs:
   tmb_vaf_threshold:
     label: tmb vaf threshold
     doc: |
-      Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out. 
+      Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out.
       The default value is 0.05.
     type: float?
     inputBinding:
@@ -815,7 +853,7 @@ inputs:
   tmb_db_threshold:
     label: tmb db threshold
     doc: |
-      Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome 
+      Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome
       to be considered a germline variant.  Variant calls that have the same positions and allele are ignored
       from the TMB calculation. The default value is 10.
     type: int?
@@ -833,8 +871,8 @@ inputs:
   hla_bed_file:
     label: hla bed file
     doc: |
-      Use the HLA region BED input file to specify the region to extract HLA reads from. 
-      DRAGEN HLA Caller parses the input file for regions within the BED file, and then 
+      Use the HLA region BED input file to specify the region to extract HLA reads from.
+      DRAGEN HLA Caller parses the input file for regions within the BED file, and then
       extracts reads accordingly to align with the HLA allele reference.
     type: File?
     inputBinding:
@@ -844,7 +882,7 @@ inputs:
     doc: |
       Use the HLA allele reference file to specify the reference alleles to align against.
       The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.
-      If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. 
+      If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/.
       The reference HLA sequences are obtained from the IMGT/HLA database.
     type: File?
     inputBinding:
@@ -854,7 +892,7 @@ inputs:
     doc: |
       Use the population-level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.
       The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.
-      If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. 
+      If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/.
       Population-level allele frequencies can be obtained from the Allele Frequency Net database.
     type: File?
     inputBinding:
@@ -862,9 +900,9 @@ inputs:
   hla_tiebreaker_threshold:
     label: hla tiebreaker threshold
     doc: |
-      If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele, 
-      the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based 
-      on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to 
+      If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele,
+      the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based
+      on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to
       the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
     type: float?
     inputBinding:
@@ -872,8 +910,8 @@ inputs:
   hla_zygosity_threshold:
     label: hla zygosity threshold
     doc: |
-      If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, 
-      then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value. 
+      If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele,
+      then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value.
       The default value is 0.15.
     type: float?
     inputBinding:
@@ -881,8 +919,8 @@ inputs:
   hla_min_reads:
     label: hla min reads
     doc: |
-      Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. 
-      The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a 
+      Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing.
+      The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a
       lower threshold value.
     type: int?
     inputBinding:
