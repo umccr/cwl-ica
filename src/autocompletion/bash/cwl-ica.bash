@@ -519,6 +519,8 @@ and update definition on ICA
 ' '--prefix' 'Output prefix name
 ' '--project' 'Project that tool belongs to
 ' '--launch-project' 'Name of the launch project
+' '--ica-workflow-run-instance-id' 'The workflow run instance id, starts with wfr.
+' '--access-token' 'The ica access token, ideally use env var ICA_ACCESS_TOKEN instead
 ' '--curl' 'Use curl binary over ica binary to launch tool
 ')
         __cwl-ica_handle_options_flags
@@ -532,6 +534,10 @@ and update definition on ICA
             _cwl-ica_create-tool-submission-template_option_project_completion
           ;;
           --launch-project)
+          ;;
+          --ica-workflow-run-instance-id)
+          ;;
+          --access-token)
           ;;
           --curl)
           ;;
@@ -572,6 +578,8 @@ and update definition on ICA
 ' '--prefix' 'Output prefix name
 ' '--project' 'Project that workflow belongs to
 ' '--launch-project' 'Name of the launch project
+' '--ica-workflow-run-instance-id' 'The workflow run instance id, starts with wfr.
+' '--access-token' 'The ica access token, ideally use env var ICA_ACCESS_TOKEN instead
 ' '--curl' 'Use curl binary over ica binary to launch workflow
 ')
         __cwl-ica_handle_options_flags
@@ -585,6 +593,10 @@ and update definition on ICA
             _cwl-ica_create-workflow-submission-template_option_project_completion
           ;;
           --launch-project)
+          ;;
+          --ica-workflow-run-instance-id)
+          ;;
+          --access-token)
           ;;
           --curl)
           ;;
@@ -2787,7 +2799,7 @@ _cwl-ica_schema-validate_option_schema_path_completion() {
 #!/usr/bin/env python3
 
 """
-List the registered schema paths
+List the unregistered schema paths
 """
 
 from utils.repo import get_schema_yaml_path
@@ -2797,15 +2809,15 @@ from pathlib import Path
 from os import getcwd
 from os.path import relpath
 
-schema_paths = [Path(schema["path"]) / Path(version["path"])
-                for schema in read_yaml(get_schema_yaml_path())["schemas"]
-                for version in schema["versions"]]
+schema_paths = [s_file.relative_to(get_schemas_dir())
+                    for s_file in get_schemas_dir().glob("**/*.yaml")]
+
 
 # Get the current word value
 if not "${CURRENT_WORD}" == "":
-    current_word_value="${CURRENT_WORD}"
+    current_word_value = "${CURRENT_WORD}"
 else:
-    current_word_value=None
+    current_word_value = None
 
 # Resolve the current path
 # If getcwd() is "/c/Users/awluc"
@@ -2842,9 +2854,11 @@ if in_schemas_dir:
         for s_path in schema_paths:
             if str(s_path).startswith(str(current_path_resolved_relative_to_schemas_dir)):
                 if current_word_value.endswith("/"):
-                    print(Path(current_word_value) / s_path.relative_to(current_path_resolved_relative_to_schemas_dir))
+                    print(Path(current_word_value) / s_path.relative_to(
+                        current_path_resolved_relative_to_schemas_dir))
                 else:
-                    print(Path(current_word_value).parent / s_path.relative_to(current_path_resolved_relative_to_schemas_dir))
+                    print(Path(current_word_value).parent / s_path.relative_to(
+                        current_path_resolved_relative_to_schemas_dir))
 
 else:
     # Now get the schemas yaml path relative to the current path
@@ -3189,7 +3203,7 @@ _cwl-ica_tool-validate_option_tool_path_completion() {
 #!/usr/bin/env python3
 
 """
-List the registered tool paths
+List the unregistered tool paths
 """
 
 from utils.repo import get_tool_yaml_path
@@ -3199,9 +3213,8 @@ from pathlib import Path
 from os import getcwd
 from os.path import relpath
 
-tool_paths = [Path(tool["path"]) / Path(version["path"])
-              for tool in read_yaml(get_tool_yaml_path())["tools"]
-              for version in tool["versions"]]
+tool_paths = [s_file.relative_to(get_tools_dir())
+              for s_file in get_tools_dir().glob("**/*.cwl")]
 
 # Get the current word value
 if not "${CURRENT_WORD}" == "":
@@ -3562,7 +3575,7 @@ _cwl-ica_workflow-validate_option_workflow_path_completion() {
 #!/usr/bin/env python3
 
 """
-List the registered workflow paths
+List the unregistered workflow paths
 """
 
 from utils.repo import get_workflow_yaml_path
@@ -3572,9 +3585,8 @@ from pathlib import Path
 from os import getcwd
 from os.path import relpath
 
-workflow_paths = [Path(workflow["path"]) / Path(version["path"])
-                  for workflow in read_yaml(get_workflow_yaml_path())["workflows"]
-                  for version in workflow["versions"]]
+workflow_paths = [s_file.relative_to(get_workflows_dir())
+                  for s_file in get_workflows_dir().glob("**/*.cwl")]
 
 # Get the current word value
 if not "${CURRENT_WORD}" == "":
