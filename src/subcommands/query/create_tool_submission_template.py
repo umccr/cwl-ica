@@ -18,23 +18,31 @@ class CreateToolSubmissionTemplate(CreateSubmissionTemplate):
     """Usage:
     cwl-ica [options] create-tool-submission-template help
     cwl-ica [options] create-tool-submission-template (--tool-path=<path_to_tool>)
-                                                          (--prefix=<path_to_output_prefix>)
-                                                          (--project=<project_tool_belongs_to>)
-                                                          (--launch-project=<project_to_launch_tool>)
-                                                          [--curl]
+                                                      (--prefix=<path_to_output_prefix>)
+                                                      (--project=<project_tool_belongs_to>)
+                                                      [--launch-project=<project_to_launch_tool>]
+                                                      [--ica-workflow-run-instance-id=<ica_workflow_run_id>]
+                                                      [--access-token=<access_token>]
+                                                      [--curl]
 
 Description:
     Create a ica tool submission template for a CWL tool
 
 Options:
-    --tool-path=<path_to_tool>                    Required: Path to a cwl tool
-    --project=<project>                                   Required: Project the tool belongs to
-    --launch-project<project>                             Optional: Linked project to launch from
-    --prefix=<prefix>                                     Optional: prefix to the run name and the output files
-    --curl                                                Optional: Use the curl command over ica binary to launch tool
+    --tool-path=<path_to_tool>                                 Required: Path to a cwl tool
+    --project=<project>                                        Required: Project the tool belongs to
+    --launch-project=<project>                                 Optional: Linked project to launch from
+    --ica-workflow-run-instance-id=<workflow_run_instance_id>  Optional: Workflow run id to base yaml template from
+    --access-token=<access-token>                              Optional: Access token in same project as run instance id, ideally use env var ICA_ACCESS_TOKEN
+    --prefix=<prefix>                                          Optional: prefix to the run name and the output files
+    --curl                                                     Optional: Use the curl command over ica binary to launch tool
+
+Environment:
+  * ICA_BASE_URL
+  * ICA_ACCESS_TOKEN
 
 Example:
-    cwl-ica create-tool-submission-template --tool-path /path/to/tool --prefix submit-validation --project development_workflows --launch-project development
+    cwl-ica create-tool-submission-template --tool-path /path/to/tool --prefix submit-validation --project development_workflows --launch-project development --ica-workflow-run-id wfr.123456789
     """
 
     def __init__(self, command_argv):

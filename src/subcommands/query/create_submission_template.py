@@ -13,7 +13,7 @@ Schema items are also populated as anticipated.
 
 If an input can be of multiple types (i.e a file OR a string), we choose the first one in the CWL Object.
 """
-
+import os
 
 from classes.command import Command
 from utils.logging import get_logger
@@ -27,7 +27,7 @@ from ruamel.yaml.main import round_trip_dump
 from pathlib import Path
 from typing import Optional, List
 from classes.project import Project
-from utils.errors import CheckArgumentError
+from utils.errors import CheckArgumentError, InvalidTokenError
 from classes.cwl import CWL
 from classes.cwl_schema import CWLSchema
 from utils.project import get_project_object_from_project_name
@@ -39,6 +39,8 @@ from classes.item import Item
 from classes.item_version import ItemVersion
 from utils.repo import read_yaml
 from utils.globals import BLOCK_YAML_INDENTATION_LEVEL, YAML_INDENTATION_LEVEL
+import in_place
+from copy import deepcopy
 
 logger = get_logger()
 
@@ -79,6 +81,7 @@ class CreateSubmissionTemplate(Command):
         self.cwl_inputs = None  # type: Optional[Dict]
         self.ica_workflow_id = None  # type: Optional[str]
         self.ica_workflow_version_name = None  # type: Optional[str]
+        self.ica_workflow_run_id = None  # type: Optional[str]
 
         # Check help
         self.check_length(command_argv)
@@ -101,6 +104,10 @@ class CreateSubmissionTemplate(Command):
 
         logger.info(f"Writing out input yaml file to {self.output_yaml_path}")
         self.write_yaml_file()
+
+        if self.ica_workflow_run_id is not None:
+            logger.info(f"Decorating input yaml file with inputs from {self.ica_workflow_run_id}")
+            self.decorate_yaml_file()
 
         logger.info(f"Writing wrapper script to {self.output_shell_path}")
         self.write_shell_script()
@@ -188,6 +195,10 @@ class CreateSubmissionTemplate(Command):
         # Set is_curl
         self.is_curl = True if self.args.get("--curl", False) else False
 
+        # Check if instance exists
+        if self.args.get("--ica-workflow-run-instance-id", None) is not None:
+            self.ica_workflow_run_id = self.args.get("--ica-workflow-run-instance-id")
+
         # Load cwl
         items: List[Dict] = self.get_item_list()
 
@@ -216,6 +227,25 @@ class CreateSubmissionTemplate(Command):
 
         # Initialise yaml template
         self.input_template_object = YAML().map()
+
+    def get_project_access_token(self):
+        """
+        Get the project access token
+        if --launch-project is specified, get project token from env var or --access-token parameter
+        otherwise just get from the project object
+        :return:
+        """
+        if self.args.get("--launch-project", None) is not None:
+            if self.args.get("--access-token", None) is not None:
+                return self.args.get("--access-token")
+            elif os.environ.get("ICA_ACCESS_TOKEN", None) is not None:
+                return os.environ.get("ICA_ACCESS_TOKEN")
+            else:
+                logger.error("--launch-project specified and --ica-workflow-run-instance-id specified, "
+                             " please enter launch project context with ica-context-switcher or supply access-token for context with --access-token")
+                raise InvalidTokenError
+        else:
+            return self.project_obj.get_project_token()
 
     def version_loader(self, version: Dict, cwl_file_path: Path) -> ItemVersion:
         raise NotImplementedError
@@ -404,8 +434,8 @@ class CreateSubmissionTemplate(Command):
         Uses the input template utils functions
         :return:
         """
-        self.input_template_object["inputs"] = create_input_dict(self.cwl_inputs)
-        self.input_template_object.yaml_set_comment_before_after_key(key="inputs",
+        self.input_template_object["input"] = create_input_dict(self.cwl_inputs)
+        self.input_template_object.yaml_set_comment_before_after_key(key="input",
                                                                      before=f"\nInputs to {self.item_type} {self.item_name}/{self.item_version}",
                                                                      indent=0)
 
@@ -425,6 +455,117 @@ class CreateSubmissionTemplate(Command):
             round_trip_dump(self.input_template_object, yaml_h,
                             indent=YAML_INDENTATION_LEVEL,
                             block_seq_indent=BLOCK_YAML_INDENTATION_LEVEL)
+
+    def decorate_yaml_file(self):
+        """
+        If --ica-workflow-run-instance-id has been set, then update inputs to match
+        :return:
+        """
+        from classes.ica_workflow_run import ICAWorkflowRun
+        import collections.abc
+
+        def recursive_update(d, u):
+            for k, v in u.items():
+                if isinstance(v, collections.abc.Mapping):
+                    d[k] = recursive_update(d.get(k, {}), v)
+                else:
+                    d[k] = v
+            return d
+
+        # Step 1: Read in the yaml file we just wrote out with read_yaml
+        yaml_obj = read_yaml(self.output_yaml_path)
+
+        # Get inputs from workflow run instance id
+        ica_workflow_run_obj = ICAWorkflowRun(self.ica_workflow_run_id, project_token=self.get_project_access_token())
+
+        # Cross reference
+        if not self.ica_workflow_id == ica_workflow_run_obj.ica_workflow_id:
+            logger.error(f"Cannot use {self.ica_workflow_run_id} as a reference. ICA workflow ids do not match")
+            logger.error(f"Apples: {self.ica_workflow_id} vs Oranges: {ica_workflow_run_obj.ica_workflow_id}")
+            raise ValueError
+        if not self.ica_workflow_version_name == ica_workflow_run_obj.ica_workflow_version_name:
+            logger.warning(f"Got version name {self.ica_workflow_version_name}, "
+                           f"but workflow run id is from version {ica_workflow_run_obj.ica_workflow_version_name}")
+
+        # Get distinction between inputs set and inputs not set in workflow run id
+        inputs_present_in_workflow_run = []
+
+        # Check that the ica run instance id is
+        missing_keys = list(set(list(ica_workflow_run_obj.ica_input.keys())) - set(list(yaml_obj["input"].keys())))
+        if not len(missing_keys) == 0:
+            logger.error("Items in instance are not in yaml object")
+            logger.error(f"Missing inputs: {', '.join(missing_keys)}")
+            raise ValueError
+
+        # Updating items
+        for input_name, input_value in deepcopy(ica_workflow_run_obj.ica_input).items():
+            # Append to list we 'don't comment out'
+            inputs_present_in_workflow_run.append(input_name)
+
+            # Save commentary on item
+            if isinstance(yaml_obj["input"][input_name], OrderedDict) and hasattr(yaml_obj["input"][input_name], "ca"):
+                # Save input commentary
+                input_commentary = deepcopy(yaml_obj["input"][input_name].ca)
+
+                # Update input item
+                yaml_obj["input"][input_name] = OrderedDict(input_value)
+
+                # Add commentary back in
+                setattr(yaml_obj["input"][input_name], "_ca", input_commentary)
+            else:
+                # Just update item
+                # Update input item
+                yaml_obj["input"][input_name] = input_value
+
+        # (Re)-Writing out the yaml
+        with open(self.output_yaml_path, 'w') as yaml_h:
+            round_trip_dump(yaml_obj, yaml_h,
+                            indent=YAML_INDENTATION_LEVEL,
+                            block_seq_indent=BLOCK_YAML_INDENTATION_LEVEL)
+
+        # Now for the tricky bit - using 'FileInput' to remove everything else
+        # We know that the indentation on 'input' is YAML_INDENTATION_LEVEL,
+        # And that we can find the next input with 'spaces*YAML_INDENTATION_LEVEL + "# //...
+        # Therefore we can regex match on 'spaces*YAML_INDENTATION_LEVEL + \w+ + ":"'
+        # Ignore all those in inputs_present_in_workflow_run, and then continue to comment out lines until we
+        # read the next input
+        logger.info(f"Now decorating workflow with inputs from {self.ica_workflow_run_id}")
+        with in_place.InPlace(self.output_yaml_path) as file_h:
+            in_inputs = False
+            comment_out_line = False
+            for line in file_h:
+                # Check if we're in the inputs section or not
+                if line.rstrip() == "input:":
+                    in_inputs = True
+                    file_h.write(line)
+                    continue
+                elif re.match(r"\w+:", line.rstrip()) is not None:
+                    # Out of inputs
+                    in_inputs = False
+
+                # Only pass this point if we're in the inputs
+                if not in_inputs:
+                    file_h.write(line)
+                    continue
+
+                # In inputs
+                input_key_regex_obj = re.match(r"\s{%s}(\w+):(\S+)?" % YAML_INDENTATION_LEVEL, line.rstrip())
+                if input_key_regex_obj is not None:
+                    # We're at a key
+                    input_key = input_key_regex_obj.group(1)
+                    # Check if key is in list
+                    if input_key in inputs_present_in_workflow_run:
+                        comment_out_line = False
+                    else:
+                        #logger.info(f"Commenting out input {input_key}, not present in {self.ica_workflow_run_id}")
+                        comment_out_line = True
+
+                # Now comment out line if false or true
+                if comment_out_line:
+                    file_h.write(re.sub(r"^\s{%s}" % YAML_INDENTATION_LEVEL, " " * YAML_INDENTATION_LEVEL + "# ", line))
+                else:
+                    file_h.write(re.sub(r"# FIXME$", "\n", line.rstrip()))
+
 
     def write_json_file(self):
         raise NotImplementedError
