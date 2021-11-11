@@ -21,7 +21,8 @@ from utils.errors import ItemVersionNotFoundError, ItemNotFoundError
 from utils.ica_utils import get_base_url, get_region_from_base_url
 from utils.input_template_utils import create_input_dict
 from ruamel.yaml.comments import \
-    CommentedMap as OrderedDict
+    CommentedMap as OrderedDict, \
+    CommentedSeq as OrderedList
 from ruamel.yaml import YAML
 from ruamel.yaml.main import round_trip_dump
 from pathlib import Path
@@ -476,7 +477,9 @@ class CreateSubmissionTemplate(Command):
         yaml_obj = read_yaml(self.output_yaml_path)
 
         # Get inputs from workflow run instance id
-        ica_workflow_run_obj = ICAWorkflowRun(self.ica_workflow_run_id, project_token=self.get_project_access_token())
+        ica_workflow_run_obj = ICAWorkflowRun(self.ica_workflow_run_id,
+                                              project_token=self.get_project_access_token(),
+                                              allow_unsuccessful_run=True)
 
         # Cross reference
         if not self.ica_workflow_id == ica_workflow_run_obj.ica_workflow_id:
@@ -507,8 +510,13 @@ class CreateSubmissionTemplate(Command):
                 # Save input commentary
                 input_commentary = deepcopy(yaml_obj["input"][input_name].ca)
 
-                # Update input item
-                yaml_obj["input"][input_name] = OrderedDict(input_value)
+                # Update input item by type
+                if isinstance(input_value, list):
+                    # Update input item
+                    yaml_obj["input"][input_name] = OrderedList(input_value)
+                else:
+                    # Update input item
+                    yaml_obj["input"][input_name] = OrderedDict(input_value)
 
                 # Add commentary back in
                 setattr(yaml_obj["input"][input_name], "_ca", input_commentary)
@@ -564,7 +572,7 @@ class CreateSubmissionTemplate(Command):
                 if comment_out_line:
                     file_h.write(re.sub(r"^\s{%s}" % YAML_INDENTATION_LEVEL, " " * YAML_INDENTATION_LEVEL + "# ", line))
                 else:
-                    file_h.write(re.sub(r"# FIXME$", "\n", line.rstrip()))
+                    file_h.write(re.sub(r"# FIXME$", "", line.rstrip()) + "\n")
 
 
     def write_json_file(self):

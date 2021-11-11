@@ -35,7 +35,7 @@ class ICAWorkflowRun:
     def __init__(self, ica_workflow_run_instance_id, ica_project_launch_context_id=None, ica_workflow_id=None, ica_workflow_name=None, ica_workflow_version_name=None,
                  ica_workflow_run_name=None, ica_input=None, ica_output=None, ica_engine_parameters=None,
                  workflow_start_time=None, workflow_end_time=None, workflow_duration=None,
-                 ica_task_objs=None, project_token=None):
+                 ica_task_objs=None, project_token=None, allow_unsuccessful_run=False):
         """
         :param ica_workflow_run_instance_id:
         :param ica_project_launch_context_id:
@@ -78,9 +78,10 @@ class ICAWorkflowRun:
             api_response: WorkflowRun =  self.get_run_instance(project_token)
 
             # Check workflow run status before continuing
-            if not api_response.status == "Succeeded":
+            if not api_response.status == "Succeeded" and not allow_unsuccessful_run:
                 logger.error(f"This workflow run has status {api_response.status}, which is not considered a successful run. "
                              f"Only successful runs can be recorded in the run yaml")
+                raise ICAWorkflowRunCreationError
 
             self.ica_workflow_id, self.ica_workflow_version_name = self.split_href_by_id_and_version(api_response.workflow_version.href)
             self.ica_project_launch_context_id = [acl.split(":", 1)[-1]
