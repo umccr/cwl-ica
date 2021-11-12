@@ -83,6 +83,7 @@ class CreateSubmissionTemplate(Command):
         self.ica_workflow_id = None  # type: Optional[str]
         self.ica_workflow_version_name = None  # type: Optional[str]
         self.ica_workflow_run_id = None  # type: Optional[str]
+        self.ignore_workflow_id_mismatch = False  # type: bool
 
         # Check help
         self.check_length(command_argv)
@@ -199,6 +200,10 @@ class CreateSubmissionTemplate(Command):
         # Check if instance exists
         if self.args.get("--ica-workflow-run-instance-id", None) is not None:
             self.ica_workflow_run_id = self.args.get("--ica-workflow-run-instance-id")
+
+        # Check ignore workflow id mismatch
+        if self.args.get("--ignore-workflow-id-mismatch", False):
+            self.ignore_workflow_id_mismatch = True
 
         # Load cwl
         items: List[Dict] = self.get_item_list()
@@ -482,11 +487,11 @@ class CreateSubmissionTemplate(Command):
                                               allow_unsuccessful_run=True)
 
         # Cross reference
-        if not self.ica_workflow_id == ica_workflow_run_obj.ica_workflow_id:
+        if not self.ica_workflow_id == ica_workflow_run_obj.ica_workflow_id and not self.ignore_workflow_id_mismatch:
             logger.error(f"Cannot use {self.ica_workflow_run_id} as a reference. ICA workflow ids do not match")
             logger.error(f"Apples: {self.ica_workflow_id} vs Oranges: {ica_workflow_run_obj.ica_workflow_id}")
             raise ValueError
-        if not self.ica_workflow_version_name == ica_workflow_run_obj.ica_workflow_version_name:
+        if not self.ica_workflow_version_name == ica_workflow_run_obj.ica_workflow_version_name and not self.ignore_workflow_id_mismatch:
             logger.warning(f"Got version name {self.ica_workflow_version_name}, "
                            f"but workflow run id is from version {ica_workflow_run_obj.ica_workflow_version_name}")
 

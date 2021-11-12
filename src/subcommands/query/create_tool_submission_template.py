@@ -22,6 +22,7 @@ class CreateToolSubmissionTemplate(CreateSubmissionTemplate):
                                                       (--project=<project_tool_belongs_to>)
                                                       [--launch-project=<project_to_launch_tool>]
                                                       [--ica-workflow-run-instance-id=<ica_workflow_run_id>]
+                                                      [--ignore-workflow-id-mismatch]
                                                       [--access-token=<access_token>]
                                                       [--curl]
 
@@ -34,6 +35,7 @@ Options:
     --launch-project=<project>                                 Optional: Linked project to launch from
     --ica-workflow-run-instance-id=<workflow_run_instance_id>  Optional: Workflow run id to base yaml template from
     --access-token=<access-token>                              Optional: Access token in same project as run instance id, ideally use env var ICA_ACCESS_TOKEN
+    --ignore-workflow-id-mismatch                              Optional: Ignore workflow id mismatch, useful for when creating a template for a different context
     --prefix=<prefix>                                          Optional: prefix to the run name and the output files
     --curl                                                     Optional: Use the curl command over ica binary to launch tool
 
