@@ -524,6 +524,7 @@ illumina-tar)
 - [umccrise-pipeline](#umccrise-pipeline)  
 - [tso500-ctdna-with-post-processing-pipeline](#tso500-ctdna-with-post-processing-pipeline)  
 - [umccrise-pipeline](#umccrise-pipeline)  
+- [umccrise-with-dragen-germline-pipeline](#umccrise-with-dragen-germline-pipeline)  
 
 
 ### optitype-pipeline
@@ -672,4 +673,11 @@ illumina-tar)
   
 - [1.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.1--0/umccrise-pipeline__1.2.1--0.md)  
 - [1.2.2--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.2--0/umccrise-pipeline__1.2.2--0.md)  
+
+
+### umccrise-with-dragen-germline-pipeline
+
+#### Versions
+  
+- [2.0.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
 
