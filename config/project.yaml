@@ -259,7 +259,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-11-10T23:35:06UTC
+            modification_time: 2021-11-11T02:24:09UTC
             run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -477,6 +477,16 @@ projects:
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
             modification_time: 2021-11-07T22:31:23UTC
+            run_instances: []
+      - name: umccrise-with-dragen-germline-pipeline
+        path: umccrise-with-dragen-germline-pipeline
+        ica_workflow_name: umccrise-with-dragen-germline-pipeline_dev-wf
+        ica_workflow_id: wfl.e4cd73b0e6e941b3b48afe03a7b5dc43
+        versions:
+          - name: 2.0.0--3.9.3
+            path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
+            ica_workflow_version_name: 2.0.0--3.9.3
+            modification_time: 2021-11-11T01:15:40UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
