@@ -41,7 +41,7 @@ requirements:
       - var get_script_path = function(){
           /*
           Abstract script path, can then be referenced in baseCommand attribute too
-          Makes things more readable.  FIXME
+          Makes things more readable.
           */
           return "scripts/run-dragen-script.sh";
         }
@@ -88,81 +88,85 @@ requirements:
           */
           return get_ref_mount() + get_name_root_from_tarball(input_obj.basename) + "/";
         }
-      - var get_script_contents = function(){
-          /*
-          Split dirent out from the listing JS.
-          Makes things a little more readable
-          Split arguments over multiple lines for greater readability
-          Use full long arguments where possible
-          */
-          return "#!/usr/bin/env bash\n" +
-                 "\n" +
-                 "# Fail on non-zero exit of subshell\n" +
-                 "set -euo pipefail\n" +
-                 "\n" +
-                 "# Initialise dragen\n" +
-                 "/opt/edico/bin/dragen \\\n" +
-                 "  --partial-reconfig DNA-MAPPER \\\n" +
-                 "  --ignore-version-check true\n" +
-                 "\n" +
-                 "# Create directories\n" +
-                 "mkdir --parents \\\n" +
-                 "  \"" + get_ref_mount() + "\" \\\n" +
-                 "  \"" + get_intermediate_results_dir() + "\" \\\n" +
-                 "  \"" + inputs.output_directory + "\"\n" +
-                 "\n" +
-                 "# untar ref data into scratch space\n" +
-                 "tar \\\n" +
-                 "  --directory \"" + get_ref_mount() + "\" \\\n" +
-                 "  --extract \\\n" +
-                 "  --file \"" + inputs.reference_tar.path + "\"\n" +
-                 "\n" +
-                 "# Run dragen command and import options from cli\n" +
-                 "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
-        }
-  InitialWorkDirRequirement:
-    listing: |
-      ${
-          /*
-          Initialise the array of files to mount
-          Add in the script path and the script contents
-          We also add in the fastq-list.csv into the working directory,
-          since Read1File and Read2File are relative its position
-          */
-
-          var e = [{
-                      "entryname": get_script_path(),
-                      "entry": get_script_contents()
-                    },
-                   {
-                      "entryname": get_fastq_list_path(),
-                      "entry": inputs.fastq_list
-                   }];
-
-          /*
-          Check if input_mounts record is defined
-          The fastq-list.csv could be using presigned urls instead
-          */
-          if (inputs.fastq_list_mount_paths === null){
-              return e;
+      - var get_value_as_str = function(input_parameter){
+          if (input_parameter === null){
+            return "";
+          } else {
+            return input_parameter.toString();
           }
-
+        }
+      - var get_dragen_eval_line = function(){
           /*
-          Iterate through each file to mount
-          Mount that object at the same reference to the mount point index.
+          ICA is inconsistent with cwl when it comes to handling @
           */
-          inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
-            e.push({
-                'entry': mount_path_record.file_obj,
-                'entryname': mount_path_record.mount_path
-            });
-          });
+            return "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
+        }
+    
+  InitialWorkDirRequirement:
+    listing:
+      - entryname: $(get_script_path())
+        entry: |
+          #!/usr/bin/env bash
 
-          /*
-          Return file paths
-          */
-          return e;
-      }
+          # Fail on non-zero exit of subshell
+          set -euo pipefail
+
+          # Initialise dragen
+          /opt/edico/bin/dragen \\
+            --partial-reconfig DNA-MAPPER \\
+            --ignore-version-check true
+
+          # Create directories
+          mkdir --parents \\
+            "$(get_ref_mount())" \\
+            "$(get_intermediate_results_dir())" \\
+            "$(inputs.output_directory)"
+
+          # untar ref data into scratch space
+          tar \\
+            --directory "$(get_ref_mount())" \\
+            --extract \\
+            --file "$(inputs.reference_tar.path)"
+
+          # Run dragen command and import options from cli
+          $(get_dragen_eval_line())
+
+      - |
+        ${
+            /*
+            Initialise the array of files to mount
+            Add in the script path and the script contents
+            We also add in the fastq-list.csv into the working directory,
+            since Read1File and Read2File are relative to its position
+            */
+
+            var e = [{
+                        "entryname": get_fastq_list_path(),
+                        "entry": inputs.fastq_list
+                    }];
+
+            /*
+            Check if input_mounts record is defined
+            The fastq_list.csv could be using presigned urls instead
+            */
+            if (inputs.fastq_list_mount_paths !== null){
+                /*
+                Iterate through each file to mount
+                Mount that object at the same reference to the mount point index.
+                */
+                inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
+                  e.push({
+                      'entry': mount_path_record.file_obj,
+                      'entryname': mount_path_record.mount_path
+                  });
+                });
+            }
+
+            /*
+            Return file paths
+            */
+            return e;
+        }
 
 
 baseCommand: [ "bash" ]
