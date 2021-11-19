@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: 35c350083cd5b42efa51e72bd97cef5d
+> md5sum: 78d51f6182ee42a6b18996e620515ef1
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -46,6 +46,11 @@ More information on the documentation can be found [here](https://support-docs.i
 - [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
 - [multiqc 1.10.1](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
 - [dragen-germline 3.9.3](../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
+
+
+### Used By
+  
+- [umccrise-with-dragen-germline-pipeline 2.0.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
 
   
 
@@ -903,6 +908,7 @@ The output directory for multiqc
 ##### ToC
   
 - [Run wfr.d058e5f7be4b4683a9b1a59b8f67f91b](#run-wfrd058e5f7be4b4683a9b1a59b8f67f91b)  
+- [Run wfr.4759b2ccf6234141b06d5aab5b932dbb](#run-wfr4759b2ccf6234141b06d5aab5b932dbb)  
 
 
 ##### Run wfr.d058e5f7be4b4683a9b1a59b8f67f91b
@@ -1063,6 +1069,166 @@ bash wfr.d058e5f7be4b4683a9b1a59b8f67f91b.launch.sh
 
   
 [![Dragen3.9-germline-workflow__wfr.d058e5f7be4b4683a9b1a59b8f67f91b.svg](../../../../images/runs/workflows/dragen-germline-pipeline/3.9.3/Dragen3.9-germline-workflow__wfr.d058e5f7be4b4683a9b1a59b8f67f91b.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-germline-pipeline/3.9.3/Dragen3.9-germline-workflow__wfr.d058e5f7be4b4683a9b1a59b8f67f91b.svg)  
+
+
+##### Run wfr.4759b2ccf6234141b06d5aab5b932dbb
+
+
+
+  
+> Run Name: Dragen3.9-germline-workflow-test  
+
+  
+**Start Time:** 2021-11-18 00:07:32 UTC  
+**Duration:** 2021-11-18 02:48:52 UTC  
+**End Time:** 0 days 02:41:20  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.4759b2ccf6234141b06d5aab5b932dbb
+
+# Edit the input json file (optional)
+# vim wfr.4759b2ccf6234141b06d5aab5b932dbb.template.json 
+
+# Run the launch script
+bash wfr.4759b2ccf6234141b06d5aab5b932dbb.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "cnv_enable_self_normalization": true,
+    "enable_cnv": true,
+    "enable_duplicate_marking": true,
+    "enable_map_align_output": true,
+    "enable_sv": true,
+    "fastq_list_rows": [
+        {
+            "lane": 2,
+            "read_1": {
+                "class": "File",
+                "location": "gds://umccr-fastq-data-dev/210708_A00130_0166_AH7KTJDSX2/WGS_TsqNano/CMitchell/MDX210178_L2100747_S7_L002_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://umccr-fastq-data-dev/210708_A00130_0166_AH7KTJDSX2/WGS_TsqNano/CMitchell/MDX210178_L2100747_S7_L002_R2_001.fastq.gz"
+            },
+            "rgid": "GTTCCAAT.GCAGAATT.2.210708_A00130_0166_AH7KTJDSX2.MDX210178_L2100747",
+            "rglb": "L2100747",
+            "rgsm": "MDX210178"
+        }
+    ],
+    "output_directory": "SBJ00913",
+    "output_file_prefix": "MDX210179",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    }
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test",
+    "outputDirectory": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/outputs",
+    "tmpOutputDirectory": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/steps",
+    "logDirectory": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.18.0-202109141250-stratus-master"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_bam_out": {
+        "location": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/outputs/SBJ00913/MDX210179.bam",
+        "basename": "MDX210179.bam",
+        "nameroot": "MDX210179",
+        "nameext": ".bam",
+        "class": "File",
+        "size": 85852344955,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.bam.bai",
+                "location": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/outputs/SBJ00913/MDX210179.bam.bai",
+                "class": "File",
+                "nameroot": "MDX210179.bam",
+                "nameext": ".bai",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "dragen_germline_output_directory": {
+        "location": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/outputs/SBJ00913",
+        "basename": "SBJ00913",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "dragen_vcf_out": {
+        "location": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/outputs/SBJ00913/MDX210179.vcf.gz",
+        "basename": "MDX210179.vcf.gz",
+        "nameroot": "MDX210179.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 455747273,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.vcf.gz.tbi",
+                "location": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/outputs/SBJ00913/MDX210179.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "multiqc_output_directory": {
+        "location": "gds://wfr.4759b2ccf6234141b06d5aab5b932dbb/Dragen3.9-germline-workflow-test/outputs/MDX210179_dragen_germline_multiqc",
+        "basename": "MDX210179_dragen_germline_multiqc",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_dir_gds_session_id": "ssn.dcc6e2424ee44326a2d41ff8deef3223",
+    "output_dir_gds_folder_id": "fol.507fb46dc3b149d6b7e308d9aa22e22e"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![Dragen3.9-germline-workflow-test__wfr.4759b2ccf6234141b06d5aab5b932dbb.svg](../../../../images/runs/workflows/dragen-germline-pipeline/3.9.3/Dragen3.9-germline-workflow-test__wfr.4759b2ccf6234141b06d5aab5b932dbb.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-germline-pipeline/3.9.3/Dragen3.9-germline-workflow-test__wfr.4759b2ccf6234141b06d5aab5b932dbb.svg)  
 
   
 

@@ -19,7 +19,7 @@ umccrise-with-dragen-germline-pipeline 2.0.0--3.9.3 workflow
 
   
 > ID: umccrise-with-dragen-germline-pipeline--2.0.0--3.9.3  
-> md5sum: 2e6c4c1d830b59538471dfb77e09ec1c
+> md5sum: 3059b2771b7592e516b601fb1a6b5a77
 
 ### umccrise-with-dragen-germline-pipeline v(2.0.0--3.9.3) documentation
   
