@@ -88,13 +88,6 @@ requirements:
           */
           return get_ref_mount() + get_name_root_from_tarball(input_obj.basename) + "/";
         }
-      - var get_value_as_str = function(input_parameter){
-          if (input_parameter === null){
-            return "";
-          } else {
-            return input_parameter.toString();
-          }
-        }
       - var get_dragen_eval_line = function(){
           /*
           ICA is inconsistent with cwl when it comes to handling @
