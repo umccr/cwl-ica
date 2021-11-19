@@ -11,871 +11,871 @@
 <polygon fill="#eeeeee" stroke="transparent" points="-4,4 -4,-2308.97 8938.5,-2308.97 8938.5,4 -4,4"/>
 <g id="clust1" class="cluster">
 <title>cluster_inputs</title>
-<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="352,-1688.86 352,-2246.99 8705,-2246.99 8705,-1688.86 352,-1688.86"/>
+<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="353,-1688.86 353,-2246.99 8705,-2246.99 8705,-1688.86 353,-1688.86"/>
 <text text-anchor="middle" x="8638.5" y="-1696.66" font-family="Times,serif" font-size="14.00">Workflow Inputs</text>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_outputs</title>
-<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="4407,-57.99 4407,-616.11 5198,-616.11 5198,-57.99 4407,-57.99"/>
-<text text-anchor="middle" x="5125.5" y="-65.79" font-family="Times,serif" font-size="14.00">Workflow Outputs</text>
+<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="4295,-57.99 4295,-616.11 5085,-616.11 5085,-57.99 4295,-57.99"/>
+<text text-anchor="middle" x="5012.5" y="-65.79" font-family="Times,serif" font-size="14.00">Workflow Outputs</text>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_enable_liquid_tumor_mode -->
+<!-- file:///tmp/tmp1pazy08q#hla_min_reads -->
 <g id="node1" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_enable_liquid_tumor_mode</title>
-<g id="a_node1"><a xlink:title="Enable liquid tumor mode. &#10;">
-<polygon fill="#94ddf4" stroke="black" points="8175,-2032.49 8175,-2069.49 8405,-2069.49 8405,-2032.49 8175,-2032.49"/>
-<text text-anchor="middle" x="8290" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_enable_liquid_tumor_mode</text>
+<title>file:///tmp/tmp1pazy08q#hla_min_reads</title>
+<g id="a_node1"><a xlink:title="Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. &#10;The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a &#10;lower threshold value.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="8204.5,-2032.49 8204.5,-2069.49 8323.5,-2069.49 8323.5,-2032.49 8204.5,-2032.49"/>
+<text text-anchor="middle" x="8264" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_min_reads</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="node55" class="node">
-<title>file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
+<title>file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
 <g id="a_node55"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md" xlink:title="Runs the dragen germline workflow on the FPGA.&#10;Takes in a fastq list and corresponding mount paths from the predefined_mount_paths.&#10;All other options available at the top of the workflow&#10;">
-<polygon fill="lightgoldenrodyellow" stroke="black" points="4508,-1474.49 4508,-1511.49 4702,-1511.49 4702,-1474.49 4508,-1474.49"/>
-<text text-anchor="middle" x="4605" y="-1489.29" font-family="Times,serif" font-size="14.00">dragen&#45;germline v(3.9.3)</text>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="4402,-1474.49 4402,-1511.49 4596,-1511.49 4596,-1474.49 4402,-1474.49"/>
+<text text-anchor="middle" x="4499" y="-1489.29" font-family="Times,serif" font-size="14.00">dragen&#45;germline v(3.9.3)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_enable_liquid_tumor_mode&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#hla_min_reads&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge9" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_enable_liquid_tumor_mode&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M8252.24,-2032.38C8228.07,-2021.79 8195.76,-2008.87 8166,-2000.99 6832.61,-1647.88 5149.1,-1526.67 4712.35,-1500.06"/>
-<polygon fill="black" stroke="black" points="4712.46,-1496.56 4702.27,-1499.45 4712.04,-1503.54 4712.46,-1496.56"/>
+<title>file:///tmp/tmp1pazy08q#hla_min_reads&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M8245.01,-2032.38C8232.15,-2021.51 8214.24,-2008.28 8196,-2000.99 7514.03,-1728.32 5139.94,-1540.93 4606.13,-1501.66"/>
+<polygon fill="black" stroke="black" points="4606.35,-1498.16 4596.13,-1500.92 4605.84,-1505.15 4606.35,-1498.16"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_hard_filter -->
+<!-- file:///tmp/tmp1pazy08q#sv_region -->
 <g id="node2" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_hard_filter</title>
-<g id="a_node2"><a xlink:title="DRAGEN provides post&#45;VCF variant filtering based on annotations present in the VCF records.&#10;However, due to the nature of DRAGEN’s algorithms, which incorporate the hypothesis of correlated errors&#10;from within the core of variant caller, the pipeline has improved capabilities in distinguishing&#10;the true variants from noise, and therefore the dependency on post&#45;VCF filtering is substantially reduced.&#10;For this reason, the default post&#45;VCF filtering in DRAGEN is very simple&#10;">
-<polygon fill="#94ddf4" stroke="black" points="8043.5,-2032.49 8043.5,-2069.49 8156.5,-2069.49 8156.5,-2032.49 8043.5,-2032.49"/>
-<text text-anchor="middle" x="8100" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_hard_filter</text>
+<title>file:///tmp/tmp1pazy08q#sv_region</title>
+<g id="a_node2"><a xlink:title="Limit the analysis to a specified region of the genome for debugging purposes. &#10;This option can be specified multiple times to build a list of regions. &#10;The value must be in the format “chr:startPos&#45;endPos”.. &#10;">
+<polygon fill="#94ddf4" stroke="black" points="8101.5,-2032.49 8101.5,-2069.49 8186.5,-2069.49 8186.5,-2032.49 8101.5,-2032.49"/>
+<text text-anchor="middle" x="8144" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_region</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_hard_filter&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#sv_region&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge10" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_hard_filter&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M8081.96,-2032.43C8069.71,-2021.58 8052.6,-2008.35 8035,-2000.99 7408.71,-1738.88 5223.03,-1545.04 4712.31,-1502.66"/>
-<polygon fill="black" stroke="black" points="4712.25,-1499.15 4702,-1501.81 4711.68,-1506.12 4712.25,-1499.15"/>
+<title>file:///tmp/tmp1pazy08q#sv_region&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M8130.03,-2032.11C8120.53,-2021.27 8106.98,-2008.19 8092,-2000.99 7449.31,-1692.16 5133.76,-1533.07 4606.41,-1500.38"/>
+<polygon fill="black" stroke="black" points="4606.34,-1496.87 4596.15,-1499.74 4605.91,-1503.85 4606.34,-1496.87"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_region_2 -->
+<!-- file:///tmp/tmp1pazy08q#sv_se_overlap_pair_evidence -->
 <g id="node3" class="node">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_region_2</title>
-<g id="a_node3"><a xlink:title="Generates coverage region report using bed file 2.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="7852.5,-2032.49 7852.5,-2069.49 8025.5,-2069.49 8025.5,-2032.49 7852.5,-2032.49"/>
-<text text-anchor="middle" x="7939" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_region_2</text>
+<title>file:///tmp/tmp1pazy08q#sv_se_overlap_pair_evidence</title>
+<g id="a_node3"><a xlink:title="Allow overlapping read pairs to be considered as evidence. &#10;By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if &lt;20%.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="7863,-2032.49 7863,-2069.49 8083,-2069.49 8083,-2032.49 7863,-2032.49"/>
+<text text-anchor="middle" x="7973" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_se_overlap_pair_evidence</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_region_2&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#sv_se_overlap_pair_evidence&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge11" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_region_2&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M7910.62,-2032.48C7892.04,-2021.79 7866.85,-2008.72 7843,-2000.99 6656.1,-1616.03 5126.67,-1518.56 4712.44,-1498.53"/>
-<polygon fill="black" stroke="black" points="4712.43,-1495.02 4702.27,-1498.04 4712.09,-1502.01 4712.43,-1495.02"/>
+<title>file:///tmp/tmp1pazy08q#sv_se_overlap_pair_evidence&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M7936.82,-2032.42C7913.64,-2021.84 7882.64,-2008.92 7854,-2000.99 6605.99,-1655.19 5027.3,-1529.41 4606.21,-1500.78"/>
+<polygon fill="black" stroke="black" points="4606.39,-1497.28 4596.18,-1500.1 4605.92,-1504.27 4606.39,-1497.28"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#output_file_prefix -->
+<!-- file:///tmp/tmp1pazy08q#sv_discovery -->
 <g id="node4" class="node">
-<title>file:///tmp/tmpkxjbb9_6#output_file_prefix</title>
-<g id="a_node4"><a xlink:title="The prefix given to all output files&#10;">
+<title>file:///tmp/tmp1pazy08q#sv_discovery</title>
+<g id="a_node4"><a xlink:title="Enable SV discovery. This flag can be set to false only when &#45;&#45;sv&#45;forcegt&#45;vcf is used. &#10;When set to false, SV discovery is disabled and only the forced genotyping input variants &#10;are processed. The default is true.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="7737.5,-2032.49 7737.5,-2069.49 7844.5,-2069.49 7844.5,-2032.49 7737.5,-2032.49"/>
+<text text-anchor="middle" x="7791" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_discovery</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp1pazy08q#sv_discovery&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
+<g id="edge12" class="edge">
+<title>file:///tmp/tmp1pazy08q#sv_discovery&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M7773.91,-2032.47C7762.28,-2021.63 7745.97,-2008.41 7729,-2000.99 7144.99,-1745.59 5099.75,-1548.1 4606.59,-1503.48"/>
+<polygon fill="black" stroke="black" points="4606.56,-1499.96 4596.28,-1502.55 4605.93,-1506.93 4606.56,-1499.96"/>
+</g>
+<!-- file:///tmp/tmp1pazy08q#vc_decoy_contigs -->
+<g id="node5" class="node">
+<title>file:///tmp/tmp1pazy08q#vc_decoy_contigs</title>
+<g id="a_node5"><a xlink:title="The &#45;&#45;vc&#45;decoy&#45;contigs option specifies a comma&#45;separated list of contigs to skip during variant calling.&#10;This option can be set in the configuration file.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="7580.5,-2032.49 7580.5,-2069.49 7719.5,-2069.49 7719.5,-2032.49 7580.5,-2032.49"/>
+<text text-anchor="middle" x="7650" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_decoy_contigs</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp1pazy08q#vc_decoy_contigs&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
+<g id="edge13" class="edge">
+<title>file:///tmp/tmp1pazy08q#vc_decoy_contigs&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M7627.07,-2032.39C7611.94,-2021.66 7591.25,-2008.59 7571,-2000.99 6465.39,-1585.63 5009.27,-1509.96 4606.31,-1496.7"/>
+<polygon fill="black" stroke="black" points="4606.24,-1493.19 4596.13,-1496.37 4606.01,-1500.19 4606.24,-1493.19"/>
+</g>
+<!-- file:///tmp/tmp1pazy08q#output_file_prefix -->
+<g id="node6" class="node">
+<title>file:///tmp/tmp1pazy08q#output_file_prefix</title>
+<g id="a_node6"><a xlink:title="The prefix given to all output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="8557,-2032.49 8557,-2069.49 8697,-2069.49 8697,-2032.49 8557,-2032.49"/>
 <text text-anchor="middle" x="8627" y="-2047.29" font-family="Times,serif" font-size="14.00">output_file_prefix</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#dragen_qc_step -->
+<!-- file:///tmp/tmp1pazy08q#dragen_qc_step -->
 <g id="node54" class="node">
-<title>file:///tmp/tmpkxjbb9_6#dragen_qc_step</title>
+<title>file:///tmp/tmp1pazy08q#dragen_qc_step</title>
 <g id="a_node54"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md" xlink:title="The dragen qc step &#45; this takes in an array of dirs&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="8557.5,-938.49 8557.5,-975.49 8696.5,-975.49 8696.5,-938.49 8557.5,-938.49"/>
 <text text-anchor="middle" x="8627" y="-953.29" font-family="Times,serif" font-size="14.00">multiqc v(1.10.1)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step -->
-<g id="edge12" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step</title>
+<!-- file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step -->
+<g id="edge14" class="edge">
+<title>file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step</title>
 <path fill="none" stroke="black" d="M8623.24,-2032.39C8610.57,-1906.48 8610.26,-1142.89 8622.32,-986.11"/>
 <polygon fill="black" stroke="black" points="8625.83,-986.15 8623.21,-975.89 8618.86,-985.55 8625.83,-986.15"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step -->
-<g id="edge13" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step</title>
+<!-- file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step -->
+<g id="edge15" class="edge">
+<title>file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step</title>
 <path fill="none" stroke="black" d="M8627,-2032.39C8627,-1906.48 8627,-1142.89 8627,-986.11"/>
 <polygon fill="black" stroke="black" points="8630.5,-985.89 8627,-975.89 8623.5,-985.89 8630.5,-985.89"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step -->
-<g id="edge14" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step</title>
+<!-- file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step -->
+<g id="edge16" class="edge">
+<title>file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step</title>
 <path fill="none" stroke="black" d="M8630.76,-2032.39C8643.43,-1906.48 8643.74,-1142.89 8631.68,-986.11"/>
 <polygon fill="black" stroke="black" points="8635.14,-985.55 8630.79,-975.89 8628.17,-986.15 8635.14,-985.55"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
-<g id="edge15" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#output_file_prefix&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M8604.5,-2032.39C8589.38,-2021.51 8568.53,-2008.28 8548,-2000.99 7807.72,-1737.85 5265.69,-1541.76 4712.02,-1501.57"/>
-<polygon fill="black" stroke="black" points="4712.27,-1498.08 4702.05,-1500.85 4711.77,-1505.07 4712.27,-1498.08"/>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#dedup_min_qual -->
-<g id="node5" class="node">
-<title>file:///tmp/tmpkxjbb9_6#dedup_min_qual</title>
-<g id="a_node5"><a xlink:title="Specifies the Phred quality score below which a base should be excluded from the quality score&#10;calculation used for choosing among duplicate reads.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="7516,-2032.49 7516,-2069.49 7648,-2069.49 7648,-2032.49 7516,-2032.49"/>
-<text text-anchor="middle" x="7582" y="-2047.29" font-family="Times,serif" font-size="14.00">dedup_min_qual</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#dedup_min_qual&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
-<g id="edge16" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#dedup_min_qual&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M7560.34,-2032.42C7546.03,-2021.7 7526.39,-2008.64 7507,-2000.99 6472.49,-1592.78 5101.66,-1512.24 4712.24,-1497.24"/>
-<polygon fill="black" stroke="black" points="4712.24,-1493.74 4702.11,-1496.86 4711.97,-1500.74 4712.24,-1493.74"/>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_map_align_output -->
-<g id="node6" class="node">
-<title>file:///tmp/tmpkxjbb9_6#enable_map_align_output</title>
-<g id="a_node6"><a xlink:title="Enables saving the output from the&#10;map/align stage. Default is true when only&#10;running map/align. Default is false if&#10;running the variant caller.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="7300.5,-2032.49 7300.5,-2069.49 7497.5,-2069.49 7497.5,-2032.49 7300.5,-2032.49"/>
-<text text-anchor="middle" x="7399" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_map_align_output</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_map_align_output&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge17" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#enable_map_align_output&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M7365.77,-2032.4C7344.82,-2021.95 7316.91,-2009.18 7291,-2000.99 6316,-1692.7 5079.32,-1544.19 4712.28,-1504.9"/>
-<polygon fill="black" stroke="black" points="4712.52,-1501.4 4702.2,-1503.82 4711.78,-1508.37 4712.52,-1501.4"/>
+<title>file:///tmp/tmp1pazy08q#output_file_prefix&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M8604.5,-2032.36C8589.39,-2021.48 8568.54,-2008.25 8548,-2000.99 7786.66,-1731.78 5170.29,-1539.97 4606.58,-1501.21"/>
+<polygon fill="black" stroke="black" points="4606.64,-1497.7 4596.42,-1500.51 4606.16,-1504.69 4606.64,-1497.7"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_hla -->
+<!-- file:///tmp/tmp1pazy08q#vc_hard_filter -->
 <g id="node7" class="node">
-<title>file:///tmp/tmpkxjbb9_6#enable_hla</title>
-<g id="a_node7"><a xlink:title="Enable HLA typing by setting &#45;&#45;enable&#45;hla flag to true&#10;">
-<polygon fill="#94ddf4" stroke="black" points="7190,-2032.49 7190,-2069.49 7282,-2069.49 7282,-2032.49 7190,-2032.49"/>
-<text text-anchor="middle" x="7236" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_hla</text>
+<title>file:///tmp/tmp1pazy08q#vc_hard_filter</title>
+<g id="a_node7"><a xlink:title="DRAGEN provides post&#45;VCF variant filtering based on annotations present in the VCF records.&#10;However, due to the nature of DRAGEN’s algorithms, which incorporate the hypothesis of correlated errors&#10;from within the core of variant caller, the pipeline has improved capabilities in distinguishing&#10;the true variants from noise, and therefore the dependency on post&#45;VCF filtering is substantially reduced.&#10;For this reason, the default post&#45;VCF filtering in DRAGEN is very simple&#10;">
+<polygon fill="#94ddf4" stroke="black" points="7344.5,-2032.49 7344.5,-2069.49 7457.5,-2069.49 7457.5,-2032.49 7344.5,-2032.49"/>
+<text text-anchor="middle" x="7401" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_hard_filter</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_hla&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_hard_filter&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge18" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#enable_hla&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M7220.89,-2032.4C7210.7,-2021.68 7196.35,-2008.61 7181,-2000.99 6301.38,-1564.03 5077.45,-1503.46 4712.06,-1495.23"/>
-<polygon fill="black" stroke="black" points="4712.09,-1491.73 4702.02,-1495.01 4711.94,-1498.73 4712.09,-1491.73"/>
+<title>file:///tmp/tmp1pazy08q#vc_hard_filter&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M7382.61,-2032.37C7370.35,-2021.63 7353.36,-2008.56 7336,-2000.99 6339.95,-1566.41 4991.88,-1504.29 4606.12,-1495.45"/>
+<polygon fill="black" stroke="black" points="4606.16,-1491.95 4596.08,-1495.22 4606,-1498.95 4606.16,-1491.95"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_region -->
+<!-- file:///tmp/tmp1pazy08q#sv_tin_contam_tolerance -->
 <g id="node8" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_region</title>
-<g id="a_node8"><a xlink:title="Limit the analysis to a specified region of the genome for debugging purposes. &#10;This option can be specified multiple times to build a list of regions. &#10;The value must be in the format “chr:startPos&#45;endPos”.. &#10;">
-<polygon fill="#94ddf4" stroke="black" points="7086.5,-2032.49 7086.5,-2069.49 7171.5,-2069.49 7171.5,-2032.49 7086.5,-2032.49"/>
-<text text-anchor="middle" x="7129" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_region</text>
+<title>file:///tmp/tmp1pazy08q#sv_tin_contam_tolerance</title>
+<g id="a_node8"><a xlink:title="Set the Tumor&#45;in&#45;Normal (TiN) contamination tolerance level. &#10;You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. &#10;">
+<polygon fill="#94ddf4" stroke="black" points="7135.5,-2032.49 7135.5,-2069.49 7326.5,-2069.49 7326.5,-2032.49 7135.5,-2032.49"/>
+<text text-anchor="middle" x="7231" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_tin_contam_tolerance</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_region&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#sv_tin_contam_tolerance&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge19" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_region&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M7114.88,-2032.43C7105.31,-2021.71 7091.75,-2008.65 7077,-2000.99 6242.31,-1567.5 5069.08,-1504.51 4712.15,-1495.47"/>
-<polygon fill="black" stroke="black" points="4712.16,-1491.97 4702.08,-1495.22 4711.99,-1498.97 4712.16,-1491.97"/>
+<title>file:///tmp/tmp1pazy08q#sv_tin_contam_tolerance&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M7198.74,-2032.4C7178.39,-2021.95 7151.26,-2009.18 7126,-2000.99 6175.84,-1692.81 4968.25,-1544.62 4606.22,-1505.1"/>
+<polygon fill="black" stroke="black" points="4606.59,-1501.62 4596.27,-1504.02 4605.84,-1508.58 4606.59,-1501.62"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#output_directory -->
+<!-- file:///tmp/tmp1pazy08q#hla_bed_file -->
 <g id="node9" class="node">
-<title>file:///tmp/tmpkxjbb9_6#output_directory</title>
-<g id="a_node9"><a xlink:title="The directory where all output files are placed&#10;">
-<polygon fill="#94ddf4" stroke="black" points="6932,-2032.49 6932,-2069.49 7068,-2069.49 7068,-2032.49 6932,-2032.49"/>
-<text text-anchor="middle" x="7000" y="-2047.29" font-family="Times,serif" font-size="14.00">output_directory</text>
+<title>file:///tmp/tmp1pazy08q#hla_bed_file</title>
+<g id="a_node9"><a xlink:title="Use the HLA region BED input file to specify the region to extract HLA reads from. &#10;DRAGEN HLA Caller parses the input file for regions within the BED file, and then &#10;extracts reads accordingly to align with the HLA allele reference.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="7017,-2032.49 7017,-2069.49 7117,-2069.49 7117,-2032.49 7017,-2032.49"/>
+<text text-anchor="middle" x="7067" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_bed_file</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#output_directory&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#hla_bed_file&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge20" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#output_directory&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M6977.25,-2032.48C6962.51,-2021.93 6942.48,-2009.02 6923,-2000.99 6113.28,-1667.17 5049.69,-1538.13 4712.42,-1503.97"/>
-<polygon fill="black" stroke="black" points="4712.47,-1500.46 4702.17,-1502.94 4711.77,-1507.43 4712.47,-1500.46"/>
+<title>file:///tmp/tmp1pazy08q#hla_bed_file&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M7050.54,-2032.45C7039.51,-2021.75 7024.09,-2008.69 7008,-2000.99 6147.12,-1589.13 4965.01,-1511.48 4606.39,-1497.16"/>
+<polygon fill="black" stroke="black" points="4606.41,-1493.65 4596.28,-1496.76 4606.13,-1500.65 4606.41,-1493.65"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_se_overlap_pair_evidence -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_decoy_contigs -->
 <g id="node10" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_se_overlap_pair_evidence</title>
-<g id="a_node10"><a xlink:title="Allow overlapping read pairs to be considered as evidence. &#10;By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if &lt;20%.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="6694,-2032.49 6694,-2069.49 6914,-2069.49 6914,-2032.49 6694,-2032.49"/>
-<text text-anchor="middle" x="6804" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_se_overlap_pair_evidence</text>
+<title>file:///tmp/tmp1pazy08q#vc_enable_decoy_contigs</title>
+<g id="a_node10"><a xlink:title="If &#45;&#45;vc&#45;enable&#45;decoy&#45;contigs is set to true, variant calls on the decoy contigs are enabled.&#10;The default value is false.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="6805.5,-2032.49 6805.5,-2069.49 6998.5,-2069.49 6998.5,-2032.49 6805.5,-2032.49"/>
+<text text-anchor="middle" x="6902" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_decoy_contigs</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_se_overlap_pair_evidence&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_decoy_contigs&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge21" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_se_overlap_pair_evidence&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M6765.7,-2032.48C6742.64,-2022.38 6712.51,-2009.95 6685,-2000.99 5941.34,-1758.79 5014.91,-1572.21 4708.6,-1513.45"/>
-<polygon fill="black" stroke="black" points="4708.88,-1509.94 4698.4,-1511.49 4707.57,-1516.81 4708.88,-1509.94"/>
+<title>file:///tmp/tmp1pazy08q#vc_enable_decoy_contigs&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M6868.86,-2032.42C6848.33,-2022.1 6821.17,-2009.47 6796,-2000.99 5975.38,-1724.37 4938.2,-1558.14 4606.28,-1509.22"/>
+<polygon fill="black" stroke="black" points="4606.6,-1505.73 4596.2,-1507.74 4605.58,-1512.66 4606.6,-1505.73"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#lic_instance_id_location -->
+<!-- file:///tmp/tmp1pazy08q#sv_enable_liquid_tumor_mode -->
 <g id="node11" class="node">
-<title>file:///tmp/tmpkxjbb9_6#lic_instance_id_location</title>
-<g id="a_node11"><a xlink:title="You may wish to place your own in.&#10;Optional value, default set to /opt/instance&#45;identity&#10;which is a path inside the dragen container&#10;">
-<polygon fill="#94ddf4" stroke="black" points="6492.5,-2032.49 6492.5,-2069.49 6675.5,-2069.49 6675.5,-2032.49 6492.5,-2032.49"/>
-<text text-anchor="middle" x="6584" y="-2047.29" font-family="Times,serif" font-size="14.00">lic_instance_id_location</text>
+<title>file:///tmp/tmp1pazy08q#sv_enable_liquid_tumor_mode</title>
+<g id="a_node11"><a xlink:title="Enable liquid tumor mode. &#10;">
+<polygon fill="#94ddf4" stroke="black" points="6557,-2032.49 6557,-2069.49 6787,-2069.49 6787,-2032.49 6557,-2032.49"/>
+<text text-anchor="middle" x="6672" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_enable_liquid_tumor_mode</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#lic_instance_id_location&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#sv_enable_liquid_tumor_mode&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge22" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#lic_instance_id_location&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M6551.82,-2032.25C6532.55,-2022.14 6507.34,-2009.76 6484,-2000.99 5821.75,-1752.03 4985.77,-1571.14 4703.32,-1513.53"/>
-<polygon fill="black" stroke="black" points="4704,-1510.09 4693.5,-1511.53 4702.6,-1516.95 4704,-1510.09"/>
+<title>file:///tmp/tmp1pazy08q#sv_enable_liquid_tumor_mode&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M6631.45,-2032.37C6607.46,-2022.36 6576.33,-2010.04 6548,-2000.99 5810.93,-1765.33 4895.69,-1573.48 4597.71,-1513.51"/>
+<polygon fill="black" stroke="black" points="4598.29,-1510.06 4587.8,-1511.52 4596.91,-1516.92 4598.29,-1510.06"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_decoy_contigs -->
+<!-- file:///tmp/tmp1pazy08q#output_directory -->
 <g id="node12" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_decoy_contigs</title>
-<g id="a_node12"><a xlink:title="The &#45;&#45;vc&#45;decoy&#45;contigs option specifies a comma&#45;separated list of contigs to skip during variant calling.&#10;This option can be set in the configuration file.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="6335.5,-2032.49 6335.5,-2069.49 6474.5,-2069.49 6474.5,-2032.49 6335.5,-2032.49"/>
-<text text-anchor="middle" x="6405" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_decoy_contigs</text>
+<title>file:///tmp/tmp1pazy08q#output_directory</title>
+<g id="a_node12"><a xlink:title="The directory where all output files are placed&#10;">
+<polygon fill="#94ddf4" stroke="black" points="6403,-2032.49 6403,-2069.49 6539,-2069.49 6539,-2032.49 6403,-2032.49"/>
+<text text-anchor="middle" x="6471" y="-2047.29" font-family="Times,serif" font-size="14.00">output_directory</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_decoy_contigs&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#output_directory&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge23" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_decoy_contigs&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M6380.34,-2032.29C6365.22,-2022.06 6345.15,-2009.56 6326,-2000.99 5737.24,-1737.47 4974.84,-1568.52 4704.99,-1513.58"/>
-<polygon fill="black" stroke="black" points="4705.33,-1510.08 4694.83,-1511.52 4703.93,-1516.94 4705.33,-1510.08"/>
+<title>file:///tmp/tmp1pazy08q#output_directory&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M6447.45,-2032.32C6432.72,-2021.97 6413,-2009.34 6394,-2000.99 5746.16,-1716.27 4901.55,-1559.73 4606.39,-1510.87"/>
+<polygon fill="black" stroke="black" points="4606.56,-1507.35 4596.13,-1509.17 4605.42,-1514.25 4606.56,-1507.35"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_gatk_acceleration -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_gatk_acceleration -->
 <g id="node13" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_gatk_acceleration</title>
+<title>file:///tmp/tmp1pazy08q#vc_enable_gatk_acceleration</title>
 <g id="a_node13"><a xlink:title="If is set to true, the variant caller runs in GATK mode&#10;(concordant with GATK 3.7 in germline mode and GATK 4.0 in somatic mode).&#10;">
-<polygon fill="#94ddf4" stroke="black" points="6099,-2032.49 6099,-2069.49 6317,-2069.49 6317,-2032.49 6099,-2032.49"/>
-<text text-anchor="middle" x="6208" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_gatk_acceleration</text>
+<polygon fill="#94ddf4" stroke="black" points="6167,-2032.49 6167,-2069.49 6385,-2069.49 6385,-2032.49 6167,-2032.49"/>
+<text text-anchor="middle" x="6276" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_gatk_acceleration</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_gatk_acceleration&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_gatk_acceleration&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge24" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_gatk_acceleration&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M6167.57,-2032.44C6144.91,-2022.8 6116.04,-2010.83 6090,-2000.99 5546.9,-1795.76 4878.89,-1580.86 4670.33,-1514.62"/>
-<polygon fill="black" stroke="black" points="4671.34,-1511.27 4660.75,-1511.58 4669.22,-1517.94 4671.34,-1511.27"/>
+<title>file:///tmp/tmp1pazy08q#vc_enable_gatk_acceleration&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M6236.5,-2032.46C6213.76,-2022.65 6184.51,-2010.52 6158,-2000.99 5555.89,-1784.54 4810.59,-1578.17 4574.43,-1514.22"/>
+<polygon fill="black" stroke="black" points="4575.14,-1510.79 4564.57,-1511.55 4573.31,-1517.54 4575.14,-1510.79"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#reference_tar -->
+<!-- file:///tmp/tmp1pazy08q#cnv_enable_self_normalization -->
 <g id="node14" class="node">
-<title>file:///tmp/tmpkxjbb9_6#reference_tar</title>
-<g id="a_node14"><a xlink:title="Path to ref data tarball&#10;">
-<polygon fill="#94ddf4" stroke="black" points="5967.5,-2032.49 5967.5,-2069.49 6080.5,-2069.49 6080.5,-2032.49 5967.5,-2032.49"/>
-<text text-anchor="middle" x="6024" y="-2047.29" font-family="Times,serif" font-size="14.00">reference_tar</text>
+<title>file:///tmp/tmp1pazy08q#cnv_enable_self_normalization</title>
+<g id="a_node14"><a xlink:title="Enable CNV self normalization. &#10;Self Normalization requires that the DRAGEN hash table be generated with the enable&#45;cnv=true option.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="5915.5,-2032.49 5915.5,-2069.49 6148.5,-2069.49 6148.5,-2032.49 5915.5,-2032.49"/>
+<text text-anchor="middle" x="6032" y="-2047.29" font-family="Times,serif" font-size="14.00">cnv_enable_self_normalization</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#reference_tar&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#cnv_enable_self_normalization&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge25" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#reference_tar&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M6003.68,-2032.25C5991.36,-2022.13 5974.98,-2009.76 5959,-2000.99 5501.19,-1749.62 4893.11,-1571.93 4681.47,-1514.21"/>
-<polygon fill="black" stroke="black" points="4682.26,-1510.8 4671.69,-1511.56 4680.42,-1517.56 4682.26,-1510.8"/>
+<title>file:///tmp/tmp1pazy08q#cnv_enable_self_normalization&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M5988.15,-2032.45C5964.23,-2022.97 5934.05,-2011.16 5907,-2000.99 5387.14,-1805.54 4753.72,-1582.99 4558.87,-1514.87"/>
+<polygon fill="black" stroke="black" points="4559.98,-1511.55 4549.38,-1511.56 4557.67,-1518.16 4559.98,-1511.55"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_target_coverage -->
+<!-- file:///tmp/tmp1pazy08q#enable_duplicate_marking -->
 <g id="node15" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_target_coverage</title>
-<g id="a_node15"><a xlink:title="The &#45;&#45;vc&#45;target&#45;coverage option specifies the target coverage for down&#45;sampling.&#10;The default value is 500 for germline mode and 50 for somatic mode.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="5794.5,-2032.49 5794.5,-2069.49 5949.5,-2069.49 5949.5,-2032.49 5794.5,-2032.49"/>
-<text text-anchor="middle" x="5872" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_target_coverage</text>
+<title>file:///tmp/tmp1pazy08q#enable_duplicate_marking</title>
+<g id="a_node15"><a xlink:title="Enable the flagging of duplicate output&#10;alignment records.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="5694.5,-2032.49 5694.5,-2069.49 5897.5,-2069.49 5897.5,-2032.49 5694.5,-2032.49"/>
+<text text-anchor="middle" x="5796" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_duplicate_marking</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_target_coverage&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#enable_duplicate_marking&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge26" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_target_coverage&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M5842.99,-2032.37C5826.52,-2022.65 5805.38,-2010.63 5786,-2000.99 5362.72,-1790.38 4831.07,-1581.08 4660.41,-1515.2"/>
-<polygon fill="black" stroke="black" points="4661.47,-1511.86 4650.88,-1511.53 4658.96,-1518.39 4661.47,-1511.86"/>
+<title>file:///tmp/tmp1pazy08q#enable_duplicate_marking&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M5756.86,-2032.38C5735.88,-2022.98 5709.57,-2011.27 5686,-2000.99 5247.49,-1809.68 4714.82,-1584.84 4550.03,-1515.45"/>
+<polygon fill="black" stroke="black" points="4551.2,-1512.15 4540.63,-1511.49 4548.48,-1518.6 4551.2,-1512.15"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_cnv -->
+<!-- file:///tmp/tmp1pazy08q#hla_zygosity_threshold -->
 <g id="node16" class="node">
-<title>file:///tmp/tmpkxjbb9_6#enable_cnv</title>
-<g id="a_node16"><a xlink:title="Enable CNV processing in the DRAGEN Host Software.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="5681.5,-2032.49 5681.5,-2069.49 5776.5,-2069.49 5776.5,-2032.49 5681.5,-2032.49"/>
-<text text-anchor="middle" x="5729" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_cnv</text>
+<title>file:///tmp/tmp1pazy08q#hla_zygosity_threshold</title>
+<g id="a_node16"><a xlink:title="If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, &#10;then the HLA Caller infers homozygosity for the given HLA&#45;I gene. You can use this option to specify the fraction value. &#10;The default value is 0.15.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="5497.5,-2032.49 5497.5,-2069.49 5676.5,-2069.49 5676.5,-2032.49 5497.5,-2032.49"/>
+<text text-anchor="middle" x="5587" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_zygosity_threshold</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_cnv&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#hla_zygosity_threshold&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge27" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#enable_cnv&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M5711.37,-2032.29C5700.82,-2022.31 5686.82,-2010.06 5673,-2000.99 5314.28,-1765.44 4829.1,-1576.45 4663.32,-1515.1"/>
-<polygon fill="black" stroke="black" points="4664.39,-1511.76 4653.79,-1511.58 4661.96,-1518.33 4664.39,-1511.76"/>
+<title>file:///tmp/tmp1pazy08q#hla_zygosity_threshold&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M5552.64,-2032.43C5392.6,-1950.64 4720.5,-1607.18 4542.44,-1516.19"/>
+<polygon fill="black" stroke="black" points="4543.86,-1512.98 4533.37,-1511.55 4540.68,-1519.22 4543.86,-1512.98"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_zygosity_threshold -->
+<!-- file:///tmp/tmp1pazy08q#dbsnp_annotation -->
 <g id="node17" class="node">
-<title>file:///tmp/tmpkxjbb9_6#hla_zygosity_threshold</title>
-<g id="a_node17"><a xlink:title="If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, &#10;then the HLA Caller infers homozygosity for the given HLA&#45;I gene. You can use this option to specify the fraction value. &#10;The default value is 0.15.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="5484.5,-2032.49 5484.5,-2069.49 5663.5,-2069.49 5663.5,-2032.49 5484.5,-2032.49"/>
-<text text-anchor="middle" x="5574" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_zygosity_threshold</text>
+<title>file:///tmp/tmp1pazy08q#dbsnp_annotation</title>
+<g id="a_node17"><a xlink:title="In Germline, Tumor&#45;Normal somatic, or Tumor&#45;Only somatic modes,&#10;DRAGEN can look up variant calls in a dbSNP database and add annotations for any matches that it finds there.&#10;To enable the dbSNP database search, set the &#45;&#45;dbsnp option to the full path to the dbSNP database&#10;VCF or .vcf.gz file, which must be sorted in reference order.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="5336.5,-2032.49 5336.5,-2069.49 5479.5,-2069.49 5479.5,-2032.49 5336.5,-2032.49"/>
+<text text-anchor="middle" x="5408" y="-2047.29" font-family="Times,serif" font-size="14.00">dbsnp_annotation</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_zygosity_threshold&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#dbsnp_annotation&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge28" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#hla_zygosity_threshold&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M5543.4,-2032.43C5401.15,-1950.81 4804.66,-1608.55 4644.64,-1516.73"/>
-<polygon fill="black" stroke="black" points="4646.02,-1513.49 4635.61,-1511.55 4642.54,-1519.56 4646.02,-1513.49"/>
+<title>file:///tmp/tmp1pazy08q#dbsnp_annotation&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M5379.12,-2032.29C5363.91,-2022.97 5344.95,-2011.36 5328,-2000.99 5022.28,-1813.87 4653,-1588.12 4536.25,-1516.75"/>
+<polygon fill="black" stroke="black" points="4538,-1513.72 4527.64,-1511.49 4534.35,-1519.69 4538,-1513.72"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_ignore_overlaps -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_region_2 -->
 <g id="node18" class="node">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_ignore_overlaps</title>
-<g id="a_node18"><a xlink:title="Set to true to resolve all of the alignments for each fragment and avoid double&#45;counting any &#10;overlapping bases. This might result in marginally longer run times. &#10;This option also requires setting &#45;&#45;enable&#45;map&#45;align=true.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="5242,-2032.49 5242,-2069.49 5466,-2069.49 5466,-2032.49 5242,-2032.49"/>
-<text text-anchor="middle" x="5354" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_ignore_overlaps</text>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_region_2</title>
+<g id="a_node18"><a xlink:title="Generates coverage region report using bed file 2.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="5145.5,-2032.49 5145.5,-2069.49 5318.5,-2069.49 5318.5,-2032.49 5145.5,-2032.49"/>
+<text text-anchor="middle" x="5232" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_region_2</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_ignore_overlaps&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_region_2&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge29" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_ignore_overlaps&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M5330.35,-2032.43C5220.72,-1951.05 4762.08,-1610.59 4636.76,-1517.56"/>
-<polygon fill="black" stroke="black" points="4638.77,-1514.7 4628.66,-1511.55 4634.6,-1520.32 4638.77,-1514.7"/>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_region_2&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M5208.85,-2032.43C5101.67,-1951.13 4653.62,-1611.27 4530.45,-1517.84"/>
+<polygon fill="black" stroke="black" points="4532.24,-1514.8 4522.15,-1511.55 4528.01,-1520.38 4532.24,-1514.8"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_bed_file -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_region_3 -->
 <g id="node19" class="node">
-<title>file:///tmp/tmpkxjbb9_6#hla_bed_file</title>
-<g id="a_node19"><a xlink:title="Use the HLA region BED input file to specify the region to extract HLA reads from. &#10;DRAGEN HLA Caller parses the input file for regions within the BED file, and then &#10;extracts reads accordingly to align with the HLA allele reference.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="5124,-2032.49 5124,-2069.49 5224,-2069.49 5224,-2032.49 5124,-2032.49"/>
-<text text-anchor="middle" x="5174" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_bed_file</text>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_region_3</title>
+<g id="a_node19"><a xlink:title="Generates coverage region report using bed file 3.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4954.5,-2032.49 4954.5,-2069.49 5127.5,-2069.49 5127.5,-2032.49 4954.5,-2032.49"/>
+<text text-anchor="middle" x="5041" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_region_3</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_bed_file&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_region_3&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge30" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#hla_bed_file&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M5156.03,-2032.43C5073.08,-1951.37 4727.11,-1613.31 4630.28,-1518.69"/>
-<polygon fill="black" stroke="black" points="4632.57,-1516.03 4622.97,-1511.55 4627.68,-1521.04 4632.57,-1516.03"/>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_region_3&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M5023.88,-2032.43C4944.95,-1951.46 4615.98,-1613.98 4523.36,-1518.98"/>
+<polygon fill="black" stroke="black" points="4525.61,-1516.27 4516.12,-1511.55 4520.59,-1521.15 4525.61,-1516.27"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#cnv_enable_self_normalization -->
+<!-- file:///tmp/tmp1pazy08q#enable_cnv -->
 <g id="node20" class="node">
-<title>file:///tmp/tmpkxjbb9_6#cnv_enable_self_normalization</title>
-<g id="a_node20"><a xlink:title="Enable CNV self normalization. &#10;Self Normalization requires that the DRAGEN hash table be generated with the enable&#45;cnv=true option.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4872.5,-2032.49 4872.5,-2069.49 5105.5,-2069.49 5105.5,-2032.49 4872.5,-2032.49"/>
-<text text-anchor="middle" x="4989" y="-2047.29" font-family="Times,serif" font-size="14.00">cnv_enable_self_normalization</text>
+<title>file:///tmp/tmp1pazy08q#enable_cnv</title>
+<g id="a_node20"><a xlink:title="Enable CNV processing in the DRAGEN Host Software.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4841.5,-2032.49 4841.5,-2069.49 4936.5,-2069.49 4936.5,-2032.49 4841.5,-2032.49"/>
+<text text-anchor="middle" x="4889" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_cnv</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#cnv_enable_self_normalization&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#enable_cnv&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge31" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#cnv_enable_self_normalization&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M4976.87,-2032.43C4921.12,-1951.7 4689.28,-1616.02 4622.86,-1519.84"/>
-<polygon fill="black" stroke="black" points="4625.69,-1517.79 4617.13,-1511.55 4619.93,-1521.77 4625.69,-1517.79"/>
+<title>file:///tmp/tmp1pazy08q#enable_cnv&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M4876.68,-2032.43C4820.06,-1951.7 4584.6,-1616.02 4517.14,-1519.84"/>
+<polygon fill="black" stroke="black" points="4519.93,-1517.73 4511.32,-1511.55 4514.2,-1521.75 4519.93,-1517.73"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_region_3 -->
+<!-- file:///tmp/tmp1pazy08q#vc_max_reads_per_active_region -->
 <g id="node21" class="node">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_region_3</title>
-<g id="a_node21"><a xlink:title="Generates coverage region report using bed file 3.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4681.5,-2032.49 4681.5,-2069.49 4854.5,-2069.49 4854.5,-2032.49 4681.5,-2032.49"/>
-<text text-anchor="middle" x="4768" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_region_3</text>
+<title>file:///tmp/tmp1pazy08q#vc_max_reads_per_active_region</title>
+<g id="a_node21"><a xlink:title="specifies the maximum number of reads covering a given active region.&#10;Default is 10000 for the germline workflow&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4575,-2032.49 4575,-2069.49 4823,-2069.49 4823,-2032.49 4575,-2032.49"/>
+<text text-anchor="middle" x="4699" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_max_reads_per_active_region</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_region_3&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_max_reads_per_active_region&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge32" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_region_3&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M4762.85,-2032.43C4739.3,-1952.11 4641.76,-1619.39 4613.01,-1521.31"/>
-<polygon fill="black" stroke="black" points="4616.32,-1520.16 4610.15,-1511.55 4609.6,-1522.13 4616.32,-1520.16"/>
+<title>file:///tmp/tmp1pazy08q#vc_max_reads_per_active_region&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M4692.68,-2032.43C4663.76,-1952.02 4543.87,-1618.72 4508.72,-1521.02"/>
+<polygon fill="black" stroke="black" points="4512,-1519.77 4505.32,-1511.55 4505.41,-1522.14 4512,-1519.77"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_roh -->
+<!-- file:///tmp/tmp1pazy08q#vc_target_bed -->
 <g id="node22" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_roh</title>
-<g id="a_node22"><a xlink:title="Enable or disable the ROH caller by setting this option to true or false. Enabled by default for human autosomes only.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4546.5,-2032.49 4546.5,-2069.49 4663.5,-2069.49 4663.5,-2032.49 4546.5,-2032.49"/>
-<text text-anchor="middle" x="4605" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_roh</text>
+<title>file:///tmp/tmp1pazy08q#vc_target_bed</title>
+<g id="a_node22"><a xlink:title="This is an optional command line input that restricts processing of the small variant caller,&#10;target bed related coverage, and callability metrics to regions specified in a BED file.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4441,-2032.49 4441,-2069.49 4557,-2069.49 4557,-2032.49 4441,-2032.49"/>
+<text text-anchor="middle" x="4499" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_target_bed</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_roh&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_target_bed&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge33" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_roh&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M4605,-2032.43C4605,-1952.19 4605,-1620.06 4605,-1521.61"/>
-<polygon fill="black" stroke="black" points="4608.5,-1521.55 4605,-1511.55 4601.5,-1521.55 4608.5,-1521.55"/>
+<title>file:///tmp/tmp1pazy08q#vc_target_bed&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M4499,-2032.43C4499,-1952.19 4499,-1620.06 4499,-1521.61"/>
+<polygon fill="black" stroke="black" points="4502.5,-1521.55 4499,-1511.55 4495.5,-1521.55 4502.5,-1521.55"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_max_reads_per_active_region -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_ignore_overlaps -->
 <g id="node23" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_max_reads_per_active_region</title>
-<g id="a_node23"><a xlink:title="specifies the maximum number of reads covering a given active region.&#10;Default is 10000 for the germline workflow&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4280,-2032.49 4280,-2069.49 4528,-2069.49 4528,-2032.49 4280,-2032.49"/>
-<text text-anchor="middle" x="4404" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_max_reads_per_active_region</text>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_ignore_overlaps</title>
+<g id="a_node23"><a xlink:title="Set to true to resolve all of the alignments for each fragment and avoid double&#45;counting any &#10;overlapping bases. This might result in marginally longer run times. &#10;This option also requires setting &#45;&#45;enable&#45;map&#45;align=true.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4199,-2032.49 4199,-2069.49 4423,-2069.49 4423,-2032.49 4199,-2032.49"/>
+<text text-anchor="middle" x="4311" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_ignore_overlaps</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_max_reads_per_active_region&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_ignore_overlaps&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge34" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_max_reads_per_active_region&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M4410.35,-2032.43C4439.41,-1952.02 4559.91,-1618.72 4595.23,-1521.02"/>
-<polygon fill="black" stroke="black" points="4598.54,-1522.14 4598.65,-1511.55 4591.96,-1519.76 4598.54,-1522.14"/>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_ignore_overlaps&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M4316.94,-2032.43C4344.1,-1952.11 4456.6,-1619.39 4489.76,-1521.31"/>
+<polygon fill="black" stroke="black" points="4493.17,-1522.14 4493.06,-1511.55 4486.54,-1519.9 4493.17,-1522.14"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_min_reads -->
+<!-- file:///tmp/tmp1pazy08q#vc_target_bed_padding -->
 <g id="node24" class="node">
-<title>file:///tmp/tmpkxjbb9_6#hla_min_reads</title>
-<g id="a_node24"><a xlink:title="Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. &#10;The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a &#10;lower threshold value.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4142.5,-2032.49 4142.5,-2069.49 4261.5,-2069.49 4261.5,-2032.49 4142.5,-2032.49"/>
-<text text-anchor="middle" x="4202" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_min_reads</text>
+<title>file:///tmp/tmp1pazy08q#vc_target_bed_padding</title>
+<g id="a_node24"><a xlink:title="This is an optional command line input that can be used to pad all of the target&#10;BED regions with the specified value.&#10;For example, if a BED region is 1:1000&#45;2000 and a padding value of 100 is used,&#10;it is equivalent to using a BED region of 1:900&#45;2100 and a padding value of 0.&#10;Any padding added to &#45;&#45;vc&#45;target&#45;bed&#45;padding is used by the small variant caller&#10;and by the target bed coverage/callability reports. The default padding is 0.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="3999.5,-2032.49 3999.5,-2069.49 4180.5,-2069.49 4180.5,-2032.49 3999.5,-2032.49"/>
+<text text-anchor="middle" x="4090" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_target_bed_padding</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_min_reads&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_target_bed_padding&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge35" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#hla_min_reads&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M4214.73,-2032.43C4273.24,-1951.7 4516.55,-1616.02 4586.26,-1519.84"/>
-<polygon fill="black" stroke="black" points="4589.24,-1521.7 4592.27,-1511.55 4583.57,-1517.59 4589.24,-1521.7"/>
+<title>file:///tmp/tmp1pazy08q#vc_target_bed_padding&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M4102.92,-2032.43C4162.3,-1951.7 4409.23,-1616.02 4479.98,-1519.84"/>
+<polygon fill="black" stroke="black" points="4482.97,-1521.68 4486.08,-1511.55 4477.34,-1517.53 4482.97,-1521.68"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_max_reads_per_raw_region -->
+<!-- file:///tmp/tmp1pazy08q#hla_allele_frequency_file -->
 <g id="node25" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_max_reads_per_raw_region</title>
-<g id="a_node25"><a xlink:title="specifies the maximum number of reads covering a given raw region.&#10;Default is 30000 for the germline workflow&#10;">
-<polygon fill="#94ddf4" stroke="black" points="3891.5,-2032.49 3891.5,-2069.49 4124.5,-2069.49 4124.5,-2032.49 3891.5,-2032.49"/>
-<text text-anchor="middle" x="4008" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_max_reads_per_raw_region</text>
+<title>file:///tmp/tmp1pazy08q#hla_allele_frequency_file</title>
+<g id="a_node25"><a xlink:title="Use the population&#45;level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.&#10;The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.&#10;If &#45;&#45;hla&#45;allele&#45;frequency&#45;file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. &#10;Population&#45;level allele frequencies can be obtained from the Allele Frequency Net database.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="3791,-2032.49 3791,-2069.49 3981,-2069.49 3981,-2032.49 3791,-2032.49"/>
+<text text-anchor="middle" x="3886" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_allele_frequency_file</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_max_reads_per_raw_region&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#hla_allele_frequency_file&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge36" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_max_reads_per_raw_region&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M4026.85,-2032.43C4113.97,-1951.29 4477.61,-1612.63 4578.78,-1518.41"/>
-<polygon fill="black" stroke="black" points="4581.21,-1520.93 4586.14,-1511.55 4576.44,-1515.8 4581.21,-1520.93"/>
+<title>file:///tmp/tmp1pazy08q#hla_allele_frequency_file&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M3905.36,-2032.43C3994.81,-1951.29 4368.2,-1612.63 4472.08,-1518.41"/>
+<polygon fill="black" stroke="black" points="4474.58,-1520.86 4479.64,-1511.55 4469.88,-1515.68 4474.58,-1520.86"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_roh_blacklist_bed -->
+<!-- file:///tmp/tmp1pazy08q#vc_remove_all_soft_clips -->
 <g id="node26" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_roh_blacklist_bed</title>
-<g id="a_node26"><a xlink:title="If provided, the ROH caller ignores variants that are contained in any region in the blacklist BED file.&#10;DRAGEN distributes blacklist files for all popular human genomes and automatically selects a blacklist to&#10;match the genome in use, unless this option is used explicitly select a file.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="3710.5,-2032.49 3710.5,-2069.49 3873.5,-2069.49 3873.5,-2032.49 3710.5,-2032.49"/>
-<text text-anchor="middle" x="3792" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_roh_blacklist_bed</text>
+<title>file:///tmp/tmp1pazy08q#vc_remove_all_soft_clips</title>
+<g id="a_node26"><a xlink:title="If is set to true, the variant caller does not use soft clips of reads to determine variants.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="3583,-2032.49 3583,-2069.49 3773,-2069.49 3773,-2032.49 3583,-2032.49"/>
+<text text-anchor="middle" x="3678" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_remove_all_soft_clips</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_roh_blacklist_bed&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_remove_all_soft_clips&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge37" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_roh_blacklist_bed&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M3817.67,-2032.43C3936.79,-1950.97 4435.49,-1609.91 4570.93,-1517.29"/>
-<polygon fill="black" stroke="black" points="4573.04,-1520.08 4579.32,-1511.55 4569.09,-1514.31 4573.04,-1520.08"/>
+<title>file:///tmp/tmp1pazy08q#vc_remove_all_soft_clips&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M3703.93,-2032.43C3824.21,-1950.97 4327.83,-1609.91 4464.6,-1517.29"/>
+<polygon fill="black" stroke="black" points="4466.75,-1520.05 4473.07,-1511.55 4462.82,-1514.26 4466.75,-1520.05"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_duplicate_marking -->
+<!-- file:///tmp/tmp1pazy08q#sv_forcegt_vcf -->
 <g id="node27" class="node">
-<title>file:///tmp/tmpkxjbb9_6#enable_duplicate_marking</title>
-<g id="a_node27"><a xlink:title="Enable the flagging of duplicate output&#10;alignment records.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="3489.5,-2032.49 3489.5,-2069.49 3692.5,-2069.49 3692.5,-2032.49 3489.5,-2032.49"/>
-<text text-anchor="middle" x="3591" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_duplicate_marking</text>
+<title>file:///tmp/tmp1pazy08q#sv_forcegt_vcf</title>
+<g id="a_node27"><a xlink:title="Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted &#10;in the output VCF even if not found in the sample data. &#10;The variants are merged with any additional variants discovered directly from the sample data.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="3447,-2032.49 3447,-2069.49 3565,-2069.49 3565,-2032.49 3447,-2032.49"/>
+<text text-anchor="middle" x="3506" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_forcegt_vcf</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_duplicate_marking&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#sv_forcegt_vcf&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge38" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#enable_duplicate_marking&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M3623.02,-2032.43C3772.03,-1950.72 4397.32,-1607.86 4564.01,-1516.46"/>
-<polygon fill="black" stroke="black" points="4565.88,-1519.43 4572.97,-1511.55 4562.52,-1513.29 4565.88,-1519.43"/>
+<title>file:///tmp/tmp1pazy08q#sv_forcegt_vcf&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M3528.8,-2032.48C3541.78,-2022.79 3558.49,-2010.77 3574,-2000.99 3901.07,-1794.61 4317.99,-1583.71 4453.95,-1516.19"/>
+<polygon fill="black" stroke="black" points="4455.84,-1519.15 4463.25,-1511.58 4452.73,-1512.88 4455.84,-1519.15"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_discovery -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_phasing -->
 <g id="node28" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_discovery</title>
-<g id="a_node28"><a xlink:title="Enable SV discovery. This flag can be set to false only when &#45;&#45;sv&#45;forcegt&#45;vcf is used. &#10;When set to false, SV discovery is disabled and only the forced genotyping input variants &#10;are processed. The default is true.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="3364.5,-2032.49 3364.5,-2069.49 3471.5,-2069.49 3471.5,-2032.49 3364.5,-2032.49"/>
-<text text-anchor="middle" x="3418" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_discovery</text>
+<title>file:///tmp/tmp1pazy08q#vc_enable_phasing</title>
+<g id="a_node28"><a xlink:title="The –vc&#45;enable&#45;phasing option enables variants to be phased when possible. The default value is true.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="3279.5,-2032.49 3279.5,-2069.49 3428.5,-2069.49 3428.5,-2032.49 3279.5,-2032.49"/>
+<text text-anchor="middle" x="3354" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_phasing</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_discovery&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_phasing&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge39" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_discovery&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M3438.11,-2032.35C3450.06,-2022.39 3465.81,-2010.14 3481,-2000.99 3865.44,-1769.29 4374.17,-1577.01 4545.68,-1515.02"/>
-<polygon fill="black" stroke="black" points="4547.06,-1518.24 4555.28,-1511.56 4544.69,-1511.66 4547.06,-1518.24"/>
+<title>file:///tmp/tmp1pazy08q#vc_enable_phasing&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M3382.82,-2032.38C3398.88,-2022.78 3419.35,-2010.86 3438,-2000.99 3820.61,-1798.42 4297.38,-1583.56 4449.77,-1515.77"/>
+<polygon fill="black" stroke="black" points="4451.2,-1518.96 4458.91,-1511.7 4448.36,-1512.57 4451.2,-1518.96"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_target_bed_padding -->
+<!-- file:///tmp/tmp1pazy08q#sv_output_contigs -->
 <g id="node29" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_target_bed_padding</title>
-<g id="a_node29"><a xlink:title="This is an optional command line input that can be used to pad all of the target&#10;BED regions with the specified value.&#10;For example, if a BED region is 1:1000&#45;2000 and a padding value of 100 is used,&#10;it is equivalent to using a BED region of 1:900&#45;2100 and a padding value of 0.&#10;Any padding added to &#45;&#45;vc&#45;target&#45;bed&#45;padding is used by the small variant caller&#10;and by the target bed coverage/callability reports. The default padding is 0.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="3165.5,-2032.49 3165.5,-2069.49 3346.5,-2069.49 3346.5,-2032.49 3165.5,-2032.49"/>
-<text text-anchor="middle" x="3256" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_target_bed_padding</text>
+<title>file:///tmp/tmp1pazy08q#sv_output_contigs</title>
+<g id="a_node29"><a xlink:title="Set to true to have assembled contig sequences output in a VCF file. The default is false.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="3116.5,-2032.49 3116.5,-2069.49 3261.5,-2069.49 3261.5,-2032.49 3116.5,-2032.49"/>
+<text text-anchor="middle" x="3189" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_output_contigs</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_target_bed_padding&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#sv_output_contigs&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge40" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_target_bed_padding&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M3290.43,-2032.38C3309.58,-2022.77 3333.94,-2010.85 3356,-2000.99 3810.41,-1797.73 4371.99,-1582.21 4548.92,-1515.14"/>
-<polygon fill="black" stroke="black" points="4550.18,-1518.4 4558.29,-1511.59 4547.7,-1511.86 4550.18,-1518.4"/>
+<title>file:///tmp/tmp1pazy08q#sv_output_contigs&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M3216.14,-2032.4C3231.85,-2022.57 3252.18,-2010.43 3271,-2000.99 3706.72,-1782.34 4260.04,-1579.13 4439.75,-1514.91"/>
+<polygon fill="black" stroke="black" points="4441.05,-1518.17 4449.29,-1511.51 4438.7,-1511.57 4441.05,-1518.17"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_phasing -->
+<!-- file:///tmp/tmp1pazy08q#dedup_min_qual -->
 <g id="node30" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_phasing</title>
-<g id="a_node30"><a xlink:title="The –vc&#45;enable&#45;phasing option enables variants to be phased when possible. The default value is true.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="2998.5,-2032.49 2998.5,-2069.49 3147.5,-2069.49 3147.5,-2032.49 2998.5,-2032.49"/>
-<text text-anchor="middle" x="3073" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_phasing</text>
+<title>file:///tmp/tmp1pazy08q#dedup_min_qual</title>
+<g id="a_node30"><a xlink:title="Specifies the Phred quality score below which a base should be excluded from the quality score&#10;calculation used for choosing among duplicate reads.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="2966,-2032.49 2966,-2069.49 3098,-2069.49 3098,-2032.49 2966,-2032.49"/>
+<text text-anchor="middle" x="3032" y="-2047.29" font-family="Times,serif" font-size="14.00">dedup_min_qual</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_phasing&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#dedup_min_qual&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge41" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_phasing&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M3100.28,-2032.28C3116.38,-2022.29 3137.38,-2010.04 3157,-2000.99 3665.5,-1766.28 4315.55,-1575.09 4531.57,-1514.27"/>
-<polygon fill="black" stroke="black" points="4532.54,-1517.64 4541.22,-1511.56 4530.64,-1510.9 4532.54,-1517.64"/>
+<title>file:///tmp/tmp1pazy08q#dedup_min_qual&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M3056.16,-2032.43C3070.71,-2022.37 3089.86,-2010 3108,-2000.99 3590.36,-1761.34 4215.05,-1574.32 4425.87,-1514.34"/>
+<polygon fill="black" stroke="black" points="4426.93,-1517.67 4435.6,-1511.58 4425.02,-1510.94 4426.93,-1517.67"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_output_contigs -->
+<!-- file:///tmp/tmp1pazy08q#vc_target_coverage -->
 <g id="node31" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_output_contigs</title>
-<g id="a_node31"><a xlink:title="Set to true to have assembled contig sequences output in a VCF file. The default is false.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="2835.5,-2032.49 2835.5,-2069.49 2980.5,-2069.49 2980.5,-2032.49 2835.5,-2032.49"/>
-<text text-anchor="middle" x="2908" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_output_contigs</text>
+<title>file:///tmp/tmp1pazy08q#vc_target_coverage</title>
+<g id="a_node31"><a xlink:title="The &#45;&#45;vc&#45;target&#45;coverage option specifies the target coverage for down&#45;sampling.&#10;The default value is 500 for germline mode and 50 for somatic mode.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="2792.5,-2032.49 2792.5,-2069.49 2947.5,-2069.49 2947.5,-2032.49 2792.5,-2032.49"/>
+<text text-anchor="middle" x="2870" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_target_coverage</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_output_contigs&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_target_coverage&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge42" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_output_contigs&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M2933.74,-2032.47C2949.49,-2022.3 2970.33,-2009.81 2990,-2000.99 3549.41,-1750.22 4269.52,-1571.48 4516.96,-1513.9"/>
-<polygon fill="black" stroke="black" points="4518.03,-1517.24 4526.98,-1511.57 4516.45,-1510.42 4518.03,-1517.24"/>
+<title>file:///tmp/tmp1pazy08q#vc_target_coverage&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M2897.88,-2032.44C2914.61,-2022.38 2936.54,-2010.01 2957,-2000.99 3498.5,-1762.22 4189.25,-1574.01 4419.99,-1514.08"/>
+<polygon fill="black" stroke="black" points="4421.17,-1517.39 4429.97,-1511.5 4419.42,-1510.62 4421.17,-1517.39"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_baf -->
+<!-- file:///tmp/tmp1pazy08q#sv_call_regions_bed -->
 <g id="node32" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_baf</title>
-<g id="a_node32"><a xlink:title="Enable or disable B&#45;allele frequency output. Enabled by default.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="2701,-2032.49 2701,-2069.49 2817,-2069.49 2817,-2032.49 2701,-2032.49"/>
-<text text-anchor="middle" x="2759" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_baf</text>
+<title>file:///tmp/tmp1pazy08q#sv_call_regions_bed</title>
+<g id="a_node32"><a xlink:title="Specifies a BED file containing the set of regions to call. &#10;">
+<polygon fill="#94ddf4" stroke="black" points="2617.5,-2032.49 2617.5,-2069.49 2774.5,-2069.49 2774.5,-2032.49 2617.5,-2032.49"/>
+<text text-anchor="middle" x="2696" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_call_regions_bed</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_baf&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#sv_call_regions_bed&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge43" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_baf&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M2779.53,-2032.29C2792.44,-2021.93 2809.84,-2009.3 2827,-2000.99 3423.32,-1712.13 4214.02,-1559.46 4497.89,-1511.16"/>
-<polygon fill="black" stroke="black" points="4498.5,-1514.61 4507.77,-1509.49 4497.33,-1507.71 4498.5,-1514.61"/>
+<title>file:///tmp/tmp1pazy08q#sv_call_regions_bed&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M2723.74,-2032.46C2740.68,-2022.29 2763.04,-2009.79 2784,-2000.99 3381.72,-1749.86 4145.4,-1571.09 4406.61,-1513.72"/>
+<polygon fill="black" stroke="black" points="4407.41,-1517.12 4416.43,-1511.56 4405.92,-1510.28 4407.41,-1517.12"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_call_regions_bed -->
+<!-- file:///tmp/tmp1pazy08q#lic_instance_id_location -->
 <g id="node33" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_call_regions_bed</title>
-<g id="a_node33"><a xlink:title="Specifies a BED file containing the set of regions to call. &#10;">
-<polygon fill="#94ddf4" stroke="black" points="2525.5,-2032.49 2525.5,-2069.49 2682.5,-2069.49 2682.5,-2032.49 2525.5,-2032.49"/>
-<text text-anchor="middle" x="2604" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_call_regions_bed</text>
+<title>file:///tmp/tmp1pazy08q#lic_instance_id_location</title>
+<g id="a_node33"><a xlink:title="You may wish to place your own in.&#10;Optional value, default set to /opt/instance&#45;identity&#10;which is a path inside the dragen container&#10;">
+<polygon fill="#94ddf4" stroke="black" points="2416.5,-2032.49 2416.5,-2069.49 2599.5,-2069.49 2599.5,-2032.49 2416.5,-2032.49"/>
+<text text-anchor="middle" x="2508" y="-2047.29" font-family="Times,serif" font-size="14.00">lic_instance_id_location</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_call_regions_bed&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#lic_instance_id_location&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge44" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_call_regions_bed&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M2631.26,-2032.48C2648.21,-2022.19 2670.76,-2009.56 2692,-2000.99 3354.57,-1733.6 4203,-1566.07 4498.14,-1512.61"/>
-<polygon fill="black" stroke="black" points="4498.77,-1516.05 4507.99,-1510.83 4497.52,-1509.16 4498.77,-1516.05"/>
+<title>file:///tmp/tmp1pazy08q#lic_instance_id_location&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M2540.52,-2032.26C2559.98,-2022.14 2585.44,-2009.77 2609,-2000.99 3275.53,-1752.47 4116.15,-1571.3 4400.15,-1513.57"/>
+<polygon fill="black" stroke="black" points="4400.91,-1516.99 4410.02,-1511.57 4399.52,-1510.13 4400.91,-1516.99"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_reference_file -->
+<!-- file:///tmp/tmp1pazy08q#enable_hla -->
 <g id="node34" class="node">
-<title>file:///tmp/tmpkxjbb9_6#hla_reference_file</title>
-<g id="a_node34"><a xlink:title="Use the HLA allele reference file to specify the reference alleles to align against.&#10;The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.&#10;If &#45;&#45;hla&#45;reference&#45;file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. &#10;The reference HLA sequences are obtained from the IMGT/HLA database.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="2365,-2032.49 2365,-2069.49 2507,-2069.49 2507,-2032.49 2365,-2032.49"/>
-<text text-anchor="middle" x="2436" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_reference_file</text>
+<title>file:///tmp/tmp1pazy08q#enable_hla</title>
+<g id="a_node34"><a xlink:title="Enable HLA typing by setting &#45;&#45;enable&#45;hla flag to true&#10;">
+<polygon fill="#94ddf4" stroke="black" points="2306,-2032.49 2306,-2069.49 2398,-2069.49 2398,-2032.49 2306,-2032.49"/>
+<text text-anchor="middle" x="2352" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_hla</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_reference_file&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#enable_hla&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge45" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#hla_reference_file&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M2460.49,-2032.46C2476.04,-2022.03 2496.94,-2009.26 2517,-2000.99 3241.75,-1702.12 4183.7,-1552.27 4497.83,-1508.19"/>
-<polygon fill="black" stroke="black" points="4498.42,-1511.64 4507.84,-1506.79 4497.45,-1504.71 4498.42,-1511.64"/>
+<title>file:///tmp/tmp1pazy08q#enable_hla&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M2368.03,-2032.16C2378.45,-2021.62 2392.86,-2008.84 2408,-2000.99 3106.95,-1638.57 4072.41,-1529.25 4391.72,-1501.93"/>
+<polygon fill="black" stroke="black" points="4392.22,-1505.4 4401.89,-1501.07 4391.63,-1498.43 4392.22,-1505.4"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_allele_frequency_file -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_vcf_output -->
 <g id="node35" class="node">
-<title>file:///tmp/tmpkxjbb9_6#hla_allele_frequency_file</title>
-<g id="a_node35"><a xlink:title="Use the population&#45;level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.&#10;The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.&#10;If &#45;&#45;hla&#45;allele&#45;frequency&#45;file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. &#10;Population&#45;level allele frequencies can be obtained from the Allele Frequency Net database.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="2157,-2032.49 2157,-2069.49 2347,-2069.49 2347,-2032.49 2157,-2032.49"/>
-<text text-anchor="middle" x="2252" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_allele_frequency_file</text>
+<title>file:///tmp/tmp1pazy08q#vc_enable_vcf_output</title>
+<g id="a_node35"><a xlink:title="The –vc&#45;enable&#45;vcf&#45;output option enables VCF file output during a gVCF run. The default value is false.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="2120,-2032.49 2120,-2069.49 2288,-2069.49 2288,-2032.49 2120,-2032.49"/>
+<text text-anchor="middle" x="2204" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_vcf_output</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_allele_frequency_file&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_vcf_output&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge46" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#hla_allele_frequency_file&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M2284.49,-2032.43C2304.62,-2022.12 2331.27,-2009.48 2356,-2000.99 3157.03,-1725.71 4170.55,-1559.09 4497.89,-1509.6"/>
-<polygon fill="black" stroke="black" points="4498.47,-1513.05 4507.84,-1508.09 4497.43,-1506.13 4498.47,-1513.05"/>
+<title>file:///tmp/tmp1pazy08q#vc_enable_vcf_output&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M2232.84,-2032.3C2250.76,-2021.95 2274.59,-2009.31 2297,-2000.99 3073.48,-1712.6 4067.06,-1555.03 4391.4,-1508.67"/>
+<polygon fill="black" stroke="black" points="4392.32,-1512.07 4401.73,-1507.2 4391.33,-1505.14 4392.32,-1512.07"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_decoy_contigs -->
+<!-- file:///tmp/tmp1pazy08q#vc_roh_blacklist_bed -->
 <g id="node36" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_decoy_contigs</title>
-<g id="a_node36"><a xlink:title="If &#45;&#45;vc&#45;enable&#45;decoy&#45;contigs is set to true, variant calls on the decoy contigs are enabled.&#10;The default value is false.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1945.5,-2032.49 1945.5,-2069.49 2138.5,-2069.49 2138.5,-2032.49 1945.5,-2032.49"/>
-<text text-anchor="middle" x="2042" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_decoy_contigs</text>
+<title>file:///tmp/tmp1pazy08q#vc_roh_blacklist_bed</title>
+<g id="a_node36"><a xlink:title="If provided, the ROH caller ignores variants that are contained in any region in the blacklist BED file.&#10;DRAGEN distributes blacklist files for all popular human genomes and automatically selects a blacklist to&#10;match the genome in use, unless this option is used explicitly select a file.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="1938.5,-2032.49 1938.5,-2069.49 2101.5,-2069.49 2101.5,-2032.49 1938.5,-2032.49"/>
+<text text-anchor="middle" x="2020" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_roh_blacklist_bed</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_decoy_contigs&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_roh_blacklist_bed&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge47" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_decoy_contigs&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M2075.09,-2032.29C2095.61,-2021.93 2122.77,-2009.3 2148,-2000.99 3031.54,-1709.91 4151.02,-1551.62 4497.75,-1507.16"/>
-<polygon fill="black" stroke="black" points="4498.31,-1510.62 4507.78,-1505.88 4497.42,-1503.67 4498.31,-1510.62"/>
+<title>file:///tmp/tmp1pazy08q#vc_roh_blacklist_bed&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M2047.72,-2032.38C2065.26,-2021.92 2088.76,-2009.14 2111,-2000.99 2958.91,-1689.96 4049.85,-1545.44 4391.71,-1505.73"/>
+<polygon fill="black" stroke="black" points="4392.31,-1509.18 4401.85,-1504.56 4391.51,-1502.23 4392.31,-1509.18"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sample_sex -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_baf -->
 <g id="node37" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sample_sex</title>
-<g id="a_node37"><a xlink:title="Specifies the sex of a sample&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1829,-2032.49 1829,-2069.49 1927,-2069.49 1927,-2032.49 1829,-2032.49"/>
-<text text-anchor="middle" x="1878" y="-2047.29" font-family="Times,serif" font-size="14.00">sample_sex</text>
+<title>file:///tmp/tmp1pazy08q#vc_enable_baf</title>
+<g id="a_node37"><a xlink:title="Enable or disable B&#45;allele frequency output. Enabled by default.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="1804,-2032.49 1804,-2069.49 1920,-2069.49 1920,-2032.49 1804,-2032.49"/>
+<text text-anchor="middle" x="1862" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_baf</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sample_sex&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_baf&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge48" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sample_sex&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M1894.43,-2032.39C1905.45,-2021.66 1920.86,-2008.59 1937,-2000.99 2858.38,-1566.73 4124.73,-1504.34 4497.62,-1495.45"/>
-<polygon fill="black" stroke="black" points="4497.94,-1498.94 4507.86,-1495.21 4497.78,-1491.94 4497.94,-1498.94"/>
+<title>file:///tmp/tmp1pazy08q#vc_enable_baf&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M1881.71,-2032.26C1894.59,-2021.62 1912.25,-2008.69 1930,-2000.99 2826.79,-1611.61 4029.83,-1518.64 4391.7,-1498.86"/>
+<polygon fill="black" stroke="black" points="4392.11,-1502.35 4401.9,-1498.31 4391.73,-1495.36 4392.11,-1502.35"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_remove_all_soft_clips -->
+<!-- file:///tmp/tmp1pazy08q#hla_reference_file -->
 <g id="node38" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_remove_all_soft_clips</title>
-<g id="a_node38"><a xlink:title="If is set to true, the variant caller does not use soft clips of reads to determine variants.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1621,-2032.49 1621,-2069.49 1811,-2069.49 1811,-2032.49 1621,-2032.49"/>
-<text text-anchor="middle" x="1716" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_remove_all_soft_clips</text>
+<title>file:///tmp/tmp1pazy08q#hla_reference_file</title>
+<g id="a_node38"><a xlink:title="Use the HLA allele reference file to specify the reference alleles to align against.&#10;The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.&#10;If &#45;&#45;hla&#45;reference&#45;file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. &#10;The reference HLA sequences are obtained from the IMGT/HLA database.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="1644,-2032.49 1644,-2069.49 1786,-2069.49 1786,-2032.49 1644,-2032.49"/>
+<text text-anchor="middle" x="1715" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_reference_file</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_remove_all_soft_clips&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#hla_reference_file&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge49" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_remove_all_soft_clips&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M1747.9,-2032.3C1768.04,-2021.8 1794.91,-2009.03 1820,-2000.99 2832.18,-1676.54 4121.9,-1538.43 4497.76,-1503.38"/>
-<polygon fill="black" stroke="black" points="4498.18,-1506.86 4507.81,-1502.45 4497.53,-1499.89 4498.18,-1506.86"/>
+<title>file:///tmp/tmp1pazy08q#hla_reference_file&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M1738.66,-2032.31C1753.98,-2021.69 1774.78,-2008.77 1795,-2000.99 2757.42,-1630.51 4019.9,-1524.31 4391.67,-1500.14"/>
+<polygon fill="black" stroke="black" points="4392.12,-1503.61 4401.87,-1499.48 4391.67,-1496.63 4392.12,-1503.61"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_tiebreaker_threshold -->
+<!-- file:///tmp/tmp1pazy08q#hla_tiebreaker_threshold -->
 <g id="node39" class="node">
-<title>file:///tmp/tmpkxjbb9_6#hla_tiebreaker_threshold</title>
+<title>file:///tmp/tmp1pazy08q#hla_tiebreaker_threshold</title>
 <g id="a_node39"><a xlink:title="If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele, &#10;the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based &#10;on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to &#10;the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1267,-2032.49 1267,-2069.49 1461,-2069.49 1461,-2032.49 1267,-2032.49"/>
-<text text-anchor="middle" x="1364" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_tiebreaker_threshold</text>
+<polygon fill="#94ddf4" stroke="black" points="1432,-2032.49 1432,-2069.49 1626,-2069.49 1626,-2032.49 1432,-2032.49"/>
+<text text-anchor="middle" x="1529" y="-2047.29" font-family="Times,serif" font-size="14.00">hla_tiebreaker_threshold</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#hla_tiebreaker_threshold&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#hla_tiebreaker_threshold&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge50" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#hla_tiebreaker_threshold&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M1396.36,-2032.39C1417.13,-2021.8 1445,-2008.89 1471,-2000.99 2623.6,-1650.86 4092.4,-1529.03 4497.43,-1500.88"/>
-<polygon fill="black" stroke="black" points="4497.93,-1504.36 4507.67,-1500.18 4497.45,-1497.37 4497.93,-1504.36"/>
+<title>file:///tmp/tmp1pazy08q#hla_tiebreaker_threshold&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M1561.54,-2032.28C1582.08,-2021.78 1609.47,-2009 1635,-2000.99 2679.68,-1673.12 4009.37,-1536.93 4391.77,-1502.93"/>
+<polygon fill="black" stroke="black" points="4392.34,-1506.4 4401.99,-1502.03 4391.72,-1499.42 4392.34,-1506.4"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_tin_contam_tolerance -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_region_1 -->
 <g id="node40" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_tin_contam_tolerance</title>
-<g id="a_node40"><a xlink:title="Set the Tumor&#45;in&#45;Normal (TiN) contamination tolerance level. &#10;You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. &#10;">
-<polygon fill="#94ddf4" stroke="black" points="1057.5,-2032.49 1057.5,-2069.49 1248.5,-2069.49 1248.5,-2032.49 1057.5,-2032.49"/>
-<text text-anchor="middle" x="1153" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_tin_contam_tolerance</text>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_region_1</title>
+<g id="a_node40"><a xlink:title="Generates coverage region report using bed file 1.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="1240.5,-2032.49 1240.5,-2069.49 1413.5,-2069.49 1413.5,-2032.49 1240.5,-2032.49"/>
+<text text-anchor="middle" x="1327" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_region_1</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_tin_contam_tolerance&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#qc_coverage_region_1&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge51" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_tin_contam_tolerance&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M1184.69,-2032.28C1205.05,-2021.65 1232.39,-2008.73 1258,-2000.99 2495.11,-1627.12 4076.52,-1521.45 4497.91,-1499.09"/>
-<polygon fill="black" stroke="black" points="4498.15,-1502.58 4507.95,-1498.56 4497.78,-1495.59 4498.15,-1502.58"/>
+<title>file:///tmp/tmp1pazy08q#qc_coverage_region_1&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M1355.82,-2032.3C1374.37,-2021.68 1399.36,-2008.76 1423,-2000.99 2545.43,-1631.95 3990.39,-1523.62 4391.58,-1499.72"/>
+<polygon fill="black" stroke="black" points="4391.94,-1503.21 4401.72,-1499.12 4391.53,-1496.22 4391.94,-1503.21"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#fastq_list_rows -->
+<!-- file:///tmp/tmp1pazy08q#sample_sex -->
 <g id="node41" class="node">
-<title>file:///tmp/tmpkxjbb9_6#fastq_list_rows</title>
-<g id="a_node41"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1479.5,-2032.49 1479.5,-2069.49 1602.5,-2069.49 1602.5,-2032.49 1479.5,-2032.49"/>
-<text text-anchor="middle" x="1541" y="-2047.29" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
+<title>file:///tmp/tmp1pazy08q#sample_sex</title>
+<g id="a_node41"><a xlink:title="Specifies the sex of a sample&#10;">
+<polygon fill="#94ddf4" stroke="black" points="1124,-2032.49 1124,-2069.49 1222,-2069.49 1222,-2032.49 1124,-2032.49"/>
+<text text-anchor="middle" x="1173" y="-2047.29" font-family="Times,serif" font-size="14.00">sample_sex</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step -->
+<!-- file:///tmp/tmp1pazy08q#sample_sex&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
+<g id="edge52" class="edge">
+<title>file:///tmp/tmp1pazy08q#sample_sex&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M1189.34,-2032.2C1200.33,-2021.4 1215.73,-2008.32 1232,-2000.99 1820.22,-1735.82 3895.06,-1545.36 4391.64,-1502.91"/>
+<polygon fill="black" stroke="black" points="4392,-1506.4 4401.67,-1502.06 4391.41,-1499.42 4392,-1506.4"/>
+</g>
+<!-- file:///tmp/tmp1pazy08q#reference_tar -->
+<g id="node42" class="node">
+<title>file:///tmp/tmp1pazy08q#reference_tar</title>
+<g id="a_node42"><a xlink:title="Path to ref data tarball&#10;">
+<polygon fill="#94ddf4" stroke="black" points="851.5,-2032.49 851.5,-2069.49 964.5,-2069.49 964.5,-2032.49 851.5,-2032.49"/>
+<text text-anchor="middle" x="908" y="-2047.29" font-family="Times,serif" font-size="14.00">reference_tar</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp1pazy08q#reference_tar&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
+<g id="edge53" class="edge">
+<title>file:///tmp/tmp1pazy08q#reference_tar&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M926.36,-2032.41C938.81,-2021.55 956.19,-2008.32 974,-2000.99 1619.99,-1734.89 3872.65,-1543.48 4391.74,-1502.28"/>
+<polygon fill="black" stroke="black" points="4392.15,-1505.76 4401.84,-1501.48 4391.59,-1498.78 4392.15,-1505.76"/>
+</g>
+<!-- file:///tmp/tmp1pazy08q#sv_exome -->
+<g id="node43" class="node">
+<title>file:///tmp/tmp1pazy08q#sv_exome</title>
+<g id="a_node43"><a xlink:title="Set to true to configure the variant caller for targeted sequencing inputs, &#10;which includes disabling high depth filters. &#10;In integrated mode, the default is to autodetect targeted sequencing input, &#10;and in standalone mode the default is false.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="747,-2032.49 747,-2069.49 833,-2069.49 833,-2032.49 747,-2032.49"/>
+<text text-anchor="middle" x="790" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_exome</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp1pazy08q#sv_exome&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
+<g id="edge54" class="edge">
+<title>file:///tmp/tmp1pazy08q#sv_exome&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M804.3,-2032.1C814.01,-2021.26 827.82,-2008.17 843,-2000.99 1499.31,-1690.4 3858.66,-1532.39 4391.53,-1500.21"/>
+<polygon fill="black" stroke="black" points="4392.13,-1503.69 4401.9,-1499.59 4391.71,-1496.7 4392.13,-1503.69"/>
+</g>
+<!-- file:///tmp/tmp1pazy08q#fastq_list_rows -->
+<g id="node44" class="node">
+<title>file:///tmp/tmp1pazy08q#fastq_list_rows</title>
+<g id="a_node44"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
+<polygon fill="#94ddf4" stroke="black" points="982.5,-2032.49 982.5,-2069.49 1105.5,-2069.49 1105.5,-2032.49 982.5,-2032.49"/>
+<text text-anchor="middle" x="1044" y="-2047.29" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp1pazy08q#create_fastq_list_csv_step -->
 <g id="node56" class="node">
-<title>file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step</title>
+<title>file:///tmp/tmp1pazy08q#create_fastq_list_csv_step</title>
 <g id="a_node56"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md" xlink:title="Create the fastq list csv to then run the germline tool.&#10;Takes in an array of fastq_list_row schema.&#10;Returns a csv file along with predefined_mount_path schema&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="0,-2032.49 0,-2069.49 342,-2069.49 342,-2032.49 0,-2032.49"/>
 <text text-anchor="middle" x="171" y="-2047.29" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;csv&#45;from&#45;fastq&#45;list&#45;row v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#fastq_list_rows&#45;&gt;file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step -->
-<g id="edge52" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#fastq_list_rows&#45;&gt;file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step</title>
-<path fill="none" stroke="black" d="M1515.8,-2069.61C1500.73,-2079.57 1480.73,-2090.82 1461,-2095.99 1342.34,-2127.07 478.8,-2110.51 357,-2095.99 318.42,-2091.39 276.27,-2081.6 241.86,-2072.32"/>
-<polygon fill="black" stroke="black" points="242.48,-2068.86 231.91,-2069.59 240.63,-2075.61 242.48,-2068.86"/>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_region_1 -->
-<g id="node42" class="node">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_region_1</title>
-<g id="a_node42"><a xlink:title="Generates coverage region report using bed file 1.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="866.5,-2032.49 866.5,-2069.49 1039.5,-2069.49 1039.5,-2032.49 866.5,-2032.49"/>
-<text text-anchor="middle" x="953" y="-2047.29" font-family="Times,serif" font-size="14.00">qc_coverage_region_1</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#qc_coverage_region_1&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
-<g id="edge53" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#qc_coverage_region_1&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M981.34,-2032.37C999.91,-2021.63 1025.1,-2008.56 1049,-2000.99 2363.25,-1584.65 4059.47,-1509.29 4497.87,-1496.47"/>
-<polygon fill="black" stroke="black" points="4498.1,-1499.97 4507.99,-1496.18 4497.89,-1492.97 4498.1,-1499.97"/>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_sv -->
-<g id="node43" class="node">
-<title>file:///tmp/tmpkxjbb9_6#enable_sv</title>
-<g id="a_node43"><a xlink:title="Enable/disable structural variant&#10;caller. Default is false.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="762,-2032.49 762,-2069.49 848,-2069.49 848,-2032.49 762,-2032.49"/>
-<text text-anchor="middle" x="805" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_sv</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#enable_sv&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
-<g id="edge54" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#enable_sv&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M819.29,-2032.08C829,-2021.23 842.81,-2008.14 858,-2000.99 1531.96,-1683.42 3956.59,-1530.41 4497.5,-1499.81"/>
-<polygon fill="black" stroke="black" points="4497.85,-1503.3 4507.63,-1499.24 4497.45,-1496.31 4497.85,-1503.3"/>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_exome -->
-<g id="node44" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_exome</title>
-<g id="a_node44"><a xlink:title="Set to true to configure the variant caller for targeted sequencing inputs, &#10;which includes disabling high depth filters. &#10;In integrated mode, the default is to autodetect targeted sequencing input, &#10;and in standalone mode the default is false.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="658,-2032.49 658,-2069.49 744,-2069.49 744,-2032.49 658,-2032.49"/>
-<text text-anchor="middle" x="701" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_exome</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_exome&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#fastq_list_rows&#45;&gt;file:///tmp/tmp1pazy08q#create_fastq_list_csv_step -->
 <g id="edge55" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_exome&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M714.94,-2032.07C724.44,-2021.21 737.98,-2008.12 753,-2000.99 1445.87,-1672.01 3947.68,-1527.42 4497.61,-1499.23"/>
-<polygon fill="black" stroke="black" points="4498.1,-1502.71 4507.91,-1498.71 4497.75,-1495.72 4498.1,-1502.71"/>
+<title>file:///tmp/tmp1pazy08q#fastq_list_rows&#45;&gt;file:///tmp/tmp1pazy08q#create_fastq_list_csv_step</title>
+<path fill="none" stroke="black" d="M1019.15,-2069.61C1004.28,-2079.56 984.53,-2090.81 965,-2095.99 899.8,-2113.25 424.97,-2103.93 358,-2095.99 319.22,-2091.39 276.84,-2081.6 242.25,-2072.32"/>
+<polygon fill="black" stroke="black" points="242.81,-2068.85 232.24,-2069.59 240.97,-2075.6 242.81,-2068.85"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_forcegt_vcf -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_roh -->
 <g id="node45" class="node">
-<title>file:///tmp/tmpkxjbb9_6#sv_forcegt_vcf</title>
-<g id="a_node45"><a xlink:title="Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted &#10;in the output VCF even if not found in the sample data. &#10;The variants are merged with any additional variants discovered directly from the sample data.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="522,-2032.49 522,-2069.49 640,-2069.49 640,-2032.49 522,-2032.49"/>
-<text text-anchor="middle" x="581" y="-2047.29" font-family="Times,serif" font-size="14.00">sv_forcegt_vcf</text>
+<title>file:///tmp/tmp1pazy08q#vc_enable_roh</title>
+<g id="a_node45"><a xlink:title="Enable or disable the ROH caller by setting this option to true or false. Enabled by default for human autosomes only.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="611.5,-2032.49 611.5,-2069.49 728.5,-2069.49 728.5,-2032.49 611.5,-2032.49"/>
+<text text-anchor="middle" x="670" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_roh</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#sv_forcegt_vcf&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_enable_roh&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge56" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#sv_forcegt_vcf&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M599.97,-2032.33C612.82,-2021.43 630.73,-2008.2 649,-2000.99 1382.36,-1711.52 3941.42,-1535.85 4497.73,-1500.58"/>
-<polygon fill="black" stroke="black" points="4497.99,-1504.07 4507.75,-1499.95 4497.55,-1497.09 4497.99,-1504.07"/>
+<title>file:///tmp/tmp1pazy08q#vc_enable_roh&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M688.98,-2032.37C701.84,-2021.49 719.75,-2008.26 738,-2000.99 1432.64,-1724.18 3852.28,-1539.65 4391.8,-1501.38"/>
+<polygon fill="black" stroke="black" points="4392.18,-1504.86 4401.91,-1500.66 4391.68,-1497.88 4392.18,-1504.86"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#dbsnp_annotation -->
+<!-- file:///tmp/tmp1pazy08q#vc_max_reads_per_raw_region -->
 <g id="node46" class="node">
-<title>file:///tmp/tmpkxjbb9_6#dbsnp_annotation</title>
-<g id="a_node46"><a xlink:title="In Germline, Tumor&#45;Normal somatic, or Tumor&#45;Only somatic modes,&#10;DRAGEN can look up variant calls in a dbSNP database and add annotations for any matches that it finds there.&#10;To enable the dbSNP database search, set the &#45;&#45;dbsnp option to the full path to the dbSNP database&#10;VCF or .vcf.gz file, which must be sorted in reference order.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="360.5,-2032.49 360.5,-2069.49 503.5,-2069.49 503.5,-2032.49 360.5,-2032.49"/>
-<text text-anchor="middle" x="432" y="-2047.29" font-family="Times,serif" font-size="14.00">dbsnp_annotation</text>
+<title>file:///tmp/tmp1pazy08q#vc_max_reads_per_raw_region</title>
+<g id="a_node46"><a xlink:title="specifies the maximum number of reads covering a given raw region.&#10;Default is 30000 for the germline workflow&#10;">
+<polygon fill="#94ddf4" stroke="black" points="360.5,-2032.49 360.5,-2069.49 593.5,-2069.49 593.5,-2032.49 360.5,-2032.49"/>
+<text text-anchor="middle" x="477" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_max_reads_per_raw_region</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#dbsnp_annotation&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#vc_max_reads_per_raw_region&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge57" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#dbsnp_annotation&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M455.13,-2032.36C470.66,-2021.48 492.04,-2008.25 513,-2000.99 1284.61,-1733.53 3931.24,-1540.09 4497.73,-1501.18"/>
-<polygon fill="black" stroke="black" points="4498.19,-1504.66 4507.93,-1500.48 4497.71,-1497.67 4498.19,-1504.66"/>
+<title>file:///tmp/tmp1pazy08q#vc_max_reads_per_raw_region&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M515.09,-2032.39C539.68,-2021.74 572.64,-2008.74 603,-2000.99 2072.95,-1625.41 3929.71,-1519.74 4391.41,-1498.48"/>
+<polygon fill="black" stroke="black" points="4391.9,-1501.96 4401.73,-1498.01 4391.58,-1494.97 4391.9,-1501.96"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_target_bed -->
+<!-- file:///tmp/tmp1pazy08q#enable_map_align_output -->
 <g id="node47" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_target_bed</title>
-<g id="a_node47"><a xlink:title="This is an optional command line input that restricts processing of the small variant caller,&#10;target bed related coverage, and callability metrics to regions specified in a BED file.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="8423,-2032.49 8423,-2069.49 8539,-2069.49 8539,-2032.49 8423,-2032.49"/>
-<text text-anchor="middle" x="8481" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_target_bed</text>
+<title>file:///tmp/tmp1pazy08q#enable_map_align_output</title>
+<g id="a_node47"><a xlink:title="Enables saving the output from the&#10;map/align stage. Default is true when only&#10;running map/align. Default is false if&#10;running the variant caller.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="8341.5,-2032.49 8341.5,-2069.49 8538.5,-2069.49 8538.5,-2032.49 8341.5,-2032.49"/>
+<text text-anchor="middle" x="8440" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_map_align_output</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_target_bed&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#enable_map_align_output&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge58" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_target_bed&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M8462.34,-2032.35C8449.7,-2021.47 8432.05,-2008.24 8414,-2000.99 7710.83,-1718.59 5256.15,-1538.14 4712.26,-1501.08"/>
-<polygon fill="black" stroke="black" points="4712.29,-1497.58 4702.07,-1500.39 4711.81,-1504.56 4712.29,-1497.58"/>
+<title>file:///tmp/tmp1pazy08q#enable_map_align_output&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M8408.18,-2032.37C8387.39,-2021.64 8359.31,-2008.56 8333,-2000.99 6899.12,-1587.96 5065.32,-1509.95 4606.62,-1496.56"/>
+<polygon fill="black" stroke="black" points="4606.46,-1493.06 4596.37,-1496.27 4606.26,-1500.05 4606.46,-1493.06"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_vcf_output -->
+<!-- file:///tmp/tmp1pazy08q#enable_sv -->
 <g id="node48" class="node">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_vcf_output</title>
-<g id="a_node48"><a xlink:title="The –vc&#45;enable&#45;vcf&#45;output option enables VCF file output during a gVCF run. The default value is false.&#10;">
-<polygon fill="#94ddf4" stroke="black" points="7666,-2032.49 7666,-2069.49 7834,-2069.49 7834,-2032.49 7666,-2032.49"/>
-<text text-anchor="middle" x="7750" y="-2047.29" font-family="Times,serif" font-size="14.00">vc_enable_vcf_output</text>
+<title>file:///tmp/tmp1pazy08q#enable_sv</title>
+<g id="a_node48"><a xlink:title="Enable/disable structural variant&#10;caller. Default is false.&#10;">
+<polygon fill="#94ddf4" stroke="black" points="7476,-2032.49 7476,-2069.49 7562,-2069.49 7562,-2032.49 7476,-2032.49"/>
+<text text-anchor="middle" x="7519" y="-2047.29" font-family="Times,serif" font-size="14.00">enable_sv</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#vc_enable_vcf_output&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#enable_sv&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge59" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#vc_enable_vcf_output&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M7722.15,-2032.29C7704.21,-2021.65 7680,-2008.73 7657,-2000.99 6546.36,-1627.04 5111.97,-1522.23 4712.42,-1499.43"/>
-<polygon fill="black" stroke="black" points="4712.5,-1495.93 4702.32,-1498.86 4712.11,-1502.92 4712.5,-1495.93"/>
+<title>file:///tmp/tmp1pazy08q#enable_sv&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M7504.96,-2032.26C7495.43,-2021.48 7481.88,-2008.4 7467,-2000.99 6944.69,-1740.61 5075.53,-1548.73 4606.4,-1503.95"/>
+<polygon fill="black" stroke="black" points="4606.53,-1500.45 4596.25,-1502.98 4605.87,-1507.42 4606.53,-1500.45"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#dragen_vcf_out -->
+<!-- file:///tmp/tmp1pazy08q#dragen_bam_out -->
 <g id="node49" class="node">
-<title>file:///tmp/tmpkxjbb9_6#dragen_vcf_out</title>
-<g id="a_node49"><a xlink:title="The output germline vcf file&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4415.5,-401.49 4415.5,-438.49 4540.5,-438.49 4540.5,-401.49 4415.5,-401.49"/>
-<text text-anchor="middle" x="4478" y="-416.29" font-family="Times,serif" font-size="14.00">dragen_vcf_out</text>
+<title>file:///tmp/tmp1pazy08q#dragen_bam_out</title>
+<g id="a_node49"><a xlink:title="The output bam file, exists only if &#45;&#45;enable&#45;map&#45;align&#45;output is set to true&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4303,-401.49 4303,-438.49 4437,-438.49 4437,-401.49 4303,-401.49"/>
+<text text-anchor="middle" x="4370" y="-416.29" font-family="Times,serif" font-size="14.00">dragen_bam_out</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#dragen_germline_output_directory -->
+<!-- file:///tmp/tmp1pazy08q#dragen_germline_output_directory -->
 <g id="node50" class="node">
-<title>file:///tmp/tmpkxjbb9_6#dragen_germline_output_directory</title>
+<title>file:///tmp/tmp1pazy08q#dragen_germline_output_directory</title>
 <g id="a_node50"><a xlink:title="The output directory containing all germline output files&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4558.5,-401.49 4558.5,-438.49 4821.5,-438.49 4821.5,-401.49 4558.5,-401.49"/>
-<text text-anchor="middle" x="4690" y="-416.29" font-family="Times,serif" font-size="14.00">dragen_germline_output_directory</text>
+<polygon fill="#94ddf4" stroke="black" points="4455.5,-401.49 4455.5,-438.49 4718.5,-438.49 4718.5,-401.49 4455.5,-401.49"/>
+<text text-anchor="middle" x="4587" y="-416.29" font-family="Times,serif" font-size="14.00">dragen_germline_output_directory</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#dragen_bam_out -->
+<!-- file:///tmp/tmp1pazy08q#multiqc_output_directory -->
 <g id="node51" class="node">
-<title>file:///tmp/tmpkxjbb9_6#dragen_bam_out</title>
-<g id="a_node51"><a xlink:title="The output bam file, exists only if &#45;&#45;enable&#45;map&#45;align&#45;output is set to true&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4840,-401.49 4840,-438.49 4974,-438.49 4974,-401.49 4840,-401.49"/>
-<text text-anchor="middle" x="4907" y="-416.29" font-family="Times,serif" font-size="14.00">dragen_bam_out</text>
+<title>file:///tmp/tmp1pazy08q#multiqc_output_directory</title>
+<g id="a_node51"><a xlink:title="The output directory for multiqc&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4879.5,-401.49 4879.5,-438.49 5076.5,-438.49 5076.5,-401.49 4879.5,-401.49"/>
+<text text-anchor="middle" x="4978" y="-416.29" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#multiqc_output_directory -->
+<!-- file:///tmp/tmp1pazy08q#dragen_vcf_out -->
 <g id="node52" class="node">
-<title>file:///tmp/tmpkxjbb9_6#multiqc_output_directory</title>
-<g id="a_node52"><a xlink:title="The output directory for multiqc&#10;">
-<polygon fill="#94ddf4" stroke="black" points="4992.5,-401.49 4992.5,-438.49 5189.5,-438.49 5189.5,-401.49 4992.5,-401.49"/>
-<text text-anchor="middle" x="5091" y="-416.29" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
+<title>file:///tmp/tmp1pazy08q#dragen_vcf_out</title>
+<g id="a_node52"><a xlink:title="The output germline vcf file&#10;">
+<polygon fill="#94ddf4" stroke="black" points="4736.5,-401.49 4736.5,-438.49 4861.5,-438.49 4861.5,-401.49 4736.5,-401.49"/>
+<text text-anchor="middle" x="4799" y="-416.29" font-family="Times,serif" font-size="14.00">dragen_vcf_out</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#create_dummy_file_step -->
+<!-- file:///tmp/tmp1pazy08q#create_dummy_file_step -->
 <g id="node53" class="node">
-<title>file:///tmp/tmpkxjbb9_6#create_dummy_file_step</title>
+<title>file:///tmp/tmp1pazy08q#create_dummy_file_step</title>
 <g id="a_node53"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="8673.5,-1474.49 8673.5,-1511.49 8934.5,-1511.49 8934.5,-1474.49 8673.5,-1474.49"/>
 <text text-anchor="middle" x="8804" y="-1489.29" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#create_dummy_file_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step -->
+<!-- file:///tmp/tmp1pazy08q#create_dummy_file_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step -->
 <g id="edge1" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#create_dummy_file_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step</title>
+<title>file:///tmp/tmp1pazy08q#create_dummy_file_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step</title>
 <path fill="none" stroke="black" d="M8798.11,-1474.22C8772.12,-1395.81 8667.59,-1080.45 8636.05,-985.3"/>
 <polygon fill="black" stroke="black" points="8639.29,-983.94 8632.82,-975.55 8632.65,-986.14 8639.29,-983.94"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#dragen_qc_step&#45;&gt;file:///tmp/tmpkxjbb9_6#multiqc_output_directory -->
+<!-- file:///tmp/tmp1pazy08q#dragen_qc_step&#45;&gt;file:///tmp/tmp1pazy08q#multiqc_output_directory -->
 <g id="edge2" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#dragen_qc_step&#45;&gt;file:///tmp/tmpkxjbb9_6#multiqc_output_directory</title>
-<path fill="none" stroke="black" d="M8557.16,-945.42C8117.98,-878.97 5738.96,-519.02 5199.73,-437.44"/>
-<polygon fill="black" stroke="black" points="5200.03,-433.94 5189.62,-435.91 5198.98,-440.86 5200.03,-433.94"/>
+<title>file:///tmp/tmp1pazy08q#dragen_qc_step&#45;&gt;file:///tmp/tmp1pazy08q#multiqc_output_directory</title>
+<path fill="none" stroke="black" d="M8557.36,-945.78C8109.59,-880.13 5636.67,-517.56 5086.5,-436.89"/>
+<polygon fill="black" stroke="black" points="5086.98,-433.43 5076.58,-435.44 5085.97,-440.35 5086.98,-433.43"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_vcf_out -->
+<!-- file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_bam_out -->
 <g id="edge4" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_vcf_out</title>
-<path fill="none" stroke="black" d="M4602.9,-1474.29C4588.1,-1349.46 4499.46,-601.97 4481.26,-448.51"/>
-<polygon fill="black" stroke="black" points="4484.73,-448.03 4480.08,-438.51 4477.78,-448.85 4484.73,-448.03"/>
+<title>file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_bam_out</title>
+<path fill="none" stroke="black" d="M4496.87,-1474.29C4481.83,-1349.46 4391.8,-601.97 4373.32,-448.51"/>
+<polygon fill="black" stroke="black" points="4376.78,-448.02 4372.11,-438.51 4369.83,-448.85 4376.78,-448.02"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_germline_output_directory -->
+<!-- file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_germline_output_directory -->
 <g id="edge5" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_germline_output_directory</title>
-<path fill="none" stroke="black" d="M4606.4,-1474.29C4616.31,-1349.46 4675.64,-601.97 4687.82,-448.51"/>
-<polygon fill="black" stroke="black" points="4691.31,-448.75 4688.61,-438.51 4684.33,-448.2 4691.31,-448.75"/>
+<title>file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_germline_output_directory</title>
+<path fill="none" stroke="black" d="M4500.45,-1474.29C4510.71,-1349.46 4572.13,-601.97 4584.74,-448.51"/>
+<polygon fill="black" stroke="black" points="4588.23,-448.76 4585.56,-438.51 4581.25,-448.19 4588.23,-448.76"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_bam_out -->
+<!-- file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_vcf_out -->
 <g id="edge6" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_bam_out</title>
-<path fill="none" stroke="black" d="M4609.99,-1474.29C4645.19,-1349.46 4855.97,-601.97 4899.24,-448.51"/>
-<polygon fill="black" stroke="black" points="4902.71,-449.08 4902.06,-438.51 4895.98,-447.18 4902.71,-449.08"/>
+<title>file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_vcf_out</title>
+<path fill="none" stroke="black" d="M4503.96,-1474.29C4538.92,-1349.46 4748.3,-601.97 4791.29,-448.51"/>
+<polygon fill="black" stroke="black" points="4794.77,-449.08 4794.09,-438.51 4788.02,-447.19 4794.77,-449.08"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step -->
+<!-- file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step -->
 <g id="edge3" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#run_dragen_germline_step&#45;&gt;file:///tmp/tmpkxjbb9_6#dragen_qc_step</title>
-<path fill="none" stroke="black" d="M4702.43,-1479.05C5260.03,-1405.02 8039.58,-1035.98 8547.31,-968.57"/>
-<polygon fill="black" stroke="black" points="8548.02,-972 8557.47,-967.22 8547.1,-965.07 8548.02,-972"/>
+<title>file:///tmp/tmp1pazy08q#run_dragen_germline_step&#45;&gt;file:///tmp/tmp1pazy08q#dragen_qc_step</title>
+<path fill="none" stroke="black" d="M4596.21,-1479.41C5162.79,-1406.12 8031.44,-1035.03 8547.44,-968.28"/>
+<polygon fill="black" stroke="black" points="8547.93,-971.74 8557.4,-966.99 8547.03,-964.8 8547.93,-971.74"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge7" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M218.14,-2032.47C251.59,-2021.98 297.55,-2009.14 339,-2000.99 1976.84,-1678.68 4012.23,-1531.98 4497.59,-1500.57"/>
-<polygon fill="black" stroke="black" points="4497.98,-1504.05 4507.73,-1499.91 4497.53,-1497.06 4497.98,-1504.05"/>
+<title>file:///tmp/tmp1pazy08q#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M218.85,-2032.41C252.47,-2021.96 298.49,-2009.19 340,-2000.99 1934.36,-1685.93 3914.4,-1534.15 4391.86,-1501.04"/>
+<polygon fill="black" stroke="black" points="4392.11,-1504.53 4401.84,-1500.35 4391.63,-1497.55 4392.11,-1504.53"/>
 </g>
-<!-- file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step -->
+<!-- file:///tmp/tmp1pazy08q#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step -->
 <g id="edge8" class="edge">
-<title>file:///tmp/tmpkxjbb9_6#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmpkxjbb9_6#run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M233.65,-2032.47C269.59,-2021.98 315.55,-2009.14 357,-2000.99 1988.04,-1680.02 4013.34,-1533.2 4497.51,-1500.96"/>
-<polygon fill="black" stroke="black" points="4497.89,-1504.45 4507.63,-1500.29 4497.42,-1497.46 4497.89,-1504.45"/>
+<title>file:///tmp/tmp1pazy08q#create_fastq_list_csv_step&#45;&gt;file:///tmp/tmp1pazy08q#run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M234.38,-2032.41C270.47,-2021.96 316.49,-2009.19 358,-2000.99 1945.34,-1687.31 3914.97,-1535.49 4391.58,-1501.48"/>
+<polygon fill="black" stroke="black" points="4392.16,-1504.95 4401.89,-1500.75 4391.66,-1497.97 4392.16,-1504.95"/>
 </g>
 </g>
 </svg>

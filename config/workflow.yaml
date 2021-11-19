@@ -22,7 +22,7 @@ workflows:
         md5sum: 9c415babb9da86131c01d4e816d9ef67
       - name: 3.9.3
         path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
-        md5sum: 35c350083cd5b42efa51e72bd97cef5d
+        md5sum: 78d51f6182ee42a6b18996e620515ef1
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -136,5 +136,5 @@ workflows:
     versions:
       - name: 2.0.0--3.9.3
         path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
-        md5sum: 2e6c4c1d830b59538471dfb77e09ec1c
+        md5sum: 3059b2771b7592e516b601fb1a6b5a77
     categories: []
