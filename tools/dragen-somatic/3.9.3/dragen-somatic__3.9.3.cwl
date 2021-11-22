@@ -110,7 +110,7 @@ requirements:
             return input_parameter.toString();
           }
         }
-      - var get_normal_name_from_fastq_list_row = function(){
+      - var get_normal_name_from_fastq_list_csv = function(){
           /*
           Get the normal list path from the fastq list csv path
           */
@@ -155,7 +155,7 @@ requirements:
           /*
           Get the normal RGSM value and then add _normal to it
           */
-          return get_normal_name_from_fastq_list_row() + "_normal";
+          return get_normal_name_from_fastq_list_csv() + "_normal";
         }
       - var get_dragen_eval_line = function(){
           /*
@@ -199,9 +199,9 @@ requirements:
             exit
           fi
 
-          # Ensure that the third column is RGSM, otherwise exit
-          if [[ ! "\$(cat "$(get_fastq_list_path())" | head -n1 | cut -d"," -f3)" == "RGSM" ]]; then
-            echo "Could not confirm that RGSM was the right value in the path, not moving the normal bam" 1>&2
+          # Ensure that we have a normal RGSM value, otherwise exit.
+          if [[ -z "$(get_value_as_str(get_normal_name_from_fastq_list_csv()))" ]]; then
+            echo "Could not get the normal bam file prefix" 1>&2
             echo "Exiting" 1>&2
             exit
           fi
