@@ -110,6 +110,53 @@ requirements:
             return input_parameter.toString();
           }
         }
+      - var get_normal_name_from_fastq_list_row = function(){
+          /*
+          Get the normal list path from the fastq list csv path
+          */
+
+          /*
+          Check fastq list is defined
+          */
+          if (inputs.fastq_list === null){
+              return null;
+          }
+
+          /*
+          Check contents are defined
+          */
+          if (inputs.fastq_list.contents === null){
+              return null;
+          }
+
+          /*
+          Get header line
+          */
+          var column_names = inputs.fastq_list.contents.split("\n")[0].split(",")
+
+          /*
+          Get RGSM index value
+          */
+          var rgsm_index = column_names.indexOf("RGSM")
+
+          /*
+          RGSM is not in index. Return null
+          */
+          if (rgsm_index === -1){
+              return null;
+          }
+
+          /*
+          Get RGSM value of first row and return
+          */
+          return inputs.fastq_list.contents.split("\n")[1].split(",")[rgsm_index];
+        }
+      - var get_normal_output_prefix = function(){
+          /*
+          Get the normal RGSM value and then add _normal to it
+          */
+          return get_normal_name_from_fastq_list_row() + "_normal";
+        }
       - var get_dragen_eval_line = function(){
           /*
           ICA is inconsistent with cwl when it comes to handling @
@@ -160,7 +207,7 @@ requirements:
           fi
 
           # Get new normal file name prefix from the fastq_list.csv
-          new_normal_file_name_prefix="\$(cat "$(get_fastq_list_path())" | tail -n1 | cut -d"," -f3)_normal"
+          new_normal_file_name_prefix="$(get_normal_output_prefix())"
 
           # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
           if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
@@ -261,6 +308,7 @@ inputs:
       Read1File and Read2File may be presigned urls or use this in conjunction with
       the fastq_list_mount_paths inputs.
     type: File?
+    loadContents: true
     inputBinding:
       prefix: "--fastq-list"
   fastq_list_mount_paths:
@@ -967,7 +1015,7 @@ outputs:
       Exists only if --enable-map-align-output set to true
     type: File?
     outputBinding:
-      glob: "$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
+      glob: "$(inputs.output_directory)/$(get_normal_output_prefix()).bam"
     secondaryFiles:
       - ".bai"
   somatic_snv_vcf_out:
