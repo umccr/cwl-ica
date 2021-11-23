@@ -17,7 +17,7 @@ dragen-somatic 3.9.3 tool
 
   
 > ID: dragen-somatic--3.9.3  
-> md5sum: c38608b84c912fb6c0354ee5b03a9057
+> md5sum: b59c904caa3eca256a3e4f50a4e734bc
 
 ### dragen-somatic v(3.9.3) documentation
   
