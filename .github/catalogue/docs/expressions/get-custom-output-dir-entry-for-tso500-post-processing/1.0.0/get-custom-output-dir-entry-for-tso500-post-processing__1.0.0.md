@@ -16,7 +16,7 @@ get-custom-output-dir-entry-for-tso500-post-processing 1.0.0 expression
 
   
 > ID: get-custom-output-dir-entry-for-tso500-post-processing--1.0.0  
-> md5sum: 5668cede7bfd2062ff07ad4ac20889a9
+> md5sum: f5afc198579fa46d75969659d0680849
 
 ### get-custom-output-dir-entry-for-tso500-post-processing v(1.0.0) documentation
   
@@ -170,6 +170,21 @@ From this directory we collect the following outputs:
 **Type:** `string`  
 **Docs:**  
 The sample id, important for extracting the bam files
+
+
+### tmb dir
+
+
+
+  
+> ID: tmb_dir
+  
+**Optional:** `False`  
+**Type:** `Directory`  
+**Docs:**  
+The TMB directory
+From this directory we collect the following outputs:
+* The TMB Trace tsv
 
 
 ### Variant caller directory

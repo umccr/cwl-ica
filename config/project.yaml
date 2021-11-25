@@ -477,7 +477,7 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2021-11-07T22:31:23UTC
+            modification_time: 2021-11-25T07:32:13UTC
             run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
@@ -726,6 +726,11 @@ projects:
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0--a303dbc
             modification_time: 2021-11-07T23:20:11UTC
+            run_instances: []
+          - name: 1.1.0--1.0.0
+            path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
+            ica_workflow_version_name: 1.1.0--1.0.0--9c97fe9
+            modification_time: 2021-11-25T07:32:26UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
