@@ -80,12 +80,11 @@ inputs:
       * The raw bam file
       * The clean-stitched bam file
     type: Directory
-  variant_caller_dir:
-    label: Variant caller directory
+  combined_variant_output_dir:
+    label: combined variant output dir
     doc: |
-      The variant caller directory
-      We collect the following outputs from this directory -
-      * The clean-stitched bam file
+      From this directory we collect the following outputs:
+      * CombinedVariantOutput.tsv
     type: Directory
   merged_annotation_dir:
     label: merged annotation dir
@@ -94,11 +93,19 @@ inputs:
       From this directory we collect the following outputs:
       * The MergedSmallVariantsAnnotated compressed json file
     type: Directory
-  combined_variant_output_dir:
-    label: combined variant output dir
+  tmb_dir:
+    label: tmb dir
     doc: |
+      The TMB directory
       From this directory we collect the following outputs:
-      * CombinedVariantOutput.tsv
+      * The TMB Trace tsv
+    type: Directory
+  variant_caller_dir:
+    label: Variant caller directory
+    doc: |
+      The variant caller directory
+      We collect the following outputs from this directory -
+      * The clean-stitched bam file
     type: Directory
   # Type 2 inputs
   coverage_qc_file:
@@ -162,10 +169,9 @@ expression: >-
                                                                            ],
                                                                            null,
                                                                            "top_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.variant_caller_dir,
+              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.combined_variant_output_dir,
                                                                            [
-                                                                             inputs.sample_id + ".cleaned.stitched.bam",
-                                                                             inputs.sample_id + ".cleaned.stitched.bam.bai"
+                                                                             inputs.sample_id + "_CombinedVariantOutput.tsv"
                                                                            ],
                                                                            null,
                                                                            "top_dir"),
@@ -176,9 +182,16 @@ expression: >-
                                                                            ],
                                                                            null,
                                                                            "top_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.combined_variant_output_dir,
+              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.tmb_dir,
                                                                            [
-                                                                             inputs.sample_id + "_CombinedVariantOutput.tsv"
+                                                                             inputs.sample_id + "_TMB_Trace.tsv"
+                                                                           ],
+                                                                           null,
+                                                                           "top_dir"),
+              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.variant_caller_dir,
+                                                                           [
+                                                                             inputs.sample_id + ".cleaned.stitched.bam",
+                                                                             inputs.sample_id + ".cleaned.stitched.bam.bai"
                                                                            ],
                                                                            null,
                                                                            "top_dir"),

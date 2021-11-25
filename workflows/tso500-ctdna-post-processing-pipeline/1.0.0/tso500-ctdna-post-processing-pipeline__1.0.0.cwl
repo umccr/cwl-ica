@@ -609,11 +609,11 @@ steps:
           ${
             return self.align_collapse_fusion_caller_dir;
           }
-      variant_caller_dir:
+      combined_variant_output_dir:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return self.variant_caller_dir;
+            return self.combined_variant_output_dir;
           }
       merged_annotation_dir:
         source: tso500_outputs_by_sample
@@ -621,11 +621,17 @@ steps:
           ${
             return self.merged_annotation_dir;
           }
-      combined_variant_output_dir:
+      tmb_dir:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return self.combined_variant_output_dir;
+            return self.tmb_dir;
+          }
+      variant_caller_dir:
+        source: tso500_outputs_by_sample
+        valueFrom: |
+          ${
+            return self.variant_caller_dir;
           }
       coverage_qc_file:
         source: make_exon_coverage_qc_step/failed_coverage_txt

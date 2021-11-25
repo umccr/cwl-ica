@@ -60,7 +60,7 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl
-        md5sum: 5668cede7bfd2062ff07ad4ac20889a9
+        md5sum: f5afc198579fa46d75969659d0680849
     categories: []
   - name: get-bam-file-from-directory
     path: get-bam-file-from-directory
