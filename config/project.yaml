@@ -737,6 +737,16 @@ projects:
             ica_workflow_version_name: 1.1.0--1.0.0--9c97fe9
             modification_time: 2021-11-25T07:32:26UTC
             run_instances: []
+      - name: umccrise-with-dragen-germline-pipeline
+        path: umccrise-with-dragen-germline-pipeline
+        ica_workflow_name: umccrise-with-dragen-germline-pipeline_prod-wf
+        ica_workflow_id: wfl.7ed9c6014ac9498fbcbd4c17c28bc0d4
+        versions:
+          - name: 2.0.0--3.9.3
+            path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
+            ica_workflow_version_name: 2.0.0--3.9.3--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
     project_description: |
