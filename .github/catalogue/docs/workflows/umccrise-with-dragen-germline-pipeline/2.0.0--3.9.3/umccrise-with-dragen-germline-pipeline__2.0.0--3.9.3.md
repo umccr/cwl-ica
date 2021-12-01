@@ -19,7 +19,7 @@ umccrise-with-dragen-germline-pipeline 2.0.0--3.9.3 workflow
 
   
 > ID: umccrise-with-dragen-germline-pipeline--2.0.0--3.9.3  
-> md5sum: 3059b2771b7592e516b601fb1a6b5a77
+> md5sum: fc8cf2baa72d6094dc9da7c4fbf5f7a7
 
 ### umccrise-with-dragen-germline-pipeline v(2.0.0--3.9.3) documentation
   
@@ -45,8 +45,10 @@ This means the inputs of this pipeline are:
 
 ### Uses
   
+- [get-file-from-directory-with-regex 1.0.0 :construction:](../../../expressions/get-file-from-directory-with-regex/1.0.0/get-file-from-directory-with-regex__1.0.0.md)  
+- [custom-get-sample-name-from-bam-header 1.0.0 :construction:](../../../tools/custom-get-sample-name-from-bam-header/1.0.0/custom-get-sample-name-from-bam-header__1.0.0.md)  
 - [dragen-germline-pipeline 3.9.3](../../dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
-- [umccrise 2.0.0--0 :construction:](../../../tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
+- [umccrise 2.0.0--0](../../../tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
 
   
 
@@ -168,6 +170,41 @@ The subject identifier for umccrise to use on output files
 
 ## umccrise-with-dragen-germline-pipeline v(2.0.0--3.9.3) Steps
 
+### get tumor bam file from somatic directory
+
+
+  
+> ID: umccrise-with-dragen-germline-pipeline--2.0.0--3.9.3/get_tumor_bam_file_from_somatic_directory
+  
+**Step Type:** expression  
+**Docs:**
+  
+Get the tumor bam file from the dragen somatic directory
+(so we can then in turn get the sample name value from the bam header)
+
+#### Links
+  
+[CWL File Path](../../../../../../expressions/get-file-from-directory-with-regex/1.0.0/get-file-from-directory-with-regex__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-file-from-directory-with-regex/1.0.0/get-file-from-directory-with-regex__1.0.0.md)  
+
+
+### get tumor name from bam header
+
+
+  
+> ID: umccrise-with-dragen-germline-pipeline--2.0.0--3.9.3/get_tumor_name_from_bam_header
+  
+**Step Type:** tool  
+**Docs:**
+  
+Get the tumor name from the bam header.
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/custom-get-sample-name-from-bam-header/1.0.0/custom-get-sample-name-from-bam-header__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-get-sample-name-from-bam-header/1.0.0/custom-get-sample-name-from-bam-header__1.0.0.md)  
+
+
 ### run dragen germline step
 
 
@@ -202,7 +239,7 @@ Run the umccrise pipeline using the input somatic directory and output from the 
 #### Links
   
 [CWL File Path](../../../../../../tools/umccrise/2.0.0--0/umccrise__2.0.0--0.cwl)  
-[CWL File Help Page :construction:](../../../tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
+[CWL File Help Page](../../../tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
 
 
 ## umccrise-with-dragen-germline-pipeline v(2.0.0--3.9.3) Outputs
@@ -229,6 +266,7 @@ The output directory containing all umccrise output files
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -239,6 +277,16 @@ The output directory containing all umccrise output files
   
 **workflow name:** umccrise-with-dragen-germline-pipeline_dev-wf  
 **wfl version name:** 2.0.0--3.9.3  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.7ed9c6014ac9498fbcbd4c17c28bc0d4  
+
+  
+**workflow name:** umccrise-with-dragen-germline-pipeline_prod-wf  
+**wfl version name:** 2.0.0--3.9.3--5d22f74  
 
   
 

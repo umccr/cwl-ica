@@ -31,8 +31,8 @@ hints:
         coresMin: 71
         ramMin: 140000
     DockerRequirement:
-        # FIXME
-        dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:1.2.2-7d6a20398f
+        #dockerPull: alpine:latest
+        dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:2.0.0-130ef3be09
 
 requirements:
   InlineJavascriptRequirement:
@@ -131,15 +131,20 @@ requirements:
           echo "\$(date): Extracting genomes directory into scratch space" 1>&2
           tar --directory "$(get_genomes_parent_dir())" \\
             --extract \\
-            --file "$(inputs.reference_tar.path)"
+            --file "$(inputs.genomes_tar.path)"
+
+          # Create input directories
+          mkdir -p "$(get_scratch_input_dir())/$(inputs.dragen_somatic_directory.basename)/"
+          mkdir -p "$(get_scratch_input_dir())/$(inputs.dragen_germline_directory.basename)/"
 
           # Put inputs into scratch space
           echo "\$(date): Placing inputs into scratch space" 1>&2
-          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_scratch_input_dir())/$(inputs.dragen_somatic_directory.name)/"
-          cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_scratch_input_dir())/$(inputs.dragen_germline_directory.name)/"
+          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_scratch_input_dir())/$(inputs.dragen_somatic_directory.basename)/"
+          cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_scratch_input_dir())/$(inputs.dragen_germline_directory.basename)/"
 
           # Run umccrise
-          $(get_eval_umccrise_line)
+          echo "\$(date): Running UMCCrise" 1>&2
+          $(get_eval_umccrise_line())
 
           # Copy over working directory
           echo "\$(date): UMCCRise complete, copying over outputs into output directory" 1>&2
@@ -161,6 +166,7 @@ arguments:
     valueFrom: "$(get_scratch_working_dir())"
 
 inputs:
+  # Input folders and files
   dragen_somatic_directory:
     label: dragen somatic directory
     doc: |
@@ -170,7 +176,7 @@ inputs:
       prefix: "--dragen_somatic_dir"
       valueFrom: |
         ${
-          return get_scratch_input_dir() + "/" + self.name;
+          return get_scratch_input_dir() + "/" + self.basename;
         }
   dragen_germline_directory:
     label: dragen germline directory
@@ -181,16 +187,17 @@ inputs:
       prefix: "--dragen_germline_dir"
       valueFrom: |
         ${
-          return get_scratch_input_dir() + "/" + self.name;
+          return get_scratch_input_dir() + "/" + self.basename;
         }
-  reference_tar:
-    label: reference tar
+  genomes_tar:
+    label: genomes tar
     doc: |
       The reference umccrise tarball
     type: File
     inputBinding:
       prefix: "--genomes-dir"
       valueFrom: "$(get_genomes_dir_path())"
+  # Input IDs
   subject_identifier:
     label: subject identifier
     doc: |
@@ -198,11 +205,32 @@ inputs:
     type: string
     inputBinding:
       prefix: "--dragen_subject_id"
+  dragen_tumor_id:
+    label: dragen tumor id
+    doc: |
+      The name of the dragen tumor sample
+    type: string
+    inputBinding:
+      prefix: "--dragen_tumor_id"
+  dragen_normal_id:
+    label: dragen normal id
+    doc: |
+      The name of the dragen normal sample
+    type: string
+    inputBinding:
+      prefix: "--dragen_normal_id"
+  # Output names
   output_directory_name:
     label: output directory name
     doc: |
       The name of the output directory
     type: string
+  # Optional inputs
+  threads:
+    label: threads
+    doc: |
+      Number of threads to use
+    type: int?
 
 outputs:
   output_directory:
