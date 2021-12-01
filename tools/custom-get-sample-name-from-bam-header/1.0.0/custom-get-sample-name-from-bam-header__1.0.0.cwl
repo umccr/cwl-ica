@@ -35,19 +35,27 @@ hints:
         dockerPull: quay.io/biocontainers/samtools:1.14--hb421002_0
 
 requirements:
+  InlineJavascriptRequirement: {}
   InitialWorkDirRequirement:
     listing:
-      - entryname: get_sample_name.sh
+      - entryname: "get_sample_name.sh"
         entry: |
           #!/usr/bin/env bash
 
+          # Set to fail
+          set -euo pipefail
+
+          # Run file through samtools
           samtools view -H "$(inputs.bam_file.path)" | \\
           grep '^@RG' | \\
           tr \$'\\t' '\\n' | \\
           grep 'SM:' | \\
           cut -d':' -f2 > sample_name.txt 2>/dev/null
 
-baseCommand: [ "bash", "get_sample_name.sh" ]
+baseCommand: [ "bash" ]
+
+arguments:
+  - valueFrom: "get_sample_name.sh"
 
 inputs:
   bam_file:
