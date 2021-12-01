@@ -121,6 +121,34 @@ steps:
       - id: dragen_germline_output_directory
     run:
       ../../../workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.cwl
+  # Pre steps:
+  # Get the tumor bam file (so we can then get the name of the sample used)
+  get_tumor_bam_file_from_somatic_directory:
+    label: get tumor bam file from somatic directory
+    doc: |
+      Get the tumor bam file from the dragen somatic directory
+      (so we can then in turn get the sample name value from the bam header)
+    in:
+      input_dir:
+        source: dragen_somatic_directory
+      file_basename_regex:
+        valueFrom: "\\w+_tumor.bam$"
+    out:
+      - id: output_file
+    run:
+      ../../../expressions/get-file-from-directory-with-regex/1.0.0/get-file-from-directory-with-regex__1.0.0.cwl
+  # Get the ID of the tumor sample
+  get_tumor_name_from_bam_header:
+    label: get tumor name from bam header
+    doc: |
+      Get the tumor name from the bam header.
+    in:
+      bam_file:
+        source: get_tumor_bam_file_from_somatic_directory/output_file
+    out:
+      - id: sample_name
+    run:
+      ../../../tools/custom-get-sample-name-from-bam-header/1.0.0/custom-get-sample-name-from-bam-header__1.0.0.cwl
   # Step 2: Run the umccrise tool
   run_umccrise_pipeline_step:
     label: run umccrise pipeline step
@@ -132,12 +160,22 @@ steps:
         source: dragen_somatic_directory
       dragen_germline_directory:
         source: run_dragen_germline_pipeline_step/dragen_germline_output_directory
-      reference_tar:
+      genomes_tar:
         source: reference_tar_umccrise
       subject_identifier:
         source: subject_identifier_umccrise
       output_directory_name:
         source: output_directory_umccrise
+      # Long process but go the bam file
+      dragen_tumor_id:
+        source: get_tumor_name_from_bam_header/sample_name
+      dragen_normal_id:
+        # We can retrieve this from the rgsm value of the fastq list row used as input into the germline workflow
+        source: fastq_list_rows_germline
+        valueFrom: |
+          ${
+              return self[0].rgsm;
+          }
     out:
       - id: output_directory
     run:

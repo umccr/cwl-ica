@@ -246,6 +246,11 @@ projects:
             ica_workflow_version_name: 1.2.1--0
             modification_time: 2021-08-27T00:54:55UTC
             run_instances: []
+          - name: 2.0.0--0
+            path: 2.0.0--0/umccrise__2.0.0--0.cwl
+            ica_workflow_version_name: 2.0.0--0
+            modification_time: 2021-12-01T06:10:59UTC
+            run_instances: []
       - name: dragen-somatic
         path: dragen-somatic
         ica_workflow_name: dragen-somatic_dev-wf
@@ -487,7 +492,7 @@ projects:
           - name: 2.0.0--3.9.3
             path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
             ica_workflow_version_name: 2.0.0--3.9.3
-            modification_time: 2021-11-19T03:16:39UTC
+            modification_time: 2021-12-01T05:30:30UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
