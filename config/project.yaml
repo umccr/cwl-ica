@@ -416,6 +416,7 @@ projects:
             modification_time: 2021-12-06T04:41:45UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
+              - wfr.f75bddad9d4740d3873fce5ceb782bc7
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
