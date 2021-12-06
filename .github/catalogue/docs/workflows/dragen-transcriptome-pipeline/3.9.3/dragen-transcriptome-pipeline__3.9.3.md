@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: cf68ea6c4b1353b42d07b83744a8f1ce
+> md5sum: 75b6706f4b3dc8803d1071f20dbdd662
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -443,6 +443,7 @@ The output directory for multiqc
 ##### ToC
   
 - [Run wfr.784173de5b4342b797f04259ebd04df6](#run-wfr784173de5b4342b797f04259ebd04df6)  
+- [Run wfr.f75bddad9d4740d3873fce5ceb782bc7](#run-wfrf75bddad9d4740d3873fce5ceb782bc7)  
 
 
 ##### Run wfr.784173de5b4342b797f04259ebd04df6
@@ -590,6 +591,151 @@ bash wfr.784173de5b4342b797f04259ebd04df6.launch.sh
 [![Dragen-3.9.3-WTS-QC1.12dev__wfr.784173de5b4342b797f04259ebd04df6.svg](../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-WTS-QC1.12dev__wfr.784173de5b4342b797f04259ebd04df6.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-WTS-QC1.12dev__wfr.784173de5b4342b797f04259ebd04df6.svg)  
 
 
+##### Run wfr.f75bddad9d4740d3873fce5ceb782bc7
+
+
+
+  
+> Run Name: Dragen-3.9.3-PTC-test  
+
+  
+**Start Time:** 2021-12-06 04:43:40 UTC  
+**Duration:** 2021-12-06 05:54:28 UTC  
+**End Time:** 0 days 01:10:48  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.f75bddad9d4740d3873fce5ceb782bc7
+
+# Edit the input json file (optional)
+# vim wfr.f75bddad9d4740d3873fce5ceb782bc7.template.json 
+
+# Run the launch script
+bash wfr.f75bddad9d4740d3873fce5ceb782bc7.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "annotation_file": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/hg38/ref-transcripts.non-zero-length.gtf"
+    },
+    "blacklist": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/arriba/hg38/arriba-blacklist.tsv.gz"
+    },
+    "cytobands": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/arriba/hg38/arriba-cytobands.tsv"
+    },
+    "fastq_list_rows": [
+        {
+            "lane": 1,
+            "read_1": {
+                "class": "File",
+                "location": "gds://development/validation_data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://development/validation_data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R2_001.fastq.gz"
+            },
+            "rgid": "PTC_NebRNA210629",
+            "rglb": "L2100706",
+            "rgsm": "PTC_NebRNA210629"
+        }
+    ],
+    "output_directory": "PTC",
+    "output_file_prefix": "L2100706",
+    "protein_domains": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/arriba/hg38/arriba-protein-domains.gff3"
+    },
+    "reference_fasta": {
+        "class": "File",
+        "location": "gds://development/reference-data/genomes/hg38/hg38.fa"
+    },
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    }
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.f75bddad9d4740d3873fce5ceb782bc7/Dragen-3.9.3-PTC-test",
+    "outputDirectory": "gds://wfr.f75bddad9d4740d3873fce5ceb782bc7/Dragen-3.9.3-PTC-test/outputs",
+    "tmpOutputDirectory": "gds://wfr.f75bddad9d4740d3873fce5ceb782bc7/Dragen-3.9.3-PTC-test/steps",
+    "logDirectory": "gds://wfr.f75bddad9d4740d3873fce5ceb782bc7/Dragen-3.9.3-PTC-test/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.18.0-202109141250-stratus-master"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "arriba_output_directory": {
+        "location": "gds://wfr.f75bddad9d4740d3873fce5ceb782bc7/Dragen-3.9.3-PTC-test/outputs/arriba_outputs",
+        "basename": "arriba_outputs",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "dragen_transcriptome_output_directory": {
+        "location": "gds://wfr.f75bddad9d4740d3873fce5ceb782bc7/Dragen-3.9.3-PTC-test/outputs/PTC",
+        "basename": "PTC",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "multiqc_output_directory": {
+        "location": "gds://wfr.f75bddad9d4740d3873fce5ceb782bc7/Dragen-3.9.3-PTC-test/outputs/L2100706_dragen_transcriptome_multiqc",
+        "basename": "L2100706_dragen_transcriptome_multiqc",
+        "nameroot": "",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_dir_gds_session_id": "ssn.f2662457d5124b52954f66abfacd4fe8",
+    "output_dir_gds_folder_id": "fol.00b1176eaeb14ddfc54608d9aa2400b8"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![Dragen-3.9.3-PTC-test__wfr.f75bddad9d4740d3873fce5ceb782bc7.svg](../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-PTC-test__wfr.f75bddad9d4740d3873fce5ceb782bc7.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-PTC-test__wfr.f75bddad9d4740d3873fce5ceb782bc7.svg)  
+
+
 ### Project: production_workflows
 
 
@@ -597,7 +743,7 @@ bash wfr.784173de5b4342b797f04259ebd04df6.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--9961e75  
+**wfl version name:** 3.9.3--4a5a933  
 
   
 
