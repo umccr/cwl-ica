@@ -234,7 +234,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-22T06:02:39UTC
+            modification_time: 2021-12-06T04:40:50UTC
             run_instances: []
       - name: umccrise
         path: umccrise
@@ -413,9 +413,10 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-24T01:41:37UTC
+            modification_time: 2021-12-06T04:41:45UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
+              - wfr.f75bddad9d4740d3873fce5ceb782bc7
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
@@ -681,6 +682,11 @@ projects:
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--9961e75
             modification_time: 2021-10-12T05:27:23UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--4a5a933
+            modification_time: 2021-12-06T11:31:50UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
