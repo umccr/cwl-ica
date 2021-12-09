@@ -218,7 +218,7 @@ steps:
           - arriba_fusion_step/discarded_fusions
           - arriba_drawing_step/output_pdf
       output_directory_name:
-        valueFrom: "arriba_outputs"
+        valueFrom: "arriba"
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
