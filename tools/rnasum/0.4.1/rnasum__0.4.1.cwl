@@ -34,7 +34,7 @@ hints:
 baseCommand: ["Rscript"]
 
 arguments:
-  - position: -1
+  - position: 1
     valueFrom: "./RNAseq_report.R"
 
 inputs:
@@ -74,6 +74,10 @@ inputs:
     type: string
     inputBinding:
       prefix: " --report_dir"
+      valueFrom: |
+        $(
+            return runtime.outdir + "/" + self;
+        )
   # Additional inputs
   sample_name:
     label: sample name
@@ -95,6 +99,7 @@ inputs:
     doc: |
       Normalisation method
     type: string?
+    default: "TMM"
     inputBinding:
       prefix: " --norm"
   batch_rm:
@@ -121,11 +126,136 @@ inputs:
     default: true
     inputBinding:
       prefix: " --log"
+  scaling:
+    label: scaling
+    doc: |
+      Apply "gene-wise" (default) or "group-wise" data scaling
+    type: string?
+    default: "gene-wise"
+    inputBinding:
+      prefix: " --scaling"
+  drugs:
+    label: drugs
+    doc: |
+      Include drug matching section in the report.
+    type: boolean?
+    default: false
+    inputBinding:
+      prefix: " --drugs"
+  immunogram:
+    label: immunogram
+    doc: |
+      Include drug matching section in the report.
+    type: boolean?
+    default: false
+    inputBinding:
+      prefix: " --immunogram"
+  pcgr_tier:
+    label: pcgr tier
+    doc: |
+      Tier threshold for reporting variants reported in PCGR.
+    type: int?
+    default: 4
+    inputBinding:
+      prefix: " --pcgr_tier"
+  pcgr_splice_vars:
+    label: pcgr splice vars
+    doc: |
+      Include non-coding splice region variants reported in PCGR.
+    type: boolean?
+    default: true
+    inputBinding:
+      prefix: " --pcgr_splice_vars"
+  cn_loss:
+    label: cn loss
+    doc: |
+      CN threshold value to classify genes within lost regions.
+    type: int?
+    default: 5
+    inputBinding:
+      prefix: " --cn_loss"
+  cn_gain:
+    label: cn gain
+    doc: |
+      CN threshold value to classify genes within gained regions.
+    type: int?
+    default: 5
+    inputBinding:
+      prefix: " --cn_gain"
+  clinical_info:
+    label: clinical info
+    doc: |
+      xslx file with clinical information.
+    type: File?
+    inputBinding:
+      prefix: " --clinical_info"
+  clinical_id:
+    label: clinical id
+    doc: |
+      ID required to match sample with the subject clinical information (specified in flag --clinical_info).
+    type: string?
+    inputBinding:
+      prefix: " --clinical_id"
+  subject_id:
+    label: subject id
+    doc: |
+      Subject ID. If umccrise output is specified (flag --umccrise) then Subject ID 
+      is extracted from there and used to overwrite this argument.
+    type: string?
+    inputBinding:
+      prefix: " --subject_id"
+  sample_source:
+    label: sample source
+    doc: |
+      Source of investigated sample (e.g. fresh frozen tissue, organoid).
+      This information is for annotation purposes only
+    type: string?
+    inputBinding:
+      prefix: " --sample_source"
+  dataset_name_incl:
+    label: dataset name incl
+    doc: |
+      Include dataset in the report and sample name.
+    type: boolean?
+    default: false
+    inputBinding:
+      prefix: " --dataset_name_incl"
+  project:
+    label: project
+    doc: |
+      Project name. This information is for annotation purposes only
+    type: string?
+    inputBinding:
+      prefix: " --project"
+  top_genes:
+    label: top genes
+    doc: |
+      The number of top ranked genes to be presented.
+    type: int?
+    default: 5
+    inputBinding:
+      prefix: " --top_genes"
+  hide_code_btn:
+    label: hide code btn
+    doc: |
+      Hide the "Code" button allowing to show/hide code chunks in the final HTML report.
+    type: boolean?
+    default: true
+    inputBinding:
+      prefix: " --hide_code_btn"
+  grch_version:
+    label: grch version
+    doc: |
+      Human reference genome version used for genes annotation.
+    type: int?
+    default: 38
+    inputBinding:
+      prefix: " --grch_version"
   dataset:
     label: dataset
     doc: |
       Reference dataset selection from https://github.com/umccr/RNAsum/blob/master/TCGA_projects_summary.md
-    type: string?
+    type: string
     inputBinding:
       prefix: " --dataset"
   save_tables:
@@ -133,6 +263,7 @@ inputs:
     doc: |
       save tables
     type: boolean?
+    default: true
     inputBinding:
       prefix: "  --save_tables"
 

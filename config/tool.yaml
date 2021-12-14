@@ -334,3 +334,10 @@ tools:
         path: 1.13.0/bcftools-view__1.13.0.cwl
         md5sum: 2ee45f43160d17d0ef7d7a1dddbe14dd
     categories: []
+  - name: rnasum
+    path: rnasum
+    versions:
+      - name: 0.4.1
+        path: 0.4.1/rnasum__0.4.1.cwl
+        md5sum: 10a026f3ee69a4247e671b6a615b7aa2
+    categories: []
