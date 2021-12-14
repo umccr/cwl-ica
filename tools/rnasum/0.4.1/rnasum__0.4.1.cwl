@@ -21,6 +21,9 @@ doc: |
     RNA-seq reporting workflow designed to post-process, summarise and visualise an output from bcbio-nextgen RNA-seq or Dragen RNA pipelines. 
     Its main application is to complement genome-based findings from umccrise pipeline and to provide additional evidence for detected alterations.
 
+requirements:
+    InlineJavascriptRequirement: {}
+
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
@@ -60,7 +63,7 @@ inputs:
     type: Directory?
     inputBinding:
       prefix: " --umccrise"
-  ref_data_dir:
+  ref_data_directory:
     label: reference data directory
     doc: |
       Location of the reference and annotation files
