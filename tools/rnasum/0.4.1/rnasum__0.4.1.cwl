@@ -22,23 +22,37 @@ doc: |
     Its main application is to complement genome-based findings from umccrise pipeline and to provide additional evidence for detected alterations.
 
 requirements:
-    InlineJavascriptRequirement: {}
+  InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement:
+    listing:
+      - entryname: "scripts/run_rnasum.sh"
+        entry: |
+          #!/usr/bin/bash
+
+          # Fail on non-zero exit code
+          set -euo pipefail
+
+          # Set work directory
+          cd /rmd_files
+
+          # Run rnasum with input parameters
+          eval Rscript ./RNAseq_report.R '"\${@}"'
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
-    ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standardHiCpu
-            size: large
-    DockerRequirement:
-        dockerPull: "umccr/rnasum:0.4.1"
+  ResourceRequirement:
+    ilmn-tes:resources:
+      tier: standard
+      type: standardHiCpu
+      size: large
+  DockerRequirement:
+    dockerPull: "umccr/rnasum:0.4.1"
 
-baseCommand: ["Rscript"]
+baseCommand: ["bash"]
 
 arguments:
-  - position: 1
-    valueFrom: "./RNAseq_report.R"
+  - position: -1
+    valueFrom: "scripts/run_rnasum.sh"
 
 inputs:
   # Input folders
@@ -55,32 +69,29 @@ inputs:
       Location of the results from bcbio RNA-seq pipeline
     type: Directory?
     inputBinding:
-      prefix: "--dragen_rnaseq"
+      prefix: "--bcbio_rnaseq"
   umccrise_directory:
     label: umccrise directory
     doc: |
       The umccrise output directory
     type: Directory?
     inputBinding:
-      prefix: " --umccrise"
+      prefix: "--umccrise"
   ref_data_directory:
     label: reference data directory
     doc: |
       Location of the reference and annotation files
     type: Directory
     inputBinding:
-      prefix: " --ref_data_dir"
-  report_dir:
+      prefix: "--ref_data_dir"
+  report_directory:
     label: report dir
     doc: |
       Desired location for the report
     type: string
     inputBinding:
-      prefix: " --report_dir"
-      valueFrom: |
-        $(
-            return runtime.outdir + "/" + self;
-        )
+      prefix: "--report_dir"
+      valueFrom: $(runtime.outdir + "/" + self)
   # Additional inputs
   sample_name:
     label: sample name
@@ -88,117 +99,105 @@ inputs:
       Desired sample name to be presented in the report
     type: string
     inputBinding:
-      prefix: " --sample_name"
+      prefix: "--sample_name"
   transform:
     label: transform
     doc: |
       Transformation method to be used when converting read counts
     type: string?
-    default: "CPM"
     inputBinding:
-      prefix: " --transform"
+      prefix: "--transform"
   norm:
     label: norm
     doc: |
       Normalisation method
     type: string?
-    default: "TMM"
     inputBinding:
-      prefix: " --norm"
+      prefix: "--norm"
   batch_rm:
     label: batch rm
     doc: |
       Remove batch-associated effects between datasets
     type: boolean?
-    default: true
     inputBinding:
-      prefix: " --batch_rm"
+      prefix: "--batch_rm"
   filter:
     label: filter
     doc: |
       Filtering out low expressed genes
     type: boolean?
-    default: true
     inputBinding:
-      prefix: " --filter"
+      prefix: "--filter"
   log:
     label: log
     doc: |
       Log (base 2) transform data before normalisation
     type: boolean?
-    default: true
     inputBinding:
-      prefix: " --log"
+      prefix: "--log"
   scaling:
     label: scaling
     doc: |
       Apply "gene-wise" (default) or "group-wise" data scaling
     type: string?
-    default: "gene-wise"
     inputBinding:
-      prefix: " --scaling"
+      prefix: "--scaling"
   drugs:
     label: drugs
     doc: |
       Include drug matching section in the report.
     type: boolean?
-    default: false
     inputBinding:
-      prefix: " --drugs"
+      prefix: "--drugs"
   immunogram:
     label: immunogram
     doc: |
       Include drug matching section in the report.
     type: boolean?
-    default: false
     inputBinding:
-      prefix: " --immunogram"
+      prefix: "--immunogram"
   pcgr_tier:
     label: pcgr tier
     doc: |
       Tier threshold for reporting variants reported in PCGR.
     type: int?
-    default: 4
     inputBinding:
-      prefix: " --pcgr_tier"
+      prefix: "--pcgr_tier"
   pcgr_splice_vars:
     label: pcgr splice vars
     doc: |
       Include non-coding splice region variants reported in PCGR.
     type: boolean?
-    default: true
     inputBinding:
-      prefix: " --pcgr_splice_vars"
+      prefix: "--pcgr_splice_vars"
   cn_loss:
     label: cn loss
     doc: |
       CN threshold value to classify genes within lost regions.
     type: int?
-    default: 5
     inputBinding:
-      prefix: " --cn_loss"
+      prefix: "--cn_loss"
   cn_gain:
     label: cn gain
     doc: |
       CN threshold value to classify genes within gained regions.
     type: int?
-    default: 5
     inputBinding:
-      prefix: " --cn_gain"
+      prefix: "--cn_gain"
   clinical_info:
     label: clinical info
     doc: |
       xslx file with clinical information.
     type: File?
     inputBinding:
-      prefix: " --clinical_info"
+      prefix: "--clinical_info"
   clinical_id:
     label: clinical id
     doc: |
       ID required to match sample with the subject clinical information (specified in flag --clinical_info).
     type: string?
     inputBinding:
-      prefix: " --clinical_id"
+      prefix: "--clinical_id"
   subject_id:
     label: subject id
     doc: |
@@ -206,7 +205,7 @@ inputs:
       is extracted from there and used to overwrite this argument.
     type: string?
     inputBinding:
-      prefix: " --subject_id"
+      prefix: "--subject_id"
   sample_source:
     label: sample source
     doc: |
@@ -214,61 +213,56 @@ inputs:
       This information is for annotation purposes only
     type: string?
     inputBinding:
-      prefix: " --sample_source"
+      prefix: "--sample_source"
   dataset_name_incl:
     label: dataset name incl
     doc: |
       Include dataset in the report and sample name.
     type: boolean?
-    default: false
     inputBinding:
-      prefix: " --dataset_name_incl"
+      prefix: "--dataset_name_incl"
   project:
     label: project
     doc: |
       Project name. This information is for annotation purposes only
     type: string?
     inputBinding:
-      prefix: " --project"
+      prefix: "--project"
   top_genes:
     label: top genes
     doc: |
       The number of top ranked genes to be presented.
     type: int?
-    default: 5
     inputBinding:
-      prefix: " --top_genes"
+      prefix: "--top_genes"
   hide_code_btn:
     label: hide code btn
     doc: |
       Hide the "Code" button allowing to show/hide code chunks in the final HTML report.
     type: boolean?
-    default: true
     inputBinding:
-      prefix: " --hide_code_btn"
+      prefix: "--hide_code_btn"
   grch_version:
     label: grch version
     doc: |
       Human reference genome version used for genes annotation.
     type: int?
-    default: 38
     inputBinding:
-      prefix: " --grch_version"
+      prefix: "--grch_version"
   dataset:
     label: dataset
     doc: |
       Reference dataset selection from https://github.com/umccr/RNAsum/blob/master/TCGA_projects_summary.md
     type: string
     inputBinding:
-      prefix: " --dataset"
+      prefix: "--dataset"
   save_tables:
     label: save tables
     doc: |
       save tables
     type: boolean?
-    default: true
     inputBinding:
-      prefix: "  --save_tables"
+      prefix: "--save_tables"
 
 outputs:
   rnasum_output_directory:
@@ -276,14 +270,14 @@ outputs:
     doc: Output directory containing all outputs of the RNAsum run
     type: Directory
     outputBinding:
-      glob: "$(inputs.report_dir)"
+      glob: "$(inputs.report_directory)"
   rnasum_html:
     label: rnasum html
     doc: |
       The HTML report output of RNAsum
     type: File
     outputBinding:
-      glob: "$(inputs.report_dir)/*.html"
+      glob: "$(inputs.report_directory)/$(inputs.sample_name).RNAseq_report.html"
 
 successCodes:
   - 0
