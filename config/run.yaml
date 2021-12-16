@@ -1402,3 +1402,25 @@ runs:
         task_stop_time: 1638769248
         task_duration: 586
         task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.dce6425b60044757a78bb545c627c58a
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.a94ae5ef8bc24b58b642cc8e42df70a4
+    ica_workflow_name: rnasum_dev-wf
+    ica_workflow_version_name: 0.4.1
+    ica_workflow_run_name: Dragen-RNAsum
+    ica_input: eJy1kEtrAzEMhP9K0LnBu5se0txS9hRaCPTSm1FtbWLwY7G0LSXsf69dkj5orznZSJqZjzmBRUEmgc0C9tttDzcLsBkPFLVkjGyyGyUF0tZlMpLye7k8gfHIXDX917gIfTIoLsW6OFjeKMXFRCZeMh2z42Onapx6E1Y5Ik9BDS6iV0/3u6bpVmv92D+3d+XX6ofytk23hrkYZxp0VV6Lovgv6+wcNqYsv6LgAlj9GcPoSUcM9HP1H/vn9StpwRdPlXRAz1SmUzClWb5arRd/+12t/gPanEFvW5jnD8A3qjU=
+    ica_output: eJytkE9PwzAMxb/KVK7QpB2gshto4oCAA1y4RaE1baQ0LrGrAtO+O8n+tGKIwyROsa33i5/fKvFOU9+qhlubLGarxGKp2aALTVJXtBCC2Gvu6Yyg8YaaXFSatRiYxJYVHjr0oX2+uZMynxdjoR6WL9lVqDJ1H95M5kX69HhN8K62TLpZezpLXjWB0y3ErcfTkfSIfBS9B+Fjw42flVYTxcmtsRAHZL6ir/m5vLwoZB4mDXMXgimxbdENNkVfi3KwjGhPanDg9wnKdVDvEsaeu55VZTyUjP7zv9L+K77DYA7u/XHqcjQ13et6a6P9ybcKDhUBUTCsTLXT/Ja8oa3AT4r1N5QkxbQ=
+    ica_engine_parameters: eJytkb9uwjAQh18FZWFpEjt/CGWrytAOFKm0D3DYR7Ca2JF9IaWId68dRCc6VOpo3/f7znc+RYOxH0tlUZCxx2gxiWrpFmk67GwiBc6KrNzOGCuKqqygmm+3ZVGKWVaJcg7p0kKNOn59eXB9G91NItNT19MNnSML1LvY4d4qt89SCQTpQC61Gnw4tdgZSy5IqO3Wv3n+/izfGrvR25j6f4xeNApb+NwIIELrdXn2M/8GiZSuQ4/WHDCgwnTHy1DP2hFogW/HDgOx8ScJVj6px66/jW7U14iuUKrLniXuoG884KmVkWN1ujSDbgzIaSDUtbQ+oLVKovPM6RzWi+7d4SUKWu3Q0RiHnswYFUNDxjThMk9YkrGM8YzlvMo55wFAXSs99uQJnycs9ghn97zgWcni61e34MJmzt/OccPH
+    workflow_start_time: 1639616598
+    workflow_end_time: 1639619197
+    workflow_duration: 2599
+    ica_tasks:
+      - ica_task_run_instance_id: trn.00d5cb894722498590e80bfb07d6803d
+        task_step_name: main
+        task_name: main
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1639616730
+        task_stop_time: 1639618343
+        task_duration: 1612
+        task_metrics: eJyd0rEKwkAMBuBXKZ1LuCS99OKriINIB4fDonUQ6bv3XOREf4duR8hHLj/ZP9v5nMfbfMxTu2vY1I0HCdY17Wm6l1IgL+885sv18eqgsHTNbzX0b1XaPhUjpcpICRlUDmcJJaT6mJBSvFdkrtJItYokUBmcJeRImThK/s8PLSWsFKkhCk4DqlTdxpfqobItylW3KIcXpRSBKmuFDYo54uRtOawjfupq

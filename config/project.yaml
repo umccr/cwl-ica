@@ -315,7 +315,8 @@ projects:
             path: 0.4.1/rnasum__0.4.1.cwl
             ica_workflow_version_name: 0.4.1
             modification_time: 2021-12-15T23:15:41UTC
-            run_instances: []
+            run_instances:
+              - wfr.dce6425b60044757a78bb545c627c58a
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
