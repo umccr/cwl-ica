@@ -116,8 +116,14 @@ inputs:
     label: protein domains
     type: File
     doc: |
-      GFF3 file containing the genomic coordinates of protein domains
-
+      GFF3 file containing the genomic coordinates of protein domains.
+  # Collect outputs
+  output_directory_name_arriba:
+    label: output directory name arriba
+    type: string?
+    doc: |
+      Name of the directory to collect arriba outputs in.
+    default: "arriba"
 steps:
    # Step-1: Create fastq_list.csv
   create_fastq_list_csv_step:
@@ -218,7 +224,7 @@ steps:
           - arriba_fusion_step/discarded_fusions
           - arriba_drawing_step/output_pdf
       output_directory_name:
-        valueFrom: "arriba_outputs"
+        source: output_directory_name_arriba
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl

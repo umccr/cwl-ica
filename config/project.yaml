@@ -402,18 +402,18 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2021-08-03T01:02:11UTC
+            modification_time: 2021-12-16T13:52:26UTC
             run_instances:
               - wfr.f0fa0ea3972f405aa5af5003e1427428
           - name: 3.8.4
             path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2021-09-07T11:50:25UTC
+            modification_time: 2021-12-16T13:52:31UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-12-06T04:41:45UTC
+            modification_time: 2021-12-15T23:37:59UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -687,6 +687,16 @@ projects:
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--4a5a933
             modification_time: 2021-12-06T11:31:50UTC
+            run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--3a73a95
+            modification_time: 2021-12-16T13:52:51UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--3a73a95
+            modification_time: 2021-12-16T13:52:53UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline

@@ -83,7 +83,7 @@ inputs:
     doc: |
       Output file with fusions that have passed all filters
     type: string?
-    default: fusion-passed.tsv
+    default: fusion.tsv
     inputBinding:
       prefix: -o
       position: 6
@@ -96,7 +96,6 @@ inputs:
     inputBinding:
       prefix: -O
       position: 7
-
 
 outputs:
   fusions:
