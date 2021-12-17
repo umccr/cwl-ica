@@ -317,6 +317,16 @@ projects:
             modification_time: 2021-12-15T23:15:41UTC
             run_instances:
               - wfr.dce6425b60044757a78bb545c627c58a
+      - name: samtools-stats
+        path: samtools-stats
+        ica_workflow_name: samtools-stats_dev-wf
+        ica_workflow_id: wfl.620ed24f36114e548ba60fe142712eb7
+        versions:
+          - name: 1.13.0
+            path: 1.13.0/samtools-stats__1.13.0.cwl
+            ica_workflow_version_name: 1.13.0
+            modification_time: 2021-12-17T04:04:55UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
