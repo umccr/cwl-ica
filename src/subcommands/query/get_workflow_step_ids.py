@@ -140,7 +140,7 @@ Example:
                 step_cwl_obj = step_cwl_wf_obj.cwl_obj
 
                 step_ids.extend(self.get_steps_of_cwl_workflow(step_run_path, step_cwl_obj,
-                                                               path_prefix=Path(path_prefix) / Path(cwl_id_to_path(step.id).name)))
+                                                               path_prefix=Path(path_prefix) / Path(step.run).name))
             else:
                 step_ids.append(path_prefix / cwl_id_to_path(step.id).name)
 
