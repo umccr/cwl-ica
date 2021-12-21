@@ -339,5 +339,5 @@ tools:
     versions:
       - name: 0.4.1
         path: 0.4.1/rnasum__0.4.1.cwl
-        md5sum: eb2d93f932783c6dc30e432e8792f877
+        md5sum: 6ae4f94ffa8fe82fdefb3221d87ac842
     categories: []

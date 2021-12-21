@@ -61,7 +61,7 @@ hints:
       type: standardHiCpu
       size: large
   DockerRequirement:
-    dockerPull: "umccr/rnasum:0.4.1"
+    dockerPull: "quay.io/umccr/rnasum:0.4.1"
 
 baseCommand: ["bash"]
 
