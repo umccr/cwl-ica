@@ -60,6 +60,9 @@ inputs:
     doc: |
       The BAM file to gather statistics from
     type: File
+    secondaryFiles:
+      - pattern: ".bai"
+        required: false
     inputBinding:
       # After all other arguments
       position: 100
@@ -146,6 +149,9 @@ inputs:
     doc: |
       Reference sequence (required for GC-depth and mismatches-per-cycle calculation). []
     type: File?
+    secondaryFiles:
+      - pattern: ".fai"
+        required: true
     inputBinding:
       prefix: "--ref-seq"
   split:
