@@ -45,7 +45,7 @@ requirements:
           set -euo pipefail
 
           # Run stats command, write to output file
-          eval samtools stats '"\${@}"' 1> "$(inputs.output_filename).txt"
+          eval samtools stats '"\${@}"' 1> "$(inputs.output_filename)"
 
 baseCommand: [ "bash", "run-samtools-stats.sh" ]
 
@@ -205,7 +205,7 @@ outputs:
       Output file, of varying format depending on the command run
     type: File
     outputBinding:
-      glob: "$(inputs.output_filename).txt"
+      glob: "$(inputs.output_filename)"
 
 successCodes:
   - 0
