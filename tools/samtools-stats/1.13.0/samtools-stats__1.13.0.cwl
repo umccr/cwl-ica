@@ -45,7 +45,7 @@ requirements:
           set -euo pipefail
 
           # Run stats command, write to output file
-          eval samtools stats '"\${@}"' 1> "$(inputs.output_filename)"
+          eval samtools stats '"\${@}"' 1> "$(inputs.output_filename).txt"
 
 baseCommand: [ "bash", "run-samtools-stats.sh" ]
 
@@ -67,7 +67,7 @@ inputs:
     label: coverage
     doc: |
       Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]
-    type: int[]
+    type: int[]?
     inputBinding:
       prefix: "--coverage"
   remove_dups:
@@ -162,7 +162,7 @@ inputs:
       Do stats in these regions only. Tab-delimited file chr,from,to, 1-based, inclusive. []
     type: File?
     inputBinding:
-      prefix: "--target_regions"
+      prefix: "--target-regions"
   sparse:
     label: sparse
     doc: |
@@ -199,7 +199,7 @@ outputs:
       Output file, of varying format depending on the command run
     type: File
     outputBinding:
-      glob: "$(inputs.output_filename)"
+      glob: "$(inputs.output_filename).txt"
 
 successCodes:
   - 0
