@@ -346,5 +346,5 @@ tools:
     versions:
       - name: 1.13.0
         path: 1.13.0/samtools-stats__1.13.0.cwl
-        md5sum: 9c47cd04dd39b5e47a93aa48714e7706
+        md5sum: e83bda8efb0b051ef9695ebe7ab45136
     categories: []
