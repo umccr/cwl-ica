@@ -545,8 +545,8 @@ projects:
         versions:
           - name: 0.4.1
             path: 0.4.1/rnasum__0.4.1.cwl
-            ica_workflow_version_name: 0.4.1--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 0.4.1--170cae7
+            modification_time: 2021-12-23T18:21:50UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
