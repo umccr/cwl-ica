@@ -348,3 +348,10 @@ tools:
         path: 1.13.0/samtools-stats__1.13.0.cwl
         md5sum: e83bda8efb0b051ef9695ebe7ab45136
     categories: []
+  - name: custom-stats-qc
+    path: custom-stats-qc
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-stats-qc__1.0.0.cwl
+        md5sum: 8c221a65a4b39c428461a7b88d1b3b5a
+    categories: []
