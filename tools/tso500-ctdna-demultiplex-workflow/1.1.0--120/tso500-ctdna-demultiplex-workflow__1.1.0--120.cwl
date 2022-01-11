@@ -198,106 +198,103 @@ requirements:
                    "DemultiplexWorkflow.dragenLicenseInstanceFolder":get_dragen_license_instance_folder()
                  });
         }
-      - var get_run_cromwell_script_content = function() {
-          return "#!/usr/bin/env bash\n" +
-                 "# Set up to fail\n" +
-                 "set -euo pipefail\n\n" +
-                 "echo \"create analysis dirs\" 1>&2\n" +
-                 "mkdir --parents \\\n" +
-                 "  \"" + get_analysis_dir() + "\"\n\n" +
-                 "echo \"start demultiplex workflow\" 1>&2\n" +
-                 "java \\\n" +
-                 "  -DLOG_MODE=pretty \\\n" +
-                 "  -DLOG_LEVEL=INFO \\\n" +
-                 "  -jar \"" + get_cromwell_path() + "\" \\\n" +
-                 "  run \\\n" +
-                 "    --inputs \"" + get_input_json_path() + "\" \\\n" +
-                 "    \"" + get_demux_wdl_path() + "\"\n" +
-                 "echo \"end demultiplex workflow\" 1>&2\n\n" +
-                 "echo \"tarring up cromwell files\" 1>&2\n" +
-                 "tar \\\n" +
-                 "  --remove-files \\\n" +
-                 "  --create \\\n" +
-                 "  --gzip \\\n" +
-                 "  --file \"cromwell-executions.tar.gz\" \\\n" +
-                 "  \"cromwell-executions\"/\n" +
-                 "echo \"completed tarring of cromwell files\" 1>&2\n";
-        }
   InitialWorkDirRequirement:
-    listing: |
-      ${
-        /*
-        Initialise listing with input jsons and cromwell script and run folder files
-        */
-        var e = [
-                  /*
-                  Input json
-                  */
-                  {
-                   "entryname": get_input_json_path(),
-                   "entry": get_input_json_content()
-                  },
-                  /*
-                  Cromwell script
-                  */
-                  {
-                   "entryname": get_run_cromwell_script_path(),
-                   "entry": get_run_cromwell_script_content()
-                  },
-                  /*
-                  RunInfo.xml
-                  */
-                  {
-                   "entryname": get_run_dir_path() + "/" + "RunInfo.xml",
-                   "entry": inputs.run_info_xml
-                  },
-                  /*
-                  RunParameters.xml
-                  */
-                  {
-                   "entryname": get_run_dir_path() + "/" + "RunParameters.xml",
-                   "entry": inputs.run_parameters_xml
-                  }
-                ];
-
-        /*
-        Iterate through each tso500 sample and place fastq files under the sample_id folder
-        */
-        for (var i = 0; i < inputs.tso500_samples.length; i++){
+    listing:
+      - |
+        ${
           /*
-          Extend the listing for each sample present
-          First we must get matching fastq list rows as inputs
+          Initialise listing with input jsons and cromwell script and run folder files
           */
-          var sample_id = inputs.tso500_samples[i].sample_id;
-          var sample_name = inputs.tso500_samples[i].sample_name;
-          var sample_number = i + 1;
-
+          var e = [
+                    /*
+                    Input json
+                    */
+                    {
+                     "entryname": get_input_json_path(),
+                     "entry": get_input_json_content()
+                    },
+                    /*
+                    RunInfo.xml
+                    */
+                    {
+                     "entryname": get_run_dir_path() + "/" + "RunInfo.xml",
+                     "entry": inputs.run_info_xml
+                    },
+                    /*
+                    RunParameters.xml
+                    */
+                    {
+                     "entryname": get_run_dir_path() + "/" + "RunParameters.xml",
+                     "entry": inputs.run_parameters_xml
+                    }
+                  ];
+  
           /*
-          Iterate over the input fastq list rows and match rgsm values to the sample_name of the tso500 sample
+          Iterate through each tso500 sample and place fastq files under the sample_id folder
           */
-          var input_fastq_list_rows = [];
-          for (var j = 0; j < inputs.fastq_list_rows.length; j++){
+          for (var i = 0; i < inputs.tso500_samples.length; i++){
             /*
-            Append fastq list rows items with matching rgsm values
+            Extend the listing for each sample present
+            First we must get matching fastq list rows as inputs
             */
-            if (inputs.fastq_list_rows[j].rgsm === sample_name){
+            var sample_id = inputs.tso500_samples[i].sample_id;
+            var sample_name = inputs.tso500_samples[i].sample_name;
+            var sample_number = i + 1;
+  
+            /*
+            Iterate over the input fastq list rows and match rgsm values to the sample_name of the tso500 sample
+            */
+            var input_fastq_list_rows = [];
+            for (var j = 0; j < inputs.fastq_list_rows.length; j++){
               /*
-              Append fastq list row
+              Append fastq list rows items with matching rgsm values
               */
-              input_fastq_list_rows.push(inputs.fastq_list_rows[j]);
+              if (inputs.fastq_list_rows[j].rgsm === sample_name){
+                /*
+                Append fastq list row
+                */
+                input_fastq_list_rows.push(inputs.fastq_list_rows[j]);
+              }
             }
+            /*
+            Now mount according to the sample id
+            */
+            e = e.concat(get_fastq_list_file_mounts(sample_id, sample_number, input_fastq_list_rows));
           }
+  
           /*
-          Now mount according to the sample id
+          Return entries
           */
-          e = e.concat(get_fastq_list_file_mounts(sample_id, sample_number, input_fastq_list_rows));
+          return e;
         }
-
-        /*
-        Return entries
-        */
-        return e;
-      }
+      -  entryname: "$(get_run_cromwell_script_path())"
+         entry: |
+           #!/usr/bin/env bash
+           # Set up to fail
+           set -euo pipefail
+           
+           echo "create analysis dirs" 1>&2
+           mkdir --parents \\
+             "$(get_analysis_dir())"
+           
+           echo "start demultiplex workflow" 1>&2
+           java \\
+             -DLOG_MODE=pretty \\
+             -DLOG_LEVEL=INFO \\
+             -jar "$(get_cromwell_path())" \\
+             run \\
+               --inputs "input.json" \\
+               "$(get_demux_wdl_path())"
+           echo "end demultiplex workflow" 1>&2
+           
+           echo "tarring up cromwell files" 1>&2
+           tar \\
+             --remove-files \\
+             --create \\
+             --gzip \\
+             --file "cromwell-executions.tar.gz" \\
+             "cromwell-executions"/
+           echo "completed tarring of cromwell files" 1>&2
 
 baseCommand: [ "bash" ]
 

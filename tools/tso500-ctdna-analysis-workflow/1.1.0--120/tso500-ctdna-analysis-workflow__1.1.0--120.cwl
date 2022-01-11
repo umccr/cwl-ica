@@ -202,110 +202,109 @@ requirements:
                    "AnalysisWorkflow.dragenLicenseInstanceFolder":get_dragen_license_instance_folder()
                  });
         }
-      - var get_run_cromwell_script_content = function() {
-          return "#!/usr/bin/env bash\n" +
-                 "# Set up to fail\n" +
-                 "set -euo pipefail\n\n" +
-                 "echo \"create analysis dirs\" 1>&2\n" +
-                 "mkdir --parents \\\n" +
-                 "  \"" + get_output_dir() + "\" \\\n" +
-                 "  \"" + get_resources_dir() + "\" \\\n" +
-                 "  \"" + get_analysis_dir() + "\"\n\n" +
-                 "echo \"start copy resources dir to scratch mount\" 1>&2\n" +
-                 "cp -r \"" + inputs.resources_dir.path + "/.\" \"" + get_resources_dir() + "/\"\n" +
-                 "echo \"completed copy of resources dir\" 1>&2\n\n" +
-                 "echo \"start analysis workflow task\" 1>&2\n" +
-                 "java \\\n" +
-                 "  -DLOG_MODE=pretty \\\n" +
-                 "  -DLOG_LEVEL=INFO \\\n" +
-                 "  -jar \"" + get_cromwell_path() + "\" \\\n" +
-                 "  run \\\n" +
-                 "    --inputs \"" + get_input_json_path() + "\" \\\n" +
-                 "    \"" + get_analysis_wdl_path() + "\"\n" +
-                 "echo \"end analysis workflow task\" 1>&2\n\n" +
-                 "echo \"copying outputs to output dir\" 1>&2\n" +
-                 "cp -r \"" + get_analysis_dir() + "/.\" \"" + get_output_dir() + "/\"\n" +
-                 "echo \"completed copy of outputs\" 1>&2\n" +
-                 "echo \"tarring up cromwell files\" 1>&2\n" +
-                 "tar \\\n" +
-                 "  --remove-files \\\n" +
-                 "  --create \\\n" +
-                 "  --gzip \\\n" +
-                 "  --file \"cromwell-executions.tar.gz\" \\\n" +
-                 "  \"cromwell-executions\"/\n" +
-                 "echo \"completed tarring of cromwell files\" 1>&2\n";
-        }
   InitialWorkDirRequirement:
-    listing: |
-      ${
-        /*
-        Initialise listing with input jsons and cromwell script and run folder files
-        */
-        var e = [
-                  /*
-                  Input json
-                  */
-                  {
-                   "entryname": get_input_json_path(),
-                   "entry": get_input_json_content()
-                  },
-                  /*
-                  Cromwell script
-                  */
-                  {
-                   "entryname": get_run_cromwell_script_path(),
-                   "entry": get_run_cromwell_script_content()
-                  }
-                ];
-
-        /*
-        Check if dragen license is added
-        */
-        if ( inputs.dragen_license_key !== null ){
-          e.push({
-                    "entryname": get_dragen_license_path(),
-                    "entry": inputs.dragen_license_key
-                 });
-        }
-
-        /*
-        Iterate through each tso500 sample and place fastq files under the sample_id folder
-        */
-        for (var i = 0; i < inputs.tso500_samples.length; i++){
+    listing:
+      - |
+        ${
           /*
-          Extend the listing for each sample present
-          First we must get matching fastq list rows as inputs
+          Initialise listing with input jsons and cromwell script and run folder files
           */
-          var sample_id = inputs.tso500_samples[i].sample_id;
-          var sample_name = inputs.tso500_samples[i].sample_name;
-          var sample_number = i + 1;
-
+          var e = [
+                    /*
+                    Input json
+                    */
+                    {
+                     "entryname": get_input_json_path(),
+                     "entry": get_input_json_content()
+                    }
+                  ];
+  
           /*
-          Iterate over the input fastq list rows and match rgsm values to the sample_name of the tso500 sample
+          Check if dragen license is added
           */
-          var input_fastq_list_rows = [];
-          for (var j = 0; j < inputs.fastq_list_rows.length; j++){
-            /*
-            Append fastq list rows items with matching rgsm values
-            */
-            if (inputs.fastq_list_rows[j].rgsm === sample_name){
-              /*
-              Append fastq list row
-              */
-              input_fastq_list_rows.push(inputs.fastq_list_rows[j]);
-            }
+          if ( inputs.dragen_license_key !== null ){
+            e.push({
+                      "entryname": get_dragen_license_path(),
+                      "entry": inputs.dragen_license_key
+                   });
           }
-          /*
-          Now mount according to the sample id
-          */
-          e = e.concat(get_fastq_list_file_mounts(sample_id, sample_number, input_fastq_list_rows));
-        }
 
-        /*
-        Return entries
-        */
-        return e;
-      }
+          /*
+          Iterate through each tso500 sample and place fastq files under the sample_id folder
+          */
+          for (var i = 0; i < inputs.tso500_samples.length; i++){
+            /*
+            Extend the listing for each sample present
+            First we must get matching fastq list rows as inputs
+            */
+            var sample_id = inputs.tso500_samples[i].sample_id;
+            var sample_name = inputs.tso500_samples[i].sample_name;
+            var sample_number = i + 1;
+  
+            /*
+            Iterate over the input fastq list rows and match rgsm values to the sample_name of the tso500 sample
+            */
+            var input_fastq_list_rows = [];
+            for (var j = 0; j < inputs.fastq_list_rows.length; j++){
+              /*
+              Append fastq list rows items with matching rgsm values
+              */
+              if (inputs.fastq_list_rows[j].rgsm === sample_name){
+                /*
+                Append fastq list row
+                */
+                input_fastq_list_rows.push(inputs.fastq_list_rows[j]);
+              }
+            }
+            /*
+            Now mount according to the sample id
+            */
+            e = e.concat(get_fastq_list_file_mounts(sample_id, sample_number, input_fastq_list_rows));
+          }
+
+          /*
+          Return entries
+          */
+          return e;
+        }
+      - entryname: "$(get_run_cromwell_script_path())"
+        entry: |
+          #!/usr/bin/env bash
+          # Set up to fail
+          set -euo pipefail
+          
+          echo "create analysis dirs" 1>&2
+          mkdir --parents \\
+            "$(get_output_dir())" \\
+            "$(get_resources_dir())" \\
+            "$(get_analysis_dir())"
+          
+          echo "start copy resources dir to scratch mount" 1>&2
+          cp -r "$(inputs.resources_dir.path)/." "$(get_resources_dir())/"
+          echo "completed copy of resources dir" 1>&2
+          
+          echo "start analysis workflow task" 1>&2
+          java \\
+            -DLOG_MODE=pretty \\
+            -DLOG_LEVEL=INFO \\
+            -jar "$(get_cromwell_path())" \\
+            run \\
+              --inputs "$(get_input_json_path())" \\
+              "$(get_analysis_wdl_path())"
+          echo "end analysis workflow task" 1>&2
+          
+          echo "copying outputs to output dir" 1>&2
+          cp -r "$(get_analysis_dir())/." "$(get_output_dir())/"
+          echo "completed copy of outputs" 1>&2
+          echo "tarring up cromwell files" 1>&2
+          tar \\
+            --remove-files \\
+            --create \\
+            --gzip \\
+            --file "cromwell-executions.tar.gz" \\
+            "cromwell-executions"/
+          echo "completed tarring of cromwell files" 1>&2
+
 
 baseCommand: [ "bash" ]
 

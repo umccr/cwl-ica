@@ -98,73 +98,73 @@ requirements:
                    "ReportingWorkflow.sampleSheetPrefix":inputs.samplesheet_prefix
                  });
         }
-      - var get_run_cromwell_script_content = function() {
-          return "#!/usr/bin/env bash\n" +
-                 "# Set up to fail\n" +
-                 "set -euo pipefail\n\n" +
-                 "echo \"create analysis dirs\" 1>&2\n" +
-                 "mkdir --parents \\\n" +
-                 "  \"" + get_results_dir() + "\" \\\n" +
-                 "  \"" + get_writable_input_dir() + "\" \\\n" +
-                 "  \"" + get_analysis_dir() + "\"\n\n" +
-                 "echo \"copy outputs from analysis workflow to local writable dir\" 1>&2\n" +
-                 "cp -r \"" + inputs.analysis_folder.path +  "/.\" \"" + get_writable_input_dir() + "/\"\n" +
-                 "echo \"start reporting workflow task\" 1>&2\n" +
-                 "java \\\n" +
-                 "  -DLOG_MODE=pretty \\\n" +
-                 "  -DLOG_LEVEL=INFO \\\n" +
-                 "  -jar \"" + get_cromwell_path() + "\" \\\n" +
-                 "  run \\\n" +
-                 "    --inputs \"" + get_input_json_path() + "\" \\\n" +
-                 "    \"" + get_reporting_wdl_path() + "\"\n" +
-                 "echo \"end reporting workflow task\" 1>&2\n\n" +
-                 "echo \"tarring up cromwell files\" 1>&2\n" +
-                 "tar \\\n" +
-                 "  --remove-files \\\n" +
-                 "  --create \\\n" +
-                 "  --gzip \\\n" +
-                 "  --file \"cromwell-executions.tar.gz\" \\\n" +
-                 "  \"cromwell-executions/\"\n" +
-                 "echo \"completed tarring of cromwell files\" 1>&2\n";
-        }
   InitialWorkDirRequirement:
-    listing: |
-      ${
-        /*
-        Initialise listing with input jsons and cromwell script and run folder files
-        */
-        var e = [
-                  /*
-                  Input json
-                  */
-                  {
-                   "entryname": get_input_json_path(),
-                   "entry": get_input_json_content()
-                  },
-                  /*
-                  Cromwell script
-                  */
-                  {
-                   "entryname": get_run_cromwell_script_path(),
-                   "entry": get_run_cromwell_script_content()
-                  },
-                  /*
-                  RunInfo.xml
-                  */
-                  {
-                   "entryname": get_run_dir_path() + "/" + "RunInfo.xml",
-                   "entry": inputs.run_info_xml
-                  },
-                  /*
-                  RunParameters.xml
-                  */
-                  {
-                   "entryname": get_run_dir_path() + "/" + "RunParameters.xml",
-                   "entry": inputs.run_parameters_xml
-                  }
-                ];
-        return e;
-      }
+    listing:
+      - |
+        ${
+          /*
+          Initialise listing with input jsons and cromwell script and run folder files
+          */
+          var e = [
+                    /*
+                    Input json
+                    */
+                    {
+                     "entryname": get_input_json_path(),
+                     "entry": get_input_json_content()
+                    },
+                    /*
+                    RunInfo.xml
+                    */
+                    {
+                     "entryname": get_run_dir_path() + "/" + "RunInfo.xml",
+                     "entry": inputs.run_info_xml
+                    },
+                    /*
+                    RunParameters.xml
+                    */
+                    {
+                     "entryname": get_run_dir_path() + "/" + "RunParameters.xml",
+                     "entry": inputs.run_parameters_xml
+                    }
+                  ];
+          return e;
+        }
+      - entryname: "$(get_run_cromwell_script_path())"
+        entry: |
+          #!/usr/bin/env bash
+          
+          # Set up to fail
+          set -euo pipefail
+          
+          echo "create analysis dirs" 1>&2
+          mkdir --parents \\
+            "$(get_results_dir())" \\
+            "$(get_writable_input_dir())" \\
+            "$(get_analysis_dir())"
+          
+          echo "copy outputs from analysis workflow to local writable dir" 1>&2
+          cp -r "$(inputs.analysis_folder.path)/." "$(get_writable_input_dir())/"
+          
+          echo "start reporting workflow task" 1>&2
+          java \\
+            -DLOG_MODE=pretty \\
+            -DLOG_LEVEL=INFO \\
+            -jar "$(get_cromwell_path())" \\
+            run \\
+              --inputs "$(get_input_json_path())" \\
+              "$(get_reporting_wdl_path())"
+          echo "end reporting workflow task" 1>&2
+          
+          echo "tarring up cromwell files" 1>&2
+          tar \\
+            --remove-files \\
+            --create \\
+            --gzip \\
+            --file "cromwell-executions.tar.gz" \\
+            "cromwell-executions/"
+          echo "completed tarring of cromwell files" 1>&2
+
 
 baseCommand: [ "bash" ]
 
