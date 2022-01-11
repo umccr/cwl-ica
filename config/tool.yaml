@@ -353,5 +353,5 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-stats-qc__1.0.0.cwl
-        md5sum: f0b5d52703ef635066fe9e1003ff61d4
+        md5sum: 96ccb37f2a7a3307d952df8ba4b7d143
     categories: []
