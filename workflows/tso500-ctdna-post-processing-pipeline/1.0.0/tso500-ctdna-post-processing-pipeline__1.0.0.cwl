@@ -47,7 +47,7 @@ requirements:
     SchemaDefRequirement:
       types:
         - $import: ../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml
-        - $import: ../../../schemas/custom-output-dir-entry/2.0.0/custom-output-dir-entry__2.0.0.yaml
+        - $import: ../../../schemas/custom-output-dir-entry/2.0.1/custom-output-dir-entry__2.0.1.yaml
 
 inputs:
   tso500_outputs_by_sample:
@@ -647,7 +647,7 @@ steps:
         source: gather_compressed_reporting_json_files_into_tar_step/output_compressed_tar_file
     out:
       - id: tso500_output_dir_entry_list
-    run: ../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl
+    run: ../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.cwl
 
   # Create the output directory
   create_output_directory:
@@ -665,7 +665,7 @@ steps:
         source: create_custom_output_entry_list_array_step/tso500_output_dir_entry_list
     out:
       - id: output_directory
-    run: ../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.cwl
+    run: ../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.cwl
   ####################################
   # End create custom output dir steps
   ####################################
