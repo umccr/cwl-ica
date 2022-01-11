@@ -1,0 +1,54 @@
+type: record
+name: custom-output-dir-entry
+
+fields:
+  # Configuration fields
+  collection_name:
+    label: collection name
+    doc: |
+      The name of the collection,
+      This is required if 'file_list' is set AND 'copy_method' is set to 'sub_dir'
+    type: string?
+  copy_method:
+    label: copy method
+    doc: |
+      Do you want these files / directories as a sub directory or in the top directory?
+    type:
+      - type: enum
+        symbols:
+          - 'sub_dir'
+          - 'top_dir'
+  # Input type 1
+  # One can merely specify a directory, user has a list of files that may also be specified which
+  # will then be the only items in said directory copied into the output folder
+  dir:
+    label: dir
+    doc: |
+      A directory object, when using this field, one may also specify the files_str method to pull out only
+      certain files from the directory, file_str may reference a file in a subfolder, and the subfolder structure will
+      be maintained even if copy_method is set to 'top_dir'
+    type: Directory?
+  files_list_str:
+    label: files list str
+    doc: |
+      A list of files for 'dir'. If not specified the entire directory will be copied over.
+    type: string[]?
+  # Input type 2
+  # Specify a list of files you would like to input to the folder instead
+  file_list:
+    label: file list
+    doc: |
+      A list of files, will be placed into the top directory unless 'collection_name' is specified and
+      copy method is set to 'sub_dir'
+    type: File[]?
+  # Input type 3
+  # A single compressed tar ball,
+  tarball:
+    label: tarball
+    doc: |
+      A compressed tarball with all files / directories residing in a folder of the same name (not a tarbomb!).
+      Set 'copy_method' to "top_dir" to 'tarbomb' these files into the top output directory folder.
+      Set 'collection_name' if you would like to rename the output folder that these files / directories reside under.
+      If 'files_list_str' is set, then only the files in said list are extracted from the tarball, the subdirectory
+      must be specified in the list.
+    type: File?
