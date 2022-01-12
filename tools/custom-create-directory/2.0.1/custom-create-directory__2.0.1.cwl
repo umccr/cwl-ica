@@ -271,9 +271,28 @@ inputs:
           separate: false
           valueFrom: |
             ${
+              /*
+              Initialise with string sets
+              */
+              if (self["dir"] !== null){
+                /*
+                We have a directory - retain just the path attribute for each
+                */
+                self["dir"] = {"path": self["dir"]["path"]};
+              } else if (self["file_list"] !== null){
+                /*
+                We have list of files - retain just the path attribute for each
+                */
+                var new_file_list = [];
+                for (var file_iter=0; file_iter < self["file_list"].length; file_iter++){
+                  new_file_list.push({"path": self["file_list"][file_iter]["path"]});
+                }
+                self["file_list"] = new_file_list;
+              } else if (self["tarball"] !== null){
+                self["tarball"] = {"path": self["tarball"]["path"]};
+              }
               return JSON.stringify(self);
             }
-
 
 outputs:
   output_directory:

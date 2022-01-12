@@ -206,6 +206,11 @@ projects:
             ica_workflow_version_name: 1.0.0
             modification_time: 2021-07-28T04:00:47UTC
             run_instances: []
+          - name: 2.0.1
+            path: 2.0.1/custom-create-directory__2.0.1.cwl
+            ica_workflow_version_name: 2.0.1
+            modification_time: 2022-01-12T20:35:20UTC
+            run_instances: []
       - name: dragen-build-reference-tarball
         path: dragen-build-reference-tarball
         ica_workflow_name: dragen-build-reference-tarball_dev-wf
