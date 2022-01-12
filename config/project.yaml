@@ -528,6 +528,16 @@ projects:
             ica_workflow_version_name: 2.0.0--3.9.3
             modification_time: 2021-12-01T07:47:52UTC
             run_instances: []
+      - name: ghif-qc
+        path: ghif-qc
+        ica_workflow_name: ghif-qc_dev-wf
+        ica_workflow_id: wfl.5d05d214eb3e4604ba7153118173f63e
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/ghif-qc__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0
+            modification_time: 2022-01-12T02:10:29UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
