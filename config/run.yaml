@@ -1424,3 +1424,47 @@ runs:
         task_stop_time: 1639618343
         task_duration: 1612
         task_metrics: eJyd0rEKwkAMBuBXKZ1LuCS99OKriINIB4fDonUQ6bv3XOREf4duR8hHLj/ZP9v5nMfbfMxTu2vY1I0HCdY17Wm6l1IgL+885sv18eqgsHTNbzX0b1XaPhUjpcpICRlUDmcJJaT6mJBSvFdkrtJItYokUBmcJeRImThK/s8PLSWsFKkhCk4DqlTdxpfqobItylW3KIcXpRSBKmuFDYo54uRtOawjfupq
+  - ica_workflow_run_instance_id: wfr.eb46716d0e5c487b9f699cd5fbc2821f
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.428005f137ab409296a367db1b9f122e
+    ica_workflow_name: custom-stats-qc_dev-wf
+    ica_workflow_version_name: 1.0.0
+    ica_workflow_run_name: custom-qc
+    ica_input: eJxVjLEKwyAURX8lvLmpNEtDti4d+wtBjImC8VnvEwoh/14dOnS7HM49B3GRVGRefbBR75amjhJDUmZjAbp0PwN6F+aAGaIF1TvIBI226FnfTQ1stHiOjW0LJqUgWUtBD+uyhxvU5vzav43ysUah/qtX+QidNVRxCnb2Syu9HrdhvI90fgFhXDz1
+    ica_output: eJx9kM1OwzAQhF+lMldIbOfHTm9cOPIKUby2S5CTDV5HQVR9dxxouSA4WbP7eUY7Z4ZrWtbU+zE4djycWUAY0ohzFuxk6ViWm4+FM3WrRGu5a6DWynS+7TqwjTcgtRS+hJUSTg9vUH4bUrkgpSUiOKL++VFIrXTxStn4/sDMQG4epj2R/cftTERMf3A3xL1/ET/fIAxE++RpvyoPaPzYswRv66xeUlryXYDThPMWCoynEraQEMPdyc0u3grgl0xfC7Jj7HMfPeX8vO1HuwcQzYVXhisjrRag6iq/ng9do0TVNQaUV+y3icdgXbx6ZFE4KbRVptK64bWqNPet5Np2VtTSVdCwyycSoIiX
+    ica_engine_parameters: eJytkLtywyAQRX/Fo8ZNJAHyS27jIik8LpR8AIaVhrEECixWHI//PYAnqdI55bLnnh3uNZuMPe2UBYHGXrLtLOuk25bl1NoCjovVmq4kgaVYbNbHul3VtZDL9ijYhtG2FN6hGfIPkT3NMuNx9Piwqrx7XFTiMB7+yeoQxuTsTfe4LUiSbOCfjeCIYIOqYr8tNICodBf9gzlDRIUZL/fPvGqHXAt4u4wQiSZMklv5op5H/zfaqK+E7kEqP0RGQst9H4BA7Y1M2/nOTLo3XM4joX5WhzNYqyS4wFxvsVZw7w7uUa5VCw5TnHs0KSqmHo3p42NVkIIRRigjFV1XlNIIgO6UTjdpQTcFyQNCSU0XlC1J7tBy9C4fuIvN3L4BYlbEPw==
+    workflow_start_time: 1641880056
+    workflow_end_time: 1641881602
+    workflow_duration: 1546
+    ica_tasks:
+      - ica_task_run_instance_id: trn.a2ba9e0f5dc346d08df674b199a9a7c1
+        task_step_name: main
+        task_name: main
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1641880174
+        task_stop_time: 1641880775
+        task_duration: 601
+        task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.32ff48e48bce4d4e8d70efe6fbf92040
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.620ed24f36114e548ba60fe142712eb7
+    ica_workflow_name: samtools-stats_dev-wf
+    ica_workflow_version_name: 1.13.0
+    ica_workflow_run_name: samtools-stats
+    ica_input: eJytjk1rwzAMhv9K8XlJtu6w0NsYdN2lUNhdqLHyAbaVWXK2UfLfZ5fB9gN6EIhX4nmfi+l4AR0jycjOmt1me3+3MVOYk8IZfQ4upnMokjeznxyZfHbcoU4cSjZY2TVN8l0XKyU/VxYVK0tLM5Kj0Lwe3vZwemmOzw/b9qmtC3TNDE5aOvqMDOipoH5fMka01ETqQejjdg7j8NgCOgX8xEgQeHRY93j1ieR5IbBpLjUaE/2FeaLD/wfFOJBCpCEryO0M369cgQN7BsF5oiCQueTP7rvIJ2VhT1Lrl5p1/QFoeJa3
+    ica_output: eJxtkMFugzAQRH8lcq8NGNuAyS2XHvsLyNhrimRwxG5E1Cj/XrsNl7bH2Tea3dk7i1e6XKn3UwB2OtxZiNbQFJck2OjwVJabXwspvFcalB4sKKdAu5aDh8YPvhNc8RLNTDEGPCIZwvInFcv3cyV0q48ESAXdiL0e2GAQFjPndew/ntkaI/3mO4PbN9rtNhjEPHjLFdIAp8+cXUne8C7pD6JLqmHjPMdlC0Vcx9JuIZ/7MsIC696XP5L7+Q83rX2q3yMgJtpPLq9AXAotOy9MratBtEr6QftuMFDZuhMu/UayvyE+BgfrMyOJglfKt6blrpVa1UJwaGquXecqJUDamj2+ANR+gSo=
+    ica_engine_parameters: eJytkLFuwyAQhl8l8pKltgG7jZO1GdohyuD2AYg5LBQbLDjiulHevUDUTh0zwn3/d7r/ms3GnvfKQofGLtlulfXC7cpylraomJR1A3Vz6qAWNTRiQ0DCizzJLSM1KR0f0ZjB5Q45uuxplRmPk8fH+Mq7LHlxnI6PVDuEKYkH0z9IGUzJOPKvtuOIYIOvYn+ltICodB+XjOYCEe3MtNzPetdBojv4WCaIRBteglvxpl4n/z/aqu+EHkAoP0ZGgOR+CECgDkak6XpvZj0YLtaRUL+j4wWsVQJcYK63WDC4Twf3KNdKgsMU5x5NinbzEK+Nn1VBCkYYoYxUdFNRSiMAulc67aQFbQqSB4SSLa0peyahI8vRu3zkLjZz+wGYyM5r
+    workflow_start_time: 1641773346
+    workflow_end_time: 1641776662
+    workflow_duration: 3315
+    ica_tasks:
+      - ica_task_run_instance_id: trn.48c91be6d9c64aee8050ad3b6e64033b
+        task_step_name: main
+        task_name: main
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1641773471
+        task_stop_time: 1641775863
+        task_duration: 2392
+        task_metrics: eJyd1MEKwjAMBuBXGTuPkaRJmvkq4kFkBw/FofMgsne33u3A/7YWPprkJzu++/Va5sd6Lkt/6NiVc1YiGbr+sjy/VyPV7zKX2/1VjzTSNnS/lQegWJC3OKa24pYSNUAlYkQ5AUoFqVBDAWWKKCekL3ckryxIhTmQvEIRNe1tSlt5+l8ZCVChUQYmb6xAyiaE9CXIplgSR1QAedVFQSav087/sKkMmoYjm2IeSF457fQl2+kDr/61tw==
