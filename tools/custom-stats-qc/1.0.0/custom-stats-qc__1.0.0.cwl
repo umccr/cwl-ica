@@ -46,7 +46,8 @@ requirements:
           # Sample metadata
           JSON_STRING=\$( jq -n \\
                             --arg sm "$(inputs.sample_id)" \\
-                            '{sampleID: \$sm}' )
+                            '{sampleID: $sm}' )
+          echo "$(inputs.output_json_filename).json"
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           # Extract average base quality
@@ -54,8 +55,8 @@ requirements:
           JSON_STRING=\$( jq -n \\
                             --arg des "average base quality" \\
                             --arg src "SN	average quality" \\
-                            --arg val "\$avg_base_qual" \\
-                            '{average_base_quality: {description: \$des, source: \$src, value: \$val}}' )
+                            --arg val "$avg_base_qual" \\
+                            '{average_base_quality: {description: $des, source: $src, value: $val}}' )
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           # Extract yield_mapped_bp
@@ -63,8 +64,8 @@ requirements:
           JSON_STRING=\$( jq -n \\
                             --arg des "yield mapped bp" \\
                             --arg src "SN	bases mapped (cigar)" \\
-                            --arg val "\$yield_mapped_bp" \\
-                            '{yield_mapped_bp: {description: \$des, source: \$src, value: \$val}}' )
+                            --arg val "$yield_mapped_bp" \\
+                            '{yield_mapped_bp: {description: $des, source: $src, value: $val}}' )
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           # Extract pct_autosomes_20x
@@ -72,8 +73,8 @@ requirements:
           JSON_STRING=\$( jq -n \\
                             --arg des "pct autosomes 20x" \\
                             --arg src "SN	percentage of target genome with coverage > 20" \\
-                            --arg val "\$pct_autosomes_20x" \\
-                            '{pct_autosomes_20x: {description: \$des, source: \$src, value: \$val}}' )
+                            --arg val "$pct_autosomes_20x" \\
+                            '{pct_autosomes_20x: {description: $des, source: $src, value: $val}}' )
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           # Extract pct_discordant_read_pairs
@@ -82,8 +83,8 @@ requirements:
           JSON_STRING=\$( jq -n \\
                             --arg des "pct discordant reads" \\
                             --arg src "SN	percentage of properly paired reads (%)" \\
-                            --arg val "\$pct_discordant_reads" \\
-                            '{pct_discordant_reads: {description: \$des, source: \$src, value: \$val}}' )
+                            --arg val "$pct_discordant_reads" \\
+                            '{pct_discordant_reads: {description: $des, source: $src, value: $val}}' )
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           # Extract mean_insert_size
@@ -91,8 +92,8 @@ requirements:
           JSON_STRING=\$( jq -n \\
                             --arg des "mean insert size" \\
                             --arg src "SN	insert size average" \\
-                            --arg val "\$mean_insert_size" \\
-                            '{mean_insert_size: {description: \$des, source: \$src, value: \$val}}' )
+                            --arg val "$mean_insert_size" \\
+                            '{mean_insert_size: {description: $des, source: $src, value: $val}}' )
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           # Extract Insert_size_SD
@@ -100,8 +101,8 @@ requirements:
           JSON_STRING=\$( jq -n \\
                             --arg des "insert size sd" \\
                             --arg src "SN	insert size standard deviation" \\
-                            --arg val "\$insert_size_sd" \\
-                            '{insert_size_sd: {description: \$des, source: \$src, value: \$val}}' )
+                            --arg val "$insert_size_sd" \\
+                            '{insert_size_sd: {description: $des, source: $src, value: $val}}' )
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           # Extract pct_mapped_reads where pct_mapped_reads = [(Mapped Reads - Reads MQ0) / Total Reads]
@@ -115,8 +116,8 @@ requirements:
           JSON_STRING=\$( jq -n \\
                             --arg des "pct mapped reads" \\
                             --arg src "pct_mapped_reads = [(Mapped Reads - Reads MQ0) / Total Reads]" \\
-                            --arg val "\$pct_mapped_reads" \\
-                            '{pct_mapped_reads: {description: \$des, source: \$src, value: \$val}}' )
+                            --arg val "$pct_mapped_reads" \\
+                            '{pct_mapped_reads: {description: $des, source: $src, value: $val}}' )
           echo \$JSON_STRING >> "$(inputs.output_json_filename).json"
 
           jq '.' "$(inputs.output_json_filename).json" >> "$(inputs.output_json_filename)_$(inputs.sample_id).json"

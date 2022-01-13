@@ -336,7 +336,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/custom-stats-qc__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2022-01-11T05:44:28UTC
+            modification_time: 2022-01-13T03:31:35UTC
             run_instances:
               - wfr.eb46716d0e5c487b9f699cd5fbc2821f
     workflows:
@@ -536,7 +536,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/ghif-qc__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2022-01-12T02:10:29UTC
+            modification_time: 2022-01-13T03:46:01UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
