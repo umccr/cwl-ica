@@ -250,9 +250,6 @@ requirements:
                       "entryname": get_fastq_list_csv_path(),
                       "entry": get_fastq_list_csv_contents_from_fastq_list_rows_object(inputs.fastq_list_rows)
                    }]);
-        
-            e.push(inputs.fastq_list_rows[0].read_1);
-        
           } else if (inputs.fastq_list !== null){
             e.push([{
                       "entryname": get_fastq_list_csv_path(),
