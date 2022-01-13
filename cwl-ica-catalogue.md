@@ -150,6 +150,7 @@ metrics-to-json)
 illumina-tar)  
 - [dragen-umi](#dragen-umi)  
 - [bcftools-view](#bcftools-view)  
+- [rnasum](#rnasum)  
 
 
 ### samtools-merge
@@ -505,6 +506,13 @@ illumina-tar)
 #### Versions
   
 - [1.13.0](.github/catalogue/docs/tools/bcftools-view/1.13.0/bcftools-view__1.13.0.md)  
+
+
+### rnasum
+
+#### Versions
+  
+- [0.4.1](.github/catalogue/docs/tools/rnasum/0.4.1/rnasum__0.4.1.md)  
 
 
 ## Workflows
