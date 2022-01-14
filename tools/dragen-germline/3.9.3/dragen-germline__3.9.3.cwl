@@ -216,7 +216,7 @@ requirements:
             return {
                       "entryname": get_fastq_list_csv_path(),
                       "entry": get_fastq_list_csv_contents_from_fastq_list_rows_object(inputs.fastq_list_rows)
-                   }]);
+                   };
           } else if (inputs.fastq_list !== null){
             return {
                       "entryname": get_fastq_list_csv_path(),
