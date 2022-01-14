@@ -236,7 +236,6 @@ requirements:
 
           # Run dragen command and import options from cli
           $(get_dragen_eval_line())
-
       - |
         ${
           /*
@@ -246,17 +245,18 @@ requirements:
           var e = [];
         
           if (inputs.fastq_list_rows !== null){
-            e.push([{
+            return {
                       "entryname": get_fastq_list_csv_path(),
                       "entry": get_fastq_list_csv_contents_from_fastq_list_rows_object(inputs.fastq_list_rows)
-                   }]);
+                   };
           } else if (inputs.fastq_list !== null){
-            e.push([{
+            return {
                       "entryname": get_fastq_list_csv_path(),
                       "entry": inputs.fastq_list
-                   }]);
+                    };
+          } else {
+            return null;
           }
-          return e;
         }
 
 baseCommand: [ "bash" ]
