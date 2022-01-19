@@ -144,4 +144,7 @@ workflows:
       - name: 1.0.0
         path: 1.0.0/ghif-qc__1.0.0.cwl
         md5sum: 2a6cbf08cad667a50a56cc15b396b602
+      - name: 1.0.1
+        path: 1.0.1/ghif-qc__1.0.1.cwl
+        md5sum: 6842956c9dceb3928b92c80d348776b8
     categories: []
