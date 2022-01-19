@@ -58,7 +58,7 @@ requirements:
                 --arg src "samtools:1.13--h8c37831_0" \\
                 --arg val "$value" \\
                 --arg key_name "$key" \\
-                --argjson detail "{\\"MIN_BQ\\": 0, \\"MIN_MQ\\": 20, \\"DUP\\": \\"false\\", \\"SEC\\": \\"false\\", \\"CLP\\": \\"false\\", \\"OLP\\": \\"false\\"}" \\
+                --argjson detail "{\\"MIN_BQ\\": 0, \\"MIN_MQ\\": 0, \\"DUP\\": \\"false\\", \\"SEC\\": \\"false\\", \\"SUP\\": \\"false\\", \\"CLP\\": \\"false\\", \\"OLP\\": \\"false\\"}" \\
                 '{($key_name): {description: $des, source: $src, implementation_details: $detail, value: $val}}'
           }
           # Extract Summary Number section from stats file
@@ -95,7 +95,7 @@ requirements:
                           --arg des "pct discordant paired reads" \\
                           --arg src "samtools:1.13--h8c37831_0" \\
                           --arg val "$pdr" \\
-                          --argjson detail "[{\\"MIN_BQ\\": 0, \\"MIN_MQ\\": 20, \\"DUP\\": \\"false\\", \\"SEC\\": \\"false\\", \\"CLP\\": \\"false\\", \\"OLP\\": \\"false\\"}]" \\
+                          --argjson detail "[{\\"MIN_BQ\\": 0, \\"MIN_MQ\\": 0, \\"DUP\\": \\"false\\", \\"SEC\\": \\"false\\", \\"SUP\\": \\"false\\", \\"CLP\\": \\"false\\", \\"OLP\\": \\"false\\"}]" \\
                           '{pct_discordant_reads: {description: $des, source: $src, implementation_details: $detail, value: $val}}' )"
 
           # Extract pct_mapped_reads where pct_mapped_reads = [(Mapped Reads - Reads MQ0) / Total Reads]
@@ -110,7 +110,7 @@ requirements:
                           --arg des "pct mapped reads" \\
                           --arg src "samtools:1.13--h8c37831_0" \\
                           --arg val "$pct_mapped_reads" \\
-                          --argjson detail "[{\\"MIN_BQ\\": 0, \\"MIN_MQ\\": 20, \\"DUP\\": \\"false\\", \\"SEC\\": \\"false\\", \\"CLP\\": \\"false\\", \\"OLP\\": \\"false\\"}]" \\
+                          --argjson detail "[{\\"MIN_BQ\\": 0, \\"MIN_MQ\\": 0, \\"DUP\\": \\"false\\", \\"SEC\\": \\"false\\", \\"SUP\\": \\"false\\", \\"CLP\\": \\"false\\", \\"OLP\\": \\"false\\"}]" \\
                           '{pct_mapped_reads: {description: $des, source: $src, implementation_details: $detail, value: $val}}' )"
 
           # Write output to file
