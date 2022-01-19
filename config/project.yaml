@@ -342,7 +342,7 @@ projects:
           - name: 1.0.1
             path: 1.0.1/custom-stats-qc__1.0.1.cwl
             ica_workflow_version_name: 1.0.1
-            modification_time: 2022-01-19T02:23:05UTC
+            modification_time: 2022-01-19T09:25:33UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline
@@ -546,7 +546,7 @@ projects:
           - name: 1.0.1
             path: 1.0.1/ghif-qc__1.0.1.cwl
             ica_workflow_version_name: 1.0.1
-            modification_time: 2022-01-19T01:07:50UTC
+            modification_time: 2022-01-19T09:26:38UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d

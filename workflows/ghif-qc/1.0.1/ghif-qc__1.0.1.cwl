@@ -136,6 +136,16 @@ inputs:
       Number of input/output compression threads to use in addition to main thread [0].
     type: int?
   # custom-qc
+  sample_id:
+    label: sample id
+    doc: |
+      Sample identity
+    type: string
+  sample_source:
+    label: sample source
+    doc: |
+      Sample original source
+    type: string
   output_json_filename:
     label: output filename
     doc: |
@@ -195,6 +205,10 @@ steps:
     doc:
       A tool to extract custom QC metrics from samtools stats output and convert to json format.
     in:
+      sample_id:
+        source: sample_id
+      sample_source:
+        source: sample_source
       output_samtools_stats:
         source: samtools_stats_step/output_file
       output_json_filename:
