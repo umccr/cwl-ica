@@ -30,7 +30,7 @@ hints:
         coresMin: 1
         ramMin: 4000
     DockerRequirement:
-        dockerPull: quay.io/umccr/alpine-jq:1.6-arm64
+        dockerPull: quay.io/umccr/alpine-jq:1.6-amd64
 
 requirements:
   InlineJavascriptRequirement: {}
