@@ -358,3 +358,10 @@ tools:
         path: 1.0.1/custom-stats-qc__1.0.1.cwl
         md5sum: 56013eeec45343d872fe2565ebb975b9
     categories: []
+  - name: calculate-coverage
+    path: calculate-coverage
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/calculate-coverage__1.0.0.cwl
+        md5sum: d9d29572c4ac71741b90aa6444e122d0
+    categories: []

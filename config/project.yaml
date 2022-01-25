@@ -344,6 +344,16 @@ projects:
             ica_workflow_version_name: 1.0.1
             modification_time: 2022-01-19T11:19:29UTC
             run_instances: []
+      - name: calculate-coverage
+        path: calculate-coverage
+        ica_workflow_name: calculate-coverage_dev-wf
+        ica_workflow_id: wfl.de659694e0b04a4f88763674be6a74fe
+        versions:
+          - name: 1.0.0
+            path: 1.0.0/calculate-coverage__1.0.0.cwl
+            ica_workflow_version_name: 1.0.0
+            modification_time: 2022-01-25T02:27:00UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
