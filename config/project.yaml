@@ -560,6 +560,7 @@ projects:
             modification_time: 2022-01-27T05:15:29UTC
             run_instances:
               - wfr.f6adb13c92e340f89317c337674b18a6
+              - wfr.10176db758d94e56833422dfd60d0f90
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
