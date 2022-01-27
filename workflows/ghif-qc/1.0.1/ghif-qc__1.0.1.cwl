@@ -135,6 +135,35 @@ inputs:
     doc: |
       Number of input/output compression threads to use in addition to main thread [0].
     type: int?
+  # PRECISE QC
+  script:
+    label: script
+    doc: |
+      Path to PRECISE python script on GitHub
+    type: File
+    default:
+      class: File
+      location: https://raw.githubusercontent.com/c-BIG/wgs-sample-qc/main/example_implementations/sg-npm/calculate_coverage.py
+  map_quality:
+    label: map quality
+    doc: |
+      Mapping quality threshold. Default: 20.
+    type: int?
+  out_directory:
+    label: out directory
+    doc: |
+      Path to scratch directory. Default: ./
+    type: Directory?
+  output_json:
+    label: output json
+    doc: |
+      output file
+    type: string
+  log_level:
+    label: log level
+    doc: |
+      Set logging level to INFO (default), WARNING or DEBUG.
+    type: string?
   # custom-qc
   sample_id:
     label: sample id
@@ -199,12 +228,37 @@ steps:
     out:
       - id: output_file
     run: ../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.cwl
-    # custom QC
+  # PRECISE QC
+  calculate_coverage_step:
+    label: calculate coverage step
+    doc: |
+      PRECISE tool that runs a script to calculate few custom QC metrics
+    in:
+      script:
+        source: script
+      map_quality:
+        source: map_quality
+      sample_bam:
+        source: input_bam
+      target_regions:
+        source: target_regions
+      out_directory:
+        source: out_directory
+      output_json:
+        source: output_json
+      log_level:
+        source: log_level
+    out: 
+      - id: output_filename
+    run: ../../../tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.cwl     
+  # custom QC
   custom_stats_qc_step:
     label: custom stats qc step
     doc:
       A tool to extract custom QC metrics from samtools stats output and convert to json format.
     in:
+      precise_json_output:
+        source: calculate_coverage_step/output_filename
       sample_id:
         source: sample_id
       sample_source:
@@ -215,18 +269,34 @@ steps:
         source: output_json_filename
     out:
       - id: output_json
+      - id: output_json_combined
     run: ../../../tools/custom-stats-qc/1.0.1/custom-stats-qc__1.0.1.cwl
          
 outputs:
+  # samtools stats
   samtools_stats_output_txt:
     label: samtools stats output txt
     doc: |
       Output file, of varying format depending on the command run
     type: File
     outputSource: samtools_stats_step/output_file
+  # PRECISE QC
+  precise_output_json:
+    label: precise output json
+    doc: |
+      Output file from PRECISE QC script/implementation
+    type: File
+    outputSource: calculate_coverage_step/output_filename
+  # Custom QC + combined with PRECISE
   custom_stats_qc_output_json:
     label: custom stats qc output json
     doc: |
       JSON output file containing custom metrics
     type: File
     outputSource: custom_stats_qc_step/output_json
+  custom_stats_qc_combined_json:
+    label: custom stats qc combined json
+    doc: |
+      Internal custom JSON output file combined with PRECISE JSON output
+    type: File
+    outputSource: custom_stats_qc_step/output_json_combined
