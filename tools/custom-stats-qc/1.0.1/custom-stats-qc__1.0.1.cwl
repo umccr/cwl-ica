@@ -116,9 +116,20 @@ requirements:
           # Write output to file
           echo "\${JSON_STRING}" | jq -n '. |= [inputs]' > "$(inputs.output_json_filename).json"
 
+          # Combine PRECISE calculate-coverage script output with UMCCR's
+          cat "$(inputs.precise_json_output.path)" | jq -n '[inputs.qc_metrics]' > tmp.json
+          jq -s 'add' "$(inputs.output_json_filename).json" tmp.json > "$(inputs.output_json_filename)_combined.json"
+
 baseCommand: [ "bash", "run-custom-qc.sh" ]
 
 inputs:
+  # PRESISE QC OUTPUT
+  precise_json_output:
+    label: precise json output
+    doc: |
+      Output file from PRECISE calculate_coverage.py script.
+    type: File
+  # UMCCR QC specific inputs
   sample_id:
     label: sample id
     doc: |
@@ -148,6 +159,13 @@ outputs:
     type: File
     outputBinding:
       glob: "$(inputs.output_json_filename).json"
+  output_json_combined:
+    label: output file combined
+    doc: |
+      JSON output file containing custom metrics comsbined with PRECISE QC implementation
+    type: File
+    outputBinding:
+      glob: "$(inputs.output_json_filename)_combined.json"
 
 successCodes:
   - 0

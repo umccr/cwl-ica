@@ -356,7 +356,7 @@ tools:
         md5sum: 0d33056393a32a0c3033cba31f01f235
       - name: 1.0.1
         path: 1.0.1/custom-stats-qc__1.0.1.cwl
-        md5sum: 56013eeec45343d872fe2565ebb975b9
+        md5sum: 92896be3c3c72c53b30ff3f4c4359176
     categories: []
   - name: calculate-coverage
     path: calculate-coverage
