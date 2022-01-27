@@ -343,7 +343,8 @@ projects:
             path: 1.0.1/custom-stats-qc__1.0.1.cwl
             ica_workflow_version_name: 1.0.1
             modification_time: 2022-01-27T02:21:31UTC
-            run_instances: []
+            run_instances:
+              - wfr.298a81a7fffb4afba83ad0a3e12163ce
       - name: calculate-coverage
         path: calculate-coverage
         ica_workflow_name: calculate-coverage_dev-wf
