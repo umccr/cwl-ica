@@ -28,8 +28,8 @@ hints:
             tier: standard
             type: standardHiCpu
             size: large
-        coresMin: 71
-        ramMin: 140000
+        coresMin: 16
+        ramMin: 50000
     DockerRequirement:
         #dockerPull: alpine:latest
         dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:2.0.0-130ef3be09
