@@ -136,5 +136,5 @@ workflows:
     versions:
       - name: 2.0.0--3.9.3
         path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
-        md5sum: fc8cf2baa72d6094dc9da7c4fbf5f7a7
+        md5sum: a7d0552625cfb383169e5b69e0c81b50
     categories: []
