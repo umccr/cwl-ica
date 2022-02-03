@@ -249,7 +249,7 @@ projects:
           - name: 2.0.0--0
             path: 2.0.0--0/umccrise__2.0.0--0.cwl
             ica_workflow_version_name: 2.0.0--0
-            modification_time: 2022-02-02T23:33:36UTC
+            modification_time: 2022-02-03T07:01:02UTC
             run_instances: []
       - name: dragen-somatic
         path: dragen-somatic
@@ -504,7 +504,7 @@ projects:
           - name: 2.0.0--3.9.3
             path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
             ica_workflow_version_name: 2.0.0--3.9.3
-            modification_time: 2022-02-02T23:41:36UTC
+            modification_time: 2022-02-03T07:07:42UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
@@ -788,6 +788,11 @@ projects:
             path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
             ica_workflow_version_name: 2.0.0--3.9.3--f50a149
             modification_time: 2022-02-02T23:41:52UTC
+            run_instances: []
+          - name: 2.0.0--3.9.3
+            path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
+            ica_workflow_version_name: 2.0.0--3.9.3--34c1773
+            modification_time: 2022-02-03T07:07:58UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
