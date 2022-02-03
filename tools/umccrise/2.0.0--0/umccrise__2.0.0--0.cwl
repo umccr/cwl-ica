@@ -26,8 +26,8 @@ hints:
     ResourceRequirement:
         ilmn-tes:resources:
             tier: standard
-            type: standardHiCpu
-            size: large
+            type: standardHiMem
+            size: medium
         coresMin: 16
         ramMin: 50000
     DockerRequirement:
