@@ -106,7 +106,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
-        md5sum: 856692a3b3bcf740fea5cec291c1912c
+        md5sum: 75ddc3434449222471dce815dd9de02f
     categories:
       - tso500
   - name: tso500-ctdna-reporting-workflow
