@@ -79,3 +79,10 @@ expressions:
         path: 1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.cwl
         md5sum: 7caaf4d0d7e50f97eda0b1404c905cdb
     categories: []
+  - name: create-single-directory-from-directories-array
+    path: create-single-directory-from-directories-array
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/create-single-directory-from-directories-array__1.0.0.cwl
+        md5sum: 4bd871a33ed1a7b02768797ebc39a440
+    categories: []
