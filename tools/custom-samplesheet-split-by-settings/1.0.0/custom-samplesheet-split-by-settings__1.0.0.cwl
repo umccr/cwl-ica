@@ -331,6 +331,12 @@ requirements:
                                        for key, val in samplesheet_settings.items()
                                        if not val == ""
                                      }
+              
+              # Drop AdapterRead2 if OverrideCycles match the regex \w+;\w+;[nN]\d+;[nN]\d+
+              if "OverrideCycles" in samplesheet_settings.keys() and re.match(r"\w+;\w+;[nN]\d+;[nN]\d+", samplesheet_settings["OverrideCycles"]) is not None:
+                if "AdapterRead2" in samplesheet_settings.keys():
+                  del samplesheet_settings["AdapterRead2"]
+          
               return samplesheet_settings
 
 
