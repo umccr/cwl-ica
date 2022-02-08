@@ -16,209 +16,209 @@
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_outputs</title>
-<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="1048,-17.27 1048,-183.46 1272,-183.46 1272,-17.27 1048,-17.27"/>
-<text text-anchor="middle" x="1199.5" y="-25.07" font-family="Times,serif" font-size="14.00">Workflow Outputs</text>
+<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="1042,-17.27 1042,-183.46 1266,-183.46 1266,-17.27 1042,-17.27"/>
+<text text-anchor="middle" x="1193.5" y="-25.07" font-family="Times,serif" font-size="14.00">Workflow Outputs</text>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#fastq_list_rows_germline -->
+<!-- file:///tmp/tmp068ng82r#output_directory_germline -->
 <g id="node1" class="node">
-<title>file:///tmp/tmpoil6o2bo#fastq_list_rows_germline</title>
-<g id="a_node1"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
-<polygon fill="#94ddf4" stroke="black" points="672,-751.77 672,-788.77 866,-788.77 866,-751.77 672,-751.77"/>
-<text text-anchor="middle" x="769" y="-766.57" font-family="Times,serif" font-size="14.00">fastq_list_rows_germline</text>
+<title>file:///tmp/tmp068ng82r#output_directory_germline</title>
+<g id="a_node1"><a xlink:title="The directory where all output files are placed&#10;">
+<polygon fill="#94ddf4" stroke="black" points="447,-751.77 447,-788.77 653,-788.77 653,-751.77 447,-751.77"/>
+<text text-anchor="middle" x="550" y="-766.57" font-family="Times,serif" font-size="14.00">output_directory_germline</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step -->
-<g id="node10" class="node">
-<title>file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step</title>
-<g id="a_node10"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md" xlink:title="Run the dragen germline workflow against the normal fastq.&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="434,-585.77 434,-622.77 690,-622.77 690,-585.77 434,-585.77"/>
-<text text-anchor="middle" x="562" y="-600.57" font-family="Times,serif" font-size="14.00">dragen&#45;germline&#45;pipeline v(3.9.3)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#fastq_list_rows_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step -->
-<g id="edge5" class="edge">
-<title>file:///tmp/tmpoil6o2bo#fastq_list_rows_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step</title>
-<path fill="none" stroke="black" d="M746.85,-751.72C709.59,-722.2 634.36,-662.59 592.26,-629.24"/>
-<polygon fill="black" stroke="black" points="594.32,-626.41 584.31,-622.94 589.97,-631.89 594.32,-626.41"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
-<g id="node11" class="node">
-<title>file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<g id="a_node11"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md" xlink:title="Run the umccrise pipeline using the input somatic directory and output from the dragen germline step&#10;">
-<polygon fill="lightgoldenrodyellow" stroke="black" points="1081,-266.77 1081,-303.77 1239,-303.77 1239,-266.77 1081,-266.77"/>
-<text text-anchor="middle" x="1160" y="-281.57" font-family="Times,serif" font-size="14.00">umccrise v(2.0.0&#45;&#45;0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#fastq_list_rows_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
-<g id="edge6" class="edge">
-<title>file:///tmp/tmpoil6o2bo#fastq_list_rows_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<path fill="none" stroke="black" d="M783.38,-751.5C842.78,-678.13 1069.2,-398.43 1139.23,-311.92"/>
-<polygon fill="black" stroke="black" points="1142.12,-313.91 1145.7,-303.94 1136.68,-309.51 1142.12,-313.91"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#output_directory_germline -->
-<g id="node2" class="node">
-<title>file:///tmp/tmpoil6o2bo#output_directory_germline</title>
-<g id="a_node2"><a xlink:title="The directory where all output files are placed&#10;">
-<polygon fill="#94ddf4" stroke="black" points="246,-751.77 246,-788.77 452,-788.77 452,-751.77 246,-751.77"/>
-<text text-anchor="middle" x="349" y="-766.57" font-family="Times,serif" font-size="14.00">output_directory_germline</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#output_directory_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step -->
-<g id="edge7" class="edge">
-<title>file:///tmp/tmpoil6o2bo#output_directory_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step</title>
-<path fill="none" stroke="black" d="M371.79,-751.72C410.13,-722.2 487.55,-662.59 530.86,-629.24"/>
-<polygon fill="black" stroke="black" points="533.26,-631.81 539.05,-622.94 528.99,-626.27 533.26,-631.81"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#output_file_prefix_germline -->
-<g id="node3" class="node">
-<title>file:///tmp/tmpoil6o2bo#output_file_prefix_germline</title>
-<g id="a_node3"><a xlink:title="The prefix given to all output files&#10;">
-<polygon fill="#94ddf4" stroke="black" points="16.5,-751.77 16.5,-788.77 227.5,-788.77 227.5,-751.77 16.5,-751.77"/>
-<text text-anchor="middle" x="122" y="-766.57" font-family="Times,serif" font-size="14.00">output_file_prefix_germline</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#output_file_prefix_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step -->
-<g id="edge8" class="edge">
-<title>file:///tmp/tmpoil6o2bo#output_file_prefix_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step</title>
-<path fill="none" stroke="black" d="M161.4,-751.76C183.49,-742.12 211.62,-730.15 237,-720.27 327.45,-685.04 433.72,-648.29 499.48,-626.09"/>
-<polygon fill="black" stroke="black" points="500.92,-629.3 509.28,-622.79 498.68,-622.66 500.92,-629.3"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#reference_tar_umccrise -->
-<g id="node4" class="node">
-<title>file:///tmp/tmpoil6o2bo#reference_tar_umccrise</title>
-<g id="a_node4"><a xlink:title="The reference tar ball for umccrise&#10;">
-<polygon fill="#94ddf4" stroke="black" points="884,-751.77 884,-788.77 1068,-788.77 1068,-751.77 884,-751.77"/>
-<text text-anchor="middle" x="976" y="-766.57" font-family="Times,serif" font-size="14.00">reference_tar_umccrise</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#reference_tar_umccrise&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
-<g id="edge9" class="edge">
-<title>file:///tmp/tmpoil6o2bo#reference_tar_umccrise&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<path fill="none" stroke="black" d="M982.77,-751.5C1010.55,-678.57 1115.98,-401.81 1149.62,-313.51"/>
-<polygon fill="black" stroke="black" points="1152.98,-314.53 1153.27,-303.94 1146.44,-312.03 1152.98,-314.53"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#reference_tar_germline -->
-<g id="node5" class="node">
-<title>file:///tmp/tmpoil6o2bo#reference_tar_germline</title>
-<g id="a_node5"><a xlink:title="Path to ref data tarball&#10;">
-<polygon fill="#94ddf4" stroke="black" points="470.5,-751.77 470.5,-788.77 653.5,-788.77 653.5,-751.77 470.5,-751.77"/>
-<text text-anchor="middle" x="562" y="-766.57" font-family="Times,serif" font-size="14.00">reference_tar_germline</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#reference_tar_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step -->
-<g id="edge10" class="edge">
-<title>file:///tmp/tmpoil6o2bo#reference_tar_germline&#45;&gt;file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step</title>
-<path fill="none" stroke="black" d="M562,-751.72C562,-723.38 562,-667.32 562,-633.37"/>
-<polygon fill="black" stroke="black" points="565.5,-633.19 562,-623.19 558.5,-633.19 565.5,-633.19"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#subject_identifier_umccrise -->
-<g id="node6" class="node">
-<title>file:///tmp/tmpoil6o2bo#subject_identifier_umccrise</title>
-<g id="a_node6"><a xlink:title="The subject identifier for umccrise to use on output files&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1086,-751.77 1086,-788.77 1298,-788.77 1298,-751.77 1086,-751.77"/>
-<text text-anchor="middle" x="1192" y="-766.57" font-family="Times,serif" font-size="14.00">subject_identifier_umccrise</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#subject_identifier_umccrise&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
-<g id="edge11" class="edge">
-<title>file:///tmp/tmpoil6o2bo#subject_identifier_umccrise&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<path fill="none" stroke="black" d="M1190.82,-751.5C1186,-678.72 1167.73,-402.93 1161.84,-314.05"/>
-<polygon fill="black" stroke="black" points="1165.32,-313.68 1161.17,-303.94 1158.34,-314.15 1165.32,-313.68"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#dragen_somatic_directory -->
-<g id="node7" class="node">
-<title>file:///tmp/tmpoil6o2bo#dragen_somatic_directory</title>
-<g id="a_node7"><a xlink:title="The output from the dragen somatic workflow&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1316.5,-751.77 1316.5,-788.77 1517.5,-788.77 1517.5,-751.77 1316.5,-751.77"/>
-<text text-anchor="middle" x="1417" y="-766.57" font-family="Times,serif" font-size="14.00">dragen_somatic_directory</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#dragen_somatic_directory&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
-<g id="edge12" class="edge">
-<title>file:///tmp/tmpoil6o2bo#dragen_somatic_directory&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<path fill="none" stroke="black" d="M1399.1,-751.65C1373.14,-725.41 1324.57,-673.73 1292,-623.27 1224.33,-518.43 1182.22,-373.46 1166.73,-313.7"/>
-<polygon fill="black" stroke="black" points="1170.09,-312.71 1164.23,-303.89 1163.31,-314.44 1170.09,-312.71"/>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#get_tumor_bam_file_from_somatic_directory -->
+<!-- file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step -->
 <g id="node13" class="node">
-<title>file:///tmp/tmpoil6o2bo#get_tumor_bam_file_from_somatic_directory</title>
-<g id="a_node13"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/get-file-from-directory-with-regex/1.0.0/get-file-from-directory-with-regex__1.0.0.md" xlink:title="Get the tumor bam file from the dragen somatic directory&#10;(so we can then in turn get the sample name value from the bam header)&#10;">
-<polygon fill="#ee9a00" stroke="black" points="1300.5,-585.77 1300.5,-622.77 1533.5,-622.77 1533.5,-585.77 1300.5,-585.77"/>
-<text text-anchor="middle" x="1417" y="-600.57" font-family="Times,serif" font-size="14.00">get&#45;file&#45;from&#45;directory v(1.0.0)</text>
+<title>file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step</title>
+<g id="a_node13"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md" xlink:title="Run the dragen germline workflow against the normal fastq.&#10;">
+<polygon fill="#ee7ae9" stroke="black" points="422,-585.77 422,-622.77 678,-622.77 678,-585.77 422,-585.77"/>
+<text text-anchor="middle" x="550" y="-600.57" font-family="Times,serif" font-size="14.00">dragen&#45;germline&#45;pipeline v(3.9.3)</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#dragen_somatic_directory&#45;&gt;file:///tmp/tmpoil6o2bo#get_tumor_bam_file_from_somatic_directory -->
-<g id="edge13" class="edge">
-<title>file:///tmp/tmpoil6o2bo#dragen_somatic_directory&#45;&gt;file:///tmp/tmpoil6o2bo#get_tumor_bam_file_from_somatic_directory</title>
-<path fill="none" stroke="black" d="M1417,-751.72C1417,-723.38 1417,-667.32 1417,-633.37"/>
-<polygon fill="black" stroke="black" points="1420.5,-633.19 1417,-623.19 1413.5,-633.19 1420.5,-633.19"/>
+<!-- file:///tmp/tmp068ng82r#output_directory_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step -->
+<g id="edge5" class="edge">
+<title>file:///tmp/tmp068ng82r#output_directory_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step</title>
+<path fill="none" stroke="black" d="M550,-751.72C550,-723.38 550,-667.32 550,-633.37"/>
+<polygon fill="black" stroke="black" points="553.5,-633.19 550,-623.19 546.5,-633.19 553.5,-633.19"/>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#output_directory_umccrise -->
+<!-- file:///tmp/tmp068ng82r#output_file_prefix_germline -->
+<g id="node2" class="node">
+<title>file:///tmp/tmp068ng82r#output_file_prefix_germline</title>
+<g id="a_node2"><a xlink:title="The prefix given to all output files&#10;">
+<polygon fill="#94ddf4" stroke="black" points="217.5,-751.77 217.5,-788.77 428.5,-788.77 428.5,-751.77 217.5,-751.77"/>
+<text text-anchor="middle" x="323" y="-766.57" font-family="Times,serif" font-size="14.00">output_file_prefix_germline</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#output_file_prefix_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step -->
+<g id="edge6" class="edge">
+<title>file:///tmp/tmp068ng82r#output_file_prefix_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step</title>
+<path fill="none" stroke="black" d="M347.29,-751.72C388.32,-722.08 471.34,-662.09 517.39,-628.83"/>
+<polygon fill="black" stroke="black" points="519.48,-631.63 525.54,-622.94 515.38,-625.96 519.48,-631.63"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#fastq_list_rows_germline -->
+<g id="node3" class="node">
+<title>file:///tmp/tmp068ng82r#fastq_list_rows_germline</title>
+<g id="a_node3"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
+<polygon fill="#94ddf4" stroke="black" points="671,-751.77 671,-788.77 865,-788.77 865,-751.77 671,-751.77"/>
+<text text-anchor="middle" x="768" y="-766.57" font-family="Times,serif" font-size="14.00">fastq_list_rows_germline</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
+<g id="node12" class="node">
+<title>file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<g id="a_node12"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md" xlink:title="Run the umccrise pipeline using the input somatic directory and output from the dragen germline step&#10;">
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1075,-266.77 1075,-303.77 1233,-303.77 1233,-266.77 1075,-266.77"/>
+<text text-anchor="middle" x="1154" y="-281.57" font-family="Times,serif" font-size="14.00">umccrise v(2.0.0&#45;&#45;0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#fastq_list_rows_germline&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
+<g id="edge7" class="edge">
+<title>file:///tmp/tmp068ng82r#fastq_list_rows_germline&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<path fill="none" stroke="black" d="M772.8,-751.58C788.26,-697.28 841.29,-530.28 935,-425.27 982.6,-371.92 1055.4,-331.28 1103.82,-308.1"/>
+<polygon fill="black" stroke="black" points="1105.31,-311.27 1112.87,-303.84 1102.33,-304.94 1105.31,-311.27"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#fastq_list_rows_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step -->
+<g id="edge8" class="edge">
+<title>file:///tmp/tmp068ng82r#fastq_list_rows_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step</title>
+<path fill="none" stroke="black" d="M744.67,-751.72C705.35,-722.14 625.87,-662.34 581.59,-629.03"/>
+<polygon fill="black" stroke="black" points="583.59,-626.15 573.49,-622.94 579.38,-631.75 583.59,-626.15"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#reference_tar_umccrise -->
+<g id="node4" class="node">
+<title>file:///tmp/tmp068ng82r#reference_tar_umccrise</title>
+<g id="a_node4"><a xlink:title="The reference tar ball for umccrise&#10;">
+<polygon fill="#94ddf4" stroke="black" points="883,-751.77 883,-788.77 1067,-788.77 1067,-751.77 883,-751.77"/>
+<text text-anchor="middle" x="975" y="-766.57" font-family="Times,serif" font-size="14.00">reference_tar_umccrise</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#reference_tar_umccrise&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
+<g id="edge9" class="edge">
+<title>file:///tmp/tmp068ng82r#reference_tar_umccrise&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<path fill="none" stroke="black" d="M967.86,-751.49C947.7,-698.29 895.51,-537.15 954,-425.27 983.94,-368 1049.4,-329.58 1097.3,-307.9"/>
+<polygon fill="black" stroke="black" points="1098.9,-311.02 1106.64,-303.79 1096.07,-304.62 1098.9,-311.02"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#dragen_somatic_directory -->
+<g id="node5" class="node">
+<title>file:///tmp/tmp068ng82r#dragen_somatic_directory</title>
+<g id="a_node5"><a xlink:title="The output from the dragen somatic workflow&#10;">
+<polygon fill="#94ddf4" stroke="black" points="1085.5,-751.77 1085.5,-788.77 1286.5,-788.77 1286.5,-751.77 1085.5,-751.77"/>
+<text text-anchor="middle" x="1186" y="-766.57" font-family="Times,serif" font-size="14.00">dragen_somatic_directory</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#get_tumor_bam_file_from_somatic_directory -->
+<g id="node10" class="node">
+<title>file:///tmp/tmp068ng82r#get_tumor_bam_file_from_somatic_directory</title>
+<g id="a_node10"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/get-file-from-directory-with-regex/1.0.0/get-file-from-directory-with-regex__1.0.0.md" xlink:title="Get the tumor bam file from the dragen somatic directory&#10;(so we can then in turn get the sample name value from the bam header)&#10;">
+<polygon fill="#ee9a00" stroke="black" points="1053.5,-585.77 1053.5,-622.77 1286.5,-622.77 1286.5,-585.77 1053.5,-585.77"/>
+<text text-anchor="middle" x="1170" y="-600.57" font-family="Times,serif" font-size="14.00">get&#45;file&#45;from&#45;directory v(1.0.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#dragen_somatic_directory&#45;&gt;file:///tmp/tmp068ng82r#get_tumor_bam_file_from_somatic_directory -->
+<g id="edge10" class="edge">
+<title>file:///tmp/tmp068ng82r#dragen_somatic_directory&#45;&gt;file:///tmp/tmp068ng82r#get_tumor_bam_file_from_somatic_directory</title>
+<path fill="none" stroke="black" d="M1184.29,-751.72C1181.52,-723.38 1176.05,-667.32 1172.74,-633.37"/>
+<polygon fill="black" stroke="black" points="1176.2,-632.8 1171.75,-623.19 1169.24,-633.48 1176.2,-632.8"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#dragen_somatic_directory&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
+<g id="edge11" class="edge">
+<title>file:///tmp/tmp068ng82r#dragen_somatic_directory&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<path fill="none" stroke="black" d="M1207,-751.55C1264.92,-700.48 1418.51,-548.66 1354,-425.27 1324.06,-368 1258.6,-329.58 1210.7,-307.9"/>
+<polygon fill="black" stroke="black" points="1211.93,-304.62 1201.36,-303.79 1209.1,-311.02 1211.93,-304.62"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#subject_identifier_umccrise -->
+<g id="node6" class="node">
+<title>file:///tmp/tmp068ng82r#subject_identifier_umccrise</title>
+<g id="a_node6"><a xlink:title="The subject identifier for umccrise to use on output files&#10;">
+<polygon fill="#94ddf4" stroke="black" points="1305,-751.77 1305,-788.77 1517,-788.77 1517,-751.77 1305,-751.77"/>
+<text text-anchor="middle" x="1411" y="-766.57" font-family="Times,serif" font-size="14.00">subject_identifier_umccrise</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#subject_identifier_umccrise&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
+<g id="edge12" class="edge">
+<title>file:///tmp/tmp068ng82r#subject_identifier_umccrise&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<path fill="none" stroke="black" d="M1414.12,-751.47C1422.61,-697.55 1441.18,-533.09 1374,-425.27 1337.67,-366.97 1266.9,-328.89 1215.41,-307.58"/>
+<polygon fill="black" stroke="black" points="1216.61,-304.29 1206.03,-303.79 1213.99,-310.78 1216.61,-304.29"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#reference_tar_germline -->
+<g id="node7" class="node">
+<title>file:///tmp/tmp068ng82r#reference_tar_germline</title>
+<g id="a_node7"><a xlink:title="Path to ref data tarball&#10;">
+<polygon fill="#94ddf4" stroke="black" points="16.5,-751.77 16.5,-788.77 199.5,-788.77 199.5,-751.77 16.5,-751.77"/>
+<text text-anchor="middle" x="108" y="-766.57" font-family="Times,serif" font-size="14.00">reference_tar_germline</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#reference_tar_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step -->
+<g id="edge13" class="edge">
+<title>file:///tmp/tmp068ng82r#reference_tar_germline&#45;&gt;file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step</title>
+<path fill="none" stroke="black" d="M141.29,-751.59C160.5,-741.73 185.29,-729.6 208,-720.27 300.55,-682.22 410.76,-646.88 480.55,-625.68"/>
+<polygon fill="black" stroke="black" points="481.57,-629.03 490.13,-622.79 479.54,-622.33 481.57,-629.03"/>
+</g>
+<!-- file:///tmp/tmp068ng82r#output_directory_umccrise -->
 <g id="node8" class="node">
-<title>file:///tmp/tmpoil6o2bo#output_directory_umccrise</title>
+<title>file:///tmp/tmp068ng82r#output_directory_umccrise</title>
 <g id="a_node8"><a xlink:title="The name of the output directory used for umccrise step&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1535.5,-751.77 1535.5,-788.77 1742.5,-788.77 1742.5,-751.77 1535.5,-751.77"/>
 <text text-anchor="middle" x="1639" y="-766.57" font-family="Times,serif" font-size="14.00">output_directory_umccrise</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#output_directory_umccrise&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
+<!-- file:///tmp/tmp068ng82r#output_directory_umccrise&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
 <g id="edge14" class="edge">
-<title>file:///tmp/tmpoil6o2bo#output_directory_umccrise&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<path fill="none" stroke="black" d="M1644.15,-751.48C1658.99,-696.18 1695.94,-524.97 1617,-425.27 1571.25,-367.48 1368.7,-322.93 1249.16,-301.09"/>
-<polygon fill="black" stroke="black" points="1249.74,-297.64 1239.28,-299.3 1248.5,-304.53 1249.74,-297.64"/>
+<title>file:///tmp/tmp068ng82r#output_directory_umccrise&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<path fill="none" stroke="black" d="M1630.15,-751.51C1602.31,-697.01 1511.46,-529.5 1397,-425.27 1339.49,-372.9 1258.92,-331.68 1206.59,-308.14"/>
+<polygon fill="black" stroke="black" points="1207.72,-304.81 1197.16,-303.95 1204.88,-311.21 1207.72,-304.81"/>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#umccrise_output_directory -->
+<!-- file:///tmp/tmp068ng82r#umccrise_output_directory -->
 <g id="node9" class="node">
-<title>file:///tmp/tmpoil6o2bo#umccrise_output_directory</title>
+<title>file:///tmp/tmp068ng82r#umccrise_output_directory</title>
 <g id="a_node9"><a xlink:title="The output directory containing all umccrise output files&#10;">
-<polygon fill="#94ddf4" stroke="black" points="1056.5,-106.77 1056.5,-143.77 1263.5,-143.77 1263.5,-106.77 1056.5,-106.77"/>
-<text text-anchor="middle" x="1160" y="-121.57" font-family="Times,serif" font-size="14.00">umccrise_output_directory</text>
+<polygon fill="#94ddf4" stroke="black" points="1050.5,-106.77 1050.5,-143.77 1257.5,-143.77 1257.5,-106.77 1050.5,-106.77"/>
+<text text-anchor="middle" x="1154" y="-121.57" font-family="Times,serif" font-size="14.00">umccrise_output_directory</text>
 </a>
 </g>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
+<!-- file:///tmp/tmp068ng82r#get_tumor_name_from_bam_header -->
+<g id="node11" class="node">
+<title>file:///tmp/tmp068ng82r#get_tumor_name_from_bam_header</title>
+<g id="a_node11"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-get-sample-name-from-bam-header/1.0.0/custom-get-sample-name-from-bam-header__1.0.0.md" xlink:title="Get the tumor name from the bam header.&#10;">
+<polygon fill="lightgoldenrodyellow" stroke="black" points="963,-425.77 963,-462.77 1345,-462.77 1345,-425.77 963,-425.77"/>
+<text text-anchor="middle" x="1154" y="-440.57" font-family="Times,serif" font-size="14.00">custom&#45;get&#45;sample&#45;name&#45;from&#45;bam&#45;header v(1.0.0)</text>
+</a>
+</g>
+</g>
+<!-- file:///tmp/tmp068ng82r#get_tumor_bam_file_from_somatic_directory&#45;&gt;file:///tmp/tmp068ng82r#get_tumor_name_from_bam_header -->
 <g id="edge1" class="edge">
-<title>file:///tmp/tmpoil6o2bo#run_dragen_germline_pipeline_step&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<path fill="none" stroke="black" d="M586.38,-585.66C633.65,-551.99 741.65,-477.18 839,-425.27 928.71,-377.43 1038.36,-332.72 1103.51,-307.5"/>
-<polygon fill="black" stroke="black" points="1105.11,-310.63 1113.18,-303.77 1102.59,-304.1 1105.11,-310.63"/>
+<title>file:///tmp/tmp068ng82r#get_tumor_bam_file_from_somatic_directory&#45;&gt;file:///tmp/tmp068ng82r#get_tumor_name_from_bam_header</title>
+<path fill="none" stroke="black" d="M1168.23,-585.75C1165.46,-558.47 1160.11,-505.57 1156.81,-473.04"/>
+<polygon fill="black" stroke="black" points="1160.27,-472.45 1155.78,-462.86 1153.31,-473.16 1160.27,-472.45"/>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step&#45;&gt;file:///tmp/tmpoil6o2bo#umccrise_output_directory -->
+<!-- file:///tmp/tmp068ng82r#get_tumor_name_from_bam_header&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
 <g id="edge2" class="edge">
-<title>file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step&#45;&gt;file:///tmp/tmpoil6o2bo#umccrise_output_directory</title>
-<path fill="none" stroke="black" d="M1160,-266.75C1160,-239.47 1160,-186.57 1160,-154.04"/>
-<polygon fill="black" stroke="black" points="1163.5,-153.86 1160,-143.86 1156.5,-153.86 1163.5,-153.86"/>
+<title>file:///tmp/tmp068ng82r#get_tumor_name_from_bam_header&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<path fill="none" stroke="black" d="M1154,-425.56C1154,-398.47 1154,-346.49 1154,-314.26"/>
+<polygon fill="black" stroke="black" points="1157.5,-314.15 1154,-304.15 1150.5,-314.15 1157.5,-314.15"/>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#get_tumor_name_from_bam_header -->
-<g id="node12" class="node">
-<title>file:///tmp/tmpoil6o2bo#get_tumor_name_from_bam_header</title>
-<g id="a_node12"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-get-sample-name-from-bam-header/1.0.0/custom-get-sample-name-from-bam-header__1.0.0.md" xlink:title="Get the tumor name from the bam header.&#10;">
-<polygon fill="lightgoldenrodyellow" stroke="black" points="1226,-425.77 1226,-462.77 1608,-462.77 1608,-425.77 1226,-425.77"/>
-<text text-anchor="middle" x="1417" y="-440.57" font-family="Times,serif" font-size="14.00">custom&#45;get&#45;sample&#45;name&#45;from&#45;bam&#45;header v(1.0.0)</text>
-</a>
-</g>
-</g>
-<!-- file:///tmp/tmpoil6o2bo#get_tumor_name_from_bam_header&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step -->
+<!-- file:///tmp/tmp068ng82r#run_umccrise_pipeline_step&#45;&gt;file:///tmp/tmp068ng82r#umccrise_output_directory -->
 <g id="edge3" class="edge">
-<title>file:///tmp/tmpoil6o2bo#get_tumor_name_from_bam_header&#45;&gt;file:///tmp/tmpoil6o2bo#run_umccrise_pipeline_step</title>
-<path fill="none" stroke="black" d="M1388.02,-425.56C1341.23,-396.98 1249.1,-340.7 1197.42,-309.13"/>
-<polygon fill="black" stroke="black" points="1199.23,-306.13 1188.88,-303.91 1195.58,-312.11 1199.23,-306.13"/>
+<title>file:///tmp/tmp068ng82r#run_umccrise_pipeline_step&#45;&gt;file:///tmp/tmp068ng82r#umccrise_output_directory</title>
+<path fill="none" stroke="black" d="M1154,-266.75C1154,-239.47 1154,-186.57 1154,-154.04"/>
+<polygon fill="black" stroke="black" points="1157.5,-153.86 1154,-143.86 1150.5,-153.86 1157.5,-153.86"/>
 </g>
-<!-- file:///tmp/tmpoil6o2bo#get_tumor_bam_file_from_somatic_directory&#45;&gt;file:///tmp/tmpoil6o2bo#get_tumor_name_from_bam_header -->
+<!-- file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step -->
 <g id="edge4" class="edge">
-<title>file:///tmp/tmpoil6o2bo#get_tumor_bam_file_from_somatic_directory&#45;&gt;file:///tmp/tmpoil6o2bo#get_tumor_name_from_bam_header</title>
-<path fill="none" stroke="black" d="M1417,-585.75C1417,-558.47 1417,-505.57 1417,-473.04"/>
-<polygon fill="black" stroke="black" points="1420.5,-472.86 1417,-462.86 1413.5,-472.86 1420.5,-472.86"/>
+<title>file:///tmp/tmp068ng82r#run_dragen_germline_pipeline_step&#45;&gt;file:///tmp/tmp068ng82r#run_umccrise_pipeline_step</title>
+<path fill="none" stroke="black" d="M573.06,-585.7C618.3,-551.76 722.6,-476.06 818,-425.27 910.68,-375.92 1024.76,-332.02 1093.31,-307.32"/>
+<polygon fill="black" stroke="black" points="1094.85,-310.49 1103.08,-303.82 1092.49,-303.9 1094.85,-310.49"/>
 </g>
 </g>
 </svg>
