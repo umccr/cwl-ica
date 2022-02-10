@@ -46,5 +46,5 @@ outputs:
 
 expression: |
   ${
-  return {"output_directory": {"class": "Directory", "basename": inputs.output_directory_name, "listing": input_directories}};
+  return {"output_directory": {"class": "Directory", "basename": inputs.output_directory_name, "listing": inputs.input_directories}};
   }

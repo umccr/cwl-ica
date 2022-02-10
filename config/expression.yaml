@@ -84,5 +84,5 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/create-single-directory-from-directories-array__1.0.0.cwl
-        md5sum: 4bd871a33ed1a7b02768797ebc39a440
+        md5sum: a60fd0524deeff885681f188c5192bc3
     categories: []

@@ -117,6 +117,12 @@ inputs:
     type: File
     doc: |
       GFF3 file containing the genomic coordinates of protein domains.
+  # multiQC input
+  qc_reference_samples:
+    label: qc reference samples
+    type: Directory[]
+    doc: |
+      Reference samples for multiQC report
   # Collect outputs
   output_directory_name_arriba:
     label: output directory name arriba
@@ -237,7 +243,18 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-  # Step-7: Create multiQC report
+  # Step-7: Create single directory for QC reference samples
+  create_single_qc_reference_samples_directory:
+    label: create single qc reference samples directory
+    doc: |
+      Create a single directory with reference samples
+    in:
+      input_directories:
+        source: qc_reference_samples
+    out:
+      - id: output_directory
+    run: ../../../expressions/create-single-directory-from-directories-array/1.0.0/create-single-directory-from-directories-array__1.0.0.cwl
+  # Step-8: Create multiQC report
   dragen_qc_step:
     label: dragen qc step
     doc: |
@@ -247,11 +264,9 @@ steps:
         dockerPull: quay.io/umccr/multiqc-dragen:1.12-dev 
     in:
       input_directories:
-        source: run_dragen_transcriptome_step/dragen_transcriptome_directory
-        valueFrom: |
-          ${
-            return [self];
-          }
+        source:
+          - run_dragen_transcriptome_step/dragen_transcriptome_directory
+          - create_single_qc_reference_samples_directory/output_directory
       output_directory_name:
         source: output_file_prefix
         valueFrom: "$(self)_dragen_transcriptome_multiqc"
@@ -265,6 +280,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
+      - id: output_file
     run: ../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl
 
 outputs:
