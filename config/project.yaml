@@ -114,7 +114,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-germline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-11-19T02:43:01UTC
+            modification_time: 2022-02-08T01:04:09UTC
             run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
@@ -351,7 +351,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-11-19T02:43:51UTC
+            modification_time: 2022-02-08T01:11:22UTC
             run_instances:
               - wfr.d058e5f7be4b4683a9b1a59b8f67f91b
               - wfr.4759b2ccf6234141b06d5aab5b932dbb
@@ -504,7 +504,7 @@ projects:
           - name: 2.0.0--3.9.3
             path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
             ica_workflow_version_name: 2.0.0--3.9.3
-            modification_time: 2022-02-03T07:07:42UTC
+            modification_time: 2022-02-08T01:11:43UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
@@ -793,6 +793,11 @@ projects:
             path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
             ica_workflow_version_name: 2.0.0--3.9.3--34c1773
             modification_time: 2022-02-03T07:07:58UTC
+            run_instances: []
+          - name: 2.0.0--3.9.3
+            path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
+            ica_workflow_version_name: 2.0.0--3.9.3--1290c17
+            modification_time: 2022-02-08T01:11:55UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21

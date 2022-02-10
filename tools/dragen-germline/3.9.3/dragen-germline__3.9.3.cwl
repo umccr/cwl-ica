@@ -128,52 +128,73 @@ requirements:
           Get full set of keys and values
           */
           var all_keys = [];
-          var all_values = [];
+          var all_row_values = [];
           
-          fastq_list_rows_object.forEach(function(item) {
-            var items = Object.keys(item);
-            var all_values_tmp = [];
-            items.forEach(function(key) {
-              all_keys.push(key);
-              if (item[key] === null){
-                all_values_tmp.push("");
-            } else if ( item[key] !== null && item[key].class === "File" ){
-                all_values_tmp.push(item[key].path);
-            } else {
-                all_values_tmp.push(item[key]);
+          /*
+          Get all keys from all rows
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect all possible key values
+              */
+              var row_keys = Object.keys(fastq_list_row);
+              all_keys = all_keys.concat(row_keys);
             }
-          });
-            all_values.push(all_values_tmp)
-          });
-
+          );
+        
           /*
           Unique keys - this will be the header of the csv
           */
-          var keys_set = get_unique_elements_of_list(all_keys);
+          var all_unique_keys = get_unique_elements_of_list(all_keys);
+
+          /*
+          Now get items from each fastq list rows object for each key
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+            /*
+            Iterate over all fastq list rows and collect item for each key
+            */
+            var row_values = [];
+        
+            all_unique_keys.forEach(
+              function(key){
+                if (fastq_list_row[key] === null){
+                  row_values.push("");
+                } else if ( fastq_list_row[key] !== null && fastq_list_row[key].class === "File" ){
+                  row_values.push(fastq_list_row[key].path);
+                } else {
+                  row_values.push(fastq_list_row[key]);
+                }
+              }
+            );
+            all_row_values.push(row_values)
+          });
 
           /*
           Update rglb, rgsm and rgid to RGLB, RGSM and RGID respectively
           Update read_1 and read_2 to Read1File and Read2File in column headers
           Update lane to Lane
           */
-          var new_keys_set = [];
-          for (var key_iter=0; key_iter < keys_set.length; key_iter++ ){
-            var key_value = keys_set[key_iter];
+          var all_unique_keys_renamed = [];
+          for (var key_iter=0; key_iter < all_unique_keys.length; key_iter++ ){
+            var key_value = all_unique_keys[key_iter];
             if (key_value.indexOf("rg") === 0){
-              new_keys_set.push(key_value.toUpperCase());
+              all_unique_keys_renamed.push(key_value.toUpperCase());
             } else if (key_value === "read_1"){
-              new_keys_set.push("Read1File");
+              all_unique_keys_renamed.push("Read1File");
             } else if (key_value === "read_2"){
-              new_keys_set.push("Read2File");
+              all_unique_keys_renamed.push("Read2File");
             } else if (key_value === "lane"){
-              new_keys_set.push("Lane");
+              all_unique_keys_renamed.push("Lane");
             }
           }
 
           /*
           Return the string value of the csv
           */
-          return convert_to_csv(all_values, new_keys_set);
+          return convert_to_csv(all_row_values, all_unique_keys_renamed);
         }
 
   InitialWorkDirRequirement:
@@ -208,10 +229,7 @@ requirements:
         ${
           /*
           Add in the fastq list csv we created
-          */
-        
-          var e = [];
-        
+          */        
           if (inputs.fastq_list_rows !== null){
             return {
                       "entryname": get_fastq_list_csv_path(),
