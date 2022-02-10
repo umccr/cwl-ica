@@ -19,7 +19,7 @@ bcl-conversion 3.7.5 workflow
 
   
 > ID: bcl-conversion--3.7.5  
-> md5sum: b2706702f99a6b3d934b4e667f7a4eb7
+> md5sum: c6f25b70a6ed2438d4480993d47fe5a9
 
 ### bcl-conversion v(3.7.5) documentation
   
@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f99b9b5c2e0>`  
+**Type:** `[ v1 | v2 ]`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
@@ -1445,7 +1445,7 @@ bash wfr.d9ddc8eb7d544d32bdbe285fd45a4365.launch.sh
 
   
 **workflow name:** bcl-conversion_prod-wf  
-**wfl version name:** 3.7.5--e868619  
+**wfl version name:** 3.7.5--fade666  
 
   
 
