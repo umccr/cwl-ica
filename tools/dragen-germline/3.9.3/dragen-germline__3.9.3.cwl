@@ -153,21 +153,21 @@ requirements:
           */
           fastq_list_rows_object.forEach(
             function(fastq_list_row) {
-            /*
-            Iterate over all fastq list rows and collect item for each key
-            */
-            var row_values = [];
-        
-            all_unique_keys.forEach(
-              function(key){
-                if (fastq_list_row[key] === null){
-                  row_values.push("");
-                } else if ( fastq_list_row[key] !== null && fastq_list_row[key].class === "File" ){
-                  row_values.push(fastq_list_row[key].path);
-                } else {
-                  row_values.push(fastq_list_row[key]);
+              /*
+              Iterate over all fastq list rows and collect item for each key
+              */
+              var row_values = [];
+          
+              all_unique_keys.forEach(
+                function(key){
+                  if (fastq_list_row[key] === null){
+                    row_values.push("");
+                  } else if ( fastq_list_row[key] !== null && fastq_list_row[key].class === "File" ){
+                    row_values.push(fastq_list_row[key].path);
+                  } else {
+                    row_values.push(fastq_list_row[key]);
+                  }
                 }
-              }
             );
             all_row_values.push(row_values)
           });
