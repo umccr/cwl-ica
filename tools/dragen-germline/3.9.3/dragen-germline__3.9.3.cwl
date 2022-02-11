@@ -196,7 +196,6 @@ requirements:
           */
           return convert_to_csv(all_row_values, all_unique_keys_renamed);
         }
-
   InitialWorkDirRequirement:
     listing:
       - entryname: $(get_script_path())
