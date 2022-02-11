@@ -125,89 +125,77 @@ requirements:
       - var get_fastq_list_csv_contents_from_fastq_list_rows_object = function(fastq_list_rows_object){
           /*
           Get the fastq list csv contents
-          */
-          var ordered_list = [];
-
-          /*
-          Get full set of keys
+          Get full set of keys and values
           */
           var all_keys = [];
-          for (var fastq_list_row_iter=0; fastq_list_row_iter < fastq_list_rows_object.length; fastq_list_row_iter++ ){
-            var row_keys = Object.keys(fastq_list_rows_object[fastq_list_row_iter]);
-            for (var row_keys_iter=0; row_keys_iter < row_keys.length; row_keys_iter++ ){
-              var row_key_value = row_keys[row_keys_iter];
-              var cell_keys_value = fastq_list_rows_object[fastq_list_row_iter][row_key_value];
-              if (cell_keys_value !== null){
-                all_keys.push(row_keys[row_keys_iter]);
-              }
+          var all_row_values = [];
+          
+          /*
+          Get all keys from all rows
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect all possible key values
+              */
+              var row_keys = Object.keys(fastq_list_row);
+              all_keys = all_keys.concat(row_keys);
             }
-          }
-
+          );
+        
           /*
           Unique keys - this will be the header of the csv
           */
-          var keys_set = get_unique_elements_of_list(all_keys);
+          var all_unique_keys = get_unique_elements_of_list(all_keys);
 
           /*
-          Lets iterate over each fastq list row again and collect the unique keys
+          Now get items from each fastq list rows object for each key
           */
-          var rows_as_list = [];
-
-          for (var fastq_list_row_iter=0; fastq_list_row_iter < fastq_list_rows_object.length; fastq_list_row_iter++ ){
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
             /*
-            Check if class attribute exists and if it is a file, if so - collect location variable
+            Iterate over all fastq list rows and collect item for each key
             */
-            var row_as_list = [];
-
-            /*
-            Now iterate over our set of keys, check if it present for this row
-            */
-            for (var key_iter=0; key_iter < keys_set.length; key_iter++) {
-              var key_value = keys_set[key_iter]; 
-              var cell_value = fastq_list_rows_object[fastq_list_row_iter][key_value];
-              /*
-              Check key is present in this row
-              */
-              if (cell_value === null){
-                row_as_list.push("");
-              } else if ( cell_value.class !== null && cell_value.class === "File" ){
-                row_as_list.push(cell_value.path);
-              } else {
-                row_as_list.push(cell_value);
-              }
-            }
-
-            /*
-            Add this row to the list of rows
-            */
-            rows_as_list.push(row_as_list);
-          }
+            var row_values = [];
         
+            all_unique_keys.forEach(
+              function(key){
+                if (fastq_list_row[key] === null){
+                  row_values.push("");
+                } else if ( fastq_list_row[key] !== null && fastq_list_row[key].class === "File" ){
+                  row_values.push(fastq_list_row[key].path);
+                } else {
+                  row_values.push(fastq_list_row[key]);
+                }
+              }
+            );
+            all_row_values.push(row_values)
+          });
+
           /*
           Update rglb, rgsm and rgid to RGLB, RGSM and RGID respectively
           Update read_1 and read_2 to Read1File and Read2File in column headers
           Update lane to Lane
           */
-          var new_keys_set = [];
-          for (var key_iter=0; key_iter < keys_set.length; key_iter++ ){
-            var key_value = keys_set[key_iter];
+          var all_unique_keys_renamed = [];
+          for (var key_iter=0; key_iter < all_unique_keys.length; key_iter++ ){
+            var key_value = all_unique_keys[key_iter];
             if (key_value.indexOf("rg") === 0){
-              new_keys_set.push(key_value.toUpperCase());
+              all_unique_keys_renamed.push(key_value.toUpperCase());
             } else if (key_value === "read_1"){
-              new_keys_set.push("Read1File");
+              all_unique_keys_renamed.push("Read1File");
             } else if (key_value === "read_2"){
-              new_keys_set.push("Read2File");
+              all_unique_keys_renamed.push("Read2File");
             } else if (key_value === "lane"){
-              new_keys_set.push("Lane");
+              all_unique_keys_renamed.push("Lane");
             }
           }
-        
+
           /*
           Return the string value of the csv
           */
-          return convert_to_csv(rows_as_list, new_keys_set);
+          return convert_to_csv(all_row_values, all_unique_keys_renamed);
         }
-
   InitialWorkDirRequirement:
     listing:
       - entryname: $(get_script_path())
@@ -240,10 +228,7 @@ requirements:
         ${
           /*
           Add in the fastq list csv we created
-          */
-        
-          var e = [];
-        
+          */        
           if (inputs.fastq_list_rows !== null){
             return {
                       "entryname": get_fastq_list_csv_path(),
