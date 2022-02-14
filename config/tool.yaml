@@ -341,3 +341,27 @@ tools:
         path: 0.4.1/rnasum__0.4.1.cwl
         md5sum: 6ae4f94ffa8fe82fdefb3221d87ac842
     categories: []
+  - name: samtools-stats
+    path: samtools-stats
+    versions:
+      - name: 1.13.0
+        path: 1.13.0/samtools-stats__1.13.0.cwl
+        md5sum: e83bda8efb0b051ef9695ebe7ab45136
+    categories: []
+  - name: custom-stats-qc
+    path: custom-stats-qc
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-stats-qc__1.0.0.cwl
+        md5sum: 0d33056393a32a0c3033cba31f01f235
+      - name: 1.0.1
+        path: 1.0.1/custom-stats-qc__1.0.1.cwl
+        md5sum: 92896be3c3c72c53b30ff3f4c4359176
+    categories: []
+  - name: calculate-coverage
+    path: calculate-coverage
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/calculate-coverage__1.0.0.cwl
+        md5sum: d9d29572c4ac71741b90aa6444e122d0
+    categories: []
