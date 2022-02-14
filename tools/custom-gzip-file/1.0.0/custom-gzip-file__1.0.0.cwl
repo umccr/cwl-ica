@@ -31,7 +31,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: frolvlad/alpine-bash:latest
+        dockerPull: bash:5.1.12-alpine3.14
 
 requirements:
   InlineJavascriptRequirement: {}
