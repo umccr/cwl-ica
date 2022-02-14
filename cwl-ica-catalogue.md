@@ -23,6 +23,8 @@ UMCCR CWL-ICA Catalogue
 - [get-bam-file-from-directory](#get-bam-file-from-directory)  
 - [create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema](#create-predefined-mount-paths-and-umccrise-row-
 from-umccrise-schema)  
+- [get-custom-output-dir-entry-for-tso500-with-post-processing](#get-custom-output-dir-entry-for-tso500-with-post-
+processing)  
 
 
 ### get-faidx-file-from-reference-file
@@ -86,6 +88,7 @@ from-umccrise-schema)
 #### Versions
   
 - [1.0.0](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.md)  
+- [2.0.1](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.md)  
 
 
 ### get-bam-file-from-directory
@@ -101,6 +104,13 @@ from-umccrise-schema)
   
 - [1.2.1--0](.github/catalogue/docs/expressions/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema/1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.md)  
 - [1.2.2--0](.github/catalogue/docs/expressions/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema/1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.md)  
+
+
+### get-custom-output-dir-entry-for-tso500-with-post-processing
+
+#### Versions
+  
+- [2.0.1](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
 
 
 ## Tools
@@ -396,6 +406,7 @@ illumina-tar)
   
 - [1.0.0](.github/catalogue/docs/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [2.0.0](.github/catalogue/docs/tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
+- [2.0.1](.github/catalogue/docs/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
 
 
 ### dragen-build-reference-tarball

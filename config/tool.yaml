@@ -98,7 +98,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
-        md5sum: 63a6fd4082fe8d16c9d1b246c64970b1
+        md5sum: 335e34bd4711dc60f39e09242750b451
     categories:
       - tso500
   - name: tso500-ctdna-analysis-workflow
@@ -106,7 +106,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
-        md5sum: 75ddc3434449222471dce815dd9de02f
+        md5sum: 38f99b3a5459c372068e651c430f2bd2
     categories:
       - tso500
   - name: tso500-ctdna-reporting-workflow
@@ -215,7 +215,7 @@ tools:
         md5sum: 52557029b02ff7f5df78427603435985
       - name: 2.0.1
         path: 2.0.1/custom-create-directory__2.0.1.cwl
-        md5sum: 9ec24763a8a54f6b1af93a0c0bba0515
+        md5sum: 11ffa79fa2f884e34d3fef21c82c757a
     categories: []
   - name: dragen-build-reference-tarball
     path: dragen-build-reference-tarball
@@ -274,21 +274,21 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tar-vcf-file-list__1.0.0.cwl
-        md5sum: f10fea13b4459d8da5da415499771220
+        md5sum: f9a7059d182eae5763f9b6e26ae01671
     categories: []
   - name: custom-gzip-file
     path: custom-gzip-file
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-gzip-file__1.0.0.cwl
-        md5sum: f3152ef798d1afbeb2cdb652a8d8b9f8
+        md5sum: 2522f825917c0b7972bc385800f5d9e2
     categories: []
   - name: custom-tar-file-list
     path: custom-tar-file-list
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tar-file-list__1.0.0.cwl
-        md5sum: 5ef823e36fdca3e099facc3a7f91fb17
+        md5sum: eaaec5aa2ad4ddc35238c8b78a85d6c4
     categories: []
   - name: custom-create-umccrise-tsv
     path: custom-create-umccrise-tsv
