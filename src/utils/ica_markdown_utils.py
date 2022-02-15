@@ -38,6 +38,12 @@ from classes.ica_workflow_version import ICAWorkflowVersion
 from classes.ica_workflow_run import ICAWorkflowRun
 from utils.create_markdown_utils import add_toc_line
 
+from utils.logging import get_logger
+
+
+logger = get_logger()
+
+
 def get_ica_section(cwl_file_path: Path, item_type: str, projects: List[Project],
                     ica_workflow_objs: List[ICAWorkflow],
                     ica_workflow_version_objs: List[ICAWorkflowVersion],
@@ -259,6 +265,11 @@ def build_ica_run_graph(workflow_run_obj: ICAWorkflowRun, graph_path: Path):
 
         memory_dfs.append(task_df[["memory", "task_name"]])
         memory_capacity_dfs.append(task_df[["memory_capacity", "task_name"]])
+
+    # Check at least one task had a valid entry
+    if len(cpu_dfs) == 0:
+        logger.warning(f"Not building a graph at {graph_path} because no cpu/mem data was found")
+        return
 
     # Now do a length-wise concat for cpu dfs and mem dfs we will then pivot with a sum in each collision
     cpu_df: pd.DataFrame = pivot_short_on_time_index(pd.concat(cpu_dfs, axis="rows"), metric="cpu")
