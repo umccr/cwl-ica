@@ -85,7 +85,7 @@ requirements:
       - var get_fastq_dir_path = function() {
           return "fastqs";
         }
-      - var get_fastq_list_file_mounts = function(sample_id, sample_number, input_fastq_list_rows){
+      - var get_dest_fastq_paths = function(sample_id, sample_number, input_fastq_list_rows){
           /*
           Return a list of entry/entryname dicts to be mounted for a given sample
           */
@@ -93,7 +93,7 @@ requirements:
           /*
           Initialise an array of dicts
           */
-          var e_ext = [];
+          var dest_fastq_paths = [];
 
           /*
           Iterate through each fastq list row
@@ -104,10 +104,8 @@ requirements:
 
           for (var i = 0; i < input_fastq_list_rows.length; i++){
             /*
-            Get the file objects
+            Get the lane id
             */
-            var read_1_file_obj = input_fastq_list_rows[i].read_1;
-            var read_2_file_obj = input_fastq_list_rows[i].read_2;
             var lane = input_fastq_list_rows[i].lane;
 
             /*
@@ -119,28 +117,22 @@ requirements:
             /*
             Set the mount points for each file
             */
-            var read_1_mount_point = get_fastq_dir_path() + "/" + sample_id + "/" + read_1_base_name;
-            var read_2_mount_point = get_fastq_dir_path() + "/" + sample_id + "/" + read_2_base_name;
+            var read_1_dest_path = get_fastq_dir_path() + "/" + sample_id + "/" + read_1_base_name;
+            var read_2_dest_path = get_fastq_dir_path() + "/" + sample_id + "/" + read_2_base_name;
 
             /*
             Extend list with read 1 and read 2 fastq file objects at the set mountpoints
             */
-            e_ext = e_ext.concat([
-              {
-                "entryname":read_1_mount_point,
-                "entry":read_1_file_obj
-              },
-              {
-                "entryname":read_2_mount_point,
-                "entry":read_2_file_obj
-              }
+            dest_fastq_paths = dest_fastq_paths.concat([
+              read_1_dest_path, 
+              read_2_dest_path
             ]);
           }
 
           /*
-          Return the list of mount points for this sample
+          Return the list of links for this sample
           */
-          return e_ext;
+          return dest_fastq_paths;
         }
       # Paths to inline files
       - var get_input_json_path = function() {
@@ -198,106 +190,166 @@ requirements:
                    "DemultiplexWorkflow.dragenLicenseInstanceFolder":get_dragen_license_instance_folder()
                  });
         }
-      - var get_run_cromwell_script_content = function() {
-          return "#!/usr/bin/env bash\n" +
-                 "# Set up to fail\n" +
-                 "set -euo pipefail\n\n" +
-                 "echo \"create analysis dirs\" 1>&2\n" +
-                 "mkdir --parents \\\n" +
-                 "  \"" + get_analysis_dir() + "\"\n\n" +
-                 "echo \"start demultiplex workflow\" 1>&2\n" +
-                 "java \\\n" +
-                 "  -DLOG_MODE=pretty \\\n" +
-                 "  -DLOG_LEVEL=INFO \\\n" +
-                 "  -jar \"" + get_cromwell_path() + "\" \\\n" +
-                 "  run \\\n" +
-                 "    --inputs \"" + get_input_json_path() + "\" \\\n" +
-                 "    \"" + get_demux_wdl_path() + "\"\n" +
-                 "echo \"end demultiplex workflow\" 1>&2\n\n" +
-                 "echo \"tarring up cromwell files\" 1>&2\n" +
-                 "tar \\\n" +
-                 "  --remove-files \\\n" +
-                 "  --create \\\n" +
-                 "  --gzip \\\n" +
-                 "  --file \"cromwell-executions.tar.gz\" \\\n" +
-                 "  \"cromwell-executions\"/\n" +
-                 "echo \"completed tarring of cromwell files\" 1>&2\n";
+      # Linking contents
+      - var string_bash_array_contents = function(string_array){
+          /*
+          String together elements inside a bash array
+          */
+          return string_array.join(" \\\n    ");
         }
-  InitialWorkDirRequirement:
-    listing: |
-      ${
-        /*
-        Initialise listing with input jsons and cromwell script and run folder files
-        */
-        var e = [
-                  /*
-                  Input json
-                  */
-                  {
-                   "entryname": get_input_json_path(),
-                   "entry": get_input_json_content()
-                  },
-                  /*
-                  Cromwell script
-                  */
-                  {
-                   "entryname": get_run_cromwell_script_path(),
-                   "entry": get_run_cromwell_script_content()
-                  },
-                  /*
-                  RunInfo.xml
-                  */
-                  {
-                   "entryname": get_run_dir_path() + "/" + "RunInfo.xml",
-                   "entry": inputs.run_info_xml
-                  },
-                  /*
-                  RunParameters.xml
-                  */
-                  {
-                   "entryname": get_run_dir_path() + "/" + "RunParameters.xml",
-                   "entry": inputs.run_parameters_xml
-                  }
-                ];
-
-        /*
-        Iterate through each tso500 sample and place fastq files under the sample_id folder
-        */
-        for (var i = 0; i < inputs.tso500_samples.length; i++){
+      - var get_array_of_fastq_paths = function(is_dest){
           /*
-          Extend the listing for each sample present
-          First we must get matching fastq list rows as inputs
+          Get the array of fastq paths, if is_dest is set to true then 
+          the destination path is returned instead
           */
-          var sample_id = inputs.tso500_samples[i].sample_id;
-          var sample_name = inputs.tso500_samples[i].sample_name;
-          var sample_number = i + 1;
-
-          /*
-          Iterate over the input fastq list rows and match rgsm values to the sample_name of the tso500 sample
-          */
-          var input_fastq_list_rows = [];
-          for (var j = 0; j < inputs.fastq_list_rows.length; j++){
+        
+          var fastq_paths = [];
+        
+          for (var i = 0; i < inputs.tso500_samples.length; i++){
             /*
-            Append fastq list rows items with matching rgsm values
+            Extend the listing for each sample present
+            First we must get matching fastq list rows as inputs
             */
-            if (inputs.fastq_list_rows[j].rgsm === sample_name){
+            var sample_id = inputs.tso500_samples[i].sample_id;
+            var sample_name = inputs.tso500_samples[i].sample_name;
+            var sample_number = i + 1;
+            
+            /*
+            Iterate over the input fastq list rows and match rgsm values to the sample_name of the tso500 sample
+            */
+            var input_fastq_list_rows = [];
+            for (var j = 0; j < inputs.fastq_list_rows.length; j++){
               /*
-              Append fastq list row
+              Append fastq list rows items with matching rgsm values
               */
-              input_fastq_list_rows.push(inputs.fastq_list_rows[j]);
+              if (inputs.fastq_list_rows[j].rgsm === sample_name){
+                /*
+                Append fastq list row
+                */
+                input_fastq_list_rows.push(inputs.fastq_list_rows[j]);
+              }
+            }
+        
+            if (is_dest === true) {
+              /*
+              Now link according to the sample id
+              */
+              fastq_paths = fastq_paths.concat(get_dest_fastq_paths(sample_id, sample_number, input_fastq_list_rows));
+            } else {
+              /*
+              Just iterate over the fastq list rows and return the path attribute for each read pair.
+              */
+              for (var i = 0; i < input_fastq_list_rows.length; i++){
+                fastq_paths.push(input_fastq_list_rows[i].read_1.path);
+                fastq_paths.push(input_fastq_list_rows[i].read_2.path);
+              }
             }
           }
-          /*
-          Now mount according to the sample id
-          */
-          e = e.concat(get_fastq_list_file_mounts(sample_id, sample_number, input_fastq_list_rows));
+          
+          return fastq_paths;
         }
-
-        /*
-        Return entries
-        */
-        return e;
-      }
+      - var get_fastq_src_paths_array = function(){
+          /*
+          Get the array of src paths
+          */
+          return get_array_of_fastq_paths(false);
+        }
+      - var get_fastq_dest_paths_array = function(){
+          /*
+          Get the array of src paths
+          */
+          return get_array_of_fastq_paths(true);
+        }
+  InitialWorkDirRequirement:
+    listing:
+      - |
+        ${
+          /*
+          Initialise listing with input jsons and cromwell script and run folder files
+          */
+          var e = [
+                    /*
+                    Input json
+                    */
+                    {
+                     "entryname": get_input_json_path(),
+                     "entry": get_input_json_content()
+                    },
+                    /*
+                    RunInfo.xml
+                    */
+                    {
+                     "entryname": get_run_dir_path() + "/" + "RunInfo.xml",
+                     "entry": inputs.run_info_xml
+                    },
+                    /*
+                    RunParameters.xml
+                    */
+                    {
+                     "entryname": get_run_dir_path() + "/" + "RunParameters.xml",
+                     "entry": inputs.run_parameters_xml
+                    }
+                  ];
+        
+          /*
+          Return entries
+          */
+          return e;
+        }
+      -  entryname: "$(get_run_cromwell_script_path())"
+         entry: |
+           #!/usr/bin/env bash
+           # Set up to fail
+           set -euo pipefail
+           
+           echo "create analysis dirs" 1>&2
+           mkdir --parents \\
+             "$(get_analysis_dir())" \\
+             "$(get_fastq_dir_path())"
+           
+           # Link over the fastq files into the designated fastq folder
+           echo "start linking of fastq files to fastq directory" 1>&2
+           fastq_src_paths_array=( \\
+               $(string_bash_array_contents(get_fastq_src_paths_array())) \\
+           )
+           fastq_dest_paths_array=( \\
+               $(string_bash_array_contents(get_fastq_dest_paths_array())) \\
+           )
+           fastq_files_iter_range="\$(expr \${#fastq_src_paths_array[@]} - 1)"
+           
+           for i in \$(seq 0 \${fastq_files_iter_range}); do
+             # First create the directory needed
+             mkdir -p "\$(dirname "\${fastq_dest_paths_array[$i]}")"
+             ln -s "\${fastq_src_paths_array[$i]}" "\${fastq_dest_paths_array[$i]}"
+           done
+           
+           echo "completed linking of fastq files to fastq directory" 1>&2           
+           
+           echo "start demultiplex workflow" 1>&2
+           java \\
+             -DLOG_MODE=pretty \\
+             -DLOG_LEVEL=INFO \\
+             -jar "$(get_cromwell_path())" \\
+             run \\
+               --inputs "input.json" \\
+               "$(get_demux_wdl_path())"
+           echo "end demultiplex workflow" 1>&2
+           
+           echo "tarring up cromwell files" 1>&2
+           tar \\
+             --remove-files \\
+             --create \\
+             --gzip \\
+             --file "cromwell-executions.tar.gz" \\
+             "cromwell-executions"/
+           echo "completed tarring of cromwell files" 1>&2
+           
+           # Unlink all fastq files from the fastq directory
+           echo "unlinking all fastq files from fastq directory" 1>&2
+           for i in \$(seq 0 \${fastq_files_iter_range}); do
+             unlink "\${fastq_dest_paths_array[$i]}"
+           done
+           echo "completed unlinking of all fastq files from fastq directory" 1>&2
 
 baseCommand: [ "bash" ]
 

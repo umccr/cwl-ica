@@ -22,10 +22,24 @@ doc: |
     Its main application is to complement genome-based findings from umccrise pipeline and to provide additional evidence for detected alterations.
 
 requirements:
-  InlineJavascriptRequirement: {}
+  InlineJavascriptRequirement:
+    expressionLib:
+      - var get_script_path = function(){
+          /*
+          Abstract script path, can then be referenced in baseCommand attribute too
+          Makes things more readable.  FIXME
+          */
+          return "scripts/run_rnasum.sh";
+        }
+      - var get_eval_line = function(){
+          /*
+          ICA is inconsistent with cwl when it comes to handling @
+          */
+            return "eval Rscript ./RNAseq_report.R '\"\$@\"' \n";
+        }
   InitialWorkDirRequirement:
     listing:
-      - entryname: "scripts/run_rnasum.sh"
+      - entryname: $(get_script_path())
         entry: |
           #!/usr/bin/bash
 
@@ -36,7 +50,8 @@ requirements:
           cd /rmd_files
 
           # Run rnasum with input parameters
-          eval Rscript ./RNAseq_report.R '"\${@}"'
+          $(get_eval_line())
+          #eval Rscript ./RNAseq_report.R '"\${@}"'
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
@@ -46,7 +61,7 @@ hints:
       type: standardHiCpu
       size: large
   DockerRequirement:
-    dockerPull: "umccr/rnasum:0.4.1"
+    dockerPull: "quay.io/umccr/rnasum:0.4.1"
 
 baseCommand: ["bash"]
 

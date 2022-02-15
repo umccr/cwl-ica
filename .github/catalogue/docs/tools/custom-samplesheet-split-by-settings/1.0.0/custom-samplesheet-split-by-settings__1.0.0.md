@@ -17,7 +17,7 @@ custom-samplesheet-split-by-settings 1.0.0 tool
 
   
 > ID: custom-samplesheet-split-by-settings--1.0.0  
-> md5sum: 4dd3425af669e23740532a838748f9d8
+> md5sum: 3e34bb0909d55d42840a09e7e36634e1
 
 ### custom-samplesheet-split-by-settings v(1.0.0) documentation
   
@@ -89,7 +89,7 @@ The path to the original samplesheet csv file
 > ID: samplesheet_format
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f9538cfdcd0>`  
+**Type:** `[ v1 | v2 ]`  
 **Docs:**  
 Set samplesheet to be in v1 or v2 format
 

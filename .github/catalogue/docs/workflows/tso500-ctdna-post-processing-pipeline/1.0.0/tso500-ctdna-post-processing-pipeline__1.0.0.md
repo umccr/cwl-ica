@@ -19,7 +19,7 @@ tso500-ctdna-post-processing-pipeline 1.0.0 workflow
 
   
 > ID: tso500-ctdna-post-processing-pipeline--1.0.0  
-> md5sum: a4a744e417933899c13b79a786e3bd45
+> md5sum: 132cba4d9d45fab4344ca0bc56c11456
 
 ### tso500-ctdna-post-processing-pipeline v(1.0.0) documentation
   
@@ -56,8 +56,8 @@ The workflow has 6 main steps
 - [custom-gzip-file 1.0.0](../../../tools/custom-gzip-file/1.0.0/custom-gzip-file__1.0.0.md)  
 - [bgzip 1.12.0](../../../tools/bgzip/1.12.0/bgzip__1.12.0.md)  
 - [custom-tsv-to-json 1.0.0](../../../tools/custom-tsv-to-json/1.0.0/custom-tsv-to-json__1.0.0.md)  
-- [get-custom-output-dir-entry-for-tso500-post-processing 1.0.0](../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.md)  
-- [custom-create-directory 2.0.0](../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
+- [get-custom-output-dir-entry-for-tso500-post-processing 2.0.1](../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.md)  
+- [custom-create-directory 2.0.1](../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
 - [custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json 1.0.0](../../../tools/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json/1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.md)  
 - [custom-tar-file-list 1.0.0](../../../tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.md)  
 - [custom-tar-file-list 1.0.0](../../../tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.md)  
@@ -183,8 +183,8 @@ Create the array of inputs to go into custom create directory.
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl)  
-[CWL File Help Page](../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.md)  
+[CWL File Path](../../../../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.cwl)  
+[CWL File Help Page](../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.md)  
 
 
 ### create output directory
@@ -200,8 +200,8 @@ Create the output directory containing all the files listed in the previous step
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.cwl)  
-[CWL File Help Page](../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
+[CWL File Path](../../../../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.cwl)  
+[CWL File Help Page](../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
 
 
 ### dragen metrics to json step

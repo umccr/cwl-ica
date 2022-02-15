@@ -17,7 +17,7 @@ dragen-germline 3.9.3 tool
 
   
 > ID: dragen-germline--3.9.3  
-> md5sum: f36d87507aec49bc61478a40adc2f283
+> md5sum: c9dc211707ecbf09ee0db78d3c13defa
 
 ### dragen-germline v(3.9.3) documentation
   
@@ -51,7 +51,7 @@ Documentation for dragen-germline v3.9.3
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Enable CNV self normalization. 
+Enable CNV self normalization.
 Self Normalization requires that the DRAGEN hash table be generated with the enable-cnv=true option.
 
 
@@ -158,7 +158,7 @@ caller. Default is false.
   
 > ID: fastq_list
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files
@@ -167,17 +167,17 @@ Read1File and Read2File may be presigned urls or use this in conjunction with
 the fastq_list_mount_paths inputs.
 
 
-### fastq list mount paths
+### fastq list rows
 
 
 
   
-> ID: fastq_list_mount_paths
+> ID: fastq_list_rows
   
 **Optional:** `True`  
-**Type:** `predefined-mount-path[]`  
+**Type:** `fastq-list-row[]`  
 **Docs:**  
-Path to fastq list mount path
+Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
 
 
 ### hla allele frequency file
@@ -192,7 +192,7 @@ Path to fastq list mount path
 **Docs:**  
 Use the population-level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.
 The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.
-If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. 
+If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/.
 Population-level allele frequencies can be obtained from the Allele Frequency Net database.
 
 
@@ -206,8 +206,8 @@ Population-level allele frequencies can be obtained from the Allele Frequency Ne
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Use the HLA region BED input file to specify the region to extract HLA reads from. 
-DRAGEN HLA Caller parses the input file for regions within the BED file, and then 
+Use the HLA region BED input file to specify the region to extract HLA reads from.
+DRAGEN HLA Caller parses the input file for regions within the BED file, and then
 extracts reads accordingly to align with the HLA allele reference.
 
 
@@ -221,8 +221,8 @@ extracts reads accordingly to align with the HLA allele reference.
 **Optional:** `True`  
 **Type:** `int`  
 **Docs:**  
-Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. 
-The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a 
+Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing.
+The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a
 lower threshold value.
 
 
@@ -238,7 +238,7 @@ lower threshold value.
 **Docs:**  
 Use the HLA allele reference file to specify the reference alleles to align against.
 The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.
-If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. 
+If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/.
 The reference HLA sequences are obtained from the IMGT/HLA database.
 
 
@@ -252,9 +252,9 @@ The reference HLA sequences are obtained from the IMGT/HLA database.
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele, 
-the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based 
-on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to 
+If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele,
+the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based
+on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to
 the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
 
 
@@ -268,8 +268,8 @@ the top hit), then the allele is included into the candidate set for tie breakin
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, 
-then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value. 
+If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele,
+then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value.
 The default value is 0.15.
 
 
@@ -324,8 +324,8 @@ The prefix given to all output files
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Set to true to resolve all of the alignments for each fragment and avoid double-counting any 
-overlapping bases. This might result in marginally longer run times. 
+Set to true to resolve all of the alignments for each fragment and avoid double-counting any
+overlapping bases. This might result in marginally longer run times.
 This option also requires setting --enable-map-align=true.
 
 
@@ -404,7 +404,7 @@ Specifies the sex of a sample
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Specifies a BED file containing the set of regions to call. 
+Specifies a BED file containing the set of regions to call.
 
 
 ### sv discovery
@@ -417,8 +417,8 @@ Specifies a BED file containing the set of regions to call.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used. 
-When set to false, SV discovery is disabled and only the forced genotyping input variants 
+Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used.
+When set to false, SV discovery is disabled and only the forced genotyping input variants
 are processed. The default is true.
 
 
@@ -432,7 +432,7 @@ are processed. The default is true.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Enable liquid tumor mode. 
+Enable liquid tumor mode.
 
 
 ### sv exome
@@ -445,9 +445,9 @@ Enable liquid tumor mode.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Set to true to configure the variant caller for targeted sequencing inputs, 
-which includes disabling high depth filters. 
-In integrated mode, the default is to autodetect targeted sequencing input, 
+Set to true to configure the variant caller for targeted sequencing inputs,
+which includes disabling high depth filters.
+In integrated mode, the default is to autodetect targeted sequencing input,
 and in standalone mode the default is false.
 
 
@@ -461,8 +461,8 @@ and in standalone mode the default is false.
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted 
-in the output VCF even if not found in the sample data. 
+Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted
+in the output VCF even if not found in the sample data.
 The variants are merged with any additional variants discovered directly from the sample data.
 
 
@@ -489,9 +489,9 @@ Set to true to have assembled contig sequences output in a VCF file. The default
 **Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
-Limit the analysis to a specified region of the genome for debugging purposes. 
-This option can be specified multiple times to build a list of regions. 
-The value must be in the format “chr:startPos-endPos”.. 
+Limit the analysis to a specified region of the genome for debugging purposes.
+This option can be specified multiple times to build a list of regions.
+The value must be in the format “chr:startPos-endPos”..
 
 
 ### sv use overlap pair evidence
@@ -504,7 +504,7 @@ The value must be in the format “chr:startPos-endPos”..
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Allow overlapping read pairs to be considered as evidence. 
+Allow overlapping read pairs to be considered as evidence.
 By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
 
 
@@ -518,8 +518,8 @@ By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if 
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-Set the Tumor-in-Normal (TiN) contamination tolerance level. 
-You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. 
+Set the Tumor-in-Normal (TiN) contamination tolerance level.
+You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
 
 
 ### vc decoy contigs

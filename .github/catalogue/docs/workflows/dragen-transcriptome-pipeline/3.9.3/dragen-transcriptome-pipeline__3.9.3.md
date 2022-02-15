@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 75b6706f4b3dc8803d1071f20dbdd662
+> md5sum: 8595a4852fe150f6c3e4137605aa2afb
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -192,6 +192,19 @@ Each row has the following attributes:
 The directory where all output files are placed
 
 
+### output directory name arriba
+
+
+
+  
+> ID: output_directory_name_arriba
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+Name of the directory to collect arriba outputs in.
+
+
 ### output file prefix
 
 
@@ -215,7 +228,7 @@ The prefix given to all output files
 **Optional:** `False`  
 **Type:** `File`  
 **Docs:**  
-GFF3 file containing the genomic coordinates of protein domains
+GFF3 file containing the genomic coordinates of protein domains.
 
 
 ### reference Fasta
@@ -743,7 +756,7 @@ bash wfr.f75bddad9d4740d3873fce5ceb782bc7.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--4a5a933  
+**wfl version name:** 3.9.3--3a73a95  
 
   
 

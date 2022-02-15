@@ -32,7 +32,7 @@ requirements:
         - $import: ../../../schemas/tso500-sample/1.0.0/tso500-sample__1.0.0.yaml
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
         - $import: ../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml
-        - $import: ../../../schemas/custom-output-dir-entry/2.0.0/custom-output-dir-entry__2.0.0.yaml
+        - $import: ../../../schemas/custom-output-dir-entry/2.0.1/custom-output-dir-entry__2.0.1.yaml
 
 inputs:
   # All of the inputs to the standadrd tso500 ctdna post processing pipeline
@@ -214,7 +214,7 @@ steps:
         source: get_intermediate_samplesheet_from_validation_step/output_file
     out:
       - id: tso500_output_dir_entry_list
-    run: ../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-with-post-processing__1.0.0.cwl
+    run: ../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.cwl
 
   # Then create the final directory structure
   create_final_output_directory:
@@ -228,7 +228,7 @@ steps:
         source: get_final_directory_output_for_tso500_pipeline/tso500_output_dir_entry_list
     out:
       - id: output_directory
-    run: ../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.cwl
+    run: ../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.cwl
 
   # Collect the sample directory as an output
   get_sample_output_directory:
