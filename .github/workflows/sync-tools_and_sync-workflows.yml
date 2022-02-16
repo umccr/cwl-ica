@@ -53,7 +53,7 @@ jobs:
             --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
             --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
             --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
-            quay.io/umccr/cwl-ica:1.0.1 \
+            quay.io/umccr/cwl-ica:1.0.2 \
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Create Catalogue
       - name: create catalogue
@@ -66,7 +66,7 @@ jobs:
             --env USER="$(id -nu)" \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
-            quay.io/umccr/cwl-ica:1.0.1 \
+            quay.io/umccr/cwl-ica:1.0.2 \
               bash ".github/scripts/create_catalogue.sh"
       # Commit config files
       - id: commit_catalogue_files
