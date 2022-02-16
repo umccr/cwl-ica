@@ -276,6 +276,10 @@ Example
         # Build the cwl dot file
         build_cwl_dot(self.cwl_item, dot_out_path=Path(temp_dot_file.name))
 
+        if not Path(temp_dot_file.name).is_file() or Path(temp_dot_file.name).stat().st_size == 0:
+            logger.warning(f"Could not build the CWL graph for this workflow: {self.cwl_file_path.name}")
+            return md_file_obj
+
         # Edit the dot file
         edit_cwl_dot(self.cwl_item, self.cwl_obj, Path(temp_dot_file.name))
 
