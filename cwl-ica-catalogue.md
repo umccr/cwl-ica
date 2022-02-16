@@ -161,6 +161,9 @@ illumina-tar)
 - [dragen-umi](#dragen-umi)  
 - [bcftools-view](#bcftools-view)  
 - [rnasum](#rnasum)  
+- [samtools-stats](#samtools-stats)  
+- [custom-stats-qc](#custom-stats-qc)  
+- [calculate-coverage](#calculate-coverage)  
 
 
 ### samtools-merge
@@ -526,6 +529,28 @@ illumina-tar)
 - [0.4.1](.github/catalogue/docs/tools/rnasum/0.4.1/rnasum__0.4.1.md)  
 
 
+### samtools-stats
+
+#### Versions
+  
+- [1.13.0](.github/catalogue/docs/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md)  
+
+
+### custom-stats-qc
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.md)  
+- [1.0.1](.github/catalogue/docs/tools/custom-stats-qc/1.0.1/custom-stats-qc__1.0.1.md)  
+
+
+### calculate-coverage
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -545,6 +570,7 @@ illumina-tar)
 - [tso500-ctdna-with-post-processing-pipeline](#tso500-ctdna-with-post-processing-pipeline)  
 - [umccrise-pipeline](#umccrise-pipeline)  
 - [umccrise-with-dragen-germline-pipeline](#umccrise-with-dragen-germline-pipeline)  
+- [ghif-qc](#ghif-qc)  
 
 
 ### optitype-pipeline
@@ -700,4 +726,12 @@ illumina-tar)
 #### Versions
   
 - [2.0.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
+
+
+### ghif-qc
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/workflows/ghif-qc/1.0.0/ghif-qc__1.0.0.md)  
+- [1.0.1](.github/catalogue/docs/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md)  
 
