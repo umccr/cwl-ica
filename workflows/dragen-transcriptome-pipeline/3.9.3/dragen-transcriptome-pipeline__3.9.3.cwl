@@ -243,18 +243,7 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-  # Step-7: Create single directory for QC reference samples
-  create_single_qc_reference_samples_directory:
-    label: create single qc reference samples directory
-    doc: |
-      Create a single directory with reference samples
-    in:
-      input_directories:
-        source: qc_reference_samples
-    out:
-      - id: output_directory
-    run: ../../../expressions/create-single-directory-from-directories-array/1.0.0/create-single-directory-from-directories-array__1.0.0.cwl
-  # Step-8: Create multiQC report
+  # Step-7: Create multiQC report
   dragen_qc_step:
     label: dragen qc step
     doc: |
@@ -266,7 +255,8 @@ steps:
       input_directories:
         source:
           - run_dragen_transcriptome_step/dragen_transcriptome_directory
-          - create_single_qc_reference_samples_directory/output_directory
+          - qc_reference_samples
+        linkMerge: merge_flattened
       output_directory_name:
         source: output_file_prefix
         valueFrom: "$(self)_dragen_transcriptome_multiqc"
