@@ -317,6 +317,16 @@ projects:
             modification_time: 2021-12-21T23:43:33UTC
             run_instances:
               - wfr.dce6425b60044757a78bb545c627c58a
+      - name: arriba-fusion-calling
+        path: arriba-fusion-calling
+        ica_workflow_name: arriba-fusion-calling_dev-wf
+        ica_workflow_id: wfl.b9a507a2bfc549a6ba82db33d7d64d9c
+        versions:
+          - name: 2.0.0
+            path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
+            ica_workflow_version_name: 2.0.0
+            modification_time: 2022-02-18T03:36:37UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
