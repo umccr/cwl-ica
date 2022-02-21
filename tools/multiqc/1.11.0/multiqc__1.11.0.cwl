@@ -31,7 +31,7 @@ hints:
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/multiqc:1.11--pyhdfd78af_0
+        dockerPull: quay.io/umccr/multiqc-dragen:1.12-dev
 
 requirements:
   InlineJavascriptRequirement:
@@ -97,7 +97,7 @@ inputs:
     label: output filename
     doc: |
       Report filename in html format.
-      Defaults to 'multiqc-report.html"
+      Defaults to 'multiqc-report.html'
     type: string
     inputBinding:
       prefix: "--filename"
@@ -124,6 +124,14 @@ inputs:
     streamable: true
     inputBinding:
       prefix: "--config"
+  replace_names:
+    label: replace names
+    doc: |
+      a tab-separated file with two columns. The first column contains the search strings and 
+      the second the replacement strings
+    type: File?
+    inputBinding:
+      prefix: "--replace-names"
   cl_config:
     label: cl config
     doc: |
