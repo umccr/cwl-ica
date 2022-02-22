@@ -127,19 +127,6 @@ requirements:
           input="\$(jq --raw-output --slurp \\
             '. | add | {"input": .input}' <<< "\${JSON_STRING}")"
 
-          # Get qc metrics
-          qc_metrics="\$(echo \\
-                          "\$(jq --raw-output \\
-                                --slurp \\
-                                '. | add | del(.input)' <<< "\${JSON_STRING}")" \\
-                          "\$(jq --raw-output \\
-                                '.qc_metrics' "\${input_precise}")" \\
-                         | \\
-                         jq --raw-output \\
-                            --slurp \\
-                            'add | {"qc_metrics": .}'
-          )"
-
           # Get umccr_only qc metrics
           umccr_qc_metrics="\$(echo \\
                           "\$(jq --raw-output \\
