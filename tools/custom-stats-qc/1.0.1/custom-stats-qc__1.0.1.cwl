@@ -1,6 +1,7 @@
 cwlVersion: v1.1
 class: CommandLineTool
 
+
 # Extensions
 $namespaces:
     s: https://schema.org/
@@ -8,11 +9,18 @@ $namespaces:
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
+
 # Metadata
 s:author:
     class: s:Person
     s:name: Sehrish Kanwal
     s:email: sehrish.kanwal@umccr.org
+
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
 id: custom-stats-qc--1.0.1
@@ -39,9 +47,9 @@ requirements:
       - entryname: "run-custom-qc.sh"
         entry: |
           #!/usr/bin/env bash
-            
+
           # Set up for failure
-          set -xeuo pipefail
+          set -euo pipefail
 
           get_json_str_from_stats_file(){
             local pattern="$1"
@@ -62,7 +70,7 @@ requirements:
                 '{($key_name): {description: $des, source: $src, implementation_details: $detail, value: $val}}'
           }
           # Extract Summary Number section from stats file
-          samtools_stats_file="summary_numbers.txt" 
+          samtools_stats_file="summary_numbers.txt"
           grep ^SN "$(inputs.output_samtools_stats.path)" | cut -f 2- > "\${samtools_stats_file}"
 
           # Sample metadata
@@ -113,12 +121,46 @@ requirements:
                           --argjson detail "[{\\"MIN_BQ\\": 0, \\"MIN_MQ\\": 0, \\"DUP\\": \\"false\\", \\"SEC\\": \\"false\\", \\"SUP\\": \\"false\\", \\"CLP\\": \\"false\\", \\"OLP\\": \\"false\\"}]" \\
                           '{pct_mapped_reads: {description: $des, source: $src, implementation_details: $detail, value: $val}}' )"
 
-          # Write output to file
-          echo "\${JSON_STRING}" | jq -n '. |= [inputs]' > "$(inputs.output_json_filename).json"
+          # Get output keys - input and qc_metrics
 
-          # Combine PRECISE calculate-coverage script output with UMCCR's
-          cat "$(inputs.precise_json_output.path)" | jq -n '[inputs.qc_metrics]' > tmp.json
-          jq -s 'add' "$(inputs.output_json_filename).json" tmp.json > "$(inputs.output_json_filename)_combined.json"
+          # Get input
+          input="\$(jq --raw-output --slurp \\
+            '. | add | {"input": .input}' <<< "\${JSON_STRING}")"
+
+          # Get umccr_only qc metrics
+          umccr_qc_metrics="\$(echo \\
+                          "\$(jq --raw-output \\
+                                --slurp \\
+                                '. | add | del(.input) | {"qc_metrics": .}' <<< "\${JSON_STRING}")" \\
+          )"
+
+
+          # Get qc_metrics combined
+          qc_metrics="\$(echo \\
+                          "\$(jq --raw-output \\
+                                '.qc_metrics' <<< "\${umccr_qc_metrics}")" \\
+                          "\$(jq --raw-output \\
+                                '.qc_metrics' "\${input_precise}")" \\
+                         | \\
+                         jq --raw-output \\
+                            --slurp \\
+                            'add | {"qc_metrics": .}'
+          )"
+
+          # Write out umccr only metrics
+          echo \\
+            "\${input}" \\
+            "\${umccr_qc_metrics}" | \\
+          jq --slurp \\
+            'add' > "$(inputs.output_json_filename).json"
+
+          # Combine input and qc_metrics to get output file
+          echo \\
+            "\${input}" \\
+            "\${qc_metrics}" | \\
+          jq --slurp \\
+            'add' > "$(inputs.output_json_filename)_combined.json"
+
 
 baseCommand: [ "bash", "run-custom-qc.sh" ]
 
