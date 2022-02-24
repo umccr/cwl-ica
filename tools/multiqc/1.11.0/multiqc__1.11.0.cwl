@@ -31,7 +31,7 @@ hints:
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: quay.io/umccr/multiqc-dragen:1.12-dev
+        dockerPull: quay.io/biocontainers/multiqc:1.11--pyhdfd78af_0
 
 requirements:
   InlineJavascriptRequirement:
