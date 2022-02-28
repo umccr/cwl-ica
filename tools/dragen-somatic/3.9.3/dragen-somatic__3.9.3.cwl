@@ -311,7 +311,7 @@ requirements:
           $(get_dragen_eval_line())
 
           # Check if fastq_list or fastq_list_rows is set
-          if [[ ! "$(get_value_as_str(inputs.fastq_list))" == "" ]] || [[! "$(get_value_as_str(inputs.fastq_list_rows))" == "" ]]; then
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" ]] || [[ "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
             # Check if --enable-map-align-output is set
             if [[ ! "$(get_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
               echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
