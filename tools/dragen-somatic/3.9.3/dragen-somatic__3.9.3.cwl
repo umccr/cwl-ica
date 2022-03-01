@@ -151,6 +151,39 @@ requirements:
           */
           return inputs.fastq_list.contents.split("\n")[1].split(",")[rgsm_index];
         }
+      - var get_normal_name_from_fastq_list_rows = function(){
+          /*
+          Get the normal sample name form  fastq list rows object
+          */
+
+          /*
+          Check fastq list rows is defined
+          */
+          if (inputs.fastq_list_rows === null){
+              return null;
+          }
+
+          /*
+          Check contents are defined
+          */
+          if (inputs.fastq_list_rows.contents === null){
+              return null;
+          }
+
+          /*
+          Get RGSM value and return
+          */
+          rgsm_value = inputs.fastq_list_rows.map(function(value) {
+              return value.rgsm[0];
+          });
+
+          /*
+          rgsm is not in input. Return null
+          */
+          if (rgsm_value == null) {
+              return null;
+          }
+        }
       - var get_normal_output_prefix = function(){
           /*
           Get the normal RGSM value and then add _normal to it
@@ -399,7 +432,7 @@ inputs:
     label: fastq list
     doc: |
       CSV file that contains a list of FASTQ files for normal sample
-      to process.
+      to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
     loadContents: true
     inputBinding:
@@ -409,7 +442,7 @@ inputs:
     label: tumor fastq list
     doc: |
       CSV file that contains a list of FASTQ files
-      to process.
+      to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
     inputBinding:
       prefix: "--tumor-fastq-list"
