@@ -29,9 +29,14 @@ requirements:
     SchemaDefRequirement:
       types:
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
-        - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
 
 inputs:
+  fastq_list:
+    label: fastq list
+    doc: |
+      CSV file that contains a list of FASTQ files
+      to process. read_1 and read_2 components in the CSV file must be presigned urls.
+    type: File?
   fastq_list_rows:
     label: Row of fastq lists
     doc: |
@@ -43,7 +48,7 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
   reference_tar:
     label: reference tar
     doc: |
@@ -131,21 +136,7 @@ inputs:
       Name of the directory to collect arriba outputs in.
     default: "arriba"
 steps:
-   # Step-1: Create fastq_list.csv
-  create_fastq_list_csv_step:
-    label: create fastq list csv step
-    doc: |
-      Create the fastq list csv to then run the germline tool.
-      Takes in an array of fastq_list_row schema.
-      Returns a csv file along with predefined_mount_path schema
-    in:
-      fastq_list_rows:
-        source: fastq_list_rows
-    out:
-      - id: fastq_list_csv_out
-      - id: predefined_mount_paths_out
-    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
-  # Step-2: Run Dragen transcriptome workflow
+  # Step-1: Run Dragen transcriptome workflow
   run_dragen_transcriptome_step:
     label: run dragen transcriptome step
     doc: |
@@ -154,11 +145,10 @@ steps:
       All other options avaiable at the top of the workflow
     in:
       # Input fastq files to dragen
-      # fastqlist also contains the metadata
       fastq_list:
-        source: create_fastq_list_csv_step/fastq_list_csv_out
-      fastq_list_mount_paths:
-        source: create_fastq_list_csv_step/predefined_mount_paths_out
+        source: fastq_list
+      fastq_list_rows:
+        source: fastq_list_rows
       reference_tar:
         source: reference_tar
       output_file_prefix:
@@ -179,7 +169,7 @@ steps:
       - id: dragen_transcriptome_directory
       - id: dragen_bam_out
     run: ../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.cwl
-  # Step-3: Call Arriba fusion calling step
+  # Step-2: Call Arriba fusion calling step
   arriba_fusion_step:
     label: arriba fusion step
     doc: |
@@ -199,7 +189,7 @@ steps:
       - id: fusions
       - id: discarded_fusions
     run: ../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl
-  # Step-4: Call Arriba drawing script
+  # Step-3: Call Arriba drawing script
   arriba_drawing_step:
     label: arriba drawing step
     doc: |
@@ -218,7 +208,7 @@ steps:
     out: 
       - id: output_pdf
     run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
-  # Step-5: Create Arriba output directory
+  # Step-4: Create Arriba output directory
   create_arriba_output_directory:
     label: create arriba output directory
     doc: |
@@ -234,7 +224,7 @@ steps:
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
-  # Step-6: Create dummy file for the qc step
+  # Step-5: Create dummy file for the qc step
   create_dummy_file_step:
     label: Create dummy file
     doc: |
@@ -243,7 +233,7 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-  # Step-7: Create multiQC report
+  # Step-6: Create multiQC report
   dragen_qc_step:
     label: dragen qc step
     doc: |
