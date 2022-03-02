@@ -114,8 +114,8 @@ requirements:
           /*
           First try getting the normal name from the fastq list rows (if defined in the inputs)  
           */
-          if (get_normal_name_from_fastq_list_rows_csv() !== null){
-              return get_normal_name_from_fastq_list_rows_csv();
+          if (get_normal_name_from_fastq_list_rows() !== null){
+              return get_normal_name_from_fastq_list_rows();
           }
 
           /*
@@ -173,7 +173,7 @@ requirements:
           /*
           Get RGSM value and return
           */
-          rgsm_value = inputs.fastq_list_rows[0].rgsm
+          var rgsm_value = inputs.fastq_list_rows[0].rgsm
 
           /*
           If rgsm is not in input, return null else return the value
