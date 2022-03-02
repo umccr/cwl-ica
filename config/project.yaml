@@ -439,7 +439,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-02-28T10:37:53UTC
+            modification_time: 2022-03-02T02:40:15UTC
             run_instances:
               - wfr.b19291caab384e78b7661a85c3f82003
               - wfr.128790246e9c48f39e14d8f8ef7d868e
@@ -705,6 +705,11 @@ projects:
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--61a372d
             modification_time: 2021-11-23T07:04:55UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--e63703c
+            modification_time: 2022-03-02T02:40:40UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
