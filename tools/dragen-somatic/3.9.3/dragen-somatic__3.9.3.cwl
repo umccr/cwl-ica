@@ -112,7 +112,14 @@ requirements:
         }
       - var get_normal_name_from_fastq_list_csv = function(){
           /*
-          Get the normal list path from the fastq list csv path
+          First try getting the normal name from the fastq list rows (if defined in the inputs)  
+          */
+          if (get_normal_name_from_fastq_list_rows_csv() !== null){
+              return get_normal_name_from_fastq_list_rows_csv();
+          }
+
+          /*
+          Otherwise, get the normal list path from the input fastq list csv path
           */
 
           /*
@@ -164,25 +171,18 @@ requirements:
           }
 
           /*
-          Check contents are defined
-          */
-          if (inputs.fastq_list_rows.contents === null){
-              return null;
-          }
-
-          /*
           Get RGSM value and return
           */
-          rgsm_value = inputs.fastq_list_rows.map(function(value) {
-              return value.rgsm[0];
-          });
+          rgsm_value = inputs.fastq_list_rows[0].rgsm
 
           /*
-          rgsm is not in input. Return null
+          If rgsm is not in input, return null else return the value
           */
           if (rgsm_value == null) {
               return null;
-          }
+          } else {
+              return rgsm_value
+          }  
         }
       - var get_normal_output_prefix = function(){
           /*
