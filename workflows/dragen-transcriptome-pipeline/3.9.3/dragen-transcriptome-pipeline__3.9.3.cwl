@@ -128,6 +128,12 @@ inputs:
     type: Directory[]
     doc: |
       Reference samples for multiQC report
+  replace_names:
+    label: replace names
+    doc: |
+      a tab-separated file with two columns. The first column contains the search strings and 
+      the second the replacement strings
+    type: File?
   # Collect outputs
   output_directory_name_arriba:
     label: output directory name arriba
@@ -258,6 +264,8 @@ steps:
         valueFrom: "UMCCR MultiQC Dragen Transcriptome Report for $(self)"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
+      replace_names:
+        source: replace_names
     out:
       - id: output_directory
       - id: output_file
