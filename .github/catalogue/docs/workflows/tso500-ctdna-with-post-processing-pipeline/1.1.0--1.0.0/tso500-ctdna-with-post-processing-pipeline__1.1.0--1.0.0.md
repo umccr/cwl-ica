@@ -19,7 +19,7 @@ tso500-ctdna-with-post-processing-pipeline 1.1.0--1.0.0 workflow
 
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0  
-> md5sum: 27074c377d6c3e7f4f347c48a0ff36b1
+> md5sum: acf845c12be68021133f05444afbe80a
 
 ### tso500-ctdna-with-post-processing-pipeline v(1.1.0--1.0.0) documentation
   
@@ -41,8 +41,8 @@ Only intermediate step is collecting the tso500 bed file from the resources dire
 
 ### Uses
   
-- [custom-create-directory 2.0.0](../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
-- [get-custom-output-dir-entry-for-tso500-with-post-processing 1.0.0 :construction:](../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-with-post-processing__1.0.0.md)  
+- [custom-create-directory 2.0.1](../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
+- [get-custom-output-dir-entry-for-tso500-with-post-processing 2.0.1](../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
 - [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
 - [get-attr-from-tso500-sample-object 1.0.0 :construction:](../../../expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.md)  
 - [get-subdirectory-from-directory 1.0.0 :construction:](../../../expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.md)  
@@ -189,8 +189,8 @@ Create the output directory containing all the files listed in the previous step
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.cwl)  
-[CWL File Help Page](../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
+[CWL File Path](../../../../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.cwl)  
+[CWL File Help Page](../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
 
 
 ### create output directory
@@ -206,8 +206,8 @@ Create the output directory containing all the files and directories listed in t
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-with-post-processing__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-with-post-processing__1.0.0.md)  
+[CWL File Path](../../../../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.cwl)  
+[CWL File Help Page](../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
 
 
 ### get intermediate samplesheet from validation step
@@ -380,7 +380,7 @@ The sample subdirectory of the results
 
   
 **workflow name:** tso500-ctdna-with-post-processing-pipeline_prod-wf  
-**wfl version name:** 1.1.0--1.0.0--9c97fe9  
+**wfl version name:** 1.1.0--1.0.0--b8f38b3  
 
 
 ### Project: collab-illumina-dev_workflows

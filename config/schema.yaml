@@ -44,3 +44,10 @@ schemas:
         path: 1.2.2--0/umccrise-input__1.2.2--0.yaml
         md5sum: 3db4bff118ec7389022be4302ef375c9
     categories: []
+  - name: custom-output-dir-entry
+    path: custom-output-dir-entry
+    versions:
+      - name: 2.0.1
+        path: 2.0.1/custom-output-dir-entry__2.0.1.yaml
+        md5sum: f955563df19e68c3a6ef8ea56cb4f0a1
+    categories: []

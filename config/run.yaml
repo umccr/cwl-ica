@@ -1424,6 +1424,143 @@ runs:
         task_stop_time: 1639618343
         task_duration: 1612
         task_metrics: eJyd0rEKwkAMBuBXKZ1LuCS99OKriINIB4fDonUQ6bv3XOREf4duR8hHLj/ZP9v5nMfbfMxTu2vY1I0HCdY17Wm6l1IgL+885sv18eqgsHTNbzX0b1XaPhUjpcpICRlUDmcJJaT6mJBSvFdkrtJItYokUBmcJeRImThK/s8PLSWsFKkhCk4DqlTdxpfqobItylW3KIcXpRSBKmuFDYo54uRtOawjfupq
+  - ica_workflow_run_instance_id: wfr.eb46716d0e5c487b9f699cd5fbc2821f
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.428005f137ab409296a367db1b9f122e
+    ica_workflow_name: custom-stats-qc_dev-wf
+    ica_workflow_version_name: 1.0.0
+    ica_workflow_run_name: custom-qc
+    ica_input: eJxVjLEKwyAURX8lvLmpNEtDti4d+wtBjImC8VnvEwoh/14dOnS7HM49B3GRVGRefbBR75amjhJDUmZjAbp0PwN6F+aAGaIF1TvIBI226FnfTQ1stHiOjW0LJqUgWUtBD+uyhxvU5vzav43ysUah/qtX+QidNVRxCnb2Syu9HrdhvI90fgFhXDz1
+    ica_output: eJx9kM1OwzAQhF+lMldIbOfHTm9cOPIKUby2S5CTDV5HQVR9dxxouSA4WbP7eUY7Z4ZrWtbU+zE4djycWUAY0ohzFuxk6ViWm4+FM3WrRGu5a6DWynS+7TqwjTcgtRS+hJUSTg9vUH4bUrkgpSUiOKL++VFIrXTxStn4/sDMQG4epj2R/cftTERMf3A3xL1/ET/fIAxE++RpvyoPaPzYswRv66xeUlryXYDThPMWCoynEraQEMPdyc0u3grgl0xfC7Jj7HMfPeX8vO1HuwcQzYVXhisjrRag6iq/ng9do0TVNQaUV+y3icdgXbx6ZFE4KbRVptK64bWqNPet5Np2VtTSVdCwyycSoIiX
+    ica_engine_parameters: eJytkLtywyAQRX/Fo8ZNJAHyS27jIik8LpR8AIaVhrEECixWHI//PYAnqdI55bLnnh3uNZuMPe2UBYHGXrLtLOuk25bl1NoCjovVmq4kgaVYbNbHul3VtZDL9ijYhtG2FN6hGfIPkT3NMuNx9Piwqrx7XFTiMB7+yeoQxuTsTfe4LUiSbOCfjeCIYIOqYr8tNICodBf9gzlDRIUZL/fPvGqHXAt4u4wQiSZMklv5op5H/zfaqK+E7kEqP0RGQst9H4BA7Y1M2/nOTLo3XM4joX5WhzNYqyS4wFxvsVZw7w7uUa5VCw5TnHs0KSqmHo3p42NVkIIRRigjFV1XlNIIgO6UTjdpQTcFyQNCSU0XlC1J7tBy9C4fuIvN3L4BYlbEPw==
+    workflow_start_time: 1641880056
+    workflow_end_time: 1641881602
+    workflow_duration: 1546
+    ica_tasks:
+      - ica_task_run_instance_id: trn.a2ba9e0f5dc346d08df674b199a9a7c1
+        task_step_name: main
+        task_name: main
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1641880174
+        task_stop_time: 1641880775
+        task_duration: 601
+        task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.32ff48e48bce4d4e8d70efe6fbf92040
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.620ed24f36114e548ba60fe142712eb7
+    ica_workflow_name: samtools-stats_dev-wf
+    ica_workflow_version_name: 1.13.0
+    ica_workflow_run_name: samtools-stats
+    ica_input: eJytjk1rwzAMhv9K8XlJtu6w0NsYdN2lUNhdqLHyAbaVWXK2UfLfZ5fB9gN6EIhX4nmfi+l4AR0jycjOmt1me3+3MVOYk8IZfQ4upnMokjeznxyZfHbcoU4cSjZY2TVN8l0XKyU/VxYVK0tLM5Kj0Lwe3vZwemmOzw/b9qmtC3TNDE5aOvqMDOipoH5fMka01ETqQejjdg7j8NgCOgX8xEgQeHRY93j1ieR5IbBpLjUaE/2FeaLD/wfFOJBCpCEryO0M369cgQN7BsF5oiCQueTP7rvIJ2VhT1Lrl5p1/QFoeJa3
+    ica_output: eJxtkMFugzAQRH8lcq8NGNuAyS2XHvsLyNhrimRwxG5E1Cj/XrsNl7bH2Tea3dk7i1e6XKn3UwB2OtxZiNbQFJck2OjwVJabXwspvFcalB4sKKdAu5aDh8YPvhNc8RLNTDEGPCIZwvInFcv3cyV0q48ESAXdiL0e2GAQFjPndew/ntkaI/3mO4PbN9rtNhjEPHjLFdIAp8+cXUne8C7pD6JLqmHjPMdlC0Vcx9JuIZ/7MsIC696XP5L7+Q83rX2q3yMgJtpPLq9AXAotOy9MratBtEr6QftuMFDZuhMu/UayvyE+BgfrMyOJglfKt6blrpVa1UJwaGquXecqJUDamj2+ANR+gSo=
+    ica_engine_parameters: eJytkLFuwyAQhl8l8pKltgG7jZO1GdohyuD2AYg5LBQbLDjiulHevUDUTh0zwn3/d7r/ms3GnvfKQofGLtlulfXC7cpylraomJR1A3Vz6qAWNTRiQ0DCizzJLSM1KR0f0ZjB5Q45uuxplRmPk8fH+Mq7LHlxnI6PVDuEKYkH0z9IGUzJOPKvtuOIYIOvYn+ltICodB+XjOYCEe3MtNzPetdBojv4WCaIRBteglvxpl4n/z/aqu+EHkAoP0ZGgOR+CECgDkak6XpvZj0YLtaRUL+j4wWsVQJcYK63WDC4Twf3KNdKgsMU5x5NinbzEK+Nn1VBCkYYoYxUdFNRSiMAulc67aQFbQqSB4SSLa0peyahI8vRu3zkLjZz+wGYyM5r
+    workflow_start_time: 1641773346
+    workflow_end_time: 1641776662
+    workflow_duration: 3315
+    ica_tasks:
+      - ica_task_run_instance_id: trn.48c91be6d9c64aee8050ad3b6e64033b
+        task_step_name: main
+        task_name: main
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1641773471
+        task_stop_time: 1641775863
+        task_duration: 2392
+        task_metrics: eJyd1MEKwjAMBuBXGTuPkaRJmvkq4kFkBw/FofMgsne33u3A/7YWPprkJzu++/Va5sd6Lkt/6NiVc1YiGbr+sjy/VyPV7zKX2/1VjzTSNnS/lQegWJC3OKa24pYSNUAlYkQ5AUoFqVBDAWWKKCekL3ckryxIhTmQvEIRNe1tSlt5+l8ZCVChUQYmb6xAyiaE9CXIplgSR1QAedVFQSav087/sKkMmoYjm2IeSF457fQl2+kDr/61tw==
+  - ica_workflow_run_instance_id: wfr.f6adb13c92e340f89317c337674b18a6
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.5d05d214eb3e4604ba7153118173f63e
+    ica_workflow_name: ghif-qc_dev-wf
+    ica_workflow_version_name: 1.0.1
+    ica_workflow_run_name: qc-ghif-1.0.1
+    ica_input: eJytj0trAkEQhP+KzDnrGg1EvKng4xIQcm/a3d7ZCfPYTPeYBPG/Z0YCmruHgaGq+LrqrJpwAukjcR9sqxaj6eRppDpjhaLxGjqLuqizyUvWjR+SwBFdls6qscicf2pjLKls29CgmOCLplte1HVyTRMrITdULQpWLZ3qniz5ervbb+Cwrt+Wz9P563xcoJfMCEnKjdyAPDoqqL9IxrCoW+SDg/+X073pDuuSiNQB0+fjWvZ6Nge0AviFkcCH3uK4w2vjSC6cCNo0lDMSE93E/KLFe4PRDZbAtHfL1E3nkGJzXbPdL1fFEIyaBCLp3JkfN+n9ymXYBReAcTDkGTKX3NH+lLVJAgdHPJZvUZfLLwPxuBk=
+    ica_output: eJytkFFPgzAUhf/Kgq+utLS0sDdj4qOJv4CU9sIwQDduyYzL/rsUmc6pDyY+nnNuz+39jpEZ0buuQK89FntTuNHvRl88o+ujzeoYtc5o38wiqi1u4vhQDaSS2paMmzwBLmiV5Zwpw7mSSpQs0zLem3W9bao1I5Sw+L0U42A93ZO5/HYVlRqh1x3M3V+jYA/O+c/o7MLLbH5MmlYjBuehaSEY2LyGxkTmYlJb73fTp43rOtcfWuKGOjaH1jvX3tTQw3C+jp7CW92FBBceCww/r/xnFo93LMlUtvaAnoQNV0B+yi+pXObXbJbx39AwTiWTf4az0LDNUEzXFwiIU1o0NqxA7EmpUsusTisthFCJzUtlrRWK5UJKI3j0vaRyrYVh6ZgEoUyCyCSVkILgQK0qU5rZ3ErQiWE0Or0Bhfva3A==
+    ica_engine_parameters: eJytkT1ywyAQRq/iUeMmkkA4/mvjIik8LpQcAMNKYSKBAosVxeO7B9AkVUqXsG/fzn57zUZjPw7KgkBjp2y/yFrp9mU5NrZo1lyeKRO7CtiKNNsdoxvB2Ga9WZ3plq/LT5G376rJaUEKmj0sMuNx8HgXXTm7XNRiP5zuaHYIQ/J2pr2PMYiSsOdfteCIYIOOVX+J1ICodBtn9OYCERVmmOalXrRDrgW8TgNEog4vya18Vk+D/x+t1XdCjyCV7yMjoeG+C0Cgjkam6vJgRt0ZLpeRUL+l0wWsVRJcYK63GC+4NwdzK9eqAYepnXs0qVWMHRrTxU8W9q1IRWhFQiSM0nR30K3SaSYt6LYgeUAo2dEVrR5J7tBy9C7vuYvJ3H4AkRTCNw==
+    workflow_start_time: 1642591204
+    workflow_end_time: 1642595051
+    workflow_duration: 3847
+    ica_tasks:
+      - ica_task_run_instance_id: trn.5617b7c1159b46a48fe01c5b21983e14
+        task_step_name: samtools_stats_step
+        task_name: samtools-stats__1.13.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1642591352
+        task_stop_time: 1642593779
+        task_duration: 2426
+        task_metrics: eJyd000KwjAQBeCrlK6LzH8TryIuRLpwESxaFyK9ewOCK1v07ZLABzNvModXO13KcJ9OZWz3DYeJZ87kXdOex0d9oh3VcxnK9fZ8X+eu+a5CP4p/VUICqeSAYrN1xWuqloioQJRKICoToMw2kl9VTkiFDqURgswrEtJX70iGiTKiogdUTRFRif9XSgZMWRnZFOUAMlRBNkUlIRUqsilqBKlA+nIBfq96AvZLYysNmY8LlJK1og==
+      - ica_task_run_instance_id: trn.867c147977c048f4a67956a6afe281ff
+        task_step_name: custom_stats_qc_step
+        task_name: custom-stats-qc__1.0.1.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1642594007
+        task_stop_time: 1642594219
+        task_duration: 211
+        task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.298a81a7fffb4afba83ad0a3e12163ce
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.428005f137ab409296a367db1b9f122e
+    ica_workflow_name: custom-stats-qc_dev-wf
+    ica_workflow_version_name: 1.0.1
+    ica_workflow_run_name: custom-qc
+    ica_input: eJyNkEFOwzAQRa9SeY1jmhhSd1eigrpBFA4QOY5NjJw4eCYCqerdsZMixK670ejP+09zIn7CccL6A/xQG+v0IHtNtivy3llzrKjyfUNuVr8xkD1676AGlAgxdyLKSUgTeYzXKeq8kmj9MFNa2DIGGCROQEF3wUKXswSnn4rZIUKB/adm+I3kHEFj0MqCXtwWgWsbv0zI1kYUrbjTTdOW3IhSaKVu70vOTZEXgnP28rqvDm97eqzYQgf2vFvnm3JDL9VZqp5douLodG3b1HFJkb89+Cmo+W9Ph90DOf8ACnVyBQ==
+    ica_output: eJy1kMFOwzAMhl9lClfWNm23pLsicecJKjdxuqC0GXWqIaa9O2lhAzEQYhJH+7c+29+B+THsxlA/ku/ZZnFgzisIdi5Yq2mTpnszJHklQXIQxpimBNOALEBnUCDP+bpQmKqRgu+WTyp9A1Labq15uFsq3zXJTL9dsAYIe+hwhn+TT9ngffiSnyJ8npPzuHJANHXurcOpQfZlYufrqozVNoRdvD8SOt/vXeKHNlV7F7x3Ny32OJwezY5x+pOIelpqe9T/ZuS84Tc1l4M/OPq4+Y+yqlKKa2VpO9RRSU1IFNPaTsYYUZ9oXeAaOGqhyxKgkpKLHEAoQIN5xdklxHincXhnxCJpcJWLJtMoClkKoWGlTCZ1FRVLXnDOjq8iSubN
+    ica_engine_parameters: eJytkLtywyAQRX/Fo8ZNLIHI+NXGRVJ4XCj5AAyLhonEEh5WHI//PYAnqdI55XLPPTvspZrQve+0AxHQnavtrOql3zbNpFzdbtZ8TflKKXV85OrI14xLwhnQli6ZgEZEH3BcfIjqYVZhDDaGu1XNzeOzMoz28E9WH8AW54D9/bYkKbKRf3aChwAuqVj7e4UOQtCmz/4RT5BRgfZ8+8yL8YEbAa9nC5no0iS5k8/6yca/0U5/FXQPUscxMxIUj0MCErVHWdL5DiczIJfzTOif6HAC57QEn5jLNZ8V/JuHW5UbrcCHUucxYKmKaQiIQ35kNalb0hLaEkZXjFKaATC9NmUnTWlNFglJDN3QJdksJJxgQFtdvwERdsMa
+    workflow_start_time: 1643250204
+    workflow_end_time: 1643252085
+    workflow_duration: 1881
+    ica_tasks:
+      - ica_task_run_instance_id: trn.daed9a9b9df4434a9473d7e4293a8d88
+        task_step_name: main
+        task_name: main
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1643250287
+        task_stop_time: 1643250888
+        task_duration: 601
+        task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.10176db758d94e56833422dfd60d0f90
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.5d05d214eb3e4604ba7153118173f63e
+    ica_workflow_name: ghif-qc_dev-wf
+    ica_workflow_version_name: 1.0.1
+    ica_workflow_run_name: qc-ghif-1.0.1
+    ica_input: eJytkEtLZDEQhf+KZO298TFg404HfGwEwX2ozq3OzZikYqrSPSL93ye5ztAOCG5cBMKpwzn11ZuytDUyF+SZwqQuj85Ojo/UxgfB4pMzmwCuq+cnP5ruU65i1hCb9KZsAOb2Uzc+oGrjQBbEU+qam/hS6xqtLYNgzMMEAsOEWz1jwKRv7+5vzONP/XB1era6WI09dN8yqErvaBtggog96q9lYIhCFFgdbL/4ve2fJRe0nnFc9P9tn0baykKxOwtuDOPL94HN7nxlIIiBHRQ0ieYA4wYWyIKRtmimmnuNlIoHsb0S4OOgceeAxk8fNlcHnakWu1Dd3l9dLwNbfJavUWaR3GEK7EbnZa7rylgsJcEko6Wo+RnSDoLeOR7e64YXqyP4pC0EWwMIGttXBodjfl3oBIpDMQVd6+Hvu+jTksvmjiIZhuwxsWm5GNfhtR+7CjFF5FF+i9rv/wC9NfWx
+    ica_output: eJy90sFygyAUBdBfydhto4AKkl03XfYXHAQ0dFQSH5l0msm/V6x2YZM0LpolcHl3OMMpkAdwtsnBCQf5XubSNoVptcrfwbbBZnUKaiuFM8MiqBRsouhYdiFGmFFVsDRTPNEpzeI4IUSViiKFSo6ivVxXW1OucYhCHNmD2x0cRG8vmGQsW4+1U1s4tD2vgkKAbkWjfdlfWZ/rrHU3slNMfwypn6uyFgB+59XU2m+A+fSdPMlYv9o6t+vf2U9pbHusQ9tVkTzWztr6qdKt7iYQdPbDZoTfb30I4B1ud3AtVSKUJ4uVdp2WBvRjdMaymzzzzCWfMbMUiHHKFwOBaPwJjB9pdHJD5T8xTZWhb7nCNM9cYpoyc6fxyjUmHCOK6WKoUUaZLu8lctAA/WlulK8AaMNCFlwxVehEoYRSIUhWEiZZpjJaMEyD30NKWyvdjTP6RUh4TAgrBZcyTQrFRao56pV1/2IcYxycvwAATKiz
+    ica_engine_parameters: eJytkbFywjAMhl+Fy8LSJHYCgbCWoR04hrQP4EZK6mtiu7ZCSjnevba5durIaOv7P52kSzJr+7GXFlvS9pzsFkkPbpfnc2czzvimgrfNegv1CtfVtixXRQEdVAxYV7P8s037d9mlPGMZTx4WiZ7ITHQXXX5zuaCl0RzvaHaEJnoH3d/H6EVROIqvphVEaL2uLP420iCRVH3oMeoTBrTV5nwb6lk5EqrFl7PBQDT+BcLCk3w00/9oI78jekCQ0xgYwE5Mgwc8ddAQq8u9ntWgBSwDIX9LxxNaKwGdZy7XsF50rw5vUaFkh45iXEykY7SdB9J6CJ+ln7dgBeMFK/mm5DzeHVUvVezJfTVjqUc8w2tesToFPOGgTXL9AdFTvpo=
+    workflow_start_time: 1643260552
+    workflow_end_time: 1643264152
+    workflow_duration: 3599
+    ica_tasks:
+      - ica_task_run_instance_id: trn.641edcf776c84605812a2a7a8ef68b40
+        task_step_name: calculate_coverage_step
+        task_name: calculate-coverage__1.0.0.cwl
+        task_cpus: 35.5
+        task_memory: 68
+        task_start_time: 1643260627
+        task_stop_time: 1643261665
+        task_duration: 1037
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMxNjIzNLAw0FFQSi4oBQnpmQHZuam5+UWVYK5BrY4CVl2GJoa4dBnpWeDSZWRgTI4uM1Pcuixx6TI2tCBHl4U5GbpMTIzI0GWKLzQsa2MBnBt1MQ==
+      - ica_task_run_instance_id: trn.1029dca146d84444b02887196972e447
+        task_step_name: samtools_stats_step
+        task_name: samtools-stats__1.13.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1643260648
+        task_stop_time: 1643263027
+        task_duration: 2378
+        task_metrics: eJyd1DEOwjAMBdCrVJmryvlxHMNVEANCHRgiKigDQr07ZScZ/pZEeopjOz59wnqr83O91CUch2iaYBFSxiFcl9fvaJJ9Xed6f7z3rUyyjcN/ZZlQCYlR3lGxpVSVUFk672or6+SwqQyUchCqqBPKxRhlTOYPiIxyol6QTOQQMQqjCnMXwLwLTlQZSZkIVYhfCe3NjabKYCLMTnQvTBlVelO0rZi5Aad6w3vZwHb+Ah14ppE=
+      - ica_task_run_instance_id: trn.73fcd4cbba104292ba9e763a5a3f43a1
+        task_step_name: custom_stats_qc_step
+        task_name: custom-stats-qc__1.0.1.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1643263107
+        task_stop_time: 1643263327
+        task_duration: 219
+        task_metrics: eJyLjgUAARUAuQ==
   - ica_workflow_run_instance_id: wfr.491f5fd1b5e74f6e87113d964675504e
     ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
     ica_workflow_id: wfl.286d4a2e82f048609d5b288a9d2868f6

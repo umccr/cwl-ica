@@ -23,6 +23,8 @@ UMCCR CWL-ICA Catalogue
 - [get-bam-file-from-directory](#get-bam-file-from-directory)  
 - [create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema](#create-predefined-mount-paths-and-umccrise-row-
 from-umccrise-schema)  
+- [get-custom-output-dir-entry-for-tso500-with-post-processing](#get-custom-output-dir-entry-for-tso500-with-post-
+processing)  
 
 
 ### get-faidx-file-from-reference-file
@@ -86,6 +88,7 @@ from-umccrise-schema)
 #### Versions
   
 - [1.0.0](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.md)  
+- [2.0.1](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.md)  
 
 
 ### get-bam-file-from-directory
@@ -101,6 +104,13 @@ from-umccrise-schema)
   
 - [1.2.1--0](.github/catalogue/docs/expressions/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema/1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.md)  
 - [1.2.2--0](.github/catalogue/docs/expressions/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema/1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.md)  
+
+
+### get-custom-output-dir-entry-for-tso500-with-post-processing
+
+#### Versions
+  
+- [2.0.1](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
 
 
 ## Tools
@@ -151,6 +161,9 @@ illumina-tar)
 - [dragen-umi](#dragen-umi)  
 - [bcftools-view](#bcftools-view)  
 - [rnasum](#rnasum)  
+- [samtools-stats](#samtools-stats)  
+- [custom-stats-qc](#custom-stats-qc)  
+- [calculate-coverage](#calculate-coverage)  
 
 
 ### samtools-merge
@@ -396,6 +409,7 @@ illumina-tar)
   
 - [1.0.0](.github/catalogue/docs/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [2.0.0](.github/catalogue/docs/tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
+- [2.0.1](.github/catalogue/docs/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
 
 
 ### dragen-build-reference-tarball
@@ -484,6 +498,7 @@ illumina-tar)
 - [1.2.1--0](.github/catalogue/docs/tools/umccrise/1.2.1--0/umccrise__1.2.1--0.md)  
 - [1.2.2--0](.github/catalogue/docs/tools/umccrise/1.2.2--0/umccrise__1.2.2--0.md)  
 - [2.0.0--0](.github/catalogue/docs/tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
+- [2.0.1--0](.github/catalogue/docs/tools/umccrise/2.0.1--0/umccrise__2.0.1--0.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -515,6 +530,28 @@ illumina-tar)
 - [0.4.1](.github/catalogue/docs/tools/rnasum/0.4.1/rnasum__0.4.1.md)  
 
 
+### samtools-stats
+
+#### Versions
+  
+- [1.13.0](.github/catalogue/docs/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md)  
+
+
+### custom-stats-qc
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.md)  
+- [1.0.1](.github/catalogue/docs/tools/custom-stats-qc/1.0.1/custom-stats-qc__1.0.1.md)  
+
+
+### calculate-coverage
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -534,6 +571,7 @@ illumina-tar)
 - [tso500-ctdna-with-post-processing-pipeline](#tso500-ctdna-with-post-processing-pipeline)  
 - [umccrise-pipeline](#umccrise-pipeline)  
 - [umccrise-with-dragen-germline-pipeline](#umccrise-with-dragen-germline-pipeline)  
+- [ghif-qc](#ghif-qc)  
 
 
 ### optitype-pipeline
@@ -689,4 +727,13 @@ illumina-tar)
 #### Versions
   
 - [2.0.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
+- [2.0.1--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.md)  
+
+
+### ghif-qc
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/workflows/ghif-qc/1.0.0/ghif-qc__1.0.0.md)  
+- [1.0.1](.github/catalogue/docs/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md)  
 

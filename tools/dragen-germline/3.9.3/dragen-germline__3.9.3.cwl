@@ -14,6 +14,12 @@ s:author:
     s:name: Sehrish Kanwal
     s:email: sehrish.kanwal@umccr.org
 
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
+
 # ID/Docs
 id: dragen-germline--3.9.3
 label: dragen-germline v(3.9.3)
@@ -35,7 +41,7 @@ hints:
 requirements:
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
+      - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
   InlineJavascriptRequirement:
     expressionLib:
       - var get_script_path = function(){
@@ -63,7 +69,7 @@ requirements:
           */
           return get_scratch_mount() + "intermediate-results/";
         }
-      - var get_fastq_list_path = function() {
+      - var get_fastq_list_csv_path = function() {
           /*
           The fastq list path must be placed in working directory
           */
@@ -92,9 +98,104 @@ requirements:
           /*
           ICA is inconsistent with cwl when it comes to handling @
           */
-            return "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
+          return "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
         }
-    
+      - var get_unique_elements_of_list = function(list){
+          /*
+          Get unique elements of an array - https://stackoverflow.com/a/39272981/6946787
+          */
+          return list.filter(function (x, i, a) {
+              return a.indexOf(x) == i;
+          });
+        }
+      - var convert_to_csv = function(double_array, column_headers){
+          /*
+          Given a list of lists and a set of column headers, generate a csv
+          */
+          var str = column_headers.join(",") + "\n";
+          for (var line_iter=0; line_iter < double_array.length; line_iter++){
+            str += double_array[line_iter].join(",") + "\n";
+          }
+
+          /*
+          Return string of csv
+          */
+          return str;
+        }
+      - var get_fastq_list_csv_contents_from_fastq_list_rows_object = function(fastq_list_rows_object){
+          /*
+          Get the fastq list csv contents
+          Get full set of keys and values
+          */
+          var all_keys = [];
+          var all_row_values = [];
+          
+          /*
+          Get all keys from all rows
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect all possible key values
+              */
+              var row_keys = Object.keys(fastq_list_row);
+              all_keys = all_keys.concat(row_keys);
+            }
+          );
+        
+          /*
+          Unique keys - this will be the header of the csv
+          */
+          var all_unique_keys = get_unique_elements_of_list(all_keys);
+
+          /*
+          Now get items from each fastq list rows object for each key
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect item for each key
+              */
+              var row_values = [];
+          
+              all_unique_keys.forEach(
+                function(key){
+                  if (fastq_list_row[key] === null){
+                    row_values.push("");
+                  } else if ( fastq_list_row[key] !== null && fastq_list_row[key].class === "File" ){
+                    row_values.push(fastq_list_row[key].path);
+                  } else {
+                    row_values.push(fastq_list_row[key]);
+                  }
+                }
+            );
+            all_row_values.push(row_values)
+          });
+
+          /*
+          Update rglb, rgsm and rgid to RGLB, RGSM and RGID respectively
+          Update read_1 and read_2 to Read1File and Read2File in column headers
+          Update lane to Lane
+          */
+          var all_unique_keys_renamed = [];
+          for (var key_iter=0; key_iter < all_unique_keys.length; key_iter++ ){
+            var key_value = all_unique_keys[key_iter];
+            if (key_value.indexOf("rg") === 0){
+              all_unique_keys_renamed.push(key_value.toUpperCase());
+            } else if (key_value === "read_1"){
+              all_unique_keys_renamed.push("Read1File");
+            } else if (key_value === "read_2"){
+              all_unique_keys_renamed.push("Read2File");
+            } else if (key_value === "lane"){
+              all_unique_keys_renamed.push("Lane");
+            }
+          }
+
+          /*
+          Return the string value of the csv
+          */
+          return convert_to_csv(all_row_values, all_unique_keys_renamed);
+        }
   InitialWorkDirRequirement:
     listing:
       - entryname: $(get_script_path())
@@ -123,44 +224,25 @@ requirements:
 
           # Run dragen command and import options from cli
           $(get_dragen_eval_line())
-
       - |
         ${
-            /*
-            Initialise the array of files to mount
-            Add in the script path and the script contents
-            We also add in the fastq-list.csv into the working directory,
-            since Read1File and Read2File are relative to its position
-            */
-
-            var e = [{
-                        "entryname": get_fastq_list_path(),
-                        "entry": inputs.fastq_list
-                    }];
-
-            /*
-            Check if input_mounts record is defined
-            The fastq_list.csv could be using presigned urls instead
-            */
-            if (inputs.fastq_list_mount_paths !== null){
-                /*
-                Iterate through each file to mount
-                Mount that object at the same reference to the mount point index.
-                */
-                inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
-                  e.push({
-                      'entry': mount_path_record.file_obj,
-                      'entryname': mount_path_record.mount_path
-                  });
-                });
-            }
-
-            /*
-            Return file paths
-            */
-            return e;
+          /*
+          Add in the fastq list csv we created
+          */        
+          if (inputs.fastq_list_rows !== null){
+            return {
+                      "entryname": get_fastq_list_csv_path(),
+                      "entry": get_fastq_list_csv_contents_from_fastq_list_rows_object(inputs.fastq_list_rows)
+                   };
+          } else if (inputs.fastq_list !== null){
+            return {
+                      "entryname": get_fastq_list_csv_path(),
+                      "entry": inputs.fastq_list
+                    };
+          } else {
+            return null;
+          }
         }
-
 
 baseCommand: [ "bash" ]
 
@@ -168,6 +250,9 @@ arguments:
   # Script path
   - valueFrom: "$(get_script_path())"
     position: -1
+  # Set fastq list
+  - prefix: "--fastq-list"
+    valueFrom: "$(get_fastq_list_csv_path())"
   # Parameters that are always true
   - prefix: "--enable-variant-caller"
     valueFrom: "true"
@@ -177,6 +262,7 @@ arguments:
 
 inputs:
   # File inputs
+  # Option 1:
   fastq_list:
     label: fastq list
     doc: |
@@ -184,14 +270,13 @@ inputs:
       to process.
       Read1File and Read2File may be presigned urls or use this in conjunction with
       the fastq_list_mount_paths inputs.
-    type: File
-    inputBinding:
-      prefix: "--fastq-list"
-  fastq_list_mount_paths:
-    label: fastq list mount paths
+    type: File?
+  # Option 2:
+  fastq_list_rows:
+    label: fastq list rows
     doc: |
-      Path to fastq list mount path
-    type: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml#predefined-mount-path[]?
+      Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
   reference_tar:
     label: reference tar
     doc: |
@@ -259,16 +344,16 @@ inputs:
   sv_call_regions_bed:
     label: sv call regions bed
     doc: |
-      Specifies a BED file containing the set of regions to call. 
+      Specifies a BED file containing the set of regions to call.
     type: File?
     inputBinding:
       prefix: "--sv-call-regions-bed"
   sv_region:
     label: sv region
     doc: |
-      Limit the analysis to a specified region of the genome for debugging purposes. 
-      This option can be specified multiple times to build a list of regions. 
-      The value must be in the format “chr:startPos-endPos”.. 
+      Limit the analysis to a specified region of the genome for debugging purposes.
+      This option can be specified multiple times to build a list of regions.
+      The value must be in the format “chr:startPos-endPos”..
     type: string?
     inputBinding:
       prefix: "--sv-region"
@@ -276,9 +361,9 @@ inputs:
   sv_exome:
     label: sv exome
     doc: |
-      Set to true to configure the variant caller for targeted sequencing inputs, 
-      which includes disabling high depth filters. 
-      In integrated mode, the default is to autodetect targeted sequencing input, 
+      Set to true to configure the variant caller for targeted sequencing inputs,
+      which includes disabling high depth filters.
+      In integrated mode, the default is to autodetect targeted sequencing input,
       and in standalone mode the default is false.
     type: boolean?
     inputBinding:
@@ -295,8 +380,8 @@ inputs:
   sv_forcegt_vcf:
     label: sv forcegt vcf
     doc: |
-      Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted 
-      in the output VCF even if not found in the sample data. 
+      Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted
+      in the output VCF even if not found in the sample data.
       The variants are merged with any additional variants discovered directly from the sample data.
     type: File?
     inputBinding:
@@ -304,8 +389,8 @@ inputs:
   sv_discovery:
     label: sv discovery
     doc: |
-      Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used. 
-      When set to false, SV discovery is disabled and only the forced genotyping input variants 
+      Enable SV discovery. This flag can be set to false only when --sv-forcegt-vcf is used.
+      When set to false, SV discovery is disabled and only the forced genotyping input variants
       are processed. The default is true.
     type: boolean?
     inputBinding:
@@ -314,7 +399,7 @@ inputs:
   sv_se_overlap_pair_evidence:
     label: sv use overlap pair evidence
     doc: |
-      Allow overlapping read pairs to be considered as evidence. 
+      Allow overlapping read pairs to be considered as evidence.
       By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
     type: boolean?
     inputBinding:
@@ -323,16 +408,16 @@ inputs:
   sv_enable_liquid_tumor_mode:
     label: sv enable liquid tumor mode
     doc: |
-      Enable liquid tumor mode. 
+      Enable liquid tumor mode.
     type: boolean?
     inputBinding:
       prefix: "--sv-enable-liquid-tumor-mode"
-      valueFrom: "$(self.toString())"  
+      valueFrom: "$(self.toString())"
   sv_tin_contam_tolerance:
     label: sv tin contam tolerance
     doc: |
-      Set the Tumor-in-Normal (TiN) contamination tolerance level. 
-      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15. 
+      Set the Tumor-in-Normal (TiN) contamination tolerance level.
+      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
     type: float?
     inputBinding:
       prefix: "--sv-tin-contam-tolerance"
@@ -515,7 +600,7 @@ inputs:
         required: true
     inputBinding:
       prefix: "--vc-forcegt-vcf"
-  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf, 
+  # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf,
   # More info at https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/CNVExamples_fDG_dtREF.htm?Highlight=cnv-normal-b-allele-vcf
   enable_cnv:
     label: enable cnv calling
@@ -528,7 +613,7 @@ inputs:
   cnv_enable_self_normalization:
     label: cnv enable self normalization
     doc: |
-      Enable CNV self normalization. 
+      Enable CNV self normalization.
       Self Normalization requires that the DRAGEN hash table be generated with the enable-cnv=true option.
     type: boolean?
     inputBinding:
@@ -559,8 +644,8 @@ inputs:
   qc_coverage_ignore_overlaps:
     label: qc coverage ignore overlaps
     doc: |
-      Set to true to resolve all of the alignments for each fragment and avoid double-counting any 
-      overlapping bases. This might result in marginally longer run times. 
+      Set to true to resolve all of the alignments for each fragment and avoid double-counting any
+      overlapping bases. This might result in marginally longer run times.
       This option also requires setting --enable-map-align=true.
     type: boolean?
     inputBinding:
@@ -578,8 +663,8 @@ inputs:
   hla_bed_file:
     label: hla bed file
     doc: |
-      Use the HLA region BED input file to specify the region to extract HLA reads from. 
-      DRAGEN HLA Caller parses the input file for regions within the BED file, and then 
+      Use the HLA region BED input file to specify the region to extract HLA reads from.
+      DRAGEN HLA Caller parses the input file for regions within the BED file, and then
       extracts reads accordingly to align with the HLA allele reference.
     type: File?
     inputBinding:
@@ -589,7 +674,7 @@ inputs:
     doc: |
       Use the HLA allele reference file to specify the reference alleles to align against.
       The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.
-      If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/. 
+      If --hla-reference-file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/.
       The reference HLA sequences are obtained from the IMGT/HLA database.
     type: File?
     inputBinding:
@@ -599,7 +684,7 @@ inputs:
     doc: |
       Use the population-level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.
       The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.
-      If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/. 
+      If --hla-allele-frequency-file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/.
       Population-level allele frequencies can be obtained from the Allele Frequency Net database.
     type: File?
     inputBinding:
@@ -607,9 +692,9 @@ inputs:
   hla_tiebreaker_threshold:
     label: hla tiebreaker threshold
     doc: |
-      If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele, 
-      the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based 
-      on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to 
+      If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele,
+      the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based
+      on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to
       the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
     type: float?
     inputBinding:
@@ -617,8 +702,8 @@ inputs:
   hla_zygosity_threshold:
     label: hla zygosity threshold
     doc: |
-      If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele, 
-      then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value. 
+      If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele,
+      then the HLA Caller infers homozygosity for the given HLA-I gene. You can use this option to specify the fraction value.
       The default value is 0.15.
     type: float?
     inputBinding:
@@ -626,8 +711,8 @@ inputs:
   hla_min_reads:
     label: hla min reads
     doc: |
-      Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing. 
-      The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a 
+      Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing.
+      The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a
       lower threshold value.
     type: int?
     inputBinding:

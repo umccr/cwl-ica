@@ -61,6 +61,9 @@ expressions:
       - name: 1.0.0
         path: 1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl
         md5sum: f5afc198579fa46d75969659d0680849
+      - name: 2.0.1
+        path: 2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.cwl
+        md5sum: f206bc87217a09ebaf647d955af484bf
     categories: []
   - name: get-bam-file-from-directory
     path: get-bam-file-from-directory
@@ -78,6 +81,13 @@ expressions:
       - name: 1.2.2--0
         path: 1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.cwl
         md5sum: 7caaf4d0d7e50f97eda0b1404c905cdb
+    categories: []
+  - name: get-custom-output-dir-entry-for-tso500-with-post-processing
+    path: get-custom-output-dir-entry-for-tso500-with-post-processing
+    versions:
+      - name: 2.0.1
+        path: 2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.cwl
+        md5sum: dcecdce54ae1e4ff8e8206d77b166f41
     categories: []
   - name: create-single-directory-from-directories-array
     path: create-single-directory-from-directories-array
