@@ -1424,3 +1424,70 @@ runs:
         task_stop_time: 1639618343
         task_duration: 1612
         task_metrics: eJyd0rEKwkAMBuBXKZ1LuCS99OKriINIB4fDonUQ6bv3XOREf4duR8hHLj/ZP9v5nMfbfMxTu2vY1I0HCdY17Wm6l1IgL+885sv18eqgsHTNbzX0b1XaPhUjpcpICRlUDmcJJaT6mJBSvFdkrtJItYokUBmcJeRImThK/s8PLSWsFKkhCk4DqlTdxpfqobItylW3KIcXpRSBKmuFDYo54uRtOawjfupq
+  - ica_workflow_run_instance_id: wfr.491f5fd1b5e74f6e87113d964675504e
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.286d4a2e82f048609d5b288a9d2868f6
+    ica_workflow_name: dragen-transcriptome-pipeline_dev-wf
+    ica_workflow_version_name: 3.9.3
+    ica_workflow_run_name: Dragen-3.9.3-inlinecsv-multiQC
+    ica_input: eJzNltFu2yAUhl+l8vWwAVeJ3but1S6qreraXUyqJnRiExsNgwskXVr13QfYSaYom5YqkXYTEIf8/+dz8MEvCSilHTihFZsLyZOLs5ekkmCtnyUfw8q7s0TqKm4Ja01tL7Ks5ksudd9x5TLD59xwVXFUg4OsNtBwxZ6czdomL0IYOQPKVkb0zqZKK/TMjUaSq8a1aePmyas3mUmofkhh3XEZwBgxgwFlmKONU+rsMm2eo321cnoGqrYnt984BfvoPQfrHlkgYkY/Bd+Hl0SCCuUgPm441Iy8BWwJUtRDeSNZQLr9eslu+Ozu5j0leEJL9smPeIonWeT4c5zd+znGhN0R5oc0bl/nLzLS/4iR7mFsRB0Ydv+dxJichdhaaFiz3d79r999VC9cv3CsFoZXTpvVuDPZhsIbxXp/OMTPXeneaMeFf2LdgVCnP3SjHxr90mY+z2NOHiu2EWIWul7y8QBucK42T/imWt5/uMYYTwj7fPWNlBif+wrF8RxnoECurLC/01NMCSIUYYJQnpZpvlEIwEfmIkUxcpHJyFVMp4dweYVTcJXlmqvMB66SHpQvr3ACLppPRi5KhnwRv3YIl1c4Cde6jjQna67iL1wE0XKH6xR19BDs9u461hGP5/6wfHmFod9sX9PQ1OAILcM7646P93T48e1ybOZrKwfmeL2pBdt6xZlvMdmyGPuTdPAEhqNKLRGoqtWG1zGElgXaG0091Pba6f1tzpmCjv9zF7X+e8QtLLK8NcK2NIuQ3UI68eUyG5ogiopo1B+u6tdfOFv4vw==
+    ica_output: eJzFkM1uwjAQhF8F+VwSJ8SJwxWOPbRS79HGXiNLxqa20z/Eu9cJqCDaQzlxnE/amZ3ZE/Be99C5Ie6G2EntUUTnP8lytifGCYja2STIRoZlnr8rn1VtoZiSRc+wqVSNvCmKhWzrqm4YoxXmaw8btPNF1maLubZGWxThbb4dTNTPq/wYFfJjMnmYkR4CWtjimHOmI/HOxd8UPyY4SmEghFGsfz5PNOiv0cwOxhySlNNDXfRgg/B6F90W79H46WV1XfeELrteoFuLToGv4h7dHsuC0obW3Z9jnx67bv/vo8t9bjq6dcHzcl3aqAsYQpqs03I8DMFmVDRl2TAoVS0rQA7AC+AtF4pKIegUfGWinJHoTx5JZEyyNDUkJwZVxThi2VMuW+yVKMpekMM3ClIsrg==
+    ica_engine_parameters: eJy1kc1uwyAQhF8l8iWX2gb/1rkmh+YQRZXbB6BmbaFiQLC2m0Z594Kj9tRrjjDfzCzLNVq0/TwICx1qe4l2m2jgbpemS2+ToqF92XP6UUJd9BU815TmvKmKqi5LUkB6sGwAFedJk+SxUFIo6Nwcj5NE8bqPnjaRntBM+Jj89B7uQg+O5vzIKodg1iKphwdV+OS1YWRfbccQwfr8PPtbYguIQg2hdNQzBLTT5nJ/9lE5ZKqDt4uBQLT+xJnlL2Jvpv/RVnyv6Am4mMbAcOiZH+aoPHXSfFW3B70oqRnfBkL8SucZrBUcnGeut/AB4N4d3K1MiR4crnY2oV6t3SJRaxku84QkGckIzUhO65xSGgBQg99I0KlXExJ7xDO0oRVpYg4zSG2i2w+Madlm
+    workflow_start_time: 1646261589
+    workflow_end_time: 1646266520
+    workflow_duration: 4930
+    ica_tasks:
+      - ica_task_run_instance_id: trn.0957d33d7c534fe69c62ca9dfd58d34a
+        task_step_name: run_dragen_transcriptome_step
+        task_name: dragen-transcriptome__3.9.3.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1646261731
+        task_stop_time: 1646263368
+        task_duration: 1636
+        task_metrics: eJyNzsEKgzAMgOFXKT1LSGLaWF9leBjDww5lsulBxHdfQdAOVvGWBD7+3BY7PmP/Ge9xsK0hL549q4bK2McwpRMCpjn28fWet3WtzF/ViOyKgC+qgH5XDHWuSE+Y0yPmwOVOELTgamQ8HAP99ASo6ALlPcmdY2hKjoSKf6ZeWLsv1blobQ==
+      - ica_task_run_instance_id: trn.0e589b86cda840b5be9f113c5e3b13a7
+        task_step_name: create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1646261687
+        task_stop_time: 1646262306
+        task_duration: 618
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.aada569c212c462b80eec10c421ec9b4
+        task_step_name: arriba_fusion_step
+        task_name: arriba-fusion-calling__2.0.0.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1646263530
+        task_stop_time: 1646264150
+        task_duration: 619
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMxMzIztrQw0FFQSi4oBQoZ6IHYuam5+UWVEG6tjgI2XSYGxhZwXYaouoz1LGpjAXEmHZw=
+      - ica_task_run_instance_id: trn.06ef5ac6620a4c8f8e15fef2558307aa
+        task_step_name: dragen_qc_step
+        task_name: multiqc__1.11.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1646263548
+        task_stop_time: 1646264432
+        task_duration: 883
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMxMzIzMTAx0FFQSi4oBQoZ6JkA2bmpuflFlWCuQa2OAlZdhgYmSLrMidVlZoiky4xIXUZGxmTYZWRugdsuw9pYAB/kSUk=
+      - ica_task_run_instance_id: trn.15cf99e4d35748d8b8381feaa81089ce
+        task_step_name: arriba_drawing_step
+        task_name: arriba-drawing__2.0.0.cwl
+        task_cpus: 71.5
+        task_memory: 140
+        task_start_time: 1646264403
+        task_stop_time: 1646264976
+        task_duration: 572
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMxMzIzMTEz0FFQSi4oBQoZ6FkC2bmpuflFlWCuaa2OAlZdpkaGcF2GegbIuoz0DHDqsjDBpctQzxKXLqA+3HYZ4dRlaYlblzEuXeZmePyFU5eFIV67YgF5m2am
+      - ica_task_run_instance_id: trn.168cde11cf8d41fea58f01c662bac04b
+        task_step_name: create_arriba_output_directory
+        task_name: custom-create-directory__1.0.0.cwl
+        task_cpus: 15.5
+        task_memory: 28
+        task_start_time: 1646265115
+        task_stop_time: 1646265702
+        task_duration: 586
+        task_metrics: eJyLjgUAARUAuQ==

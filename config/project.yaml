@@ -438,6 +438,7 @@ projects:
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
+              - wfr.491f5fd1b5e74f6e87113d964675504e
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
