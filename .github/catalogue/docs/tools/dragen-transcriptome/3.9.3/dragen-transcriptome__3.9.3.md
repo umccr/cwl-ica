@@ -17,7 +17,7 @@ dragen-transcriptome 3.9.3 tool
 
   
 > ID: dragen-transcriptome--3.9.3  
-> md5sum: ee25229250f34265136d75b54eab33a9
+> md5sum: 072cae27c40a69c89992ac05b180982a
 
 ### dragen-transcriptome v(3.9.3) documentation
   
@@ -126,26 +126,24 @@ Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default v
   
 > ID: fastq_list
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files
-to process.
-Read1File and Read2File may be presigned urls or use this in conjunction with
-the fastq_list_mount_paths inputs.
+to process. read_1 and read_2 components in the CSV file must be presigned urls.
 
 
-### fastq list mount paths
+### fastq list rows
 
 
 
   
-> ID: fastq_list_mount_paths
+> ID: fastq_list_rows
   
 **Optional:** `True`  
-**Type:** `predefined-mount-path[]`  
+**Type:** `fastq-list-row[]`  
 **Docs:**  
-Path to fastq list mount path.
+Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
 
 
 ### output directory
