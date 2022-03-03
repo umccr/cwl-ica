@@ -51,6 +51,13 @@ inputs:
         * Read1File
         * Read2File (optional)
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+  # Option 2
+  fastq_list:
+    label: fastq list
+    doc: |
+      CSV file that contains a list of FASTQ files for normal sample
+      to process (read_1 and read_2 attributes must be presigned urls for each column)
+    type: File?
   reference_tar:
     label: reference tar
     doc: |
@@ -384,6 +391,8 @@ steps:
     in:
       fastq_list_rows:
         source: fastq_list_rows
+      fastq_list:
+        source: fastq_list
       reference_tar:
         source: reference_tar
       output_file_prefix:
