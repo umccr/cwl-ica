@@ -169,7 +169,7 @@ projects:
           - name: 1.11.0
             path: 1.11.0/multiqc__1.11.0.cwl
             ica_workflow_version_name: 1.11.0
-            modification_time: 2021-07-09T00:52:26UTC
+            modification_time: 2022-02-24T02:38:30UTC
             run_instances: []
       - name: dragen-alignment
         path: dragen-alignment
@@ -239,7 +239,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-02-09T00:35:23UTC
+            modification_time: 2022-03-02T02:03:34UTC
             run_instances: []
       - name: umccrise
         path: umccrise
@@ -366,6 +366,16 @@ projects:
             ica_workflow_version_name: 1.0.0
             modification_time: 2022-01-25T02:27:00UTC
             run_instances: []
+      - name: arriba-fusion-calling
+        path: arriba-fusion-calling
+        ica_workflow_name: arriba-fusion-calling_dev-wf
+        ica_workflow_id: wfl.b9a507a2bfc549a6ba82db33d7d64d9c
+        versions:
+          - name: 2.0.0
+            path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
+            ica_workflow_version_name: 2.0.0
+            modification_time: 2022-02-18T03:46:12UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -452,7 +462,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2022-02-09T09:43:11UTC
+            modification_time: 2022-03-03T02:50:10UTC
             run_instances:
               - wfr.d9ddc8eb7d544d32bdbe285fd45a4365
       - name: dragen-transcriptome-pipeline
@@ -469,15 +479,16 @@ projects:
           - name: 3.8.4
             path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2021-12-16T13:52:31UTC
+            modification_time: 2022-03-03T02:50:16UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-12-15T23:37:59UTC
+            modification_time: 2022-03-02T22:51:25UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
+              - wfr.491f5fd1b5e74f6e87113d964675504e
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
@@ -746,6 +757,11 @@ projects:
             ica_workflow_version_name: 3.7.5--fade666
             modification_time: 2022-02-10T23:52:17UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/bcl-conversion__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--7afeacf
+            modification_time: 2022-03-03T02:50:33UTC
+            run_instances: []
       - name: dragen-transcriptome-pipeline
         path: dragen-transcriptome-pipeline
         ica_workflow_name: dragen-transcriptome-pipeline_prod-wf
@@ -805,6 +821,11 @@ projects:
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--3a73a95
             modification_time: 2021-12-16T13:52:53UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--7afeacf
+            modification_time: 2022-03-03T02:50:40UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
