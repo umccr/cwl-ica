@@ -45,7 +45,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/bcl-conversion__3.7.5.cwl
-        md5sum: c6f25b70a6ed2438d4480993d47fe5a9
+        md5sum: a7fcb85ab39f73a3a85b90bcf6f632c9
     categories: []
   - name: dragen-somatic-pipeline
     path: dragen-somatic-pipeline
@@ -67,7 +67,7 @@ workflows:
         md5sum: 4695d5a6b43a53fc0767be3f18d2d4cd
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
-        md5sum: 2666a32bab6e8bf1d9700aec27ff70f6
+        md5sum: 31746f794e323f54fa0b91d1c7ea5c95
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
         md5sum: eb8f170a9dcc47ef12513bb9b81513a8

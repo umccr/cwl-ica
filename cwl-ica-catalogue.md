@@ -25,6 +25,7 @@ UMCCR CWL-ICA Catalogue
 from-umccrise-schema)  
 - [get-custom-output-dir-entry-for-tso500-with-post-processing](#get-custom-output-dir-entry-for-tso500-with-post-
 processing)  
+- [create-single-directory-from-directories-array](#create-single-directory-from-directories-array)  
 
 
 ### get-faidx-file-from-reference-file
@@ -111,6 +112,13 @@ processing)
 #### Versions
   
 - [2.0.1](.github/catalogue/docs/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
+
+
+### create-single-directory-from-directories-array
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/expressions/create-single-directory-from-directories-array/1.0.0/create-single-directory-from-directories-array__1.0.0.md)  
 
 
 ## Tools

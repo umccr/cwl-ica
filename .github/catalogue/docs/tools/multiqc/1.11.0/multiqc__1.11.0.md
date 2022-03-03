@@ -17,7 +17,7 @@ multiqc 1.11.0 tool
 
   
 > ID: multiqc--1.11.0  
-> md5sum: 59614d4be56c46d9ac9d31bcef91eff8
+> md5sum: 776ca456171ee3c9a02ecdf8b9698356
 
 ### multiqc v(1.11.0) documentation
   
@@ -37,6 +37,8 @@ Documentation for multiqc v1.11.0
 ### Used By
   
 - [bcl-conversion 3.7.5](../../../workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.md)  
+- [dragen-transcriptome-pipeline 3.8.4](../../../workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
+- [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
 
   
 
@@ -134,7 +136,21 @@ The output directory
 **Type:** `string`  
 **Docs:**  
 Report filename in html format.
-Defaults to 'multiqc-report.html"
+Defaults to 'multiqc-report.html'
+
+
+### replace names
+
+
+
+  
+> ID: replace_names
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+a tab-separated file with two columns. The first column contains the search strings and 
+the second the replacement strings
 
 
 ### title
