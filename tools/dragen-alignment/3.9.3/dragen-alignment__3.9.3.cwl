@@ -36,13 +36,13 @@ hints:
 requirements:
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
+      - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
   InlineJavascriptRequirement:
     expressionLib:
       - var get_script_path = function(){
           /*
           Abstract script path, can then be referenced in baseCommand attribute too
-          Makes things more readable.  FIXME
+          Makes things more readable.
           */
           return "scripts/run-dragen-script.sh";
         }
@@ -64,7 +64,7 @@ requirements:
           */
           return get_scratch_mount() + "intermediate-results/";
         }
-      - var get_fastq_list_path = function() {
+      - var get_fastq_list_csv_path = function() {
           /*
           The fastq list path must be placed in working directory
           */
@@ -89,81 +89,155 @@ requirements:
           */
           return get_ref_mount() + get_name_root_from_tarball(input_obj.basename) + "/";
         }
-      - var get_script_contents = function(){
+      - var get_dragen_eval_line = function(){
           /*
-          Split dirent out from the listing JS.
-          Makes things a little more readable
-          Split arguments over multiple lines for greater readability
-          Use full long arguments where possible
+          ICA is inconsistent with cwl when it comes to handling @
           */
-          return "#!/usr/bin/env bash\n" +
-                 "\n" +
-                 "# Fail on non-zero exit of subshell\n" +
-                 "set -euo pipefail\n" +
-                 "\n" +
-                 "# Initialise dragen\n" +
-                 "/opt/edico/bin/dragen \\\n" +
-                 "  --partial-reconfig DNA-MAPPER \\\n" +
-                 "  --ignore-version-check true\n" +
-                 "\n" +
-                 "# Create directories\n" +
-                 "mkdir --parents \\\n" +
-                 "  \"" + get_ref_mount() + "\" \\\n" +
-                 "  \"" + get_intermediate_results_dir() + "\" \\\n" +
-                 "  \"" + inputs.output_directory + "\"\n" +
-                 "\n" +
-                 "# untar ref data into scratch space\n" +
-                 "tar \\\n" +
-                 "  --directory \"" + get_ref_mount() + "\" \\\n" +
-                 "  --extract \\\n" +
-                 "  --file \"" + inputs.reference_tar.path + "\"\n" +
-                 "\n" +
-                 "# Run dragen command and import options from cli\n" +
-                 "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
+          return "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
         }
-  InitialWorkDirRequirement:
-    listing: |
-      ${
+      - var get_unique_elements_of_list = function(list){
           /*
-          Initialise the array of files to mount
-          Add in the script path and the script contents
-          We also add in the fastq-list.csv into the working directory,
-          since Read1File and Read2File are relative its position
+          Get unique elements of an array - https://stackoverflow.com/a/39272981/6946787
           */
-
-          var e = [{
-                      "entryname": get_script_path(),
-                      "entry": get_script_contents()
-                    },
-                   {
-                      "entryname": get_fastq_list_path(),
-                      "entry": inputs.fastq_list
-                   }];
-
+          return list.filter(function (x, i, a) {
+              return a.indexOf(x) == i;
+          });
+        }
+      - var convert_to_csv = function(double_array, column_headers){
           /*
-          Check if input_mounts record is defined
-          The fastq-list.csv could be using presigned urls instead
+          Given a list of lists and a set of column headers, generate a csv
           */
-          if (inputs.fastq_list_mount_paths === null){
-              return e;
+          var str = column_headers.join(",") + "\n";
+          for (var line_iter=0; line_iter < double_array.length; line_iter++){
+            str += double_array[line_iter].join(",") + "\n";
           }
 
           /*
-          Iterate through each file to mount
-          Mount that object at the same reference to the mount point index.
+          Return string of csv
           */
-          inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
-            e.push({
-                'entry': mount_path_record.file_obj,
-                'entryname': mount_path_record.mount_path
-            });
+          return str;
+        }
+      - var get_fastq_list_csv_contents_from_fastq_list_rows_object = function(fastq_list_rows_object){
+          /*
+          Get the fastq list csv contents
+          Get full set of keys and values
+          */
+          var all_keys = [];
+          var all_row_values = [];
+          
+          /*
+          Get all keys from all rows
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect all possible key values
+              */
+              var row_keys = Object.keys(fastq_list_row);
+              all_keys = all_keys.concat(row_keys);
+            }
+          );
+        
+          /*
+          Unique keys - this will be the header of the csv
+          */
+          var all_unique_keys = get_unique_elements_of_list(all_keys);
+
+          /*
+          Now get items from each fastq list rows object for each key
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect item for each key
+              */
+              var row_values = [];
+          
+              all_unique_keys.forEach(
+                function(key){
+                  if (fastq_list_row[key] === null){
+                    row_values.push("");
+                  } else if ( fastq_list_row[key] !== null && fastq_list_row[key].class === "File" ){
+                    row_values.push(fastq_list_row[key].path);
+                  } else {
+                    row_values.push(fastq_list_row[key]);
+                  }
+                }
+            );
+            all_row_values.push(row_values)
           });
 
           /*
-          Return file paths
+          Update rglb, rgsm and rgid to RGLB, RGSM and RGID respectively
+          Update read_1 and read_2 to Read1File and Read2File in column headers
+          Update lane to Lane
           */
-          return e;
-      }
+          var all_unique_keys_renamed = [];
+          for (var key_iter=0; key_iter < all_unique_keys.length; key_iter++ ){
+            var key_value = all_unique_keys[key_iter];
+            if (key_value.indexOf("rg") === 0){
+              all_unique_keys_renamed.push(key_value.toUpperCase());
+            } else if (key_value === "read_1"){
+              all_unique_keys_renamed.push("Read1File");
+            } else if (key_value === "read_2"){
+              all_unique_keys_renamed.push("Read2File");
+            } else if (key_value === "lane"){
+              all_unique_keys_renamed.push("Lane");
+            }
+          }
+
+          /*
+          Return the string value of the csv
+          */
+          return convert_to_csv(all_row_values, all_unique_keys_renamed);
+        }
+  InitialWorkDirRequirement:
+    listing:
+      - entryname: $(get_script_path())
+        entry: |
+          #!/usr/bin/env bash
+
+          # Fail on non-zero exit of subshell
+          set -euo pipefail
+
+          # Initialise dragen
+          /opt/edico/bin/dragen \\
+            --partial-reconfig DNA-MAPPER \\
+            --ignore-version-check true
+
+          # Create directories
+          mkdir --parents \\
+            "$(get_ref_mount())" \\
+            "$(get_intermediate_results_dir())" \\
+            "$(inputs.output_directory)"
+
+          # untar ref data into scratch space
+          tar \\
+            --directory "$(get_ref_mount())" \\
+            --extract \\
+            --file "$(inputs.reference_tar.path)"
+
+          # Run dragen command and import options from cli
+          $(get_dragen_eval_line())
+      - |
+        ${
+          /*
+          Add in the fastq list csv we created
+          */        
+          if (inputs.fastq_list_rows !== null){
+            return {
+                      "entryname": get_fastq_list_csv_path(),
+                      "entry": get_fastq_list_csv_contents_from_fastq_list_rows_object(inputs.fastq_list_rows)
+                   };
+          } else if (inputs.fastq_list !== null){
+            return {
+                      "entryname": get_fastq_list_csv_path(),
+                      "entry": inputs.fastq_list
+                    };
+          } else {
+            return null;
+          }
+        }
 
 
 # Base command and args
@@ -173,6 +247,9 @@ arguments:
   # Script path
   - valueFrom: "$(get_script_path())"
     position: -1
+  # Set fastq list
+  - prefix: "--fastq-list"
+    valueFrom: "$(get_fastq_list_csv_path())"
   # Preset parameters
   - prefix: "--intermediate-results-dir"
     valueFrom: "$(get_intermediate_results_dir())"
@@ -183,6 +260,7 @@ arguments:
 # Inputs
 inputs:
   # File inputs
+  # Option 1:
   fastq_list:
     label: fastq list
     doc: |
@@ -190,14 +268,15 @@ inputs:
       to process.
       Read1File and Read2File may be presigned urls or use this in conjunction with
       the fastq_list_mount_paths inputs.
-    type: File
+    type: File?
     inputBinding:
       prefix: "--fastq-list"
-  fastq_list_mount_paths:
-    label: fastq list mount paths
+  # Option 2:
+  fastq_list_rows:
+    label: fastq list rows
     doc: |
-      Path to fastq list mount path
-    type: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml#predefined-mount-path[]?
+      Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
   reference_tar:
     label: reference tar
     doc: |
