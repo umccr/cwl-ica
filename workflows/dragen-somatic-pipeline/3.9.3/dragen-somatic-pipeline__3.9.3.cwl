@@ -769,7 +769,7 @@ steps:
       The dragen qc step - this takes in an array of dirs
     requirements:
       DockerRequirement:
-        dockerPull: umccr/multiqc-dragen:1.9
+        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-update-and-clean-names--a5e0179
     in:
       input_directories:
         source: run_dragen_somatic_step/dragen_somatic_output_directory
@@ -790,7 +790,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
+    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
 
 outputs:
   # Will also include mounted-files.txt
