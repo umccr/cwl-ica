@@ -266,8 +266,8 @@ inputs:
     doc: |
       CSV file that contains a list of FASTQ files
       to process.
-      Read1File and Read2File may be presigned urls or use this in conjunction with
-      the fastq_list_mount_paths inputs.
+      Read1File and Read2File must be presigned urls in order to use the fastq_list option.
+      Otherwise use the fastq_list_rows option
     type: File?
     inputBinding:
       prefix: "--fastq-list"
