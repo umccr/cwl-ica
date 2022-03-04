@@ -24,6 +24,7 @@ doc: |
 requirements:
   MultipleInputFeatureRequirement: {}
   InlineJavascriptRequirement: {}
+  SubworkflowFeatureRequirement: {}
   SchemaDefRequirement:
     types:
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
@@ -31,23 +32,16 @@ requirements:
 # Declare inputs
 inputs:
   # File inputs
-  fastq_list:
-    label: fastq list
+  tumor_fastq_list:
+    label: tumor fastq list
     doc: |
-      CSV file that contains a list of FASTQ files for normal sample
-      to process.
+      CSV file that contains a list of FASTQ files
+      to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
-  fastq_list_rows:
-    label: Row of fastq lists
+  tumor_fastq_list_rows:
+    label: tumor fastq list rows
     doc: |
-      The row of fastq lists.
-      Each row has the following attributes:
-        * RGID
-        * RGLB
-        * RGSM
-        * Lane
-        * Read1File
-        * Read2File (optional)
+      Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for tumor sample
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
   reference_tar:
     label: reference tar
@@ -523,7 +517,7 @@ inputs:
     type:
       - File?
       - string?
-  # GHIF-QC inputs
+  # GHIF-QC subworkflow inputs
   # samtools stats
   output_filename:
     label: output filename
@@ -649,7 +643,6 @@ inputs:
     doc: |
       output file
     type: string
-    default: "$(inputs.sample_id)_precise.json"
   log_level:
     label: log level
     doc: |
@@ -671,7 +664,6 @@ inputs:
     doc: |
       output file
     type: string 
-    default: "$(inputs.sample_id)_umccr.json" 
 
 steps:
   # Run dragen somatic tool using normal fastqs
@@ -682,10 +674,10 @@ steps:
       Takes in a normal and tumor fastq list and corresponding mount paths from the predefined_mount_paths.
       All other options avaiable at the top of the workflow
     in:
-      fastq_list:
-        source: fastq_list
-      fastq_list_rows:
-        source: fastq_list_rows
+      tumor_fastq_list:
+        source: tumor_fastq_list
+      tumor_fastq_list_rows:
+        source: tumor_fastq_list_rows
       reference_tar:
         source: reference_tar
       output_directory:
@@ -829,97 +821,40 @@ steps:
     out:
       - id: dragen_somatic_output_directory
       - id: tumor_bam_out
+      - id: somatic_snv_vcf_out
+      - id: somatic_snv_vcf_hard_filtered_out
+      - id: somatic_structural_vcf_out
     run: ../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.cwl
-  # Run samtools stats
-  samtools_stats_step:
-    label: samtools stats step
-    doc: samtools stats collects statistics from BAM files and outputs in a text format. 
-         The output can be visualized graphically using plot-bamstats.
+  # Run GHIF-QC workflow
+  ghif_qc_workflow:
+    label: ghif qc workflow
+    doc: In-house workflow for collecting QC metrics
     in:
-      output_filename:
-        source: output_filename
-      input_bam:
-        source: run_dragen_somatic_step/tumor_bam_out
-      coverage:
-        source: coverage
-      remove_dups:
-        source: remove_dups
-      required_flag:
-        source: required_flag
-      filtering_flag:
-        source: filtering_flag
-      GC_depth:
-        source: GC_depth
-      insert_size:
-        source: insert_size
-      read_length:
-        source: read_length
-      most_inserts:
-        source: most_inserts
-      split_prefix:
-        source: split_prefix
-      trim_quality:
-        source: trim_quality
-      ref_seq:
-        source: ref_seq
-      split:
-        source: split
-      target_regions:
-        source: target_regions
-      sparse:
-        source: sparse
-      remove_overlaps:
-        source: remove_overlaps
-      cov_threshold:
-        source: cov_threshold
-      threads:
-        source: threads
-    out:
-      - id: output_file
-    run: ../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.cwl
-  # PRECISE QC
-  calculate_coverage_step:
-    label: calculate coverage step
-    doc: |
-      PRECISE tool that runs a script to calculate few custom QC metrics
-    in:
-      script:
-        source: script
-      map_quality:
-        source: map_quality
-      sample_bam:
-        source: run_dragen_somatic_step/tumor_bam_out
-      target_regions:
-        source: target_regions
-      out_directory:
-        source: out_directory
-      output_json:
-        source: output_json
-      log_level:
-        source: log_level
-    out: 
-      - id: output_filename
-    run: ../../../tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.cwl     
-  # custom QC
-  custom_stats_qc_step:
-    label: custom stats qc step
-    doc:
-      A tool to extract custom QC metrics from samtools stats output and convert to json format.
-    in:
-      precise_json_output:
-        source: calculate_coverage_step/output_filename
       sample_id:
         source: sample_id
       sample_source:
         source: sample_source
-      output_samtools_stats:
-        source: samtools_stats_step/output_file
+      input_bam:
+        source: run_dragen_somatic_step/tumor_bam_out
+      script:
+        source: script
+      target_regions:
+        source: target_regions
+      output_filename:
+        source: output_filename
+        default: "$(inputs.sample_id)_samtools_stats"
       output_json_filename:
         source: output_json_filename
+        default: "$(inputs.sample_id)_umccr.json" 
+      output_json:
+        source: output_json
+        default: "$(inputs.sample_id)_precise.json"
     out:
-      - id: output_json
-      - id: output_json_combined
-    run: ../../../tools/custom-stats-qc/1.0.1/custom-stats-qc__1.0.1.cwl
+      - id: samtools_stats_output_txt
+      - id: precise_output_json
+      - id: custom_stats_qc_output_json
+      - id: custom_stats_qc_combined_json
+    run: ../../../workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.cwl
 
 outputs:
   # Will also include mounted-files.txt
@@ -930,37 +865,51 @@ outputs:
     type: Directory
     outputSource: run_dragen_somatic_step/dragen_somatic_output_directory
   # Optional output files (inside the output directory) that we'll continue to append to as we need them
-  normal_bam_out:
-    label: output normal bam
+ # Optional output files (inside the output directory) that we'll continue to append to as we need them
+  tumor_bam_out:
+    label: output tumor bam
     doc: |
-      Bam file of the normal sample
+      Bam file of the tumor sample
     type: File?
     outputSource: run_dragen_somatic_step/tumor_bam_out
-  # samtools stats
-  samtools_stats_output_txt:
-    label: samtools stats output txt
+  somatic_snv_vcf_out:
+    label: somatic snv vcf
     doc: |
-      Output file, of varying format depending on the command run
-    type: File
-    outputSource: samtools_stats_step/output_file
+      Output of the snv vcf tumor calls
+    type: File?
+    outputSource: run_dragen_somatic_step/somatic_snv_vcf_out
+  somatic_snv_vcf_hard_filtered_out:
+    label: somatic snv vcf filetered
+    doc: |
+      Output of the snv vcf filtered tumor calls
+    type: File?
+    outputSource: run_dragen_somatic_step/somatic_snv_vcf_hard_filtered_out
+  somatic_structural_vcf_out:
+    label: somatic sv vcf filetered
+    doc: |
+      Output of the sv vcf filtered tumor calls.
+      Exists only if --enable-sv is set to true.
+    type: File?
+    outputSource: run_dragen_somatic_step/somatic_structural_vcf_out
   # PRECISE QC
   precise_output_json:
     label: precise output json
     doc: |
       Output file from PRECISE QC script/implementation
     type: File
-    outputSource: calculate_coverage_step/output_filename
-  # Custom QC + combined with PRECISE
+    outputSource: ghif_qc_workflow/precise_output_json
+  # Custom QC output obtained via post-processing on samtools-stats output
   custom_stats_qc_output_json:
     label: custom stats qc output json
     doc: |
       JSON output file containing custom metrics
     type: File
-    outputSource: custom_stats_qc_step/output_json
+    outputSource: ghif_qc_workflow/custom_stats_qc_output_json
+  # Custom QC output combined with PRECISE's QC output
   custom_stats_qc_combined_json:
     label: custom stats qc combined json
     doc: |
       Internal custom JSON output file combined with PRECISE JSON output
     type: File
-    outputSource: custom_stats_qc_step/output_json_combined
+    outputSource: ghif_qc_workflow/custom_stats_qc_combined_json
 

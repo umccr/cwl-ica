@@ -576,6 +576,16 @@ projects:
             run_instances:
               - wfr.f6adb13c92e340f89317c337674b18a6
               - wfr.10176db758d94e56833422dfd60d0f90
+      - name: dragen-pon-qc
+        path: dragen-pon-qc
+        ica_workflow_name: dragen-pon-qc_dev-wf
+        ica_workflow_id: wfl.eaf568e0fac049f5879fb1d36e214836
+        versions:
+          - name: 3.9.3
+            path: 3.9.3/dragen-pon-qc__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2022-03-04T12:22:17UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |

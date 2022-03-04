@@ -151,3 +151,10 @@ workflows:
         path: 1.0.1/ghif-qc__1.0.1.cwl
         md5sum: 26ffcb949eb90629f9ca776808732298
     categories: []
+  - name: dragen-pon-qc
+    path: dragen-pon-qc
+    versions:
+      - name: 3.9.3
+        path: 3.9.3/dragen-pon-qc__3.9.3.cwl
+        md5sum: 73482ed2c59337ace8bb2dd8f6bff561
+    categories: []
