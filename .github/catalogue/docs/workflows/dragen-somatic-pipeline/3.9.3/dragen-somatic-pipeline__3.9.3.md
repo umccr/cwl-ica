@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: c22680a9504c885b0d1692f4448e96f9
+> md5sum: e5853d878694f6b1a4d432190e7f6fcb
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -46,8 +46,6 @@ More information on the documentation can be found [here](https://support-docs.i
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
 - [multiqc 1.10.1](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
 - [dragen-somatic 3.9.3](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 
@@ -250,6 +248,20 @@ Enables TMB. If set, the small variant caller, Illumina Annotation Engine,
 and the related callability report are enabled.
 
 
+### fastq list
+
+
+
+  
+> ID: fastq_list
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+CSV file that contains a list of FASTQ files for normal sample
+to process.
+
+
 ### Row of fastq lists
 
 
@@ -257,7 +269,7 @@ and the related callability report are enabled.
   
 > ID: fastq_list_rows
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
 The row of fastq lists.
@@ -669,6 +681,20 @@ Specify the minimum VAF threshold for a variant. Variants that do not meet the t
 The default value is 0.05.
 
 
+### tumor fastq list
+
+
+
+  
+> ID: tumor_fastq_list
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+CSV file that contains a list of FASTQ files
+to process.
+
+
 ### Row of fastq lists
 
 
@@ -676,7 +702,7 @@ The default value is 0.05.
   
 > ID: tumor_fastq_list_rows
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
 The row of fastq lists.
@@ -1117,44 +1143,6 @@ Intermediate step for letting multiqc-interop be placed in stream mode
 [CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
-### create fastq list csv step
-
-
-  
-> ID: dragen-somatic-pipeline--3.9.3/create_fastq_list_csv_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Create the normal fastq list csv to then run the somatic tool.
-Takes in an array of fastq_list_row schema.
-Returns a csv file along with predefined_mount_path schema
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-
-
-### create tumor fastq list csv step
-
-
-  
-> ID: dragen-somatic-pipeline--3.9.3/create_tumor_fastq_list_csv_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Create the tumor fastq list csv to then run the somatic tool.
-Takes in an array of fastq_list_row schema.
-Returns a csv file along with predefined_mount_path schema
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-
-
 ### dragen qc step
 
 
@@ -1325,6 +1313,7 @@ Bam file of the tumor sample
   
 - [Run wfr.b19291caab384e78b7661a85c3f82003](#run-wfrb19291caab384e78b7661a85c3f82003)  
 - [Run wfr.128790246e9c48f39e14d8f8ef7d868e](#run-wfr128790246e9c48f39e14d8f8ef7d868e)  
+- [Run wfr.46c3b2a719864bf1bab827449e64f28c](#run-wfr46c3b2a719864bf1bab827449e64f28c)  
 
 
 ##### Run wfr.b19291caab384e78b7661a85c3f82003
@@ -1753,6 +1742,220 @@ bash wfr.128790246e9c48f39e14d8f8ef7d868e.launch.sh
 [![test-run__wfr.128790246e9c48f39e14d8f8ef7d868e.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.9.3/test-run__wfr.128790246e9c48f39e14d8f8ef7d868e.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.9.3/test-run__wfr.128790246e9c48f39e14d8f8ef7d868e.svg)  
 
 
+##### Run wfr.46c3b2a719864bf1bab827449e64f28c
+
+
+
+  
+> Run Name: InlineCSV-pipeline-test  
+
+  
+**Start Time:** 2022-02-28 10:39:04 UTC  
+**Duration:** 2022-02-28 21:03:35 UTC  
+**End Time:** 0 days 10:24:31  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.46c3b2a719864bf1bab827449e64f28c
+
+# Edit the input json file (optional)
+# vim wfr.46c3b2a719864bf1bab827449e64f28c.template.json 
+
+# Run the launch script
+bash wfr.46c3b2a719864bf1bab827449e64f28c.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "cnv_use_somatic_vc_baf": true,
+    "enable_duplicate_marking": true,
+    "enable_map_align_output": true,
+    "enable_sv": true,
+    "fastq_list_rows": [
+        {
+            "lane": 2,
+            "read_1": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R2_001.fastq.gz"
+            },
+            "rgid": "GTTCCAAT.GCAGAATT.2.210708_A00130_0166_AH7KTJDSX2.MDX210178_L2100747",
+            "rglb": "L2100747",
+            "rgsm": "MDX210178"
+        }
+    ],
+    "output_directory": "L2100748_L2100747_dragen",
+    "output_file_prefix": "MDX210179",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "tumor_fastq_list_rows": [
+        {
+            "lane": 2,
+            "read_1": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210179_L2100748_S8_L002_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210179_L2100748_S8_L002_R2_001.fastq.gz"
+            },
+            "rgid": "ACCTTGGC.ATGAGGCC.2.210708_A00130_0166_AH7KTJDSX2.MDX210179_L2100748",
+            "rglb": "L2100748",
+            "rgsm": "MDX210179"
+        }
+    ]
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test",
+    "outputDirectory": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs",
+    "tmpOutputDirectory": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/steps",
+    "logDirectory": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.20.0-202201191609-develop"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_somatic_output_directory": {
+        "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen",
+        "basename": "L2100748_L2100747_dragen",
+        "nameroot": "L2100748_L2100747_dragen",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "multiqc_output_directory": {
+        "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/MDX210179_dragen_somatic_multiqc",
+        "basename": "MDX210179_dragen_somatic_multiqc",
+        "nameroot": "MDX210179_dragen_somatic_multiqc",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "normal_bam_out": null,
+    "somatic_snv_vcf_hard_filtered_out": {
+        "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz",
+        "basename": "MDX210179.hard-filtered.vcf.gz",
+        "nameroot": "MDX210179.hard-filtered.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 7869419,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.hard-filtered.vcf.gz.tbi",
+                "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.hard-filtered.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_snv_vcf_out": {
+        "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz",
+        "basename": "MDX210179.vcf.gz",
+        "nameroot": "MDX210179.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 7352146,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.vcf.gz.tbi",
+                "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_structural_vcf_out": {
+        "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz",
+        "basename": "MDX210179.sv.vcf.gz",
+        "nameroot": "MDX210179.sv.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 99279,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.sv.vcf.gz.tbi",
+                "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.sv.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "tumor_bam_out": {
+        "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam",
+        "basename": "MDX210179_tumor.bam",
+        "nameroot": "MDX210179_tumor",
+        "nameext": ".bam",
+        "class": "File",
+        "size": 195321311241,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179_tumor.bam.bai",
+                "location": "gds://wfr.46c3b2a719864bf1bab827449e64f28c/InlineCSV-pipeline-test/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam.bai",
+                "class": "File",
+                "nameroot": "MDX210179_tumor.bam",
+                "nameext": ".bai",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "output_dir_gds_session_id": "ssn.939c0cc92c0945a2bd88950daba9f49f",
+    "output_dir_gds_folder_id": "fol.a65ff9d87d774c7fa2be08d9ec2c2b52"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![InlineCSV-pipeline-test__wfr.46c3b2a719864bf1bab827449e64f28c.svg](../../../../images/runs/workflows/dragen-somatic-pipeline/3.9.3/InlineCSV-pipeline-test__wfr.46c3b2a719864bf1bab827449e64f28c.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-somatic-pipeline/3.9.3/InlineCSV-pipeline-test__wfr.46c3b2a719864bf1bab827449e64f28c.svg)  
+
+
 ### Project: production_workflows
 
 
@@ -1760,7 +1963,7 @@ bash wfr.128790246e9c48f39e14d8f8ef7d868e.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--61a372d  
+**wfl version name:** 3.9.3--e63703c  
 
   
 

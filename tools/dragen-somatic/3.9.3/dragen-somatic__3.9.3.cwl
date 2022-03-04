@@ -44,7 +44,7 @@ hints:
 requirements:
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
+      - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
   InlineJavascriptRequirement:
     expressionLib:
       - var get_script_path = function(){
@@ -72,13 +72,13 @@ requirements:
           */
           return get_scratch_mount() + "intermediate-results/";
         }
-      - var get_fastq_list_path = function() {
+      - var get_fastq_list_csv_path = function() {
           /*
           The fastq list path must be placed in working directory
           */
           return "fastq_list.csv"
         }
-      - var get_tumor_fastq_list_path = function() {
+      - var get_tumor_fastq_list_csv_path = function() {
           /*
           The tumor fastq list path must be placed in working directory
           */
@@ -112,7 +112,14 @@ requirements:
         }
       - var get_normal_name_from_fastq_list_csv = function(){
           /*
-          Get the normal list path from the fastq list csv path
+          First try getting the normal name from the fastq list rows (if defined in the inputs)  
+          */
+          if (get_normal_name_from_fastq_list_rows() !== null){
+              return get_normal_name_from_fastq_list_rows();
+          }
+
+          /*
+          Otherwise, get the normal list path from the input fastq list csv path
           */
 
           /*
@@ -151,6 +158,32 @@ requirements:
           */
           return inputs.fastq_list.contents.split("\n")[1].split(",")[rgsm_index];
         }
+      - var get_normal_name_from_fastq_list_rows = function(){
+          /*
+          Get the normal sample name form  fastq list rows object
+          */
+
+          /*
+          Check fastq list rows is defined
+          */
+          if (inputs.fastq_list_rows === null){
+              return null;
+          }
+
+          /*
+          Get RGSM value and return
+          */
+          var rgsm_value = inputs.fastq_list_rows[0].rgsm
+
+          /*
+          If rgsm is not in input, return null else return the value
+          */
+          if (rgsm_value == null) {
+              return null;
+          } else {
+              return rgsm_value
+          }  
+        }
       - var get_normal_output_prefix = function(){
           /*
           Get the normal RGSM value and then add _normal to it
@@ -163,6 +196,109 @@ requirements:
           */
           return "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
         }
+      - var is_not_null = function(input_object){
+          if (input_object === null){
+            return "false";
+          } else {
+            return "true";
+          }
+        }
+      - var get_unique_elements_of_list = function(list){
+          /*
+          Get unique elements of an array - https://stackoverflow.com/a/39272981/6946787
+          */
+          return list.filter(function (x, i, a) {
+              return a.indexOf(x) == i;
+          });
+        }
+      - var convert_to_csv = function(double_array, column_headers){
+          /*
+          Given a list of lists and a set of column headers, generate a csv
+          */
+          var str = column_headers.join(",") + "\n";
+          for (var line_iter=0; line_iter < double_array.length; line_iter++){
+            str += double_array[line_iter].join(",") + "\n";
+          }
+
+          /*
+          Return string of csv
+          */
+          return str;
+        }
+      - var get_fastq_list_csv_contents_from_fastq_list_rows_object = function(fastq_list_rows_object){
+          /*
+          Get the fastq list csv contents
+          Get full set of keys and values
+          */
+          var all_keys = [];
+          var all_row_values = [];
+          
+          /*
+          Get all keys from all rows
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect all possible key values
+              */
+              var row_keys = Object.keys(fastq_list_row);
+              all_keys = all_keys.concat(row_keys);
+            }
+          );
+        
+          /*
+          Unique keys - this will be the header of the csv
+          */
+          var all_unique_keys = get_unique_elements_of_list(all_keys);
+
+          /*
+          Now get items from each fastq list rows object for each key
+          */
+          fastq_list_rows_object.forEach(
+            function(fastq_list_row) {
+              /*
+              Iterate over all fastq list rows and collect item for each key
+              */
+              var row_values = [];
+          
+              all_unique_keys.forEach(
+                function(key){
+                  if (fastq_list_row[key] === null){
+                    row_values.push("");
+                  } else if ( fastq_list_row[key] !== null && fastq_list_row[key].class === "File" ){
+                    row_values.push(fastq_list_row[key].path);
+                  } else {
+                    row_values.push(fastq_list_row[key]);
+                  }
+                }
+            );
+            all_row_values.push(row_values)
+          });
+
+          /*
+          Update rglb, rgsm and rgid to RGLB, RGSM and RGID respectively
+          Update read_1 and read_2 to Read1File and Read2File in column headers
+          Update lane to Lane
+          */
+          var all_unique_keys_renamed = [];
+          for (var key_iter=0; key_iter < all_unique_keys.length; key_iter++ ){
+            var key_value = all_unique_keys[key_iter];
+            if (key_value.indexOf("rg") === 0){
+              all_unique_keys_renamed.push(key_value.toUpperCase());
+            } else if (key_value === "read_1"){
+              all_unique_keys_renamed.push("Read1File");
+            } else if (key_value === "read_2"){
+              all_unique_keys_renamed.push("Read2File");
+            } else if (key_value === "lane"){
+              all_unique_keys_renamed.push("Lane");
+            }
+          }
+
+          /*
+          Return the string value of the csv
+          */
+          return convert_to_csv(all_row_values, all_unique_keys_renamed);
+        }
   InitialWorkDirRequirement:
     listing:
       - entryname: $(get_script_path())
@@ -171,6 +307,21 @@ requirements:
 
           # Fail on non-zero exit of subshell
           set -euo pipefail
+
+          # Confirm not both fastq_list and fastq_list_rows are defined
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" && "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
+            echo "Cannot set both CWL inputs fastq_list AND fastq_list_rows for normal sample" 1>&2
+            exit 1
+          fi
+          
+          # Ensure that at least one of tumor_fastq_list and tumor_fastq_list_rows are defined but not both defined (XOR)
+          if [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
+              echo "One of inputs tumor_fastq_list OR inputs.tumor_fastq_list_rows must be defined" 1>&2
+              exit 1
+          elif [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
+              echo "Cannot set both CWL inputs tumor_fastq_list AND tumor_fastq_list_rows for tumor sample" 1>&2
+              exit 1
+          fi
 
           # Initialise dragen
           /opt/edico/bin/dragen \\
@@ -192,94 +343,70 @@ requirements:
           # Run dragen command and import options from cli
           $(get_dragen_eval_line())
 
-          # Check if --enable-map-align-output is set
-          if [[ ! "$(get_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
-            echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
-            echo "Exiting" 1>&2
-            exit
-          fi
+          # Check if fastq_list or fastq_list_rows is set
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" ]] || [[ "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
+            # Check if --enable-map-align-output is set
+            if [[ ! "$(get_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
+              echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
+              echo "Exiting" 1>&2
+              exit
+            fi
 
-          # Ensure that we have a normal RGSM value, otherwise exit.
-          if [[ -z "$(get_value_as_str(get_normal_name_from_fastq_list_csv()))" ]]; then
-            echo "Could not get the normal bam file prefix" 1>&2
-            echo "Exiting" 1>&2
-            exit
-          fi
+            # Ensure that we have a normal RGSM value, otherwise exit.
+            if [[ -z "$(get_value_as_str(get_normal_name_from_fastq_list_csv()))" ]]; then
+              echo "Could not get the normal bam file prefix" 1>&2
+              echo "Exiting" 1>&2
+              exit
+            fi
 
-          # Get new normal file name prefix from the fastq_list.csv
-          new_normal_file_name_prefix="$(get_normal_output_prefix())"
+            # Get new normal file name prefix from the fastq_list.csv
+            new_normal_file_name_prefix="$(get_normal_output_prefix())"
 
-          # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-          if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
-            # Move normal bam, normal bam index and normal bam md5sum
-            (
-              cd "$(inputs.output_directory)"
-              mv "$(inputs.output_file_prefix).bam" "\${new_normal_file_name_prefix}.bam"
-              mv "$(inputs.output_file_prefix).bam.bai" "\${new_normal_file_name_prefix}.bam.bai"
-              mv "$(inputs.output_file_prefix).bam.md5sum" "\${new_normal_file_name_prefix}.bam.md5sum"
-            )
+            # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
+            if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
+              # Move normal bam, normal bam index and normal bam md5sum
+              (
+                cd "$(inputs.output_directory)"
+                mv "$(inputs.output_file_prefix).bam" "\${new_normal_file_name_prefix}.bam"
+                mv "$(inputs.output_file_prefix).bam.bai" "\${new_normal_file_name_prefix}.bam.bai"
+                mv "$(inputs.output_file_prefix).bam.md5sum" "\${new_normal_file_name_prefix}.bam.md5sum"
+              )
+            fi
           fi
       - |
         ${
             /*
-            Initialise the array of files to mount
-            Add in the script path and the script contents
-            We also add in the fastq-list.csv into the working directory,
-            since Read1File and Read2File are relative its position
-            */
-
-            var e = [{
-                        "entryname": get_tumor_fastq_list_path(),
-                        "entry": inputs.tumor_fastq_list
-                      }];
-
-            /*
-            Check if fastq_list parameter is defined
-            It could be null in case of TO execution
-            */
-
+            Create and add in the fastq list csv for the input fastqs
+            */  
+            var e = [];      
+            if (inputs.fastq_list_rows !== null){
+              e.push({
+                        "entryname": get_fastq_list_csv_path(),
+                        "entry": get_fastq_list_csv_contents_from_fastq_list_rows_object(inputs.fastq_list_rows)
+                        });
+            } 
+            
+            if (inputs.tumor_fastq_list_rows !== null){
+              e.push({
+                        "entryname": get_tumor_fastq_list_csv_path(),
+                        "entry": get_fastq_list_csv_contents_from_fastq_list_rows_object(inputs.tumor_fastq_list_rows)
+                        });
+            } 
+            
             if (inputs.fastq_list !== null){
-                e.push({
-                        "entryname": get_fastq_list_path(),
+              e.push({
+                        "entryname": get_fastq_list_csv_path(),
                         "entry": inputs.fastq_list
                         });
-            }
-
-            /*
-            Check if input_mounts record is defined
-            The fastq_list.csv could be using presigned urls instead
-            */
-            if (inputs.fastq_list_mount_paths !== null){
-                /*
-                Iterate through each file to mount
-                Mount that object at the same reference to the mount point index.
-                */
-                inputs.fastq_list_mount_paths.forEach(function(mount_path_record){
-                  e.push({
-                      'entry': mount_path_record.file_obj,
-                      'entryname': mount_path_record.mount_path
-                  });
-                });
-            }
-
-            /*
-            Iterate through each tumor list file
-            The tumor_fastq_list.csv could be using presigned urls instead
-            */
-            if (inputs.tumor_fastq_list_mount_paths !== null){
-                /*
-                Iterate through each file to mount
-                Mount that object at the same reference to the mount point index.
-                */
-                inputs.tumor_fastq_list_mount_paths.forEach(function(mount_path_record){
-                  e.push({
-                      'entry': mount_path_record.file_obj,
-                      'entryname': mount_path_record.mount_path
-                  });
-                });
-            }
-
-
+            } 
+            
+            if (inputs.tumor_fastq_list !== null){
+              e.push({
+                        "entryname": get_tumor_fastq_list_csv_path(),
+                        "entry": inputs.tumor_fastq_list
+                        });
+            } 
+            
             /*
             Return file paths
             */
@@ -300,37 +427,43 @@ arguments:
 
 inputs:
   # File inputs
+  # Option 1
   fastq_list:
     label: fastq list
     doc: |
       CSV file that contains a list of FASTQ files for normal sample
-      to process.
-      Read1File and Read2File may be presigned urls or use this in conjunction with
-      the fastq_list_mount_paths inputs.
+      to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
     loadContents: true
     inputBinding:
       prefix: "--fastq-list"
-  fastq_list_mount_paths:
-    label: fastq list mount paths
-    doc: |
-      Path to fastq list mount path
-    type: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml#predefined-mount-path[]?
+      valueFrom: "$(get_fastq_list_csv_path())"
   tumor_fastq_list:
     label: tumor fastq list
     doc: |
       CSV file that contains a list of FASTQ files
-      to process.
-      Read1File and Read2File may be presigned urls or use this in conjunction with
-      the fastq_list_mount_paths inputs.
-    type: File
+      to process. read_1 and read_2 components in the CSV file must be presigned urls.
+    type: File?
     inputBinding:
       prefix: "--tumor-fastq-list"
-  tumor_fastq_list_mount_paths:
-    label: tumor fastq list mount paths
+      valueFrom: "$(get_tumor_fastq_list_csv_path())"
+  # Option 2
+  fastq_list_rows:
+    label: fastq list rows
     doc: |
-      Path to fastq list mount path
-    type: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml#predefined-mount-path[]?
+      Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for normal sample
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+    inputBinding:
+      prefix: "--fastq-list"
+      valueFrom: "$(get_fastq_list_csv_path())"
+  tumor_fastq_list_rows:
+    label: tumor fastq list rows
+    doc: |
+      Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for tumor sample
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+    inputBinding:
+      prefix: "--tumor-fastq-list"
+      valueFrom: "$(get_tumor_fastq_list_csv_path())"
   reference_tar:
     label: reference tar
     doc: |

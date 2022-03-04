@@ -274,8 +274,10 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-11-23T04:57:24UTC
-            run_instances: []
+            modification_time: 2022-03-02T04:55:17UTC
+            run_instances:
+              - wfr.63351b7bd8f9431db0a58c27d5538f0e
+              - wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         ica_workflow_name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar_dev-wf
@@ -448,10 +450,12 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-11-22T05:30:15UTC
+            modification_time: 2022-03-02T22:55:21UTC
             run_instances:
               - wfr.b19291caab384e78b7661a85c3f82003
               - wfr.128790246e9c48f39e14d8f8ef7d868e
+              - wfr.72d2a10d54ca472a96d4023556932b8e
+              - wfr.7241dd632c0f40df88236e210e257bd1
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_dev-wf
@@ -714,6 +718,11 @@ projects:
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--61a372d
             modification_time: 2021-11-23T07:04:55UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--e63703c
+            modification_time: 2022-03-02T02:40:40UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
