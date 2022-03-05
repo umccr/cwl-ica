@@ -184,7 +184,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-17T01:41:16UTC
+            modification_time: 2022-03-04T12:52:17UTC
             run_instances: []
       - name: arriba-drawing
         path: arriba-drawing
@@ -504,7 +504,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-30T07:27:36UTC
+            modification_time: 2022-03-04T13:01:17UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
@@ -520,7 +520,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2021-09-17T01:43:28UTC
+            modification_time: 2022-03-04T13:01:21UTC
             run_instances:
               - wfr.8bb7083dc6e74a2f9c21edd65e627a2e
       - name: tso500-ctdna-post-processing-pipeline
@@ -724,6 +724,11 @@ projects:
             ica_workflow_version_name: 3.9.3--e63703c
             modification_time: 2022-03-02T02:40:40UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--aecc72e
+            modification_time: 2022-03-04T22:40:45UTC
+            run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_prod-wf
@@ -858,6 +863,11 @@ projects:
             path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--0d6bc70
             modification_time: 2021-10-13T10:18:37UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--aecc72e
+            modification_time: 2022-03-04T22:40:54UTC
             run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
