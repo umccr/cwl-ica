@@ -27,10 +27,10 @@ requirements:
     SchemaDefRequirement:
       types:
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
-        - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
 
 inputs:
-  # File inputs
+  # File input logic
+  # Option 1
   fastq_list_rows:
     label: Row of fastq lists
     doc: |
@@ -42,7 +42,14 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+  # Option 2
+  fastq_list:
+    label: fastq list
+    doc: |
+      CSV file that contains a list of FASTQ files for normal sample
+      to process (read_1 and read_2 attributes must be presigned urls for each column)
+    type: File?
   reference_tar:
     label: reference tar
     doc: |
@@ -364,21 +371,6 @@ inputs:
 
 
 steps:
-  # Create fastq_list.csv
-  create_fastq_list_csv_step:
-    label: create fastq list csv step
-    doc: |
-      Create the fastq list csv to then run the germline tool.
-      Takes in an array of fastq_list_row schema.
-      Returns a csv file along with predefined_mount_path schema
-    in:
-      fastq_list_rows:
-        source: fastq_list_rows
-    out:
-      - id: fastq_list_csv_out
-      - id: predefined_mount_paths_out
-    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
-  
   # Run Dragen
   run_dragen_alignment_step:
     label: run dragen alignment step
@@ -388,9 +380,9 @@ steps:
       All other options available at the top of the workflow
     in:
       fastq_list:
-        source: create_fastq_list_csv_step/fastq_list_csv_out
-      fastq_list_mount_paths:
-        source: create_fastq_list_csv_step/predefined_mount_paths_out
+        source: fastq_list
+      fastq_list_rows:
+        source: fastq_list_rows
       reference_tar:
         source: reference_tar
       output_file_prefix:
