@@ -140,7 +140,7 @@ requirements:
                           "\$(jq --raw-output \\
                                 '.qc_metrics' <<< "\${umccr_qc_metrics}")" \\
                           "\$(jq --raw-output \\
-                                '.qc_metrics' "\${input_precise}")" \\
+                                '.qc_metrics' "$(inputs.precise_json_output.path)")" \\
                          | \\
                          jq --raw-output \\
                             --slurp \\
@@ -191,7 +191,8 @@ inputs:
     label: output filename
     doc: |
       output file
-    type: string
+    type: string?
+    default: "umccr_output"
 
 outputs:
   output_json:
