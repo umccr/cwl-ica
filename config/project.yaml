@@ -352,7 +352,7 @@ projects:
           - name: 1.0.1
             path: 1.0.1/custom-stats-qc__1.0.1.cwl
             ica_workflow_version_name: 1.0.1
-            modification_time: 2022-02-22T05:03:16UTC
+            modification_time: 2022-03-06T22:57:25UTC
             run_instances:
               - wfr.298a81a7fffb4afba83ad0a3e12163ce
       - name: calculate-coverage
@@ -584,7 +584,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-pon-qc__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-03-04T12:22:17UTC
+            modification_time: 2022-03-06T23:21:34UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
