@@ -523,7 +523,7 @@ inputs:
     label: output filename
     doc: |
       Redirects stdout
-    type: string
+    type: string?
   coverage:
     label: coverage
     doc: |
@@ -642,7 +642,7 @@ inputs:
     label: output json
     doc: |
       output file
-    type: string
+    type: string?
   log_level:
     label: log level
     doc: |
@@ -663,7 +663,7 @@ inputs:
     label: output filename
     doc: |
       output file
-    type: string 
+    type: string?
 
 steps:
   # Run dragen somatic tool using normal fastqs
@@ -842,13 +842,10 @@ steps:
         source: target_regions
       output_filename:
         source: output_filename
-        default: "$(inputs.sample_id)_samtools_stats"
       output_json_filename:
         source: output_json_filename
-        default: "$(inputs.sample_id)_umccr.json" 
       output_json:
         source: output_json
-        default: "$(inputs.sample_id)_precise.json"
     out:
       - id: samtools_stats_output_txt
       - id: precise_output_json

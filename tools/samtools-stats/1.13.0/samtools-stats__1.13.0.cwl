@@ -54,8 +54,8 @@ inputs:
     label: output filename
     doc: |
       Redirects stdout
-    type: string
-    default: "samtools-stats"
+    type: string?
+    default: "samtools_stats"
   input_bam:
     label: input BAM 
     doc: |
