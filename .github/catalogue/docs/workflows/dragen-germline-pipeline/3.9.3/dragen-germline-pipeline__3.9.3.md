@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: 466e77eeb6cad26bbc16c653b72b7c14
+> md5sum: a24cfe1da464e0550a651e333b04cb4b
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -171,6 +171,20 @@ Enable/disable structural variant
 caller. Default is false.
 
 
+### fastq list
+
+
+
+  
+> ID: fastq_list
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+CSV file that contains a list of FASTQ files for normal sample
+to process (read_1 and read_2 attributes must be presigned urls for each column)
+
+
 ### Row of fastq lists
 
 
@@ -178,7 +192,7 @@ caller. Default is false.
   
 > ID: fastq_list_rows
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
 The row of fastq lists.

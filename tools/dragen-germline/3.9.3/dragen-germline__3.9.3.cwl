@@ -44,6 +44,13 @@ requirements:
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
   InlineJavascriptRequirement:
     expressionLib:
+      - var is_not_null = function(input_object){
+          if (input_object === null){
+            return "false";
+          } else {
+            return "true"
+          }
+        }
       - var get_script_path = function(){
           /*
           Abstract script path, can then be referenced in baseCommand attribute too
@@ -221,6 +228,12 @@ requirements:
             --directory "$(get_ref_mount())" \\
             --extract \\
             --file "$(inputs.reference_tar.path)"
+          
+          # Confirm not both fastq_list and fastq_list_rows are defined
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" && "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
+            echo "Cannot set both CWL inputs fastq_list AND fastq_list_rows" 1>&2
+            exit 1
+          fi
 
           # Run dragen command and import options from cli
           $(get_dragen_eval_line())
