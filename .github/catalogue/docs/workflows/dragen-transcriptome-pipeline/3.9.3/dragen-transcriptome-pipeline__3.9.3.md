@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 8595a4852fe150f6c3e4137605aa2afb
+> md5sum: 8d22f4329b1c031db92fbbf0fdd76a3a
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -45,8 +45,7 @@ More information on the documentation can be found [here](https://support-docs.i
 - [arriba-fusion-calling 2.0.0](../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
 - [custom-create-directory 1.0.0](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-- [multiqc 1.11.0](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+- [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-transcriptome 3.9.3](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
 
   
@@ -159,6 +158,20 @@ Optional - Enable the DRAGEN Gene Fusion module - defaults to true
 Optional - Enable the quantification module - defaults to true
 
 
+### fastq list
+
+
+
+  
+> ID: fastq_list
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+CSV file that contains a list of FASTQ files
+to process. read_1 and read_2 components in the CSV file must be presigned urls.
+
+
 ### Row of fastq lists
 
 
@@ -166,7 +179,7 @@ Optional - Enable the quantification module - defaults to true
   
 > ID: fastq_list_rows
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
 The row of fastq lists.
@@ -231,6 +244,19 @@ The prefix given to all output files
 GFF3 file containing the genomic coordinates of protein domains.
 
 
+### qc reference samples
+
+
+
+  
+> ID: qc_reference_samples
+  
+**Optional:** `False`  
+**Type:** `Directory[]`  
+**Docs:**  
+Reference samples for multiQC report
+
+
 ### reference Fasta
 
 
@@ -255,6 +281,20 @@ FastA file with genome sequence
 **Type:** `File`  
 **Docs:**  
 Path to ref data tarball
+
+
+### replace names
+
+
+
+  
+> ID: replace_names
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+a tab-separated file with two columns. The first column contains the search strings and 
+the second the replacement strings
 
   
 
@@ -329,25 +369,6 @@ Intermediate step for letting multiqc-interop be placed in stream mode
 [CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
-### create fastq list csv step
-
-
-  
-> ID: dragen-transcriptome-pipeline--3.9.3/create_fastq_list_csv_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Create the fastq list csv to then run the germline tool.
-Takes in an array of fastq_list_row schema.
-Returns a csv file along with predefined_mount_path schema
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-
-
 ### dragen qc step
 
 
@@ -361,8 +382,8 @@ The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen transcriptome step
@@ -457,6 +478,7 @@ The output directory for multiqc
   
 - [Run wfr.784173de5b4342b797f04259ebd04df6](#run-wfr784173de5b4342b797f04259ebd04df6)  
 - [Run wfr.f75bddad9d4740d3873fce5ceb782bc7](#run-wfrf75bddad9d4740d3873fce5ceb782bc7)  
+- [Run wfr.491f5fd1b5e74f6e87113d964675504e](#run-wfr491f5fd1b5e74f6e87113d964675504e)  
 
 
 ##### Run wfr.784173de5b4342b797f04259ebd04df6
@@ -749,6 +771,181 @@ bash wfr.f75bddad9d4740d3873fce5ceb782bc7.launch.sh
 [![Dragen-3.9.3-PTC-test__wfr.f75bddad9d4740d3873fce5ceb782bc7.svg](../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-PTC-test__wfr.f75bddad9d4740d3873fce5ceb782bc7.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-PTC-test__wfr.f75bddad9d4740d3873fce5ceb782bc7.svg)  
 
 
+##### Run wfr.491f5fd1b5e74f6e87113d964675504e
+
+
+
+  
+> Run Name: Dragen-3.9.3-inlinecsv-multiQC  
+
+  
+**Start Time:** 2022-03-02 22:53:09 UTC  
+**Duration:** 2022-03-03 00:15:20 UTC  
+**End Time:** 0 days 01:22:10  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.491f5fd1b5e74f6e87113d964675504e
+
+# Edit the input json file (optional)
+# vim wfr.491f5fd1b5e74f6e87113d964675504e.template.json 
+
+# Run the launch script
+bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "annotation_file": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/hg38/ref-transcripts.non-zero-length.gtf"
+    },
+    "blacklist": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/arriba/hg38/arriba-blacklist.tsv.gz"
+    },
+    "cytobands": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/arriba/hg38/arriba-cytobands.tsv"
+    },
+    "fastq_list_rows": [
+        {
+            "lane": 1,
+            "read_1": {
+                "class": "File",
+                "location": "gds://development/validation_data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://development/validation_data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R2_001.fastq.gz"
+            },
+            "rgid": "PTC_NebRNA210629",
+            "rglb": "L2100706",
+            "rgsm": "PTC_NebRNA210629"
+        }
+    ],
+    "output_directory": "PTC",
+    "output_file_prefix": "L2100706",
+    "protein_domains": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_wts/arriba/hg38/arriba-protein-domains.gff3"
+    },
+    "qc_reference_samples": [
+        {
+            "class": "Directory",
+            "location": "gds://development/validation_data/wts/SBJ00061_MDX190049_L1900440/analysis/dragen_wts/2021-12-01--3.9.3/SBJ00061"
+        },
+        {
+            "class": "Directory",
+            "location": "gds://development/validation_data/wts/SBJ00188_MDX190169_L1900877/analysis/dragen_wts/2021-12-01--3.9.3/SBJ00188"
+        },
+        {
+            "class": "Directory",
+            "location": "gds://development/validation_data/wts/SBJ00199_MDX190193_L1900920/analysis/dragen_wts/2021-12-01--3.9.3/SBJ00199"
+        },
+        {
+            "class": "Directory",
+            "location": "gds://development/validation_data/wts/SBJ00236_MDX190219_L1901023/analysis/dragen_wts/2021-12-01--3.9.3/SBJ00236"
+        },
+        {
+            "class": "Directory",
+            "location": "gds://development/validation_data/wts/SBJ00238_MDX190231_L1901028/analysis/dragen_wts/2021-11-29--3.9.3/SBJ00238"
+        },
+        {
+            "class": "Directory",
+            "location": "gds://development/validation_data/wts/SBJ00028_PRJ190190_L1900423/analysis/dragen_wts/2021-12-01--3.9.3/SBJ00028"
+        }
+    ],
+    "reference_fasta": {
+        "class": "File",
+        "location": "gds://development/reference-data/genomes/hg38/hg38.fa"
+    },
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "replace_names": {
+        "class": "File",
+        "location": "gds://stratus-sehrish2/data/multiQC/sample-names-replace.tsv"
+    }
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.491f5fd1b5e74f6e87113d964675504e/Dragen-3.9.3-inlinecsv-multiQC",
+    "outputDirectory": "gds://wfr.491f5fd1b5e74f6e87113d964675504e/Dragen-3.9.3-inlinecsv-multiQC/outputs",
+    "tmpOutputDirectory": "gds://wfr.491f5fd1b5e74f6e87113d964675504e/Dragen-3.9.3-inlinecsv-multiQC/steps",
+    "logDirectory": "gds://wfr.491f5fd1b5e74f6e87113d964675504e/Dragen-3.9.3-inlinecsv-multiQC/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.20.0-202201191609-develop"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "arriba_output_directory": {
+        "location": "gds://wfr.491f5fd1b5e74f6e87113d964675504e/Dragen-3.9.3-inlinecsv-multiQC/outputs/arriba",
+        "basename": "arriba",
+        "nameroot": "arriba",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "dragen_transcriptome_output_directory": {
+        "location": "gds://wfr.491f5fd1b5e74f6e87113d964675504e/Dragen-3.9.3-inlinecsv-multiQC/outputs/PTC",
+        "basename": "PTC",
+        "nameroot": "PTC",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "multiqc_output_directory": {
+        "location": "gds://wfr.491f5fd1b5e74f6e87113d964675504e/Dragen-3.9.3-inlinecsv-multiQC/outputs/L2100706_dragen_transcriptome_multiqc",
+        "basename": "L2100706_dragen_transcriptome_multiqc",
+        "nameroot": "L2100706_dragen_transcriptome_multiqc",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_dir_gds_session_id": "ssn.0c72275a2f6d4ae8aa81a898cf0dcc0c",
+    "output_dir_gds_folder_id": "fol.5d54f6ac725a4458ee2b08d9ebfc12bc"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![Dragen-3.9.3-inlinecsv-multiQC__wfr.491f5fd1b5e74f6e87113d964675504e.svg](../../../../images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-inlinecsv-multiQC__wfr.491f5fd1b5e74f6e87113d964675504e.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-transcriptome-pipeline/3.9.3/Dragen-3.9.3-inlinecsv-multiQC__wfr.491f5fd1b5e74f6e87113d964675504e.svg)  
+
+
 ### Project: production_workflows
 
 
@@ -756,7 +953,7 @@ bash wfr.f75bddad9d4740d3873fce5ceb782bc7.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--3a73a95  
+**wfl version name:** 3.9.3--7ba55e9  
 
   
 

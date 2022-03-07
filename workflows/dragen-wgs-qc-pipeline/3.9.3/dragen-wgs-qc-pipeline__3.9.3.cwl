@@ -28,7 +28,6 @@ requirements:
     SchemaDefRequirement:
       types:
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
-        - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
 
 inputs:
   # File inputs

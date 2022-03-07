@@ -169,3 +169,22 @@ file with output fusions
 
   
 
+
+## ICA
+
+### ToC
+  
+- [development_workflows](#project-development_workflows)  
+
+
+### Project: development_workflows
+
+
+> wfl id: wfl.b9a507a2bfc549a6ba82db33d7d64d9c  
+
+  
+**workflow name:** arriba-fusion-calling_dev-wf  
+**wfl version name:** 2.0.0  
+
+  
+

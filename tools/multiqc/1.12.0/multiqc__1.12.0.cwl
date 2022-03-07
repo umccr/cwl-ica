@@ -16,10 +16,10 @@ s:author:
     s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: multiqc--1.11.0
-label: multiqc v(1.11.0)
+id: multiqc--1.12.0
+label: multiqc v(1.12.0)
 doc: |
-    Documentation for multiqc v1.11.0
+    Documentation for multiqc v1.12.0
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:
@@ -31,7 +31,7 @@ hints:
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/multiqc:1.11--pyhdfd78af_0
+        dockerPull: quay.io/biocontainers/multiqc:1.12--pyhdfd78af_0
 
 requirements:
   InlineJavascriptRequirement:
@@ -97,7 +97,7 @@ inputs:
     label: output filename
     doc: |
       Report filename in html format.
-      Defaults to 'multiqc-report.html'
+      Defaults to 'multiqc-report.html"
     type: string
     inputBinding:
       prefix: "--filename"
@@ -124,14 +124,6 @@ inputs:
     streamable: true
     inputBinding:
       prefix: "--config"
-  replace_names:
-    label: replace names
-    doc: |
-      a tab-separated file with two columns. The first column contains the search strings and 
-      the second the replacement strings
-    type: File?
-    inputBinding:
-      prefix: "--replace-names"
   cl_config:
     label: cl config
     doc: |

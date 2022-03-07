@@ -83,7 +83,7 @@ tools:
         md5sum: 54dd1c2214ab62a252ba9fb195af749d
       - name: 3.9.3
         path: 3.9.3/dragen-germline__3.9.3.cwl
-        md5sum: c9dc211707ecbf09ee0db78d3c13defa
+        md5sum: 2bed5b728f89c4d2db0b6d175342f49c
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -153,7 +153,7 @@ tools:
         md5sum: 2bcb01913c07577e2674cc5a5553af86
       - name: 3.9.3
         path: 3.9.3/dragen-somatic__3.9.3.cwl
-        md5sum: b59c904caa3eca256a3e4f50a4e734bc
+        md5sum: 9f4c9d7c39ea3767cb20cfaf077b91c0
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -166,7 +166,7 @@ tools:
         md5sum: 1164dc07f35924f483f17790b0e7aaf0
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome__3.9.3.cwl
-        md5sum: ee25229250f34265136d75b54eab33a9
+        md5sum: 072cae27c40a69c89992ac05b180982a
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
@@ -190,7 +190,7 @@ tools:
         md5sum: 41ed548ff78108ac73741fd6cdc6ea6c
       - name: 1.11.0
         path: 1.11.0/multiqc__1.11.0.cwl
-        md5sum: 59614d4be56c46d9ac9d31bcef91eff8
+        md5sum: 776ca456171ee3c9a02ecdf8b9698356
     categories:
       - qc
       - visual
@@ -202,7 +202,7 @@ tools:
         md5sum: b6b90c6e5016c4718c73813b10699a32
       - name: 3.9.3
         path: 3.9.3/dragen-alignment__3.9.3.cwl
-        md5sum: 84d0540ee7938589d9b0fda55b087a97
+        md5sum: 8dd62c585a66984aba0382530c138b82
     categories: []
   - name: custom-create-directory
     path: custom-create-directory

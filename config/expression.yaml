@@ -89,3 +89,10 @@ expressions:
         path: 2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.cwl
         md5sum: dcecdce54ae1e4ff8e8206d77b166f41
     categories: []
+  - name: create-single-directory-from-directories-array
+    path: create-single-directory-from-directories-array
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/create-single-directory-from-directories-array__1.0.0.cwl
+        md5sum: a60fd0524deeff885681f188c5192bc3
+    categories: []

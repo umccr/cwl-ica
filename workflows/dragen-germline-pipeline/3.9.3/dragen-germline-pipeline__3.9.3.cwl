@@ -50,7 +50,14 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+  # Option 2
+  fastq_list:
+    label: fastq list
+    doc: |
+      CSV file that contains a list of FASTQ files for normal sample
+      to process (read_1 and read_2 attributes must be presigned urls for each column)
+    type: File?
   reference_tar:
     label: reference tar
     doc: |
@@ -384,6 +391,8 @@ steps:
     in:
       fastq_list_rows:
         source: fastq_list_rows
+      fastq_list:
+        source: fastq_list
       reference_tar:
         source: reference_tar
       output_file_prefix:
@@ -502,7 +511,7 @@ steps:
       The dragen qc step - this takes in an array of dirs
     requirements:
       DockerRequirement:
-        dockerPull: quay.io/umccr/multiqc-dragen:1.12-dev
+        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-update-and-clean-names--a5e0179
     in:
       input_directories:
         source: run_dragen_germline_step/dragen_germline_output_directory
@@ -523,7 +532,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
+    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
 
 outputs:
   dragen_germline_output_directory:
