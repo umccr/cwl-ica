@@ -585,7 +585,8 @@ projects:
             path: 3.9.3/dragen-pon-qc__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-03-06T23:21:34UTC
-            run_instances: []
+            run_instances:
+              - wfr.e0cccb29cf44482182507bd33579270c
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
