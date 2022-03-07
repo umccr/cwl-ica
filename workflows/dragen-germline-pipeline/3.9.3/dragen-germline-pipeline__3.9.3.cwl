@@ -50,7 +50,7 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
   # Option 2
   fastq_list:
     label: fastq list
