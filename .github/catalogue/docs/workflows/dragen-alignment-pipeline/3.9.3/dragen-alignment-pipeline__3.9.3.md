@@ -19,7 +19,7 @@ dragen-alignment-pipeline 3.9.3 workflow
 
   
 > ID: dragen-alignment-pipeline--3.9.3  
-> md5sum: 7e729ce9fa6d4a7608f7119f9f48b79b
+> md5sum: 5cfdfea3029311d63ef44782654c3cd3
 
 ### dragen-alignment-pipeline v(3.9.3) documentation
   
@@ -42,8 +42,7 @@ Documentation for dragen-alignment-pipeline v3.9.3
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-- [multiqc 1.10.1](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
+- [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-alignment 3.9.3](../../../tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
 
 
@@ -239,6 +238,20 @@ Enable use of BAM input files for mapper/aligner.
 Enable sorting after mapping/alignment.
 
 
+### fastq list
+
+
+
+  
+> ID: fastq_list
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+CSV file that contains a list of FASTQ files for normal sample
+to process (read_1 and read_2 attributes must be presigned urls for each column)
+
+
 ### Row of fastq lists
 
 
@@ -246,7 +259,7 @@ Enable sorting after mapping/alignment.
   
 > ID: fastq_list_rows
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
 The row of fastq lists.
@@ -793,25 +806,6 @@ Intermediate step for letting multiqc-interop be placed in stream mode
 [CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
-### create fastq list csv step
-
-
-  
-> ID: dragen-alignment-pipeline--3.9.3/create_fastq_list_csv_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Create the fastq list csv to then run the germline tool.
-Takes in an array of fastq_list_row schema.
-Returns a csv file along with predefined_mount_path schema
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-
-
 ### dragen qc step
 
 
@@ -825,8 +819,8 @@ The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen alignment step

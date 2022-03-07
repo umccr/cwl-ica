@@ -56,11 +56,24 @@ requirements:
   SchemaDefRequirement:
     types:
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
-      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
 
 # Declare inputs
 inputs:
   # File inputs
+  # Option 1
+  fastq_list:
+    label: fastq list
+    doc: |
+      CSV file that contains a list of FASTQ files for normal sample
+      to process.
+    type: File?
+  tumor_fastq_list:
+    label: tumor fastq list
+    doc: |
+      CSV file that contains a list of FASTQ files
+      to process.
+    type: File?
+  # Option 2
   fastq_list_rows:
     label: Row of fastq lists
     doc: |
@@ -72,7 +85,7 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
   tumor_fastq_list_rows:
     label: Row of fastq lists
     doc: |
@@ -84,7 +97,7 @@ inputs:
         * Lane
         * Read1File
         * Read2File (optional)
-    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+    type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
   reference_tar:
     label: reference tar
     doc: |
@@ -561,34 +574,6 @@ inputs:
       - string?
 
 steps:
-  # Create fastq_list.csv
-  create_fastq_list_csv_step:
-    label: create fastq list csv step
-    doc: |
-      Create the normal fastq list csv to then run the somatic tool.
-      Takes in an array of fastq_list_row schema.
-      Returns a csv file along with predefined_mount_path schema
-    in:
-      fastq_list_rows:
-        source: fastq_list_rows
-    out:
-      - id: fastq_list_csv_out
-      - id: predefined_mount_paths_out
-    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
-  # Create fastq_list.csv
-  create_tumor_fastq_list_csv_step:
-    label: create tumor fastq list csv step
-    doc: |
-      Create the tumor fastq list csv to then run the somatic tool.
-      Takes in an array of fastq_list_row schema.
-      Returns a csv file along with predefined_mount_path schema
-    in:
-      fastq_list_rows:
-        source: tumor_fastq_list_rows
-    out:
-      - id: fastq_list_csv_out
-      - id: predefined_mount_paths_out
-    run: ../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl
   # Run dragen somatic workflow
   run_dragen_somatic_step:
     label: run dragen somatic step
@@ -598,13 +583,13 @@ steps:
       All other options avaiable at the top of the workflow
     in:
       fastq_list:
-        source: create_fastq_list_csv_step/fastq_list_csv_out
-      fastq_list_mount_paths:
-        source: create_fastq_list_csv_step/predefined_mount_paths_out
+        source: fastq_list
       tumor_fastq_list:
-        source: create_tumor_fastq_list_csv_step/fastq_list_csv_out
-      tumor_fastq_list_mount_paths:
-        source: create_tumor_fastq_list_csv_step/predefined_mount_paths_out
+        source: tumor_fastq_list
+      fastq_list_rows:
+        source: fastq_list_rows
+      tumor_fastq_list_rows:
+        source: tumor_fastq_list_rows
       reference_tar:
         source: reference_tar
       output_directory:
@@ -769,7 +754,7 @@ steps:
       The dragen qc step - this takes in an array of dirs
     requirements:
       DockerRequirement:
-        dockerPull: umccr/multiqc-dragen:1.9
+        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-update-and-clean-names--a5e0179
     in:
       input_directories:
         source: run_dragen_somatic_step/dragen_somatic_output_directory
@@ -790,7 +775,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl
+    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
 
 outputs:
   # Will also include mounted-files.txt

@@ -17,7 +17,7 @@ dragen-alignment 3.9.3 tool
 
   
 > ID: dragen-alignment--3.9.3  
-> md5sum: 84d0540ee7938589d9b0fda55b087a97
+> md5sum: 8dd62c585a66984aba0382530c138b82
 
 ### dragen-alignment v(3.9.3) documentation
   
@@ -231,26 +231,26 @@ Enable sorting after mapping/alignment.
   
 > ID: fastq_list
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files
 to process.
-Read1File and Read2File may be presigned urls or use this in conjunction with
-the fastq_list_mount_paths inputs.
+Read1File and Read2File must be presigned urls in order to use the fastq_list option.
+Otherwise use the fastq_list_rows option
 
 
-### fastq list mount paths
+### fastq list rows
 
 
 
   
-> ID: fastq_list_mount_paths
+> ID: fastq_list_rows
   
 **Optional:** `True`  
-**Type:** `predefined-mount-path[]`  
+**Type:** `fastq-list-row[]`  
 **Docs:**  
-Path to fastq list mount path
+Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
 
 
 ### gap ext pen

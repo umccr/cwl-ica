@@ -269,7 +269,7 @@ steps:
     out:
       - id: output_directory
       - id: output_file
-    run: ../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl
+    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
 
 outputs:
   # The dragen output directory

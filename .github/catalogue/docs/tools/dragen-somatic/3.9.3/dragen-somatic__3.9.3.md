@@ -17,7 +17,7 @@ dragen-somatic 3.9.3 tool
 
   
 > ID: dragen-somatic--3.9.3  
-> md5sum: b59c904caa3eca256a3e4f50a4e734bc
+> md5sum: 9f4c9d7c39ea3767cb20cfaf077b91c0
 
 ### dragen-somatic v(3.9.3) documentation
   
@@ -249,22 +249,20 @@ and the related callability report are enabled.
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files for normal sample
-to process.
-Read1File and Read2File may be presigned urls or use this in conjunction with
-the fastq_list_mount_paths inputs.
+to process. read_1 and read_2 components in the CSV file must be presigned urls.
 
 
-### fastq list mount paths
+### fastq list rows
 
 
 
   
-> ID: fastq_list_mount_paths
+> ID: fastq_list_rows
   
 **Optional:** `True`  
-**Type:** `predefined-mount-path[]`  
+**Type:** `fastq-list-row[]`  
 **Docs:**  
-Path to fastq list mount path
+Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for normal sample
 
 
 ### hla allele frequency file
@@ -673,26 +671,24 @@ The default value is 0.05.
   
 > ID: tumor_fastq_list
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files
-to process.
-Read1File and Read2File may be presigned urls or use this in conjunction with
-the fastq_list_mount_paths inputs.
+to process. read_1 and read_2 components in the CSV file must be presigned urls.
 
 
-### tumor fastq list mount paths
+### tumor fastq list rows
 
 
 
   
-> ID: tumor_fastq_list_mount_paths
+> ID: tumor_fastq_list_rows
   
 **Optional:** `True`  
-**Type:** `predefined-mount-path[]`  
+**Type:** `fastq-list-row[]`  
 **Docs:**  
-Path to fastq list mount path
+Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for tumor sample
 
 
 ### vc af call threshold
@@ -1229,6 +1225,427 @@ Exists only if --enable-map-align-output set to true
   
 **workflow name:** dragen-somatic_dev-wf  
 **wfl version name:** 3.9.3  
+
+
+#### Run Instances
+
+##### ToC
+  
+- [Run wfr.63351b7bd8f9431db0a58c27d5538f0e](#run-wfr63351b7bd8f9431db0a58c27d5538f0e)  
+- [Run wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f](#run-wfr4aef0ef9d4154f7a9a3a8138c12dbd6f)  
+
+
+##### Run wfr.63351b7bd8f9431db0a58c27d5538f0e
+
+
+
+  
+> Run Name: InlineCSV-pipeline-test2Mar  
+
+  
+**Start Time:** 2022-03-02 04:55:34 UTC  
+**Duration:** 2022-03-02 15:09:57 UTC  
+**End Time:** 0 days 10:14:22  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.63351b7bd8f9431db0a58c27d5538f0e
+
+# Edit the input json file (optional)
+# vim wfr.63351b7bd8f9431db0a58c27d5538f0e.template.json 
+
+# Run the launch script
+bash wfr.63351b7bd8f9431db0a58c27d5538f0e.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "cnv_use_somatic_vc_baf": true,
+    "enable_duplicate_marking": true,
+    "enable_map_align_output": true,
+    "enable_sv": true,
+    "fastq_list_rows": [
+        {
+            "lane": 2,
+            "read_1": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R2_001.fastq.gz"
+            },
+            "rgid": "GTTCCAAT.GCAGAATT.2.210708_A00130_0166_AH7KTJDSX2.MDX210178_L2100747",
+            "rglb": "L2100747",
+            "rgsm": "MDX210178"
+        }
+    ],
+    "output_directory": "L2100748_L2100747_dragen",
+    "output_file_prefix": "MDX210179",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "tumor_fastq_list_rows": [
+        {
+            "lane": 2,
+            "read_1": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210179_L2100748_S8_L002_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210179_L2100748_S8_L002_R2_001.fastq.gz"
+            },
+            "rgid": "ACCTTGGC.ATGAGGCC.2.210708_A00130_0166_AH7KTJDSX2.MDX210179_L2100748",
+            "rglb": "L2100748",
+            "rgsm": "MDX210179"
+        }
+    ]
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar",
+    "outputDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs",
+    "tmpOutputDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/steps",
+    "logDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.20.0-202201191609-develop"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_somatic_output_directory": {
+        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen",
+        "basename": "L2100748_L2100747_dragen",
+        "nameroot": "L2100748_L2100747_dragen",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "normal_bam_out": {
+        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210178_normal.bam",
+        "basename": "MDX210178_normal.bam",
+        "nameroot": "MDX210178_normal",
+        "nameext": ".bam",
+        "class": "File",
+        "size": 86553070272,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210178_normal.bam.bai",
+                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210178_normal.bam.bai",
+                "class": "File",
+                "nameroot": "MDX210178_normal.bam",
+                "nameext": ".bai",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_snv_vcf_hard_filtered_out": {
+        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz",
+        "basename": "MDX210179.hard-filtered.vcf.gz",
+        "nameroot": "MDX210179.hard-filtered.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 7869417,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.hard-filtered.vcf.gz.tbi",
+                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.hard-filtered.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_snv_vcf_out": {
+        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz",
+        "basename": "MDX210179.vcf.gz",
+        "nameroot": "MDX210179.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 7352169,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.vcf.gz.tbi",
+                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_structural_vcf_out": {
+        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz",
+        "basename": "MDX210179.sv.vcf.gz",
+        "nameroot": "MDX210179.sv.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 99280,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.sv.vcf.gz.tbi",
+                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.sv.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "tumor_bam_out": {
+        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam",
+        "basename": "MDX210179_tumor.bam",
+        "nameroot": "MDX210179_tumor",
+        "nameext": ".bam",
+        "class": "File",
+        "size": 195321311241,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179_tumor.bam.bai",
+                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam.bai",
+                "class": "File",
+                "nameroot": "MDX210179_tumor.bam",
+                "nameext": ".bai",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "output_dir_gds_session_id": "ssn.75448d45a8cf4a0da0cacc35fb196715",
+    "output_dir_gds_folder_id": "fol.52d7bc8d23ef493bec8608d9ebfc12bc"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![InlineCSV-pipeline-test2Mar__wfr.63351b7bd8f9431db0a58c27d5538f0e.svg](../../../../images/runs/tools/dragen-somatic/3.9.3/InlineCSV-pipeline-test2Mar__wfr.63351b7bd8f9431db0a58c27d5538f0e.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/tools/dragen-somatic/3.9.3/InlineCSV-pipeline-test2Mar__wfr.63351b7bd8f9431db0a58c27d5538f0e.svg)  
+
+
+##### Run wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
+
+
+
+  
+> Run Name: InlineCSV-test-TO  
+
+  
+**Start Time:** 2022-03-02 05:17:11 UTC  
+**Duration:** 2022-03-02 07:33:45 UTC  
+**End Time:** 0 days 02:16:33  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
+
+# Edit the input json file (optional)
+# vim wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.template.json 
+
+# Run the launch script
+bash wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "enable_duplicate_marking": true,
+    "enable_map_align_output": true,
+    "enable_sv": true,
+    "output_directory": "L2100748_L2100747_dragen",
+    "output_file_prefix": "MDX210179",
+    "reference_tar": {
+        "class": "File",
+        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
+    },
+    "tumor_fastq_list_rows": [
+        {
+            "lane": 2,
+            "read_1": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R2_001.fastq.gz"
+            },
+            "rgid": "ACCTTGGC.ATGAGGCC.2.210708_A00130_0166_AH7KTJDSX2.MDX210179_L2100748",
+            "rglb": "L2100748",
+            "rgsm": "MDX210179"
+        }
+    ]
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO",
+    "outputDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs",
+    "tmpOutputDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/steps",
+    "logDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/logs",
+    "maxScatter": 32,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.20.0-202201191609-develop"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "dragen_somatic_output_directory": {
+        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen",
+        "basename": "L2100748_L2100747_dragen",
+        "nameroot": "L2100748_L2100747_dragen",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "normal_bam_out": null,
+    "somatic_snv_vcf_hard_filtered_out": {
+        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz",
+        "basename": "MDX210179.hard-filtered.vcf.gz",
+        "nameroot": "MDX210179.hard-filtered.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 209221814,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.hard-filtered.vcf.gz.tbi",
+                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.hard-filtered.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_snv_vcf_out": {
+        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz",
+        "basename": "MDX210179.vcf.gz",
+        "nameroot": "MDX210179.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 202612647,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.vcf.gz.tbi",
+                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "somatic_structural_vcf_out": {
+        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz",
+        "basename": "MDX210179.sv.vcf.gz",
+        "nameroot": "MDX210179.sv.vcf",
+        "nameext": ".gz",
+        "class": "File",
+        "size": 1576733,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179.sv.vcf.gz.tbi",
+                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz.tbi",
+                "class": "File",
+                "nameroot": "MDX210179.sv.vcf.gz",
+                "nameext": ".tbi",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "tumor_bam_out": {
+        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam",
+        "basename": "MDX210179_tumor.bam",
+        "nameroot": "MDX210179_tumor",
+        "nameext": ".bam",
+        "class": "File",
+        "size": 85794594341,
+        "secondaryFiles": [
+            {
+                "basename": "MDX210179_tumor.bam.bai",
+                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam.bai",
+                "class": "File",
+                "nameroot": "MDX210179_tumor.bam",
+                "nameext": ".bai",
+                "http://commonwl.org/cwltool#generation": 0
+            }
+        ],
+        "http://commonwl.org/cwltool#generation": 0
+    },
+    "output_dir_gds_session_id": "ssn.5afa493ddde54b15ac9c90044cb43b5c",
+    "output_dir_gds_folder_id": "fol.aa6274ea92f14814eb3508d9ebfc12bc"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![InlineCSV-test-TO__wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.svg](../../../../images/runs/tools/dragen-somatic/3.9.3/InlineCSV-test-TO__wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/tools/dragen-somatic/3.9.3/InlineCSV-test-TO__wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.svg)  
 
   
 
