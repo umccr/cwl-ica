@@ -62,17 +62,8 @@ inputs:
   # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
-  # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
-  enable_map_align_output:
-    label: enable map align output
-    doc: |
-      Enables saving the output from the
-      map/align stage. Default is true when only
-      running map/align. Default is false if
-      running the variant caller.
-    type: boolean?
   enable_duplicate_marking:
     label: enable duplicate marking
     doc: |
@@ -664,14 +655,13 @@ inputs:
     doc: |
       output file
     type: string?
-
 steps:
   # Run dragen somatic tool using normal fastqs
   run_dragen_somatic_step:
     label: run dragen somatic step
     doc: |
       Runs the dragen somatic workflow on the FPGA.
-      Takes in a normal and tumor fastq list and corresponding mount paths from the predefined_mount_paths.
+      Step can take in tumor fastq list or tumor fastq list rows to be run in TO mode.
       All other options avaiable at the top of the workflow
     in:
       tumor_fastq_list:
@@ -685,7 +675,8 @@ steps:
       output_file_prefix:
         source: output_file_prefix
       enable_map_align_output:
-        source: enable_map_align_output
+        valueFrom: |
+          ${ return true; }
       enable_duplicate_marking:
         source: enable_duplicate_marking
       enable_sv:
