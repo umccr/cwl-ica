@@ -1752,3 +1752,52 @@ runs:
         task_stop_time: 1646269629
         task_duration: 642
         task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.e0cccb29cf44482182507bd33579270c
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.eaf568e0fac049f5879fb1d36e214836
+    ica_workflow_name: dragen-pon-qc_dev-wf
+    ica_workflow_version_name: 3.9.3
+    ica_workflow_run_name: PON-GHIF-QC
+    ica_input: eJzNVFFv0zAQ/isozyR2smkJe6syrQM2JLYiJiF0ujrXxJpjp7bTrkz77zgJW4c2AUI88NTo7vN333d3vbuINC4VQdV3Sgr0BC3aG6nr6PiVtz29fvWAaLEDVLLWYHrf9f4ZwG32oZVUnmyggZXCgSs74IchPj2FSloS3thdyETnWcp5fljAj48cKos16WiPD3QEnaWVvB1eXJxcB2iavxkgIQqO1iF+FwmFzg2I0/BgSCoTPEmjh1hduWPG+lYIG3tqu7hCj3FFG9aQIs3mZ29P4WPJmvqgCE494BYtgTaNwmSF0f1UjCxpQeDR/mnJUIKU6VrSnj0SjNXZ5BQadE1gDF10bFOMClhQMAqIhd7EqEVjLFVjKt4U8YvZJIhK6m+jUodtF5omq6cN2/c42kOc6a2gAfbpoiwvx4ywsvO/99d43w0OLW6TWvqmX/aOrDDaB6+JMC1zN6i3qNi2dvFUL14L1qLUTKASvRpWTpgNDY1Iut2oPdioyYOlOtRx/26yi5HXwZlpDTjsJGkHgZfapdoNQ++9caYll/hbPynpW2Nhhc6vQUkXNJntIOPLXaRQD03Lxq3ACtK/WYfOyvB/28G4DGE0OS9gxnl6wIGnR0cwO8vfL96dXF1nLONZxtMsLXIulnS0Yp/nV7Bw6w+oDXs+YLjK4ZzzDC5TCITJ6OFhOUbB2f8qOHtBcD0t8qwsF4v5vExmi/ks/JZJlvxSRfJ4Kx4KFePRqNXy6e2ZYq79+brcf73/DnQfomU=
+    ica_output: eJzNl1mP2jAURv/KiL6WxDir57WjaSt1fatUVZZjO0yqJKa2A51B899rQ8ISlpBpgT4g4ZvPvtdHBxDzAa2UFgVWmmiFf1FMRZFkJWf4pxLl4PZmPsgFJTpbLAZjpm5dd5ZKhwNKaQIRTX3fj+EohgGIEuZ5QYRgBKj75fOn4dt37++HX9+4otKTSiu3KiiVeLladXIWnV7fDBKieEkKbhsdT9qUFEIfTDYh/nuRWW2kOVHKVu6znNuCyp5sPwQQMKsHrSfmfuaUQpSz3BFy7NJZroXIX415yWUDAjzbw1ro6hnODa6TVyemvnRgGPi96TBJTBErUZjyCg7LJKdayMd/TegDHAEQ+TGu30R4OUAb1LHcJq+uXM1uC9vd6nJrdmWV5xbHxDzKFD+nJNst9mpyILJ58e1IX1UiFIW9VWkcUeUUT2mKH4hkOM1yzaX5IjKDXEoW9+PdN1MZRcixMwybGRwzlTN+atPsTm+CPZJuU15uPvhxBAjai45siVNRMiIfbcaGv897jOjoJLMHXx9tM8nOnU8kuMG7gVif2EPFH39t7nVc7bKzy8cXGAjDEQx92MvAazr3Isv+A6+0rKiuJMmvqJeadhq2FdkPcxnp59koiMLI83pZthrlOqLttD/RtR2Cl9RNV4WQOCHFdQzDi/6O6X/QsO3IXoTLSBtfveOQYbGZ3A+Q7/m9fk3X45jX5S3bbX+aZbsU15jOb9n6LwA2hLDiSpmnOGN2AqVKx2NxGgYAeBDFvof82AviNCYeBCEiabq4V+uQVOSMy/oMs3AYYYgyBihggc8IjWLugZihlMMkTSM2eP4DBCWrrw==
+    ica_engine_parameters: eJytkMFywiAURX/FycZNkwDRxrjVaXVhbSftByC8ZJgmwAAxtY7/XsBpV11mCffc8+a9azIq87kVBphT5pKsZ0nL7TrPx8ZkgBhjJ1KxZrFYrAhekSUqT7wolmVFSsTy1+NL+rzbP6Vvm+RhlqjB6cFNIMvvJhukrtfHybzWgY7WTrVT+Lwm6nr6VTPqHBgvK8jfLWpwTsg2TOjVGQLKlL7cF9pL66hk8H7REIjavzg1fCc2evgfrcV3RA/AxdAHhkNDh84DnjooHtP5Vo2yU5TPAyF+o+MZjBEcrGeut3BasB8W7lUqRQPWxTodnIpVNnZOqS58FhnKCCIIE1TgssAYBwBkK2SciX2aodQjnsEVfkRVyuEMndLJ7Qc5uLwy
+    workflow_start_time: 1646608909
+    workflow_end_time: 1646622055
+    workflow_duration: 13146
+    ica_tasks:
+      - ica_task_run_instance_id: trn.adc4a586a1284757afbb0f2b0bef2012
+        task_step_name: run_dragen_somatic_step
+        task_name: dragen-somatic__3.9.3.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1646609151
+        task_stop_time: 1646616306
+        task_duration: 7154
+        task_metrics: eJydl71uVEEMhV8lSh1djf/GY14FUSCUgmJFBKFAiHfPbHXHsznWki6J9MV/x2d8P/99fP1+ef71+vXy8vjpgbr2To2cnx4ev738vv7puP58eb78+Pln/tqO9u/p4V2KJT5CBZ2UHbpiSkcgTsyWaH3FOqaUzmiWKfECc0NY98MQZtIXLFZszFIhFmf7+9ES1nG0bgIxPzrCPLUkJzmOATGPJRolLHAnhxjCoh0OsTGWJJNIgnBtYYRaEgyjzQU456aHJ0zgAGZPxhItqSQMbgCRKKptKKyNaFEJyVacHow4tjMc6ZZmx/Fkacrk0uhmx3B9srqJZmOY+48z1UUrE9QdRAtEGlykqlDUZNaLVIsZdkpNjR2ENXaXFZQM9kMQ6NKK5ihWqYeXNcKuDvNVcH53qtGWh8H2cUwXgKBb2Rw0R25SzRGnym3xmVvlFCDlrboB0TiYF/v9HwEwjwT2uyNKXqsbASDvZhnxseaopX20HUTbwUYp1baDyKzYehRddSg57osZT5GPHYQRe1T2iI8Edotijvgo4cFJAJsDDGhWPPooa4QRQ5JZbQ4QuDkR7QlbR8BUpWVD1rtBymvFe3NQjUJ+uhzvRo4PG2FhPEbCr5zwKhzbMiWCwplrvIyxbanO/4TOG1E6S/TMBX7HRT1d6mmLA7/GYutLtXMCV1HWM/iGwweO9PXLYOfwUyxOJQfb6aOoz3G8IecY9uMUO9Q0YcHhBg4X6/Ntuwk3+JhqYzyH6+GHMtXmWoADdlSnYcBvwusSwohUSOYKIo1qOorfiQhTTVfxHnFuJbJEFceqqdZeVYoap9FgMKqIggVgq9HcgPgq1l42pxdgYTXzgsU1euE184LFc/RKOdzgWukwvI7zLMSSC6pA/HWq4VWqCrfDmlQRrQCjmCN3mKrN76ICdAwyVTViBzDuhXUInqNJ1RzB77dNYy1AgQIwtaKrovDUMKNR1Hg94L+8ARwhUAE=
+      - ica_task_run_instance_id: trn.98d0794effd04346856986e232d04f7b
+        task_step_name: ghif_qc_workflow/samtools_stats_step
+        task_name: samtools-stats__1.13.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1646616629
+        task_stop_time: 1646620270
+        task_duration: 3641
+        task_metrics: eJyd1U1qw0AMBeCrGK9DkTQ/GvUqoYtSsujCNCTpopTcPQ6FrPJE/XYew8fYT9LM/ne+fC6H8+V9Oc6vk/bau3pR2U3zx/F7fSUv9+flsHydfv6W1930XLk/lP5b1SKMikqo1hjVNRjlSqg1ekYFk+Gg0ggZWClUbtvVkCwNrEZSL6g0SwMq0yR5rJzIcJRsUrAKJvnaklmGqmljlDPJ99IZFYVQTvXGUKZ7180IFcZ0VARR5ZBK7BXKpBHK9EZYIaoclt0phlTJegOqqskXYpWdolC1bFKwiuQUhao35r88u2GxckaNkvQ8VlRvRHaKAmUiur3Kq/LtyZtoNil2fbsB88e8wQ==
+      - ica_task_run_instance_id: trn.d7d5c8e4e438489c8ba3758ebb264c3f
+        task_step_name: ghif_qc_workflow/calculate_coverage_step
+        task_name: calculate-coverage__1.0.0.cwl
+        task_cpus: 35.5
+        task_memory: 68
+        task_start_time: 1646616614
+        task_stop_time: 1646618249
+        task_duration: 1635
+        task_metrics: eJyd0sEKwjAMBuBXKT2P0aRt0voq4kFkBw/FofMg4rtvIkgmpozemsJH/rTZP+10LsNtOpbR7gxQIALG6DtjT+N9uXK9W85lKJfr41O+OvNXeXBfBT1JBRXFUsW1ypoKmITirSqjUEEq1BPGqM5VUQSkJawphoZe7FH8V96qsm9ImGJoSJhXu/HTC1TFlZfXVHIetY16q8MMAVHM9A==
+      - ica_task_run_instance_id: trn.17a4a2fd41e74a0f85b8a8875df2210a
+        task_step_name: ghif_qc_workflow/custom_stats_qc_step
+        task_name: custom-stats-qc__1.0.1.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1646620437
+        task_stop_time: 1646620651
+        task_duration: 214
+        task_metrics: eJyLjgUAARUAuQ==

@@ -19,7 +19,7 @@ ghif-qc 1.0.0 workflow
 
   
 > ID: ghif-qc--1.0.0  
-> md5sum: 2a6cbf08cad667a50a56cc15b396b602
+> md5sum: cc6a47a96c3d1b0e58a149c1f9610f28
 
 ### ghif-qc v(1.0.0) documentation
   

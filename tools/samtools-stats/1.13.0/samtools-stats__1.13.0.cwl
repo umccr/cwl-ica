@@ -54,7 +54,8 @@ inputs:
     label: output filename
     doc: |
       Redirects stdout
-    type: string
+    type: string?
+    default: "samtools_stats"
   input_bam:
     label: input BAM 
     doc: |
@@ -78,6 +79,7 @@ inputs:
     doc: |
       Exclude from statistics reads marked as duplicates
     type: boolean?
+    default: true
     inputBinding:
       prefix: "--remove-dups"
   required_flag:
@@ -90,7 +92,7 @@ inputs:
   filtering_flag:
     label: filtering flag
     doc: |
-      iltering flag, 0 for unset. See also `samtools flags` [0]
+      filtering flag, 0 for unset. See also `samtools flags` [0]
     type: int?
     inputBinding:
       prefix: "--filtering-flag"
@@ -181,6 +183,7 @@ inputs:
     doc: |
       Remove overlaps of paired-end reads from coverage and base count computations.
     type: boolean?
+    default: true
     inputBinding:
       prefix: "--remove-overlaps"
   cov_threshold:
@@ -188,6 +191,7 @@ inputs:
     doc: |
       Only bases with coverage above this value will be included in the target percentage computation [0]
     type: int?
+    default: 20
     inputBinding:
       prefix: "--cov-threshold"
   threads:

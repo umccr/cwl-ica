@@ -352,7 +352,7 @@ tools:
     versions:
       - name: 1.13.0
         path: 1.13.0/samtools-stats__1.13.0.cwl
-        md5sum: e83bda8efb0b051ef9695ebe7ab45136
+        md5sum: 2f43a5b2554995c2bbbe4e2a20ec386d
     categories: []
   - name: custom-stats-qc
     path: custom-stats-qc
@@ -362,12 +362,12 @@ tools:
         md5sum: 0d33056393a32a0c3033cba31f01f235
       - name: 1.0.1
         path: 1.0.1/custom-stats-qc__1.0.1.cwl
-        md5sum: 092f7048aff2f64f06b6cef908b9ee81
+        md5sum: 7b2b4614a94cbbf67a217910ff0da1ff
     categories: []
   - name: calculate-coverage
     path: calculate-coverage
     versions:
       - name: 1.0.0
         path: 1.0.0/calculate-coverage__1.0.0.cwl
-        md5sum: d9d29572c4ac71741b90aa6444e122d0
+        md5sum: ef3a46abbede91b27b2accd3944d9ded
     categories: []

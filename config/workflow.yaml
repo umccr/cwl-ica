@@ -146,8 +146,15 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/ghif-qc__1.0.0.cwl
-        md5sum: 2a6cbf08cad667a50a56cc15b396b602
+        md5sum: cc6a47a96c3d1b0e58a149c1f9610f28
       - name: 1.0.1
         path: 1.0.1/ghif-qc__1.0.1.cwl
-        md5sum: 26ffcb949eb90629f9ca776808732298
+        md5sum: ddb44d838b99afb76eb4d433a54d60de
+    categories: []
+  - name: dragen-pon-qc
+    path: dragen-pon-qc
+    versions:
+      - name: 3.9.3
+        path: 3.9.3/dragen-pon-qc__3.9.3.cwl
+        md5sum: 7d17d730ec2e73770a913437d8ae8296
     categories: []

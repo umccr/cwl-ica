@@ -91,7 +91,8 @@ inputs:
     label: output json
     doc: |
       output file
-    type: string
+    type: string?
+    default: "precise_output.json"
     inputBinding:
       prefix: "--out_json"
   log_level:
