@@ -17,7 +17,7 @@ samtools-stats 1.13.0 tool
 
   
 > ID: samtools-stats--1.13.0  
-> md5sum: e83bda8efb0b051ef9695ebe7ab45136
+> md5sum: 2f43a5b2554995c2bbbe4e2a20ec386d
 
 ### samtools-stats v(1.13.0) documentation
   
@@ -92,7 +92,7 @@ Set coverage distribution to the specified range (MIN, MAX, STEP all given as in
 **Optional:** `True`  
 **Type:** `int`  
 **Docs:**  
-iltering flag, 0 for unset. See also `samtools flags` [0]
+filtering flag, 0 for unset. See also `samtools flags` [0]
 
 
 ### id
@@ -154,7 +154,7 @@ Report only the main part of inserts [0.99]
   
 > ID: output_filename
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 Redirects stdout

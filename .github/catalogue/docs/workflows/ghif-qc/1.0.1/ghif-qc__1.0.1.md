@@ -19,7 +19,7 @@ ghif-qc 1.0.1 workflow
 
   
 > ID: ghif-qc--1.0.1  
-> md5sum: 26ffcb949eb90629f9ca776808732298
+> md5sum: ddb44d838b99afb76eb4d433a54d60de
 
 ### ghif-qc v(1.0.1) documentation
   
@@ -42,6 +42,11 @@ Documentation for ghif-qc v1.0.1
 - [calculate-coverage 1.0.0](../../../tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.md)  
 - [custom-stats-qc 1.0.1](../../../tools/custom-stats-qc/1.0.1/custom-stats-qc__1.0.1.md)  
 - [samtools-stats 1.13.0](../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md)  
+
+
+### Used By
+  
+- [dragen-pon-qc 3.9.3](../../dragen-pon-qc/3.9.3/dragen-pon-qc__3.9.3.md)  
 
   
 

@@ -17,7 +17,7 @@ calculate-coverage 1.0.0 tool
 
   
 > ID: calculate-coverage--1.0.0  
-> md5sum: d9d29572c4ac71741b90aa6444e122d0
+> md5sum: ef3a46abbede91b27b2accd3944d9ded
 
 ### calculate-coverage v(1.0.0) documentation
   
@@ -88,7 +88,7 @@ Path to scratch directory. Default: ./
   
 > ID: output_json
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 output file

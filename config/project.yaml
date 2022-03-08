@@ -337,7 +337,7 @@ projects:
           - name: 1.13.0
             path: 1.13.0/samtools-stats__1.13.0.cwl
             ica_workflow_version_name: 1.13.0
-            modification_time: 2022-02-28T05:33:32UTC
+            modification_time: 2022-03-08T03:16:17UTC
             run_instances:
               - wfr.32ff48e48bce4d4e8d70efe6fbf92040
       - name: custom-stats-qc
@@ -365,7 +365,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/calculate-coverage__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2022-01-25T02:27:00UTC
+            modification_time: 2022-03-08T03:16:22UTC
             run_instances: []
       - name: arriba-fusion-calling
         path: arriba-fusion-calling
@@ -582,12 +582,12 @@ projects:
           - name: 1.0.0
             path: 1.0.0/ghif-qc__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2022-01-13T03:46:01UTC
+            modification_time: 2022-03-08T03:24:49UTC
             run_instances: []
           - name: 1.0.1
             path: 1.0.1/ghif-qc__1.0.1.cwl
             ica_workflow_version_name: 1.0.1
-            modification_time: 2022-02-22T05:03:52UTC
+            modification_time: 2022-03-08T03:24:51UTC
             run_instances:
               - wfr.f6adb13c92e340f89317c337674b18a6
               - wfr.10176db758d94e56833422dfd60d0f90

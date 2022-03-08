@@ -580,6 +580,7 @@ illumina-tar)
 - [umccrise-pipeline](#umccrise-pipeline)  
 - [umccrise-with-dragen-germline-pipeline](#umccrise-with-dragen-germline-pipeline)  
 - [ghif-qc](#ghif-qc)  
+- [dragen-pon-qc](#dragen-pon-qc)  
 
 
 ### optitype-pipeline
@@ -744,4 +745,11 @@ illumina-tar)
   
 - [1.0.0](.github/catalogue/docs/workflows/ghif-qc/1.0.0/ghif-qc__1.0.0.md)  
 - [1.0.1](.github/catalogue/docs/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md)  
+
+
+### dragen-pon-qc
+
+#### Versions
+  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-pon-qc/3.9.3/dragen-pon-qc__3.9.3.md)  
 

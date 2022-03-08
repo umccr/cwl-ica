@@ -17,7 +17,7 @@ custom-stats-qc 1.0.1 tool
 
   
 > ID: custom-stats-qc--1.0.1  
-> md5sum: 092f7048aff2f64f06b6cef908b9ee81
+> md5sum: 7b2b4614a94cbbf67a217910ff0da1ff
 
 ### custom-stats-qc v(1.0.1) documentation
   
@@ -48,7 +48,7 @@ Documentation for custom-stats-qc v1.0.1
   
 > ID: output_json_filename
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 output file
