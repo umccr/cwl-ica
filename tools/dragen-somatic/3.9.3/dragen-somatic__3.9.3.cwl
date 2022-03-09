@@ -824,11 +824,19 @@ inputs:
       prefix: --vc-tin-contam-tolerance
   vc_enable_orientation_bias_filter:
     label: vc enable orientation bias filter
-    type: float?
+    type: boolean?
     doc: |
       Enables the orientation bias filter. The default value is false, which means the option is disabled.
     inputBinding:
       prefix: --vc-enable-orientation-bias-filter
+      valueFrom: "$(self.toString())"
+  vc_enable_orientation_bias_filter_artifacts:
+    label: vc enable orientation bias filter artifacts
+    type: boolean?
+    doc: |
+      Enables the orientation bias filter artifacts. The default value is false, which means the option is disabled.
+    inputBinding:
+      prefix: --vc-enable-orientation-bias-filter-artifacts
       valueFrom: "$(self.toString())"
   # Post somatic calling filtering options
   vc_sq_call_threshold:
