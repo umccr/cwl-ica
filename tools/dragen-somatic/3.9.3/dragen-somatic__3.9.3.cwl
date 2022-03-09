@@ -832,9 +832,12 @@ inputs:
       valueFrom: "$(self.toString())"
   vc_enable_orientation_bias_filter_artifacts:
     label: vc enable orientation bias filter artifacts
-    type: boolean?
+    type: string?
     doc: |
-      Enables the orientation bias filter artifacts. The default value is false, which means the option is disabled.
+      The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
+      The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
+      An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
+      For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
     inputBinding:
       prefix: --vc-enable-orientation-bias-filter-artifacts
       valueFrom: "$(self.toString())"
