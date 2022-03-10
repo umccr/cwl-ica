@@ -486,7 +486,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-03-07T00:36:35UTC
+            modification_time: 2022-03-10T02:43:34UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -974,6 +974,16 @@ projects:
             path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
             ica_workflow_version_name: 2.0.1--3.9.3--a75eb35
             modification_time: 2022-03-07T09:25:50UTC
+            run_instances: []
+      - name: dragen-pon-qc
+        path: dragen-pon-qc
+        ica_workflow_name: dragen-pon-qc_prod-wf
+        ica_workflow_id: wfl.438287b9982744c388aa9ef0136dc59a
+        versions:
+          - name: 3.9.3
+            path: 3.9.3/dragen-pon-qc__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--__GIT_COMMIT_ID__
+            modification_time:
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
