@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 8d22f4329b1c031db92fbbf0fdd76a3a
+> md5sum: 7117b8fa4a2b0ffe6a48b9f54811e494
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -47,6 +47,7 @@ More information on the documentation can be found [here](https://support-docs.i
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 - [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-transcriptome 3.9.3](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
+- [somalier-extract 0.2.13 :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
   
 
@@ -77,6 +78,19 @@ Path to annotation transcript file.
 **Type:** `File`  
 **Docs:**  
 File with blacklist range
+
+
+### cl config
+
+
+
+  
+> ID: cl_config
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+command line config to supply additional config values on the command line.
 
 
 ### contigs
@@ -283,18 +297,17 @@ FastA file with genome sequence
 Path to ref data tarball
 
 
-### replace names
+### sites somalier
 
 
 
   
-> ID: replace_names
+> ID: sites_somalier
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `File`  
 **Docs:**  
-a tab-separated file with two columns. The first column contains the search strings and 
-the second the replacement strings
+gzipped vcf file. Required for somalier sites
 
   
 
@@ -405,6 +418,23 @@ All other options avaiable at the top of the workflow
 [CWL File Help Page](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
 
 
+### somalier
+
+
+  
+> ID: dragen-transcriptome-pipeline--3.9.3/somalier_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Runs the somalier extract function to call the fingerprint on the transcriptome bam file
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl)  
+[CWL File Help Page :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
+
+
 ## dragen-transcriptome-pipeline v(3.9.3) Outputs
 
 ### arriba output directory
@@ -449,6 +479,21 @@ The output directory containing all transcriptome output files
 **Output Type:** `Directory`  
 **Docs:**  
 The output directory for multiqc
+  
+
+
+### somalier output directory
+
+
+
+  
+> ID: dragen-transcriptome-pipeline--3.9.3/somalier_output_directory  
+
+  
+**Optional:** `False`  
+**Output Type:** `Directory`  
+**Docs:**  
+Output directory from somalier step
   
 
   
@@ -953,7 +998,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--7ba55e9  
+**wfl version name:** 3.9.3--099bb76  
 
   
 

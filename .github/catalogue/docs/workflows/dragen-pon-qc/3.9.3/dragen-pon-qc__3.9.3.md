@@ -1585,6 +1585,7 @@ Bam file of the tumor sample
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -1832,6 +1833,16 @@ bash wfr.e0cccb29cf44482182507bd33579270c.launch.sh
 
   
 [![PON-GHIF-QC__wfr.e0cccb29cf44482182507bd33579270c.svg](../../../../images/runs/workflows/dragen-pon-qc/3.9.3/PON-GHIF-QC__wfr.e0cccb29cf44482182507bd33579270c.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/dragen-pon-qc/3.9.3/PON-GHIF-QC__wfr.e0cccb29cf44482182507bd33579270c.svg)  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.438287b9982744c388aa9ef0136dc59a  
+
+  
+**workflow name:** dragen-pon-qc_prod-wf  
+**wfl version name:** 3.9.3--099bb76  
 
   
 
