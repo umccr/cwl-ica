@@ -22,7 +22,7 @@ workflows:
         md5sum: 9c415babb9da86131c01d4e816d9ef67
       - name: 3.9.3
         path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
-        md5sum: a24cfe1da464e0550a651e333b04cb4b
+        md5sum: 481f644d4be0dfa1ecc9db76e38aed87
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -55,7 +55,7 @@ workflows:
         md5sum: 90f8ccedf9d3566739425c519ed79d03
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
-        md5sum: 9a69bb3214646c4e3f3292cd08c0fb16
+        md5sum: 19760794d402b20c19786be7d16dd024
     categories:
       - dragen
       - variant-calling
@@ -70,7 +70,7 @@ workflows:
         md5sum: 31746f794e323f54fa0b91d1c7ea5c95
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
-        md5sum: 8d22f4329b1c031db92fbbf0fdd76a3a
+        md5sum: 7117b8fa4a2b0ffe6a48b9f54811e494
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -80,7 +80,7 @@ workflows:
         md5sum: 7d1f53b5a952427be5dbcd1165795907
       - name: 3.9.3
         path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
-        md5sum: 5cfdfea3029311d63ef44782654c3cd3
+        md5sum: c7670e769139d2bfd103456f9e08e482
     categories:
       - alignment
       - dragen
@@ -92,7 +92,7 @@ workflows:
         md5sum: e8a5f7e0631cb9d14303f56d67e408d7
       - name: 3.9.3
         path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
-        md5sum: 03743b2d991acaf0824a46a06cc348f6
+        md5sum: fb7e3d52e6e62a68c052531938ba677f
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
@@ -136,10 +136,10 @@ workflows:
     versions:
       - name: 2.0.0--3.9.3
         path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
-        md5sum: 310d27e4dbcc607189a46f92dd08b848
+        md5sum: 7d5e5ae51a3dad19f1ef000702c56522
       - name: 2.0.1--3.9.3
         path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
-        md5sum: 560ea34e48c85c7e7270774317dc6289
+        md5sum: eea6638c5b341faac5c6ff58ba0499d3
     categories: []
   - name: ghif-qc
     path: ghif-qc
