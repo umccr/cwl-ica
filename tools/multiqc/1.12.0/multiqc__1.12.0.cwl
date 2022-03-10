@@ -130,7 +130,7 @@ inputs:
       Override config from the cli
     type: string?
     inputBinding:
-      prefix: "--cl_config"
+      prefix: "--cl-config"
   dummy_file:
     label: dummy file
     doc: |
