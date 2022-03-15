@@ -536,6 +536,7 @@ illumina-tar)
 #### Versions
   
 - [0.4.1](.github/catalogue/docs/tools/rnasum/0.4.1/rnasum__0.4.1.md)  
+- [0.4.2](.github/catalogue/docs/tools/rnasum/0.4.2/rnasum__0.4.2.md)  
 
 
 ### samtools-stats

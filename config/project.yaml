@@ -332,7 +332,7 @@ projects:
           - name: 0.4.2
             path: 0.4.2/rnasum__0.4.2.cwl
             ica_workflow_version_name: 0.4.2
-            modification_time: 2022-03-15T07:03:16UTC
+            modification_time: 2022-03-15T10:48:27UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
@@ -651,8 +651,8 @@ projects:
             run_instances: []
           - name: 0.4.2
             path: 0.4.2/rnasum__0.4.2.cwl
-            ica_workflow_version_name: 0.4.2--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 0.4.2--da9937b
+            modification_time: 2022-03-15T10:48:35UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
