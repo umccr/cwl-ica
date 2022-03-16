@@ -329,6 +329,11 @@ projects:
             modification_time: 2021-12-21T23:43:33UTC
             run_instances:
               - wfr.dce6425b60044757a78bb545c627c58a
+          - name: 0.4.2
+            path: 0.4.2/rnasum__0.4.2.cwl
+            ica_workflow_version_name: 0.4.2
+            modification_time: 2022-03-15T10:48:27UTC
+            run_instances: []
       - name: samtools-stats
         path: samtools-stats
         ica_workflow_name: samtools-stats_dev-wf
@@ -643,6 +648,11 @@ projects:
             path: 0.4.1/rnasum__0.4.1.cwl
             ica_workflow_version_name: 0.4.1--170cae7
             modification_time: 2021-12-23T18:21:50UTC
+            run_instances: []
+          - name: 0.4.2
+            path: 0.4.2/rnasum__0.4.2.cwl
+            ica_workflow_version_name: 0.4.2--da9937b
+            modification_time: 2022-03-15T10:48:35UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
