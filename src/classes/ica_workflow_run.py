@@ -35,7 +35,7 @@ class ICAWorkflowRun:
     def __init__(self, ica_workflow_run_instance_id, ica_project_launch_context_id=None, ica_workflow_id=None, ica_workflow_name=None, ica_workflow_version_name=None,
                  ica_workflow_run_name=None, ica_input=None, ica_output=None, ica_engine_parameters=None,
                  workflow_start_time=None, workflow_end_time=None, workflow_duration=None,
-                 ica_task_objs=None, project_token=None, allow_unsuccessful_run=False):
+                 ica_task_objs=None, project_token=None, allow_unsuccessful_run=False, get_task_run_objects=True):
         """
         :param ica_workflow_run_instance_id:
         :param ica_project_launch_context_id:
@@ -51,6 +51,7 @@ class ICAWorkflowRun:
         :param workflow_duration:
         :param ica_task_objs:
         :param project_token:
+        :param get_task_run_objects
         """
 
         # Set attrs
@@ -75,7 +76,7 @@ class ICAWorkflowRun:
             self.workflow_duration = workflow_duration
             self.ica_task_objs = ica_task_objs
         else:
-            api_response: WorkflowRun =  self.get_run_instance(project_token)
+            api_response: WorkflowRun = self.get_run_instance(project_token)
 
             # Check workflow run status before continuing
             if not api_response.status == "Succeeded" and not allow_unsuccessful_run:
@@ -94,7 +95,10 @@ class ICAWorkflowRun:
             self.workflow_start_time = int(api_response.time_started.timestamp())
             self.workflow_end_time = int(api_response.time_stopped.timestamp())
             self.workflow_duration = self.get_workflow_duration(api_response)
-            self.ica_task_objs = self.get_task_run_objs(project_token)
+            if get_task_run_objects:
+                self.ica_task_objs = self.get_task_run_objs(project_token)
+            else:
+                self.ica_task_objs = None
 
     def get_workflow(self, ica_workflow_id: str, project_token: str) -> libica.openapi.libwes.Workflow:
         """
