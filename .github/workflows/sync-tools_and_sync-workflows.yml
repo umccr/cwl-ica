@@ -36,7 +36,14 @@ jobs:
       # Standard checkout step
       - name: Checkout code
         id: git_checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      # Show git commit ID
+      - name: Show git commit ID
+        id: show_git_commit_id
+        run: |
+          git log --format="%H" | cut -c1-7
       # Get git commit ID
       - name: Get git commit ID
         id: get_git_commit_id
