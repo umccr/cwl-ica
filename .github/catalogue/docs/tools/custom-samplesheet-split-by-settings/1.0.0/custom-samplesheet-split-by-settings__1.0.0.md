@@ -17,7 +17,7 @@ custom-samplesheet-split-by-settings 1.0.0 tool
 
   
 > ID: custom-samplesheet-split-by-settings--1.0.0  
-> md5sum: 3e34bb0909d55d42840a09e7e36634e1
+> md5sum: a5cd35e9d6296500f2471a017a5a0dd3
 
 ### custom-samplesheet-split-by-settings v(1.0.0) documentation
   
