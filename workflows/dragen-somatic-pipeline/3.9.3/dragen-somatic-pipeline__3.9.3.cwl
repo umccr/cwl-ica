@@ -30,6 +30,7 @@ doc: |
   More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/FrontPages/DRAGEN.htm)
 
 requirements:
+  StepInputExpressionRequirement: {}
   MultipleInputFeatureRequirement: {}
   InlineJavascriptRequirement:
     expressionLib:

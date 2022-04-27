@@ -17,7 +17,7 @@ dragen-somatic 3.9.3 tool
 
   
 > ID: dragen-somatic--3.9.3  
-> md5sum: 9f4c9d7c39ea3767cb20cfaf077b91c0
+> md5sum: b173894a0fce9073d2e0dbdcebec8473
 
 ### dragen-somatic v(3.9.3) documentation
   
@@ -38,6 +38,7 @@ More information on the documentation can be found [here](https://sapac.support.
 ### Used By
   
 - [dragen-somatic-pipeline 3.9.3](../../../workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
+- [dragen-pon-qc 3.9.3](../../../workflows/dragen-pon-qc/3.9.3/dragen-pon-qc__3.9.3.md)  
 
   
 
