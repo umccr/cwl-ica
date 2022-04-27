@@ -14,6 +14,11 @@ s:author:
     s:email: Alexis.Lucattini@umccr.org
     s:identifier: https://orcid.org/0000-0001-9754-647X
 
+s:maintainer:
+  class: s:Person
+  s:name: Stephen Watts
+  s:email: Stephen.Watts@umccr.org
+
 # ID/Docs
 id: umccrise-with-dragen-germline-pipeline--2.0.2--3.9.3
 label: umccrise-with-dragen-germline-pipeline v(2.0.2--3.9.3)
