@@ -579,6 +579,11 @@ projects:
             ica_workflow_version_name: 2.0.1--3.9.3
             modification_time: 2022-02-16T23:21:07UTC
             run_instances: []
+          - name: 2.0.2--3.9.3
+            path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
+            ica_workflow_version_name: 2.0.2--3.9.3
+            modification_time: 2022-04-27T04:21:56UTC
+            run_instances: []
       - name: ghif-qc
         path: ghif-qc
         ica_workflow_name: ghif-qc_dev-wf
@@ -1024,6 +1029,11 @@ projects:
             path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
             ica_workflow_version_name: 2.0.1--3.9.3--099bb76
             modification_time: 2022-03-10T05:58:34UTC
+            run_instances: []
+          - name: 2.0.2--3.9.3
+            path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
+            ica_workflow_version_name: 2.0.2--3.9.3--0a80def
+            modification_time: 2022-04-27T05:49:39UTC
             run_instances: []
       - name: dragen-pon-qc
         path: dragen-pon-qc
