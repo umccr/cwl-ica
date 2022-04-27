@@ -83,7 +83,7 @@ inputs:
     doc: |
       Output file with fusions that have passed all filters
     type: string?
-    default: fusion.tsv
+    default: fusions.tsv
     inputBinding:
       prefix: -o
       position: 6
@@ -92,7 +92,7 @@ inputs:
     doc: |
       Output file with fusions that were discarded due to filtering
     type: string?
-    default: fusion-discarded.tsv
+    default: fusions-discarded.tsv
     inputBinding:
       prefix: -O
       position: 7

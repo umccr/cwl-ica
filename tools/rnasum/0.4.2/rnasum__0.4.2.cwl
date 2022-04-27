@@ -52,14 +52,11 @@ requirements:
           set -euo pipefail
 
           # Copy files into current working directory
-          cp /rmd_files/RNAseq_report.R ./RNAseq_report.R
-          cp /rmd_files/RNAseq_report.Rmd ./RNAseq_report.Rmd
+          cd /rmd_files/
 
           # Run rnasum with input parameters
           $(get_eval_line())
           
-          # Remove RMarkdown files
-          rm -f ./RNAseq_report.R ./RNAseq_report.Rmd ./RNAseq_report.css
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
@@ -69,7 +66,7 @@ hints:
       type: standardHiCpu
       size: large
   DockerRequirement:
-    dockerPull: "quay.io/umccr/rnasum:0.4.2--dev--arriba-arg--docker-upgrade--data-dir"
+    dockerPull: "ghcr.io/umccr/rnasum:0.4.2-dev"
 
 baseCommand: ["bash"]
 

@@ -173,7 +173,7 @@ tools:
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
-        md5sum: bc0e61e852035425ff3d733895a04b87
+        md5sum: a99e2ec4b644df5f352fcd96c09eb728
     categories: []
   - name: arriba-drawing
     path: arriba-drawing
@@ -348,7 +348,7 @@ tools:
         md5sum: 6ae4f94ffa8fe82fdefb3221d87ac842
       - name: 0.4.2
         path: 0.4.2/rnasum__0.4.2.cwl
-        md5sum: fc27b1b2de1a241f270c7b5053a9bf51
+        md5sum: 7cb0b1e9b98775101acd4e54145f6029
     categories: []
   - name: samtools-stats
     path: samtools-stats
