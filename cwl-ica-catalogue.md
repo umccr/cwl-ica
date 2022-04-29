@@ -507,6 +507,7 @@ illumina-tar)
 - [1.2.2--0](.github/catalogue/docs/tools/umccrise/1.2.2--0/umccrise__1.2.2--0.md)  
 - [2.0.0--0](.github/catalogue/docs/tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
 - [2.0.1--0](.github/catalogue/docs/tools/umccrise/2.0.1--0/umccrise__2.0.1--0.md)  
+- [2.0.2--0](.github/catalogue/docs/tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
