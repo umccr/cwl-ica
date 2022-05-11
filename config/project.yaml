@@ -587,7 +587,7 @@ projects:
           - name: 2.0.2--3.9.3
             path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
             ica_workflow_version_name: 2.0.2--3.9.3
-            modification_time: 2022-04-27T04:21:56UTC
+            modification_time: 2022-05-05T04:52:23UTC
             run_instances: []
       - name: ghif-qc
         path: ghif-qc
@@ -668,6 +668,11 @@ projects:
             path: 0.4.2/rnasum__0.4.2.cwl
             ica_workflow_version_name: 0.4.2--e24feb2
             modification_time: 2022-04-27T05:14:17UTC
+            run_instances: []
+          - name: 0.4.2
+            path: 0.4.2/rnasum__0.4.2.cwl
+            ica_workflow_version_name: 0.4.2--8311d20
+            modification_time: 2022-05-10T23:52:35UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
