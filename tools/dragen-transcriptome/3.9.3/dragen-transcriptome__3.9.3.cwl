@@ -353,6 +353,18 @@ inputs:
       Specify the name of the rRNA sequences to use for filtering.
     inputBinding:
       prefix: "--rrna-filter-contig"
+  lic_instance_id_location:
+    label: license instance id location
+    doc: |
+      You may wish to place your own in.
+      Optional value, default set to /opt/instance-identity
+      which is a path inside the dragen container
+    type:
+      - File?
+      - string?
+    default: "/opt/instance-identity"
+    inputBinding:
+      prefix: "--lic-instance-id-location"
 
 outputs:
   # Will also include mounted-files.txt

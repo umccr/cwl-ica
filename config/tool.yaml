@@ -166,21 +166,21 @@ tools:
         md5sum: 1164dc07f35924f483f17790b0e7aaf0
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome__3.9.3.cwl
-        md5sum: 072cae27c40a69c89992ac05b180982a
+        md5sum: 2ebc8a57faaad1e37219b877eb81442f
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
-        md5sum: a99e2ec4b644df5f352fcd96c09eb728
+        md5sum: 9871d7b406b979df284459ce91840b41
     categories: []
   - name: arriba-drawing
     path: arriba-drawing
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-drawing__2.0.0.cwl
-        md5sum: 87ee5552c7c0e3aad1a74d5b3a75dc4b
+        md5sum: d75f07805ec3b7a0bcda352610baaf0d
     categories: []
   - name: multiqc
     path: multiqc
@@ -209,7 +209,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-create-directory__1.0.0.cwl
-        md5sum: 64731e790930737d925417c6166fa43a
+        md5sum: cc353f8865cdf823c6a525a60dff3319
       - name: 2.0.0
         path: 2.0.0/custom-create-directory__2.0.0.cwl
         md5sum: 52557029b02ff7f5df78427603435985
