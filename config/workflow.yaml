@@ -159,5 +159,5 @@ workflows:
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-pon-qc__3.9.3.cwl
-        md5sum: 266daf3307662965d0450a35c29f394e
+        md5sum: a501730d7e52a6df4005f84149152c23
     categories: []

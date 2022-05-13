@@ -17,7 +17,7 @@ dragen-somatic 3.9.3 tool
 
   
 > ID: dragen-somatic--3.9.3  
-> md5sum: b173894a0fce9073d2e0dbdcebec8473
+> md5sum: d4b912631bf2d099a38107c406d7c358
 
 ### dragen-somatic v(3.9.3) documentation
   
@@ -209,6 +209,19 @@ Enables saving the output from the
 map/align stage. Default is true when only
 running map/align. Default is false if
 running the variant caller.
+
+
+### enable rna
+
+
+
+  
+> ID: enable_rna
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Set this option for running RNA samples through T/N workflow
 
 
 ### enable sv
@@ -863,9 +876,25 @@ variants if the normal sample genotype is not a homozygous reference.
 > ID: vc_enable_orientation_bias_filter
   
 **Optional:** `True`  
-**Type:** `float`  
+**Type:** `boolean`  
 **Docs:**  
 Enables the orientation bias filter. The default value is false, which means the option is disabled.
+
+
+### vc enable orientation bias filter artifacts
+
+
+
+  
+> ID: vc_enable_orientation_bias_filter_artifacts
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
+The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
+An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
+For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
 
 
 ### vc enable phasing
