@@ -337,6 +337,10 @@ requirements:
                 if "AdapterRead2" in samplesheet_settings.keys():
                   del samplesheet_settings["AdapterRead2"]
           
+              # Drop MinimumAdapterOverlap if neither AdapterRead1 nor AdapterRead2 are present
+              if not "AdapterRead1" in samplesheet_settings.keys() and not "AdapterRead2" in samplesheet_settings.keys() and "MinimumAdapterOverlap" in samplesheet_settings.keys():
+                del samplesheet_settings["MinimumAdapterOverlap"]
+          
               return samplesheet_settings
 
 

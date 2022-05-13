@@ -110,6 +110,32 @@ requirements:
             return input_parameter.toString();
           }
         }
+      - var get_normal_name_from_fastq_list_rows = function(){
+          /*
+          Get the normal sample name form  fastq list rows object
+          */
+
+          /*
+          Check fastq list rows is defined
+          */
+          if (inputs.fastq_list_rows === null){
+              return null;
+          }
+
+          /*
+          Get RGSM value and return
+          */
+          var rgsm_value = inputs.fastq_list_rows[0].rgsm
+
+          /*
+          If rgsm is not in input, return null else return the value
+          */
+          if (rgsm_value == null) {
+              return null;
+          } else {
+              return rgsm_value;
+          }  
+        }
       - var get_normal_name_from_fastq_list_csv = function(){
           /*
           First try getting the normal name from the fastq list rows (if defined in the inputs)  
@@ -157,32 +183,6 @@ requirements:
           Get RGSM value of first row and return
           */
           return inputs.fastq_list.contents.split("\n")[1].split(",")[rgsm_index];
-        }
-      - var get_normal_name_from_fastq_list_rows = function(){
-          /*
-          Get the normal sample name form  fastq list rows object
-          */
-
-          /*
-          Check fastq list rows is defined
-          */
-          if (inputs.fastq_list_rows === null){
-              return null;
-          }
-
-          /*
-          Get RGSM value and return
-          */
-          var rgsm_value = inputs.fastq_list_rows[0].rgsm
-
-          /*
-          If rgsm is not in input, return null else return the value
-          */
-          if (rgsm_value == null) {
-              return null;
-          } else {
-              return rgsm_value
-          }  
         }
       - var get_normal_output_prefix = function(){
           /*
@@ -434,8 +434,8 @@ inputs:
       CSV file that contains a list of FASTQ files for normal sample
       to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
-    loadContents: true
     inputBinding:
+      loadContents: true
       prefix: "--fastq-list"
       valueFrom: "$(get_fastq_list_csv_path())"
   tumor_fastq_list:

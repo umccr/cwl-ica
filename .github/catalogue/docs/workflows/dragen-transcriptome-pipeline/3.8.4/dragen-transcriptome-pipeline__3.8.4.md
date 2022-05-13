@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.8.4 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.8.4  
-> md5sum: 31746f794e323f54fa0b91d1c7ea5c95
+> md5sum: d06c7d671f82027e581e0b67681a4d91
 
 ### dragen-transcriptome-pipeline v(3.8.4) documentation
   
