@@ -362,6 +362,19 @@ inputs:
      --vc-tin-contam-tolerance enables liquid tumor mode and allows you to
       set the maximum contamination TiN tolerance. The maximum contamination TiN tolerance must be
       greater than zero. For example, vc-tin-contam-tolerance=-0.1.
+  vc_enable_orientation_bias_filter:
+    label: vc enable orientation bias filter
+    type: boolean?
+    doc: |
+      Enables the orientation bias filter. The default value is false, which means the option is disabled.
+  vc_enable_orientation_bias_filter_artifacts:
+    label: vc enable orientation bias filter artifacts
+    type: string?
+    doc: |
+      The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
+      The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
+      An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
+      For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
   # Post somatic calling filtering options
   vc_sq_call_threshold:
     label: vc sq call threshold
@@ -670,6 +683,10 @@ steps:
         source: vc_enable_liquid_tumor_mode
       vc_tin_contam_tolerance:
         source: vc_tin_contam_tolerance
+      vc_enable_orientation_bias_filter:
+        source: vc_enable_orientation_bias_filter
+      vc_enable_orientation_bias_filter_artifacts:
+        source: vc_enable_orientation_bias_filter_artifacts
       vc_sq_call_threshold:
         source: vc_sq_call_threshold
       vc_sq_filter_threshold:
