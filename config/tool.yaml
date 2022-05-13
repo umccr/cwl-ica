@@ -122,7 +122,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl
-        md5sum: 3e34bb0909d55d42840a09e7e36634e1
+        md5sum: e9d319b22650d0205105a99c1f9039a9
     categories: []
   - name: bclConvert
     path: bclConvert
@@ -153,7 +153,7 @@ tools:
         md5sum: 2bcb01913c07577e2674cc5a5553af86
       - name: 3.9.3
         path: 3.9.3/dragen-somatic__3.9.3.cwl
-        md5sum: 14d0666fe4677971e612cad7ef31853f
+        md5sum: c27a32b46da4de6326140e234c2ff72a
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -173,7 +173,7 @@ tools:
     versions:
       - name: 2.0.0
         path: 2.0.0/arriba-fusion-calling__2.0.0.cwl
-        md5sum: bc0e61e852035425ff3d733895a04b87
+        md5sum: a99e2ec4b644df5f352fcd96c09eb728
     categories: []
   - name: arriba-drawing
     path: arriba-drawing
@@ -315,6 +315,9 @@ tools:
       - name: 2.0.1--0
         path: 2.0.1--0/umccrise__2.0.1--0.cwl
         md5sum: 0093b4c51bd4dd1f070e8c1c7784d2b8
+      - name: 2.0.2--0
+        path: 2.0.2--0/umccrise__2.0.2--0.cwl
+        md5sum: 3d661e80648808d1b42e5213177815e9
     categories: []
   - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -346,6 +349,9 @@ tools:
       - name: 0.4.1
         path: 0.4.1/rnasum__0.4.1.cwl
         md5sum: 6ae4f94ffa8fe82fdefb3221d87ac842
+      - name: 0.4.2
+        path: 0.4.2/rnasum__0.4.2.cwl
+        md5sum: 7cb0b1e9b98775101acd4e54145f6029
     categories: []
   - name: samtools-stats
     path: samtools-stats
