@@ -1117,6 +1117,15 @@ inputs:
     type: int?
     inputBinding:
       prefix: --hla-min-reads
+  # RNA
+  enable_rna:
+    label: enable rna
+    doc: |
+      Set this option for running RNA samples through T/N workflow
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-rna"
+      valueFrom: "$(self.toString())"
   # Miscell
   lic_instance_id_location:
     label: license instance id location

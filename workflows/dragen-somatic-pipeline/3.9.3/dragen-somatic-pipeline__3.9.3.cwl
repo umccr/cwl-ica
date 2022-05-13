@@ -576,6 +576,12 @@ inputs:
       The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a
       lower threshold value.
     type: int?
+  # RNA options
+  enable_rna:
+    label: enable rna
+    doc: |
+      Set this option for running RNA samples through T/N workflow
+    type: boolean?
   # Miscell
   lic_instance_id_location:
     label: license instance id location
@@ -748,6 +754,8 @@ steps:
         source: hla_zygosity_threshold
       hla_min_reads:
         source: hla_min_reads
+      enable_rna:
+        source: enable_rna
     out:
       - id: dragen_somatic_output_directory
       - id: tumor_bam_out
