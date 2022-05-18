@@ -53,6 +53,8 @@ jobs:
               '
                 if .head_ref != null then
                    .head_ref
+                elif .ref != null then
+                   .ref
                 else 
                   .base_ref
                 end
