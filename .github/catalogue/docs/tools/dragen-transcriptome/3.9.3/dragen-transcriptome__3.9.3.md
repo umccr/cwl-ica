@@ -17,7 +17,7 @@ dragen-transcriptome 3.9.3 tool
 
   
 > ID: dragen-transcriptome--3.9.3  
-> md5sum: 072cae27c40a69c89992ac05b180982a
+> md5sum: 2ebc8a57faaad1e37219b877eb81442f
 
 ### dragen-transcriptome v(3.9.3) documentation
   
@@ -144,6 +144,21 @@ to process. read_1 and read_2 components in the CSV file must be presigned urls.
 **Type:** `fastq-list-row[]`  
 **Docs:**  
 Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
+
+
+### license instance id location
+
+
+
+  
+> ID: lic_instance_id_location
+  
+**Optional:** `True`  
+**Type:** `['File', 'string']`  
+**Docs:**  
+You may wish to place your own in.
+Optional value, default set to /opt/instance-identity
+which is a path inside the dragen container
 
 
 ### output directory

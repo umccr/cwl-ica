@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 11ea2e6b7511ab861ce9c524601ac9dc
+> md5sum: c15f336dcdb2c30f8252a1e65fc61f7f
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -204,6 +204,21 @@ Each row has the following attributes:
   * Lane
   * Read1File
   * Read2File (optional)
+
+
+### license instance id location
+
+
+
+  
+> ID: lic_instance_id_location
+  
+**Optional:** `True`  
+**Type:** `['File', 'string']`  
+**Docs:**  
+You may wish to place your own in.
+Optional value, default set to /opt/instance-identity
+which is a path inside the dragen container
 
 
 ### output directory
@@ -998,7 +1013,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--e24feb2  
+**wfl version name:** 3.9.3--9d7d80c  
 
   
 

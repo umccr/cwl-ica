@@ -64,10 +64,10 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
-        md5sum: 4b835081d4c06aba76bb1a94e7ec46d1
+        md5sum: 464404e3c1e788a2ee763607d5715546
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
-        md5sum: d06c7d671f82027e581e0b67681a4d91
+        md5sum: 165a90976accf82d03faef8bf17f118e
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
         md5sum: c15f336dcdb2c30f8252a1e65fc61f7f

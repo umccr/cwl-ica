@@ -485,13 +485,13 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2022-04-27T05:21:32UTC
+            modification_time: 2022-05-17T00:59:18UTC
             run_instances:
               - wfr.f0fa0ea3972f405aa5af5003e1427428
           - name: 3.8.4
             path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2022-04-27T05:21:35UTC
+            modification_time: 2022-05-17T00:59:23UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
@@ -925,6 +925,16 @@ projects:
             ica_workflow_version_name: 3.9.3--e24feb2
             modification_time: 2022-04-27T05:22:09UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--9d7d80c
+            modification_time: 2022-05-18T03:35:36UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--9d7d80c
+            modification_time: 2022-05-18T03:35:39UTC
+            run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_prod-wf
@@ -1145,7 +1155,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/custom-create-directory__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-07-28T04:00:57UTC
+            modification_time: 2022-05-17T00:52:23UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
