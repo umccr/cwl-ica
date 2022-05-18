@@ -27,12 +27,11 @@ hints:
       size: large
   DockerRequirement:
     dockerPull: "uhrigs/arriba:2.0.0"
-    dockerOutputDirectory: /output
 
 requirements:
   InlineJavascriptRequirement: {}
 
-baseCommand: ["/arriba_v2.0.0/arriba"]
+baseCommand: [ "/arriba_v2.0.0/arriba" ]
 
 inputs:
   bam_file:

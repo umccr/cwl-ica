@@ -31,7 +31,7 @@ hints:
         coresMin: 15
         ramMin: 28
     DockerRequirement:
-        dockerPull: umccr/alpine-rsync:3.2.3
+        dockerPull: ghcr.io/umccr/alpine-rsync:3.2.3
 
 requirements:
   InlineJavascriptRequirement: {}

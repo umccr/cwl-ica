@@ -111,6 +111,9 @@ inputs:
     type: File
     doc: |
       FastA file with genome sequence
+    secondaryFiles:
+      - pattern: ".fai"
+        required: true
   # Arriba drawing options
   cytobands:
     label: cytobands
@@ -149,6 +152,17 @@ inputs:
     secondaryFiles:
       - pattern: ".tbi"
         required: true
+  # Location of license
+  lic_instance_id_location:
+    label: license instance id location
+    doc: |
+      You may wish to place your own in.
+      Optional value, default set to /opt/instance-identity
+      which is a path inside the dragen container
+    type:
+      - File?
+      - string?
+
 steps:
   # Step-1: Run Dragen transcriptome workflow
   run_dragen_transcriptome_step:
@@ -179,6 +193,8 @@ steps:
         source: enable_rna_quantification
       enable_rna_gene_fusion:
         source: enable_rna_gene_fusion
+      lic_instance_id_location:
+        source: lic_instance_id_location
     out:
       - id: dragen_transcriptome_directory
       - id: dragen_bam_out

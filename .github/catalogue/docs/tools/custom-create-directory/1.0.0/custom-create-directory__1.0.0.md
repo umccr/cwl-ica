@@ -17,7 +17,7 @@ custom-create-directory 1.0.0 tool
 
   
 > ID: custom-create-directory--1.0.0  
-> md5sum: 64731e790930737d925417c6166fa43a
+> md5sum: cc353f8865cdf823c6a525a60dff3319
 
 ### custom-create-directory v(1.0.0) documentation
   
@@ -37,6 +37,7 @@ Create a directory based on a list of inputs generated as input files or input d
   
 - [dragen-transcriptome-pipeline 3.7.5](../../../workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.md)  
 - [dragen-transcriptome-pipeline 3.8.4](../../../workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
+- [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
 
   
 
