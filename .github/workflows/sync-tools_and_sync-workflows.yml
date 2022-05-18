@@ -33,10 +33,40 @@ jobs:
     concurrency: git_commits
     runs-on: ubuntu-latest
     steps:
+      # Install jq (for querying branch name)
+      - name: Install Jq
+        id: install_jq
+        shell: bash
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install jq -y
+      # Get branch name from event path
+      - name: Get Branch Name
+        id: get_branch_name
+        shell: bash
+        run: |
+          # Get reference
+          ref="$( \
+            jq --raw-output \
+              '
+                if .head_ref != null then
+                   .head_ref
+                else 
+                  .base_ref
+                end
+              ' \
+              < "${GITHUB_EVENT_PATH}" \
+          )"
+          
+          # Set output
+          echo "::set-output name=branch_name::${ref%refs/heads/}"
       # Standard checkout step
       - name: Checkout code
         id: git_checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          # Otherwise we're just in a detached head state
+          ref: ${{ steps.get_branch_name.outputs.branch_name }}
       # Get git commit ID
       - name: Get git commit ID
         id: get_git_commit_id
@@ -53,7 +83,7 @@ jobs:
             --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
             --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
             --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
-            quay.io/umccr/cwl-ica:1.0.2 \
+            ghcr.io/umccr/cwl-ica:latest \
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Create Catalogue
       - name: create catalogue
@@ -66,7 +96,7 @@ jobs:
             --env USER="$(id -nu)" \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
-            quay.io/umccr/cwl-ica:1.0.2 \
+            ghcr.io/umccr/cwl-ica:latest \
               bash ".github/scripts/create_catalogue.sh"
       # Commit config files
       - id: commit_catalogue_files
@@ -106,3 +136,4 @@ jobs:
           # Then push
           # Pretend to push
           echo git push origin "${CURRENT_BRANCH}"
+
