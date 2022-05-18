@@ -17,7 +17,7 @@ rnasum 0.4.2 tool
 
   
 > ID: rnasum--0.4.2  
-> md5sum: 7cb0b1e9b98775101acd4e54145f6029
+> md5sum: 5a81adb2dce9421beca801f559ed053b
 
 ### rnasum v(0.4.2) documentation
   
@@ -488,7 +488,7 @@ Output directory containing all outputs of the RNAsum run
 
   
 **workflow name:** rnasum_prod-wf  
-**wfl version name:** 0.4.2--e24feb2  
+**wfl version name:** 0.4.2--8311d20  
 
   
 

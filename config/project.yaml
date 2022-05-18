@@ -279,7 +279,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-04-27T20:40:49UTC
+            modification_time: 2022-05-13T08:06:49UTC
             run_instances:
               - wfr.63351b7bd8f9431db0a58c27d5538f0e
               - wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
@@ -337,7 +337,7 @@ projects:
           - name: 0.4.2
             path: 0.4.2/rnasum__0.4.2.cwl
             ica_workflow_version_name: 0.4.2
-            modification_time: 2022-03-30T22:45:38UTC
+            modification_time: 2022-05-10T11:31:25UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
@@ -460,7 +460,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-03-05T01:42:43UTC
+            modification_time: 2022-05-13T08:16:19UTC
             run_instances:
               - wfr.b19291caab384e78b7661a85c3f82003
               - wfr.128790246e9c48f39e14d8f8ef7d868e
@@ -587,7 +587,7 @@ projects:
           - name: 2.0.2--3.9.3
             path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
             ica_workflow_version_name: 2.0.2--3.9.3
-            modification_time: 2022-04-27T04:21:56UTC
+            modification_time: 2022-05-05T04:52:23UTC
             run_instances: []
       - name: ghif-qc
         path: ghif-qc
@@ -668,6 +668,11 @@ projects:
             path: 0.4.2/rnasum__0.4.2.cwl
             ica_workflow_version_name: 0.4.2--e24feb2
             modification_time: 2022-04-27T05:14:17UTC
+            run_instances: []
+          - name: 0.4.2
+            path: 0.4.2/rnasum__0.4.2.cwl
+            ica_workflow_version_name: 0.4.2--8311d20
+            modification_time: 2022-05-10T23:52:35UTC
             run_instances: []
     workflows:
       - name: tso500-ctdna
@@ -779,6 +784,11 @@ projects:
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--e3b197f
             modification_time: 2022-04-27T20:50:46UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--e9124ad
+            modification_time: 2022-05-13T08:16:45UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -1069,6 +1079,11 @@ projects:
             path: 3.9.3/dragen-pon-qc__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--e3b197f
             modification_time: 2022-04-27T20:51:02UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-pon-qc__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--e9124ad
+            modification_time: 2022-05-13T08:17:02UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21

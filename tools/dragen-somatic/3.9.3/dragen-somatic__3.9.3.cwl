@@ -824,11 +824,22 @@ inputs:
       prefix: --vc-tin-contam-tolerance
   vc_enable_orientation_bias_filter:
     label: vc enable orientation bias filter
-    type: float?
+    type: boolean?
     doc: |
       Enables the orientation bias filter. The default value is false, which means the option is disabled.
     inputBinding:
       prefix: --vc-enable-orientation-bias-filter
+      valueFrom: "$(self.toString())"
+  vc_enable_orientation_bias_filter_artifacts:
+    label: vc enable orientation bias filter artifacts
+    type: string?
+    doc: |
+      The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
+      The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
+      An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
+      For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
+    inputBinding:
+      prefix: --vc-enable-orientation-bias-filter-artifacts
       valueFrom: "$(self.toString())"
   # Post somatic calling filtering options
   vc_sq_call_threshold:
@@ -1106,6 +1117,15 @@ inputs:
     type: int?
     inputBinding:
       prefix: --hla-min-reads
+  # RNA
+  enable_rna:
+    label: enable rna
+    doc: |
+      Set this option for running RNA samples through T/N workflow
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-rna"
+      valueFrom: "$(self.toString())"
   # Miscell
   lic_instance_id_location:
     label: license instance id location

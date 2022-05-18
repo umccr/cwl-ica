@@ -251,10 +251,21 @@ print_help() {
 
 # Check installation type first
 if type ps 2>/dev/null; then
-  # Make sure user is running this through bash
-  if [[ "${OSTYPE}" != "msys" && "$(basename "$(ps h -p $$ -o args="" | cut -f1 -d' ')")" != "bash" ]]; then
-    echo_stderr "Error: Please make sure you are running this installation script through bash"
-    exit 1
+  if [[ "${OSTYPE}" != "msys" ]]; then
+    # Can't use ps command
+    # Just continue
+    :
+  else
+    IFS=" " read -r -a invocation_args <<< "$(ps h -p $$ -o args="")"
+    if [[ " ${invocation_args[*]} " =~ " bash " ]]; then
+      # Just continue
+      :
+    else
+      echo_stderr "Error: Please make sure you are running this installation script through bash"
+      echo_stderr "Got $(basename "$(ps h -p $$ -o args="" | cut -f1 -d' ')") instead"
+      echo_stderr "Other environment vars were: $(printenv)"
+    # whatever you want to do when array contains value
+    fi
   fi
 fi
 

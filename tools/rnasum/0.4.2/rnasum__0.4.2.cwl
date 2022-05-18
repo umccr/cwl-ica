@@ -66,7 +66,7 @@ hints:
       type: standardHiCpu
       size: large
   DockerRequirement:
-    dockerPull: "ghcr.io/umccr/rnasum:0.4.2-dev"
+    dockerPull: "ghcr.io/umccr/rnasum:0.4.2"
 
 baseCommand: ["bash"]
 

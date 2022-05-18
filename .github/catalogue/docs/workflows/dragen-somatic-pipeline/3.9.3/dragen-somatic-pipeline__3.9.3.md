@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: 1685a1b3b5802b4bb127df8cf63d5062
+> md5sum: 3940e3ddb8632b7c53e2283554325473
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -218,6 +218,19 @@ Enables saving the output from the
 map/align stage. Default is true when only
 running map/align. Default is false if
 running the variant caller.
+
+
+### enable rna
+
+
+
+  
+> ID: enable_rna
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Set this option for running RNA samples through T/N workflow
 
 
 ### enable sv
@@ -876,6 +889,35 @@ allele in the tumor sample.
 **Docs:**  
 Enables the non-homref normal filter. The default value is true. When set to true, the VCF filters out
 variants if the normal sample genotype is not a homozygous reference.
+
+
+### vc enable orientation bias filter
+
+
+
+  
+> ID: vc_enable_orientation_bias_filter
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enables the orientation bias filter. The default value is false, which means the option is disabled.
+
+
+### vc enable orientation bias filter artifacts
+
+
+
+  
+> ID: vc_enable_orientation_bias_filter_artifacts
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
+The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
+An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
+For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
 
 
 ### vc enable phasing
@@ -2179,7 +2221,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--e3b197f  
+**wfl version name:** 3.9.3--e9124ad  
 
   
 

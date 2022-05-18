@@ -177,7 +177,6 @@ class CreateSubmissionTemplate(Command):
             logger.error(f"Could not get workflow id to match {self.item_name}/{self.item_version}")
             raise ItemNotFoundError
 
-
         # Get the launch project name (this is used in the ica-context-switcher OR ica projects enter command)
         launch_project_name = self.args.get("--launch-project")
         if launch_project_name is not None:
@@ -484,7 +483,8 @@ class CreateSubmissionTemplate(Command):
         # Get inputs from workflow run instance id
         ica_workflow_run_obj = ICAWorkflowRun(self.ica_workflow_run_id,
                                               project_token=self.get_project_access_token(),
-                                              allow_unsuccessful_run=True)
+                                              allow_unsuccessful_run=True,
+                                              get_task_run_objects=False)
 
         # Cross reference
         if not self.ica_workflow_id == ica_workflow_run_obj.ica_workflow_id and not self.ignore_workflow_id_mismatch:
