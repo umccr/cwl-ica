@@ -387,6 +387,16 @@ projects:
             ica_workflow_version_name: 2.0.0
             modification_time: 2022-05-12T22:53:36UTC
             run_instances: []
+      - name: bamtofastq
+        path: bamtofastq
+        ica_workflow_name: bamtofastq_dev-wf
+        ica_workflow_id: wfl.3b09abee043645bca8d13040825b12b5
+        versions:
+          - name: 2.0.0
+            path: 2.0.0/bamtofastq__2.0.0.cwl
+            ica_workflow_version_name: 2.0.0
+            modification_time: 2022-06-06T03:11:06UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline

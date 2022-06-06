@@ -377,3 +377,10 @@ tools:
         path: 1.0.0/calculate-coverage__1.0.0.cwl
         md5sum: ef3a46abbede91b27b2accd3944d9ded
     categories: []
+  - name: bamtofastq
+    path: bamtofastq
+    versions:
+      - name: 2.0.0
+        path: 2.0.0/bamtofastq__2.0.0.cwl
+        md5sum: 1a48cdbb82a67422f237376e89ca31b0
+    categories: []
