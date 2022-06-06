@@ -92,7 +92,7 @@ inputs:
     inputBinding:
       prefix: filename=
       separate: false
-  inputformat:
+  input_format:
     label: input format
     type: string?
     doc: "input format: cram, bam or sam [bam]"
@@ -120,22 +120,22 @@ inputs:
     inputBinding:
       prefix: exclude=
       separate: false
-  disablevalidation:
+  disable_validation:
     label: disable validation
     type: int?
     doc: "disable validation of input data [0]"
     inputBinding:
       prefix: disablevalidation=
       separate: false
-  colhlog:
+  colh_log:
     label: col h log
     type: int?
     doc: "base 2 logarithm of hash table size used for collation [18]"
     inputBinding:
       prefix: colhlog=
       separate: false
-  colsbs:
-    label: col s bs
+  cols_bs:
+    label: cols bs
     type: int?
     doc: "size of hash table overflow list in bytes [33554432]"
     inputBinding:
@@ -169,56 +169,56 @@ inputs:
     inputBinding:
       prefix: fasta=
       separate: false
-  inputbuffersize:
+  input_buffer_size:
     label: input buffer size
     type: int?
     doc: "size of input buffer"
     inputBinding:
       prefix: inputbuffersize=
       separate: false
-  outputperreadgroup:
+  output_per_readgroup:
     label: output per read group
     type: int?
     doc: "split output per read group (for collate=1 only)"
     inputBinding:
       prefix: outputperreadgroup=
       separate: false
-  outputperreadgroupsuffixF:
+  output_per_readgroup_suffixF:
     label: output per read group suffix F1
     type: string?
     doc: "suffix for F category when outputperreadgroup=1 [_1.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixF=
       separate: false
-  outputperreadgroupsuffixF2:
+  output_per_readgroup_suffixF2:
     label: output per read group suffix F2
     type: string?
     doc: "suffix for F2 category when outputperreadgroup=1 [_2.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixF2=
       separate: false
-  outputperreadgroupsuffixO:
+  output_per_readgroup_suffixO:
     label: output per read group suffix O
     type: string?
     doc: "suffix for O category when outputperreadgroup=1 [_o1.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixO=
       separate: false
-  outputperreadgroupsuffixO2:
+  output_per_readgroup_suffixO2:
     label: output per read group suffix O2
     type: string?
     doc: "suffix for O2 category when outputperreadgroup=1 [_o2.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixO2=
       separate: false
-  outputperreadgroupsuffixS:
+  output_per_readgroup_suffixS:
     label: output per read group suffix S 
     type: string?
     doc: "suffix for S category when outputperreadgroup=1 [_s.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixS=
       separate: false
-  tryoq:
+  try_oq:
     label: try oq
     type: int?
     doc: "use OQ field instead of quality field if present (collate={0,1} only) [0]"
@@ -232,7 +232,7 @@ inputs:
     inputBinding:
       prefix: split=
       separate: false
-  splitprefix:
+  split_prefix:
     label: split prefix
     type: string?
     doc: "file name prefix if collate=0 and split>0"
@@ -246,14 +246,14 @@ inputs:
     inputBinding:
       prefix: tags=
       separate: false
-  outputperreadgrouprgsm:
+  output_per_readgroup_rgsm:
     label: output per readgroup rgsm
     type: int?
     doc: "add read group field SM ahead of read group id when outputperreadgroup=1 (for collate=1 only)"
     inputBinding:
       prefix: outputperreadgrouprgsm=
       separate: false
-  outputperreadgroupprefix:
+  output_per_readgroup_prefix:
     label: output per read group prefix
     type: string?
     doc: "prefix added in front of file names if outputperreadgroup=1 (for collate=1 only)"
@@ -262,16 +262,15 @@ inputs:
       separate: false
 
 outputs:
-  output:
+  output_fastq:
+    label: output fastq
     type:
       type: array
       items: File
+    doc: "output fastq files"
     outputBinding:
       glob:
-        - "*.fq"
         - "*.fq.gz"
-        - "*.fa"
-        - "*.fa.gz"
 
 successCodes:
   - 0
