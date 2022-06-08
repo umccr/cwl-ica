@@ -30,9 +30,38 @@ hints:
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: "quay.io/wtsicgp/dockstore-biobambam2:2.0.0"
+        dockerPull: "quay.io/biocontainers/biobambam:2.0.183--h9f5acd7_1"
+requirements:
+  InlineJavascriptRequirement:
+    expressionLib:
+      - var get_script_path = function(){
+          /*
+          Abstract script path, can then be referenced in baseCommand attribute too
+          Makes things more readable.
+          */
+          return "scripts/run-bamtofastq.sh";
+        }
+      - var get_eval_line = function(){
+          /*
+          Get the line eval bam2fastq...
+          */
+          return "eval \"bamtofastq\" '\"\$@\"'\n"
+        }
+  InitialWorkDirRequirement:
+    listing:
+      - entryname: $(get_script_path())
+        entry: |
+          #!/usr/bin/env bash
 
-baseCommand: ["/opt/wtsi-cgp/bin/bamtofastq"]
+          mkdir -p "$(inputs.output_dir)"
+          $(get_eval_line())
+
+baseCommand: ["bash"]
+
+arguments:
+  # Script path
+  - valueFrom: "$(get_script_path())"
+    position: -1
 
 inputs:
   F:
@@ -40,8 +69,8 @@ inputs:
     type: string?
     doc: "matched pairs first mates"
     inputBinding:
-        prefix: F=
-        separate: false
+      prefix: F=
+      separate: false
   F2:
     label: F2
     type: string?
@@ -260,17 +289,20 @@ inputs:
     inputBinding:
       prefix: outputperreadgroupprefix=
       separate: false
-
+  output_dir:
+    label: output output_dir
+    type: string?
+    doc: "output directory if outputperreadgroup=1. By default the output files are generated in the current directory."
+    inputBinding:
+      prefix: outputdir=
+      separate: false
 outputs:
-  output_fastq:
-    label: output fastq
-    type:
-      type: array
-      items: File
-    doc: "output fastq files"
+  output_directory:
+    label: output dircetory
+    type: Directory
+    doc: "output dircetory containing the fastq files"
     outputBinding:
-      glob:
-        - "*.fq.gz"
-
+      glob: "$(inputs.output_dir)"
+    
 successCodes:
   - 0
