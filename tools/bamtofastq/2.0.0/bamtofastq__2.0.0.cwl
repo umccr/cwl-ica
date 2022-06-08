@@ -34,6 +34,13 @@ hints:
 requirements:
   InlineJavascriptRequirement:
     expressionLib:
+      - var boolean_to_int = function(input_object){
+          if (input_object === true){
+            return 1;
+          } else {
+            return 0
+          }
+        }
       - var get_script_path = function(){
           /*
           Abstract script path, can then be referenced in baseCommand attribute too
@@ -64,35 +71,35 @@ arguments:
     position: -1
 
 inputs:
-  F:
+  first_mate:
     label: F1
     type: string?
     doc: "matched pairs first mates"
     inputBinding:
       prefix: F=
       separate: false
-  F2:
+  second_mate:
     label: F2
     type: string?
     doc: "matched pairs second mates"
     inputBinding:
       prefix: F2=
       separate: false
-  S:
+  single_end:
     label: single end
     type: string?
     doc: "single end"
     inputBinding:
       prefix: S=
       separate: false
-  O:
-    label: unmatched pairs mate1
+  unmatched_pairs_first_mate:
+    label: unmatched pairs first mate
     type: string?
     doc: "unmatched pairs first mates"
     inputBinding:
       prefix: O=
       separate: false
-  O2:
+  unmatched_pairs_second_mate:
     label: unmatched pairs mate2
     type: string?
     doc: "unmatched pairs second mates"
@@ -106,13 +113,15 @@ inputs:
     inputBinding:
       prefix: collate=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   combs:
     label: combs
-    type: int?
+    type: boolean?
     doc: "print some counts after collation based processing"
     inputBinding:
       prefix: combs=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   filename:
     label: file name
     type: File
@@ -151,11 +160,12 @@ inputs:
       separate: false
   disable_validation:
     label: disable validation
-    type: int?
+    type: boolean?
     doc: "disable validation of input data [0]"
     inputBinding:
       prefix: disablevalidation=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   colh_log:
     label: col h log
     type: int?
@@ -170,20 +180,21 @@ inputs:
     inputBinding:
       prefix: colsbs=
       separate: false
-  T:
+  tmp_file_name:
     label: t
     type: string?
     doc: "temporary file name [bamtofastq_*]"
     inputBinding:
       prefix: exclude=
       separate: false
-  gz:
+  gzip:
     label: gz
-    type: int?
+    type: boolean?
     doc: "compress output streams in gzip format (default: 0)"
     inputBinding:
       prefix: gz=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   level:
     label: level
     type: int?
@@ -207,40 +218,41 @@ inputs:
       separate: false
   output_per_readgroup:
     label: output per read group
-    type: int?
+    type: boolean?
     doc: "split output per read group (for collate=1 only)"
     inputBinding:
       prefix: outputperreadgroup=
       separate: false
-  output_per_readgroup_suffixF:
+      valueFrom: "$(boolean_to_int(self))"
+  output_per_readgroup_suffix_f1:
     label: output per read group suffix F1
     type: string?
     doc: "suffix for F category when outputperreadgroup=1 [_1.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixF=
       separate: false
-  output_per_readgroup_suffixF2:
+  output_per_readgroup_suffix_f2:
     label: output per read group suffix F2
     type: string?
     doc: "suffix for F2 category when outputperreadgroup=1 [_2.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixF2=
       separate: false
-  output_per_readgroup_suffixO:
+  output_per_readgroup_suffix_o1:
     label: output per read group suffix O
     type: string?
     doc: "suffix for O category when outputperreadgroup=1 [_o1.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixO=
       separate: false
-  output_per_readgroup_suffixO2:
+  output_per_readgroup_suffix_o2:
     label: output per read group suffix O2
     type: string?
     doc: "suffix for O2 category when outputperreadgroup=1 [_o2.fq]"
     inputBinding:
       prefix: outputperreadgroupsuffixO2=
       separate: false
-  output_per_readgroup_suffixS:
+  output_per_readgroup_suffix_s:
     label: output per read group suffix S 
     type: string?
     doc: "suffix for S category when outputperreadgroup=1 [_s.fq]"
@@ -249,18 +261,20 @@ inputs:
       separate: false
   try_oq:
     label: try oq
-    type: int?
+    type: boolean?
     doc: "use OQ field instead of quality field if present (collate={0,1} only) [0]"
     inputBinding:
       prefix: tryoq=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   split:
     label: split
-    type: int?
+    type: boolean?
     doc: "split named output files into chunks of this amount of reads (0: do not split)"
     inputBinding:
       prefix: split=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   split_prefix:
     label: split prefix
     type: string?

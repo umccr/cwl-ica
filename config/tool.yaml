@@ -382,5 +382,5 @@ tools:
     versions:
       - name: 2.0.0
         path: 2.0.0/bamtofastq__2.0.0.cwl
-        md5sum: 9acb32c8af21341bf285e9ea68c4b42f
+        md5sum: 4c3d16583f728bf43f32884743ae23ac
     categories: []
