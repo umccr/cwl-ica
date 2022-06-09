@@ -15,11 +15,14 @@ s:author:
     s:email: sehrish.kanwal@umccr.org
 
 # ID/Docs
-id: bamtofastq--2.0.0
-label: bamtofastq v(2.0.0)
+id: bamtofastq--2.0.183
+label: bamtofastq v(2.0.183)
 doc: |
-  |
-    Documentation for bamtofastq v2.0.0
+  bamtofastq reads a SAM, BAM or CRAM file from standard input and converts it to the FastQ format. 
+  The output can be split into multiple files according to the pair flags of the reads involved. 
+  bamtofastq can collate the source reads according to their read names, i.e. place pairs of reads 
+  next to each other in the output. bamtofastq writes its output to the standard output channel by 
+  default. All output channels can be compressed using gzip.
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
