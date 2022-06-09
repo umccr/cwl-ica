@@ -117,7 +117,7 @@ inputs:
       separate: false
   collate:
     label: collate
-    type: int?
+    type: boolean?
     doc: |
       Collate pairs
     inputBinding:
@@ -317,7 +317,7 @@ inputs:
       separate: false
   tags:
     label: tags
-    type: int?
+    type: string?
     doc: |
       List of aux tags to be copied (default: do not copy any aux fields)
     inputBinding:
@@ -325,12 +325,13 @@ inputs:
       separate: false
   output_per_readgroup_rgsm:
     label: output per readgroup rgsm
-    type: int?
+    type: boolean?
     doc: |
       Add read group field SM ahead of read group id when outputperreadgroup=1 (for collate=1 only)
     inputBinding:
       prefix: outputperreadgrouprgsm=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   output_per_readgroup_prefix:
     label: output per read group prefix
     type: string?
@@ -340,7 +341,7 @@ inputs:
       prefix: outputperreadgroupprefix=
       separate: false
   output_dir:
-    label: output output_dir
+    label: output_dir
     type: string?
     doc: |
       Output directory if outputperreadgroup=1. By default the output files are generated in the current directory.
