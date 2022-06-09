@@ -75,6 +75,14 @@ arguments:
     position: -1
 
 inputs:
+  output_dir:
+    label: output_dir
+    type: string
+    doc: |
+      Output directory if outputperreadgroup=1. By default the output files are generated in the current directory.
+    inputBinding:
+      prefix: outputdir=
+      separate: false
   first_mate:
     label: F1
     type: string?
@@ -339,14 +347,6 @@ inputs:
       Prefix added in front of file names if outputperreadgroup=1 (for collate=1 only)
     inputBinding:
       prefix: outputperreadgroupprefix=
-      separate: false
-  output_dir:
-    label: output_dir
-    type: string?
-    doc: |
-      Output directory if outputperreadgroup=1. By default the output files are generated in the current directory.
-    inputBinding:
-      prefix: outputdir=
       separate: false
 outputs:
   output_directory:
