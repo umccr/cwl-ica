@@ -18,6 +18,7 @@ s:author:
 id: bamtofastq--2.0.0
 label: bamtofastq v(2.0.0)
 doc: |
+  |
     Documentation for bamtofastq v2.0.0
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
@@ -77,42 +78,48 @@ inputs:
   first_mate:
     label: F1
     type: string?
-    doc: "matched pairs first mates"
+    doc: |
+      Matched pairs first mates
     inputBinding:
       prefix: F=
       separate: false
   second_mate:
     label: F2
     type: string?
-    doc: "matched pairs second mates"
+    doc: |
+      Matched pairs second mates
     inputBinding:
       prefix: F2=
       separate: false
   single_end:
     label: single end
     type: string?
-    doc: "single end"
+    doc: |
+      Single end
     inputBinding:
       prefix: S=
       separate: false
   unmatched_pairs_first_mate:
     label: unmatched pairs first mate
     type: string?
-    doc: "unmatched pairs first mates"
+    doc: |
+      Unmatched pairs first mates
     inputBinding:
       prefix: O=
       separate: false
   unmatched_pairs_second_mate:
     label: unmatched pairs mate2
     type: string?
-    doc: "unmatched pairs second mates"
+    doc: |
+      Unmatched pairs second mates
     inputBinding:
       prefix: O2=
       separate: false
   collate:
     label: collate
     type: int?
-    doc: "collate pairs"
+    doc: |
+      Collate pairs
     inputBinding:
       prefix: collate=
       separate: false
@@ -120,7 +127,8 @@ inputs:
   combs:
     label: combs
     type: boolean?
-    doc: "print some counts after collation based processing"
+    doc: |
+      Print some counts after collation based processing
     inputBinding:
       prefix: combs=
       separate: false
@@ -128,7 +136,8 @@ inputs:
   filename:
     label: file name
     type: File
-    doc: "input filename"
+    doc: |
+      Input filename
     streamable: true
     inputBinding:
       prefix: filename=
@@ -136,35 +145,40 @@ inputs:
   input_format:
     label: input format
     type: string?
-    doc: "input format: cram, bam or sam [bam]"
+    doc: |
+      Input format: cram, bam or sam [bam]
     inputBinding:
       prefix: inputformat=
       separate: false
   reference:
     label: reference
     type: File?
-    doc: "name of reference FastA in case of inputformat=cram"
+    doc: |
+      Iame of reference FastA in case of inputformat=cram
     inputBinding:
       prefix: reference=
       separate: false
   ranges:
     label: ranges
     type: string?
-    doc: "input ranges (bam and cram input only, default: read complete file)"
+    doc: |
+      Input ranges (bam and cram input only, default: read complete file)
     inputBinding:
       prefix: ranges=
       separate: false
   exclude:
     label: exclude
     type: string?
-    doc: "exclude alignments matching any of the given flags [SECONDARY,SUPPLEMENTARY]"
+    doc: |
+      Exclude alignments matching any of the given flags [SECONDARY,SUPPLEMENTARY]
     inputBinding:
       prefix: exclude=
       separate: false
   disable_validation:
     label: disable validation
     type: boolean?
-    doc: "disable validation of input data [0]"
+    doc: |
+      Disable validation of input data [0]
     inputBinding:
       prefix: disablevalidation=
       separate: false
@@ -172,28 +186,32 @@ inputs:
   colh_log:
     label: col h log
     type: int?
-    doc: "base 2 logarithm of hash table size used for collation [18]"
+    doc: |
+      Base 2 logarithm of hash table size used for collation [18]
     inputBinding:
       prefix: colhlog=
       separate: false
   cols_bs:
     label: cols bs
     type: int?
-    doc: "size of hash table overflow list in bytes [33554432]"
+    doc: |
+      Size of hash table overflow list in bytes [33554432]
     inputBinding:
       prefix: colsbs=
       separate: false
   tmp_file_name:
     label: t
     type: string?
-    doc: "temporary file name [bamtofastq_*]"
+    doc: |
+      Temporary file name [bamtofastq_*]
     inputBinding:
       prefix: exclude=
       separate: false
   gzip:
     label: gz
     type: boolean?
-    doc: "compress output streams in gzip format (default: 0)"
+    doc: |
+      Compress output streams in gzip format (default: 0)
     inputBinding:
       prefix: gz=
       separate: false
@@ -201,28 +219,32 @@ inputs:
   level:
     label: level
     type: int?
-    doc: "compression setting if gz=1 (-1=zlib default,0=uncompressed,1=fast,9=best)"
+    doc: |
+      Compression setting if gz=1 (-1=zlib default,0=uncompressed,1=fast,9=best)
     inputBinding:
       prefix: level=
       separate: false
   fasta:
     label: fasta
     type: int?
-    doc: "output FastA instead of FastQ"
+    doc: |
+      Output FastA instead of FastQ
     inputBinding:
       prefix: fasta=
       separate: false
   input_buffer_size:
     label: input buffer size
     type: int?
-    doc: "size of input buffer"
+    doc: |
+      Size of input buffer
     inputBinding:
       prefix: inputbuffersize=
       separate: false
   output_per_readgroup:
     label: output per read group
     type: boolean?
-    doc: "split output per read group (for collate=1 only)"
+    doc: |
+      Split output per read group (for collate=1 only)
     inputBinding:
       prefix: outputperreadgroup=
       separate: false
@@ -230,42 +252,48 @@ inputs:
   output_per_readgroup_suffix_f1:
     label: output per read group suffix F1
     type: string?
-    doc: "suffix for F category when outputperreadgroup=1 [_1.fq]"
+    doc: |
+      Suffix for F category when outputperreadgroup=1 [_1.fq]
     inputBinding:
       prefix: outputperreadgroupsuffixF=
       separate: false
   output_per_readgroup_suffix_f2:
     label: output per read group suffix F2
     type: string?
-    doc: "suffix for F2 category when outputperreadgroup=1 [_2.fq]"
+    doc: |
+      Suffix for F2 category when outputperreadgroup=1 [_2.fq]
     inputBinding:
       prefix: outputperreadgroupsuffixF2=
       separate: false
   output_per_readgroup_suffix_o1:
     label: output per read group suffix O
     type: string?
-    doc: "suffix for O category when outputperreadgroup=1 [_o1.fq]"
+    doc: |
+      Suffix for O category when outputperreadgroup=1 [_o1.fq]
     inputBinding:
       prefix: outputperreadgroupsuffixO=
       separate: false
   output_per_readgroup_suffix_o2:
     label: output per read group suffix O2
     type: string?
-    doc: "suffix for O2 category when outputperreadgroup=1 [_o2.fq]"
+    doc: |
+      Suffix for O2 category when outputperreadgroup=1 [_o2.fq]
     inputBinding:
       prefix: outputperreadgroupsuffixO2=
       separate: false
   output_per_readgroup_suffix_s:
     label: output per read group suffix S 
     type: string?
-    doc: "suffix for S category when outputperreadgroup=1 [_s.fq]"
+    doc: |
+      Suffix for S category when outputperreadgroup=1 [_s.fq]
     inputBinding:
       prefix: outputperreadgroupsuffixS=
       separate: false
   try_oq:
     label: try oq
     type: boolean?
-    doc: "use OQ field instead of quality field if present (collate={0,1} only) [0]"
+    doc: |
+      Use OQ field instead of quality field if present (collate={0,1} only) [0]
     inputBinding:
       prefix: tryoq=
       separate: false
@@ -273,7 +301,8 @@ inputs:
   split:
     label: split
     type: boolean?
-    doc: "split named output files into chunks of this amount of reads (0: do not split)"
+    doc: |
+      Split named output files into chunks of this amount of reads (0: do not split)
     inputBinding:
       prefix: split=
       separate: false
@@ -281,35 +310,40 @@ inputs:
   split_prefix:
     label: split prefix
     type: string?
-    doc: "file name prefix if collate=0 and split>0"
+    doc: |
+      File name prefix if collate=0 and split>0
     inputBinding:
       prefix: splitprefix=
       separate: false
   tags:
     label: tags
     type: int?
-    doc: "list of aux tags to be copied (default: do not copy any aux fields)"
+    doc: |
+      List of aux tags to be copied (default: do not copy any aux fields)
     inputBinding:
       prefix: tags=
       separate: false
   output_per_readgroup_rgsm:
     label: output per readgroup rgsm
     type: int?
-    doc: "add read group field SM ahead of read group id when outputperreadgroup=1 (for collate=1 only)"
+    doc: |
+      Add read group field SM ahead of read group id when outputperreadgroup=1 (for collate=1 only)
     inputBinding:
       prefix: outputperreadgrouprgsm=
       separate: false
   output_per_readgroup_prefix:
     label: output per read group prefix
     type: string?
-    doc: "prefix added in front of file names if outputperreadgroup=1 (for collate=1 only)"
+    doc: |
+      Prefix added in front of file names if outputperreadgroup=1 (for collate=1 only)
     inputBinding:
       prefix: outputperreadgroupprefix=
       separate: false
   output_dir:
     label: output output_dir
     type: string?
-    doc: "output directory if outputperreadgroup=1. By default the output files are generated in the current directory."
+    doc: |
+      Output directory if outputperreadgroup=1. By default the output files are generated in the current directory.
     inputBinding:
       prefix: outputdir=
       separate: false
@@ -317,7 +351,8 @@ outputs:
   output_directory:
     label: output dircetory
     type: Directory
-    doc: "output dircetory containing the fastq files"
+    doc: |
+      Output dircetory containing the fastq files
     outputBinding:
       glob: "$(inputs.output_dir)"
     
