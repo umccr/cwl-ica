@@ -380,7 +380,7 @@ tools:
   - name: bamtofastq
     path: bamtofastq
     versions:
-      - name: 2.0.0
-        path: 2.0.0/bamtofastq__2.0.0.cwl
-        md5sum: 4c3d16583f728bf43f32884743ae23ac
+      - name: 2.0.183
+        path: 2.0.183/bamtofastq__2.0.183.cwl
+        md5sum: 404b4bb071c99c2fdd6ca32538bb7ae2
     categories: []
