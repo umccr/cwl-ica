@@ -234,12 +234,13 @@ inputs:
       separate: false
   fasta:
     label: fasta
-    type: int?
+    type: boolean?
     doc: |
       Output FastA instead of FastQ
     inputBinding:
       prefix: fasta=
       separate: false
+      valueFrom: "$(boolean_to_int(self))"
   input_buffer_size:
     label: input buffer size
     type: int?
