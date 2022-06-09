@@ -60,6 +60,9 @@ requirements:
         entry: |
           #!/usr/bin/env bash
 
+          # Set to fail
+          set -euo pipefail
+
           mkdir -p "$(inputs.output_dir)"
           $(get_eval_line())
 
