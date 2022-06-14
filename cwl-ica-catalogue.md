@@ -172,6 +172,7 @@ illumina-tar)
 - [samtools-stats](#samtools-stats)  
 - [custom-stats-qc](#custom-stats-qc)  
 - [calculate-coverage](#calculate-coverage)  
+- [bamtofastq](#bamtofastq)  
 
 
 ### samtools-merge
@@ -560,6 +561,13 @@ illumina-tar)
 #### Versions
   
 - [1.0.0](.github/catalogue/docs/tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.md)  
+
+
+### bamtofastq
+
+#### Versions
+  
+- [2.0.183](.github/catalogue/docs/tools/bamtofastq/2.0.183/bamtofastq__2.0.183.md)  
 
 
 ## Workflows
