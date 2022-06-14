@@ -1801,3 +1801,25 @@ runs:
         task_stop_time: 1646620651
         task_duration: 214
         task_metrics: eJyLjgUAARUAuQ==
+  - ica_workflow_run_instance_id: wfr.d1b38cb079da47f29800353694e40bb4
+    ica_project_launch_context_id: dc8e6ba9-b744-437b-b070-4cf014694b3d
+    ica_workflow_id: wfl.3b09abee043645bca8d13040825b12b5
+    ica_workflow_name: bamtofastq_dev-wf
+    ica_workflow_version_name: 2.0.0
+    ica_workflow_run_name: bamtofastq-test
+    ica_input: eJyVjjEPwiAQRv+KYdZicets3NzdyNlCRWmpd0diNP53QU2qiYm6wfteHlxEHbwHNqKaMEYznQjrvOmhy+Qiag9E6SRWiYq0+lADu9Bn1jZUSUmMwJFmZHboaKdkAwwSEN0WJBtiuV5ulJrPF2WxhU5cU6U9j++5foisbcAOOFezk3CInHnjMMPnzQLxkV7mwaBGA02LIQ5j89OqKVrrTtqWOajLwh6L9I9vtrrb6jc7PNr72B9+sdU/Nr3J1xt91Zp7
+    ica_output: eJx1j9FqwzAMRX8l+LlN7FhJnD7vP4JtKSOQxpvlsG6l/z67K2NQ9iSuDjroXkXY09ueJlwi+RTipzhVV7EGb9MSthzEK/KpaT7mWKNy2ngnhxEtDHM7Gil1p/sRCKRz0Dh7TmG2nN6PiTg1P25+zOlOWBwq4SzTZs9U/E+wgBhC+hfS5c5K9KtlLuHl9/+85eWrqLd9XW+H6k/FKZeZmJhzt2nBcsi81aC0BARtqAVQLY04SIO+k70iPYAWz5I5rEjx4cihxo680oqk1wiEvQKDWWLBeKSBSNy+AQ/5d5I=
+    ica_engine_parameters: eJytkTFywjAQRa/CuKEJtmQ5gGlDkRQMhZMDyNbao8HWKtIahzDcPZKZpEpJKf33345W12RCd9prBw2huyS7RdIpv8uyqXWp4rXYNjXblEoWmzYvt4yJZ7EuCyhYXRdZLQfCVnr6XBF4Sp4WCY5kR3qQMLvbfBTTYI8PdXsCO5t77B7lDKpZOcivqpFE4IJQ5H97qYBImy5OGfAMEW3QXu4PezOepGng/WIhElU4KenUq36x4/9opb9n9ABKj0NkFLRy7AMQqAOqOV3ucTI9SrWMhP6NjmdwTivwgbne4orBf3i4V6XRbfzSWJcj4Vxtpp4Q+3gpUpbmLGc8Z4JvBOc8AmA6beaZPKQpWwUkMLzka1auFJyhR5vcfgD/18jO
+    workflow_start_time: 1654658703
+    workflow_end_time: 1654660273
+    workflow_duration: 1570
+    ica_tasks:
+      - ica_task_run_instance_id: trn.a6e3b285b26241939d1ff5dc9e86df72
+        task_step_name: main
+        task_name: main
+        task_cpus: 35.5
+        task_memory: 68
+        task_start_time: 1654658803
+        task_stop_time: 1654659643
+        task_duration: 840
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDM1MTO1sLS00FFQSi4oBQoZ6IHYuam5+UWVYK5hrY4CNl2WBqZGuHUZ4dJlaGhCji5zMzJ0GRmbIumyJFKXsQE5/jI2xeuvWACkyWbP
