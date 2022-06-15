@@ -70,7 +70,7 @@ workflows:
         md5sum: 165a90976accf82d03faef8bf17f118e
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
-        md5sum: c15f336dcdb2c30f8252a1e65fc61f7f
+        md5sum: 15af28119121d08c8bc5507e244b2cdb
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
