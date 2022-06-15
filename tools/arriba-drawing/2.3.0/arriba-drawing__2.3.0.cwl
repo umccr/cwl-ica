@@ -209,7 +209,7 @@ inputs:
       prefix: --fixedScale=
       separate: false
       position: 19
-  covergae_range:
+  coverage_range:
     label: coverage range
     doc: |
       Coverage range. Default 0.
