@@ -184,6 +184,9 @@ tools:
       - name: 2.0.0
         path: 2.0.0/arriba-drawing__2.0.0.cwl
         md5sum: d75f07805ec3b7a0bcda352610baaf0d
+      - name: 2.3.0
+        path: 2.3.0/arriba-drawing__2.3.0.cwl
+        md5sum: bf474df98e0f3749a82e7da4be3613ce
     categories: []
   - name: multiqc
     path: multiqc
