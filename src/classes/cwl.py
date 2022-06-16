@@ -260,7 +260,7 @@ class CWL:
             raise CWLPackagingError
 
         with open(packed_file.name, "w") as cwl_packed_h:
-            cwl_packed_h.write(_stdout)
+            cwl_packed_h.write(json.dumps(json.loads(_stdout), indent=2, ensure_ascii=False)+"\n")
 
     @staticmethod
     def run_cwltool_validate(cwl_file_path: Path):
