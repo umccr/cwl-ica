@@ -381,6 +381,7 @@ illumina-tar)
 #### Versions
   
 - [2.0.0](.github/catalogue/docs/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
+- [2.3.0](.github/catalogue/docs/tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.md)  
 
 
 ### arriba-drawing
@@ -388,6 +389,7 @@ illumina-tar)
 #### Versions
   
 - [2.0.0](.github/catalogue/docs/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)  
+- [2.3.0](.github/catalogue/docs/tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.md)  
 
 
 ### multiqc

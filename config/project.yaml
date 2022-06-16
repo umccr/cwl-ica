@@ -196,6 +196,11 @@ projects:
             ica_workflow_version_name: 2.0.0
             modification_time: 2022-05-12T22:53:10UTC
             run_instances: []
+          - name: 2.3.0
+            path: 2.3.0/arriba-drawing__2.3.0.cwl
+            ica_workflow_version_name: 2.3.0
+            modification_time: 2022-06-15T21:51:08UTC
+            run_instances: []
       - name: custom-create-directory
         path: custom-create-directory
         ica_workflow_name: custom-create-directory_dev-wf
@@ -387,6 +392,11 @@ projects:
             ica_workflow_version_name: 2.0.0
             modification_time: 2022-05-12T22:53:36UTC
             run_instances: []
+          - name: 2.3.0
+            path: 2.3.0/arriba-fusion-calling__2.3.0.cwl
+            ica_workflow_version_name: 2.3.0
+            modification_time: 2022-06-15T02:23:07UTC
+            run_instances: []
       - name: bamtofastq
         path: bamtofastq
         ica_workflow_name: bamtofastq_dev-wf
@@ -506,7 +516,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-05-12T22:52:09UTC
+            modification_time: 2022-06-16T00:50:21UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -944,6 +954,11 @@ projects:
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--9d7d80c
             modification_time: 2022-05-18T03:35:39UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--f9461fb
+            modification_time: 2022-06-16T00:50:45UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline

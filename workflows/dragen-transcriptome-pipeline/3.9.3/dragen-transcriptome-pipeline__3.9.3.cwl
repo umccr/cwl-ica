@@ -218,7 +218,7 @@ steps:
     out:
       - id: fusions
       - id: discarded_fusions
-    run: ../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl
+    run: ../../../tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.cwl
   # Step-3: Call Arriba drawing script
   arriba_drawing_step:
     label: arriba drawing step
@@ -237,7 +237,7 @@ steps:
         source: protein_domains
     out: 
       - id: output_pdf
-    run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
+    run:  ../../../tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.cwl
   # Step-4: Create Arriba output directory
   create_arriba_output_directory:
     label: create arriba output directory

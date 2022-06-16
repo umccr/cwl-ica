@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: c15f336dcdb2c30f8252a1e65fc61f7f
+> md5sum: 86d0b9b765982c5ba252f9f8d9605537
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -41,8 +41,8 @@ More information on the documentation can be found [here](https://support-docs.i
 
 ### Uses
   
-- [arriba-drawing 2.0.0](../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)  
-- [arriba-fusion-calling 2.0.0](../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
+- [arriba-drawing 2.3.0](../../../tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.md)  
+- [arriba-fusion-calling 2.3.0](../../../tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.md)  
 - [custom-create-directory 1.0.0](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 - [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
@@ -342,8 +342,8 @@ Run Arriba drawing script for fusions predicted by previous step.
 
 #### Links
   
-[CWL File Path](../../../../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl)  
-[CWL File Help Page](../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)  
+[CWL File Path](../../../../../../tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.cwl)  
+[CWL File Help Page](../../../tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.md)  
 
 
 ### arriba fusion step
@@ -359,8 +359,8 @@ Runs Arriba fusion calling on the bam file produced by Dragen.
 
 #### Links
   
-[CWL File Path](../../../../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl)  
-[CWL File Help Page](../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
+[CWL File Path](../../../../../../tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.cwl)  
+[CWL File Help Page](../../../tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.md)  
 
 
 ### create arriba output directory
@@ -1013,7 +1013,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--9d7d80c  
+**wfl version name:** 3.9.3--f9461fb  
 
   
 
