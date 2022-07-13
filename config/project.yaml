@@ -407,6 +407,16 @@ projects:
             ica_workflow_version_name: 2.0.183
             modification_time: 2022-06-09T03:00:48UTC
             run_instances: []
+      - name: mosdepth
+        path: mosdepth
+        ica_workflow_name: mosdepth_dev-wf
+        ica_workflow_id: wfl.3cd456b8d86a4f59b523627d3b6cb2a1
+        versions:
+          - name: 0.3.1
+            path: 0.3.1/mosdepth__0.3.1.cwl
+            ica_workflow_version_name: 0.3.1
+            modification_time: 2022-07-06T00:19:57UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
