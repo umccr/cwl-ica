@@ -1,0 +1,4 @@
+[submodule "rabix-cwl-ts"]
+	path = rabix-cwl-ts
+	url = https://github.com/rabix/cwl-ts
+	branch = master

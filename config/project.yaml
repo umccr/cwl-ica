@@ -425,7 +425,7 @@ projects:
           - name: 0.3.1
             path: 0.3.1/mosdepth__0.3.1.cwl
             ica_workflow_version_name: 0.3.1
-            modification_time: 2022-07-06T00:14:47UTC
+            modification_time: 2022-07-06T00:19:57UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline
