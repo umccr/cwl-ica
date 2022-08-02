@@ -174,7 +174,7 @@ projects:
           - name: 1.12.0
             path: 1.12.0/multiqc__1.12.0.cwl
             ica_workflow_version_name: 1.12.0
-            modification_time: 2022-07-28T00:37:23UTC
+            modification_time: 2022-07-28T00:38:26UTC
             run_instances: []
       - name: dragen-alignment
         path: dragen-alignment
@@ -352,7 +352,7 @@ projects:
           - name: 0.4.3
             path: 0.4.3/rnasum__0.4.3.cwl
             ica_workflow_version_name: 0.4.3
-            modification_time: 2022-08-01T00:35:53UTC
+            modification_time: 2022-08-01T00:39:01UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
