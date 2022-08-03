@@ -417,6 +417,16 @@ projects:
             ica_workflow_version_name: 0.3.1
             modification_time: 2022-07-06T00:19:57UTC
             run_instances: []
+      - name: qualimap
+        path: qualimap
+        ica_workflow_name: qualimap_dev-wf
+        ica_workflow_id: wfl.455f07acb41144d8904a18fcb0fac0a0
+        versions:
+          - name: 2.2.2
+            path: 2.2.2/qualimap__2.2.2.cwl
+            ica_workflow_version_name: 2.2.2
+            modification_time: 2022-08-02T05:01:26UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
