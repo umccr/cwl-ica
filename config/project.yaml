@@ -216,6 +216,11 @@ projects:
             ica_workflow_version_name: 2.0.1
             modification_time: 2022-01-12T20:45:43UTC
             run_instances: []
+          - name: 1.0.1
+            path: 1.0.1/custom-create-directory__1.0.1.cwl
+            ica_workflow_version_name: 1.0.1
+            modification_time: 2022-08-08T01:17:38UTC
+            run_instances: []
       - name: dragen-build-reference-tarball
         path: dragen-build-reference-tarball
         ica_workflow_name: dragen-build-reference-tarball_dev-wf
@@ -536,7 +541,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-06-16T00:50:21UTC
+            modification_time: 2022-08-08T06:30:10UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7

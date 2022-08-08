@@ -125,6 +125,13 @@ inputs:
     type: File
     doc: |
       GFF3 file containing the genomic coordinates of protein domains.
+  # qualimap inputs
+  java_mem:
+    label: java mem
+    type: string
+    doc: |
+      Set desired Java heap memory size
+    default: "6G"
   # multiQC input
   qc_reference_samples:
     label: qc reference samples
@@ -254,7 +261,40 @@ steps:
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
-  # Step-5: Create dummy file for the qc step
+  # Step-5: Run qualimap
+  run_qualimap_step:
+    label: run qualimap step
+    doc: |
+      Run qualimap step to generate additional QC metrics
+    in: 
+      java_mem:
+        source: java_mem
+      out_dir:
+        source: output_file_prefix
+      gtf:
+        source: annotation_file
+      input_bam:
+        source: run_dragen_transcriptome_step/dragen_bam_out
+    out:
+      - id: qualimap_qc
+    run: ../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl
+  # Step-6: Create single directory for QC of input sample
+  create_single_qc_reference_samples_directory:
+    label: create single qc reference samples directory
+    doc: |
+      Create a single directory with reference samples
+    in:
+      input_directories:
+        source:
+          - run_dragen_transcriptome_step/dragen_transcriptome_directory
+          - run_qualimap_step/qualimap_qc
+      output_directory_name:
+        source: output_file_prefix
+        valueFrom: "$(self)_dragen_qualimap_qc"      
+    out:
+      - id: output_directory
+    run: ../../../tools/custom-create-directory/1.0.1/custom-create-directory__1.0.1.cwl
+  # Step-7: Create dummy file for the qc step
   create_dummy_file_step:
     label: Create dummy file
     doc: |
@@ -263,7 +303,7 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-  # Step-6: Create multiQC report
+  # Step-8: Create multiQC report
   dragen_qc_step:
     label: dragen qc step
     doc: |
@@ -274,7 +314,7 @@ steps:
     in:
       input_directories:
         source:
-          - run_dragen_transcriptome_step/dragen_transcriptome_directory
+          - create_single_qc_reference_samples_directory/output_directory
           - qc_reference_samples
         linkMerge: merge_flattened
       output_directory_name:

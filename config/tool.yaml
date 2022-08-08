@@ -222,6 +222,9 @@ tools:
       - name: 2.0.1
         path: 2.0.1/custom-create-directory__2.0.1.cwl
         md5sum: 11ffa79fa2f884e34d3fef21c82c757a
+      - name: 1.0.1
+        path: 1.0.1/custom-create-directory__1.0.1.cwl
+        md5sum: 2fa581f4a40cd73edc2ff2a43644065c
     categories: []
   - name: dragen-build-reference-tarball
     path: dragen-build-reference-tarball
