@@ -161,3 +161,10 @@ workflows:
         path: 3.9.3/dragen-pon-qc__3.9.3.cwl
         md5sum: a501730d7e52a6df4005f84149152c23
     categories: []
+  - name: dragen-wts-qc-pipeline
+    path: dragen-wts-qc-pipeline
+    versions:
+      - name: 3.9.3
+        path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
+        md5sum: 5d1a192b2d23225fbb2800e32e2ae665
+    categories: []

@@ -662,6 +662,16 @@ projects:
             modification_time: 2022-03-07T23:45:38UTC
             run_instances:
               - wfr.e0cccb29cf44482182507bd33579270c
+      - name: dragen-wts-qc-pipeline
+        path: dragen-wts-qc-pipeline
+        ica_workflow_name: dragen-wts-qc-pipeline_dev-wf
+        ica_workflow_id: wfl.a43d1dedadfd46719cb77e842f1f26eb
+        versions:
+          - name: 3.9.3
+            path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2022-08-09T02:30:31UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
