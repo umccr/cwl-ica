@@ -388,3 +388,17 @@ outputs:
       Output directory from somalier step
     type: Directory
     outputSource: somalier_step/output_directory
+  # The qualimap output directory
+  qualimap_output_directory:
+    label: dragen transcriptome output directory
+    doc: |
+      The output directory containing all transcriptome output files
+    type: Directory
+    outputSource: run_qualimap_step/qualimap_qc
+  # The combined output directory
+  combined_output_directory:
+    label: combine output directory
+    doc: |
+      The directory containing output files from arriba
+    type: Directory
+    outputSource: create_single_qc_reference_samples_directory/output_directory
