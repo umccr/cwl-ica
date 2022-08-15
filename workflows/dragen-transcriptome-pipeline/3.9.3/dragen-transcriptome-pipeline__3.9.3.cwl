@@ -131,7 +131,7 @@ inputs:
     type: string
     doc: |
       Set desired Java heap memory size
-    default: "6G"
+    default: "96G"
   # multiQC input
   qc_reference_samples:
     label: qc reference samples
