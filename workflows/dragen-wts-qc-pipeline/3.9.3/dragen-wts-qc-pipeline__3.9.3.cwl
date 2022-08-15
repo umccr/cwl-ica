@@ -98,10 +98,24 @@ inputs:
   # qualimap inputs
   java_mem:
     label: java mem
-    type: string
+    type: string?
     doc: |
       Set desired Java heap memory size
-    default: "6G"
+    default: "96G"
+  algorithm:
+    label: algorithm
+    type: string?
+    doc: |
+      Counting algorithm:
+      uniquely-mapped-reads(default) or proportional.
+    default: "proportional"
+  tmp_dir:
+    label: tmp dir
+    type: string?
+    doc: |
+      Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
+      This can be avoided by sorting the bam file by name before running Qualimap.
+    default: "/scratch"
   # Location of license
   lic_instance_id_location:
     label: license instance id location
@@ -155,10 +169,14 @@ steps:
     doc: |
       Run qualimap step to generate additional QC metrics
     in: 
+      tmp_dir:
+        source: tmp_dir
       java_mem:
         source: java_mem
+      algorithm:
+        source: algorithm
       out_dir:
-        source: output_file_prefix
+        source: output_directory
       gtf:
         source: annotation_file
       input_bam:
@@ -184,20 +202,6 @@ steps:
     run: ../../../tools/custom-create-directory/1.0.1/custom-create-directory__1.0.1.cwl
 
 outputs:
-  # The dragen output directory
-  dragen_transcriptome_output_directory:
-    label: dragen transcriptome output directory
-    doc: |
-      The output directory containing all transcriptome output files
-    type: Directory
-    outputSource: run_dragen_transcriptome_step/dragen_transcriptome_directory
-  # The qualimap output directory
-  qualimap_output_directory:
-    label: dragen transcriptome output directory
-    doc: |
-      The output directory containing all transcriptome output files
-    type: Directory
-    outputSource: run_qualimap_step/qualimap_qc
   # The combined output directory
   combined_output_directory:
     label: combine output directory
