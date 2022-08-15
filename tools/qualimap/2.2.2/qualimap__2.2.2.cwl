@@ -26,7 +26,7 @@ hints:
         ilmn-tes:resources:
             tier: standard
             type: standardHiCpu
-            size: medium
+            size: large
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
@@ -34,14 +34,22 @@ hints:
 
 requirements:
   InlineJavascriptRequirement: {}
+  InitialWorkDirRequirement:
+    listing:
+      - entryname: "run_qualimap.sh"
+        entry: |
+          #!/usr/bin/env bash
+          
+          # Set to fail
+          set -euo pipefail
+          
+          # Set java opts
+          export JAVA_OPTS=-Djava.io.tmpdir="$(inputs.tmp_dir)"
+        
+          # Run qualimap
+          eval qualimap rnaseq --paired --java-mem-size="$(inputs.java_mem)" '"\${@}"'
 
-baseCommand: [ qualimap, rnaseq ]
-
-arguments:
-  - --paired
-  - --java-mem-size=$(inputs.java_mem)
-  - prefix: -outdir
-    valueFrom: $(inputs.out_dir)
+baseCommand: [ "bash", "run_qualimap.sh" ]
 
 inputs:
   tmp_dir:
