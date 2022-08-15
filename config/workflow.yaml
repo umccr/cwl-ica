@@ -166,5 +166,5 @@ workflows:
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
-        md5sum: 5d1a192b2d23225fbb2800e32e2ae665
+        md5sum: ea832f3f76c4b4c54bb50107355d63cb
     categories: []
