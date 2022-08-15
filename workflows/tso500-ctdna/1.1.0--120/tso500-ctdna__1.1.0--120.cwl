@@ -78,6 +78,12 @@ inputs:
       please set this to "BCLConvert"
     type: string?
     default: "TSO500L"
+  coerce_valid_index:
+    label: coerce valid index
+    doc: |
+      Coerce a valid index for ctTSO sample
+    type: boolean?
+    default: false
   # Run Info file
   run_info_xml:
     # Bound in listing expression
@@ -122,6 +128,8 @@ steps:
         source: samplesheet_prefix
       tso500_samples:
         source: tso500_samples
+      coerce_valid_index:
+        source: coerce_valid_index
     out:
       - id: tso500_samplesheet
     run: ../../../tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
