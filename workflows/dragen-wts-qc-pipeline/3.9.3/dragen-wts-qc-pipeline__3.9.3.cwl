@@ -19,7 +19,7 @@ label: dragen-wts-qc-pipeline v(3.9.3)
 doc: |
   Workflow takes in dragen param along with object store version of a fastq_list.csv equivalent.
   See the fastq_list_row schema definitions for more information.
-  Additonally run qualimap step to genrate QC metrics and a step to combine outputs in one directory.
+  Additonally runs qualimap step to genrate QC metrics.
   More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/TPipelineIntro_fDG.htm)
 
 requirements:
@@ -89,12 +89,14 @@ inputs:
     type: boolean?
     doc: |
       Optional - Enable the quantification module - defaults to true
+    default: false
   # Fusion calling options
   enable_rna_gene_fusion:
     label: enable rna gene fusion
     type: boolean?
     doc: |
       Optional - Enable the DRAGEN Gene Fusion module - defaults to true
+    default: false
   # qualimap inputs
   java_mem:
     label: java mem
@@ -177,6 +179,7 @@ steps:
         source: algorithm
       out_dir:
         source: output_directory
+        valueFrom: "$(self)_qualimap"
       gtf:
         source: annotation_file
       input_bam:
@@ -184,28 +187,18 @@ steps:
     out:
       - id: qualimap_qc
     run: ../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl
-  # Step-3: Create single directory for QC of input sample
-  create_single_qc_reference_samples_directory:
-    label: create single qc reference samples directory
-    doc: |
-      Create a single directory with reference samples
-    in:
-      input_directories:
-        source:
-          - run_dragen_transcriptome_step/dragen_transcriptome_directory
-          - run_qualimap_step/qualimap_qc
-      output_directory_name:
-        source: output_file_prefix
-        valueFrom: "$(self)_dragen_qualimap_qc"      
-    out:
-      - id: output_directory
-    run: ../../../tools/custom-create-directory/1.0.1/custom-create-directory__1.0.1.cwl
-
 outputs:
-  # The combined output directory
-  combined_output_directory:
-    label: combine output directory
+  # The dragen output directory
+  dragen_transcriptome_output_directory:
+    label: dragen transcriptome output directory
     doc: |
-      The directory containing output files from arriba
+      The output directory containing all transcriptome output files
     type: Directory
-    outputSource: create_single_qc_reference_samples_directory/output_directory
+    outputSource: run_dragen_transcriptome_step/dragen_transcriptome_directory
+  # The qualimap output directory
+  qualimap_output_directory:
+    label: dragen transcriptome output directory
+    doc: |
+      The output directory containing all transcriptome output files
+    type: Directory
+    outputSource: run_qualimap_step/qualimap_qc

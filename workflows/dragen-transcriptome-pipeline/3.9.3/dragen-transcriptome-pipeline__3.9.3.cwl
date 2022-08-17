@@ -132,6 +132,20 @@ inputs:
     doc: |
       Set desired Java heap memory size
     default: "96G"
+  tmp_dir:
+    label: tmp dir
+    type: string?
+    doc: |
+      Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
+      This can be avoided by sorting the bam file by name before running Qualimap.
+    default: "/scratch"
+  algorithm:
+    label: algorithm
+    type: string?
+    doc: |
+      Counting algorithm:
+      uniquely-mapped-reads(default) or proportional.
+    default: "proportional"
   # multiQC input
   qc_reference_samples:
     label: qc reference samples
@@ -269,8 +283,13 @@ steps:
     in: 
       java_mem:
         source: java_mem
+      tmp_dir:
+        source: tmp_dir
+      algorithm:
+        source: algorithm
       out_dir:
         source: output_file_prefix
+        valueFrom: "$(self)_qualimap"
       gtf:
         source: annotation_file
       input_bam:
@@ -278,23 +297,7 @@ steps:
     out:
       - id: qualimap_qc
     run: ../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl
-  # Step-6: Create single directory for QC of input sample
-  create_single_qc_reference_samples_directory:
-    label: create single qc reference samples directory
-    doc: |
-      Create a single directory with reference samples
-    in:
-      input_directories:
-        source:
-          - run_dragen_transcriptome_step/dragen_transcriptome_directory
-          - run_qualimap_step/qualimap_qc
-      output_directory_name:
-        source: output_file_prefix
-        valueFrom: "$(self)_dragen_qualimap_qc"      
-    out:
-      - id: output_directory
-    run: ../../../tools/custom-create-directory/1.0.1/custom-create-directory__1.0.1.cwl
-  # Step-7: Create dummy file for the qc step
+  # Step-6: Create dummy file for the qc step
   create_dummy_file_step:
     label: Create dummy file
     doc: |
@@ -303,18 +306,19 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-  # Step-8: Create multiQC report
+  # Step-7: Create multiQC report
   dragen_qc_step:
     label: dragen qc step
     doc: |
       The dragen qc step - this takes in an array of dirs
     requirements: 
       DockerRequirement: 
-        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-update-and-clean-names--a5e0179
+        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-file-update-and-gc-content-to-general--7fd8f85
     in:
       input_directories:
         source:
-          - create_single_qc_reference_samples_directory/output_directory
+          - run_dragen_transcriptome_step/dragen_transcriptome_directory
+          - run_qualimap_step/qualimap_qc         
           - qc_reference_samples
         linkMerge: merge_flattened
       output_directory_name:
@@ -334,7 +338,7 @@ steps:
       - id: output_directory
       - id: output_file
     run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
-  # Step-7: run somalier
+  # Step-8: run somalier
   somalier_step:
     label: somalier
     doc: |
@@ -395,10 +399,3 @@ outputs:
       The output directory containing all transcriptome output files
     type: Directory
     outputSource: run_qualimap_step/qualimap_qc
-  # The combined output directory
-  combined_output_directory:
-    label: combine output directory
-    doc: |
-      The directory containing output files from arriba
-    type: Directory
-    outputSource: create_single_qc_reference_samples_directory/output_directory
