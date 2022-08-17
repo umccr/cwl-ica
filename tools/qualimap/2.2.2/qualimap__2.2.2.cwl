@@ -44,8 +44,10 @@ requirements:
           set -euo pipefail
           
           # Set java opts
-          export JAVA_OPTS=-Djava.io.tmpdir="$(inputs.tmp_dir)"
-        
+          if [[ ! -z "$(inputs.tmp_dir)" ]]
+          then
+            export JAVA_OPTS=-Djava.io.tmpdir="$(inputs.tmp_dir)"
+          fi
           # Run qualimap
           eval qualimap rnaseq --paired --java-mem-size="$(inputs.java_mem)" '"\${@}"'
 
