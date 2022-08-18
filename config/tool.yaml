@@ -398,5 +398,5 @@ tools:
     versions:
       - name: 2.2.2
         path: 2.2.2/qualimap__2.2.2.cwl
-        md5sum: 31fb549c6e865410542a18ed7596c369
+        md5sum: 2a8f839df57505fb05cd6d2c2fa36318
     categories: []

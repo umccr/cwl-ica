@@ -430,7 +430,7 @@ projects:
           - name: 2.2.2
             path: 2.2.2/qualimap__2.2.2.cwl
             ica_workflow_version_name: 2.2.2
-            modification_time: 2022-08-12T05:19:30UTC
+            modification_time: 2022-08-16T11:11:22UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline
@@ -541,7 +541,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-08-08T06:30:10UTC
+            modification_time: 2022-08-16T11:30:43UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -670,7 +670,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-08-12T11:47:26UTC
+            modification_time: 2022-08-17T01:30:10UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
