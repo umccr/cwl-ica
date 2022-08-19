@@ -19,7 +19,9 @@ id: custome-create-directory--1.0.1
 label: custome-create-directory v(1.0.1)
 doc: |
     Documentation for custome-create-directory v1.0.1
-    Create a directory based on content of list of input directories
+    Create a directory based on **content** of list of input directories, i.e. not the
+    directory itself. rsync interprets a directory with no trailing slash as copy this directory, 
+    and a directory with a trailing slash as copy the contents of this directory.  
 
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
 hints:
