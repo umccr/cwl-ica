@@ -78,6 +78,6 @@ outputs:
 expression: >-
   ${
     return { 
-      "dsdm_json": check_sample_steps(JSON.parse(inputs.dsdm_json.contents))
+      "passing": check_sample_steps(JSON.parse(inputs.dsdm_json.contents))
     }
   }

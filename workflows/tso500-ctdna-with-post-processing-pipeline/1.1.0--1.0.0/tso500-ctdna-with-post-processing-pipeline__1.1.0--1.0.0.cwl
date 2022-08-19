@@ -170,51 +170,6 @@ steps:
       - samplesheet_validation_demux_dir
     run: ../../../workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.cwl
 
-  ###########################################################################
-  # Validate no samples have failed at any steps of the tso500-ctdna pipeline
-  ###########################################################################
-  get_dsdm_jsons_from_results_dirs:
-    label: get dsdm jsons from results dirs
-    doc: |
-      Get DSDM jsons from results directory for each sample 
-      for ensuring no samples executed and failed
-    # Scatter over each sample
-    scatter: input_dir
-    in:
-      input_dir:
-        source: run_tso_ctdna_workflow_step/outputs_by_sample
-        valueFrom: |
-          ${
-            return self.results_dir;
-          }
-      file_basename:
-        valueFrom: "dsdm.json"
-    out:
-      - id: output_file
-    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
-  validate_dsdm_jsons:
-    label: validate dsdm jsons
-    doc: |
-      Iterate through each dsdm json
-      For each workflow run, return false for each workflow with a failed sample
-    scatter: dsdm_json
-    in:
-      dsdm_json:
-        source: get_dsdm_jsons_from_results_dirs/output_file
-    out:
-      - id: passing
-    run: ../../../expressions/validate-dsdm-json/1.0.0/validate-dsdm-json__1.0.0.cwl
-  assert_all_samples_passing:
-    label: assert all samples passing
-    doc: |
-      Ensure array of booleans are all passing.
-    in:
-      samples_statuses:
-        source: validate_dsdm_jsons/passing
-    out:
-      - id: all_passing
-    run: ../../../expressions/ensure-all-samples-have-passed-all-tso500-ctdna-steps/1.0.0/ensure-all-samples-have-passed-all-tso500-ctdna-steps__1.0.0.cwl
-
   ############################################
   # Run the tso ctdna post processing pipeline
   ############################################

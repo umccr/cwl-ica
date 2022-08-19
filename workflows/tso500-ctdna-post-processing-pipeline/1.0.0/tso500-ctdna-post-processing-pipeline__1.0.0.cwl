@@ -284,7 +284,9 @@ steps:
         source: tso500_outputs_by_sample
         valueFrom: |
           ${
-            return self.align_collapse_fusion_caller_dir;
+             return [
+               self.align_collapse_fusion_caller_dir
+             ];
           }
       output_directory_name:
         source: tso500_outputs_by_sample
