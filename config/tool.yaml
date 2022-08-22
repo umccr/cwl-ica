@@ -225,6 +225,9 @@ tools:
       - name: 2.0.1
         path: 2.0.1/custom-create-directory__2.0.1.cwl
         md5sum: 11ffa79fa2f884e34d3fef21c82c757a
+      - name: 1.0.1
+        path: 1.0.1/custom-create-directory__1.0.1.cwl
+        md5sum: c596efad6137e15628a2b947682858c4
     categories: []
   - name: dragen-build-reference-tarball
     path: dragen-build-reference-tarball
@@ -401,4 +404,11 @@ tools:
       - name: 2.0.183
         path: 2.0.183/bamtofastq__2.0.183.cwl
         md5sum: 404b4bb071c99c2fdd6ca32538bb7ae2
+    categories: []
+  - name: qualimap
+    path: qualimap
+    versions:
+      - name: 2.2.2
+        path: 2.2.2/qualimap__2.2.2.cwl
+        md5sum: 2a8f839df57505fb05cd6d2c2fa36318
     categories: []

@@ -221,6 +221,11 @@ projects:
             ica_workflow_version_name: 2.0.1
             modification_time: 2022-01-12T20:45:43UTC
             run_instances: []
+          - name: 1.0.1
+            path: 1.0.1/custom-create-directory__1.0.1.cwl
+            ica_workflow_version_name: 1.0.1
+            modification_time: 2022-08-19T01:39:02UTC
+            run_instances: []
       - name: dragen-build-reference-tarball
         path: dragen-build-reference-tarball
         ica_workflow_name: dragen-build-reference-tarball_dev-wf
@@ -437,6 +442,16 @@ projects:
             ica_workflow_version_name: 0.3.1
             modification_time: 2022-07-06T00:19:57UTC
             run_instances: []
+      - name: qualimap
+        path: qualimap
+        ica_workflow_name: qualimap_dev-wf
+        ica_workflow_id: wfl.455f07acb41144d8904a18fcb0fac0a0
+        versions:
+          - name: 2.2.2
+            path: 2.2.2/qualimap__2.2.2.cwl
+            ica_workflow_version_name: 2.2.2
+            modification_time: 2022-08-16T11:11:22UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -546,7 +561,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-06-16T00:50:21UTC
+            modification_time: 2022-08-16T11:30:43UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -677,6 +692,16 @@ projects:
             modification_time: 2022-03-07T23:45:38UTC
             run_instances:
               - wfr.e0cccb29cf44482182507bd33579270c
+      - name: dragen-wts-qc-pipeline
+        path: dragen-wts-qc-pipeline
+        ica_workflow_name: dragen-wts-qc-pipeline_dev-wf
+        ica_workflow_id: wfl.a43d1dedadfd46719cb77e842f1f26eb
+        versions:
+          - name: 3.9.3
+            path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2022-08-17T01:30:10UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
@@ -999,6 +1024,11 @@ projects:
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--f9461fb
             modification_time: 2022-06-16T00:50:45UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--a4236ba
+            modification_time: 2022-08-22T02:07:46UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
