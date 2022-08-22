@@ -19,7 +19,7 @@ tso500-ctdna-with-post-processing-pipeline 1.1.0--1.0.0 workflow
 
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0  
-> md5sum: acf845c12be68021133f05444afbe80a
+> md5sum: 5029e7b24311a737ab92980f9aea6ddf
 
 ### tso500-ctdna-with-post-processing-pipeline v(1.1.0--1.0.0) documentation
   
@@ -54,6 +54,19 @@ Only intermediate step is collecting the tso500 bed file from the resources dire
 
 
 ## tso500-ctdna-with-post-processing-pipeline v(1.1.0--1.0.0) Inputs
+
+### coerce valid index
+
+
+
+  
+> ID: coerce_valid_index
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Coerce the valid index
+
 
 ### dragen license key
 
@@ -380,7 +393,7 @@ The sample subdirectory of the results
 
   
 **workflow name:** tso500-ctdna-with-post-processing-pipeline_prod-wf  
-**wfl version name:** 1.1.0--1.0.0--b8f38b3  
+**wfl version name:** 1.1.0--1.0.0--d7621f6  
 
 
 ### Project: collab-illumina-dev_workflows

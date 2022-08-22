@@ -17,7 +17,7 @@ custom-create-tso500-samplesheet 1.0.0 tool
 
   
 > ID: custom-create-tso500-samplesheet--1.0.0  
-> md5sum: 29de97b423f0c16bc3b0200e4449a51f
+> md5sum: fa8eb95a6e5c2ec30dd0110e8f18110b
 
 ### custom-create-tso500-samplesheet v(1.0.0) documentation
   
@@ -41,6 +41,19 @@ Given a v2 samplesheet updates the [<SampleSheet_Prefix"_Data] section to includ
 
 
 ## custom-create-tso500-samplesheet v(1.0.0) Inputs
+
+### coerce valid index
+
+
+
+  
+> ID: coerce_valid_index
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Coerce a valid index for ctTSO sample
+
 
 ### output file name
 
@@ -88,7 +101,7 @@ The samplesheet prefix for v2 samplesheets
   
 > ID: tso500_samples
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `tso500-sample[]`  
 **Docs:**  
 The tso500 sample objects
