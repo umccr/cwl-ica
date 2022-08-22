@@ -404,6 +404,7 @@ illumina-tar)
   
 - [1.10.1](.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md)  
 - [1.11.0](.github/catalogue/docs/tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+- [1.12.0](.github/catalogue/docs/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### dragen-alignment
@@ -511,6 +512,8 @@ illumina-tar)
 - [2.0.0--0](.github/catalogue/docs/tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
 - [2.0.1--0](.github/catalogue/docs/tools/umccrise/2.0.1--0/umccrise__2.0.1--0.md)  
 - [2.0.2--0](.github/catalogue/docs/tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
+- [2.1.0--0](.github/catalogue/docs/tools/umccrise/2.1.0--0/umccrise__2.1.0--0.md)  
+- [2.1.1--0](.github/catalogue/docs/tools/umccrise/2.1.1--0/umccrise__2.1.1--0.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -541,6 +544,7 @@ illumina-tar)
   
 - [0.4.1](.github/catalogue/docs/tools/rnasum/0.4.1/rnasum__0.4.1.md)  
 - [0.4.2](.github/catalogue/docs/tools/rnasum/0.4.2/rnasum__0.4.2.md)  
+- [0.4.3](.github/catalogue/docs/tools/rnasum/0.4.3/rnasum__0.4.3.md)  
 
 
 ### samtools-stats
@@ -750,6 +754,8 @@ illumina-tar)
 - [2.0.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
 - [2.0.1--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.md)  
 - [2.0.2--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.md)  
+- [2.1.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.md)  
+- [2.1.1--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.md)  
 
 
 ### ghif-qc

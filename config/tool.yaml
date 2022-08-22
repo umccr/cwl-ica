@@ -197,6 +197,9 @@ tools:
       - name: 1.11.0
         path: 1.11.0/multiqc__1.11.0.cwl
         md5sum: 776ca456171ee3c9a02ecdf8b9698356
+      - name: 1.12.0
+        path: 1.12.0/multiqc__1.12.0.cwl
+        md5sum: f117d46da74850f4444a4ef0e335ab1a
     categories:
       - qc
       - visual
@@ -327,6 +330,12 @@ tools:
       - name: 2.0.2--0
         path: 2.0.2--0/umccrise__2.0.2--0.cwl
         md5sum: 3d661e80648808d1b42e5213177815e9
+      - name: 2.1.0--0
+        path: 2.1.0--0/umccrise__2.1.0--0.cwl
+        md5sum: e5b64e5c6b80b18fdbe7df5f0ac961d5
+      - name: 2.1.1--0
+        path: 2.1.1--0/umccrise__2.1.1--0.cwl
+        md5sum: 784b1b33c10747edec6228df61abcec9
     categories: []
   - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -361,6 +370,9 @@ tools:
       - name: 0.4.2
         path: 0.4.2/rnasum__0.4.2.cwl
         md5sum: 5a81adb2dce9421beca801f559ed053b
+      - name: 0.4.3
+        path: 0.4.3/rnasum__0.4.3.cwl
+        md5sum: 0bf8c5b23c8ccf6e101f6b5d32a754c4
     categories: []
   - name: samtools-stats
     path: samtools-stats
