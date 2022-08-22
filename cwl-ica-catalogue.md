@@ -173,6 +173,7 @@ illumina-tar)
 - [custom-stats-qc](#custom-stats-qc)  
 - [calculate-coverage](#calculate-coverage)  
 - [bamtofastq](#bamtofastq)  
+- [qualimap](#qualimap)  
 
 
 ### samtools-merge
@@ -422,6 +423,7 @@ illumina-tar)
 - [1.0.0](.github/catalogue/docs/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [2.0.0](.github/catalogue/docs/tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.md)  
 - [2.0.1](.github/catalogue/docs/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
+- [1.0.1](.github/catalogue/docs/tools/custom-create-directory/1.0.1/custom-create-directory__1.0.1.md)  
 
 
 ### dragen-build-reference-tarball
@@ -512,6 +514,8 @@ illumina-tar)
 - [2.0.0--0](.github/catalogue/docs/tools/umccrise/2.0.0--0/umccrise__2.0.0--0.md)  
 - [2.0.1--0](.github/catalogue/docs/tools/umccrise/2.0.1--0/umccrise__2.0.1--0.md)  
 - [2.0.2--0](.github/catalogue/docs/tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
+- [2.1.0--0](.github/catalogue/docs/tools/umccrise/2.1.0--0/umccrise__2.1.0--0.md)  
+- [2.1.1--0](.github/catalogue/docs/tools/umccrise/2.1.1--0/umccrise__2.1.1--0.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -574,6 +578,13 @@ illumina-tar)
 - [2.0.183](.github/catalogue/docs/tools/bamtofastq/2.0.183/bamtofastq__2.0.183.md)  
 
 
+### qualimap
+
+#### Versions
+  
+- [2.2.2](.github/catalogue/docs/tools/qualimap/2.2.2/qualimap__2.2.2.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -595,6 +606,7 @@ illumina-tar)
 - [umccrise-with-dragen-germline-pipeline](#umccrise-with-dragen-germline-pipeline)  
 - [ghif-qc](#ghif-qc)  
 - [dragen-pon-qc](#dragen-pon-qc)  
+- [dragen-wts-qc-pipeline](#dragen-wts-qc-pipeline)  
 
 
 ### optitype-pipeline
@@ -752,6 +764,8 @@ illumina-tar)
 - [2.0.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
 - [2.0.1--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.md)  
 - [2.0.2--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.md)  
+- [2.1.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.md)  
+- [2.1.1--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.md)  
 
 
 ### ghif-qc
@@ -767,4 +781,11 @@ illumina-tar)
 #### Versions
   
 - [3.9.3](.github/catalogue/docs/workflows/dragen-pon-qc/3.9.3/dragen-pon-qc__3.9.3.md)  
+
+
+### dragen-wts-qc-pipeline
+
+#### Versions
+  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
 

@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 86d0b9b765982c5ba252f9f8d9605537
+> md5sum: 29d8f59dd0b962634f78a360a6f8c0d9
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -45,14 +45,29 @@ More information on the documentation can be found [here](https://support-docs.i
 - [arriba-fusion-calling 2.3.0](../../../tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.md)  
 - [custom-create-directory 1.0.0](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-transcriptome 3.9.3](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
+- [qualimap 2.2.2](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 - [somalier-extract 0.2.13 :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
   
 
 
 ## dragen-transcriptome-pipeline v(3.9.3) Inputs
+
+### algorithm
+
+
+
+  
+> ID: algorithm
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+Counting algorithm:
+uniquely-mapped-reads(default) or proportional.
+
 
 ### annotation file
 
@@ -206,6 +221,19 @@ Each row has the following attributes:
   * Read2File (optional)
 
 
+### java mem
+
+
+
+  
+> ID: java_mem
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+Set desired Java heap memory size
+
+
 ### license instance id location
 
 
@@ -324,6 +352,20 @@ Path to ref data tarball
 **Docs:**  
 gzipped vcf file. Required for somalier sites
 
+
+### tmp dir
+
+
+
+  
+> ID: tmp_dir
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
+This can be avoided by sorting the bam file by name before running Qualimap.
+
   
 
 
@@ -411,7 +453,7 @@ The dragen qc step - this takes in an array of dirs
 #### Links
   
 [CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen transcriptome step
@@ -431,6 +473,23 @@ All other options avaiable at the top of the workflow
   
 [CWL File Path](../../../../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.cwl)  
 [CWL File Help Page](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
+
+
+### run qualimap step
+
+
+  
+> ID: dragen-transcriptome-pipeline--3.9.3/run_qualimap_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Run qualimap step to generate additional QC metrics
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl)  
+[CWL File Help Page](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 
 
 ### somalier
@@ -494,6 +553,21 @@ The output directory containing all transcriptome output files
 **Output Type:** `Directory`  
 **Docs:**  
 The output directory for multiqc
+  
+
+
+### dragen transcriptome output directory
+
+
+
+  
+> ID: dragen-transcriptome-pipeline--3.9.3/qualimap_output_directory  
+
+  
+**Optional:** `False`  
+**Output Type:** `Directory`  
+**Docs:**  
+The output directory containing all transcriptome output files
   
 
 
@@ -1013,7 +1087,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--f9461fb  
+**wfl version name:** 3.9.3--a4236ba  
 
   
 
