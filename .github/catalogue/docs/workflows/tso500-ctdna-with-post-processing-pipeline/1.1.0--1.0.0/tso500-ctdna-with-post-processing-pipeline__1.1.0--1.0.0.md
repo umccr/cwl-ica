@@ -412,6 +412,7 @@ The sample subdirectory of the results
   
 - [Run wfr.d92a2d28bbfe46fe878f6513fdb06723](#run-wfrd92a2d28bbfe46fe878f6513fdb06723)  
 - [Run wfr.c419c549d0c349538ba811f65c8ed684](#run-wfrc419c549d0c349538ba811f65c8ed684)  
+- [Run wfr.332cf48caff84cdba27eb6c11526432a](#run-wfr332cf48caff84cdba27eb6c11526432a)  
 
 
 ##### Run wfr.d92a2d28bbfe46fe878f6513fdb06723
@@ -1102,6 +1103,499 @@ bash wfr.c419c549d0c349538ba811f65c8ed684.launch.sh
 
   
 [![tso500-ctdna-full-start-end-workflow-test__wfr.c419c549d0c349538ba811f65c8ed684.svg](../../../../images/runs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-full-start-end-workflow-test__wfr.c419c549d0c349538ba811f65c8ed684.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-full-start-end-workflow-test__wfr.c419c549d0c349538ba811f65c8ed684.svg)  
+
+
+##### Run wfr.332cf48caff84cdba27eb6c11526432a
+
+
+
+  
+> Run Name: tso500-ctdna-tiny-start-end-workflow-test  
+
+  
+**Start Time:** 2022-08-18 02:12:17 UTC  
+**Duration:** 2022-08-18 06:13:40 UTC  
+**End Time:** 0 days 04:01:23  
+
+
+###### Reproduce Run
+
+
+```bash
+
+# Run the submission template to create the workflow input json and launch script            
+cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.332cf48caff84cdba27eb6c11526432a
+
+# Edit the input json file (optional)
+# vim wfr.332cf48caff84cdba27eb6c11526432a.template.json 
+
+# Run the launch script
+bash wfr.332cf48caff84cdba27eb6c11526432a.launch.sh
+                                    
+```  
+
+
+###### Run Inputs
+
+
+```
+{
+    "dragen_license_key": {
+        "class": "File",
+        "location": "gds://collab-illumina-dev/dragen-license/cttso/license_umccr.txt"
+    },
+    "fastq_list_rows": [
+        {
+            "lane": 1,
+            "read_1": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L001_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L001_R2_001.fastq.gz"
+            },
+            "rgid": "2pctFusonMix.1.CTGAAGCT.GGCTCTGA",
+            "rglb": "UnknownLibrary",
+            "rgsm": "2pctFusonMix"
+        },
+        {
+            "lane": 2,
+            "read_1": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L002_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L002_R2_001.fastq.gz"
+            },
+            "rgid": "2pctFusonMix.2.CTGAAGCT.GGCTCTGA",
+            "rglb": "UnknownLibrary",
+            "rgsm": "2pctFusonMix"
+        },
+        {
+            "lane": 3,
+            "read_1": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L003_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L003_R2_001.fastq.gz"
+            },
+            "rgid": "2pctFusonMix.3.CTGAAGCT.GGCTCTGA",
+            "rglb": "UnknownLibrary",
+            "rgsm": "2pctFusonMix"
+        },
+        {
+            "lane": 4,
+            "read_1": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L004_R1_001.fastq.gz"
+            },
+            "read_2": {
+                "class": "File",
+                "location": "gds://collab-illumina-dev/cttso/fastqs/test-data/test-project/2pctFusonMix_DNA_rep1_S2_L004_R2_001.fastq.gz"
+            },
+            "rgid": "2pctFusonMix.4.CTGAAGCT.GGCTCTGA",
+            "rglb": "UnknownLibrary",
+            "rgsm": "2pctFusonMix"
+        }
+    ],
+    "resources_dir": {
+        "class": "Directory",
+        "location": "gds://collab-illumina-dev/reference-data/dragen_tso_ctdna/ruo-1.1.0.3/"
+    },
+    "run_info_xml": {
+        "class": "File",
+        "location": "gds://collab-illumina-dev/cttso/runs/test-data/RunInfo.xml"
+    },
+    "run_parameters_xml": {
+        "class": "File",
+        "location": "gds://collab-illumina-dev/cttso/runs/test-data/RunParameters.xml"
+    },
+    "samplesheet": {
+        "class": "File",
+        "location": "gds://collab-illumina-dev/cttso/runs/test-data/SampleSheet.csv"
+    },
+    "samplesheet_prefix": "BCLConvert",
+    "tso500_samples": [
+        {
+            "pair_id": "2pctFusonMix",
+            "sample_id": "2pctFusonMix_DNA_rep1",
+            "sample_name": "2pctFusonMix",
+            "sample_type": "DNA"
+        }
+    ]
+}
+```  
+
+
+###### Run Engine Parameters
+
+
+```
+{
+    "workDirectory": "gds://collab-illumina-dev/temp/2pctFusonMix/workdir",
+    "outputDirectory": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir",
+    "tmpOutputDirectory": "gds://collab-illumina-dev/temp/2pctFusonMix/workdir/steps",
+    "logDirectory": "gds://collab-illumina-dev/temp/2pctFusonMix/workdir/logs",
+    "maxScatter": 8,
+    "outputSetting": "move",
+    "copyOutputInstanceType": "StandardHiCpu",
+    "copyOutputInstanceSize": "Medium",
+    "defaultInputMode": "'Download'",
+    "inputModeOverrides": {},
+    "tesUseInputManifest": "'auto'",
+    "cwltool": "3.0.20201203173111",
+    "engine": "1.20.0-202201191609-develop"
+}
+```  
+
+
+###### Run Outputs
+
+
+```
+{
+    "output_results_dir": {
+        "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results",
+        "basename": "Results",
+        "nameroot": "Results",
+        "nameext": "",
+        "class": "Directory",
+        "size": null
+    },
+    "output_results_dir_by_sample": [
+        {
+            "class": "Directory",
+            "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1",
+            "basename": "2pctFusonMix_DNA_rep1",
+            "listing": [
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.AlignCollapseFusionCaller_metrics.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1.AlignCollapseFusionCaller_metrics.json.gz",
+                    "size": 2255,
+                    "nameroot": "2pctFusonMix_DNA_rep1.AlignCollapseFusionCaller_metrics.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.TargetRegionCoverage.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1.TargetRegionCoverage.json.gz",
+                    "size": 212,
+                    "nameroot": "2pctFusonMix_DNA_rep1.TargetRegionCoverage.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.bam",
+                    "basename": "2pctFusonMix_DNA_rep1.bam",
+                    "size": 8385200,
+                    "nameroot": "2pctFusonMix_DNA_rep1",
+                    "nameext": ".bam"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.bam.bai",
+                    "basename": "2pctFusonMix_DNA_rep1.bam.bai",
+                    "size": 1711584,
+                    "nameroot": "2pctFusonMix_DNA_rep1.bam",
+                    "nameext": ".bai"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.bam.md5sum",
+                    "basename": "2pctFusonMix_DNA_rep1.bam.md5sum",
+                    "size": 32,
+                    "nameroot": "2pctFusonMix_DNA_rep1.bam",
+                    "nameext": ".md5sum"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.cleaned.stitched.bam",
+                    "basename": "2pctFusonMix_DNA_rep1.cleaned.stitched.bam",
+                    "size": 4276386,
+                    "nameroot": "2pctFusonMix_DNA_rep1.cleaned.stitched",
+                    "nameext": ".bam"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.cleaned.stitched.bam.bai",
+                    "basename": "2pctFusonMix_DNA_rep1.cleaned.stitched.bam.bai",
+                    "size": 1693064,
+                    "nameroot": "2pctFusonMix_DNA_rep1.cleaned.stitched.bam",
+                    "nameext": ".bai"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.fragment_length_hist.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1.fragment_length_hist.json.gz",
+                    "size": 1668,
+                    "nameroot": "2pctFusonMix_DNA_rep1.fragment_length_hist.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.msi.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1.msi.json.gz",
+                    "size": 573,
+                    "nameroot": "2pctFusonMix_DNA_rep1.msi.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1.tmb.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1.tmb.json.gz",
+                    "size": 444,
+                    "nameroot": "2pctFusonMix_DNA_rep1.tmb.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_CombinedVariantOutput.tsv",
+                    "basename": "2pctFusonMix_DNA_rep1_CombinedVariantOutput.tsv",
+                    "size": 20152,
+                    "nameroot": "2pctFusonMix_DNA_rep1_CombinedVariantOutput",
+                    "nameext": ".tsv"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_CopyNumberVariants.vcf.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_CopyNumberVariants.vcf.gz",
+                    "size": 2125,
+                    "nameroot": "2pctFusonMix_DNA_rep1_CopyNumberVariants.vcf",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_CopyNumberVariants.vcf.gz.tbi",
+                    "basename": "2pctFusonMix_DNA_rep1_CopyNumberVariants.vcf.gz.tbi",
+                    "size": 3236,
+                    "nameroot": "2pctFusonMix_DNA_rep1_CopyNumberVariants.vcf.gz",
+                    "nameext": ".tbi"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_Failed_Exon_coverage_QC.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_Failed_Exon_coverage_QC.json.gz",
+                    "size": 45663,
+                    "nameroot": "2pctFusonMix_DNA_rep1_Failed_Exon_coverage_QC.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_Failed_Exon_coverage_QC.txt",
+                    "basename": "2pctFusonMix_DNA_rep1_Failed_Exon_coverage_QC.txt",
+                    "size": 342647,
+                    "nameroot": "2pctFusonMix_DNA_rep1_Failed_Exon_coverage_QC",
+                    "nameext": ".txt"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_Fusions.csv",
+                    "basename": "2pctFusonMix_DNA_rep1_Fusions.csv",
+                    "size": 1113,
+                    "nameroot": "2pctFusonMix_DNA_rep1_Fusions",
+                    "nameext": ".csv"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_Fusions.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_Fusions.json.gz",
+                    "size": 63,
+                    "nameroot": "2pctFusonMix_DNA_rep1_Fusions.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_MergedSmallVariants.genome.vcf.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_MergedSmallVariants.genome.vcf.gz",
+                    "size": 8632522,
+                    "nameroot": "2pctFusonMix_DNA_rep1_MergedSmallVariants.genome.vcf",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_MergedSmallVariants.genome.vcf.gz.tbi",
+                    "basename": "2pctFusonMix_DNA_rep1_MergedSmallVariants.genome.vcf.gz.tbi",
+                    "size": 39303,
+                    "nameroot": "2pctFusonMix_DNA_rep1_MergedSmallVariants.genome.vcf.gz",
+                    "nameext": ".tbi"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_MergedSmallVariants.vcf.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_MergedSmallVariants.vcf.gz",
+                    "size": 32069,
+                    "nameroot": "2pctFusonMix_DNA_rep1_MergedSmallVariants.vcf",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_MergedSmallVariants.vcf.gz.tbi",
+                    "basename": "2pctFusonMix_DNA_rep1_MergedSmallVariants.vcf.gz.tbi",
+                    "size": 11691,
+                    "nameroot": "2pctFusonMix_DNA_rep1_MergedSmallVariants.vcf.gz",
+                    "nameext": ".tbi"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_MergedSmallVariantsAnnotated.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_MergedSmallVariantsAnnotated.json.gz",
+                    "size": 1587544,
+                    "nameroot": "2pctFusonMix_DNA_rep1_MergedSmallVariantsAnnotated.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_MergedSmallVariantsAnnotated.json.gz.jsi",
+                    "basename": "2pctFusonMix_DNA_rep1_MergedSmallVariantsAnnotated.json.gz.jsi",
+                    "size": 655,
+                    "nameroot": "2pctFusonMix_DNA_rep1_MergedSmallVariantsAnnotated.json.gz",
+                    "nameext": ".jsi"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_SampleAnalysisResults.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_SampleAnalysisResults.json.gz",
+                    "size": 21110,
+                    "nameroot": "2pctFusonMix_DNA_rep1_SampleAnalysisResults.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_TMB_Trace.json.gz",
+                    "basename": "2pctFusonMix_DNA_rep1_TMB_Trace.json.gz",
+                    "size": 8936,
+                    "nameroot": "2pctFusonMix_DNA_rep1_TMB_Trace.json",
+                    "nameext": ".gz"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_TMB_Trace.tsv",
+                    "basename": "2pctFusonMix_DNA_rep1_TMB_Trace.tsv",
+                    "size": 23799,
+                    "nameroot": "2pctFusonMix_DNA_rep1_TMB_Trace",
+                    "nameext": ".tsv"
+                },
+                {
+                    "class": "Directory",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc",
+                    "basename": "2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc",
+                    "listing": [
+                        {
+                            "class": "File",
+                            "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc.html",
+                            "basename": "2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc.html",
+                            "size": 1485399,
+                            "nameroot": "2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc",
+                            "nameext": ".html"
+                        },
+                        {
+                            "class": "Directory",
+                            "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data",
+                            "basename": "2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data",
+                            "listing": [
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/dragen_cov_metrics.txt",
+                                    "basename": "dragen_cov_metrics.txt",
+                                    "size": 1238,
+                                    "nameroot": "dragen_cov_metrics",
+                                    "nameext": ".txt"
+                                },
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/dragen_frag_len.txt",
+                                    "basename": "dragen_frag_len.txt",
+                                    "size": 29,
+                                    "nameroot": "dragen_frag_len",
+                                    "nameext": ".txt"
+                                },
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/dragen_map_metrics.txt",
+                                    "basename": "dragen_map_metrics.txt",
+                                    "size": 3047,
+                                    "nameroot": "dragen_map_metrics",
+                                    "nameext": ".txt"
+                                },
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/multiqc.log",
+                                    "basename": "multiqc.log",
+                                    "size": 22024,
+                                    "nameroot": "multiqc",
+                                    "nameext": ".log"
+                                },
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/multiqc_citations.txt",
+                                    "basename": "multiqc_citations.txt",
+                                    "size": 62,
+                                    "nameroot": "multiqc_citations",
+                                    "nameext": ".txt"
+                                },
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/multiqc_data.json",
+                                    "basename": "multiqc_data.json",
+                                    "size": 318164,
+                                    "nameroot": "multiqc_data",
+                                    "nameext": ".json"
+                                },
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/multiqc_general_stats.txt",
+                                    "basename": "multiqc_general_stats.txt",
+                                    "size": 2222,
+                                    "nameroot": "multiqc_general_stats",
+                                    "nameext": ".txt"
+                                },
+                                {
+                                    "class": "File",
+                                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/2pctFusonMix_DNA_rep1_ctDNA_alignment_collapse_fusion_caller_multiqc/2pctFusonMix_DNA_rep1__ctDNA_alignment_collapse_fusion_caller_multiqc_data/multiqc_sources.txt",
+                                    "basename": "multiqc_sources.txt",
+                                    "size": 1154,
+                                    "nameroot": "multiqc_sources",
+                                    "nameext": ".txt"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/evidence.2pctFusonMix_DNA_rep1.bam",
+                    "basename": "evidence.2pctFusonMix_DNA_rep1.bam",
+                    "size": 7882,
+                    "nameroot": "evidence.2pctFusonMix_DNA_rep1",
+                    "nameext": ".bam"
+                },
+                {
+                    "class": "File",
+                    "location": "gds://collab-illumina-dev/temp/2pctFusonMix/outputdir/Results/2pctFusonMix_DNA_rep1/evidence.2pctFusonMix_DNA_rep1.bam.bai",
+                    "basename": "evidence.2pctFusonMix_DNA_rep1.bam.bai",
+                    "size": 135472,
+                    "nameroot": "evidence.2pctFusonMix_DNA_rep1.bam",
+                    "nameext": ".bai"
+                }
+            ]
+        }
+    ],
+    "output_dir_gds_session_id": "ssn.7b4253b2bf2b457aba837933943d1893",
+    "output_dir_gds_folder_id": "fol.761be81eb085426a7b5d08da7ceac4fd"
+}
+```  
+
+
+###### Run Resources Usage
+  
+
+  
+[![tso500-ctdna-tiny-start-end-workflow-test__wfr.332cf48caff84cdba27eb6c11526432a.svg](../../../../images/runs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-tiny-start-end-workflow-test__wfr.332cf48caff84cdba27eb6c11526432a.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-tiny-start-end-workflow-test__wfr.332cf48caff84cdba27eb6c11526432a.svg)  
 
   
 
