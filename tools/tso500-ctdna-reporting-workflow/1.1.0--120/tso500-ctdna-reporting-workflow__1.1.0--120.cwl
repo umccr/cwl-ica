@@ -228,13 +228,13 @@ outputs:
     type: Directory
     outputBinding:
       glob: "$(get_results_dir())"
-  cleanup_dsdm:
-    label: cleanup dsdm
+  results_dsdm:
+    label: results dsdm
     doc: |
-      The cleanup task dsdm json file
+      The final results dsdm json file
     type: File
     outputBinding:
-      glob: "$(get_dsdm_json_path())"
+      glob: "$(get_results_dir())/dsdm.json"
   # Intermediate outputs dir
   cleanup_dir:
     label: cleanup_dir

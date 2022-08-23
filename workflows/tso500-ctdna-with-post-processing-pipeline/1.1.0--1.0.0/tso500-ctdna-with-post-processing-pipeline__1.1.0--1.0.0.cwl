@@ -97,6 +97,13 @@ inputs:
     doc: |
       File containing the dragen license
     type: File?
+  # Workarounds
+  coerce_valid_index:
+    label: coerce valid index
+    doc: |
+      Coerce the valid index
+    type: boolean?
+    default: false
 
 
 steps:
@@ -155,6 +162,8 @@ steps:
         source: resources_dir
       dragen_license_key:
         source: dragen_license_key
+      coerce_valid_index:
+        source: coerce_valid_index
     out:
       - results
       - outputs_by_sample

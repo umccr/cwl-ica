@@ -37,7 +37,7 @@ workflows:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
-        md5sum: c4829cfb415e023febda1b66a4c66ef0
+        md5sum: 38a635e2b4fb531964bc0cbe92a19b5a
     categories:
       - tso500
   - name: bcl-conversion
@@ -100,7 +100,7 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
-        md5sum: 132cba4d9d45fab4344ca0bc56c11456
+        md5sum: 622836686fa47fc8d090d96019cbdcbd
     categories:
       - tso500
   - name: umccrise-pipeline
@@ -118,7 +118,7 @@ workflows:
     versions:
       - name: 1.1.0--1.0.0
         path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
-        md5sum: acf845c12be68021133f05444afbe80a
+        md5sum: 5029e7b24311a737ab92980f9aea6ddf
     categories:
       - tso500
   - name: umccrise-pipeline

@@ -17,7 +17,7 @@ tso500-ctdna-reporting-workflow 1.1.0--120 tool
 
   
 > ID: tso500-ctdna-reporting-workflow--1.1.0.120  
-> md5sum: 7b95e332db0ec50932f7c02a2f129def
+> md5sum: 06711d6718632e9aa065e90850b138fd
 
 ### tso500-ctdna-reporting-workflow v(1.1.0.120) documentation
   
@@ -153,21 +153,6 @@ Intermediate output dir for cleanup_dir
   
 
 
-### cleanup dsdm
-
-
-
-  
-> ID: tso500-ctdna-reporting-workflow--1.1.0.120/cleanup_dsdm  
-
-  
-**Optional:** `False`  
-**Output Type:** `File`  
-**Docs:**  
-The cleanup task dsdm json file
-  
-
-
 ### combined_variant_output_dir
 
 
@@ -225,6 +210,21 @@ The output files of the reporting workflow
 **Output Type:** `Directory`  
 **Docs:**  
 The results directory containing all of the collated items of the TSO500 ctDNA workflow
+  
+
+
+### results dsdm
+
+
+
+  
+> ID: tso500-ctdna-reporting-workflow--1.1.0.120/results_dsdm  
+
+  
+**Optional:** `False`  
+**Output Type:** `File`  
+**Docs:**  
+The final results dsdm json file
   
 
 

@@ -19,7 +19,7 @@ tso500-ctdna 1.1.0--120 workflow
 
   
 > ID: tso500-ctdna--1.1.0--120  
-> md5sum: c4829cfb415e023febda1b66a4c66ef0
+> md5sum: 38a635e2b4fb531964bc0cbe92a19b5a
 
 ### tso500-ctdna v(1.1.0--120) documentation
   
@@ -52,10 +52,12 @@ This workflow completes the following steps:
 ### Uses
   
 - [custom-create-tso500-samplesheet 1.0.0](../../../tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.md)  
+- [assert-true 1.0.0 :construction:](../../../expressions/assert-true/1.0.0/assert-true__1.0.0.md)  
 - [get-tso500-outputs-per-sample 1.0.0 :construction:](../../../expressions/get-tso500-outputs-per-sample/1.0.0/get-tso500-outputs-per-sample__1.0.0.md)  
 - [tso500-ctdna-analysis-workflow 1.1.0--120](../../../tools/tso500-ctdna-analysis-workflow/1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.md)  
 - [tso500-ctdna-demultiplex-workflow 1.1.0--120](../../../tools/tso500-ctdna-demultiplex-workflow/1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.md)  
 - [tso500-ctdna-reporting-workflow 1.1.0--120](../../../tools/tso500-ctdna-reporting-workflow/1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.md)  
+- [validate-dsdm-json 1.0.0 :construction:](../../../expressions/validate-dsdm-json/1.0.0/validate-dsdm-json__1.0.0.md)  
 
 
 ### Used By
@@ -66,6 +68,19 @@ This workflow completes the following steps:
 
 
 ## tso500-ctdna v(1.1.0--120) Inputs
+
+### coerce valid index
+
+
+
+  
+> ID: coerce_valid_index
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Coerce a valid index for ctTSO sample
+
 
 ### dragen license key
 
@@ -208,6 +223,23 @@ so that it matches the Sample_ID. This tool expects a v1 samplesheet as input
 [CWL File Help Page](../../../tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.md)  
 
 
+### assert all samples passing
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/assert_all_samples_passing
+  
+**Step Type:** expression  
+**Docs:**
+  
+Ensure array of booleans are all passing.
+
+#### Links
+  
+[CWL File Path](../../../../../../expressions/assert-true/1.0.0/assert-true__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/assert-true/1.0.0/assert-true__1.0.0.md)  
+
+
 ### get cttso outputs by sample
 
 
@@ -279,6 +311,23 @@ Run the tso500 ctdna repair workflow step
   
 [CWL File Path](../../../../../../tools/tso500-ctdna-reporting-workflow/1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl)  
 [CWL File Help Page](../../../tools/tso500-ctdna-reporting-workflow/1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.md)  
+
+
+### validate dsdm jsons
+
+
+  
+> ID: tso500-ctdna--1.1.0--120/validate_dsdm_json
+  
+**Step Type:** expression  
+**Docs:**
+  
+Return false if any sample has failed
+
+#### Links
+  
+[CWL File Path](../../../../../../expressions/validate-dsdm-json/1.0.0/validate-dsdm-json__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/validate-dsdm-json/1.0.0/validate-dsdm-json__1.0.0.md)  
 
 
 ## tso500-ctdna v(1.1.0--120) Outputs
@@ -716,7 +765,7 @@ Intermediate output for variant_matching_analysis step of the analysis workflow
 
   
 **workflow name:** tso500-ctdna_prod-wf  
-**wfl version name:** 1.1.0--120--b8f38b3  
+**wfl version name:** 1.1.0--120--d7621f6  
 
 
 ### Project: collab-illumina-dev_workflows

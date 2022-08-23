@@ -78,6 +78,12 @@ inputs:
       please set this to "BCLConvert"
     type: string?
     default: "TSO500L"
+  coerce_valid_index:
+    label: coerce valid index
+    doc: |
+      Coerce a valid index for ctTSO sample
+    type: boolean?
+    default: false
   # Run Info file
   run_info_xml:
     # Bound in listing expression
@@ -122,6 +128,8 @@ steps:
         source: samplesheet_prefix
       tso500_samples:
         source: tso500_samples
+      coerce_valid_index:
+        source: coerce_valid_index
     out:
       - id: tso500_samplesheet
     run: ../../../tools/custom-create-tso500-samplesheet/1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
@@ -217,7 +225,7 @@ steps:
     out:
       - id: output_dir
       - id: results_dir
-      - id: cleanup_dsdm
+      - id: results_dsdm
       # Intermediate outputs
       - id: cleanup_dir
       - id: combined_variant_output_dir
@@ -241,6 +249,27 @@ steps:
     out:
       - id: outputs_by_sample
     run: ../../../expressions/get-tso500-outputs-per-sample/1.0.0/get-tso500-outputs-per-sample__1.0.0.cwl
+  validate_dsdm_json:
+    label: validate dsdm jsons
+    doc: |
+      Return false if any sample has failed
+    in:
+      dsdm_json:
+        source: run_tso500_ctdna_reporting_workflow_step/results_dsdm
+    out:
+      - id: passing
+    run: ../../../expressions/validate-dsdm-json/1.0.0/validate-dsdm-json__1.0.0.cwl
+  assert_all_samples_passing:
+    label: assert all samples passing
+    doc: |
+      Ensure array of booleans are all passing.
+    in:
+      boolean_val:
+        source: validate_dsdm_json/passing
+    out:
+      - id: assertion
+    run: ../../../expressions/assert-true/1.0.0/assert-true__1.0.0.cwl
+
 
 outputs:
   # Top output directories

@@ -1823,3 +1823,277 @@ runs:
         task_stop_time: 1654659643
         task_duration: 840
         task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDM1MTO1sLS00FFQSi4oBQoZ6IHYuam5+UWVYK5hrY4CNl2WBqZGuHUZ4dJlaGhCji5zMzJ0GRmbIumyJFKXsQE5/jI2xeuvWACkyWbP
+  - ica_workflow_run_instance_id: wfr.332cf48caff84cdba27eb6c11526432a
+    ica_project_launch_context_id: 30f09dfb-10e3-43b4-9056-07c8623b96a3
+    ica_workflow_id: wfl.8660595a483040cea0bb175989dd97b1
+    ica_workflow_name: tso500-ctdna-with-post-processing-pipeline_clb-ilmn-dev_wf
+    ica_workflow_version_name: 1.1.0--1.0.0
+    ica_workflow_run_name: tso500-ctdna-tiny-start-end-workflow-test
+    ica_input: eJzNlt9P2zAQx/8V5OfFzo/uhbeuiGpSQYiyp2myXOdaPBw72E5pV/G/75yUqGNoqkQn8pI4ucvne3dfK8mOlE6swHCtJBgP/AG25PxsR6QW3uOKXCoN5NMZ0VaKoKyJ91alP2dMWq3FIlFaN5UyIilhzTpasqcxGYK37IXdVFI6GjaBPCNwKXx4RF0fuLNPUev7jmhhAFcZxh2IkmfvKaZTb3U8C+BDUoogulXt7E+QgeW1DJeNt+ZKbfjF9Zg7qDM+z/ksTTN+m3E80RZBV7/autu68g+uK3+jrpUqo+7hkzSjk7vpeDyd3NEpHuIFaXP1IuZ+Mw/GPpmZWjjhtl3EV68pEd9bkw/Cmnyg1uTHW5Of3JpiENYUA7WmON6a4uTWjAZhzWig1oyOt2Z0Gmt+tH172zgJnpfK/dn+hXJYs+0Ix83AwRIcGAld7/vPKs6Fy1AawVxjkwzfxyktWNdeY7gyS8s3lX7/8JF2OPrbxnxFNo3sF7FaOFFBAOf/l+RNr9ALe1HVGvw9QDi54rxlzyObSr9+rcdr9ATNRvCXyWxizRpciJKI+pymfJ/a/XjUQjn+934jPfKNYL+ND7IMDuAfkLCt2zA+iZvw+Td9US2z
+    ica_output: eJztW1tv2zYU/iuFn1vZust9y9LlLR3WBnsZBoGiaIcDJXkibSQN+t9HOqJmUxcfJelKA0YQ2JJ4PpHf+Q4Pb36aVVux2Yq0JnzLBE9zWs8+vnuasQojQatSXszWOf84n+OKMZR9oIxtC1qiDznZzQUpNnNvg8XNllflLX2YP8NJlPmXZ8TZ+3ezDHFSooIosIPb6lZdVaLnNnnY31WXmCHO1cUnWhMsqvpR3eX0m4Irt4x9l5fdVqTZY8pRsWGq2J9PAzBv1syjx+mnz1eyLhvXbPxgIUa5oOXaqOoNlbX/8bXsv+tcMbour9WLNpzIx7IC14gxUqcFETXF3Plbmjjrb6BWToNr3Ot5YWgI5TXghrrUu6R4rCH8DtVrIr6Qtap9tSM1WpNpHJ9C0LS6HojVQTjLicxQAeOrKdjQkvhJ6C0WEGpMAhSQZQzIfwpmQRdumHBj1w2TACSShsNjNqh1bBR5yLdwWRyUbzjxYTHTQ0cDZRMjmBFUktyRWUfge/kFHDJDlg1LgRdHfhKBqDKhbA+qvqbDo2zMWoddtPQXESzshvxgcxyuZAIpSClSRsq1uE/v5ahnWoI7hdASGSUgFgfxLM9wBafTiDMMGp7C2AfRpK0tZ0UU2TRWDAPdhwWwENTWdrOSXldFRmVX8QeqKSrFb3swR/AdiKNxcz2gXLghKD32o5kEKnC7GNw8ft4WGambanNnh1dQlY2b/zckB810BsCsl+AAA47IYOnzNEQ7TPNBo49xrxypMbMqi6Y3SL4+T399qMoUN7Oy9PfrST0fBET3hmEUgbLEKKblAh2qungQr+OzAdDiDLwoiF9DZkec8tMqIvdrL9zB0PRiGOgBnOsCNfdsbtKCLcsgupXTYrRr1NADDcgDAMsD8JbUa5J/LRBjbXe8JmVVkEmpFgSjl3si3ws92LBlHPfcuYVnYTCU7vDkhBamVZDnbE7LfQ14rXQ7mvW9RbR8MZ/nKdW30GivOF03WrqvIfM8VXlVlpVAguTTshEUSZMbJnEIm0ifhj4/1XaokZ8v1+8gmh4PwLbJwD485Fq9ySayv+43da9KxB455Q3CNCmfhGgn5a4L2g4aQbRcune3v6R3NcLTNhr7zfS4agmcgR+DnA1R4JWzjomWlR8vYUm8RTi9QvZ/HmsYoAgL9RWprfj9mjpu9uPT1X4ekuJmR14C038wjMPpmBYepZjYigGQiSjOvSgYjOSXIutUHyShD1T0Cxx6qPv9m89c+G/j3jRHAv0Q97bIl0g6IGSeqxW4/Vpce6aoZ3VwuJQOFs83tya7Nrav8v10L6h9W7VnO+ICs4hOvmY/ZRS/UH+C+gJtAAHQU0ovYSw6K+Bdm4sXhrygczCr1ib1xqP2DOXCM6fhA9lVGV5YPmA5xVTs290r9cFCelZuri13DC4yP+UAddFOD/vIPyqguxg3cTvHqMzRzfEah7S/EH9IvOyQSY1YyqVUR9XfW7Dtezr7K71mlzg45Q5ebWtMRh1hFGkXucOhSGgMesn/S/79FAeQHc1JiYnT+7jvnCrMoqEjThJTkeP29hxKPd3OvsOocCstGD8M4mkcDZ49lSp63/44R/0oR/KScsL3cqe5Ksh56cRZ4IV+5mUrLwvCGGUo8eOl7y8DP3eTpT/rgqwqlstYecaQF04cuRlJXJItkjDwIhRnYb5IchRjgnCwymff/wXu1I/D
+    ica_engine_parameters: eJylkLFOwzAQhl+lytKFNnEiAe1KhWCoOgQewNjX6ITjs+xz01L13bGTwsRER/v//s++OxcD+c8NelBM/lSsZ0Wnw7osFRkjPxZoTOzRyoWGQ8nQu7J2ip9jILvFY5nLGn1xNysosov8b9NUv7q4d7vbdNePlYHBhaw01N0sS47R1ctjqyQz+GR6/J29BWa0Xbb3dIBMKnKnaZJXG1haBW8nB5lo00lLr1/wycW/0Ra/RnQLGmOfGQ17GU0CErUlPabzDQ3WkNTzTOBPtDuA96ghJOZ8yTuF8B5gqkqLewg81mVkGqtqMExk8mWzrJZ1VVeirhrx0AghMgC2Qzu+KVK6rBYJSYxYiftqlVcHhlxx+Qb6qsr0
+    workflow_start_time: 1660788737
+    workflow_end_time: 1660803220
+    workflow_duration: 14483
+    ica_tasks:
+      - ica_task_run_instance_id: trn.b8e89f2c2da94b4cae82380c155bab2d
+        task_step_name: run_tso_ctdna_workflow_step/add_sample_type_and_pair_id_to_samplesheet_step
+        task_name: custom-create-tso500-samplesheet__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1660789374
+        task_stop_time: 1660789663
+        task_duration: 289
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.d021a900751e4ff59986489f1249817d
+        task_step_name: run_tso_ctdna_workflow_step/run_tso500_ctdna_demultiplex_workflow_step
+        task_name: tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
+        task_cpus: 7.5
+        task_memory: 118
+        task_start_time: 1660789900
+        task_stop_time: 1660790885
+        task_duration: 984
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMzMLc0MDc30FFQSi4oBQoZ6VkC2bmpuflFlUCugZ5FbSwAr9APEg==
+      - ica_task_run_instance_id: trn.521adfded86443de9c28a7816218eabf
+        task_step_name: run_tso_ctdna_workflow_step/run_tso500_ctdna_analysis_workflow_step
+        task_name: tso500-ctdna-analysis-workflow__1.1.0--120.cwl
+        task_cpus: 15.5
+        task_memory: 240
+        task_start_time: 1660791186
+        task_stop_time: 1660794709
+        task_duration: 3523
+        task_metrics: eJyd1MFKA0EMxvFXKT2XIZkkkx1fRTyI9OBhsWg9iPjuFg91Fv0P4m134Uey3yRz+74/P67Hl/P9etrf7LQ1yV6l62G3fzi9Xj5JWS7P63F9en77etWPw+5Xpd4HJaPSIqSqxlVplBiZZTF0ad+u5MiclVm7qrrtMUuQcpGryq3yiQodOtwo4xRDjZQXR5VtyH4TYi1JqtkypGGjalyr9aAOGyef4YPSUUVZSC0qVCtKR5WY4UT1IY0f/4Xz2/tE0SmbRNKuTJRq+0ctTTyvxOStOk5vYoZmgskvuClmgSpxes2lcy1MwxPVJI2wSYesOp7XghNlLRrNRrLK8R7d7tdM5biV9ke12CRDVh07nMxGj0q1VEoF5qKOrGKPLsnMuJoaHrTyre3KN6nyQnudRMLT6KZcrXMkxpdpldKIuQlN8aUas16n7O4T8fJaXA==
+      - ica_task_run_instance_id: trn.bd4046319c9d4088b334bca062686a7a
+        task_step_name: run_tso_ctdna_workflow_step/run_tso500_ctdna_reporting_workflow_step
+        task_name: tso500-ctdna-reporting-workflow__1.1.0--120.cwl
+        task_cpus: 7.5
+        task_memory: 118
+        task_start_time: 1660794973
+        task_stop_time: 1660796030
+        task_duration: 1057
+        task_metrics: eJyLrlYqycxNLS5JzC1QslIwNDMzMLc0tTS20FFQSi4oBQoZ6BkD2bmpuflFlWCuZW0sALCYDxY=
+      - ica_task_run_instance_id: trn.80a146efc8f143778315feaec9ff4190
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/create_dummy_file_step
+        task_name: custom-touch-file__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1660797019
+        task_stop_time: 1660797632
+        task_duration: 612
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.762d4998b6aa4e93ae4b4e3443fb37df
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/mosdepth_step
+        task_name: mosdepth__0.3.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797311
+        task_stop_time: 1660797792
+        task_duration: 481
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.2bb6217f7ce542c09ae0a08a691c39cc
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/dragen_metrics_to_json_step
+        task_name: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.cwl
+        task_cpus: 0.8
+        task_memory: 3
+        task_start_time: 1660797397
+        task_stop_time: 1660797652
+        task_duration: 255
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.168d8d347ca04c29afd9855a37c4f2d0
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/compress_vcf_files_step
+        task_name: bgzip__1.12.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797339
+        task_stop_time: 1660797913
+        task_duration: 573
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.3eefc76604fb4ac087924b4e3aa57ead
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/compress_vcf_files_step
+        task_name: bgzip__1.12.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797346
+        task_stop_time: 1660797954
+        task_duration: 607
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.af8a52b623bc423db80309b119142c77
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/compress_vcf_files_step
+        task_name: bgzip__1.12.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797344
+        task_stop_time: 1660797913
+        task_duration: 568
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.9f8fbdfba67d4ac98732fcdfd1558412
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/compress_reporting_jsons_with_gzip_step
+        task_name: custom-gzip-file__1.0.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797431
+        task_stop_time: 1660797994
+        task_duration: 562
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.3d2e251c1b5f4319b7ed8eaf28797ccd
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/compress_reporting_jsons_with_gzip_step
+        task_name: custom-gzip-file__1.0.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797437
+        task_stop_time: 1660798034
+        task_duration: 597
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.5fb4acc486dc492e862188871ea34e4d
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/compress_reporting_jsons_with_gzip_step
+        task_name: custom-gzip-file__1.0.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797437
+        task_stop_time: 1660797914
+        task_duration: 476
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.f081e291d1714baabb61933e08db1f3a
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/run_dragen_multiqc_on_align_collapse_fusion_caller_dir_step
+        task_name: multiqc__1.12.0.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660797846
+        task_stop_time: 1660798094
+        task_duration: 248
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.7a54c0350d6348d1b6a70b1eeb72adf7
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/make_exon_coverage_qc_step
+        task_name: custom-tso500-make-exon-coverage-qc__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798020
+        task_stop_time: 1660798255
+        task_duration: 235
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.30a2fccbe1544f039fccf3ea788a2e1e
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/make_per_coverage_threshold_qc_step
+        task_name: custom-tso500-make-region-coverage-qc__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798024
+        task_stop_time: 1660798235
+        task_duration: 211
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.9cb10823d4aa44048207ac63213d0233
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/index_vcf_files_step
+        task_name: tabix__0.2.6.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798308
+        task_stop_time: 1660798516
+        task_duration: 208
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.8aefe5525b0b4d56b326092da3e1a8fa
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/index_vcf_files_step
+        task_name: tabix__0.2.6.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798314
+        task_stop_time: 1660798516
+        task_duration: 202
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.5bd2f982d90942218b00e34a04d03ddd
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/index_vcf_files_step
+        task_name: tabix__0.2.6.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798316
+        task_stop_time: 1660798516
+        task_duration: 200
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.900114d747a44b5bb14cb8616d3fa6a1
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/gather_compressed_reporting_json_files_into_tar_step
+        task_name: custom-tar-file-list__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798418
+        task_stop_time: 1660798616
+        task_duration: 198
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.b7b85ee227df4bfe81ddc1a7571df05e
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/convert_metric_csvs_into_json_gzip_step
+        task_name: custom-tsv-to-json__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798578
+        task_stop_time: 1660798777
+        task_duration: 198
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.5f69a181521240f48ccc064d6ed10eff
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/convert_metric_csvs_into_json_gzip_step
+        task_name: custom-tsv-to-json__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798581
+        task_stop_time: 1660798777
+        task_duration: 195
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.85800693dab74998bb2f860411e2bbf7
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/convert_metric_csvs_into_json_gzip_step
+        task_name: custom-tsv-to-json__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798579
+        task_stop_time: 1660798917
+        task_duration: 338
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.45d6507013ea40819a8eb270f58267ed
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/convert_metric_csvs_into_json_gzip_step
+        task_name: custom-tsv-to-json__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798586
+        task_stop_time: 1660798797
+        task_duration: 211
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.6b91ff345ffb4db28dd4381ee7beb7fe
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/convert_metric_csvs_into_json_gzip_step
+        task_name: custom-tsv-to-json__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798584
+        task_stop_time: 1660798797
+        task_duration: 212
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.ec7ce663b8b7462bbf2b0d3330766c46
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/gather_compressed_vcf_files_into_tar_step
+        task_name: custom-tar-vcf-file-list__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660798832
+        task_stop_time: 1660799038
+        task_duration: 206
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.0dc334efdb7541fbb9c7fe82d59de60e
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/gather_compressed_metric_json_files_into_tar_step
+        task_name: custom-tar-file-list__1.0.0.cwl
+        task_cpus: 1.3
+        task_memory: 4.5
+        task_start_time: 1660799331
+        task_stop_time: 1660799539
+        task_duration: 207
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.f1066048ab8148f19563054d61c6084b
+        task_step_name: run_tso_ctdna_post_processing_workflow_step/create_output_directory
+        task_name: custom-create-directory__2.0.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660800002
+        task_stop_time: 1660800361
+        task_duration: 359
+        task_metrics: eJyLjgUAARUAuQ==
+      - ica_task_run_instance_id: trn.7e8163fa8fcd456598a597a0b6527eea
+        task_step_name: create_final_output_directory
+        task_name: custom-create-directory__2.0.1.cwl
+        task_cpus: 4
+        task_memory: 14
+        task_start_time: 1660801387
+        task_stop_time: 1660801603
+        task_duration: 216
+        task_metrics: eJyLjgUAARUAuQ==

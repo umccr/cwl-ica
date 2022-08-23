@@ -90,7 +90,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
-        md5sum: 29de97b423f0c16bc3b0200e4449a51f
+        md5sum: fa8eb95a6e5c2ec30dd0110e8f18110b
     categories:
       - tso500
   - name: tso500-ctdna-demultiplex-workflow
@@ -114,7 +114,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
-        md5sum: 7b95e332db0ec50932f7c02a2f129def
+        md5sum: 06711d6718632e9aa065e90850b138fd
     categories:
       - tso500
   - name: custom-samplesheet-split-by-settings

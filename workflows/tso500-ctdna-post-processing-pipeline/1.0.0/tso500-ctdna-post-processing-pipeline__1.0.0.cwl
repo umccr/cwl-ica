@@ -260,6 +260,49 @@ steps:
   # End of expression steps
   ##############################
 
+  ##############################
+  # Dragen multiqc steps
+  ##############################
+  # Create dummy file
+  create_dummy_file_step:
+    label: Create dummy file
+    doc: |
+      Intermediate step for letting multiqc-interop be placed in stream mode
+    in: { }
+    out:
+      - id: dummy_file_output
+    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+  run_dragen_multiqc_on_align_collapse_fusion_caller_dir_step:
+    label: run dragen multiqc on align collapse fusion caller dir step
+    doc: |
+      Run the dragen and dragen fastqc modules on the align collapse fusion caller directory
+    requirements:
+      DockerRequirement:
+        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-update-and-clean-names--a5e0179
+    in:
+      input_directories:
+        source: tso500_outputs_by_sample
+        valueFrom: |
+          ${
+             return [
+               self.align_collapse_fusion_caller_dir
+             ];
+          }
+      output_directory_name:
+        source: tso500_outputs_by_sample
+        valueFrom: "$(self.sample_id)_ctDNA_alignment_collapse_fusion_caller_multiqc"
+      output_filename:
+        source: tso500_outputs_by_sample
+        valueFrom: "$(self.sample_id)__ctDNA_alignment_collapse_fusion_caller_multiqc.html"
+      title:
+        source: tso500_outputs_by_sample
+        valueFrom: "UMCCR MultiQC ctDNA Alignment Collapse Fusion Caller for $(self.sample_id)"
+      dummy_file:
+        source: create_dummy_file_step/dummy_file_output
+    out:
+      - id: output_directory
+    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
+
   ################
   # Coverage steps
   ################
@@ -633,6 +676,8 @@ steps:
           ${
             return self.variant_caller_dir;
           }
+      multiqc_dir:
+        source: run_dragen_multiqc_on_align_collapse_fusion_caller_dir_step/output_directory
       coverage_qc_file:
         source: make_exon_coverage_qc_step/failed_coverage_txt
       dragen_metrics_compressed_json_file:

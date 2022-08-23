@@ -62,6 +62,7 @@ requirements:
 
           # Globals
           SAMPLESHEET_HEADER_REGEX = r"^\[(\S+)\](,+)?"  # https://regex101.com/r/5nbe9I/1
+          VALID_CTTSO_INDEX_PAIR = ["TCCGGAGA", "CCTATCCT"]
 
 
           def get_args():
@@ -80,6 +81,8 @@ requirements:
               parser.add_argument("--tso500-samples", action="append", nargs='*', required=True,
                                   default=[],
                                   help="tso500 sample objects")
+              parser.add_argument("--coerce-valid-index", action='store_true', default=False, required=False,
+                                  help="Overwrite index1 and index2 in samplesheet as valid ctTSO indexes")
 
               return parser.parse_args()
 
@@ -217,7 +220,7 @@ requirements:
               return samplesheet_obj
 
 
-          def truncate_sample_sheet_to_sample_ids(samplesheet_obj, samples, samplesheet_prefix):
+          def truncate_sample_sheet_to_sample_ids(samplesheet_obj, samples, samplesheet_prefix, coerce_valid_index=False):
               """
               Truncate the sample sheet to the sample names in --sample-names
               Parameters
@@ -232,6 +235,10 @@ requirements:
               sample_ids_array = [item.get('sample_id') for item in samples] # Used in the query statement below
 
               samplesheet_obj[f"{samplesheet_prefix}_Data"] = samplesheet_obj[f"{samplesheet_prefix}_Data"].query("Sample_ID in @sample_ids_array")
+
+              if coerce_valid_index and samplesheet_obj[f"{samplesheet_prefix}_Data"].shape[0] == 1:
+                samplesheet_obj[f"{samplesheet_prefix}_Data"]["index"] = VALID_CTTSO_INDEX_PAIR[0]
+                samplesheet_obj[f"{samplesheet_prefix}_Data"]["index2"] = VALID_CTTSO_INDEX_PAIR[1]
 
               # Check dataframe is not empty
               if samplesheet_obj[f"{samplesheet_prefix}_Data"].shape[0] == 0:
@@ -319,7 +326,8 @@ requirements:
               logging.info("Truncating samplesheet")
               samplesheet_obj = truncate_sample_sheet_to_sample_ids(samplesheet_obj=samplesheet_obj,
                                                                     samples=args.tso500_samples_list,
-                                                                    samplesheet_prefix=args.samplesheet_prefix)
+                                                                    samplesheet_prefix=args.samplesheet_prefix,
+                                                                    coerce_valid_index=args.coerce_valid_index)
 
               # Append Sample Type and Pair ID
               logging.info("Adding sample type and pair id columns to sample sheet")
@@ -356,6 +364,14 @@ inputs:
     default: "TSO500L"
     inputBinding:
       prefix: "--samplesheet-prefix"
+  coerce_valid_index:
+    label: coerce valid index
+    doc: |
+      Coerce a valid index for ctTSO sample
+    type: boolean?
+    default: false
+    inputBinding:
+      prefix: "--coerce-valid-index"
   tso500_samples:
     label: tso500 samples
     doc: |
