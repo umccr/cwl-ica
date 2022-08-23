@@ -107,6 +107,12 @@ inputs:
       We collect the following outputs from this directory -
       * The clean-stitched bam file
     type: Directory
+  multiqc_dir:
+    label: multiqc dir
+    doc: |
+      The multiqc output directory
+      We copy the entire directory into this directory as a subdirectory
+    type: Directory
   # Type 2 inputs
   coverage_qc_file:
     label: coverage qc file
@@ -159,6 +165,10 @@ expression: >-
   ${
     return {
             "tso500_output_dir_entry_list": [
+              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.multiqc_dir, 
+                                                                           null, 
+                                                                           inputs.multiqc_dir.basename, 
+                                                                           "sub_dir"),
               get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.align_collapse_fusion_caller_dir,
                                                                            [
                                                                              inputs.sample_id + ".bam",

@@ -16,7 +16,7 @@ get-custom-output-dir-entry-for-tso500-post-processing 2.0.1 expression
 
   
 > ID: get-custom-output-dir-entry-for-tso500-post-processing--2.0.1  
-> md5sum: f206bc87217a09ebaf647d955af484bf
+> md5sum: dc724d8a81377914442015e23d3da627
 
 ### get-custom-output-dir-entry-for-tso500-post-processing v(2.0.1) documentation
   
@@ -157,6 +157,20 @@ The fusion csv file
 The merged annotation dir
 From this directory we collect the following outputs:
 * The MergedSmallVariantsAnnotated compressed json file
+
+
+### multiqc dir
+
+
+
+  
+> ID: multiqc_dir
+  
+**Optional:** `False`  
+**Type:** `Directory`  
+**Docs:**  
+The multiqc output directory
+We copy the entire directory into this directory as a subdirectory
 
 
 ### sample id

@@ -124,7 +124,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-06-25T02:25:05UTC
+            modification_time: 2022-08-22T02:43:24UTC
             run_instances: []
       - name: tso500-ctdna-demultiplex-workflow
         path: tso500-ctdna-demultiplex-workflow
@@ -154,7 +154,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2022-02-14T01:41:53UTC
+            modification_time: 2022-08-22T02:43:27UTC
             run_instances: []
       - name: multiqc
         path: multiqc
@@ -513,7 +513,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2022-02-14T01:48:14UTC
+            modification_time: 2022-08-22T02:52:18UTC
             run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline
@@ -611,7 +611,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-08-09T05:18:25UTC
+            modification_time: 2022-08-16T21:52:01UTC
             run_instances: []
       - name: umccrise-pipeline
         path: umccrise-pipeline
@@ -637,7 +637,7 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2021-11-25T07:32:13UTC
+            modification_time: 2022-08-18T02:11:50UTC
             run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
@@ -799,6 +799,11 @@ projects:
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120--b8f38b3
             modification_time: 2022-02-14T01:48:31UTC
+            run_instances: []
+          - name: 1.1.0--120
+            path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
+            ica_workflow_version_name: 1.1.0--120--d7621f6
+            modification_time: 2022-08-22T02:52:46UTC
             run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline
@@ -1110,6 +1115,11 @@ projects:
             ica_workflow_version_name: 1.1.0--1.0.0--b8f38b3
             modification_time: 2022-02-14T01:48:43UTC
             run_instances: []
+          - name: 1.1.0--1.0.0
+            path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
+            ica_workflow_version_name: 1.1.0--1.0.0--d7621f6
+            modification_time: 2022-08-22T02:52:59UTC
+            run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
         ica_workflow_name: umccrise-with-dragen-germline-pipeline_prod-wf
@@ -1225,7 +1235,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-06-29T04:56:05UTC
+            modification_time: 2022-08-22T02:44:02UTC
             run_instances: []
       - name: tso500-ctdna-demultiplex-workflow
         path: tso500-ctdna-demultiplex-workflow
@@ -1255,7 +1265,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2022-02-14T01:42:14UTC
+            modification_time: 2022-08-22T02:44:05UTC
             run_instances: []
       - name: custom-create-directory
         path: custom-create-directory
@@ -1276,7 +1286,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2022-02-14T01:48:47UTC
+            modification_time: 2022-08-22T02:53:10UTC
             run_instances: []
       - name: tso500-ctdna-post-processing-pipeline
         path: tso500-ctdna-post-processing-pipeline
@@ -1286,7 +1296,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2021-08-10T06:43:29UTC
+            modification_time: 2022-08-16T21:52:04UTC
             run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
@@ -1296,7 +1306,8 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2022-02-14T01:48:54UTC
+            modification_time: 2022-08-18T02:11:53UTC
             run_instances:
               - wfr.d92a2d28bbfe46fe878f6513fdb06723
               - wfr.c419c549d0c349538ba811f65c8ed684
+              - wfr.332cf48caff84cdba27eb6c11526432a

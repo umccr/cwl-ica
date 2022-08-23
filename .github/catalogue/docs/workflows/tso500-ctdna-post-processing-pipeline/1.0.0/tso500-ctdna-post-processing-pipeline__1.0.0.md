@@ -19,7 +19,7 @@ tso500-ctdna-post-processing-pipeline 1.0.0 workflow
 
   
 > ID: tso500-ctdna-post-processing-pipeline--1.0.0  
-> md5sum: 132cba4d9d45fab4344ca0bc56c11456
+> md5sum: 622836686fa47fc8d090d96019cbdcbd
 
 ### tso500-ctdna-post-processing-pipeline v(1.0.0) documentation
   
@@ -57,6 +57,7 @@ The workflow has 6 main steps
 - [bgzip 1.12.0](../../../tools/bgzip/1.12.0/bgzip__1.12.0.md)  
 - [custom-tsv-to-json 1.0.0](../../../tools/custom-tsv-to-json/1.0.0/custom-tsv-to-json__1.0.0.md)  
 - [get-custom-output-dir-entry-for-tso500-post-processing 2.0.1](../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.md)  
+- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 - [custom-create-directory 2.0.1](../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
 - [custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json 1.0.0](../../../tools/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json/1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.md)  
 - [custom-tar-file-list 1.0.0](../../../tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.md)  
@@ -77,6 +78,7 @@ The workflow has 6 main steps
 - [custom-tso500-make-exon-coverage-qc 1.0.0](../../../tools/custom-tso500-make-exon-coverage-qc/1.0.0/custom-tso500-make-exon-coverage-qc__1.0.0.md)  
 - [custom-tso500-make-region-coverage-qc 1.0.0](../../../tools/custom-tso500-make-region-coverage-qc/1.0.0/custom-tso500-make-region-coverage-qc__1.0.0.md)  
 - [mosdepth 0.3.1](../../../tools/mosdepth/0.3.1/mosdepth__0.3.1.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### Used By
@@ -185,6 +187,23 @@ Create the array of inputs to go into custom create directory.
   
 [CWL File Path](../../../../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.cwl)  
 [CWL File Help Page](../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.md)  
+
+
+### Create dummy file
+
+
+  
+> ID: tso500-ctdna-post-processing-pipeline--1.0.0/create_dummy_file_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Intermediate step for letting multiqc-interop be placed in stream mode
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
 ### create output directory
@@ -534,6 +553,23 @@ Use the tso manifest input file and report the threshold of coverage over each r
   
 [CWL File Path](../../../../../../tools/mosdepth/0.3.1/mosdepth__0.3.1.cwl)  
 [CWL File Help Page](../../../tools/mosdepth/0.3.1/mosdepth__0.3.1.md)  
+
+
+### run dragen multiqc on align collapse fusion caller dir step
+
+
+  
+> ID: tso500-ctdna-post-processing-pipeline--1.0.0/run_dragen_multiqc_on_align_collapse_fusion_caller_dir_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Run the dragen and dragen fastqc modules on the align collapse fusion caller directory
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ## tso500-ctdna-post-processing-pipeline v(1.0.0) Outputs
