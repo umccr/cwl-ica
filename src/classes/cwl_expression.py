@@ -152,7 +152,6 @@ class CWLExpression(CWL):
                 schemas=["https://schema.org/version/latest/schemaorg-current-http.rdf"],
                 namespaces={
                     "s": "https://schema.org/",
-                    "ilmn-tes": "http://platform.illumina.com/rdf/ica/"
                 }
             )
         )
