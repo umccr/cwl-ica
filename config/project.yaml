@@ -717,6 +717,7 @@ projects:
     production: true
     linked_projects:
       - 20b42a71-1ebc-4e7b-b659-313f2f4524c3
+      - c9173925-a838-4394-9fc6-61cb93c252a1
     tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: dragen-build-reference-tarball
