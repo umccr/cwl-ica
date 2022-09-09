@@ -23,6 +23,10 @@ doc: |
 
 hints:
     ResourceRequirement:
+      ilmn-tes:resources:
+        tier: standard
+        type: standard
+        size: small
       coresMin: 2
       ramMin: 4000
     DockerRequirement:

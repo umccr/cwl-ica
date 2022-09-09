@@ -16,7 +16,7 @@ get-samplesheet-midfix-regex 1.0.0 expression
 
   
 > ID: get-samplesheet-midfix-regex--1.0.0  
-> md5sum: 93d9dba10e7674e53a886ef28818c133
+> md5sum: 30f225562fad3598ba87998156f81469
 
 ### get-samplesheet-midfix-regex v(1.0.0) documentation
   

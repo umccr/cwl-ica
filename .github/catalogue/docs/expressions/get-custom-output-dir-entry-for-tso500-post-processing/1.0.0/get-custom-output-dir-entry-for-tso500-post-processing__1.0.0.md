@@ -16,7 +16,7 @@ get-custom-output-dir-entry-for-tso500-post-processing 1.0.0 expression
 
   
 > ID: get-custom-output-dir-entry-for-tso500-post-processing--1.0.0  
-> md5sum: f5afc198579fa46d75969659d0680849
+> md5sum: 04e65d3150528001367f3639a2f43fc9
 
 ### get-custom-output-dir-entry-for-tso500-post-processing v(1.0.0) documentation
   
@@ -29,11 +29,6 @@ Create a custom-output-dir-entry 2.0.0 schema for the files and directories in t
 ## Related Links
   
 - [CWL File Path](../../../../../../expressions/get-custom-output-dir-entry-for-tso500-post-processing/1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl)  
-
-
-### Used By
-  
-- [tso500-ctdna-post-processing-pipeline 1.0.0](../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
 
   
 
