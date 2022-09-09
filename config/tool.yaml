@@ -136,7 +136,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/create-dummy-file__1.0.0.cwl
-        md5sum: e3489c0a1a03c088ce4b0865105b348d
+        md5sum: 3ec284b43a027d7fe2c22071e96e6c74
     categories: []
   - name: multiqc-interop
     path: multiqc-interop
