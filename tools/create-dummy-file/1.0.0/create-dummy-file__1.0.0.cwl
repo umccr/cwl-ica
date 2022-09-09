@@ -4,6 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
+    ilmn-tes: http://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -22,6 +23,10 @@ doc: |
 
 hints:
     ResourceRequirement:
+      ilmn-tes:resources:
+        tier: standard
+        type: standard
+        size: small
       coresMin: 2
       ramMin: 4000
     DockerRequirement:
