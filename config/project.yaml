@@ -585,7 +585,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-03-10T05:57:45UTC
+            modification_time: 2022-09-11T23:39:12UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
