@@ -16,7 +16,7 @@ get-bam-file-from-directory 1.0.0 expression
 
   
 > ID: get-bam-file-from-directory--1.0.0  
-> md5sum: 6b3d67af802121ad5d6e5964b97e255c
+> md5sum: 24a56cf9eb2b4f7dc906e55d2a8906e7
 
 ### get-bam-file-from-directory v(1.0.0) documentation
   
