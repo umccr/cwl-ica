@@ -1,6 +1,7 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.get_bam_file_from_directory = void 0;
+var cwl_ts_auto_1 = require("cwl-ts-auto");
 function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     if (recursive === void 0) { recursive = false; }
     /*
@@ -11,7 +12,7 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     /*
     Check input_dir is a directory and has a listing
     */
-    if (input_dir["class"] === undefined || input_dir["class"] !== "Directory") {
+    if (input_dir.class_ === undefined || input_dir.class_ !== cwl_ts_auto_1.Directory_class.DIRECTORY) {
         throw new Error("Could not confirm that the first argument was a directory");
     }
     if (input_dir.listing === undefined || input_dir.listing === null) {
@@ -32,14 +33,14 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     */
     for (var _i = 0, input_listing_1 = input_listing; _i < input_listing_1.length; _i++) {
         var listing_item = input_listing_1[_i];
-        if (listing_item["class"] == "File" && listing_item.basename == bam_nameroot + ".bam") {
+        if (listing_item.class_ == cwl_ts_auto_1.File_class.FILE && listing_item.basename == bam_nameroot + ".bam") {
             /*
             Got the bam file
             */
             output_bam_obj = listing_item;
             break;
         }
-        if (listing_item["class"] == "Directory" && recursive) {
+        if (listing_item.class_ == cwl_ts_auto_1.Directory_class.DIRECTORY && recursive) {
             try {
                 // Consider that the bam file might not be in this subdirectory and that is okay
                 output_bam_obj = get_bam_file_from_directory(listing_item, bam_nameroot, recursive);
@@ -57,7 +58,7 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     */
     for (var _a = 0, input_listing_2 = input_listing; _a < input_listing_2.length; _a++) {
         var listing_item = input_listing_2[_a];
-        if (listing_item["class"] == "File" && listing_item.basename == bam_nameroot + ".bam.bai") {
+        if (listing_item.class_ == cwl_ts_auto_1.File_class.FILE && listing_item.basename == bam_nameroot + ".bam.bai") {
             /*
             Got the bam index file
             */
