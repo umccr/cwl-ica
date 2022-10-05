@@ -728,6 +728,16 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2022-09-27T09:03:21UTC
             run_instances: []
+      - name: bclconvert-scatter
+        path: bclconvert-scatter
+        ica_workflow_name: bclconvert-scatter_dev-wf
+        ica_workflow_id: wfl.a700c620e75546098d2414d076a26c13
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bclconvert-scatter__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-09-27T09:39:19UTC
+            run_instances: []
       - name: validate-bclconvert-samplesheet
         path: validate-bclconvert-samplesheet
         ica_workflow_name: validate-bclconvert-samplesheet_dev-wf
