@@ -15,16 +15,11 @@ on:
       - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Also for changes in the catalogue script
       - ".github/create_catalogue.sh"
-      - "src/install.sh"
       # Config files (say a merge conflict is resolved)
       - "config/project.yaml"
       - "config.tool.yaml"
       - "config/workflow.yaml"
       - "config/run.yaml"
-      # Also for catalogue creation script changes
-      - "src/subcommands/github_actions/create_catalogue.py"
-      - "src/subcommands/github_actions/create_markdown_file.py"
-      - "src/subcommands/sync/sync_github_actions.py"
 
 jobs:
   sync_tools_and_workflows_and_create_catalogue:
@@ -92,7 +87,7 @@ jobs:
             --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
             --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
             --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
-            ghcr.io/umccr/cwl-ica:latest \
+            ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Create Catalogue
       - name: create catalogue
@@ -105,7 +100,7 @@ jobs:
             --env USER="$(id -nu)" \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
-            ghcr.io/umccr/cwl-ica:latest \
+            ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/create_catalogue.sh"
       # Commit config files
       - id: commit_catalogue_files
