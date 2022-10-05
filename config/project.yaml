@@ -718,6 +718,26 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-09-13T07:07:47UTC
             run_instances: []
+      - name: bclconvert
+        path: bclconvert
+        ica_workflow_name: bclconvert_dev-wf
+        ica_workflow_id: wfl.030c65841edd4b8093a5106e9a100a0d
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bclconvert__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-09-27T09:03:21UTC
+            run_instances: []
+      - name: validate-bclconvert-samplesheet
+        path: validate-bclconvert-samplesheet
+        ica_workflow_name: validate-bclconvert-samplesheet_dev-wf
+        ica_workflow_id: wfl.ddee25fd0eff4b0c9954ccfd2e6c8499
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-09-27T12:27:09UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
