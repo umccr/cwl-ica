@@ -314,6 +314,11 @@ projects:
             run_instances:
               - wfr.63351b7bd8f9431db0a58c27d5538f0e
               - wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
+          - name: 4.0.3
+            path: 4.0.3/dragen-somatic__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-10-04T04:27:30UTC
+            run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         ica_workflow_name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar_dev-wf
