@@ -1,0 +1,22 @@
+# Test started at 2022-10-04T22:33:51+11:00
+
+yarn exec v1.22.19
+warning package.json: No license field
+PASS tests/dragen-tools__4.0.3.test.js (24.441 s)
+PASS tests/dragen-tools__4.0.3.test.ts (30.995 s)
+
+=============================== Coverage summary ===============================
+Statements   : 79.54% ( 105/132 )
+Branches     : 73.21% ( 41/56 )
+Functions    : 57.89% ( 11/19 )
+Lines        : 77.5% ( 93/120 )
+================================================================================
+
+Test Suites: 2 passed, 2 total
+Tests:       26 passed, 26 total
+Snapshots:   0 total
+Time:        40.943 s
+Ran all test suites.
+Done in 56.80s.
+# Test completed at 2022-10-04T22:34:48+11:00
+
