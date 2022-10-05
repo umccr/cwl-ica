@@ -1,0 +1,42 @@
+# Test started at 2022-09-27T11:46:16+10:00
+
+yarn exec v1.22.19
+warning package.json: No license field
+PASS tests/samplesheet-builder__2.0.0--4.0.3.test.ts (21.405 s)
+  Test key name to camelcase function
+    ✓ Test key name to camelcase function 1 (7 ms)
+    ✓ Test key name to camelcase function 2 (1 ms)
+    ✓ Test key name to camelcase function 3 - with underscore separator (1 ms)
+    ✓ Test key name to camelcase function 4 (1 ms)
+  Test convert bool to string int
+    ✓ Test convert bool to string int 1 (1 ms)
+    ✓ Test convert bool to string int 2
+  Test creating samplesheet header with the create_non_data_section function
+    ✓ Test create samplesheet header (1 ms)
+    ✓ Test expected reads samplesheet output
+    ✓ Test expected bclconvert settings samplesheet output (1 ms)
+  Test building the bclconvert data section
+    ✓ Test build bclconvert data header
+    ✓ Test get bclconvert data row as a csv row 1
+    ✓ Test get bclconvert data row as a csv row 2
+    ✓ Test create samplesheet bclconvert data section
+  Test Create SampleSheet 1
+    ✓ Test Create SampleSheet 1 (1 ms)
+  Test Create SampleSheet 2
+    ✓ Test Create SampleSheet 2 (1 ms)
+
+
+=============================== Coverage summary ===============================
+Statements   : 94.44% ( 102/108 )
+Branches     : 82.14% ( 23/28 )
+Functions    : 100% ( 7/7 )
+Lines        : 93.47% ( 86/92 )
+================================================================================
+Test Suites: 1 passed, 1 total
+Tests:       15 passed, 15 total
+Snapshots:   0 total
+Time:        24.378 s
+Ran all test suites.
+Done in 39.19s.
+# Test completed at 2022-09-27T11:46:55+10:00
+
