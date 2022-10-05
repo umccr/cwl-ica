@@ -60,7 +60,7 @@ projects:
           - name: 0.8.0
             path: 0.8.0/sambamba-slice-and-index__0.8.0.cwl
             ica_workflow_version_name: 0.8.0
-            modification_time: 2022-09-13T07:08:23UTC
+            modification_time: 2022-09-14T21:59:48UTC
             run_instances: []
       - name: sambamba-view-and-index
         path: sambamba-view-and-index
