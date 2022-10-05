@@ -1,0 +1,48 @@
+type: record
+name: bclconvert-data-row
+
+fields:
+  lane:
+    label: lane
+    doc: |
+      When specified, FASTQ files are created only for the samples with the specified lane number. 
+      Only one valid integer is allowed, as defined by the RunInfo.xml.
+    type: int
+  sample_id:
+    label: sample_id
+    doc: |
+      The sample ID.
+    type: string
+  index:
+    label: index
+    doc: |
+      The Index 1 (i7) index adapter sequence.
+    type: string
+  index2:
+    label: index2
+    doc: |
+      The Index 2 (i5) Index adapter sequence.
+    type: string?
+  sample_project:
+    label: sample_project
+    doc: |
+      Can only contain alphanumeric characters, dashes, and underscores. 
+      Duplicate data strings with different cases (eg, sampleProject and SampleProject) are not allowed. 
+      If these data strings are used, analysis fails. 
+      This column is not used unless you are using the command line option --bcl-sampleproject-subdirectories. 
+      See [Command Line Options](https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/CommandLineOptions.htm) 
+      for more information on command line options.
+    type: string?
+  sample_name:
+    label: sample_name
+    doc: |
+      If present, and both --sample-name-column-enabled true and 
+      --bcl-sampleproject-subdirectories true command lines are used, 
+      then output FASTQ files to subdirectories based upon Sample_Project and Sample_ID, 
+      and name fastq files by Sample_Name
+    type: string?
+  override_cycles:
+    label: override cycles
+    doc: |
+      Per-sample override cycles settings
+    type: string?
