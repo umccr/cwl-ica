@@ -415,3 +415,10 @@ tools:
         path: 2.2.2/qualimap__2.2.2.cwl
         md5sum: 2a8f839df57505fb05cd6d2c2fa36318
     categories: []
+  - name: bcl-convert
+    path: bcl-convert
+    versions:
+      - name: 4.0.3
+        path: 4.0.3/bcl-convert__4.0.3.cwl
+        md5sum: 814099e06909ad332a8f21c352ddbfa9
+    categories: []
