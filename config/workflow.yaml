@@ -180,3 +180,10 @@ workflows:
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
         md5sum: e543123af17a066c7c5c6620918bee43
     categories: []
+  - name: dragen-somatic-with-germline-pipeline
+    path: dragen-somatic-with-germline-pipeline
+    versions:
+      - name: 4.0.3
+        path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
+        md5sum: c38cdbbca695b5e3db67850a140d4bec
+    categories: []

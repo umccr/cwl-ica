@@ -728,6 +728,16 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-09-13T07:07:47UTC
             run_instances: []
+      - name: dragen-somatic-with-germline-pipeline
+        path: dragen-somatic-with-germline-pipeline
+        ica_workflow_name: dragen-somatic-with-germline-pipeline_dev-wf
+        ica_workflow_id: wfl.a4056543ef9a474d8b16182a4e6b6c50
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-10-05T00:07:40UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
