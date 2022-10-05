@@ -718,6 +718,16 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-09-13T07:07:47UTC
             run_instances: []
+      - name: bclconvert-with-qc-pipeline
+        path: bclconvert-with-qc-pipeline
+        ica_workflow_name: bclconvert-with-qc-pipeline_dev-wf
+        ica_workflow_id: wfl.7944b3f69a264b298952de606beac5f5
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-10-05T04:37:57UTC
+            run_instances: []
       - name: bclconvert
         path: bclconvert
         ica_workflow_name: bclconvert_dev-wf
