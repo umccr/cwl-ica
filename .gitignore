@@ -137,19 +137,45 @@ scratches/
 # Mac things
 .DS_STORE
 
+# Yarn things
+.yarn/**
+
+
+# Swap the comments on the following lines if you don't wish to use zero-installs
+# Documentation here: https://yarnpkg.com/features/zero-installs
+.yarn/cache
+.yarnrc.yml
+.pnp*
+node_modules/
+package-lock.json  # We use the yarn.lock instead
+
 # Items in expressions / tools and workflows that don't end in .cwl
 expressions/*/*/*
 !expressions/*/*/*.cwl
+!expressions/*/*/typescript-expressions/
+expressions/*/*/typescript-expressions/.yarn/
+expressions/*/*/typescript-expressions/.yarnrc.yml
+expressions/*/*/typescript-expressions/.pnp*
 
 tools/*/*/*
 !tools/*/*/*.cwl
+!tools/*/*/typescript-expressions/
+tools/*/*/typescript-expressions/.yarn/
+tools/*/*/typescript-expressions/.yarnrc.yml
+tools/*/*/typescript-expressions/.pnp*
 
 workflows/*/*/*
 !workflows/*/*/*.cwl
+!workflows/*/*/typescript-expressions/
+workflows/*/*/typescript-expressions/.yarn/
+workflows/*/*/typescript-expressions/.yarnrc.yml
+workflows/*/*/typescript-expressions/.pnp*
 
 #### Items in schemas that don't end in .yaml
 schemas/*/*/*
 !schemas/*/*/*.yaml
+!schemas/*/*/*.ts
+
 
 #### Items in config that don't end in .yaml
 config/*/*/*
