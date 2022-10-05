@@ -1,0 +1,163 @@
+# Test started at 2022-09-27T16:19:34+10:00
+
+yarn exec v1.22.19
+warning package.json: No license field
+FAIL tests/get-bam-file-from-directory__1.0.1.test.js
+  ● Test suite failed to run
+
+    Cannot find module '../get_bam_file_from_directory' from 'tests/get-bam-file-from-directory__1.0.1.test.js'
+
+      2 | Object.defineProperty(exports, "__esModule", { value: true });
+      3 | var cwl_ts_auto_1 = require("cwl-ts-auto");
+    > 4 | var get_bam_file_from_directory_1 = require("../get_bam_file_from_directory");
+        |                                     ^
+      5 | // Test the get bam file from directory
+      6 | var INPUT_BAM_FILE_NAMEROOT = "footest";
+      7 | var INPUT_BAM_FILE_NAMEEXT = ".bam";
+
+      at Resolver._throwModNotFoundError (node_modules/jest-resolve/build/resolver.js:487:11)
+      at Object.<anonymous> (tests/get-bam-file-from-directory__1.0.1.test.js:4:37)
+
+FAIL tests/get-bam-file-from-directory__1.0.1.test.ts
+  ● Test suite failed to run
+
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m8[0m:[93m43[0m - [91merror[0m[90m TS2307: [0mCannot find module '../get_bam_file_from_directory' or its corresponding type declarations.
+
+    [7m8[0m import {get_bam_file_from_directory} from "../get_bam_file_from_directory";
+    [7m [0m [91m                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m21[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 21[0m         {
+    [7m   [0m [91m        ~[0m
+    [7m 22[0m             class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 24[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/index.html`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 25[0m         },
+    [7m   [0m [91m~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m26[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 26[0m         {
+    [7m   [0m [91m        ~[0m
+    [7m 27[0m             class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 29[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_BAM_FILE_BASENAME}`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 30[0m         },
+    [7m   [0m [91m~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m31[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 31[0m         {
+    [7m   [0m [91m        ~[0m
+    [7m 32[0m             class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 34[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_BAM_FILE_BASENAME}.bai`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 35[0m         },
+    [7m   [0m [91m~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m36[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 36[0m         {
+    [7m   [0m [91m        ~[0m
+    [7m 37[0m             class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 39[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/logs.txt`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 40[0m         }
+    [7m   [0m [91m~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m50[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 50[0m         {
+    [7m   [0m [91m        ~[0m
+    [7m 51[0m             class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 53[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/index.html`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 54[0m         },
+    [7m   [0m [91m~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m59[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 59[0m                 {
+    [7m   [0m [91m                ~[0m
+    [7m 60[0m                     class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 62[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/${INPUT_BAM_FILE_BASENAME}`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 63[0m                 },
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m64[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 64[0m                 {
+    [7m   [0m [91m                ~[0m
+    [7m 65[0m                     class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 67[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/${INPUT_BAM_FILE_BASENAME}.bai`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 68[0m                 },
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m69[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 69[0m                 {
+    [7m   [0m [91m                ~[0m
+    [7m 70[0m                     class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 72[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/logs.txt`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 73[0m                 }
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m85[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 85[0m         {
+    [7m   [0m [91m        ~[0m
+    [7m 86[0m             class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 88[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_BAM_FILE_BASENAME}.bai`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 89[0m         }
+    [7m   [0m [91m~~~~~~~~~[0m
+    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m94[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class; basename: string; location: string; secondaryFiles: { class_: File_class; basename: string; location: string; }[]; }' is not assignable to type 'File'.
+      Object literal may only specify known properties, and 'class_' does not exist in type 'File'.
+
+    [7m94[0m     class_: File_class.FILE,
+    [7m  [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+=============================== Coverage summary ===============================
+Statements   : Unknown% ( 0/0 )
+Branches     : Unknown% ( 0/0 )
+Functions    : Unknown% ( 0/0 )
+Lines        : Unknown% ( 0/0 )
+================================================================================
+Test Suites: 2 failed, 2 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        15.401 s
+Ran all test suites.
+error Command failed.
+Exit code: 1
+Command: jest
+Arguments: 
+Directory: /e/Users/awluc/OneDrive/GitHub/UMCCR/cwl-ica/expressions/get-bam-file-from-directory/1.0.1/typescript-expressions
+Output:
+
+info Visit https://yarnpkg.com/en/docs/cli/exec for documentation about this command.
+# Test completed at 2022-09-27T16:20:03+10:00
+
