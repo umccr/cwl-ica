@@ -1,0 +1,22 @@
+# Test started at 2022-09-28T11:00:21+10:00
+
+yarn exec v1.22.19
+warning package.json: No license field
+PASS tests/get-fastq-list-rows-from-fastq-list-csv__1.0.0.test.js (12.152 s)
+PASS tests/get-fastq-list-rows-from-fastq-list-csv__1.0.0.test.ts (20.587 s)
+
+=============================== Coverage summary ===============================
+Statements   : 88.88% ( 32/36 )
+Branches     : 72.22% ( 13/18 )
+Functions    : 100% ( 1/1 )
+Lines        : 85.71% ( 24/28 )
+================================================================================
+
+Test Suites: 2 passed, 2 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        25.335 s
+Ran all test suites.
+Done in 40.45s.
+# Test completed at 2022-09-28T11:01:01+10:00
+
