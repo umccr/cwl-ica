@@ -174,3 +174,10 @@ workflows:
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
         md5sum: e543123af17a066c7c5c6620918bee43
     categories: []
+  - name: bclconvert
+    path: bclconvert
+    versions:
+      - name: 4.0.3
+        path: 4.0.3/bclconvert__4.0.3.cwl
+        md5sum: e1b76c304fda58dc88e08f25c99c50d2
+    categories: []

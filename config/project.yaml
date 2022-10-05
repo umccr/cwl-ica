@@ -458,6 +458,16 @@ projects:
             ica_workflow_version_name: 2.2.2
             modification_time: 2022-09-13T07:07:48UTC
             run_instances: []
+      - name: bcl-convert
+        path: bcl-convert
+        ica_workflow_name: bcl-convert_dev-wf
+        ica_workflow_id: wfl.bdc024d6eaea42d4ba0f17da380f8a51
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bcl-convert__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-09-21T04:05:37UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
