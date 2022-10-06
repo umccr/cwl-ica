@@ -17,7 +17,7 @@ custom-create-directory 2.0.0 tool
 
   
 > ID: custom-create-directory--2.0.0  
-> md5sum: 52557029b02ff7f5df78427603435985
+> md5sum: 3f540fbab0e8205ab7e75b417e3e35dc
 
 ### custom-create-directory v(2.0.0) documentation
   
@@ -34,12 +34,6 @@ One can also select 'top_dir' or 'sub_dir' to determine if files go in the top d
   
 - [CWL File Path](../../../../../../tools/custom-create-directory/2.0.0/custom-create-directory__2.0.0.cwl)  
 
-
-### Used By
-  
-- [tso500-ctdna-post-processing-pipeline 1.0.0](../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
-- [tso500-ctdna-with-post-processing-pipeline 1.1.0--1.0.0](../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.md)  
-
   
 
 
@@ -52,7 +46,7 @@ One can also select 'top_dir' or 'sub_dir' to determine if files go in the top d
   
 > ID: custom_output_dir_entry_list
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `custom-output-dir-entry[]`  
 **Docs:**  
 The list of file entries

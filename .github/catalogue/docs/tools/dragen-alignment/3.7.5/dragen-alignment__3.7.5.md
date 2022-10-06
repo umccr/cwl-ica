@@ -17,7 +17,7 @@ dragen-alignment 3.7.5 tool
 
   
 > ID: dragen-alignment--3.7.5  
-> md5sum: b6b90c6e5016c4718c73813b10699a32
+> md5sum: 708c33de73453af41a9bc2ca3a12984a
 
 ### dragen-alignment v(3.7.5) documentation
   
@@ -126,7 +126,7 @@ Range: > 0
 > ID: edit_mode
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fcdcb6f6e20>`  
+**Type:** `[ 0 | 1 | 2 | 3 ]`  
 **Docs:**  
 0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.
 
@@ -361,7 +361,7 @@ secondary alignments use hard clipping.
 > ID: map_orientations
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fcdcb6ead00>`  
+**Type:** `[ 0 | 1 | 2 ]`  
 **Docs:**  
 Constrain orientations to accept forward-only, reverse-complement only, or any alignments.
 
@@ -560,7 +560,7 @@ Range: 0-255
 > ID: pe_orientation
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fcdcb6f6e50>`  
+**Type:** `[ 0 | 1 | 2 ]`  
 **Docs:**  
 Expected paired-end orientation: 0=FR, 1=RF, 2=FF.
 

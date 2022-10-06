@@ -19,7 +19,7 @@ dragen-qc-hla-pipeline 3.7.5--1.3.5 workflow
 
   
 > ID: dragen-qc-hla-pipeline--3.7.5--1.3.5  
-> md5sum: 5380314a8aec7e17de1f2be6ce95e75b
+> md5sum: b5f1a10ef2d47417145654c61fb10ea8
 
 ### dragen-qc-hla-pipeline v(3.7.5--1.3.5) documentation
   
@@ -81,8 +81,8 @@ The row of fastq lists.
   
 > ID: genome_version
   
-**Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f04ec7b1370>`  
+**Optional:** `False`  
+**Type:** `[ hg38 | GRCh37 ]`  
 **Docs:**  
 Either hg38 (default) or GRCh37?
 Used to set chromosome regions to filter down bam file for optitype workflow

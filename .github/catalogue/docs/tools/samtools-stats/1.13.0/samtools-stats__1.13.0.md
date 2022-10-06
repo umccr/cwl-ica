@@ -17,7 +17,7 @@ samtools-stats 1.13.0 tool
 
   
 > ID: samtools-stats--1.13.0  
-> md5sum: 2f43a5b2554995c2bbbe4e2a20ec386d
+> md5sum: c92d52b84311f5232e087c95b936c969
 
 ### samtools-stats v(1.13.0) documentation
   
