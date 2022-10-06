@@ -17,7 +17,7 @@ multiqc-interop 1.2.1 tool
 
   
 > ID: multiqc-interop--1.2.1  
-> md5sum: 346fde115ccefa53c32b28be0c9978ff
+> md5sum: 78150b7293b9c348b390f081d0626eac
 
 ### multiqc-interop v(1.2.1) documentation
   

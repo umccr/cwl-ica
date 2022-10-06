@@ -19,7 +19,7 @@ dragen-alignment-pipeline 3.9.3 workflow
 
   
 > ID: dragen-alignment-pipeline--3.9.3  
-> md5sum: c7670e769139d2bfd103456f9e08e482
+> md5sum: b5c8752262345756a15aaf7e61c307d5
 
 ### dragen-alignment-pipeline v(3.9.3) documentation
   
@@ -42,7 +42,7 @@ Documentation for dragen-alignment-pipeline v3.9.3
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-alignment 3.9.3](../../../tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
 
 
@@ -820,7 +820,7 @@ The dragen qc step - this takes in an array of dirs
 #### Links
   
 [CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen alignment step

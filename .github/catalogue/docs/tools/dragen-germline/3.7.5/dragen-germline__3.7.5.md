@@ -17,7 +17,7 @@ dragen-germline 3.7.5 tool
 
   
 > ID: dragen-germline--3.7.5  
-> md5sum: 54dd1c2214ab62a252ba9fb195af749d
+> md5sum: 321411717e27b2b72b12ed3274dd0950
 
 ### dragen-germline v(3.7.5) documentation
   
@@ -188,7 +188,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fe7ef22c3a0>`  
+**Type:** `[ male | female ]`  
 **Docs:**  
 Specifies the sex of a sample
 

@@ -19,7 +19,7 @@ umccrise-with-dragen-germline-pipeline 2.0.2--3.9.3 workflow
 
   
 > ID: umccrise-with-dragen-germline-pipeline--2.0.2--3.9.3  
-> md5sum: a187951b8d0ee2cb2a0e56f1fa49a608
+> md5sum: c7fc85c58e2340744ce6aa83c31199c3
 
 ### umccrise-with-dragen-germline-pipeline v(2.0.2--3.9.3) documentation
   
@@ -48,7 +48,7 @@ This means the inputs of this pipeline are:
 - [get-file-from-directory-with-regex 1.0.0 :construction:](../../../expressions/get-file-from-directory-with-regex/1.0.0/get-file-from-directory-with-regex__1.0.0.md)  
 - [custom-get-sample-name-from-bam-header 1.0.0 :construction:](../../../tools/custom-get-sample-name-from-bam-header/1.0.0/custom-get-sample-name-from-bam-header__1.0.0.md)  
 - [dragen-germline-pipeline 3.9.3](../../dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
-- [umccrise 2.0.2--0 :construction:](../../../tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
+- [umccrise 2.0.2--0](../../../tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
 
   
 
@@ -239,7 +239,7 @@ Run the umccrise pipeline using the input somatic directory and output from the 
 #### Links
   
 [CWL File Path](../../../../../../tools/umccrise/2.0.2--0/umccrise__2.0.2--0.cwl)  
-[CWL File Help Page :construction:](../../../tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
+[CWL File Help Page](../../../tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
 
 
 ## umccrise-with-dragen-germline-pipeline v(2.0.2--3.9.3) Outputs
@@ -286,7 +286,7 @@ The output directory containing all umccrise output files
 
   
 **workflow name:** umccrise-with-dragen-germline-pipeline_prod-wf  
-**wfl version name:** 2.0.2--3.9.3--0a80def  
+**wfl version name:** 2.0.2--3.9.3--d142c57  
 
   
 
