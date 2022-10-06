@@ -17,7 +17,7 @@ mosdepth 0.3.1 tool
 
   
 > ID: mosdepth--0.3.1  
-> md5sum: e436b2ed4f540260fbe23d9083d4f9d4
+> md5sum: 2e210a08546d984b01a59ac6955f97a8
 
 ### mosdepth v(0.3.1) documentation
   

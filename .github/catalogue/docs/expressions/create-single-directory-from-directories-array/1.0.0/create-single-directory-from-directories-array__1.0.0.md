@@ -16,7 +16,7 @@ create-single-directory-from-directories-array 1.0.0 expression
 
   
 > ID: create-single-directory-from-directories-array--1.0.0  
-> md5sum: c6b802120006853921fa2601ae5aafa0
+> md5sum: 7cbc5b4f75bed9a70d869462d3ddecd4
 
 ### create-single-directory-from-directories-array v(1.0.0) documentation
   
