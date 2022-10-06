@@ -38,6 +38,7 @@ requirements:
       - $include: ../../../typescript-expressions/get-fastq-list-rows-from-fastq-list-csv/1.0.0/get-fastq-list-rows-from-fastq-list-csv__1.0.0.cwljs
       - $include: ../../../typescript-expressions/samplesheet-builder/2.0.0--4.0.3/samplesheet-builder__2.0.0--4.0.3.cwljs
       - $include: ../../../typescript-expressions/bclconvert-run-configuration-expressions/2.0.0--4.0.3/bclconvert-run-configuration-expressions__2.0.0--4.0.3.cwljs
+      - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs
   # ResourceRequirement:
   #   https://platform.illumina.com/rdf/ica/resources:tier: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-type"))
   #   https://platform.illumina.com/rdf/ica/resources:size: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-tier"))
@@ -66,8 +67,16 @@ requirements:
             /opt/edico/bin/dragen \\
               --partial-reconfig DNA-MAPPER \\
               --ignore-version-check true
+            # Check if --bcl-use-hw parameter is required
+            bcl_use_hw_bool="false"
+            if [[ "$(is_not_null(inputs.fastq_compression_format))" == "true" ]]; then
+              bcl_use_hw_bool="true"
+            fi
             # Run bclconvert through dragen
-            eval /opt/edico/bin/dragen --bcl-conversion-only true '"\${@}"'  
+            eval /opt/edico/bin/dragen \\
+              --bcl-use-hw "\${bcl_use_hw_bool}" \\
+              --bcl-conversion-only "true" \\
+              '"\${@}"'  
           else
             # Run through standard bclconvert executable
             eval bcl-convert '"\${@}"'

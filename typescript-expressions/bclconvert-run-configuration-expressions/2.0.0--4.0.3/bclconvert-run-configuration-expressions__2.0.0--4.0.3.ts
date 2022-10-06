@@ -79,7 +79,7 @@ export function create_bcl_configuration_object_for_samplesheet_validation(bclco
         samplesheet: samplesheet,
         run_info: run_info,
         bcl_validate_sample_sheet_only: true,
-        ora_reference: null,
+        ora_reference: bclconvert_run_configuration["ora_reference"],
         bcl_conversion_threads: bclconvert_run_configuration["bcl_conversion_threads"],
         bcl_num_compression_threads: bclconvert_run_configuration["bcl_num_compression_threads"],
         bcl_num_decompression_threads: bclconvert_run_configuration["bcl_num_decompression_threads"],

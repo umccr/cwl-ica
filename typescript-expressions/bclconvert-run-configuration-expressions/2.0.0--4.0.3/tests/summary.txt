@@ -1,7 +1,9 @@
-# Test started at 2022-09-29T12:52:06+10:00
+# Test started at 2022-10-06T09:37:01+11:00
 
-PASS tests/bclconvert-run-configuration-expressions__2.0.0--4.0.3.test.js (21.515 s)
-PASS tests/bclconvert-run-configuration-expressions__2.0.0--4.0.3.test.ts (32.385 s)
+yarn exec v1.22.19
+warning package.json: No license field
+PASS tests/bclconvert-run-configuration-expressions__2.0.0--4.0.3.test.js (12.051 s)
+PASS tests/bclconvert-run-configuration-expressions__2.0.0--4.0.3.test.ts (17.125 s)
 
 =============================== Coverage summary ===============================
 Statements   : 79.54% ( 35/44 )
@@ -13,7 +15,8 @@ Lines        : 85.36% ( 35/41 )
 Test Suites: 2 passed, 2 total
 Tests:       26 passed, 26 total
 Snapshots:   0 total
-Time:        39.432 s
+Time:        21.222 s
 Ran all test suites.
-# Test completed at 2022-09-29T12:53:11+10:00
+Done in 35.54s.
+# Test completed at 2022-10-06T09:37:37+11:00
 
