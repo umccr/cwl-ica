@@ -19,7 +19,7 @@ tso500-ctdna-post-processing-pipeline 1.0.0 workflow
 
   
 > ID: tso500-ctdna-post-processing-pipeline--1.0.0  
-> md5sum: 622836686fa47fc8d090d96019cbdcbd
+> md5sum: 5b9e1961ce6446898a2a4fd1d027c04a
 
 ### tso500-ctdna-post-processing-pipeline v(1.0.0) documentation
   
@@ -98,8 +98,7 @@ The workflow has 6 main steps
 > ID: tso500_outputs_by_sample
   
 **Optional:** `False`  
-**Type:** `../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml#tso500-outputs-by-
-sample`  
+**Type:** `../../../schemas/tso500-outputs-by-sample/1.0.0/tso500-outputs-by-sample__1.0.0.yaml#tso500-outputs-by-sample`  
 **Docs:**  
 Directories and Files of UMCCR tso500 output
 

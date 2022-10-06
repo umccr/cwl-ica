@@ -4,95 +4,95 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/get-faidx-file-from-reference-file__1.0.0.cwl
-        md5sum: 5537a7433792c92e63c11abe20e9ba78
+        md5sum: 9c961d8adb65ecfaa6ede86ff7b5bb10
     categories: []
   - name: create-contig-obj-for-hla-chr6-region
     path: create-contig-obj-for-hla-chr6-region
     versions:
       - name: 1.0.0
         path: 1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.cwl
-        md5sum: edd04eddfc2ad0985a68a3a5843d915c
+        md5sum: b27fa2c4412c95bd2a4d7e0562e6aad5
     categories: []
   - name: get-samplesheet-midfix-regex
     path: get-samplesheet-midfix-regex
     versions:
       - name: 1.0.0
         path: 1.0.0/get-samplesheet-midfix-regex__1.0.0.cwl
-        md5sum: 30f225562fad3598ba87998156f81469
+        md5sum: eb32023141052a4ac1a0800d5816f1ca
     categories: []
   - name: flatten-array-fastq-list
     path: flatten-array-fastq-list
     versions:
       - name: 1.0.0
         path: 1.0.0/flatten-array-fastq-list__1.0.0.cwl
-        md5sum: b2f60519bb1706364b50aae21721356f
+        md5sum: 9ab47e6cf8399450acdf8d00493db458
     categories: []
   - name: parse-int-array
     path: parse-int-array
     versions:
       - name: 1.0.0
         path: 1.0.0/parse-int-array__1.0.0.cwl
-        md5sum: 3e84b4bb2fd52e184be3391937f11e5f
+        md5sum: 8d6065935cac01277481cb55a3b330b1
     categories: []
   - name: parse-int
     path: parse-int
     versions:
       - name: 1.0.0
         path: 1.0.0/parse-int__1.0.0.cwl
-        md5sum: 3cf6b497f648c6ae0523309a17055f8e
+        md5sum: 41724639c944e29abdce4acaf38a11a1
     categories: []
   - name: parse-file
     path: parse-file
     versions:
       - name: 1.0.0
         path: 1.0.0/parse-file__1.0.0.cwl
-        md5sum: 05ccd7c91a2b1f62877a3f2ad2542f74
+        md5sum: 1eb65e580886c81292d7330478cb8d17
     categories: []
   - name: get-compressed-vcf-file-from-directory
     path: get-compressed-vcf-file-from-directory
     versions:
       - name: 1.0.0
         path: 1.0.0/get-compressed-vcf-file-from-directory__1.0.0.cwl
-        md5sum: a0d6c8ea819df1701d5b8361df7015ce
+        md5sum: 9bf177a6424362a27ea4a4d1d1392de0
     categories: []
   - name: get-custom-output-dir-entry-for-tso500-post-processing
     path: get-custom-output-dir-entry-for-tso500-post-processing
     versions:
       - name: 1.0.0
         path: 1.0.0/get-custom-output-dir-entry-for-tso500-post-processing__1.0.0.cwl
-        md5sum: 04e65d3150528001367f3639a2f43fc9
+        md5sum: e855f43c0ce730dc46b4d3342778c70c
       - name: 2.0.1
         path: 2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.cwl
-        md5sum: 923f6796016b060cb73b572edc7e79a0
+        md5sum: 3a90aba2ecfeaa0f4dbe608c718e4837
     categories: []
   - name: get-bam-file-from-directory
     path: get-bam-file-from-directory
     versions:
       - name: 1.0.0
         path: 1.0.0/get-bam-file-from-directory__1.0.0.cwl
-        md5sum: 24a56cf9eb2b4f7dc906e55d2a8906e7
+        md5sum: beca34eae934496b9672b53c0fd5c4dd
     categories: []
   - name: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
     path: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.cwl
-        md5sum: 7f54fc29af33f53fe80c391bd1ee2c9c
+        md5sum: 257bd0a46e5cba8597ba9d1d21b8f553
       - name: 1.2.2--0
         path: 1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.cwl
-        md5sum: 518c4ac22827122cc82d37fc227f44e0
+        md5sum: 8ec5082ca21d37152c5216a69168f33e
     categories: []
   - name: get-custom-output-dir-entry-for-tso500-with-post-processing
     path: get-custom-output-dir-entry-for-tso500-with-post-processing
     versions:
       - name: 2.0.1
         path: 2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.cwl
-        md5sum: f4bb08524b73b86293e8319e68f1dc33
+        md5sum: 2cb535232a0b8302b38b55b2b793733f
     categories: []
   - name: create-single-directory-from-directories-array
     path: create-single-directory-from-directories-array
     versions:
       - name: 1.0.0
         path: 1.0.0/create-single-directory-from-directories-array__1.0.0.cwl
-        md5sum: c6b802120006853921fa2601ae5aafa0
+        md5sum: 7cbc5b4f75bed9a70d869462d3ddecd4
     categories: []

@@ -16,7 +16,7 @@ get-faidx-file-from-reference-file 1.0.0 expression
 
   
 > ID: get-faidx-file-from-reference-file--1.0.0  
-> md5sum: 5537a7433792c92e63c11abe20e9ba78
+> md5sum: 9c961d8adb65ecfaa6ede86ff7b5bb10
 
 ### get-faidx-file-from-reference-file v(1.0.0) documentation
   

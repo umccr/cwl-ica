@@ -16,7 +16,7 @@ parse-int 1.0.0 expression
 
   
 > ID: parse-int--1.0.0  
-> md5sum: 3cf6b497f648c6ae0523309a17055f8e
+> md5sum: 41724639c944e29abdce4acaf38a11a1
 
 ### parse-int v(1.0.0) documentation
   

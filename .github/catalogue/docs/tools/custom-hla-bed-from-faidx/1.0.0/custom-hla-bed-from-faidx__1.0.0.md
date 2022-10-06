@@ -17,7 +17,7 @@ custom-hla-bed-from-faidx 1.0.0 tool
 
   
 > ID: custom-hla-bed-from-faidx--1.0.0  
-> md5sum: 34b3939fbdb3d642e299b3662151d284
+> md5sum: 8980c864b385bef024051889f0fcae4f
 
 ### custom-hla-bed-from-faidx v(1.0.0) documentation
   
