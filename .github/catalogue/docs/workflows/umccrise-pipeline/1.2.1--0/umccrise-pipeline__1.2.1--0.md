@@ -19,7 +19,7 @@ umccrise-pipeline 1.2.1--0 workflow
 
   
 > ID: umccrise-pipeline--1.2.1--0  
-> md5sum: 6100f32cc0c1ecf82da6ea0da96f8622
+> md5sum: 9fd3bd199ffce0f91bfea505b7c0a986
 
 ### umccrise-pipeline v(1.2.1--0) documentation
   
@@ -95,7 +95,7 @@ Propagated to snakemake. Prints rules and commands to be run without actually ex
 > ID: genome
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f3fc5adfe50>`  
+**Type:** `[ GRCh37 | hg38 ]`  
 **Docs:**  
 genome
 

@@ -17,7 +17,7 @@ bgzip 1.12.0 tool
 
   
 > ID: bgzip--1.12.0  
-> md5sum: a941c2a36bcf67845e567cc819d4540c
+> md5sum: 23ab09df4480c79133f844f2dace6971
 
 ### bgzip v(1.12.0) documentation
   

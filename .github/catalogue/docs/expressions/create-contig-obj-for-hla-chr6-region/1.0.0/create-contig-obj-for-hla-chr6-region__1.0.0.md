@@ -16,7 +16,7 @@ create-contig-obj-for-hla-chr6-region 1.0.0 expression
 
   
 > ID: create-contig-obj-for-hla-chr6-region--1.0.0  
-> md5sum: edd04eddfc2ad0985a68a3a5843d915c
+> md5sum: b27fa2c4412c95bd2a4d7e0562e6aad5
 
 ### create-contig-obj-for-hla-chr6-region v(1.0.0) documentation
   
@@ -48,8 +48,8 @@ v1.0.0
   
 > ID: genome_version
   
-**Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f236e590460>`  
+**Optional:** `False`  
+**Type:** `[ hg38 | GRCh37 ]`  
 **Docs:**  
 The genome version, hg38 and GRCh37 have different hla-chr6 regions
 
