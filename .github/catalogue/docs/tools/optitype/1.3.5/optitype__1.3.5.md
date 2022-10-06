@@ -17,7 +17,7 @@ optitype 1.3.5 tool
 
   
 > ID: optitype--1.3.5  
-> md5sum: c48f5ee0ce0017eaeb12f2d1f0de1c62
+> md5sum: b7329c4c212dbad828db34d0bf4bf7ab
 
 ### optitype v(1.3.5) documentation
   
@@ -135,8 +135,8 @@ Name of the sample - used for the prefix argument
   
 > ID: seq_datatype
   
-**Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f09f52ac550>`  
+**Optional:** `False`  
+**Type:** `[ dna | rna ]`  
 **Docs:**  
 The sequencing type either dna or rna
 

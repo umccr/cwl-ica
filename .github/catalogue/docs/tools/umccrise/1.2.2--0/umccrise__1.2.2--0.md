@@ -17,7 +17,7 @@ umccrise 1.2.2--0 tool
 
   
 > ID: umccrise--1.2.2--0  
-> md5sum: b45335f64405758c5c16651ee583e1e9
+> md5sum: ee7d02b26399c6d9ca4b14897e1f44e2
 
 ### umccrise v(1.2.2--0) documentation
   
@@ -103,7 +103,7 @@ Optionally, samples or batches to ignore
 > ID: genome
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7f5ab190aca0>`  
+**Type:** `[ GRCh37 | hg38 ]`  
 **Docs:**  
 genome
 
