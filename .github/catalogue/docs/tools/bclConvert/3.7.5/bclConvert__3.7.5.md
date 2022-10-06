@@ -17,7 +17,7 @@ bclConvert 3.7.5 tool
 
   
 > ID: bclConvert--3.7.5  
-> md5sum: 974f3efc9ceb0134dc8e6a3177bc2e6d
+> md5sum: 1252d1e42b5e12533a0bcdd373d9f2d0
 
 ### bclConvert v(3.7.5) documentation
   
