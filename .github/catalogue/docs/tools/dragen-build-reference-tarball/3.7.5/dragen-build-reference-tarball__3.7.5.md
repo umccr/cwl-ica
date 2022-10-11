@@ -77,7 +77,7 @@ To disable this requirement, set the --ht-alt-aware-validate option to false.
 > ID: ht_alt_liftover
   
 **Optional:** `True`  
-**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7fabfd042ac0>]`  
+**Type:** `['File', <cwl_utils.parser_v1_1.CommandInputEnumSchema object at 0x7ff7773cd9d0>]`  
 **Docs:**  
 The --ht-alt-liftover option specifies the path to the liftover file to build an ALT-aware hash table.
 This option is required when building from a reference with ALT contigs.
@@ -634,7 +634,7 @@ Output tarball containing the reference data
 
   
 **workflow name:** dragen-build-reference-tarball_prod-wf  
-**wfl version name:** 3.7.5--d142c57  
+**wfl version name:** 3.7.5--511f460  
 
   
 

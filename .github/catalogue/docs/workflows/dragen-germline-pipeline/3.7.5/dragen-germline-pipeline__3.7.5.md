@@ -578,7 +578,7 @@ The output directory for multiqc
 
   
 **workflow name:** dragen-germline-pipeline_prod-wf  
-**wfl version name:** 3.7.5--d142c57  
+**wfl version name:** 3.7.5--511f460  
 
   
 

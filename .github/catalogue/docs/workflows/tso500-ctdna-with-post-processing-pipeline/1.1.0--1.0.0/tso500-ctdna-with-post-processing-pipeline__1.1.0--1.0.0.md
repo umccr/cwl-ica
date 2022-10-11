@@ -393,7 +393,7 @@ The sample subdirectory of the results
 
   
 **workflow name:** tso500-ctdna-with-post-processing-pipeline_prod-wf  
-**wfl version name:** 1.1.0--1.0.0--d142c57  
+**wfl version name:** 1.1.0--1.0.0--511f460  
 
 
 ### Project: collab-illumina-dev_workflows

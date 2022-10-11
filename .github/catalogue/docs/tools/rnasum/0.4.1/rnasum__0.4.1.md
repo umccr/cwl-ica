@@ -595,7 +595,7 @@ bash wfr.dce6425b60044757a78bb545c627c58a.launch.sh
 
   
 **workflow name:** rnasum_prod-wf  
-**wfl version name:** 0.4.1--d142c57  
+**wfl version name:** 0.4.1--511f460  
 
   
 
