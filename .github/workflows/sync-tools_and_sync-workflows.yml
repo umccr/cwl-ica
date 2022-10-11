@@ -152,7 +152,8 @@ jobs:
                   "production_workflows": {
                     "ICA_ACCESS_TOKEN": $production_workflows_access_token
                   }
-                }
+                } |
+                @base64
               ' \
           )"
       # Sync tools and workflows
