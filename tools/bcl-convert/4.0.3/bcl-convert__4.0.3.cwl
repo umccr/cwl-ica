@@ -64,28 +64,40 @@ requirements:
           # Check if dragen is available on the machine
           if type /opt/edico/bin/dragen 1>/dev/null 2>&1; then
             # First reset dragen box
-            /opt/edico/bin/dragen \\
-              --partial-reconfig DNA-MAPPER \\
-              --ignore-version-check true
-            # Check if --bcl-use-hw parameter is required
-            bcl_use_hw_bool="false"
-            if [[ "$(is_not_null(inputs.fastq_compression_format))" == "true" ]]; then
-              bcl_use_hw_bool="true"
+            /opt/edico/bin/dragen_reset
+            
+            # Only set --fastq-compression-format value if 
+            # --bcl-validate-sample-sheet-only is set to false
+            if [[ "$(is_not_null(inputs.fastq_compression_format))" == "true" && "$(is_not_null(inputs.bcl_validate_sample_sheet_only))" == "false" ]]; then
+              fastq_compression_format_key="--fastq-compression-format"
+              fastq_compression_format_value="$(inputs.fastq_compression_format)"
+            else
+              fastq_compression_format_key=""
+              fastq_compression_format_value=""
             fi
+          
+            # Only set --ora-reference value if
+            # --bcl-validate-sample-sheet-only is set to false
+            if [[ "$(is_not_null(inputs.ora_reference))" == "true" && "$(is_not_null(inputs.bcl_validate_sample_sheet_only))" == "false" ]]; then
+              ora_reference_key="--ora-reference"
+              ora_reference_value="$(get_attribute_from_optional_input(inputs.ora_reference, "path"))"
+            else
+              ora_reference_key=""
+              ora_reference_value=""
+            fi
+            
             # Run bclconvert through dragen
             eval /opt/edico/bin/dragen \\
-              --bcl-use-hw "\${bcl_use_hw_bool}" \\
+              -v \\
+              --logging-to-output-dir=true \\
               --bcl-conversion-only "true" \\
-              '"\${@}"'  
+              "\${fastq_compression_format_key}" "\${fastq_compression_format_value}" \\
+              "\${ora_reference_key}" "\${ora_reference_value}" \\
+              '"\${@}"'
+          
           else
             # Run through standard bclconvert executable
             eval bcl-convert '"\${@}"'
-          fi
-          
-          # If running on dragen and only validating the samplesheet
-          if type /opt/edico/bin/dragen 1>/dev/null 2>&1 && [[ "$(inputs.bcl_validate_sample_sheet_only)" == "true" ]]; then
-            echo "We have to sleep for five minutes for the heartbeat to tick over, otherwise this process with fail" 1>&2
-            sleep 600
           fi
           
           # Delete undetermined indices if set
@@ -324,16 +336,18 @@ inputs:
       Required to output compressed FASTQ.ORA files. 
       Specify the path to the directory that contains the compression reference and index file.
     type: Directory?
-    inputBinding:
-      prefix: --ora-reference
+    # FIXME: Inputbinding now handled in bash script due to incompatibility with --bcl-validate-sample-sheet-only parameter
+    # inputBinding:
+    #   prefix: --ora-reference
   fastq_compression_format:
     label: fastq compression format
     doc: |
       Required for DRAGEN ORA compression to specify the type of compression: 
       use dragen for regular DRAGEN ORA compression, or dragen-interleaved for DRAGEN ORA paired compression.
     type: string?
-    inputBinding:
-      prefix: --fastq-compression-format
+    # FIXME: Inputbinding now handled in bash script due to incompatibility with --bcl-validate-sample-sheet-only parameter
+    # inputBinding:
+    #   prefix: --fastq-compression-format
 
 # Set outputs
 outputs:
