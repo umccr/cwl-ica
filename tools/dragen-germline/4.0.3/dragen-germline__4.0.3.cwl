@@ -55,10 +55,8 @@ requirements:
           # Fail on non-zero exit of subshell
           set -euo pipefail
           
-          # Initialise dragen
-          /opt/edico/bin/dragen \\
-            --partial-reconfig DNA-MAPPER \\
-            --ignore-version-check true
+          # Reset dragen
+          /opt/edico/bin/dragen_reset
           
           # Create directories
           mkdir --parents \\
