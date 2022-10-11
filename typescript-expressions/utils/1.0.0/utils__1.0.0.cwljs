@@ -9,6 +9,18 @@ function is_not_null(input_obj) {
     */
     return !(input_obj === null || input_obj === undefined);
 }
+function get_attribute_from_optional_input(input_object, attribute) {
+    /*
+    Get attribute from optional input -
+    If input is not defined, then return null
+    */
+    if (input_object === null || input_object === undefined) {
+        return null;
+    }
+    else {
+        return input_object[attribute];
+    }
+}
 function get_bool_value_as_str(input_bool) {
     if (is_not_null(input_bool) && input_bool) {
         return "true";
