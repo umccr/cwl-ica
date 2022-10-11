@@ -1063,7 +1063,7 @@ steps:
       The dragen qc step - this takes in an array of dirs
     requirements:
       DockerRequirement:
-        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-update-and-clean-names--a5e0179
+        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-file-update-and-gc-content-to-general--7fd8f85
     in:
       input_directories:
         source:
