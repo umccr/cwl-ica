@@ -163,28 +163,30 @@ const INPUT_BCLCONVERT_DATA_SECTION_SCHEMA_2: Array<BclconvertDataRow> = [
         "index2": "TCCAACTCTA",
         "lane": 1,
         "sample_id": "PRJ220074_LPRJ220074",
-        "sample_project": "Project2"
+        "sample_project": "Project2",
+        "override_cycles": "Y151;I10;I10;Y151"
     },
     {
         "index": "TGTGGTCCGG",
         "index2": "CTAGTGCTCT",
         "lane": 1,
         "sample_id": "PRJ220075_LPRJ220075",
-        "sample_project": "Project2"
+        "sample_project": "Project2",
+        "override_cycles": "Y151;I10;I10;Y151"
     },
     {
         "sample_id": "PRJ220076_LPRJ220076",
         "index": "CTTCTAAGTC",
-        "index2": "CCTGTAGAGT",
         "lane": 1,
-        "sample_project": "Project2"
+        "sample_project": "Project2",
+        "override_cycles": "Y151;I10;N10;Y151"
     },
     {
-        "index2": "GGTGTCACCG",
         "index": "AATATTGCCA",
         "sample_id": "PRJ220077_LPRJ220077",
         "lane": 1,
-        "sample_project": "Project2"
+        "sample_project": "Project2",
+        "override_cycles": "Y151;I10;N10;Y151"
     }
 ]
 
@@ -202,12 +204,12 @@ const EXPECTED_BCLCONVERT_DATA_OUTPUT_STR_1 =
     EXPECTED_DATA_ROW_2_STR_1 + "\n"
 
 
-const EXPECTED_BCLCONVERT_DATA_HEADER_OUTPUT_STR_2 = "index,index2,Lane,Sample_ID,Sample_Project\n"
+const EXPECTED_BCLCONVERT_DATA_HEADER_OUTPUT_STR_2 = "index,index2,Lane,Sample_ID,Sample_Project,OverrideCycles\n"
 
-const EXPECTED_DATA_ROW_1_STR_2 = "GAACAATTCC,TCCAACTCTA,1,PRJ220074_LPRJ220074,Project2\n"
-const EXPECTED_DATA_ROW_2_STR_2 = "TGTGGTCCGG,CTAGTGCTCT,1,PRJ220075_LPRJ220075,Project2\n"
-const EXPECTED_DATA_ROW_3_STR_2 = "CTTCTAAGTC,CCTGTAGAGT,1,PRJ220076_LPRJ220076,Project2\n"
-const EXPECTED_DATA_ROW_4_STR_2 = "AATATTGCCA,GGTGTCACCG,1,PRJ220077_LPRJ220077,Project2\n"
+const EXPECTED_DATA_ROW_1_STR_2 = "GAACAATTCC,TCCAACTCTA,1,PRJ220074_LPRJ220074,Project2,Y151;I10;I10;Y151\n"
+const EXPECTED_DATA_ROW_2_STR_2 = "TGTGGTCCGG,CTAGTGCTCT,1,PRJ220075_LPRJ220075,Project2,Y151;I10;I10;Y151\n"
+const EXPECTED_DATA_ROW_3_STR_2 = "CTTCTAAGTC,,1,PRJ220076_LPRJ220076,Project2,Y151;I10;N10;Y151\n"
+const EXPECTED_DATA_ROW_4_STR_2 = "AATATTGCCA,,1,PRJ220077_LPRJ220077,Project2,Y151;I10;N10;Y151\n"
 
 const EXPECTED_BCLCONVERT_DATA_OUTPUT_STR_2 =
     `[${INPUT_BCLCONVERT_DATA_SECTION_NAME}]\n` +

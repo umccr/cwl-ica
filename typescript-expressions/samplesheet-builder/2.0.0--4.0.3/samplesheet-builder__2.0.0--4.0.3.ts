@@ -162,6 +162,7 @@ export function get_bclconvert_data_row_as_csv_row(bclconvert_data_row: Bclconve
 
     // This for loop is here to ensure were assigning values in the same order as the header
     for (let item_index of row_order) {
+        let found: boolean = false
         // Find matching attribute in this row
         for (let bclconvert_data_field_name of Object.getOwnPropertyNames(bclconvert_data_row)) {
 
@@ -170,9 +171,9 @@ export function get_bclconvert_data_row_as_csv_row(bclconvert_data_row: Bclconve
 
             if (bclconvert_data_row_field_value === null) {
                 /*
-                Item not found, add an empty attribute for this cell in the csv
+                Field value not found add an empty attribute for this cell in the csv
                 */
-                bclconvert_data_values_array.push("")
+                //
                 continue
             }
 
@@ -182,8 +183,12 @@ export function get_bclconvert_data_row_as_csv_row(bclconvert_data_row: Bclconve
                 If the field value has a class attribute then it's either read_1 or read_2
                 */
                 bclconvert_data_values_array.push(bclconvert_data_row_field_value.toString())
+                found = true
                 break
             }
+        }
+        if (!found){
+            bclconvert_data_values_array.push("")
         }
     }
 

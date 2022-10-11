@@ -130,6 +130,7 @@ function get_bclconvert_data_row_as_csv_row(bclconvert_data_row, row_order) {
     // This for loop is here to ensure were assigning values in the same order as the header
     for (var _i = 0, row_order_1 = row_order; _i < row_order_1.length; _i++) {
         var item_index = row_order_1[_i];
+        var found = false;
         // Find matching attribute in this row
         for (var _a = 0, _b = Object.getOwnPropertyNames(bclconvert_data_row); _a < _b.length; _a++) {
             var bclconvert_data_field_name = _b[_a];
@@ -137,9 +138,9 @@ function get_bclconvert_data_row_as_csv_row(bclconvert_data_row, row_order) {
             var bclconvert_data_row_field_value = bclconvert_data_row[bclconvert_data_field_name];
             if (bclconvert_data_row_field_value === null) {
                 /*
-                Item not found, add an empty attribute for this cell in the csv
+                Field value not found add an empty attribute for this cell in the csv
                 */
-                bclconvert_data_values_array.push("");
+                //
                 continue;
             }
             // The header value matches the name in the item
@@ -148,8 +149,12 @@ function get_bclconvert_data_row_as_csv_row(bclconvert_data_row, row_order) {
                 If the field value has a class attribute then it's either read_1 or read_2
                 */
                 bclconvert_data_values_array.push(bclconvert_data_row_field_value.toString());
+                found = true;
                 break;
             }
+        }
+        if (!found) {
+            bclconvert_data_values_array.push("");
         }
     }
     /*
