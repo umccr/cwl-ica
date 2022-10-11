@@ -69,10 +69,8 @@ requirements:
               exit 1
           fi
 
-          # Initialise dragen
-          /opt/edico/bin/dragen \\
-            --partial-reconfig DNA-MAPPER \\
-            --ignore-version-check true
+          # Reset dragen
+          /opt/edico/bin/dragen_reset
 
           # Create directories
           mkdir --parents \\
