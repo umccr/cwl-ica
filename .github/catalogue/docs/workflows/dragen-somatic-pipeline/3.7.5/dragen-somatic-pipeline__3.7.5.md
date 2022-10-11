@@ -1343,7 +1343,7 @@ bash wfr.58436856778e4f70ae7856869571470c.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.7.5--511f460  
+**wfl version name:** 3.7.5--984c780  
 
   
 

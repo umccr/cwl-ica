@@ -424,7 +424,7 @@ bash wfr.8bb7083dc6e74a2f9c21edd65e627a2e.launch.sh
 
   
 **workflow name:** dragen-wgs-qc-pipeline_prod-wf  
-**wfl version name:** 3.9.3--511f460  
+**wfl version name:** 3.9.3--984c780  
 
   
 

@@ -286,7 +286,7 @@ The output directory containing all umccrise output files
 
   
 **workflow name:** umccrise-with-dragen-germline-pipeline_prod-wf  
-**wfl version name:** 2.0.2--3.9.3--511f460  
+**wfl version name:** 2.0.2--3.9.3--984c780  
 
   
 
