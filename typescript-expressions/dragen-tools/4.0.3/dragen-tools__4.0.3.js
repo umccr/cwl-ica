@@ -201,6 +201,7 @@ function get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {
     // This for loop is here to ensure were assigning values in the same order as the header
     for (var _i = 0, row_order_1 = row_order; _i < row_order_1.length; _i++) {
         var item_index = row_order_1[_i];
+        var found_item = false;
         // Find matching attribute in this row
         for (var _a = 0, _b = Object.getOwnPropertyNames(fastq_list_row); _a < _b.length; _a++) {
             var fastq_list_row_field_name = _b[_a];
@@ -209,7 +210,6 @@ function get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {
                 /*
                 Item not found, add an empty attribute for this cell in the csv
                 */
-                fastq_list_row_values_array.push("");
                 continue;
             }
             // The header value matches the name in the item
@@ -223,7 +223,6 @@ function get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {
                     Assert that this is actually of class file
                     */
                     if (fastq_list_row_field_value_file.class_ !== cwl_ts_auto_1.File_class.FILE) {
-                        fastq_list_row_values_array.push("");
                         continue;
                     }
                     if (fastq_list_row_field_value_file.path !== null && fastq_list_row_field_value_file.path !== undefined) {
@@ -245,8 +244,15 @@ function get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {
                     */
                     fastq_list_row_values_array.push(fastq_list_row_field_value.toString());
                 }
+                found_item = true;
                 break;
             }
+        }
+        if (!found_item) {
+            /*
+            Push blank cell if no item found
+            */
+            fastq_list_row_values_array.push("");
         }
     }
     /*

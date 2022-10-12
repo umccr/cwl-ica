@@ -232,6 +232,7 @@ export function get_fastq_list_row_as_csv_row(fastq_list_row: FastqListRow, row_
 
     // This for loop is here to ensure were assigning values in the same order as the header
     for (let item_index of row_order) {
+        let found_item = false
         // Find matching attribute in this row
         for (let fastq_list_row_field_name of Object.getOwnPropertyNames(fastq_list_row)) {
             let fastq_list_row_field_value = <string | IFile> fastq_list_row[fastq_list_row_field_name as keyof FastqListRow]
@@ -240,7 +241,6 @@ export function get_fastq_list_row_as_csv_row(fastq_list_row: FastqListRow, row_
                 /*
                 Item not found, add an empty attribute for this cell in the csv
                 */
-                fastq_list_row_values_array.push("")
                 continue
             }
 
@@ -255,7 +255,6 @@ export function get_fastq_list_row_as_csv_row(fastq_list_row: FastqListRow, row_
                     Assert that this is actually of class file
                     */
                     if ( fastq_list_row_field_value_file.class_ !== File_class.FILE ) {
-                        fastq_list_row_values_array.push("")
                         continue
                     }
 
@@ -276,8 +275,15 @@ export function get_fastq_list_row_as_csv_row(fastq_list_row: FastqListRow, row_
                     */
                     fastq_list_row_values_array.push(fastq_list_row_field_value.toString())
                 }
+                found_item = true
                 break
             }
+        }
+        if (!found_item){
+            /*
+            Push blank cell if no item found
+            */
+            fastq_list_row_values_array.push("")
         }
     }
 
