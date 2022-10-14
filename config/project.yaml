@@ -668,7 +668,7 @@ projects:
           - name: 2.1.1--3.9.3
             path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
             ica_workflow_version_name: 2.1.1--3.9.3
-            modification_time: 2022-10-11T06:47:40UTC
+            modification_time: 2022-10-14T02:22:28UTC
             run_instances: []
       - name: ghif-qc
         path: ghif-qc

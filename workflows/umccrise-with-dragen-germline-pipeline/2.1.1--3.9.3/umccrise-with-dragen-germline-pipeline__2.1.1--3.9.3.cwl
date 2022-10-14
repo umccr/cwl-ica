@@ -94,6 +94,11 @@ inputs:
       The name of the output directory used for umccrise step
     type: string
   # Optional germline inputs
+  enable_duplicate_marking_germline:
+    label: enable duplicate marking germline
+    doc: |
+      Turn on duplicate marking for the germline step
+    type: boolean?
   # TODO
   # Optional umccrise inputs
   # TODO
@@ -114,6 +119,8 @@ steps:
         source: output_file_prefix_germline
       output_directory:
         source: output_directory_germline
+      enable_duplicate_marking:
+        source: enable_duplicate_marking_germline
       # Hardcoded values
       enable_map_align_output:
         # Must be set to true
@@ -121,6 +128,7 @@ steps:
           ${
             return true;
           }
+
       # Outputs
     out:
       - id: dragen_germline_output_directory
