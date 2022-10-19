@@ -128,13 +128,13 @@ inputs:
       map/align stage. Default is true when only
       running map/align. Default is false if
       running the variant caller.
-    type: boolean?
+    type: boolean
   enable_duplicate_marking:
     label: enable duplicate marking
     doc: |
       Enable the flagging of duplicate output
       alignment records.
-    type: boolean?
+    type: boolean
   enable_sv:
     label: enable sv
     doc: |
