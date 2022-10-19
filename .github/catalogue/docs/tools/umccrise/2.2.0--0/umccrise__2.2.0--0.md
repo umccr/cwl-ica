@@ -166,6 +166,7 @@ The output directory containing the umccrise data
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -176,6 +177,16 @@ The output directory containing the umccrise data
   
 **workflow name:** umccrise_dev-wf  
 **wfl version name:** 2.2.0--0  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.714e9172f3674023b210ccc7c47db05a  
+
+  
+**workflow name:** umccrise_prod-wf  
+**wfl version name:** 2.2.0--0--1ecf63c  
 
   
 
