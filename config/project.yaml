@@ -458,6 +458,16 @@ projects:
             ica_workflow_version_name: 2.2.2
             modification_time: 2022-09-13T07:07:48UTC
             run_instances: []
+      - name: map_resource_requirements
+        path: map_resource_requirements
+        ica_workflow_name: map_resource_requirements_dev-wf
+        ica_workflow_id: wfl.a47748cad84d4ca0a41d39a1d40eeb8d
+        versions:
+          - name: 0.1.0
+            path: 0.1.0/map_resource_requirements__0.1.0.cwl
+            ica_workflow_version_name: 0.1.0
+            modification_time: 2022-10-05T23:46:42UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline

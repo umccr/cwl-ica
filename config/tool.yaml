@@ -415,3 +415,10 @@ tools:
         path: 2.2.2/qualimap__2.2.2.cwl
         md5sum: 2a8f839df57505fb05cd6d2c2fa36318
     categories: []
+  - name: map_resource_requirements
+    path: map_resource_requirements
+    versions:
+      - name: 0.1.0
+        path: 0.1.0/map_resource_requirements__0.1.0.cwl
+        md5sum: 184d128877df3d1686fbdf9448cbf41a
+    categories: []
