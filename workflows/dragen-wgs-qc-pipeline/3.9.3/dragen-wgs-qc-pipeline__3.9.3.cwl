@@ -59,6 +59,12 @@ inputs:
     doc: |
       Do you wish to have the output bam files present
     type: boolean
+  enable_sort:
+    label: enable sort
+    doc: |
+      The map/align system produces a BAM file sorted by 
+      reference sequence and position by default.
+    type: boolean
   # Output naming options
   output_file_prefix:
     label: output file prefix
@@ -94,6 +100,8 @@ steps:
         source: enable_map_align_output
       enable_duplicate_marking:
         source: enable_duplicate_marking
+      enable_sort:
+        source: enable_sort
     out:
       - id: dragen_alignment_output_directory
       - id: dragen_bam_out
@@ -123,10 +131,4 @@ outputs:
       The dragen multiQC output
     type: Directory
     outputSource: run_dragen_step/multiqc_output_directory
-  # Somalier outputs
-  somalier_output_directory:
-    label: somalier output directory
-    doc: |
-      Output directory from somalier step
-    type: Directory
-    outputSource: run_somalier_step/output_directory
+
