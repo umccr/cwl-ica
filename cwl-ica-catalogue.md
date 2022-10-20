@@ -21,10 +21,8 @@ UMCCR CWL-ICA Catalogue
 - [get-compressed-vcf-file-from-directory](#get-compressed-vcf-file-from-directory)  
 - [get-custom-output-dir-entry-for-tso500-post-processing](#get-custom-output-dir-entry-for-tso500-post-processing)  
 - [get-bam-file-from-directory](#get-bam-file-from-directory)  
-- [create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema](#create-predefined-mount-paths-and-umccrise-row-
-from-umccrise-schema)  
-- [get-custom-output-dir-entry-for-tso500-with-post-processing](#get-custom-output-dir-entry-for-tso500-with-post-
-processing)  
+- [create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema](#create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema)  
+- [get-custom-output-dir-entry-for-tso500-with-post-processing](#get-custom-output-dir-entry-for-tso500-with-post-processing)  
 - [create-single-directory-from-directories-array](#create-single-directory-from-directories-array)  
 
 
@@ -156,16 +154,14 @@ processing)
 - [mosdepth](#mosdepth)  
 - [custom-tso500-make-region-coverage-qc](#custom-tso500-make-region-coverage-qc)  
 - [custom-tso500-make-exon-coverage-qc](#custom-tso500-make-exon-coverage-qc)  
-- [custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json](#custom-tso500-align-collapse-fusion-caller-csv-
-metrics-to-json)  
+- [custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json](#custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json)  
 - [custom-tsv-to-json](#custom-tsv-to-json)  
 - [custom-tar-vcf-file-list](#custom-tar-vcf-file-list)  
 - [custom-gzip-file](#custom-gzip-file)  
 - [custom-tar-file-list](#custom-tar-file-list)  
 - [custom-create-umccrise-tsv](#custom-create-umccrise-tsv)  
 - [umccrise](#umccrise)  
-- [custom-create-umccr-dragen-refdata-tarball-from-illumina-tar](#custom-create-umccr-dragen-refdata-tarball-from-
-illumina-tar)  
+- [custom-create-umccr-dragen-refdata-tarball-from-illumina-tar](#custom-create-umccr-dragen-refdata-tarball-from-illumina-tar)  
 - [dragen-umi](#dragen-umi)  
 - [bcftools-view](#bcftools-view)  
 - [rnasum](#rnasum)  
@@ -516,6 +512,8 @@ illumina-tar)
 - [2.0.2--0](.github/catalogue/docs/tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
 - [2.1.0--0](.github/catalogue/docs/tools/umccrise/2.1.0--0/umccrise__2.1.0--0.md)  
 - [2.1.1--0](.github/catalogue/docs/tools/umccrise/2.1.1--0/umccrise__2.1.1--0.md)  
+- [2.2.0--0](.github/catalogue/docs/tools/umccrise/2.2.0--0/umccrise__2.2.0--0.md)  
+- [2.2.1--0](.github/catalogue/docs/tools/umccrise/2.2.1--0/umccrise__2.2.1--0.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar

@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.7.5 workflow
 
   
 > ID: dragen-germline-pipeline--3.7.5  
-> md5sum: 9c415babb9da86131c01d4e816d9ef67
+> md5sum: 76fd126b16ba8a2734f2b0ecb681754b
 
 ### dragen-germline-pipeline v(3.7.5) documentation
   
@@ -195,7 +195,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `<cwl_utils.parser_v1_1.InputEnumSchema object at 0x7f8fe5553c10>`  
+**Type:** `[ male | female ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -578,7 +578,7 @@ The output directory for multiqc
 
   
 **workflow name:** dragen-germline-pipeline_prod-wf  
-**wfl version name:** 3.7.5--1d8fe7b  
+**wfl version name:** 3.7.5--984c780  
 
   
 

@@ -19,7 +19,7 @@ tso500-ctdna 1.1.0--120 workflow
 
   
 > ID: tso500-ctdna--1.1.0--120  
-> md5sum: 38a635e2b4fb531964bc0cbe92a19b5a
+> md5sum: 9200056d1074f7f7dc2c9a0da89f20ee
 
 ### tso500-ctdna v(1.1.0--120) documentation
   
@@ -765,7 +765,7 @@ Intermediate output for variant_matching_analysis step of the analysis workflow
 
   
 **workflow name:** tso500-ctdna_prod-wf  
-**wfl version name:** 1.1.0--120--d7621f6  
+**wfl version name:** 1.1.0--120--984c780  
 
 
 ### Project: collab-illumina-dev_workflows
