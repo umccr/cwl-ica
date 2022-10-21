@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: 8944136c8c14a1b2bef724f7910fb963
+> md5sum: d45f5583db373a69a9d04014b3978371
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -170,7 +170,7 @@ Enable CNV processing in the DRAGEN Host Software.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output
@@ -211,7 +211,7 @@ Requires somatic CNV calls.
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enables saving the output from the
@@ -2221,7 +2221,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--984c780  
+**wfl version name:** 3.9.3--4e00721  
 
   
 
