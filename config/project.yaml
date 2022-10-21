@@ -502,7 +502,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-10-11T06:46:44UTC
+            modification_time: 2022-10-20T04:59:22UTC
             run_instances:
               - wfr.d058e5f7be4b4683a9b1a59b8f67f91b
               - wfr.4759b2ccf6234141b06d5aab5b932dbb
@@ -541,7 +541,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-10-11T06:46:56UTC
+            modification_time: 2022-10-20T05:00:01UTC
             run_instances:
               - wfr.b19291caab384e78b7661a85c3f82003
               - wfr.128790246e9c48f39e14d8f8ef7d868e
@@ -577,7 +577,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-10-11T06:47:06UTC
+            modification_time: 2022-10-20T05:00:38UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -595,7 +595,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-10-11T06:47:12UTC
+            modification_time: 2022-10-20T04:58:43UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
@@ -611,7 +611,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-10-11T06:47:17UTC
+            modification_time: 2022-10-20T05:03:36UTC
             run_instances:
               - wfr.8bb7083dc6e74a2f9c21edd65e627a2e
       - name: tso500-ctdna-post-processing-pipeline
