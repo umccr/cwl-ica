@@ -126,7 +126,7 @@ steps:
           ${
             return true;
           }
-      # Outputs
+    # Outputs
     out:
       - id: dragen_germline_output_directory
     run:
