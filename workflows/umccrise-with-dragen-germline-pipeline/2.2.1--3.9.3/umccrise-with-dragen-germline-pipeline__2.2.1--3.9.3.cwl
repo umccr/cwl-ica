@@ -3,16 +3,16 @@ class: Workflow
 
 # Extensions
 $namespaces:
-    s: https://schema.org/
+  s: https://schema.org/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 # Metadata
 s:author:
-    class: s:Person
-    s:name: Alexis Lucattini
-    s:email: Alexis.Lucattini@umccr.org
-    s:identifier: https://orcid.org/0000-0001-9754-647X
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
 
 s:maintainer:
   class: s:Person
@@ -20,27 +20,27 @@ s:maintainer:
   s:email: Stephen.Watts@umccr.org
 
 # ID/Docs
-id: umccrise-with-dragen-germline-pipeline--2.1.1--3.9.3
-label: umccrise-with-dragen-germline-pipeline v(2.1.1--3.9.3)
+id: umccrise-with-dragen-germline-pipeline--2.2.1--3.9.3
+label: umccrise-with-dragen-germline-pipeline v(2.2.1--3.9.3)
 doc: |
-    Run UMCCRise on a dragen-somatic output, but run germline on the normal fastqs first.
-    This means the inputs of this pipeline are:
-    1. Fastq list rows of the germline samples
-    2. An output directory from the dragen-somatic pipeline
-
-    3. Any additional umccrise parameters
-    4. Any additional germline parameters
+  Run UMCCRise on a dragen-somatic output, but run germline on the normal fastqs first.
+  This means the inputs of this pipeline are:
+  1. Fastq list rows of the germline samples
+  2. An output directory from the dragen-somatic pipeline
+  
+  3. Any additional umccrise parameters
+  4. Any additional germline parameters
 
 requirements:
-    InlineJavascriptRequirement: {}
-    ScatterFeatureRequirement: {}
-    MultipleInputFeatureRequirement: {}
-    StepInputExpressionRequirement: {}
-    SubworkflowFeatureRequirement: {}
-    SchemaDefRequirement:
-      types:
-        - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
-        - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
+  InlineJavascriptRequirement: {}
+  ScatterFeatureRequirement: {}
+  MultipleInputFeatureRequirement: {}
+  StepInputExpressionRequirement: {}
+  SubworkflowFeatureRequirement: {}
+  SchemaDefRequirement:
+    types:
+      - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
+      - $import: ../../../schemas/predefined-mount-path/1.0.0/predefined-mount-path__1.0.0.yaml
 
 inputs:
   # Required inputs
@@ -189,7 +189,7 @@ steps:
     out:
       - id: output_directory
     run:
-      ../../../tools/umccrise/2.1.1--0/umccrise__2.1.1--0.cwl
+      ../../../tools/umccrise/2.2.1--0/umccrise__2.2.1--0.cwl
 
 outputs:
   umccrise_output_directory:
