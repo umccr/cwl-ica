@@ -64,7 +64,9 @@ requirements:
           # Check if dragen is available on the machine
           if type /opt/edico/bin/dragen 1>/dev/null 2>&1; then
             # First reset dragen box
-            /opt/edico/bin/dragen_reset
+            /opt/edico/bin/dragen \\
+              --partial-reconfig HMM \\
+              --ignore-version-check true
             
             # Only set --fastq-compression-format value if 
             # --bcl-validate-sample-sheet-only is set to false
