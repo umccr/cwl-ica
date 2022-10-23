@@ -147,13 +147,16 @@ outputs:
     doc: |
       Array of fastq list rows
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
+    outputSource: run_bclconvert_step/fastq_list_rows
   interop_multiqc_out:
     label: interop multiqc out
     doc: |
       Multiqc interop directory
     type: Directory
+    outputSource: interop_qc_step/interop_multi_qc_out
   bclconvert_multiqc_out:
     label: bclconvert multiqc out
     doc: |
       bclconvert multiqc out
     type: Directory
+    #outputSource: bclconvert_qc_step/output_directory
