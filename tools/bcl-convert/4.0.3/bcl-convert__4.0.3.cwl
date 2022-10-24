@@ -33,6 +33,8 @@ hints:
     dockerPull: 'ghcr.io/umccr/bcl-convert:4.0.3'
 
 requirements:
+  NetworkAccess:
+    networkAccess: true
   InlineJavascriptRequirement:
     expressionLib:
       - $include: ../../../typescript-expressions/get-fastq-list-rows-from-fastq-list-csv/1.0.0/get-fastq-list-rows-from-fastq-list-csv__1.0.0.cwljs
