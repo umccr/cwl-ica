@@ -133,16 +133,153 @@ steps:
       Run BCLConvert with the --bcl-validate-sample-sheet-only parameter set to true
     in:
       # Mandatory options
-      bclconvert_run_input_directory:
+      bcl_input_directory:
         source: create_dummy_directory_step/output_directory
-      bclconvert_run_configuration:
+      samplesheet:
         source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "samplesheet");
+          }
+      output_directory:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "output_directory");
+          }
+      # Rest of the options
+      bcl_conversion_threads:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_conversion_threads");
+          }
+      bcl_num_compression_threads:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_num_compression_threads");
+          }
+      bcl_num_decompression_threads:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_num_decompression_threads");
+          }
+      bcl_num_parallel_tiles:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_num_parallel_tiles");
+          }
+      bcl_only_lane:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_only_lane");
+          }
+      bcl_only_matched_reads:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_only_matched_reads");
+          }
+      bcl_sampleproject_subdirectories:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_sampleproject_subdirectories");
+          }
+      bcl_validate_sample_sheet_only:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "bcl_validate_sample_sheet_only");
+          }
+      exclude_tiles:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "exclude_tiles");
+          }
+      fastq_gzip_compression_level:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "fastq_gzip_compression_level");
+          }
+      first_tile_only:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "first_tile_only");
+          }
+      no_lane_splitting:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "no_lane_splitting");
+          }
+      num_unknown_barcodes_reported:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "num_unknown_barcodes_reported");
+          }
+      output_legacy_stats:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "output_legacy_stats");
+          }
+      run_info:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "run_info");
+          }
+      sample_name_column_enabled:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "sample_name_column_enabled");
+          }
+      shared_thread_odirect_output:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "shared_thread_odirect_output");
+          }
+      strict_mode:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "strict_mode");
+          }
+      tiles:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "tiles");
+          }
+      ora_reference:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "ora_reference");
+          }
+      fastq_compression_format:
+        source: get_bcl_convert_run_configuration_object_step/bclconvert_run_configuration_out
+        valueFrom: |
+          ${
+            return get_attribute_from_bclconvert_run_configuration(self, "fastq_compression_format");
+          }
     out:
       - id: bcl_convert_directory_output
-      # - id: fastq_list_rows  # Fastq list csv will be empty since this is only a validation run
+      - id: fastq_list_rows
       - id: samplesheet_out
       - id: run_info_out
-    run: ../../../workflows/bclconvert/4.0.3/bclconvert__4.0.3.cwl
+    run: ../../../tools/bcl-convert/4.0.3/bcl-convert__4.0.3.cwl
 
 outputs:
   run_info_out:
