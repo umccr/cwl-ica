@@ -554,6 +554,19 @@ inputs:
     inputBinding:
       prefix: "--preserve-map-align-order"
       valueFrom: "$(self.toString())"
+  # Add in the lic-license-id-location
+  lic_instance_id_location:
+    label: license instance id location
+    doc: |
+      You may wish to place your own in.
+      Optional value, default set to /opt/instance-identity
+      which is a path inside the dragen container
+    type:
+      - File?
+      - string?
+    default: "/opt/instance-identity"
+    inputBinding:
+      prefix: "--lic-instance-id-location"
   # Verbosity
   verbose:
     label: verbose
