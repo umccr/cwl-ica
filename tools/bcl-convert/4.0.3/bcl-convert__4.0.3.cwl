@@ -90,6 +90,17 @@ requirements:
               ora_reference_value=""
             fi
             
+            # Only set --lic-instance-id location 
+            # Set to string /opt/instance-identity if instance id location is a string
+            # Otherwise set to path attribute of inputs.lic_instance_id
+            if [[ "$(is_not_null(inputs.lic_instance_id_location))" == "true" ]]; then
+              lic_instance_id_location_key="--lic-instance-id"
+              lic_instance_id_location_value="$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))"
+            else
+              lic_instance_id_location_key=""
+              lic_instance_id_location_value=""
+            fi
+            
             # Run bclconvert through dragen
             eval /opt/edico/bin/dragen \\
               -v \\
@@ -97,8 +108,8 @@ requirements:
               --bcl-conversion-only "true" \\
               "\${fastq_compression_format_key}" "\${fastq_compression_format_value}" \\
               "\${ora_reference_key}" "\${ora_reference_value}" \\
+              "\${lic_instance_id_location_key}" "\${lic_instance_id_location_value}" \\
               '"\${@}"'
-          
           else
             # Run through standard bclconvert executable
             eval bcl-convert '"\${@}"'
@@ -352,6 +363,15 @@ inputs:
     # FIXME: Inputbinding now handled in bash script due to incompatibility with --bcl-validate-sample-sheet-only parameter
     # inputBinding:
     #   prefix: --fastq-compression-format
+  # Cannot specify as input binding since we may be running through the standard bclconvert
+  lic_instance_id_location:
+    label: lic instance id location
+    doc: |
+      The license instance id location
+    type:
+      - string
+      - File
+    default: "/opt/instance-identity"
 
 # Set outputs
 outputs:
@@ -397,5 +417,6 @@ outputs:
     type: File
     outputBinding:
       glob: "$(inputs.output_directory)/Reports/RunInfo.xml"
+
 successCodes:
   - 0
