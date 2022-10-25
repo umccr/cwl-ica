@@ -159,4 +159,4 @@ outputs:
     doc: |
       bclconvert multiqc out
     type: Directory
-    #outputSource: bclconvert_qc_step/output_directory
+    outputSource: bclconvert_qc_step/output_directory
