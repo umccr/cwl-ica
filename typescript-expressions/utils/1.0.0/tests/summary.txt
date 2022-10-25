@@ -1,22 +1,19 @@
-# Test started at 2022-10-10T17:10:34+11:00
+# Test started at 2022-10-25T16:53:59+11:00
 
-yarn exec v1.22.19
-warning package.json: No license field
-PASS tests/utils__1.0.0.test.js (10.242 s)
-PASS tests/utils__1.0.0.test.ts (16.982 s)
+PASS tests/utils__1.0.0.test.js (10.941 s)
+PASS tests/utils__1.0.0.test.ts (18.467 s)
 
 =============================== Coverage summary ===============================
-Statements   : 100% ( 12/12 )
-Branches     : 100% ( 10/10 )
-Functions    : 100% ( 3/3 )
-Lines        : 100% ( 12/12 )
+Statements   : 100% ( 22/22 )
+Branches     : 100% ( 18/18 )
+Functions    : 100% ( 5/5 )
+Lines        : 100% ( 22/22 )
 ================================================================================
 
 Test Suites: 2 passed, 2 total
-Tests:       16 passed, 16 total
+Tests:       26 passed, 26 total
 Snapshots:   0 total
-Time:        21.75 s
+Time:        23.223 s, estimated 26 s
 Ran all test suites.
-Done in 36.14s.
-# Test completed at 2022-10-10T17:11:10+11:00
+# Test completed at 2022-10-25T16:54:40+11:00
 

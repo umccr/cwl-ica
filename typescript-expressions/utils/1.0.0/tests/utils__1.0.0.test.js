@@ -29,11 +29,32 @@ describe('Test get_bool_value_as_str', function () {
 });
 // get_attribute_from_optional_input test
 describe('Test get_attribute_from_optional_input utils', function () {
-    test('We expect get_attribute_from_optional_input(UNDEFINED) to be null', function () {
+    test('We expect get_attribute_from_optional_input(UNDEFINED, "location") to be null', function () {
         expect((0, utils__1_0_0_1.get_attribute_from_optional_input)(UNDEFINED, "location")).toEqual(NULL);
     });
-    test('We expect get_attribute_from_optional_input(UNDEFINED) to be false', function () {
+    test('We expect get_attribute_from_optional_input(NOT_NULL_FILE, "location") to equal NOT_NULL_FILE["location"]', function () {
         expect((0, utils__1_0_0_1.get_attribute_from_optional_input)(NOT_NULL_FILE, "location")).toEqual(NOT_NULL_FILE["location"]);
+    });
+});
+// get_optional_attribute_from_object test
+describe('Test get_optional_attribute_from_object utils', function () {
+    test('We expect get_optional_attribute_from_object(NOT_NULL_FILE) to be null', function () {
+        expect((0, utils__1_0_0_1.get_optional_attribute_from_object)(NOT_NULL_FILE, "nameroot")).toEqual(NULL);
+    });
+    test('We expect get_optional_attribute_from_object(UNDEFINED) to be false', function () {
+        expect((0, utils__1_0_0_1.get_optional_attribute_from_object)(NOT_NULL_FILE, "location")).toEqual(NOT_NULL_FILE["location"]);
+    });
+});
+// get_optional_attribute_from_object test
+describe('Test get_optional_attribute_from_object utils', function () {
+    test('We expect get_optional_attribute_from_object(UNDEFINED) to be null', function () {
+        expect((0, utils__1_0_0_1.get_optional_attribute_from_multi_type_input_object)(UNDEFINED, "nameroot")).toEqual(NULL);
+    });
+    test('We expect get_optional_attribute_from_object("just_a_string", "nameroot") to be "just_a_string"', function () {
+        expect((0, utils__1_0_0_1.get_optional_attribute_from_multi_type_input_object)("just_a_string", "nameroot")).toEqual("just_a_string");
+    });
+    test('We expect get_optional_attribute_from_object(NOT_NULL_FILE, "location") to be "location"', function () {
+        expect((0, utils__1_0_0_1.get_optional_attribute_from_multi_type_input_object)(NOT_NULL_FILE, "location")).toEqual(NOT_NULL_FILE["location"]);
     });
 });
 // is_not_null test
