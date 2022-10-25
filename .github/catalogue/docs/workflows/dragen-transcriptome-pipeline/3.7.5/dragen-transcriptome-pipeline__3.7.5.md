@@ -597,7 +597,7 @@ bash wfr.f0fa0ea3972f405aa5af5003e1427428.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.7.5--d142c57  
+**wfl version name:** 3.7.5--984c780  
 
   
 

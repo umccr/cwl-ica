@@ -488,7 +488,7 @@ Output directory containing all outputs of the RNAsum run
 
   
 **workflow name:** rnasum_prod-wf  
-**wfl version name:** 0.4.4--d142c57  
+**wfl version name:** 0.4.4--984c780  
 
   
 
