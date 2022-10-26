@@ -103,11 +103,11 @@ inputs:
       For edit-mode 1 or 2: Requested number of seeds per read to allow editing on.
       Range: > 0
     type: int?
-  enable_map_align:
-    label: enable map align
+  enable_map_align_output:
+    label: enable map align output
     doc: |
       Enable use of BAM input files for mapper/aligner.
-    type: boolean?
+    type: boolean
   max_intron_bases:
     label: max intron bases
     doc: |
@@ -329,7 +329,7 @@ inputs:
     label: enable duplicate marking
     doc: |
       Enable the flagging of duplicate output alignment records.
-    type: boolean?
+    type: boolean
   remove_duplicates:
     label: remove duplicates
     doc: |
@@ -356,7 +356,7 @@ inputs:
     label: enable sort
     doc: |
       Enable sorting after mapping/alignment.
-    type: boolean?
+    type: boolean
   preserve_map_align_order:
     label: preserve map align order
     doc: |
@@ -399,8 +399,8 @@ steps:
         source: edit_read_len
       edit_seed_num:
         source: edit_seed_num
-      enable_map_align:
-        source: enable_map_align
+      enable_map_align_output:
+        source: enable_map_align_output
       max_intron_bases:
         source: max_intron_bases
       min_intron_bases:
