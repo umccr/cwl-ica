@@ -55,8 +55,10 @@ requirements:
           # Fail on non-zero exit of subshell
           set -euo pipefail
           
-          # Reset dragen
-          /opt/edico/bin/dragen_reset
+          # Run partial reconfig
+          /opt/edico/bin/dragen \\
+            --partial-reconfig HMM \\
+            --ignore-version-check true
           
           # Create directories
           mkdir --parents \\
