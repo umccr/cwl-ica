@@ -93,10 +93,13 @@ inputs:
     doc: |
       The name of the output directory used for umccrise step
     type: string
-  # Optional germline inputs
-  # TODO
-  # Optional umccrise inputs
-  # TODO
+  # Germline required inputs
+  enable_duplicate_marking:
+    label: enable duplicate marking
+    doc: |
+      Enable the flagging of duplicate output
+      alignment records.
+    type: boolean
 
 steps:
   # Step 1: Run the germline pipeline
@@ -114,14 +117,16 @@ steps:
         source: output_file_prefix_germline
       output_directory:
         source: output_directory_germline
-      # Hardcoded values
+      enable_duplicate_marking:
+        source: enable_duplicate_marking
+      # Hardcoded values (required by a step downstream)
       enable_map_align_output:
         # Must be set to true
         valueFrom: |
           ${
             return true;
           }
-      # Outputs
+    # Outputs
     out:
       - id: dragen_germline_output_directory
     run:

@@ -323,7 +323,7 @@ inputs:
     label: enable map align output
     doc: |
       Do you wish to have the output bam files present
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-map-align-output"
       valueFrom: "$(self.toString())"
@@ -331,7 +331,7 @@ inputs:
     label: enable duplicate marking
     doc: |
       Mark identical alignments as duplicates
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-duplicate-marking"
       valueFrom: "$(self.toString())"
