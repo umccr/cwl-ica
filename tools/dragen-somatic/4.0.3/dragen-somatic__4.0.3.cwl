@@ -70,7 +70,9 @@ requirements:
           fi
 
           # Reset dragen
-          /opt/edico/bin/dragen_reset
+          /opt/edico/bin/dragen \\
+            --partial-reconfig HMM \\
+            --ignore-version-check true
 
           # Create directories
           mkdir --parents \\
