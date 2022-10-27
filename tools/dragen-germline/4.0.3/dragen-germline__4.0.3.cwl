@@ -55,9 +55,9 @@ requirements:
           # Fail on non-zero exit of subshell
           set -euo pipefail
           
-          # Initialise dragen
+          # Run partial reconfig
           /opt/edico/bin/dragen \\
-            --partial-reconfig DNA-MAPPER \\
+            --partial-reconfig HMM \\
             --ignore-version-check true
           
           # Create directories
