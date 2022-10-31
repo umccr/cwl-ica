@@ -170,6 +170,7 @@ UMCCR CWL-ICA Catalogue
 - [calculate-coverage](#calculate-coverage)  
 - [bamtofastq](#bamtofastq)  
 - [qualimap](#qualimap)  
+- [map_resource_requirements](#map_resource_requirements)  
 
 
 ### samtools-merge
@@ -582,6 +583,13 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [2.2.2](.github/catalogue/docs/tools/qualimap/2.2.2/qualimap__2.2.2.md)  
+
+
+### map_resource_requirements
+
+#### Versions
+  
+- [0.1.0](.github/catalogue/docs/tools/map_resource_requirements/0.1.0/map_resource_requirements__0.1.0.md)  
 
 
 ## Workflows
