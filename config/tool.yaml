@@ -160,7 +160,7 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome__3.7.5.cwl
-        md5sum: 01103e4fd6ce9fe7c9d95f5da93451fb
+        md5sum: c7fe4ae20202e69fd02bd9508ff1261a
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome__3.8.4.cwl
         md5sum: 6a25bcf1e659c9461d9d227e58b486bb
