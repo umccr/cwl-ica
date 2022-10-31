@@ -668,7 +668,7 @@ projects:
           - name: 2.0.0--3.9.3
             path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
             ica_workflow_version_name: 2.0.0--3.9.3
-            modification_time: 2022-10-21T01:05:51UTC
+            modification_time: 2022-10-31T21:48:38UTC
             run_instances: []
           - name: 2.0.1--3.9.3
             path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
@@ -678,12 +678,12 @@ projects:
           - name: 2.0.2--3.9.3
             path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
             ica_workflow_version_name: 2.0.2--3.9.3
-            modification_time: 2022-10-21T01:05:56UTC
+            modification_time: 2022-10-31T21:48:43UTC
             run_instances: []
           - name: 2.1.0--3.9.3
             path: 2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.cwl
             ica_workflow_version_name: 2.1.0--3.9.3
-            modification_time: 2022-10-21T01:06:02UTC
+            modification_time: 2022-10-31T21:48:46UTC
             run_instances: []
           - name: 2.1.1--3.9.3
             path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
@@ -693,12 +693,12 @@ projects:
           - name: 2.2.0--3.9.3
             path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
             ica_workflow_version_name: 2.2.0--3.9.3
-            modification_time: 2022-10-20T05:15:04UTC
+            modification_time: 2022-10-31T21:48:49UTC
             run_instances: []
           - name: 2.2.1--3.9.3
             path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
             ica_workflow_version_name: 2.2.1--3.9.3
-            modification_time: 2022-10-20T05:11:50UTC
+            modification_time: 2022-10-31T21:48:51UTC
             run_instances: []
       - name: ghif-qc
         path: ghif-qc
@@ -1601,6 +1601,41 @@ projects:
             path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
             ica_workflow_version_name: 2.1.1--3.9.3--4e00721
             modification_time: 2022-10-21T01:06:47UTC
+            run_instances: []
+          - name: 2.2.0--3.9.3
+            path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
+            ica_workflow_version_name: 2.2.0--3.9.3--dd4c451
+            modification_time: 2022-10-31T21:49:11UTC
+            run_instances: []
+          - name: 2.2.1--3.9.3
+            path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
+            ica_workflow_version_name: 2.2.1--3.9.3--dd4c451
+            modification_time: 2022-10-31T21:49:13UTC
+            run_instances: []
+          - name: 2.0.0--3.9.3
+            path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
+            ica_workflow_version_name: 2.0.0--3.9.3--dd4c451
+            modification_time: 2022-10-31T21:49:15UTC
+            run_instances: []
+          - name: 2.0.1--3.9.3
+            path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
+            ica_workflow_version_name: 2.0.1--3.9.3--dd4c451
+            modification_time: 2022-10-31T21:49:17UTC
+            run_instances: []
+          - name: 2.0.2--3.9.3
+            path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
+            ica_workflow_version_name: 2.0.2--3.9.3--dd4c451
+            modification_time: 2022-10-31T21:49:19UTC
+            run_instances: []
+          - name: 2.1.0--3.9.3
+            path: 2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.cwl
+            ica_workflow_version_name: 2.1.0--3.9.3--dd4c451
+            modification_time: 2022-10-31T21:49:21UTC
+            run_instances: []
+          - name: 2.1.1--3.9.3
+            path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
+            ica_workflow_version_name: 2.1.1--3.9.3--dd4c451
+            modification_time: 2022-10-31T21:49:23UTC
             run_instances: []
       - name: dragen-pon-qc
         path: dragen-pon-qc
