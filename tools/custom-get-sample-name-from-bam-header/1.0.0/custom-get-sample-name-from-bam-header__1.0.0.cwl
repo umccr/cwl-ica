@@ -70,6 +70,9 @@ inputs:
 
 outputs:
   sample_name:
+    label: sample name
+    doc: |
+      Name of the sample
     type: string
     outputBinding:
       glob: "sample_name.txt"
