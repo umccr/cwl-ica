@@ -17,7 +17,7 @@ dragen-alignment 3.9.3 tool
 
   
 > ID: dragen-alignment--3.9.3  
-> md5sum: 8dd62c585a66984aba0382530c138b82
+> md5sum: 737abbd43ed4ebcb5a2e6f0e6bf0e565
 
 ### dragen-alignment v(3.9.3) documentation
   
@@ -192,20 +192,20 @@ Allows chimeric alignments to be output, as supplementary.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output alignment records.
 
 
-### enable map align
+### enable map align output
 
 
 
   
-> ID: enable_map_align
+> ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable use of BAM input files for mapper/aligner.
@@ -218,7 +218,7 @@ Enable use of BAM input files for mapper/aligner.
   
 > ID: enable_sort
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable sorting after mapping/alignment.

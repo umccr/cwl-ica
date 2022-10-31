@@ -46,20 +46,29 @@ jobs:
           ref="$( \
             jq --raw-output \
               '
-                if .head_ref != null then
-                   .head_ref
-                elif .ref != null then
+                # Get head of the pull request 
+                if .pull_request?.head?.ref? != null then
+                   .pull_request.head.ref
+                # If not try the base reference
+                elif .pull_request?.base?.ref? != null then
+                   .pull_request.base.ref
+                # Could this maybe not a PR?
+                # Try legacy
+                elif .ref? != null then
                    .ref
-                else 
-                  .base_ref
+                elif .base?.ref? != null then
+                  .base.ref
+                else
+                  null
                 end
               ' \
               < "${GITHUB_EVENT_PATH}" \
           )"
           
           if [[ "${ref}" == "null" ]]; then
-            echo "Debugging"
+            echo "Error! Could not get reference commit id"
             cat "${GITHUB_EVENT_PATH}"
+            exit 1
           fi
           
           # Set output
@@ -75,6 +84,87 @@ jobs:
       - name: Get git commit ID
         id: get_git_commit_id
         run: echo "::set-output name=git_commit_id::$(git log --format="%H" -n1 | cut -c1-7)"
+      # Get development workflows access token
+      - name: get development workflows project id access token
+        id: get_development_workflows_project_id_access_token
+        run: |
+          development_workflows_project_id="0df0356d-3637-48a5-80d1-a924642a6556"
+          echo "::set-output name=ica_access_token::$( \
+            AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
+            AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
+              aws secretsmanager get-secret-value \
+                --output json \
+                --secret-id IcaSecretsWorkflow  | \
+              jq --raw-output \
+                --arg project_id "${development_workflows_project_id}" \
+                '
+                  .SecretString | 
+                  fromjson | 
+                  .[$project_id]
+                ' \
+          )"
+      # Get collab illumina dev workflows access token
+      - name: get collab illumina dev workflows project id access token
+        id: get_collab_illumina_dev_workflows_project_id_access_token
+        run: |
+          collab_illumina_dev_workflows_project_id="0df0356d-3637-48a5-80d1-a924642a6556"
+          echo "::set-output name=ica_access_token::$( \
+            AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
+            AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
+              aws secretsmanager get-secret-value \
+                --output json \
+                --secret-id IcaSecretsWorkflow  | \
+              jq --raw-output \
+                --arg project_id "${collab_illumina_dev_workflows_project_id}" \
+                '
+                  .SecretString | 
+                  fromjson | 
+                  .[$project_id]
+                ' \
+          )"
+      # Get production workflows access token
+      - name: get production workflows project id access token
+        id: get_production_workflows_project_id_access_token
+        run: |
+          production_workflows="fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
+          echo "::set-output name=ica_access_token::$( \
+            AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_PROD_ICA_SECRETS_WORKFLOW }}" \
+            AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_PROD_ICA_SECRETS_WORKFLOW }}" \
+              aws secretsmanager get-secret-value \
+                --output json \
+                --secret-id IcaSecretsWorkflow | \
+              jq --raw-output \
+                --arg project_id "${production_workflows}" \
+                '
+                  .SecretString | 
+                  fromjson | 
+                  .[$project_id]
+                ' \
+          )"
+      # Create secrets json
+      - name: create secrets json
+        id: create_secrets_json
+        run: |
+          echo "::set-output name=secrets_json::$( \
+            jq --null-input --raw-output \
+              --arg development_workflows_access_token "${{ steps.get_development_workflows_project_id_access_token.outputs.ica_access_token }}" \
+              --arg collab_illumina_dev_workflows_access_token "${{ steps.get_collab_illumina_dev_workflows_project_id_access_token.outputs.ica_access_token }}" \
+              --arg production_workflows_access_token "${{ steps.get_production_workflows_project_id_access_token.outputs.ica_access_token }}" \
+              '
+                {
+                  "development_workflows": {
+                    "ICA_ACCESS_TOKEN": $development_workflows_access_token
+                  },
+                  "collab_illumina_dev_workflows": {
+                    "ICA_ACCESS_TOKEN": $collab_illumina_dev_workflows_access_token
+                  },
+                  "production_workflows": {
+                    "ICA_ACCESS_TOKEN": $production_workflows_access_token
+                  }
+                } |
+                @base64
+              ' \
+          )"
       # Sync tools and workflows
       - name: sync-tools and sync-workflows
         run: |
@@ -111,8 +201,8 @@ jobs:
           default_author: github_actions
           #author_name: "auto-catalogue-updater"
           message: "Updating cwl ica config and catalogue files - (Autogenerated github actions commit)"
-          # Don't push, we push manually in the next step if
-          # push: false  - wait to fix autocomplete first
+          # Don't push, we push manually in the next step
+          push: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Push config files
@@ -120,24 +210,12 @@ jobs:
         id: git_push
         if: ${{ steps.commit_configuration_yaml_files.outputs.committed == 'true' }}
         run: |
-          # For debugging purposes
-          # Get current branch
-          if [[ -n "${{ github.event.pull_request.head.ref }}" ]]; then
-            # When its a pr even
-            CURRENT_BRANCH="${{ github.event.pull_request.head.ref }}"
-          elif [[ -n "${GITHUB_REF_NAME-}" ]]; then
-            # Manual workflow
-            CURRENT_BRANCH="${GITHUB_REF_NAME}"
-          else
-            echo "DEBUG: $(printenv | grep GITHUB_)"
-            echo "Cannot get the ref name"
-          fi
+          CURRENT_BRANCH="${{ steps.get_branch_name.outputs.branch_name }}"
 
           # Pull first (might have had another action complete a commit)
-          # Pretend to pull
-          echo git pull --rebase origin "${CURRENT_BRANCH}"
+          git pull --rebase origin "${CURRENT_BRANCH}"
 
           # Then push
           # Pretend to push
-          echo git push origin "${CURRENT_BRANCH}"
+           git push origin "${CURRENT_BRANCH}"
 

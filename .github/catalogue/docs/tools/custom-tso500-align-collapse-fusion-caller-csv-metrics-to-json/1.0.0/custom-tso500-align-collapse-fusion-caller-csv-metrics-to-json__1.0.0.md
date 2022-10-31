@@ -17,7 +17,7 @@ custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json 1.0.0 tool
 
   
 > ID: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json--1.0.0  
-> md5sum: 2af72e084bbe136f95168107828cfe85
+> md5sum: a0ef7b5e2926dc5954252142f05dbf71
 
 ### custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json v(1.0.0) documentation
   
@@ -49,7 +49,7 @@ Original CWL File can be found [here](https://github.com/YinanWang16/tso500-ctdn
   
 > ID: csv_metrics_files
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `File[]`  
 **Docs:**  
 The list of csv metrics files file

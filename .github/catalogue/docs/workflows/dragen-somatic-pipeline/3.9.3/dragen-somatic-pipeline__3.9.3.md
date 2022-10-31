@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: 3940e3ddb8632b7c53e2283554325473
+> md5sum: d45f5583db373a69a9d04014b3978371
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -46,7 +46,7 @@ More information on the documentation can be found [here](https://support-docs.i
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-somatic 3.9.3](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 
   
@@ -170,7 +170,7 @@ Enable CNV processing in the DRAGEN Host Software.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output
@@ -211,7 +211,7 @@ Requires somatic CNV calls.
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enables saving the output from the
@@ -1199,7 +1199,7 @@ The dragen qc step - this takes in an array of dirs
 #### Links
   
 [CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen somatic step
@@ -2221,7 +2221,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--e9124ad  
+**wfl version name:** 3.9.3--4e00721  
 
   
 

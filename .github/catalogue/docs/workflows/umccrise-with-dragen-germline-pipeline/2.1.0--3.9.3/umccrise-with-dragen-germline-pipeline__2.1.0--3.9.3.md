@@ -19,7 +19,7 @@ umccrise-with-dragen-germline-pipeline 2.1.0--3.9.3 workflow
 
   
 > ID: umccrise-with-dragen-germline-pipeline--2.0.2--3.9.3  
-> md5sum: 15f270102a9889994264f1a24ab69484
+> md5sum: 2eec62aef0a6d29811bfcdfe60cf5e1c
 
 ### umccrise-with-dragen-germline-pipeline v(2.0.2--3.9.3) documentation
   
@@ -66,6 +66,20 @@ This means the inputs of this pipeline are:
 **Type:** `Directory`  
 **Docs:**  
 The output from the dragen somatic workflow
+
+
+### enable duplicate marking
+
+
+
+  
+> ID: enable_duplicate_marking
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+Enable the flagging of duplicate output
+alignment records.
 
 
 ### fastq list rows germline
@@ -286,7 +300,7 @@ The output directory containing all umccrise output files
 
   
 **workflow name:** umccrise-with-dragen-germline-pipeline_prod-wf  
-**wfl version name:** 2.1.0--3.9.3--e4195a6  
+**wfl version name:** 2.1.0--3.9.3--4e00721  
 
   
 

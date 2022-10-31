@@ -19,7 +19,7 @@ dragen-wgs-qc-pipeline 3.9.3 workflow
 
   
 > ID: dragen-wgs-qc-pipeline--3.9.3  
-> md5sum: fb7e3d52e6e62a68c052531938ba677f
+> md5sum: 414f7d38adeeea505937de707fe9fb11
 
 ### dragen-wgs-qc-pipeline v(3.9.3) documentation
   
@@ -41,12 +41,51 @@ Documentation for dragen-wgs-qc-pipeline v3.9.3
 ### Uses
   
 - [dragen-alignment-pipeline 3.9.3](../../dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
-- [somalier-extract 0.2.13 :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
   
 
 
 ## dragen-wgs-qc-pipeline v(3.9.3) Inputs
+
+### enable duplicate marking
+
+
+
+  
+> ID: enable_duplicate_marking
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+Mark identical alignments as duplicates
+
+
+### enable map align output
+
+
+
+  
+> ID: enable_map_align_output
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+Do you wish to have the output bam files present
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+The map/align system produces a BAM file sorted by 
+reference sequence and position by default.
+
 
 ### Row of fastq lists
 
@@ -94,19 +133,6 @@ The directory where all output files are placed
 The prefix given to all output files
 
 
-### reference fasta
-
-
-
-  
-> ID: reference_fasta
-  
-**Optional:** `False`  
-**Type:** `File`  
-**Docs:**  
-FastA file with genome sequence
-
-
 ### reference tar
 
 
@@ -118,19 +144,6 @@ FastA file with genome sequence
 **Type:** `File`  
 **Docs:**  
 Path to ref data tarball
-
-
-### sites somalier
-
-
-
-  
-> ID: sites_somalier
-  
-**Optional:** `False`  
-**Type:** `File`  
-**Docs:**  
-gzipped vcf file. Required for somalier sites
 
   
 
@@ -157,23 +170,6 @@ All other options available at the top of the workflow
 #### Subworkflow overview
   
 [![dragen-alignment-pipeline__3.9.3.svg](../../../../images/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)  
-
-
-### somalier
-
-
-  
-> ID: dragen-wgs-qc-pipeline--3.9.3/run_somalier_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Runs the somalier extract function to call the fingerprint on the germline bam file
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl)  
-[CWL File Help Page :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
 
 ## dragen-wgs-qc-pipeline v(3.9.3) Outputs
@@ -220,21 +216,6 @@ The output alignment file
 **Output Type:** `Directory`  
 **Docs:**  
 The dragen multiQC output
-  
-
-
-### somalier output directory
-
-
-
-  
-> ID: dragen-wgs-qc-pipeline--3.9.3/somalier_output_directory  
-
-  
-**Optional:** `False`  
-**Output Type:** `Directory`  
-**Docs:**  
-Output directory from somalier step
   
 
   
@@ -424,7 +405,7 @@ bash wfr.8bb7083dc6e74a2f9c21edd65e627a2e.launch.sh
 
   
 **workflow name:** dragen-wgs-qc-pipeline_prod-wf  
-**wfl version name:** 3.9.3--099bb76  
+**wfl version name:** 3.9.3--4e00721  
 
   
 

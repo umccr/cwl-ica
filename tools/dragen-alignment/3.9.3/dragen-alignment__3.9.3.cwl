@@ -361,13 +361,13 @@ inputs:
     type: int?
     inputBinding:
       prefix: "--Mapper.edit-seed-num"
-  enable_map_align:
-    label: enable map align
+  enable_map_align_output:
+    label: enable map align output
     doc: |
       Enable use of BAM input files for mapper/aligner.
-    type: boolean?
+    type: boolean
     inputBinding:
-      prefix: "--enable-map-align"
+      prefix: "--enable-map-align-output"
       valueFrom: "$(self.toString())"
   max_intron_bases:
     label: max intron bases
@@ -671,7 +671,7 @@ inputs:
     label: enable duplicate marking
     doc: |
       Enable the flagging of duplicate output alignment records.
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-duplicate-marking"
       valueFrom: "$(self.toString())"
@@ -713,7 +713,7 @@ inputs:
     label: enable sort
     doc: |
       Enable sorting after mapping/alignment.
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-sort"
       valueFrom: "$(self.toString())"

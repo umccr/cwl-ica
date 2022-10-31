@@ -16,7 +16,7 @@ parse-file 1.0.0 expression
 
   
 > ID: parse-file--1.0.0  
-> md5sum: 05ccd7c91a2b1f62877a3f2ad2542f74
+> md5sum: 1eb65e580886c81292d7330478cb8d17
 
 ### parse-file v(1.0.0) documentation
   

@@ -19,7 +19,7 @@ dragen-alignment-pipeline 3.9.3 workflow
 
   
 > ID: dragen-alignment-pipeline--3.9.3  
-> md5sum: c7670e769139d2bfd103456f9e08e482
+> md5sum: 3fe6faf5fb177337bf7fc8c347494520
 
 ### dragen-alignment-pipeline v(3.9.3) documentation
   
@@ -42,7 +42,7 @@ Documentation for dragen-alignment-pipeline v3.9.3
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-alignment 3.9.3](../../../tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
 
 
@@ -206,20 +206,20 @@ Allows chimeric alignments to be output, as supplementary.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output alignment records.
 
 
-### enable map align
+### enable map align output
 
 
 
   
-> ID: enable_map_align
+> ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable use of BAM input files for mapper/aligner.
@@ -232,7 +232,7 @@ Enable use of BAM input files for mapper/aligner.
   
 > ID: enable_sort
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable sorting after mapping/alignment.
@@ -820,7 +820,7 @@ The dragen qc step - this takes in an array of dirs
 #### Links
   
 [CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen alignment step

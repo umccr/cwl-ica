@@ -19,7 +19,7 @@ dragen-wgs-qc-pipeline 3.7.5 workflow
 
   
 > ID: dragen-wgs-qc-pipeline--3.7.5  
-> md5sum: e8a5f7e0631cb9d14303f56d67e408d7
+> md5sum: 96bc9c833ca8d4f8ef676776e382a436
 
 ### dragen-wgs-qc-pipeline v(3.7.5) documentation
   
@@ -270,8 +270,7 @@ Output directory from somalier step
 
 
   
-> Run Name: 
-umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650  
+> Run Name: umccr__automated__dragen_wgs_qc__210708_A00130_0166_AH7KTJDSX2__r.E92UIDDiCUKQS5joVDO6Gg__L2100746__1626290650  
 
   
 **Start Time:** 2021-07-14 19:24:12 UTC  
@@ -425,7 +424,7 @@ bash wfr.1fd8c32d79c34e179a4c0d6754edd3a2.launch.sh
 
   
 **workflow name:** dragen-wgs-qc-pipeline_prod-wf  
-**wfl version name:** 3.7.5--67a9d2b  
+**wfl version name:** 3.7.5--984c780  
 
   
 

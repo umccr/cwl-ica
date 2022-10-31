@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: 481f644d4be0dfa1ecc9db76e38aed87
+> md5sum: 28bfaad1194d2f7d1f8608401dd79685
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -43,7 +43,7 @@ More information on the documentation can be found [here](https://support-docs.i
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0 :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-germline 3.9.3](../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
 
 
@@ -51,6 +51,11 @@ More information on the documentation can be found [here](https://support-docs.i
   
 - [umccrise-with-dragen-germline-pipeline 2.0.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
 - [umccrise-with-dragen-germline-pipeline 2.0.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.0.2--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.1.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.1.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.2.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.2.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.md)  
 
   
 
@@ -121,7 +126,7 @@ Enable CNV processing in the DRAGEN Host Software.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output
@@ -148,7 +153,7 @@ Enable HLA typing by setting --enable-hla flag to true
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enables saving the output from the
@@ -795,7 +800,7 @@ The dragen qc step - this takes in an array of dirs
 #### Links
   
 [CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen germline step

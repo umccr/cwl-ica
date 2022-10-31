@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 29d8f59dd0b962634f78a360a6f8c0d9
+> md5sum: 29c45cfadc3f1b8d0e90d2086c233c42
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -142,7 +142,7 @@ Coordinates of the Giemsa staining bands.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Mark identical alignments as duplicates
@@ -155,7 +155,7 @@ Mark identical alignments as duplicates
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Do you wish to have the output bam files present
@@ -1087,7 +1087,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--a4236ba  
+**wfl version name:** 3.9.3--4e00721  
 
   
 
