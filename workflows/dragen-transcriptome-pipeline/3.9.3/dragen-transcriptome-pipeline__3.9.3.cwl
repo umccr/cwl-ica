@@ -76,12 +76,12 @@ inputs:
     label: enable map align output
     doc: |
       Do you wish to have the output bam files present
-    type: boolean?
+    type: boolean
   enable_duplicate_marking:
     label: enable duplicate marking
     doc: |
       Mark identical alignments as duplicates
-    type: boolean?
+    type: boolean
   # Quantification options
   enable_rna_quantification:
     label: enable rna quantification

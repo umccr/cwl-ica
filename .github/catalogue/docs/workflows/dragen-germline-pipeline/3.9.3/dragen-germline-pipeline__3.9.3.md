@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: d394d2fb01674978ba45646d13469e65
+> md5sum: 28bfaad1194d2f7d1f8608401dd79685
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -54,6 +54,8 @@ More information on the documentation can be found [here](https://support-docs.i
 - [umccrise-with-dragen-germline-pipeline 2.0.2--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.md)  
 - [umccrise-with-dragen-germline-pipeline 2.1.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.md)  
 - [umccrise-with-dragen-germline-pipeline 2.1.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.2.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.2.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.md)  
 
   
 
@@ -124,7 +126,7 @@ Enable CNV processing in the DRAGEN Host Software.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output
@@ -151,7 +153,7 @@ Enable HLA typing by setting --enable-hla flag to true
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enables saving the output from the

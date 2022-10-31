@@ -17,7 +17,7 @@ dragen-germline 3.9.3 tool
 
   
 > ID: dragen-germline--3.9.3  
-> md5sum: 8030cbf0756e44637383ea10cb4cb443
+> md5sum: 6c3ae2a83d4ec71893129e590145fe94
 
 ### dragen-germline v(3.9.3) documentation
   
@@ -105,7 +105,7 @@ Enable CNV processing in the DRAGEN Host Software.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Mark identical alignments as duplicates
@@ -131,7 +131,7 @@ Enable HLA typing by setting --enable-hla flag to true
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Do you wish to have the output bam files present
