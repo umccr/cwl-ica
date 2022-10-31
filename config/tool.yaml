@@ -388,7 +388,7 @@ tools:
     versions:
       - name: 1.13.0
         path: 1.13.0/samtools-stats__1.13.0.cwl
-        md5sum: c92d52b84311f5232e087c95b936c969
+        md5sum: c1539b6e597b7fe6ba72cc369f3e9a2b
     categories: []
   - name: custom-stats-qc
     path: custom-stats-qc
