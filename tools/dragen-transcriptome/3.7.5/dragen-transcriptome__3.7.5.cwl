@@ -269,7 +269,7 @@ inputs:
     inputBinding:
       prefix: "--rrna-filter-enable"
       valueFrom: "$(self.toString())"
-  rrna-filter-contig:
+  rrna_filter_contig:
     label: name of the rRNA sequences to use for filtering
     type: string
     default: chrUn_GL000220v1

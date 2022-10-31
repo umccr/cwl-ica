@@ -393,7 +393,7 @@ projects:
           - name: 1.13.0
             path: 1.13.0/samtools-stats__1.13.0.cwl
             ica_workflow_version_name: 1.13.0
-            modification_time: 2022-10-11T06:36:10UTC
+            modification_time: 2022-10-31T00:35:31UTC
             run_instances:
               - wfr.32ff48e48bce4d4e8d70efe6fbf92040
       - name: custom-stats-qc
@@ -467,6 +467,16 @@ projects:
             path: 2.2.2/qualimap__2.2.2.cwl
             ica_workflow_version_name: 2.2.2
             modification_time: 2022-10-11T06:36:23UTC
+            run_instances: []
+      - name: map_resource_requirements
+        path: map_resource_requirements
+        ica_workflow_name: map_resource_requirements_dev-wf
+        ica_workflow_id: wfl.a47748cad84d4ca0a41d39a1d40eeb8d
+        versions:
+          - name: 0.1.0
+            path: 0.1.0/map_resource_requirements__0.1.0.cwl
+            ica_workflow_version_name: 0.1.0
+            modification_time: 2022-10-05T23:46:42UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline
@@ -566,7 +576,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2022-10-11T06:47:01UTC
+            modification_time: 2022-10-31T01:22:45UTC
             run_instances:
               - wfr.f0fa0ea3972f405aa5af5003e1427428
           - name: 3.8.4
@@ -698,12 +708,12 @@ projects:
           - name: 1.0.0
             path: 1.0.0/ghif-qc__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2022-10-11T06:47:42UTC
+            modification_time: 2022-10-31T00:38:08UTC
             run_instances: []
           - name: 1.0.1
             path: 1.0.1/ghif-qc__1.0.1.cwl
             ica_workflow_version_name: 1.0.1
-            modification_time: 2022-10-11T06:47:44UTC
+            modification_time: 2022-10-31T00:38:38UTC
             run_instances:
               - wfr.f6adb13c92e340f89317c337674b18a6
               - wfr.10176db758d94e56833422dfd60d0f90
@@ -715,7 +725,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-pon-qc__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2022-03-07T23:45:38UTC
+            modification_time: 2022-10-31T00:37:32UTC
             run_instances:
               - wfr.e0cccb29cf44482182507bd33579270c
       - name: dragen-wts-qc-pipeline
@@ -1257,6 +1267,11 @@ projects:
             ica_workflow_version_name: 3.9.3--4e00721
             modification_time: 2022-10-21T01:06:20UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--b2e9993
+            modification_time: 2022-10-31T04:31:45UTC
+            run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_prod-wf
@@ -1626,6 +1641,11 @@ projects:
             path: 3.9.3/dragen-pon-qc__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--4e00721
             modification_time: 2022-10-21T01:06:57UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-pon-qc__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--b2e9993
+            modification_time: 2022-10-31T04:32:02UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
