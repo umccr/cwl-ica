@@ -535,7 +535,7 @@ inputs:
     doc: |
       iltering flag, 0 for unset. See also `samtools flags` [0]
     type: int?
-  GC_depth:
+  gc_depth:
     label: GC depth 
     doc: |
       the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]

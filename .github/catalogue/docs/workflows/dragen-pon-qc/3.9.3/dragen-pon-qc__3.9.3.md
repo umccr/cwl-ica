@@ -19,7 +19,7 @@ dragen-pon-qc 3.9.3 workflow
 
   
 > ID: dragen-pon-qc--3.9.3  
-> md5sum: 56765ff6b7741d20133cb40a5911cfdf
+> md5sum: f2c40efeff59539212bcd3646c40dfdb
 
 ### dragen-pon-qc v(3.9.3) documentation
   
@@ -48,19 +48,6 @@ PoN. Additionally it performs QC on the output through GHIF-QC workflow.
 
 
 ## dragen-pon-qc v(3.9.3) Inputs
-
-### GC depth
-
-
-
-  
-> ID: GC_depth
-  
-**Optional:** `True`  
-**Type:** `float`  
-**Docs:**  
-the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
-
 
 ### cnv normal b allele vcf
 
@@ -277,6 +264,19 @@ and the related callability report are enabled.
 **Type:** `int`  
 **Docs:**  
 iltering flag, 0 for unset. See also `samtools flags` [0]
+
+
+### GC depth
+
+
+
+  
+> ID: gc_depth
+  
+**Optional:** `True`  
+**Type:** `float`  
+**Docs:**  
+the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
 
 
 ### hla allele frequency file
@@ -1842,7 +1842,7 @@ bash wfr.e0cccb29cf44482182507bd33579270c.launch.sh
 
   
 **workflow name:** dragen-pon-qc_prod-wf  
-**wfl version name:** 3.9.3--4e00721  
+**wfl version name:** 3.9.3--b2e9993  
 
   
 

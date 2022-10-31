@@ -160,7 +160,7 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome__3.7.5.cwl
-        md5sum: 01103e4fd6ce9fe7c9d95f5da93451fb
+        md5sum: c7fe4ae20202e69fd02bd9508ff1261a
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome__3.8.4.cwl
         md5sum: 6a25bcf1e659c9461d9d227e58b486bb
@@ -391,7 +391,7 @@ tools:
     versions:
       - name: 1.13.0
         path: 1.13.0/samtools-stats__1.13.0.cwl
-        md5sum: c92d52b84311f5232e087c95b936c969
+        md5sum: c1539b6e597b7fe6ba72cc369f3e9a2b
     categories: []
   - name: custom-stats-qc
     path: custom-stats-qc
@@ -423,4 +423,11 @@ tools:
       - name: 2.2.2
         path: 2.2.2/qualimap__2.2.2.cwl
         md5sum: f0c77dcf5a259a35ee140ab3d3f5693f
+    categories: []
+  - name: map_resource_requirements
+    path: map_resource_requirements
+    versions:
+      - name: 0.1.0
+        path: 0.1.0/map_resource_requirements__0.1.0.cwl
+        md5sum: a727f16c36f5d7ccfe6c5ab6d04b77e9
     categories: []

@@ -64,7 +64,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
-        md5sum: 2eb9e5078c181d0f66eef2dc02ecdf3b
+        md5sum: 40324f244f79c857976ca6733ce20e7b
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
         md5sum: 830464ca802948cd5212a7d1abdd2a35
@@ -161,17 +161,17 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/ghif-qc__1.0.0.cwl
-        md5sum: f8f9ab2af1aac8ea95eb2597f3e9405c
+        md5sum: 67622a2250c96734998cd508d1394231
       - name: 1.0.1
         path: 1.0.1/ghif-qc__1.0.1.cwl
-        md5sum: 1b1c9ab65eb81082c6bbe1a033bc9335
+        md5sum: 93697470aeabe9daf01338c108f113bf
     categories: []
   - name: dragen-pon-qc
     path: dragen-pon-qc
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-pon-qc__3.9.3.cwl
-        md5sum: 56765ff6b7741d20133cb40a5911cfdf
+        md5sum: f2c40efeff59539212bcd3646c40dfdb
     categories: []
   - name: dragen-wts-qc-pipeline
     path: dragen-wts-qc-pipeline
