@@ -96,7 +96,7 @@ inputs:
     type: int?
     inputBinding:
       prefix: "--filtering-flag"
-  GC_depth:
+  gc_depth:
     label: GC depth 
     doc: |
       the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
