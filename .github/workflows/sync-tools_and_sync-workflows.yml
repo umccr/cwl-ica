@@ -193,7 +193,7 @@ jobs:
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/create_catalogue.sh"
       # Commit config files
-      - id: commit_catalogue_files
+      - id: commit_config_and_catalogue
         name: Commit catalogue files
         uses: EndBug/add-and-commit@v7.2.1
         with:
@@ -208,7 +208,7 @@ jobs:
       # Push config files
       - name: Push code
         id: git_push
-        if: ${{ steps.commit_configuration_yaml_files.outputs.committed == 'true' }}
+        if: ${{ steps.commit_config_and_catalogue.outputs.committed == 'true' }}
         run: |
           CURRENT_BRANCH="${{ steps.get_branch_name.outputs.branch_name }}"
 
@@ -217,5 +217,5 @@ jobs:
 
           # Then push
           # Pretend to push
-           git push origin "${CURRENT_BRANCH}"
+          git push origin "${CURRENT_BRANCH}"
 
