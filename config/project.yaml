@@ -388,7 +388,7 @@ projects:
           - name: 0.4.5
             path: 0.4.5/rnasum__0.4.5.cwl
             ica_workflow_version_name: 0.4.5
-            modification_time: 2022-11-01T22:26:28UTC
+            modification_time: 2022-11-01T22:46:07UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
