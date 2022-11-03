@@ -468,6 +468,7 @@ Output directory containing all outputs of the RNAsum run
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -478,6 +479,16 @@ Output directory containing all outputs of the RNAsum run
   
 **workflow name:** rnasum_dev-wf  
 **wfl version name:** 0.4.5  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.87e07ae6b46645a181e04813de535216  
+
+  
+**workflow name:** rnasum_prod-wf  
+**wfl version name:** 0.4.5--c801102  
 
   
 
