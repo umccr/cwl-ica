@@ -164,15 +164,6 @@ inputs:
     doc: |
       Name of the directory to collect arriba outputs in.
     default: "arriba"
-  # Somalier Options
-  sites_somalier:
-    label: sites somalier
-    doc: |
-      gzipped vcf file. Required for somalier sites
-    type: File
-    secondaryFiles:
-      - pattern: ".tbi"
-        required: true
   # Location of license
   lic_instance_id_location:
     label: license instance id location
