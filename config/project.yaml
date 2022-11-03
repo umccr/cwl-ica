@@ -883,8 +883,8 @@ projects:
             run_instances: []
           - name: 0.4.5
             path: 0.4.5/rnasum__0.4.5.cwl
-            ica_workflow_version_name: 0.4.5--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 0.4.5--c801102
+            modification_time: 2022-11-03T04:15:39UTC
             run_instances: []
       - name: umccrise
         path: umccrise
