@@ -615,6 +615,7 @@ UMCCR CWL-ICA Catalogue
 - [ghif-qc](#ghif-qc)  
 - [dragen-pon-qc](#dragen-pon-qc)  
 - [dragen-wts-qc-pipeline](#dragen-wts-qc-pipeline)  
+- [tabix-workflow](#tabix-workflow)  
 
 
 ### optitype-pipeline
@@ -798,4 +799,11 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.9.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
+
+
+### tabix-workflow
+
+#### Versions
+  
+- [0.2.6](.github/catalogue/docs/workflows/tabix-workflow/0.2.6/tabix-workflow__0.2.6.md)  
 
