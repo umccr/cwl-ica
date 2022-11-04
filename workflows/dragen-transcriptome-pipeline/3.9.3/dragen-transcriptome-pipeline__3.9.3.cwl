@@ -164,15 +164,6 @@ inputs:
     doc: |
       Name of the directory to collect arriba outputs in.
     default: "arriba"
-  # Somalier Options
-  sites_somalier:
-    label: sites somalier
-    doc: |
-      gzipped vcf file. Required for somalier sites
-    type: File
-    secondaryFiles:
-      - pattern: ".tbi"
-        required: true
   # Location of license
   lic_instance_id_location:
     label: license instance id location
@@ -338,30 +329,6 @@ steps:
       - id: output_directory
       - id: output_file
     run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
-  # Step-8: run somalier
-  somalier_step:
-    label: somalier
-    doc: |
-      Runs the somalier extract function to call the fingerprint on the transcriptome bam file
-    in:
-      bam_sorted:
-        # The bam from the dragen transcriptome workflow
-        source: run_dragen_transcriptome_step/dragen_bam_out
-      sites:
-        # The VCF output file from the dragen command
-        source: sites_somalier
-      reference:
-        # The reference fasta for the genome somalier
-        source: reference_fasta
-      sample_prefix:
-        # The sample-prefix, if not specified just the output_file_prefix used throughout the workflow
-        source: output_file_prefix
-      output_directory_name:
-        source: output_file_prefix
-        valueFrom: "$(self)_somalier"
-    out:
-      - id: output_directory
-    run: ../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl
 
 outputs:
   # The dragen output directory
@@ -385,13 +352,6 @@ outputs:
       The output directory for multiqc
     type: Directory
     outputSource: dragen_qc_step/output_directory
-  # Somalier outputs
-  somalier_output_directory:
-    label: somalier output directory
-    doc: |
-      Output directory from somalier step
-    type: Directory
-    outputSource: somalier_step/output_directory
   # The qualimap output directory
   qualimap_output_directory:
     label: dragen transcriptome output directory
