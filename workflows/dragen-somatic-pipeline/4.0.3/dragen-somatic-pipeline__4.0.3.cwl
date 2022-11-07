@@ -434,6 +434,25 @@ inputs:
       The default is false. Not compatible with vc-enable-triallelic-filter.
     type: boolean?
 
+  # Turn off ntd error bias estimation
+  # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/SNVErrorEstimation.htm
+  vc_enable_unequal_ntd:
+    label: vc enable unequal ntd
+    doc: |
+      Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
+      Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 
+      In addition, NTD error estimation accounts for non-strand-specific biases such as sample-wide elevation of a certain SNV type, 
+      eg C->T or any other transition or transversion. 
+      NTD error estimation can also capture the biases in a trinucleotide context.
+    type:
+      - "null"
+      - boolean
+      - type: enum
+        symbols:
+          - "true"
+          - "false"
+          - "auto"
+
   # dbSNP annotation
   dbsnp_annotation:
     label: dbsnp annotation
@@ -802,6 +821,10 @@ steps:
       # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/PostSomaticFilters.htm
       vc_enable_non_primary_allelic_filter:
         source: vc_enable_non_primary_allelic_filter
+      # Turn off ntd error bias estimation
+      # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/SNVErrorEstimation.htm
+      vc_enable_unequal_ntd:
+        source: vc_enable_unequal_ntd
       # dbSNP annotation
       dbsnp_annotation:
         source: dbsnp_annotation
