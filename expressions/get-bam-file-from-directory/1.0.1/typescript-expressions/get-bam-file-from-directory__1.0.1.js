@@ -33,14 +33,14 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     */
     for (var _i = 0, input_listing_1 = input_listing; _i < input_listing_1.length; _i++) {
         var listing_item = input_listing_1[_i];
-        if (listing_item.class_ == cwl_ts_auto_1.File_class.FILE && listing_item.basename == bam_nameroot + ".bam") {
+        if (listing_item.class_ === cwl_ts_auto_1.File_class.FILE && listing_item.basename === bam_nameroot + ".bam") {
             /*
             Got the bam file
             */
             output_bam_obj = listing_item;
             break;
         }
-        if (listing_item.class_ == cwl_ts_auto_1.Directory_class.DIRECTORY && recursive) {
+        if (listing_item.class_ === cwl_ts_auto_1.Directory_class.DIRECTORY && recursive) {
             try {
                 // Consider that the bam file might not be in this subdirectory and that is okay
                 output_bam_obj = get_bam_file_from_directory(listing_item, bam_nameroot, recursive);
@@ -58,7 +58,7 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     */
     for (var _a = 0, input_listing_2 = input_listing; _a < input_listing_2.length; _a++) {
         var listing_item = input_listing_2[_a];
-        if (listing_item.class_ == cwl_ts_auto_1.File_class.FILE && listing_item.basename == bam_nameroot + ".bam.bai") {
+        if (listing_item.class_ === cwl_ts_auto_1.File_class.FILE && listing_item.basename === bam_nameroot + ".bam.bai") {
             /*
             Got the bam index file
             */

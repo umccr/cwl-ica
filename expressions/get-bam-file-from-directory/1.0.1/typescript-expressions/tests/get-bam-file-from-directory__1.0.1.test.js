@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var cwl_ts_auto_1 = require("cwl-ts-auto");
-var get_bam_file_from_directory_1 = require("../get_bam_file_from_directory");
+var get_bam_file_from_directory__1_0_1_1 = require("../get-bam-file-from-directory__1.0.1");
 // Test the get bam file from directory
 var INPUT_BAM_FILE_NAMEROOT = "footest";
 var INPUT_BAM_FILE_NAMEEXT = ".bam";
@@ -95,12 +95,12 @@ var EXPECTED_DEEP_LISTING_OUTPUT_BAM_FILE = {
 describe('Test Shallow Directory Listing', function () {
     // Get script path
     test("Test the get bam file from directory function non-recursively", function () {
-        expect((0, get_bam_file_from_directory_1.get_bam_file_from_directory)(INPUT_SHALLOW_LISTING, INPUT_BAM_FILE_NAMEROOT)).toMatchObject(EXPECTED_SHALLOW_LISTING_OUTPUT_BAM_FILE);
+        expect((0, get_bam_file_from_directory__1_0_1_1.get_bam_file_from_directory)(INPUT_SHALLOW_LISTING, INPUT_BAM_FILE_NAMEROOT)).toMatchObject(EXPECTED_SHALLOW_LISTING_OUTPUT_BAM_FILE);
     });
 });
 describe('Test Deep Directory Listing', function () {
     // Get script path
     test("Test the deep listing function", function () {
-        expect((0, get_bam_file_from_directory_1.get_bam_file_from_directory)(INPUT_DEEP_LISTING, INPUT_BAM_FILE_NAMEROOT, true)).toMatchObject(EXPECTED_DEEP_LISTING_OUTPUT_BAM_FILE);
+        expect((0, get_bam_file_from_directory__1_0_1_1.get_bam_file_from_directory)(INPUT_DEEP_LISTING, INPUT_BAM_FILE_NAMEROOT, true)).toMatchObject(EXPECTED_DEEP_LISTING_OUTPUT_BAM_FILE);
     });
 });

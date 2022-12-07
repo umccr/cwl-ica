@@ -928,6 +928,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ajv@npm:^6.1.1":
+  version: 6.12.6
+  resolution: "ajv@npm:6.12.6"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    fast-json-stable-stringify: ^2.0.0
+    json-schema-traverse: ^0.4.1
+    uri-js: ^4.2.2
+  checksum: 874972efe5c4202ab0a68379481fbd3d1b5d0a7bd6d3cc21d40d3536ebff3352a2a1fabb632d4fd2cc7fe4cbdcd5ed6782084c9bbf7f32a1536d18f9da5007d4
+  languageName: node
+  linkType: hard
+
 "ansi-escapes@npm:^4.2.1":
   version: 4.3.2
   resolution: "ansi-escapes@npm:4.3.2"
@@ -1377,6 +1389,7 @@ __metadata:
     "@types/jest": ^29.0.2
     "@types/node": ^18.7.18
     cwl-ts-auto: ^0.1.3
+    cwlts: ^1.23.6
     jest: ^29.0.3
     ts-jest: ^29.0.1
     typescript: ^4.8.3
@@ -1392,6 +1405,16 @@ __metadata:
     uri-js: ^4.4.1
     uuid: ^8.3.2
   checksum: b432667bdc68da53d2050aa0733b4bf181e903877404c03a29a846230656ff61913ad35cbe366d78a66279084a5c9ae6390488b1d87f64cf285dc9fba7a47dd4
+  languageName: node
+  linkType: hard
+
+"cwlts@npm:^1.23.6":
+  version: 1.23.6
+  resolution: "cwlts@npm:1.23.6"
+  dependencies:
+    ajv: ^6.1.1
+    js-yaml: ^3.10.0
+  checksum: c59ed02e6c2c69faf0364cdbcca7896eac5e73c91a4971ffe5edba90dd30e57c0ef233adbf5c14fde24a68a661dc6f71b1f8a894c4005658600c29050bb81642
   languageName: node
   linkType: hard
 
@@ -1570,7 +1593,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.1.0":
+"fast-deep-equal@npm:^3.1.1":
+  version: 3.1.3
+  resolution: "fast-deep-equal@npm:3.1.3"
+  checksum: e21a9d8d84f53493b6aa15efc9cfd53dd5b714a1f23f67fb5dc8f574af80df889b3bce25dc081887c6d25457cce704e636395333abad896ccdec03abaf1f3f9d
+  languageName: node
+  linkType: hard
+
+"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
   checksum: b191531e36c607977e5b1c47811158733c34ccb3bfde92c44798929e9b4154884378536d26ad90dfecd32e1ffc09c545d23535ad91b3161a27ddbb8ebe0cbecb
@@ -2438,7 +2468,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^3.13.1":
+"js-yaml@npm:^3.10.0, js-yaml@npm:^3.13.1":
   version: 3.14.1
   resolution: "js-yaml@npm:3.14.1"
   dependencies:
@@ -2474,6 +2504,13 @@ __metadata:
   version: 2.3.1
   resolution: "json-parse-even-better-errors@npm:2.3.1"
   checksum: 798ed4cf3354a2d9ccd78e86d2169515a0097a5c133337807cdf7f1fc32e1391d207ccfc276518cc1d7d8d4db93288b8a50ba4293d212ad1336e52a8ec0a941f
+  languageName: node
+  linkType: hard
+
+"json-schema-traverse@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "json-schema-traverse@npm:0.4.1"
+  checksum: 7486074d3ba247769fda17d5181b345c9fb7d12e0da98b22d1d71a5db9698d8b4bd900a3ec1a4ffdd60846fc2556274a5c894d0c48795f14cb03aeae7b55260b
   languageName: node
   linkType: hard
 
@@ -3488,7 +3525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uri-js@npm:^4.4.1":
+"uri-js@npm:^4.2.2, uri-js@npm:^4.4.1":
   version: 4.4.1
   resolution: "uri-js@npm:4.4.1"
   dependencies:
