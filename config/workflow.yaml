@@ -70,7 +70,7 @@ workflows:
         md5sum: 830464ca802948cd5212a7d1abdd2a35
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
-        md5sum: 29c45cfadc3f1b8d0e90d2086c233c42
+        md5sum: d8af269885f584677e658f19d4759264
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -136,25 +136,25 @@ workflows:
     versions:
       - name: 2.0.0--3.9.3
         path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
-        md5sum: ec37c7b5df32fe176d88972663884d4b
+        md5sum: bf903802c6293303caa8e2442f2f2456
       - name: 2.0.1--3.9.3
         path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
-        md5sum: ea89e55a937feb82488dd9b2c604e0d3
+        md5sum: e55e66f38c5103be20d1001dd4851327
       - name: 2.0.2--3.9.3
         path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
-        md5sum: 4582071c67a2945a74bb0f55f0587f05
+        md5sum: 3b81c2448e5bf298df405dad41bd6f3f
       - name: 2.1.0--3.9.3
         path: 2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.cwl
-        md5sum: 2eec62aef0a6d29811bfcdfe60cf5e1c
+        md5sum: c7b4d5c3752d2b65be3d2f8f474a1216
       - name: 2.1.1--3.9.3
         path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
-        md5sum: 9795b86d4b7623e419e5245587a67a00
+        md5sum: 7f384f9464dbdde94d86a6f5a3fd12fc
       - name: 2.2.0--3.9.3
         path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
-        md5sum: cf8d965caa211669b614004095f53da3
+        md5sum: ffa1c1cf9a0b2e9ed56652d9aac668d2
       - name: 2.2.1--3.9.3
         path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
-        md5sum: a9ebe6ac5364e913b4a1308bc4c0e586
+        md5sum: 28a6fb26e1c5826b984ce023c472e63b
     categories: []
   - name: ghif-qc
     path: ghif-qc
@@ -179,4 +179,11 @@ workflows:
       - name: 3.9.3
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
         md5sum: 7d7b426c1df8869da90b2c49f24c8e14
+    categories: []
+  - name: tabix-workflow
+    path: tabix-workflow
+    versions:
+      - name: 0.2.6
+        path: 0.2.6/tabix-workflow__0.2.6.cwl
+        md5sum: 870660710ed01bc05763f79fba1767b2
     categories: []

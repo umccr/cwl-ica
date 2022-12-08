@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.get_bam_file_from_directory = void 0;
 function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     if (recursive === void 0) { recursive = false; }
     /*
@@ -38,11 +41,11 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
         }
         if (listing_item.class === "Directory" && recursive) {
             try {
-                /*  Consider that the bam file might not be in this subdirectory and that is okay */
+                // Consider that the bam file might not be in this subdirectory and that is okay
                 output_bam_obj = get_bam_file_from_directory(listing_item, bam_nameroot, recursive);
             }
             catch (error) {
-                /*  Dont need to report an error though, just continue */
+                // Dont need to report an error though, just continue
             }
             if (output_bam_obj !== null) {
                 break;
@@ -72,7 +75,7 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     Check the secondary file has been defined
     */
     if (output_bam_obj.secondaryFiles !== undefined) {
-        /*  Picked up index object in the recursion step */
+        // Picked up index object in the recursion step
     }
     else if (output_bam_index_obj === null) {
         throw new Error("Could not find secondary file in the directory ".concat(input_dir.basename));
@@ -87,3 +90,4 @@ function get_bam_file_from_directory(input_dir, bam_nameroot, recursive) {
     }
     return output_bam_obj;
 }
+exports.get_bam_file_from_directory = get_bam_file_from_directory;
