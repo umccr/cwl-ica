@@ -95,7 +95,7 @@ jobs:
         id: get_development_workflows_project_id_access_token
         run: |
           development_workflows_project_id="0df0356d-3637-48a5-80d1-a924642a6556"
-          echo "ica_access_token=$( \
+          development_workflows_access_token="$( \
             AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
             AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
             AWS_REGION="${{ secrets.AWS_REGION }}" \
@@ -109,13 +109,15 @@ jobs:
                   fromjson | 
                   .[$project_id]
                 ' \
-          )" >> "${GITHUB_OUTPUT}"
+          )"
+          echo "::add-mask::${development_workflows_access_token}"
+          echo "ica_access_token=${development_workflows_access_token}" >> "${GITHUB_OUTPUT}"
       # Get collab illumina dev workflows access token
       - name: get collab illumina dev workflows project id access token
         id: get_collab_illumina_dev_workflows_project_id_access_token
         run: |
           collab_illumina_dev_workflows_project_id="dddd6c29-24d3-49f4-91c0-7e818b3c0a21"
-          echo "ica_access_token=$( \
+          collab_illumina_dev_access_token="$( \
             AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
             AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
             AWS_REGION="${{ secrets.AWS_REGION }}" \
@@ -129,13 +131,15 @@ jobs:
                   fromjson | 
                   .[$project_id]
                 ' \
-          )" >> "${GITHUB_OUTPUT}"
+          )" 
+          echo "::add-mask::${collab_illumina_dev_access_token}"
+          echo "ica_access_token=${collab_illumina_dev_access_token}" >> "${GITHUB_OUTPUT}"
       # Get production workflows access token
       - name: get production workflows project id access token
         id: get_production_workflows_project_id_access_token
         run: |
-          production_workflows="fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
-          echo "ica_access_token=$( \
+          production_workflows_project_id="fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
+          production_workflows_access_token="$( \
             AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_PROD_ICA_SECRETS_WORKFLOW }}" \
             AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_PROD_ICA_SECRETS_WORKFLOW }}" \
             AWS_REGION="${{ secrets.AWS_REGION }}" \
@@ -143,18 +147,20 @@ jobs:
                 --output json \
                 --secret-id IcaSecretsWorkflow | \
               jq --raw-output \
-                --arg project_id "${production_workflows}" \
+                --arg project_id "${production_workflows_project_id}" \
                 '
                   .SecretString | 
                   fromjson | 
                   .[$project_id]
                 ' \
-          )" >> "${GITHUB_OUTPUT}"
+          )"
+          echo "::add-mask::${production_workflows_access_token}"
+          echo "ica_access_token=${production_workflows_access_token}" >> "${GITHUB_OUTPUT}"
       # Create secrets json
       - name: create secrets json
         id: create_secrets_json
         run: |
-          echo "secrets_json=$( \
+          secrets_json="$( \
             jq --null-input --raw-output \
               --arg development_workflows_access_token "${{ steps.get_development_workflows_project_id_access_token.outputs.ica_access_token }}" \
               --arg collab_illumina_dev_workflows_access_token "${{ steps.get_collab_illumina_dev_workflows_project_id_access_token.outputs.ica_access_token }}" \
@@ -173,7 +179,9 @@ jobs:
                 } |
                 @base64
               ' \
-          )" >> "${GITHUB_OUTPUT}"
+          )" 
+          echo "::add-mask::${secrets_json}"
+          echo "secrets_json=${secrets_json}" >> "${GITHUB_OUTPUT}"
       # Sync tools and workflows
       - name: sync-tools and sync-workflows
         run: |
