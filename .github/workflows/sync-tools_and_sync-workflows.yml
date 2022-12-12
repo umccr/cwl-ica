@@ -184,7 +184,7 @@ jobs:
             --workdir "$PWD" \
             --env USER="$(id -u)" \
             --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
-            --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
+            --env SECRETS_JSON="${{ steps.create_secrets_json.outputs.secrets_json }}" \
             --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
