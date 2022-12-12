@@ -27,20 +27,26 @@ jobs:
     name: sync-tools and sync-workflows and create-catalogue
     concurrency: git_commits
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
       # # DEBUG
       # - uses: hmarr/debug-action@v2
+      # Set to fail
+      - name: Update bash settings
+        id: update_bash_settings
+        run: |
+          set -euo pipefail
       # Install jq (for querying branch name)
       - name: Install Jq
         id: install_jq
-        shell: bash
         run: |
           sudo apt-get update -y
           sudo apt-get install jq -y
       # Get branch name from event path
       - name: Get Branch Name
         id: get_branch_name
-        shell: bash
         run: |
           # Get reference
           ref="$( \
@@ -72,7 +78,7 @@ jobs:
           fi
           
           # Set output
-          echo "::set-output name=branch_name::${ref%refs/heads/}"
+          echo "branch_name=${ref%refs/heads/}" >> "${GITHUB_OUTPUT}"
       # Standard checkout step
       - name: Checkout code
         id: git_checkout
@@ -83,15 +89,16 @@ jobs:
       # Get git commit ID
       - name: Get git commit ID
         id: get_git_commit_id
-        run: echo "::set-output name=git_commit_id::$(git log --format="%H" -n1 | cut -c1-7)"
+        run: echo "git_commit_id=$(git log --format="%H" -n1 | cut -c1-7)" >> "${GITHUB_OUTPUT}"
       # Get development workflows access token
       - name: get development workflows project id access token
         id: get_development_workflows_project_id_access_token
         run: |
           development_workflows_project_id="0df0356d-3637-48a5-80d1-a924642a6556"
-          echo "::set-output name=ica_access_token::$( \
+          development_workflows_access_token="$( \
             AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
             AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
+            AWS_REGION="${{ secrets.AWS_REGION }}" \
               aws secretsmanager get-secret-value \
                 --output json \
                 --secret-id IcaSecretsWorkflow  | \
@@ -103,14 +110,17 @@ jobs:
                   .[$project_id]
                 ' \
           )"
+          echo "::add-mask::${development_workflows_access_token}"
+          echo "ica_access_token=${development_workflows_access_token}" >> "${GITHUB_OUTPUT}"
       # Get collab illumina dev workflows access token
       - name: get collab illumina dev workflows project id access token
         id: get_collab_illumina_dev_workflows_project_id_access_token
         run: |
-          collab_illumina_dev_workflows_project_id="0df0356d-3637-48a5-80d1-a924642a6556"
-          echo "::set-output name=ica_access_token::$( \
+          collab_illumina_dev_workflows_project_id="dddd6c29-24d3-49f4-91c0-7e818b3c0a21"
+          collab_illumina_dev_access_token="$( \
             AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
             AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
+            AWS_REGION="${{ secrets.AWS_REGION }}" \
               aws secretsmanager get-secret-value \
                 --output json \
                 --secret-id IcaSecretsWorkflow  | \
@@ -121,31 +131,36 @@ jobs:
                   fromjson | 
                   .[$project_id]
                 ' \
-          )"
+          )" 
+          echo "::add-mask::${collab_illumina_dev_access_token}"
+          echo "ica_access_token=${collab_illumina_dev_access_token}" >> "${GITHUB_OUTPUT}"
       # Get production workflows access token
       - name: get production workflows project id access token
         id: get_production_workflows_project_id_access_token
         run: |
-          production_workflows="fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
-          echo "::set-output name=ica_access_token::$( \
+          production_workflows_project_id="fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
+          production_workflows_access_token="$( \
             AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_PROD_ICA_SECRETS_WORKFLOW }}" \
             AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_PROD_ICA_SECRETS_WORKFLOW }}" \
+            AWS_REGION="${{ secrets.AWS_REGION }}" \
               aws secretsmanager get-secret-value \
                 --output json \
                 --secret-id IcaSecretsWorkflow | \
               jq --raw-output \
-                --arg project_id "${production_workflows}" \
+                --arg project_id "${production_workflows_project_id}" \
                 '
                   .SecretString | 
                   fromjson | 
                   .[$project_id]
                 ' \
           )"
+          echo "::add-mask::${production_workflows_access_token}"
+          echo "ica_access_token=${production_workflows_access_token}" >> "${GITHUB_OUTPUT}"
       # Create secrets json
       - name: create secrets json
         id: create_secrets_json
         run: |
-          echo "::set-output name=secrets_json::$( \
+          secrets_json="$( \
             jq --null-input --raw-output \
               --arg development_workflows_access_token "${{ steps.get_development_workflows_project_id_access_token.outputs.ica_access_token }}" \
               --arg collab_illumina_dev_workflows_access_token "${{ steps.get_collab_illumina_dev_workflows_project_id_access_token.outputs.ica_access_token }}" \
@@ -164,7 +179,9 @@ jobs:
                 } |
                 @base64
               ' \
-          )"
+          )" 
+          echo "::add-mask::${secrets_json}"
+          echo "secrets_json=${secrets_json}" >> "${GITHUB_OUTPUT}"
       # Sync tools and workflows
       - name: sync-tools and sync-workflows
         run: |
@@ -175,7 +192,7 @@ jobs:
             --workdir "$PWD" \
             --env USER="$(id -u)" \
             --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
-            --env SECRETS_JSON="${{ secrets.ICA_ACCESS_TOKENS_JSON }}" \
+            --env SECRETS_JSON="${{ steps.create_secrets_json.outputs.secrets_json }}" \
             --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
