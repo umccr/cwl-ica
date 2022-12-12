@@ -29,10 +29,15 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        shell: bash -euo pipefail
+        shell: bash -l {0}
     steps:
       # # DEBUG
       # - uses: hmarr/debug-action@v2
+      # Set to fail
+      - name: Update bash settings
+        id: update_bash_settings
+        run: |
+          set -euo pipefail
       # Install jq (for querying branch name)
       - name: Install Jq
         id: install_jq
