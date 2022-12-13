@@ -238,6 +238,9 @@ tools:
       - name: 3.8.4
         path: 3.8.4/dragen-build-reference-tarball__3.8.4.cwl
         md5sum: 8f3e7ee84eda9390e5c92325eb0be45f
+      - name: 4.0.3
+        path: 4.0.3/dragen-build-reference-tarball__4.0.3.cwl
+        md5sum: 33908f31eb95302e94db082f5f3be626
     categories: []
   - name: bgzip
     path: bgzip
