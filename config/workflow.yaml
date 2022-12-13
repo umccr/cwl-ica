@@ -45,7 +45,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/bcl-conversion__3.7.5.cwl
-        md5sum: b2f6017a678e7ef8a4f40f4faa00cabe
+        md5sum: 897d544f99e7f257bd885146eab47cd6
     categories: []
   - name: dragen-somatic-pipeline
     path: dragen-somatic-pipeline
