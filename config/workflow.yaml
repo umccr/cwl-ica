@@ -12,14 +12,14 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/get-hla-regions-bed__1.0.0.cwl
-        md5sum: a18c47cf6a023de7ed0915ce8e1e951f
+        md5sum: 6a8d8b96322fb3fcbc97ca76f13445f2
     categories: []
   - name: dragen-germline-pipeline
     path: dragen-germline-pipeline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
-        md5sum: 76fd126b16ba8a2734f2b0ecb681754b
+        md5sum: f6821c0d677df7a7ccf05b03cfab7de6
       - name: 3.9.3
         path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
         md5sum: 28bfaad1194d2f7d1f8608401dd79685
@@ -30,14 +30,14 @@ workflows:
     versions:
       - name: 3.7.5--1.3.5
         path: 3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl
-        md5sum: b5f1a10ef2d47417145654c61fb10ea8
+        md5sum: 061258cc29d8ed768f55a1ed60d24eab
     categories: []
   - name: tso500-ctdna
     path: tso500-ctdna
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
-        md5sum: 9200056d1074f7f7dc2c9a0da89f20ee
+        md5sum: 53dde763af115ef5c5ef3052cf9b03bb
     categories:
       - tso500
   - name: bcl-conversion
@@ -45,14 +45,14 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/bcl-conversion__3.7.5.cwl
-        md5sum: cfda6e4e2640cc844ca0c667c708a410
+        md5sum: b2f6017a678e7ef8a4f40f4faa00cabe
     categories: []
   - name: dragen-somatic-pipeline
     path: dragen-somatic-pipeline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
-        md5sum: 8add78db7d0979d95726137d3d5b0b9a
+        md5sum: 77574913f7819b02e2ffbdbe9f7c0aa1
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
         md5sum: d45f5583db373a69a9d04014b3978371
@@ -64,10 +64,10 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
-        md5sum: 40324f244f79c857976ca6733ce20e7b
+        md5sum: 4c84343e7b7fec80bce1949afa705dfb
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
-        md5sum: 830464ca802948cd5212a7d1abdd2a35
+        md5sum: ccb946a420a9eef4ecfedf99471a8fc0
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
         md5sum: d8af269885f584677e658f19d4759264
@@ -77,7 +77,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
-        md5sum: 6a2df7e5f61dad1e986ab683a5362fed
+        md5sum: db0f03b45533a5f1b3c4dabb22dcc798
       - name: 3.9.3
         path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
         md5sum: 3fe6faf5fb177337bf7fc8c347494520
@@ -89,7 +89,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
-        md5sum: 96bc9c833ca8d4f8ef676776e382a436
+        md5sum: 1eb53391002df04b426548fe497b5a18
       - name: 3.9.3
         path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
         md5sum: 414f7d38adeeea505937de707fe9fb11
@@ -100,7 +100,7 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
-        md5sum: 5b9e1961ce6446898a2a4fd1d027c04a
+        md5sum: cf908f9bcfe283b25cce91cfeb2db0a8
     categories:
       - tso500
   - name: umccrise-pipeline
@@ -108,17 +108,17 @@ workflows:
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/umccrise-pipeline__1.2.1--0.cwl
-        md5sum: 9fd3bd199ffce0f91bfea505b7c0a986
+        md5sum: dd7cc05fcca3055895a73f19b5b4c6f4
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
-        md5sum: ac7475668c8921c2105a5bb3d5a8cd5d
+        md5sum: 5756b4495262e66599db3dda1d75c1a0
     categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline
     versions:
       - name: 1.1.0--1.0.0
         path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
-        md5sum: e11bbfa2c71dd9243ca4b8c4a7f98e6b
+        md5sum: 3acf55937df9857c1e511664c36c62ea
     categories:
       - tso500
   - name: umccrise-pipeline
@@ -161,17 +161,17 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/ghif-qc__1.0.0.cwl
-        md5sum: 67622a2250c96734998cd508d1394231
+        md5sum: 4fc435ac5d4b51858d35aad457de554f
       - name: 1.0.1
         path: 1.0.1/ghif-qc__1.0.1.cwl
-        md5sum: 93697470aeabe9daf01338c108f113bf
+        md5sum: d47dabf31ec6376a04781c4ef2ce3e27
     categories: []
   - name: dragen-pon-qc
     path: dragen-pon-qc
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-pon-qc__3.9.3.cwl
-        md5sum: f2c40efeff59539212bcd3646c40dfdb
+        md5sum: 54b61e07654bf1502baa132eeec1cb69
     categories: []
   - name: dragen-wts-qc-pipeline
     path: dragen-wts-qc-pipeline
