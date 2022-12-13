@@ -38,7 +38,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/bedops:2.4.39--hc9558a2_0
+        dockerPull: public.ecr.aws/biocontainers/bedops:2.4.39--hc9558a2_0
 
 requirements:
   InitialWorkDirRequirement:

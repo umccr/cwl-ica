@@ -34,7 +34,7 @@ hints:
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: "quay.io/biocontainers/biobambam:2.0.183--h9f5acd7_1"
+        dockerPull: "public.ecr.aws/biocontainers/biobambam:2.0.183--h9f5acd7_1"
 requirements:
   InlineJavascriptRequirement:
     expressionLib:

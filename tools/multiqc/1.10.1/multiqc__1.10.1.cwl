@@ -38,7 +38,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/multiqc:1.10.1--pyhdfd78af_1
+        dockerPull: public.ecr.aws/biocontainers/multiqc:1.10.1--pyhdfd78af_1
 
 requirements:
   InlineJavascriptRequirement:

@@ -31,7 +31,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/tabix:1.11--hdfd78af_0
+        dockerPull: public.ecr.aws/biocontainers/tabix:1.11--hdfd78af_0
 
 requirements:
   InlineJavascriptRequirement:
