@@ -32,7 +32,7 @@ hints:
         coresMin: 2
         ramMin: 2000
     DockerRequirement:
-        dockerPull: umccr/alpine-pandas:latest
+        dockerPull: ghcr.io/umccr/alpine-pandas:1.4.3
 
 requirements:
   InlineJavascriptRequirement: {}

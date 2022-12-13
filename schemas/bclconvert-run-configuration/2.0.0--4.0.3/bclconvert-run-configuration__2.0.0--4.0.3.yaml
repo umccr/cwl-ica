@@ -1,0 +1,165 @@
+type: record
+name: bclconvert-run-configuration
+fields:
+  samplesheet:
+    label: samplesheet
+    doc: |
+      samplesheet file
+    type:
+      - "null"
+      - { "$import": "../../../schemas/samplesheet/2.0.0--4.0.3/samplesheet__2.0.0--4.0.3.yaml#samplesheet" }
+      - File
+  output_directory:
+    label: output directory
+    doc: |
+      A required command-line option that indicates the path to
+      demultuplexed fastq output. The directory must not exist, unless -f,
+      force is specified
+    type: string
+  bcl_only_lane:
+    label: bcl_only_lane
+    doc: |
+      Convert only the specified lane number. The value must
+      be less than or equal to the number of lanes specified in the
+      RunInfo.xml. Must be a single integer value.
+    type: int?
+  strict_mode:
+    label: strict_mode
+    doc: |
+      true — Abort the program if any filter, locs, bcl, or bci lane
+      files are missing or corrupt.
+      false — Continue processing if any filter, locs, bcl, or bci lane files
+      are missing. Return a warning message for each missing or corrupt
+      file.
+    type: boolean?
+  first_tile_only:
+    label: first_tile_only
+    doc: |
+      true — Only process the first tile of the first swath of the
+      top surface of each lane specified in the sample sheet.
+      false — Process all tiles in each lane, as specified in the sample
+      sheet. Default is false
+    type: boolean?
+  tiles:
+    label: tiles
+    doc: |
+      Only converts tiles that match a set of regular expressions.
+    type: string?
+  exclude_tiles:
+    label: exclude_tiles
+    doc: |
+      Do not convert tiles that match a set of regular expressions, even if included in --tiles.
+    type: string?
+  bcl_sampleproject_subdirectories:
+    label: bcl sampleproject subdirectories
+    doc: |
+      true — Allows creation of Sample_Project subdirectories
+      as specified in the sample sheet. This option must be set to true for
+      the Sample_Project column in the data section to be used.
+      Default set to false.
+    type: boolean?
+  sample_name_column_enabled:
+    label: sample name column enabled
+    doc: |
+      Use Sample_Name Sample Sheet column for *.fastq file names in Sample_Project subdirectories 
+      (requires bcl-sampleproject-subdirectories true as well).
+    type: boolean?
+  fastq_gzip_compression_level:
+    label: fastq gzip compression level
+    doc: |
+      Set fastq output compression level 0-9 (default 1)
+    type: int?
+  shared_thread_odirect_output:
+    label: shared thread odirect output
+    doc: |
+      Uses experimental shared-thread file output code, which
+      requires O_DIRECT mode. Must be true or false.
+      This file output method is optimized for sample counts
+      greater than 100,000. It is not recommended for lower
+      sample counts or using a distributed file system target such
+      as GPFS or Lustre. Default is false
+    type: boolean?
+  bcl_num_parallel_tiles:
+    label: bcl num parallel tiles
+    doc: |
+      Specifies number of tiles being converted to FASTQ files in
+      parallel. Must be between 1 and available hardware threads,
+      inclusive.
+    type: int?
+  bcl_conversion_threads:
+    label: bcl_conversion_threads
+    doc: |
+      Specifies number of threads used for conversion per tile.
+      Must be between 1 and available hardware threads,
+      inclusive.
+    type: int?
+  bcl_num_compression_threads:
+    label: bcl_num_compression_threads
+    doc: |
+      Specifies number of CPU threads used for compression of
+      output FASTQ files. Must be between 1 and available
+      hardware threads, inclusive.
+    type: int?
+  bcl_num_decompression_threads:
+    label: bcl_num_decompression_threads
+    doc: |
+      Specifies number of CPU threads used for decompression
+      of input base call files. Must be between 1 and available
+      hardware threads, inclusive.
+    type: int?
+  bcl_only_matched_reads:
+    label: bcl_only_matched_reads
+    doc: |
+      Disable outputting unmapped reads to FASTQ files marked as Undetermined.
+    type: boolean?
+  run_info:
+    label: run info
+    doc: |
+      Overrides the path to the RunInfo.xml file.
+    type: File?
+  no_lane_splitting:
+    label: no lane splitting
+    doc: |
+      Consolidates FASTQ files across lanes.
+      Each sample is provided into the same file on a per-read basis.
+      *  Must be true or false.
+      *  Only allowed when Lane column is excluded from the sample sheet.
+    type: boolean?
+  num_unknown_barcodes_reported:
+    label: num unknown barcodes reported
+    doc: |
+      Num of Top Unknown Barcodes to output (1000 by default)
+    type: int?
+  bcl_validate_sample_sheet_only:
+    label: bcl validate sample sheet only
+    doc: |
+      Only validate RunInfo.xml & SampleSheet files (produce no FASTQ files)
+    type: boolean?
+  output_legacy_stats:
+    label:  output legacy stats
+    doc: |
+      Also output stats in legacy (bcl2fastq) format (false by default)
+    type: boolean?
+  # Dragen ORA based configurations
+  ora_reference:
+    label: ora reference
+    doc: |
+      Required to output compressed FASTQ.ORA files. 
+      Specify the path to the directory that contains the compression reference and index file.
+    type: Directory?
+  fastq_compression_format:
+    label: fastq compression format
+    doc: |
+      Required for dragen ora compression to specify the type of compression.
+      Use dragen for regular dragen ora compression or dragen-interleaved for dragen ora paired compression
+    type: string?
+    # type:
+    #   - "null"
+    #   - type: enum
+    #     symbols:
+    #       - "dragen"
+    #       - "dragen-interleaved"
+
+# TODO
+# --bcl-num-ora-compression-threads-per-file
+# --bcl-num-ora-compression-parallel-files
