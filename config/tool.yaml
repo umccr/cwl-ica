@@ -66,7 +66,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-hla-bed-from-faidx__1.0.0.cwl
-        md5sum: 8980c864b385bef024051889f0fcae4f
+        md5sum: 3454861b9e5be38b965569242fd8a5d6
     categories: []
   - name: bedops
     path: bedops
@@ -90,7 +90,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
-        md5sum: e272417130197d25b4d52cb7a07c58d8
+        md5sum: 4112791f8fe39341354c38e15149060f
     categories:
       - tso500
   - name: tso500-ctdna-demultiplex-workflow
@@ -122,14 +122,14 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl
-        md5sum: cd35724d978333b02e6269d1ab817a32
+        md5sum: 757179d69998d77fac279769b36693d0
     categories: []
   - name: bclConvert
     path: bclConvert
     versions:
       - name: 3.7.5
         path: 3.7.5/bclConvert__3.7.5.cwl
-        md5sum: 1252d1e42b5e12533a0bcdd373d9f2d0
+        md5sum: f421bf663162c88e6cb28a91ddb55c0b
     categories: []
   - name: create-dummy-file
     path: create-dummy-file
@@ -221,7 +221,7 @@ tools:
         md5sum: baba9cd83638885febe73ec506a38be5
       - name: 2.0.0
         path: 2.0.0/custom-create-directory__2.0.0.cwl
-        md5sum: 3f540fbab0e8205ab7e75b417e3e35dc
+        md5sum: 1950058b5e3af5b468d4de8ec0174834
       - name: 2.0.1
         path: 2.0.1/custom-create-directory__2.0.1.cwl
         md5sum: 54e56a6545227ef1f207ed3118b513ba
@@ -261,28 +261,28 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-make-region-coverage-qc__1.0.0.cwl
-        md5sum: a31623745d53062c937c0af1540bc26f
+        md5sum: 38710feb3b26363e557fcd6b7e6ef660
     categories: []
   - name: custom-tso500-make-exon-coverage-qc
     path: custom-tso500-make-exon-coverage-qc
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-make-exon-coverage-qc__1.0.0.cwl
-        md5sum: c7376cb2012ebe1cbc4dc12168d4dabb
+        md5sum: e761277b9e28cf9b820471e217b72231
     categories: []
   - name: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
     path: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.cwl
-        md5sum: a0ef7b5e2926dc5954252142f05dbf71
+        md5sum: b5e1d28343993c2f7fdf0173e8673d6a
     categories: []
   - name: custom-tsv-to-json
     path: custom-tsv-to-json
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tsv-to-json__1.0.0.cwl
-        md5sum: d2d8310076dadcde0520bf333b7b13cf
+        md5sum: bcf8feead6ea5b0412c8c41f55e70743
     categories: []
   - name: custom-tar-vcf-file-list
     path: custom-tar-vcf-file-list
@@ -310,10 +310,10 @@ tools:
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/custom-create-umccrise-tsv__1.2.1--0.cwl
-        md5sum: 333845178a53d46e2b8a8dafcdea5d39
+        md5sum: c3816dd2e1ba8155e1694725b9bd0035
       - name: 1.2.2--0
         path: 1.2.2--0/custom-create-umccrise-tsv__1.2.2--0.cwl
-        md5sum: c4827399e90a9a76a5a3f88d55e2903b
+        md5sum: 664ad2fa531b293547572d2a75d1977b
     categories: []
   - name: umccrise
     path: umccrise
@@ -401,10 +401,10 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-stats-qc__1.0.0.cwl
-        md5sum: cdea780e36eaadf1e0f638dec31a786e
+        md5sum: 9170ef92548e11cd5de5e4586aa95961
       - name: 1.0.1
         path: 1.0.1/custom-stats-qc__1.0.1.cwl
-        md5sum: 2842102afa9f11b71ecdfca95794f161
+        md5sum: edfc6026963e978e63d0c51f4000b7e9
     categories: []
   - name: calculate-coverage
     path: calculate-coverage
@@ -433,4 +433,11 @@ tools:
       - name: 0.1.0
         path: 0.1.0/map_resource_requirements__0.1.0.cwl
         md5sum: a727f16c36f5d7ccfe6c5ab6d04b77e9
+    categories: []
+  - name: bcl-convert
+    path: bcl-convert
+    versions:
+      - name: 4.0.3
+        path: 4.0.3/bcl-convert__4.0.3.cwl
+        md5sum: 1a83e433e6cdea3510dc2160fb08811f
     categories: []

@@ -19,7 +19,7 @@ dragen-wgs-qc-pipeline 3.7.5 workflow
 
   
 > ID: dragen-wgs-qc-pipeline--3.7.5  
-> md5sum: 96bc9c833ca8d4f8ef676776e382a436
+> md5sum: 1eb53391002df04b426548fe497b5a18
 
 ### dragen-wgs-qc-pipeline v(3.7.5) documentation
   
@@ -424,7 +424,7 @@ bash wfr.1fd8c32d79c34e179a4c0d6754edd3a2.launch.sh
 
   
 **workflow name:** dragen-wgs-qc-pipeline_prod-wf  
-**wfl version name:** 3.7.5--984c780  
+**wfl version name:** 3.7.5--71c6fc9  
 
   
 
