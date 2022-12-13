@@ -28,7 +28,7 @@ hints:
     coresMin: 72
     ramMin: 64000
   DockerRequirement:
-    dockerPull: 'umccr/bcl-convert:3.7.5'
+    dockerPull: 'ghcr.io/umccr/bcl-convert:3.7.5'
 
 requirements:
   InlineJavascriptRequirement: {}
