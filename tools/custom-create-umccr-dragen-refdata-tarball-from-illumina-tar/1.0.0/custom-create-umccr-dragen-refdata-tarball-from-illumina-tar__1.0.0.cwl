@@ -33,7 +33,7 @@ hints:
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: alpine:latest
+        dockerPull: public.ecr.aws/docker/library/alpine:latest
 
 requirements:
   InitialWorkDirRequirement:
