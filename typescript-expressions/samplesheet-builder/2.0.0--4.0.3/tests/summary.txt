@@ -1,0 +1,19 @@
+# Test started at 2022-10-12T10:49:29+11:00
+
+PASS tests/samplesheet-builder__2.0.0--4.0.3.test.js (25.165 s)
+PASS tests/samplesheet-builder__2.0.0--4.0.3.test.ts (33.192 s)
+
+=============================== Coverage summary ===============================
+Statements   : 95.49% ( 106/111 )
+Branches     : 83.33% ( 25/30 )
+Functions    : 100% ( 7/7 )
+Lines        : 94.73% ( 90/95 )
+================================================================================
+
+Test Suites: 2 passed, 2 total
+Tests:       30 passed, 30 total
+Snapshots:   0 total
+Time:        38.993 s
+Ran all test suites.
+# Test completed at 2022-10-12T10:50:29+11:00
+
