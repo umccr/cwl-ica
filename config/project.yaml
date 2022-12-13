@@ -488,6 +488,16 @@ projects:
             ica_workflow_version_name: 0.1.0
             modification_time: 2022-10-05T23:46:42UTC
             run_instances: []
+      - name: bcl-convert
+        path: bcl-convert
+        ica_workflow_name: bcl-convert_dev-wf
+        ica_workflow_id: wfl.bdc024d6eaea42d4ba0f17da380f8a51
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bcl-convert__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-13T00:22:22UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
@@ -747,6 +757,46 @@ projects:
             path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-09-13T07:07:47UTC
+            run_instances: []
+      - name: bclconvert-with-qc-pipeline
+        path: bclconvert-with-qc-pipeline
+        ica_workflow_name: bclconvert-with-qc-pipeline_dev-wf
+        ica_workflow_id: wfl.7944b3f69a264b298952de606beac5f5
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-10-25T05:51:06UTC
+            run_instances: []
+      - name: bclconvert
+        path: bclconvert
+        ica_workflow_name: bclconvert_dev-wf
+        ica_workflow_id: wfl.030c65841edd4b8093a5106e9a100a0d
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bclconvert__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-13T00:32:41UTC
+            run_instances: []
+      - name: bclconvert-scatter
+        path: bclconvert-scatter
+        ica_workflow_name: bclconvert-scatter_dev-wf
+        ica_workflow_id: wfl.a700c620e75546098d2414d076a26c13
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/bclconvert-scatter__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-13T00:32:44UTC
+            run_instances: []
+      - name: validate-bclconvert-samplesheet
+        path: validate-bclconvert-samplesheet
+        ica_workflow_name: validate-bclconvert-samplesheet_dev-wf
+        ica_workflow_id: wfl.ddee25fd0eff4b0c9954ccfd2e6c8499
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-13T00:32:50UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
