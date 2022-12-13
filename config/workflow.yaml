@@ -199,19 +199,19 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert__4.0.3.cwl
-        md5sum: e1b76c304fda58dc88e08f25c99c50d2
+        md5sum: f6917b1eb9135f3c2859df31355f28a2
     categories: []
   - name: bclconvert-scatter
     path: bclconvert-scatter
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-scatter__4.0.3.cwl
-        md5sum: 59573edc4b8e2a1ce46d4acefecffa6a
+        md5sum: c77a928579098e1001f6732715fcecc3
     categories: []
   - name: validate-bclconvert-samplesheet
     path: validate-bclconvert-samplesheet
     versions:
       - name: 4.0.3
         path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
-        md5sum: 590698c03442c3a103127f30543be0cf
+        md5sum: b749ce2c53a6151d1b702934225f6d5c
     categories: []

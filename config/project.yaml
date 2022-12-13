@@ -496,7 +496,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/bcl-convert__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-09-21T04:05:37UTC
+            modification_time: 2022-12-13T00:22:22UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline
@@ -776,7 +776,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/bclconvert__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-09-27T09:03:21UTC
+            modification_time: 2022-12-13T00:32:41UTC
             run_instances: []
       - name: bclconvert-scatter
         path: bclconvert-scatter
@@ -786,7 +786,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/bclconvert-scatter__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-09-27T09:39:19UTC
+            modification_time: 2022-12-13T00:32:44UTC
             run_instances: []
       - name: validate-bclconvert-samplesheet
         path: validate-bclconvert-samplesheet
@@ -796,7 +796,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-09-27T12:27:09UTC
+            modification_time: 2022-12-13T00:32:50UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
