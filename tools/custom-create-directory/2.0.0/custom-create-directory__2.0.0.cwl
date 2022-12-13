@@ -34,7 +34,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: umccr/alpine-pandas:1.2.2
+        dockerPull: ghcr.io/umccr/alpine-pandas:1.2.2
 
 requirements:
   SchemaDefRequirement:
