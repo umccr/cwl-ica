@@ -1,0 +1,14 @@
+type: record
+name: samplesheet-reads
+
+fields:
+  read_1_cycles:
+    label: read 1 cycles
+    doc: |
+      read 1 cycles
+    type: int
+  read_2_cycles:
+    label: read 2 cycles
+    doc: |
+      read 2 cycles
+    type: int?

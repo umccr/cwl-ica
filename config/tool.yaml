@@ -434,3 +434,10 @@ tools:
         path: 0.1.0/map_resource_requirements__0.1.0.cwl
         md5sum: a727f16c36f5d7ccfe6c5ab6d04b77e9
     categories: []
+  - name: bcl-convert
+    path: bcl-convert
+    versions:
+      - name: 4.0.3
+        path: 4.0.3/bcl-convert__4.0.3.cwl
+        md5sum: 1a83e433e6cdea3510dc2160fb08811f
+    categories: []
