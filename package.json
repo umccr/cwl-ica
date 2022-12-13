@@ -1,6 +1,6 @@
 {
   "name": "cwl-ica",
-  "packageManager": "yarn@3.2.3",
+  "packageManager": "yarn@3.2.4",
   "devDependencies": {
     "@types/jest": "^29.0.2",
     "@types/node": "^18.7.18",
