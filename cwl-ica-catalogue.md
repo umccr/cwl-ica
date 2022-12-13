@@ -171,6 +171,7 @@ UMCCR CWL-ICA Catalogue
 - [bamtofastq](#bamtofastq)  
 - [qualimap](#qualimap)  
 - [map_resource_requirements](#map_resource_requirements)  
+- [bcl-convert](#bcl-convert)  
 
 
 ### samtools-merge
@@ -594,6 +595,13 @@ UMCCR CWL-ICA Catalogue
 - [0.1.0](.github/catalogue/docs/tools/map_resource_requirements/0.1.0/map_resource_requirements__0.1.0.md)  
 
 
+### bcl-convert
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/tools/bcl-convert/4.0.3/bcl-convert__4.0.3.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -617,6 +625,10 @@ UMCCR CWL-ICA Catalogue
 - [dragen-pon-qc](#dragen-pon-qc)  
 - [dragen-wts-qc-pipeline](#dragen-wts-qc-pipeline)  
 - [tabix-workflow](#tabix-workflow)  
+- [bclconvert-with-qc-pipeline](#bclconvert-with-qc-pipeline)  
+- [bclconvert](#bclconvert)  
+- [bclconvert-scatter](#bclconvert-scatter)  
+- [validate-bclconvert-samplesheet](#validate-bclconvert-samplesheet)  
 
 
 ### optitype-pipeline
@@ -807,4 +819,32 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [0.2.6](.github/catalogue/docs/workflows/tabix-workflow/0.2.6/tabix-workflow__0.2.6.md)  
+
+
+### bclconvert-with-qc-pipeline
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/bclconvert-with-qc-pipeline/4.0.3/bclconvert-with-qc-pipeline__4.0.3.md)  
+
+
+### bclconvert
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/bclconvert/4.0.3/bclconvert__4.0.3.md)  
+
+
+### bclconvert-scatter
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
+
+
+### validate-bclconvert-samplesheet
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md)  
 
