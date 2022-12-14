@@ -19,7 +19,7 @@ bclconvert-with-qc-pipeline 4.0.3 workflow
 
   
 > ID: bclconvert-with-qc-pipeline--4.0.3  
-> md5sum: e7d4323ba7fd45749fc621f26262af99
+> md5sum: 0233d3a13b577d543870a55ba590219a
 
 ### bclconvert-with-qc-pipeline v(4.0.3) documentation
   
@@ -42,7 +42,7 @@ Documentation for bclconvert-with-qc-pipeline v4.0.3
 - [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 - [multiqc-interop 1.2.1](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
-- [bclconvert-scatter 4.0.3 :construction:](../../bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
+- [bclconvert-scatter 4.0.3](../../bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
 
   
 
@@ -157,7 +157,7 @@ Runs the bcl convert configurations through the validation check and then throug
 #### Links
   
 [CWL File Path](../../../../../../workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.cwl)  
-[CWL File Help Page :construction:](../../bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)
+[CWL File Help Page](../../bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)
 #### Subworkflow overview
   
 [![bclconvert-scatter__4.0.3.svg](../../../../images/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.svg)  

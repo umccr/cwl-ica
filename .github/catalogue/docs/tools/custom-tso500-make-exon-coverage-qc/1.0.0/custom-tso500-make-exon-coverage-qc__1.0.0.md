@@ -17,7 +17,7 @@ custom-tso500-make-exon-coverage-qc 1.0.0 tool
 
   
 > ID: custom-tso500-make-exon-coverage-qc--1.0.0  
-> md5sum: e761277b9e28cf9b820471e217b72231
+> md5sum: 4dc7cb625f8dee7e2ada19521416f2bf
 
 ### custom-tso500-make-exon-coverage-qc v(1.0.0) documentation
   

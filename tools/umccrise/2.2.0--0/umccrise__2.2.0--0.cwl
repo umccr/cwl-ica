@@ -24,10 +24,9 @@ doc: |
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standardHiMem
-            size: medium
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: standardHiMem
+        ilmn-tes:resources:size: medium
         coresMin: 16
         ramMin: 50000
     DockerRequirement:
