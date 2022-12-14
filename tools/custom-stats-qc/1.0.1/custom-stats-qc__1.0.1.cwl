@@ -31,14 +31,13 @@ doc: |
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: small
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: standard
+        ilmn-tes:resources:size: small
         coresMin: 1
         ramMin: 4000
     DockerRequirement:
-        dockerPull: quay.io/umccr/alpine-jq:1.6-amd64
+        dockerPull: ghcr.io/umccr/alpine-jq:1.6
 
 requirements:
   InlineJavascriptRequirement: {}

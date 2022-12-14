@@ -32,10 +32,9 @@ doc: |
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: fpga
+        ilmn-tes:resources:size: medium
         coresMin: 2
         ramMin: 4000
     DockerRequirement:

@@ -23,10 +23,9 @@ doc: |
 
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: fpga
+        ilmn-tes:resources:size: medium
         coresMin: 16
         ramMin: 240000
     DockerRequirement:
