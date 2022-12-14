@@ -17,7 +17,7 @@ dragen-transcriptome 3.9.3 tool
 
   
 > ID: dragen-transcriptome--3.9.3  
-> md5sum: e8923b3e27b75cbb0689a3085b33d3ec
+> md5sum: b485c6b8712b83a8434b3e2c2a38aaf5
 
 ### dragen-transcriptome v(3.9.3) documentation
   

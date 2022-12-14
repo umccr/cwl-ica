@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.7.5 workflow
 
   
 > ID: dragen-germline-pipeline--3.7.5  
-> md5sum: f6821c0d677df7a7ccf05b03cfab7de6
+> md5sum: f0441cfc9476cda9096f6a57b7f3564f
 
 ### dragen-germline-pipeline v(3.7.5) documentation
   
@@ -578,7 +578,7 @@ The output directory for multiqc
 
   
 **workflow name:** dragen-germline-pipeline_prod-wf  
-**wfl version name:** 3.7.5--71c6fc9  
+**wfl version name:** 3.7.5--cdc27e9  
 
   
 
