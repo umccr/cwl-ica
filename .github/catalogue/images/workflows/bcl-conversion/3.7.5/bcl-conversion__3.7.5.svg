@@ -392,7 +392,7 @@
 <polygon fill="black" stroke="black" points="1765.31,-568.79 1770.91,-559.8 1760.92,-563.34 1765.31,-568.79"/>
 </g>
 <!-- bclconvert_qc_step&#45;&gt;bclconvert_multiqc_out -->
-<g id="edge11" class="edge">
+<g id="edge9" class="edge">
 <title>bclconvert_qc_step&#45;&gt;bclconvert_multiqc_out</title>
 <path fill="none" stroke="black" d="M2450.6,-328.39C2367.27,-292.89 2179.6,-212.93 2089.35,-174.48"/>
 <polygon fill="black" stroke="black" points="2090.71,-171.26 2080.14,-170.56 2087.97,-177.7 2090.71,-171.26"/>
@@ -413,13 +413,13 @@
 </g>
 </g>
 <!-- create_dummy_file_step&#45;&gt;bclconvert_qc_step -->
-<g id="edge9" class="edge">
+<g id="edge10" class="edge">
 <title>create_dummy_file_step&#45;&gt;bclconvert_qc_step</title>
 <path fill="none" stroke="black" d="M2835.99,-1114.18C2790,-1011.77 2559.8,-499.03 2504.13,-375.05"/>
 <polygon fill="black" stroke="black" points="2507.29,-373.54 2500,-365.85 2500.9,-376.4 2507.29,-373.54"/>
 </g>
 <!-- create_dummy_file_step&#45;&gt;interop_qc_step -->
-<g id="edge10" class="edge">
+<g id="edge11" class="edge">
 <title>create_dummy_file_step&#45;&gt;interop_qc_step</title>
 <path fill="none" stroke="black" d="M2825.1,-1114.19C2786.87,-1078.12 2700.33,-996.45 2656.89,-955.46"/>
 <polygon fill="black" stroke="black" points="2659.23,-952.86 2649.56,-948.54 2654.43,-957.95 2659.23,-952.86"/>

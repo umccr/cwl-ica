@@ -26,10 +26,9 @@ doc: |
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: fpga
+        ilmn-tes:resources:size: medium
     DockerRequirement:
         dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.9.3"
 

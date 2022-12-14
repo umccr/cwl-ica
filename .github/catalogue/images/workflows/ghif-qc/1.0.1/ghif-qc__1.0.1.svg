@@ -29,9 +29,9 @@
 </g>
 </g>
 <!-- calculate_coverage_step -->
-<g id="node34" class="node">
+<g id="node32" class="node">
 <title>calculate_coverage_step</title>
-<g id="a_node34"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.md" xlink:title="PRECISE tool that runs a script to calculate few custom QC metrics&#10;">
+<g id="a_node32"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.md" xlink:title="PRECISE tool that runs a script to calculate few custom QC metrics&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="397.5,-610.95 397.5,-647.95 606.5,-647.95 606.5,-610.95 397.5,-610.95"/>
 <text text-anchor="middle" x="502" y="-625.75" font-family="Times,serif" font-size="14.00">calculate&#45;coverage v(1.0.0)</text>
 </a>
@@ -97,26 +97,26 @@
 </a>
 </g>
 </g>
+<!-- input_bam&#45;&gt;calculate_coverage_step -->
+<g id="edge11" class="edge">
+<title>input_bam&#45;&gt;calculate_coverage_step</title>
+<path fill="none" stroke="black" d="M598.18,-845.93C580.15,-805.54 535.55,-705.61 514.01,-657.36"/>
+<polygon fill="black" stroke="black" points="517.18,-655.87 509.91,-648.16 510.79,-658.72 517.18,-655.87"/>
+</g>
 <!-- samtools_stats_step -->
-<g id="node32" class="node">
+<g id="node34" class="node">
 <title>samtools_stats_step</title>
-<g id="a_node32"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md" xlink:title="samtools stats collects statistics from BAM files and outputs in a text format. The output can be visualized graphically using plot&#45;bamstats.">
+<g id="a_node34"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md" xlink:title="samtools stats collects statistics from BAM files and outputs in a text format. The output can be visualized graphically using plot&#45;bamstats.">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1845,-610.95 1845,-647.95 2033,-647.95 2033,-610.95 1845,-610.95"/>
 <text text-anchor="middle" x="1939" y="-625.75" font-family="Times,serif" font-size="14.00">samtools&#45;stats v(1.13.0)</text>
 </a>
 </g>
 </g>
 <!-- input_bam&#45;&gt;samtools_stats_step -->
-<g id="edge11" class="edge">
+<g id="edge12" class="edge">
 <title>input_bam&#45;&gt;samtools_stats_step</title>
 <path fill="none" stroke="black" d="M621.32,-845.59C631.67,-834.76 646.27,-821.68 662,-814.45 871.34,-718.19 1568.93,-657.81 1834.83,-637.81"/>
 <polygon fill="black" stroke="black" points="1835.16,-641.29 1844.87,-637.06 1834.64,-634.31 1835.16,-641.29"/>
-</g>
-<!-- input_bam&#45;&gt;calculate_coverage_step -->
-<g id="edge12" class="edge">
-<title>input_bam&#45;&gt;calculate_coverage_step</title>
-<path fill="none" stroke="black" d="M598.18,-845.93C580.15,-805.54 535.55,-705.61 514.01,-657.36"/>
-<polygon fill="black" stroke="black" points="517.18,-655.87 509.91,-648.16 510.79,-658.72 517.18,-655.87"/>
 </g>
 <!-- script -->
 <g id="node6" class="node">
@@ -142,17 +142,17 @@
 </a>
 </g>
 </g>
-<!-- target_regions&#45;&gt;samtools_stats_step -->
-<g id="edge14" class="edge">
-<title>target_regions&#45;&gt;samtools_stats_step</title>
-<path fill="none" stroke="black" d="M750.99,-845.76C764.27,-835 782.58,-821.92 801,-814.45 1160.95,-668.37 1629.27,-638.03 1834.7,-631.89"/>
-<polygon fill="black" stroke="black" points="1834.98,-635.39 1844.88,-631.6 1834.78,-628.39 1834.98,-635.39"/>
-</g>
 <!-- target_regions&#45;&gt;calculate_coverage_step -->
-<g id="edge15" class="edge">
+<g id="edge14" class="edge">
 <title>target_regions&#45;&gt;calculate_coverage_step</title>
 <path fill="none" stroke="black" d="M713.79,-845.93C673.59,-805.03 573.4,-703.09 526.7,-655.57"/>
 <polygon fill="black" stroke="black" points="528.92,-652.84 519.41,-648.16 523.93,-657.75 528.92,-652.84"/>
+</g>
+<!-- target_regions&#45;&gt;samtools_stats_step -->
+<g id="edge15" class="edge">
+<title>target_regions&#45;&gt;samtools_stats_step</title>
+<path fill="none" stroke="black" d="M750.99,-845.76C764.27,-835 782.58,-821.92 801,-814.45 1160.95,-668.37 1629.27,-638.03 1834.7,-631.89"/>
+<polygon fill="black" stroke="black" points="1834.98,-635.39 1844.88,-631.6 1834.78,-628.39 1834.98,-635.39"/>
 </g>
 <!-- output_json_filename -->
 <g id="node8" class="node">
@@ -499,17 +499,17 @@
 </a>
 </g>
 </g>
-<!-- samtools_stats_step&#45;&gt;samtools_stats_output_txt -->
+<!-- calculate_coverage_step&#45;&gt;precise_output_json -->
 <g id="edge2" class="edge">
-<title>samtools_stats_step&#45;&gt;samtools_stats_output_txt</title>
-<path fill="none" stroke="black" d="M1915.32,-610.8C1821.25,-540.72 1473.84,-281.88 1366.68,-202.05"/>
-<polygon fill="black" stroke="black" points="1368.62,-199.13 1358.51,-195.96 1364.44,-204.75 1368.62,-199.13"/>
+<title>calculate_coverage_step&#45;&gt;precise_output_json</title>
+<path fill="none" stroke="black" d="M507.02,-610.8C526.65,-541.77 598.37,-289.63 622.23,-205.77"/>
+<polygon fill="black" stroke="black" points="625.65,-206.54 625.02,-195.96 618.91,-204.62 625.65,-206.54"/>
 </g>
-<!-- samtools_stats_step&#45;&gt;custom_stats_qc_step -->
+<!-- calculate_coverage_step&#45;&gt;custom_stats_qc_step -->
 <g id="edge1" class="edge">
-<title>samtools_stats_step&#45;&gt;custom_stats_qc_step</title>
-<path fill="none" stroke="black" d="M1863.51,-610.87C1687.04,-569.78 1248.4,-467.64 1062.47,-424.35"/>
-<polygon fill="black" stroke="black" points="1063,-420.88 1052.47,-422.02 1061.41,-427.69 1063,-420.88"/>
+<title>calculate_coverage_step&#45;&gt;custom_stats_qc_step</title>
+<path fill="none" stroke="black" d="M539.27,-610.87C625.01,-570.44 836.09,-470.9 930.29,-426.47"/>
+<polygon fill="black" stroke="black" points="932.02,-429.53 939.57,-422.1 929.04,-423.19 932.02,-429.53"/>
 </g>
 <!-- custom_stats_qc_step&#45;&gt;custom_stats_qc_combined_json -->
 <g id="edge3" class="edge">
@@ -523,17 +523,17 @@
 <path fill="none" stroke="black" d="M986.89,-384.87C1008.87,-345.79 1061.9,-251.5 1087.99,-205.12"/>
 <polygon fill="black" stroke="black" points="1091.13,-206.68 1092.98,-196.25 1085.03,-203.25 1091.13,-206.68"/>
 </g>
-<!-- calculate_coverage_step&#45;&gt;precise_output_json -->
+<!-- samtools_stats_step&#45;&gt;samtools_stats_output_txt -->
 <g id="edge6" class="edge">
-<title>calculate_coverage_step&#45;&gt;precise_output_json</title>
-<path fill="none" stroke="black" d="M507.02,-610.8C526.65,-541.77 598.37,-289.63 622.23,-205.77"/>
-<polygon fill="black" stroke="black" points="625.65,-206.54 625.02,-195.96 618.91,-204.62 625.65,-206.54"/>
+<title>samtools_stats_step&#45;&gt;samtools_stats_output_txt</title>
+<path fill="none" stroke="black" d="M1915.32,-610.8C1821.25,-540.72 1473.84,-281.88 1366.68,-202.05"/>
+<polygon fill="black" stroke="black" points="1368.62,-199.13 1358.51,-195.96 1364.44,-204.75 1368.62,-199.13"/>
 </g>
-<!-- calculate_coverage_step&#45;&gt;custom_stats_qc_step -->
+<!-- samtools_stats_step&#45;&gt;custom_stats_qc_step -->
 <g id="edge5" class="edge">
-<title>calculate_coverage_step&#45;&gt;custom_stats_qc_step</title>
-<path fill="none" stroke="black" d="M539.27,-610.87C625.01,-570.44 836.09,-470.9 930.29,-426.47"/>
-<polygon fill="black" stroke="black" points="932.02,-429.53 939.57,-422.1 929.04,-423.19 932.02,-429.53"/>
+<title>samtools_stats_step&#45;&gt;custom_stats_qc_step</title>
+<path fill="none" stroke="black" d="M1863.51,-610.87C1687.04,-569.78 1248.4,-467.64 1062.47,-424.35"/>
+<polygon fill="black" stroke="black" points="1063,-420.88 1052.47,-422.02 1061.41,-427.69 1063,-420.88"/>
 </g>
 <!-- \n -->
 <g id="node35" class="node">
