@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 58a1ca987fc490e5ddf67c14c3f5f880
+> md5sum: bf1eba0c571b4fbe582e7c96f7203b4e
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -48,7 +48,6 @@ More information on the documentation can be found [here](https://support-docs.i
 - [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [dragen-transcriptome 3.9.3](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
 - [qualimap 2.2.2](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
-- [somalier-extract 0.2.13 :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
   
 
@@ -142,7 +141,7 @@ Coordinates of the Giemsa staining bands.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Mark identical alignments as duplicates
@@ -155,7 +154,7 @@ Mark identical alignments as duplicates
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Do you wish to have the output bam files present
@@ -340,19 +339,6 @@ FastA file with genome sequence
 Path to ref data tarball
 
 
-### sites somalier
-
-
-
-  
-> ID: sites_somalier
-  
-**Optional:** `False`  
-**Type:** `File`  
-**Docs:**  
-gzipped vcf file. Required for somalier sites
-
-
 ### tmp dir
 
 
@@ -492,23 +478,6 @@ Run qualimap step to generate additional QC metrics
 [CWL File Help Page](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 
 
-### somalier
-
-
-  
-> ID: dragen-transcriptome-pipeline--3.9.3/somalier_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Runs the somalier extract function to call the fingerprint on the transcriptome bam file
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl)  
-[CWL File Help Page :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
-
-
 ## dragen-transcriptome-pipeline v(3.9.3) Outputs
 
 ### arriba output directory
@@ -568,21 +537,6 @@ The output directory for multiqc
 **Output Type:** `Directory`  
 **Docs:**  
 The output directory containing all transcriptome output files
-  
-
-
-### somalier output directory
-
-
-
-  
-> ID: dragen-transcriptome-pipeline--3.9.3/somalier_output_directory  
-
-  
-**Optional:** `False`  
-**Output Type:** `Directory`  
-**Docs:**  
-Output directory from somalier step
   
 
   
@@ -1087,7 +1041,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--d142c57  
+**wfl version name:** 3.9.3--cdc27e9  
 
   
 

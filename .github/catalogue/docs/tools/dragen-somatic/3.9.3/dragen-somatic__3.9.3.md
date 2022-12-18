@@ -17,7 +17,7 @@ dragen-somatic 3.9.3 tool
 
   
 > ID: dragen-somatic--3.9.3  
-> md5sum: 5800b258165eacd2adf713c9531f7e7d
+> md5sum: aa455e74ea1f12b779f822950399110d
 
 ### dragen-somatic v(3.9.3) documentation
   
@@ -161,7 +161,7 @@ Enable CNV processing in the DRAGEN Host Software.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output
@@ -202,7 +202,7 @@ Requires somatic CNV calls.
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Enables saving the output from the

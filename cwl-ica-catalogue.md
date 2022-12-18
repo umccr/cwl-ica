@@ -170,6 +170,8 @@ UMCCR CWL-ICA Catalogue
 - [calculate-coverage](#calculate-coverage)  
 - [bamtofastq](#bamtofastq)  
 - [qualimap](#qualimap)  
+- [map_resource_requirements](#map_resource_requirements)  
+- [bcl-convert](#bcl-convert)  
 
 
 ### samtools-merge
@@ -428,6 +430,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.7.5/dragen-build-reference-tarball__3.7.5.md)  
 - [3.8.4](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.8.4/dragen-build-reference-tarball__3.8.4.md)  
+- [4.0.3](.github/catalogue/docs/tools/dragen-build-reference-tarball/4.0.3/dragen-build-reference-tarball__4.0.3.md)  
 
 
 ### bgzip
@@ -512,6 +515,8 @@ UMCCR CWL-ICA Catalogue
 - [2.0.2--0](.github/catalogue/docs/tools/umccrise/2.0.2--0/umccrise__2.0.2--0.md)  
 - [2.1.0--0](.github/catalogue/docs/tools/umccrise/2.1.0--0/umccrise__2.1.0--0.md)  
 - [2.1.1--0](.github/catalogue/docs/tools/umccrise/2.1.1--0/umccrise__2.1.1--0.md)  
+- [2.2.0--0](.github/catalogue/docs/tools/umccrise/2.2.0--0/umccrise__2.2.0--0.md)  
+- [2.2.1--0](.github/catalogue/docs/tools/umccrise/2.2.1--0/umccrise__2.2.1--0.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -544,6 +549,7 @@ UMCCR CWL-ICA Catalogue
 - [0.4.2](.github/catalogue/docs/tools/rnasum/0.4.2/rnasum__0.4.2.md)  
 - [0.4.3](.github/catalogue/docs/tools/rnasum/0.4.3/rnasum__0.4.3.md)  
 - [0.4.4](.github/catalogue/docs/tools/rnasum/0.4.4/rnasum__0.4.4.md)  
+- [0.4.5](.github/catalogue/docs/tools/rnasum/0.4.5/rnasum__0.4.5.md)  
 
 
 ### samtools-stats
@@ -582,6 +588,20 @@ UMCCR CWL-ICA Catalogue
 - [2.2.2](.github/catalogue/docs/tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 
 
+### map_resource_requirements
+
+#### Versions
+  
+- [0.1.0](.github/catalogue/docs/tools/map_resource_requirements/0.1.0/map_resource_requirements__0.1.0.md)  
+
+
+### bcl-convert
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/tools/bcl-convert/4.0.3/bcl-convert__4.0.3.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -604,6 +624,11 @@ UMCCR CWL-ICA Catalogue
 - [ghif-qc](#ghif-qc)  
 - [dragen-pon-qc](#dragen-pon-qc)  
 - [dragen-wts-qc-pipeline](#dragen-wts-qc-pipeline)  
+- [tabix-workflow](#tabix-workflow)  
+- [bclconvert-with-qc-pipeline](#bclconvert-with-qc-pipeline)  
+- [bclconvert](#bclconvert)  
+- [bclconvert-scatter](#bclconvert-scatter)  
+- [validate-bclconvert-samplesheet](#validate-bclconvert-samplesheet)  
 
 
 ### optitype-pipeline
@@ -763,6 +788,8 @@ UMCCR CWL-ICA Catalogue
 - [2.0.2--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.md)  
 - [2.1.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.md)  
 - [2.1.1--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.md)  
+- [2.2.0--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.md)  
+- [2.2.1--3.9.3](.github/catalogue/docs/workflows/umccrise-with-dragen-germline-pipeline/2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.md)  
 
 
 ### ghif-qc
@@ -785,4 +812,39 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.9.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
+
+
+### tabix-workflow
+
+#### Versions
+  
+- [0.2.6](.github/catalogue/docs/workflows/tabix-workflow/0.2.6/tabix-workflow__0.2.6.md)  
+
+
+### bclconvert-with-qc-pipeline
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/bclconvert-with-qc-pipeline/4.0.3/bclconvert-with-qc-pipeline__4.0.3.md)  
+
+
+### bclconvert
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/bclconvert/4.0.3/bclconvert__4.0.3.md)  
+
+
+### bclconvert-scatter
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
+
+
+### validate-bclconvert-samplesheet
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md)  
 

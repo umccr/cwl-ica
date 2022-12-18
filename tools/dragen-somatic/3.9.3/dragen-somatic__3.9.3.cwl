@@ -32,10 +32,9 @@ doc: |
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: fpga
+        ilmn-tes:resources:size: medium
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
@@ -500,7 +499,7 @@ inputs:
       map/align stage. Default is true when only
       running map/align. Default is false if
       running the variant caller.
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-map-align-output"
       valueFrom: "$(self.toString())"
@@ -509,7 +508,7 @@ inputs:
     doc: |
       Enable the flagging of duplicate output
       alignment records.
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-duplicate-marking"
       valueFrom: "$(self.toString())"

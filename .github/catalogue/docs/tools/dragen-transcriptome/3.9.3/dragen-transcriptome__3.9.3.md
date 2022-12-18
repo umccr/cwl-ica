@@ -17,7 +17,7 @@ dragen-transcriptome 3.9.3 tool
 
   
 > ID: dragen-transcriptome--3.9.3  
-> md5sum: 95206b96d203b5585c5dfa79846a5cf1
+> md5sum: b485c6b8712b83a8434b3e2c2a38aaf5
 
 ### dragen-transcriptome v(3.9.3) documentation
   
@@ -62,7 +62,7 @@ Path to annotation transcript file.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Mark identical alignments as duplicates
@@ -75,7 +75,7 @@ Mark identical alignments as duplicates
   
 > ID: enable_map_align_output
   
-**Optional:** `True`  
+**Optional:** `False`  
 **Type:** `boolean`  
 **Docs:**  
 Do you wish to have the output bam files present

@@ -19,7 +19,7 @@ get-hla-regions-bed 1.0.0 workflow
 
   
 > ID: get-hla-regions-bed--1.0.0  
-> md5sum: a18c47cf6a023de7ed0915ce8e1e951f
+> md5sum: 2fd08a8c8f281b48b56a2e3b82bdfc31
 
 ### get-hla-regions-bed v(1.0.0) documentation
   

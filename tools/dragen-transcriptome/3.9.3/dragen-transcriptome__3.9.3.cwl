@@ -23,10 +23,9 @@ doc: |
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: fpga
+        ilmn-tes:resources:size: medium
     DockerRequirement:
         dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.9.3"
 
@@ -297,7 +296,7 @@ inputs:
     label: enable map align output
     doc: |
       Do you wish to have the output bam files present
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-map-align-output"
       valueFrom: "$(self.toString())"
@@ -305,7 +304,7 @@ inputs:
     label: enable duplicate marking
     doc: |
       Mark identical alignments as duplicates
-    type: boolean?
+    type: boolean
     inputBinding:
       prefix: "--enable-duplicate-marking"
       valueFrom: "$(self.toString())"

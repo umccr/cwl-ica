@@ -17,7 +17,7 @@ samtools-merge 1.12.0 tool
 
   
 > ID: samtools-merge--1.12.0  
-> md5sum: fbd75c6b54a8fcc7a4103cab1809834d
+> md5sum: 40d2ae84d163c8492b684abf3190dbda
 
 ### samtools-merge v(1.12.0) documentation
   
