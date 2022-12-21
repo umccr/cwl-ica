@@ -19,7 +19,7 @@ ghif-qc 1.0.0 workflow
 
   
 > ID: ghif-qc--1.0.0  
-> md5sum: f8f9ab2af1aac8ea95eb2597f3e9405c
+> md5sum: 39416c91ef03a91082d05b5b50591701
 
 ### ghif-qc v(1.0.0) documentation
   
@@ -46,19 +46,6 @@ Documentation for ghif-qc v1.0.0
 
 
 ## ghif-qc v(1.0.0) Inputs
-
-### GC depth
-
-
-
-  
-> ID: GC_depth
-  
-**Optional:** `True`  
-**Type:** `float`  
-**Docs:**  
-the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
-
 
 ### cov threshold
 
@@ -97,6 +84,19 @@ Set coverage distribution to the specified range (MIN, MAX, STEP all given as in
 **Type:** `int`  
 **Docs:**  
 iltering flag, 0 for unset. See also `samtools flags` [0]
+
+
+### GC depth
+
+
+
+  
+> ID: gc_depth
+  
+**Optional:** `True`  
+**Type:** `float`  
+**Docs:**  
+the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
 
 
 ### id

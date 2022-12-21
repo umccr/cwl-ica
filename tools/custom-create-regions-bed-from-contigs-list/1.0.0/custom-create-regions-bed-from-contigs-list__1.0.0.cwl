@@ -24,14 +24,13 @@ doc: |
 
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: small
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: standard
+        ilmn-tes:resources:size: small
         coresMin: 1
         ramMin: 2000
     DockerRequirement:
-        dockerPull: umccr/alpine-pandas:latest
+        dockerPull: ghcr.io/umccr/alpine-pandas:1.4.3
 
 requirements:
   SchemaDefRequirement:
