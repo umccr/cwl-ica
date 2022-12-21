@@ -22,11 +22,15 @@ doc: |
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
+# ILMN Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: fpga
-        ilmn-tes:resources:size: medium
+        ilmn-tes:resources:
+            tier: standard
+            type: fpga
+            size: medium
+        coresMin: 16
+        ramMin: 240000
     DockerRequirement:
         dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.0.3
 
