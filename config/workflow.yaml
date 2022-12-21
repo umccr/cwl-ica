@@ -23,6 +23,9 @@ workflows:
       - name: 3.9.3
         path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
         md5sum: 9c05516cc9c53f15351b152012acf9de
+      - name: 4.0.3
+        path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
+        md5sum: 75e0001476f40113cc98a582f9e0f5ac
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -84,6 +87,9 @@ workflows:
       - name: 3.9.3
         path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
         md5sum: f568922575284b0ba0b68350ec20322e
+      - name: 4.0.3
+        path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
+        md5sum: ca21a893126043bd0ba48cb3e36f8bcf
     categories:
       - alignment
       - dragen

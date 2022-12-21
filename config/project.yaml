@@ -117,6 +117,11 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-03-07T09:17:50UTC
             run_instances: []
+          - name: 4.0.3
+            path: 4.0.3/dragen-germline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-21T22:55:42UTC
+            run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
         ica_workflow_name: custom-create-tso500-samplesheet_dev-wf
@@ -191,6 +196,11 @@ projects:
             path: 3.9.3/dragen-alignment__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-03-04T12:52:17UTC
+            run_instances: []
+          - name: 4.0.3
+            path: 4.0.3/dragen-alignment__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-21T03:27:02UTC
             run_instances: []
       - name: arriba-drawing
         path: arriba-drawing
@@ -541,6 +551,11 @@ projects:
             run_instances:
               - wfr.d058e5f7be4b4683a9b1a59b8f67f91b
               - wfr.4759b2ccf6234141b06d5aab5b932dbb
+          - name: 4.0.3
+            path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-21T23:06:36UTC
+            run_instances: []
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
         ica_workflow_name: dragen-qc-hla-pipeline_dev-wf
@@ -582,6 +597,11 @@ projects:
               - wfr.128790246e9c48f39e14d8f8ef7d868e
               - wfr.72d2a10d54ca472a96d4023556932b8e
               - wfr.7241dd632c0f40df88236e210e257bd1
+          - name: 4.0.3
+            path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-10-04T23:59:51UTC
+            run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_dev-wf
@@ -636,6 +656,11 @@ projects:
             path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-12-13T23:51:44UTC
+            run_instances: []
+          - name: 4.0.3
+            path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-10-11T02:50:13UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
