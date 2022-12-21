@@ -280,6 +280,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)  
 
 
 ### custom-create-tso500-samplesheet
@@ -662,6 +663,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/4.0.3/dragen-germline-pipeline__4.0.3.md)  
 
 
 ### dragen-qc-hla-pipeline
