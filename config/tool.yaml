@@ -4,7 +4,7 @@ tools:
     versions:
       - name: 1.12.0
         path: 1.12.0/samtools-merge__1.12.0.cwl
-        md5sum: fbd75c6b54a8fcc7a4103cab1809834d
+        md5sum: 40d2ae84d163c8492b684abf3190dbda
     categories:
       - bam handlers
   - name: tabix
@@ -12,21 +12,21 @@ tools:
     versions:
       - name: 0.2.6
         path: 0.2.6/tabix__0.2.6.cwl
-        md5sum: e0f9e3979fd5e9a40a49d7d2a404daa5
+        md5sum: 393208a3b7cce4cc115455755dbf1a8f
     categories: []
   - name: sambamba-merge-and-index
     path: sambamba-merge-and-index
     versions:
       - name: 0.8.0
         path: 0.8.0/sambamba-merge-and-index__0.8.0.cwl
-        md5sum: ecae41fe6c2238a8a475e936c115e2b1
+        md5sum: 3d5e7512054738ded90cb254c5dc9f64
     categories: []
   - name: sambamba-sort-and-index
     path: sambamba-sort-and-index
     versions:
       - name: 0.8.0
         path: 0.8.0/sambamba-sort-and-index__0.8.0.cwl
-        md5sum: a7f3c2b9ba800474007936cf4b30eaa6
+        md5sum: d86971a8e103c4408f9a5684db7b93e6
     categories:
       - bam handler
   - name: sambamba-slice-and-index
@@ -34,7 +34,7 @@ tools:
     versions:
       - name: 0.8.0
         path: 0.8.0/sambamba-slice-and-index__0.8.0.cwl
-        md5sum: 69449fa57b02a3072ebf0ab4f94ef2bc
+        md5sum: e39ae910680e02effbd11891fa0b0b12
     categories:
       - bam handler
   - name: sambamba-view-and-index
@@ -42,7 +42,7 @@ tools:
     versions:
       - name: 0.8.0
         path: 0.8.0/sambamba-view-and-index__0.8.0.cwl
-        md5sum: 4d98dd119aaf74acce21fc103f481865
+        md5sum: 9eac7ebbbf458d7bfd93a310ce6a9de2
     categories:
       - bam handler
   - name: optitype
@@ -50,7 +50,7 @@ tools:
     versions:
       - name: 1.3.5
         path: 1.3.5/optitype__1.3.5.cwl
-        md5sum: b7329c4c212dbad828db34d0bf4bf7ab
+        md5sum: 6bf050e0836c38ee85a63ec0007a6fce
     categories:
       - hla
   - name: custom-subset-bam
@@ -58,7 +58,7 @@ tools:
     versions:
       - name: 1.12.0
         path: 1.12.0/custom-subset-bam__1.12.0.cwl
-        md5sum: 9bd6191b19777232f977ac3e509055a2
+        md5sum: 727ccfac7a894eebe56d3772959a3ffc
     categories:
       - bam handler
   - name: custom-hla-bed-from-faidx
@@ -66,24 +66,24 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-hla-bed-from-faidx__1.0.0.cwl
-        md5sum: 8980c864b385bef024051889f0fcae4f
+        md5sum: 212f2819a313611762289e2a49d73943
     categories: []
   - name: bedops
     path: bedops
     versions:
       - name: 2.4.39
         path: 2.4.39/bedops__2.4.39.cwl
-        md5sum: b19ead59da45dcb3645abe12eda674fe
+        md5sum: 255a4abe68d938e71bc59d75f1a0f45c
     categories: []
   - name: dragen-germline
     path: dragen-germline
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-germline__3.7.5.cwl
-        md5sum: 321411717e27b2b72b12ed3274dd0950
+        md5sum: fc66dd0ef7ddaa91deb9d2ef26280a2b
       - name: 3.9.3
         path: 3.9.3/dragen-germline__3.9.3.cwl
-        md5sum: 6c3ae2a83d4ec71893129e590145fe94
+        md5sum: c7895f6b3d936c48d668e9f7918a9e48
       - name: 4.0.3
         path: 4.0.3/dragen-germline__4.0.3.cwl
         md5sum: a69f9afa9fdf0e3c9ae89fa148f1723f
@@ -93,7 +93,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-create-tso500-samplesheet__1.0.0.cwl
-        md5sum: e272417130197d25b4d52cb7a07c58d8
+        md5sum: 0fa841d0cfcbf4a406cc236e14e574b5
     categories:
       - tso500
   - name: tso500-ctdna-demultiplex-workflow
@@ -101,7 +101,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
-        md5sum: a18a905a0417c5a8f04df7f0e8e13603
+        md5sum: ca84ca95c526d7e732b2cee19b1fe774
     categories:
       - tso500
   - name: tso500-ctdna-analysis-workflow
@@ -109,7 +109,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
-        md5sum: 479c39e15cff0ccf411e3415137d0cc0
+        md5sum: 165dca533f7d97c3bfc3f318a1957074
     categories:
       - tso500
   - name: tso500-ctdna-reporting-workflow
@@ -117,7 +117,7 @@ tools:
     versions:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna-reporting-workflow__1.1.0--120.cwl
-        md5sum: db796f570613e88950033538c4a397fc
+        md5sum: 2fbc98375b8133a819c1d4052607a1f8
     categories:
       - tso500
   - name: custom-samplesheet-split-by-settings
@@ -125,14 +125,14 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl
-        md5sum: cd35724d978333b02e6269d1ab817a32
+        md5sum: 757179d69998d77fac279769b36693d0
     categories: []
   - name: bclConvert
     path: bclConvert
     versions:
       - name: 3.7.5
         path: 3.7.5/bclConvert__3.7.5.cwl
-        md5sum: 1252d1e42b5e12533a0bcdd373d9f2d0
+        md5sum: f421bf663162c88e6cb28a91ddb55c0b
     categories: []
   - name: create-dummy-file
     path: create-dummy-file
@@ -153,23 +153,23 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic__3.7.5.cwl
-        md5sum: 77c1bde47e8308d10338abf3e64b8a48
+        md5sum: df177c0bfc4474d6e6a1ae63421cd578
       - name: 3.9.3
         path: 3.9.3/dragen-somatic__3.9.3.cwl
-        md5sum: e18452a7b29a13338a0528ecd9e468a3
+        md5sum: aa455e74ea1f12b779f822950399110d
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-transcriptome__3.7.5.cwl
-        md5sum: 01103e4fd6ce9fe7c9d95f5da93451fb
+        md5sum: 9292344ba305bbb5cc741fea1524e1ad
       - name: 3.8.4
         path: 3.8.4/dragen-transcriptome__3.8.4.cwl
-        md5sum: 6a25bcf1e659c9461d9d227e58b486bb
+        md5sum: 6307bf9b6a4432026c5d4a2a0176db87
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome__3.9.3.cwl
-        md5sum: e8923b3e27b75cbb0689a3085b33d3ec
+        md5sum: b485c6b8712b83a8434b3e2c2a38aaf5
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
@@ -196,13 +196,13 @@ tools:
     versions:
       - name: 1.10.1
         path: 1.10.1/multiqc__1.10.1.cwl
-        md5sum: 9480df70cb4c418c0e46997137564b51
+        md5sum: 8d13789475d013b88875dce31bfe5115
       - name: 1.11.0
         path: 1.11.0/multiqc__1.11.0.cwl
-        md5sum: bf9cc33107ce3c96ab27ed87e1b5f5a1
+        md5sum: f97e8d47f754cb3daf7a10bd5b8e5eec
       - name: 1.12.0
         path: 1.12.0/multiqc__1.12.0.cwl
-        md5sum: 9051716757a426026e9922b098682863
+        md5sum: 9cb7632a5f3c69c12107b1bbf5e5d145
     categories:
       - qc
       - visual
@@ -211,164 +211,170 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-alignment__3.7.5.cwl
-        md5sum: 708c33de73453af41a9bc2ca3a12984a
+        md5sum: aad33a38984cd6d8a9674c129cfac63f
       - name: 3.9.3
         path: 3.9.3/dragen-alignment__3.9.3.cwl
-        md5sum: 737abbd43ed4ebcb5a2e6f0e6bf0e565
+        md5sum: 53d619a3fae1220ec78ab3048e98e1c2
+      - name: 4.0.3
+        path: 4.0.3/dragen-alignment__4.0.3.cwl
+        md5sum: f10f8530718a08fd80018204d3d67a24
     categories: []
   - name: custom-create-directory
     path: custom-create-directory
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-create-directory__1.0.0.cwl
-        md5sum: baba9cd83638885febe73ec506a38be5
+        md5sum: dab7e75a5e12b2905bda818fcc932dde
       - name: 2.0.0
         path: 2.0.0/custom-create-directory__2.0.0.cwl
-        md5sum: 3f540fbab0e8205ab7e75b417e3e35dc
+        md5sum: d25188873b38d51ba05cc26f556b1c9a
       - name: 2.0.1
         path: 2.0.1/custom-create-directory__2.0.1.cwl
-        md5sum: 54e56a6545227ef1f207ed3118b513ba
+        md5sum: a964d52ecf6699570ea594bf73b4b7e4
       - name: 1.0.1
         path: 1.0.1/custom-create-directory__1.0.1.cwl
-        md5sum: d5d6ba39d8a468600ffafd33f7da8988
+        md5sum: 8ec168edec6bca93747125d52af2c17b
     categories: []
   - name: dragen-build-reference-tarball
     path: dragen-build-reference-tarball
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-build-reference-tarball__3.7.5.cwl
-        md5sum: 2d6f7b6effde6065459df1615df330b5
+        md5sum: 97c4390d21f3e9836611806825a76762
       - name: 3.8.4
         path: 3.8.4/dragen-build-reference-tarball__3.8.4.cwl
-        md5sum: 8f3e7ee84eda9390e5c92325eb0be45f
+        md5sum: 776bd2e9b6a41ccafe45acc2ea4f44a0
+      - name: 4.0.3
+        path: 4.0.3/dragen-build-reference-tarball__4.0.3.cwl
+        md5sum: 64b07476bb86f873b1d48f59e32c0382
     categories: []
   - name: bgzip
     path: bgzip
     versions:
       - name: 1.12.0
         path: 1.12.0/bgzip__1.12.0.cwl
-        md5sum: 23ab09df4480c79133f844f2dace6971
+        md5sum: 8ff2a96c27f828caf120b0441c4d4fe2
     categories: []
   - name: mosdepth
     path: mosdepth
     versions:
       - name: 0.3.1
         path: 0.3.1/mosdepth__0.3.1.cwl
-        md5sum: 2e210a08546d984b01a59ac6955f97a8
+        md5sum: 64e52c84a88dcf36fe039e10a6dd6262
     categories: []
   - name: custom-tso500-make-region-coverage-qc
     path: custom-tso500-make-region-coverage-qc
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-make-region-coverage-qc__1.0.0.cwl
-        md5sum: a31623745d53062c937c0af1540bc26f
+        md5sum: 033281a234ca28cc3b6009bd1113b9fd
     categories: []
   - name: custom-tso500-make-exon-coverage-qc
     path: custom-tso500-make-exon-coverage-qc
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-make-exon-coverage-qc__1.0.0.cwl
-        md5sum: c7376cb2012ebe1cbc4dc12168d4dabb
+        md5sum: 4dc7cb625f8dee7e2ada19521416f2bf
     categories: []
   - name: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
     path: custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.cwl
-        md5sum: a0ef7b5e2926dc5954252142f05dbf71
+        md5sum: 50323a0c9396b4e58fe8ed09fb438b5d
     categories: []
   - name: custom-tsv-to-json
     path: custom-tsv-to-json
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tsv-to-json__1.0.0.cwl
-        md5sum: d2d8310076dadcde0520bf333b7b13cf
+        md5sum: aefe53976ee3432e0d5a1eba41918214
     categories: []
   - name: custom-tar-vcf-file-list
     path: custom-tar-vcf-file-list
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tar-vcf-file-list__1.0.0.cwl
-        md5sum: a283e690279244a20dee0b92eac0006c
+        md5sum: 1dc4b48282f25cbf034da3d8e3aa0b49
     categories: []
   - name: custom-gzip-file
     path: custom-gzip-file
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-gzip-file__1.0.0.cwl
-        md5sum: 696a25b6a631aa95a013d2b62d14c7fd
+        md5sum: 57feb091decf0f05b81e5180198ef8da
     categories: []
   - name: custom-tar-file-list
     path: custom-tar-file-list
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tar-file-list__1.0.0.cwl
-        md5sum: e963a2694f6b711316bbf03661542e85
+        md5sum: 22c7ed0a91553f65e56e39026d894a83
     categories: []
   - name: custom-create-umccrise-tsv
     path: custom-create-umccrise-tsv
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/custom-create-umccrise-tsv__1.2.1--0.cwl
-        md5sum: 333845178a53d46e2b8a8dafcdea5d39
+        md5sum: 8ae658d790e19d7801b5f105033173e1
       - name: 1.2.2--0
         path: 1.2.2--0/custom-create-umccrise-tsv__1.2.2--0.cwl
-        md5sum: c4827399e90a9a76a5a3f88d55e2903b
+        md5sum: 3018d7ae228f5d26101c836364367fe3
     categories: []
   - name: umccrise
     path: umccrise
     versions:
       - name: 1.2.1--0
         path: 1.2.1--0/umccrise__1.2.1--0.cwl
-        md5sum: 0ecd9b1e5a623de4975c12875a149811
+        md5sum: 4b7a276ea5fb9d741ad5e903bb0c24e0
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise__1.2.2--0.cwl
-        md5sum: ee7d02b26399c6d9ca4b14897e1f44e2
+        md5sum: bfe02ed23ceec9e978a774e5baa6fa69
       - name: 2.0.0--0
         path: 2.0.0--0/umccrise__2.0.0--0.cwl
-        md5sum: 642e5f6983c4770aa453961c1ce041a3
+        md5sum: 8bbb60b1d982373b11d99b9816bb4a1c
       - name: 2.0.1--0
         path: 2.0.1--0/umccrise__2.0.1--0.cwl
-        md5sum: 30e3e92628af0cf89bb9eb25c466013a
+        md5sum: bda7fbe8f4bc2ba37faa666603618e3f
       - name: 2.0.2--0
         path: 2.0.2--0/umccrise__2.0.2--0.cwl
-        md5sum: 14862f514fdff2a9db641074aa3d5662
+        md5sum: eb477c52543fdf894438aeecd24e9b9e
       - name: 2.1.0--0
         path: 2.1.0--0/umccrise__2.1.0--0.cwl
-        md5sum: 5c3146bcda30fafe71e198ea8d221766
+        md5sum: 504c483e2747e382a9e2fde60e79d144
       - name: 2.1.1--0
         path: 2.1.1--0/umccrise__2.1.1--0.cwl
-        md5sum: 32cf72666f2c86a481277dc6477fab2c
+        md5sum: 14f09be1a54a6d77b22558123ddfead4
       - name: 2.2.0--0
         path: 2.2.0--0/umccrise__2.2.0--0.cwl
-        md5sum: 29bd6aa6205e7b68d9395771a6e62a9c
+        md5sum: f7d2adbef770ecfa1f4d943683a75e5f
       - name: 2.2.1--0
         path: 2.2.1--0/umccrise__2.2.1--0.cwl
-        md5sum: 63eddbafc4f86e24d5a9092b18a3ccdb
+        md5sum: 87993101820d4e213cd072d41fc42d8b
     categories: []
   - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar__1.0.0.cwl
-        md5sum: 4ae67463d2a5fd09fa652069a4be031d
+        md5sum: 3ff6cb9796c2b49fcb5ccacb4dba0db4
     categories: []
   - name: dragen-umi
     path: dragen-umi
     versions:
       - name: 3.8.4
         path: 3.8.4/dragen-umi__3.8.4.cwl
-        md5sum: dc23d9caf62b8c59f7210bf6262658c4
+        md5sum: 84e6a5680c7621c94ef4011fcbea9572
       - name: 3.9.3
         path: 3.9.3/dragen-umi__3.9.3.cwl
-        md5sum: 06710a076dce3eaed002535cecd20b1f
+        md5sum: 88c6b87983b225d30d079f247487d39b
     categories: []
   - name: bcftools-view
     path: bcftools-view
     versions:
       - name: 1.13.0
         path: 1.13.0/bcftools-view__1.13.0.cwl
-        md5sum: 6269a0f25775d60c4cdde36f885d3589
+        md5sum: 0e0aa9a2f323b5b0cd62bb2da35fc1c9
     categories: []
   - name: rnasum
     path: rnasum
@@ -385,23 +391,26 @@ tools:
       - name: 0.4.4
         path: 0.4.4/rnasum__0.4.4.cwl
         md5sum: 47dda3feda30e967d912fc9baf86661b
+      - name: 0.4.5
+        path: 0.4.5/rnasum__0.4.5.cwl
+        md5sum: 40da63f23e61ae4350d8cdd6bb9a033e
     categories: []
   - name: samtools-stats
     path: samtools-stats
     versions:
       - name: 1.13.0
         path: 1.13.0/samtools-stats__1.13.0.cwl
-        md5sum: c92d52b84311f5232e087c95b936c969
+        md5sum: 619b47f0eb2be9c1553c4dc7485ae40e
     categories: []
   - name: custom-stats-qc
     path: custom-stats-qc
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-stats-qc__1.0.0.cwl
-        md5sum: cdea780e36eaadf1e0f638dec31a786e
+        md5sum: 41cb4f92cfbc0fa5f1ffecbbf265c6cc
       - name: 1.0.1
         path: 1.0.1/custom-stats-qc__1.0.1.cwl
-        md5sum: 2842102afa9f11b71ecdfca95794f161
+        md5sum: 83cea8032b3f69ae4e6708caac54f2b8
     categories: []
   - name: calculate-coverage
     path: calculate-coverage
@@ -415,12 +424,26 @@ tools:
     versions:
       - name: 2.0.183
         path: 2.0.183/bamtofastq__2.0.183.cwl
-        md5sum: 285f32824cf04c589b666e86fa17df0c
+        md5sum: 1d1b7c01277385a56f23f37e31f6ffa4
     categories: []
   - name: qualimap
     path: qualimap
     versions:
       - name: 2.2.2
         path: 2.2.2/qualimap__2.2.2.cwl
-        md5sum: f0c77dcf5a259a35ee140ab3d3f5693f
+        md5sum: 06366b856feb9c61172d1ce43d9aa964
+    categories: []
+  - name: map_resource_requirements
+    path: map_resource_requirements
+    versions:
+      - name: 0.1.0
+        path: 0.1.0/map_resource_requirements__0.1.0.cwl
+        md5sum: cebd1b4fbdec13a98e5adba2f670a5ce
+    categories: []
+  - name: bcl-convert
+    path: bcl-convert
+    versions:
+      - name: 4.0.3
+        path: 4.0.3/bcl-convert__4.0.3.cwl
+        md5sum: 1a83e433e6cdea3510dc2160fb08811f
     categories: []

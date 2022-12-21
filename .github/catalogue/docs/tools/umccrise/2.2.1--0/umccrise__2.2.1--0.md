@@ -17,7 +17,7 @@ umccrise 2.2.1--0 tool
 
   
 > ID: umccrise--2.2.1--0  
-> md5sum: 63eddbafc4f86e24d5a9092b18a3ccdb
+> md5sum: 87993101820d4e213cd072d41fc42d8b
 
 ### umccrise v(2.2.1--0) documentation
   
@@ -30,6 +30,11 @@ Documentation for umccrise v2.2.1--0
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/umccrise/2.2.1--0/umccrise__2.2.1--0.cwl)  
+
+
+### Used By
+  
+- [umccrise-with-dragen-germline-pipeline 2.2.1--3.9.3](../../../workflows/umccrise-with-dragen-germline-pipeline/2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.md)  
 
   
 
@@ -186,7 +191,7 @@ The output directory containing the umccrise data
 
   
 **workflow name:** umccrise_prod-wf  
-**wfl version name:** 2.2.1--0--1ecf63c  
+**wfl version name:** 2.2.1--0--cdc27e9  
 
   
 

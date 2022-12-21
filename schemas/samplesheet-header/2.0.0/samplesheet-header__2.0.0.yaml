@@ -1,0 +1,55 @@
+type: record
+name: samplesheet-header
+
+fields:
+  iem_file_version:
+    label: iem file version
+    doc: |
+      iem file version
+    type: int
+  experiment_name:
+    label: experiment name
+    doc: |
+      experiment name
+    type: string
+  date:
+    label: date
+    doc: |
+      date
+    type: string
+  workflow:
+    label: workflow
+    doc: |
+      workflow
+    type: string
+  application:
+    label: application
+    doc: |
+      application
+    type: string
+  instrument_type:
+    label: instrument type
+    doc: |
+      instrument type
+    type: string
+  assay:
+    label: assay
+    doc: |
+      assay
+    type: string
+  index_adapters:
+    label: index adapters
+    doc: |
+      index adapters
+    type: string
+  chemistry:
+    label: chemistry
+    doc: |
+      chemistry
+    type: string
+  file_format_version:
+    label: file format version
+    doc: |
+      file format version
+    type: int
+

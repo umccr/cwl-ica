@@ -24,10 +24,9 @@ doc: |
 # ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: xlarge
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: standard
+        ilmn-tes:resources:size: xlarge
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
@@ -96,7 +95,7 @@ inputs:
     type: int?
     inputBinding:
       prefix: "--filtering-flag"
-  GC_depth:
+  gc_depth:
     label: GC depth 
     doc: |
       the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]

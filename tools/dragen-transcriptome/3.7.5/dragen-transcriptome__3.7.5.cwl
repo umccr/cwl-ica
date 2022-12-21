@@ -26,10 +26,9 @@ doc: |
 
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: fpga
+        ilmn-tes:resources:size: medium
     DockerRequirement:
         dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.7.5"
 
@@ -269,7 +268,7 @@ inputs:
     inputBinding:
       prefix: "--rrna-filter-enable"
       valueFrom: "$(self.toString())"
-  rrna-filter-contig:
+  rrna_filter_contig:
     label: name of the rRNA sequences to use for filtering
     type: string
     default: chrUn_GL000220v1

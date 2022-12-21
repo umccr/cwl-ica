@@ -17,7 +17,7 @@ samtools-stats 1.13.0 tool
 
   
 > ID: samtools-stats--1.13.0  
-> md5sum: c92d52b84311f5232e087c95b936c969
+> md5sum: 619b47f0eb2be9c1553c4dc7485ae40e
 
 ### samtools-stats v(1.13.0) documentation
   
@@ -42,19 +42,6 @@ The output can be visualized graphically using plot-bamstats.
 
 
 ## samtools-stats v(1.13.0) Inputs
-
-### GC depth
-
-
-
-  
-> ID: GC_depth
-  
-**Optional:** `True`  
-**Type:** `float`  
-**Docs:**  
-the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
-
 
 ### cov threshold
 
@@ -93,6 +80,19 @@ Set coverage distribution to the specified range (MIN, MAX, STEP all given as in
 **Type:** `int`  
 **Docs:**  
 filtering flag, 0 for unset. See also `samtools flags` [0]
+
+
+### GC depth
+
+
+
+  
+> ID: gc_depth
+  
+**Optional:** `True`  
+**Type:** `float`  
+**Docs:**  
+the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
 
 
 ### id

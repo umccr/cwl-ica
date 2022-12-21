@@ -17,7 +17,7 @@ custom-create-directory 1.0.1 tool
 
   
 > ID: custome-create-directory--1.0.1  
-> md5sum: d5d6ba39d8a468600ffafd33f7da8988
+> md5sum: 8ec168edec6bca93747125d52af2c17b
 
 ### custome-create-directory v(1.0.1) documentation
   
