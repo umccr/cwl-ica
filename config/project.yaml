@@ -262,6 +262,11 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2022-05-12T22:54:36UTC
             run_instances: []
+          - name: 4.0.3
+            path: 4.0.3/dragen-transcriptome__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2022-12-21T03:12:02UTC
+            run_instances: []
       - name: umccrise
         path: umccrise
         ica_workflow_name: umccrise_dev-wf
