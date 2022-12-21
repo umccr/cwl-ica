@@ -214,7 +214,7 @@ tools:
         md5sum: 53d619a3fae1220ec78ab3048e98e1c2
       - name: 4.0.3
         path: 4.0.3/dragen-alignment__4.0.3.cwl
-        md5sum: c290828a4a94c102f2099e814c8e5a10
+        md5sum: f10f8530718a08fd80018204d3d67a24
     categories: []
   - name: custom-create-directory
     path: custom-create-directory
