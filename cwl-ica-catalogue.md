@@ -412,6 +412,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-alignment/3.7.5/dragen-alignment__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/tools/dragen-alignment/4.0.3/dragen-alignment__4.0.3.md)  
 
 
 ### custom-create-directory
@@ -724,6 +725,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.md)  
 
 
 ### dragen-wgs-qc-pipeline
