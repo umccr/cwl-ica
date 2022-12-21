@@ -68,6 +68,11 @@ requirements:
           # Run dragen command and import options from cli
           $(get_dragen_eval_line())
 
+      - |
+        ${
+            return generate_germline_mount_points(inputs);
+        }
+
 baseCommand: [ "bash" ]
 
 arguments:
