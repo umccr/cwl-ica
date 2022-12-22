@@ -21,15 +21,17 @@ doc: |
     Documentation for calculate-coverage v1.0.0
     https://github.com/c-BIG/wgs-sample-qc/tree/main/example_implementations/sg-npm 
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
-    ResourceRequirement:
-      ilmn-tes:resources:
-        tier: standard
-        type: standardHiCpu
-        size: medium
-    DockerRequirement:
-        dockerPull: quay.io/umccr/calculate-coverage:1.7
+  ResourceRequirement:
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: standardHiCpu
+    ilmn-tes:resources/size: medium
+    coresMin: 35
+    ramMin: 68
+  DockerRequirement:
+    dockerPull: quay.io/umccr/calculate-coverage:1.7
 
 baseCommand: ["python"]
 

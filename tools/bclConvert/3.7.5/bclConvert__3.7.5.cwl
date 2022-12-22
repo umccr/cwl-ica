@@ -20,11 +20,13 @@ label: bclConvert v(3.7.5)
 doc: |
     Runs the BCL Convert application off standard architechture
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources:
-      type: standardHiCpu
-      size: large
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: standardHiCpu
+    ilmn-tes:resources/size: large
     coresMin: 72
     ramMin: 64000
   DockerRequirement:

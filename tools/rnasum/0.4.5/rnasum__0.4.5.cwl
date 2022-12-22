@@ -22,7 +22,6 @@ doc: |
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
 requirements:
   InlineJavascriptRequirement:
     expressionLib:
@@ -53,15 +52,14 @@ requirements:
 
           # Run rnasum with input parameters
           $(get_eval_line())
-          
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources:
-      tier: standard
-      type: standardHiCpu
-      size: large
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: standardHiCpu
+    ilmn-tes:resources/size: large
   DockerRequirement:
     dockerPull: "ghcr.io/umccr/rnasum:0.4.5"
 

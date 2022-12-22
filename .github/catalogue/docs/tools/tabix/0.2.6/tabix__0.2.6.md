@@ -17,7 +17,7 @@ tabix 0.2.6 tool
 
   
 > ID: tabix--0.2.6  
-> md5sum: 393208a3b7cce4cc115455755dbf1a8f
+> md5sum: 980d8740195b2378ab34a34ad9973ab0
 
 ### tabix v(0.2.6) documentation
   

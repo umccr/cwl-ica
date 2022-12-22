@@ -19,11 +19,11 @@
 <polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="3260.5,-58.4 3260.5,-613.18 4729.5,-613.18 4729.5,-58.4 3260.5,-58.4"/>
 <text text-anchor="middle" x="4657" y="-66.2" font-family="Times,serif" font-size="14.00">Workflow Outputs</text>
 </g>
-<!-- run_dragen_somatic_step -->
+<!-- create_dummy_file_step -->
 <g id="node1" class="node">
-<title>run_dragen_somatic_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="4175.5,-1467.4 4175.5,-1503.4 4361.5,-1503.4 4361.5,-1467.4 4175.5,-1467.4"/>
-<text text-anchor="middle" x="4268.5" y="-1481.7" font-family="Times,serif" font-size="14.00">dragen&#45;somatic v(3.7.5)</text>
+<title>create_dummy_file_step</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="0,-1467.4 0,-1503.4 261,-1503.4 261,-1467.4 0,-1467.4"/>
+<text text-anchor="middle" x="130.5" y="-1481.7" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </g>
 <!-- dragen_qc_step -->
 <g id="node2" class="node">
@@ -31,8 +31,32 @@
 <polygon fill="lightgoldenrodyellow" stroke="black" points="238,-934.4 238,-970.4 377,-970.4 377,-934.4 238,-934.4"/>
 <text text-anchor="middle" x="307.5" y="-948.7" font-family="Times,serif" font-size="14.00">multiqc v(1.10.1)</text>
 </g>
-<!-- run_dragen_somatic_step&#45;&gt;dragen_qc_step -->
+<!-- create_dummy_file_step&#45;&gt;dragen_qc_step -->
 <g id="edge1" class="edge">
+<title>create_dummy_file_step&#45;&gt;dragen_qc_step</title>
+<path fill="none" stroke="black" d="M136.19,-1467.33C161.88,-1390.25 267.21,-1074.26 298.62,-980.04"/>
+<polygon fill="black" stroke="black" points="301.99,-980.99 301.83,-970.4 295.35,-978.78 301.99,-980.99"/>
+</g>
+<!-- multiqc_output_directory -->
+<g id="node47" class="node">
+<title>multiqc_output_directory</title>
+<polygon fill="#94ddf4" stroke="black" points="3269,-401.4 3269,-437.4 3466,-437.4 3466,-401.4 3269,-401.4"/>
+<text text-anchor="middle" x="3367.5" y="-415.7" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
+</g>
+<!-- dragen_qc_step&#45;&gt;multiqc_output_directory -->
+<g id="edge51" class="edge">
+<title>dragen_qc_step&#45;&gt;multiqc_output_directory</title>
+<path fill="none" stroke="black" d="M377.16,-939.31C776.19,-870.07 2771.06,-523.9 3259.45,-439.15"/>
+<polygon fill="black" stroke="black" points="3260.07,-442.59 3269.32,-437.43 3258.87,-435.7 3260.07,-442.59"/>
+</g>
+<!-- run_dragen_somatic_step -->
+<g id="node3" class="node">
+<title>run_dragen_somatic_step</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="4175.5,-1467.4 4175.5,-1503.4 4361.5,-1503.4 4361.5,-1467.4 4175.5,-1467.4"/>
+<text text-anchor="middle" x="4268.5" y="-1481.7" font-family="Times,serif" font-size="14.00">dragen&#45;somatic v(3.7.5)</text>
+</g>
+<!-- run_dragen_somatic_step&#45;&gt;dragen_qc_step -->
+<g id="edge2" class="edge">
 <title>run_dragen_somatic_step&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M4175.46,-1471.93C3633.67,-1399.29 892.2,-1031.78 387.44,-964.11"/>
 <polygon fill="black" stroke="black" points="387.71,-960.62 377.33,-962.76 386.78,-967.56 387.71,-960.62"/>
@@ -109,30 +133,6 @@
 <path fill="none" stroke="black" d="M4274.77,-1467.25C4319.71,-1344.32 4592.76,-597.49 4647.83,-446.86"/>
 <polygon fill="black" stroke="black" points="4651.12,-448.03 4651.27,-437.44 4644.55,-445.63 4651.12,-448.03"/>
 </g>
-<!-- multiqc_output_directory -->
-<g id="node47" class="node">
-<title>multiqc_output_directory</title>
-<polygon fill="#94ddf4" stroke="black" points="3269,-401.4 3269,-437.4 3466,-437.4 3466,-401.4 3269,-401.4"/>
-<text text-anchor="middle" x="3367.5" y="-415.7" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
-</g>
-<!-- dragen_qc_step&#45;&gt;multiqc_output_directory -->
-<g id="edge51" class="edge">
-<title>dragen_qc_step&#45;&gt;multiqc_output_directory</title>
-<path fill="none" stroke="black" d="M377.16,-939.31C776.19,-870.07 2771.06,-523.9 3259.45,-439.15"/>
-<polygon fill="black" stroke="black" points="3260.07,-442.59 3269.32,-437.43 3258.87,-435.7 3260.07,-442.59"/>
-</g>
-<!-- create_dummy_file_step -->
-<g id="node3" class="node">
-<title>create_dummy_file_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="0,-1467.4 0,-1503.4 261,-1503.4 261,-1467.4 0,-1467.4"/>
-<text text-anchor="middle" x="130.5" y="-1481.7" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
-</g>
-<!-- create_dummy_file_step&#45;&gt;dragen_qc_step -->
-<g id="edge2" class="edge">
-<title>create_dummy_file_step&#45;&gt;dragen_qc_step</title>
-<path fill="none" stroke="black" d="M136.19,-1467.33C161.88,-1390.25 267.21,-1074.26 298.62,-980.04"/>
-<polygon fill="black" stroke="black" points="301.99,-980.99 301.83,-970.4 295.35,-978.78 301.99,-980.99"/>
-</g>
 <!-- create_fastq_list_csv_step -->
 <g id="node4" class="node">
 <title>create_fastq_list_csv_step</title>
@@ -146,7 +146,7 @@
 <polygon fill="black" stroke="black" points="4372,-1493.48 4361.7,-1495.94 4371.29,-1500.44 4372,-1493.48"/>
 </g>
 <!-- create_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step -->
-<g id="edge6" class="edge">
+<g id="edge4" class="edge">
 <title>create_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step</title>
 <path fill="none" stroke="black" d="M7879.89,-2022.33C7846.44,-2012.11 7800.67,-1999.49 7759.5,-1990.9 6434.58,-1714.5 4794.67,-1538.62 4371.75,-1496.32"/>
 <polygon fill="black" stroke="black" points="4371.98,-1492.82 4361.68,-1495.31 4371.29,-1499.79 4371.98,-1492.82"/>
@@ -158,13 +158,13 @@
 <text text-anchor="middle" x="8287.5" y="-2036.7" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;csv&#45;from&#45;fastq&#45;list&#45;row v(1.0.0)</text>
 </g>
 <!-- create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step</title>
 <path fill="none" stroke="black" d="M8223.85,-2022.28C8187.3,-2011.99 8140.55,-1999.29 8098.5,-1990.9 6633.41,-1698.59 4818.82,-1533.59 4371.62,-1495.15"/>
 <polygon fill="black" stroke="black" points="4371.89,-1491.66 4361.63,-1494.3 4371.29,-1498.64 4371.89,-1491.66"/>
 </g>
 <!-- create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step -->
-<g id="edge5" class="edge">
+<g id="edge6" class="edge">
 <title>create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step</title>
 <path fill="none" stroke="black" d="M8239.36,-2022.28C8205.3,-2011.99 8158.55,-1999.29 8116.5,-1990.9 6644.87,-1697.28 4820.6,-1532.12 4371.77,-1494.65"/>
 <polygon fill="black" stroke="black" points="4372,-1491.15 4361.75,-1493.81 4371.42,-1498.13 4372,-1491.15"/>
@@ -193,12 +193,6 @@
 <polygon fill="#94ddf4" stroke="black" points="237.5,-2022.4 237.5,-2058.4 377.5,-2058.4 377.5,-2022.4 237.5,-2022.4"/>
 <text text-anchor="middle" x="307.5" y="-2036.7" font-family="Times,serif" font-size="14.00">output_file_prefix</text>
 </g>
-<!-- output_file_prefix&#45;&gt;run_dragen_somatic_step -->
-<g id="edge12" class="edge">
-<title>output_file_prefix&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M329.7,-2022.23C344.86,-2011.43 365.86,-1998.2 386.5,-1990.9 1116.68,-1732.68 3623.75,-1534.36 4164.98,-1493.96"/>
-<polygon fill="black" stroke="black" points="4165.4,-1497.43 4175.11,-1493.2 4164.88,-1490.45 4165.4,-1497.43"/>
-</g>
 <!-- output_file_prefix&#45;&gt;dragen_qc_step -->
 <g id="edge9" class="edge">
 <title>output_file_prefix&#45;&gt;dragen_qc_step</title>
@@ -216,6 +210,12 @@
 <title>output_file_prefix&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M311.21,-2022.34C323.96,-1898.22 324.26,-1134.42 312.1,-980.43"/>
 <polygon fill="black" stroke="black" points="315.58,-980.07 311.21,-970.42 308.61,-980.69 315.58,-980.07"/>
+</g>
+<!-- output_file_prefix&#45;&gt;run_dragen_somatic_step -->
+<g id="edge12" class="edge">
+<title>output_file_prefix&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M329.7,-2022.23C344.86,-2011.43 365.86,-1998.2 386.5,-1990.9 1116.68,-1732.68 3623.75,-1534.36 4164.98,-1493.96"/>
+<polygon fill="black" stroke="black" points="4165.4,-1497.43 4175.11,-1493.2 4164.88,-1490.45 4165.4,-1497.43"/>
 </g>
 <!-- dbsnp_annotation -->
 <g id="node9" class="node">

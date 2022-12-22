@@ -19,7 +19,7 @@ optitype-pipeline 1.3.5 workflow
 
   
 > ID: optitype-pipeline--1.3.5  
-> md5sum: 63ffd8a50f7f75d78509e2093cf1c352
+> md5sum: 7f44ae4dbf4f3b355342b5647bf9b1bd
 
 ### optitype-pipeline v(1.3.5) documentation
   

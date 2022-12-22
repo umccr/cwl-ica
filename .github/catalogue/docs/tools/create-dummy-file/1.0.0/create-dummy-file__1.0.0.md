@@ -17,7 +17,7 @@ create-dummy-file 1.0.0 tool
 
   
 > ID: create-dummy-file--1.0.0  
-> md5sum: 0caaf4a91439798dc65be366146c1c32
+> md5sum: 9d96ad9dc1c54c6a4683401b94a5e7d7
 
 ### create-dummy-file v(1.0.0) documentation
   

@@ -17,7 +17,7 @@ custom-subset-bam 1.12.0 tool
 
   
 > ID: custom-subset-bam--1.12.0  
-> md5sum: 727ccfac7a894eebe56d3772959a3ffc
+> md5sum: 70c75b471bd55ee76fd140c7f8859b5c
 
 ### custom-subset-bam v(1.12.0) documentation
   
