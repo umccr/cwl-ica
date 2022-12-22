@@ -19,7 +19,7 @@ dragen-qc-hla-pipeline 3.7.5--1.3.5 workflow
 
   
 > ID: dragen-qc-hla-pipeline--3.7.5--1.3.5  
-> md5sum: 75bc16543e8bf2ce283fd73259c079bc
+> md5sum: fe450417a801d7de9dadd8f8ccd00f73
 
 ### dragen-qc-hla-pipeline v(3.7.5--1.3.5) documentation
   

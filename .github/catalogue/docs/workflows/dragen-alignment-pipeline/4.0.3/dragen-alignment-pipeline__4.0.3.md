@@ -19,7 +19,7 @@ dragen-alignment-pipeline 4.0.3 workflow
 
   
 > ID: dragen-alignment-pipeline--4.0.3  
-> md5sum: ca21a893126043bd0ba48cb3e36f8bcf
+> md5sum: d0e02360108d5abd492f1d51bd2dba68
 
 ### dragen-alignment-pipeline v(4.0.3) documentation
   

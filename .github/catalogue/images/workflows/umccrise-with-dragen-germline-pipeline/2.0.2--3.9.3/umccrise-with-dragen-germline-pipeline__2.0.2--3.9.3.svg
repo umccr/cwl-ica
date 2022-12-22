@@ -92,13 +92,13 @@
 </g>
 </g>
 <!-- fastq_list_rows_germline&#45;&gt;run_umccrise_pipeline_step -->
-<g id="edge9" class="edge">
+<g id="edge8" class="edge">
 <title>fastq_list_rows_germline&#45;&gt;run_umccrise_pipeline_step</title>
 <path fill="none" stroke="black" d="M1209,-825.27C1209,-747.62 1209,-435.78 1209,-340.62"/>
 <polygon fill="black" stroke="black" points="1212.5,-340.61 1209,-330.61 1205.5,-340.61 1212.5,-340.61"/>
 </g>
 <!-- fastq_list_rows_germline&#45;&gt;run_dragen_germline_pipeline_step -->
-<g id="edge8" class="edge">
+<g id="edge9" class="edge">
 <title>fastq_list_rows_germline&#45;&gt;run_dragen_germline_pipeline_step</title>
 <path fill="none" stroke="black" d="M1176.37,-825.32C1115.38,-792.45 984.22,-721.77 916.84,-685.45"/>
 <polygon fill="black" stroke="black" points="918.23,-682.23 907.77,-680.56 914.91,-688.39 918.23,-682.23"/>
@@ -224,13 +224,13 @@
 <polygon fill="black" stroke="black" points="1120.62,-333.23 1129.79,-327.93 1119.32,-326.36 1120.62,-333.23"/>
 </g>
 <!-- run_umccrise_pipeline_step&#45;&gt;umccrise_output_directory -->
-<g id="edge4" class="edge">
+<g id="edge3" class="edge">
 <title>run_umccrise_pipeline_step&#45;&gt;umccrise_output_directory</title>
 <path fill="none" stroke="black" d="M1209,-293.37C1209,-263.32 1209,-201.76 1209,-165.78"/>
 <polygon fill="black" stroke="black" points="1212.5,-165.49 1209,-155.49 1205.5,-165.49 1212.5,-165.49"/>
 </g>
 <!-- run_dragen_germline_pipeline_step&#45;&gt;run_umccrise_pipeline_step -->
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 <title>run_dragen_germline_pipeline_step&#45;&gt;run_umccrise_pipeline_step</title>
 <path fill="none" stroke="black" d="M892.02,-643.17C947.08,-585.81 1120.48,-405.14 1184.73,-338.19"/>
 <polygon fill="black" stroke="black" points="1187.61,-340.24 1192.01,-330.61 1182.56,-335.4 1187.61,-340.24"/>

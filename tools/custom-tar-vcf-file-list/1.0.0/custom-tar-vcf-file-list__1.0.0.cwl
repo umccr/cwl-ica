@@ -22,12 +22,13 @@ doc: |
   Tar an array of compressed vcf files (and their indexes) uses compression and strictly no "tar bomb".
   Files are placed under dir name with the output file being 'dir name.tar.gz'
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: standard
-        ilmn-tes:resources:size: xlarge
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: xlarge
         coresMin: 4
         ramMin: 14000
     DockerRequirement:

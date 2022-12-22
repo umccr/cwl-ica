@@ -17,7 +17,7 @@ umccrise 1.2.2--0 tool
 
   
 > ID: umccrise--1.2.2--0  
-> md5sum: bfe02ed23ceec9e978a774e5baa6fa69
+> md5sum: 6e77fc6fc4fe0170b937d996202067de
 
 ### umccrise v(1.2.2--0) documentation
   
