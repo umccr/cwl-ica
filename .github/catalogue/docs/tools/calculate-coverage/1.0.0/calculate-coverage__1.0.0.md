@@ -17,7 +17,7 @@ calculate-coverage 1.0.0 tool
 
   
 > ID: calculate-coverage--1.0.0  
-> md5sum: c1e99d340625bf0ddfdf56b551b13a45
+> md5sum: 28095703e8dcef3b63382060ade92249
 
 ### calculate-coverage v(1.0.0) documentation
   

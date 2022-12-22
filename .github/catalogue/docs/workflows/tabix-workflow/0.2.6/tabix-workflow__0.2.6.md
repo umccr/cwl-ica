@@ -19,7 +19,7 @@ tabix-workflow 0.2.6 workflow
 
   
 > ID: tabix-workflow--0.2.6  
-> md5sum: c33867c8f254970fd13151c01e6d402b
+> md5sum: d0137e606fffd87e3111572c9366fcfb
 
 ### tabix-workflow v(0.2.6) documentation
   

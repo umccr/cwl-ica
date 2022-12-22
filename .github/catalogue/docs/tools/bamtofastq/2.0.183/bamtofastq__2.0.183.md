@@ -17,7 +17,7 @@ bamtofastq 2.0.183 tool
 
   
 > ID: bamtofastq--2.0.183  
-> md5sum: 1d1b7c01277385a56f23f37e31f6ffa4
+> md5sum: c90bfb7c4db87a3e14c043319b1360c7
 
 ### bamtofastq v(2.0.183) documentation
   
