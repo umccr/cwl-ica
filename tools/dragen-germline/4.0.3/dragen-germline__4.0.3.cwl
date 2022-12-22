@@ -26,15 +26,15 @@ label: dragen-germline v(4.0.3)
 doc: |
     Documentation for dragen-germline v4.0.3
 
-# ILMN Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-      ilmn-tes:resources:
-          tier: standard
-          type: fpga
-          size: medium
-      coresMin: 16
-      ramMin: 240000
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: fpga
+    ilmn-tes:resources/size: medium
+    coresMin: 16
+    ramMin: 240000
   DockerRequirement:
       dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.0.3
 

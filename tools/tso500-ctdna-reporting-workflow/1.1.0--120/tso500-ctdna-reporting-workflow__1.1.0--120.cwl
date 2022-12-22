@@ -21,11 +21,13 @@ label: tso500-ctdna-reporting-workflow v(1.1.0.120)
 doc: |
     Documentation for tso500-ctdna-reporting-workflow v1.1.0.120
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: fpga
-        ilmn-tes:resources:size: small
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: fpga
+        ilmn-tes:resources/size: small
         coresMin: 8
         ramMin: 120000
     DockerRequirement:
