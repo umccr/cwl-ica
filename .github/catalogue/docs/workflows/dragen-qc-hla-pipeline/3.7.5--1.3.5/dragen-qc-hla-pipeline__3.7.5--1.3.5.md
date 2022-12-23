@@ -19,7 +19,7 @@ dragen-qc-hla-pipeline 3.7.5--1.3.5 workflow
 
   
 > ID: dragen-qc-hla-pipeline--3.7.5--1.3.5  
-> md5sum: fe450417a801d7de9dadd8f8ccd00f73
+> md5sum: 80840e87b75b744a8550331afa79a5db
 
 ### dragen-qc-hla-pipeline v(3.7.5--1.3.5) documentation
   
@@ -41,13 +41,13 @@ Uses fastq_list_row objects to files as inputs.
 
 ### Uses
   
-- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [dragen-germline-pipeline 3.7.5](../../dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)  
-- [get-faidx-file-from-reference-file 1.0.0](../../../expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.md)  
-- [get-hla-regions-bed 1.0.0](../../get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md)  
-- [optitype-pipeline 1.3.5](../../optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
-- [multiqc 1.10.1](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
-- [somalier-extract 0.2.13 :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
+- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [dragen-germline-pipeline 3.7.5 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)  
+- [get-faidx-file-from-reference-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.md)  
+- [get-hla-regions-bed 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md)  
+- [optitype-pipeline 1.3.5 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
+- [multiqc 1.10.1 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.md)  
+- [somalier-extract 0.2.13 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
   
 
@@ -82,7 +82,7 @@ The row of fastq lists.
 > ID: genome_version
   
 **Optional:** `False`  
-**Type:** `[ hg38 | GRCh37 ]`  
+**Type:** `[ dragen-qc-hla-pipeline--3.7.5--1.3.5/genome_version/hg38 | dragen-qc-hla-pipeline--3.7.5--1.3.5/genome_version/GRCh37 ]`  
 **Docs:**  
 Either hg38 (default) or GRCh37?
 Used to set chromosome regions to filter down bam file for optitype workflow
@@ -165,15 +165,18 @@ gzipped vcf file. Required for somalier sites
   
 > ID: dragen-qc-hla-pipeline--3.7.5--1.3.5/create_dummy_file_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-touch-file__1.0.0.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
 
 
 ### dragen germline step
@@ -189,11 +192,11 @@ Runs the dragen germline 3.7.5 workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.cwl)  
-[CWL File Help Page](../../dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)
+[CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)
 #### Subworkflow overview
   
-[![dragen-germline-pipeline__3.7.5.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)  
+[![dragen-germline-pipeline__3.7.5.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.svg)  
 
 
 ### get faidx file step
@@ -202,7 +205,7 @@ Runs the dragen germline 3.7.5 workflow
   
 > ID: dragen-qc-hla-pipeline--3.7.5--1.3.5/get_faidx_file_step
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 Get the index of the reference fasta as its own file.
@@ -210,8 +213,11 @@ Used by the get-regions-bed workflow
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.cwl)  
-[CWL File Help Page](../../../expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.md)
+#### Subworkflow overview
+  
+[![get-faidx-file-from-reference-file__1.0.0.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.svg)  
 
 
 ### get hla regions bed
@@ -227,11 +233,11 @@ Get the hla regions for input into the optitype workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.cwl)  
-[CWL File Help Page](../../get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md)
+[CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md)
 #### Subworkflow overview
   
-[![get-hla-regions-bed__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)  
+[![get-hla-regions-bed__1.0.0.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.svg)  
 
 
 ### optitype
@@ -247,11 +253,11 @@ Run the optitype pipeline
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.cwl)  
-[CWL File Help Page](../../optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)
+[CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)
 #### Subworkflow overview
   
-[![optitype-pipeline__1.3.5.svg](../../../../images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)  
+[![optitype-pipeline__1.3.5.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.svg)  
 
 
 ### qc step
@@ -260,7 +266,7 @@ Run the optitype pipeline
   
 > ID: dragen-qc-hla-pipeline--3.7.5--1.3.5/qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs multiqc on the run folder
@@ -268,8 +274,11 @@ Uses a dummy file so that the folder can be placed in 'stream' mode.
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
+[CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.md)
+#### Subworkflow overview
+  
+[![multiqc__1.10.1.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.svg)  
 
 
 ### somalier
@@ -278,15 +287,18 @@ Uses a dummy file so that the folder can be placed in 'stream' mode.
   
 > ID: dragen-qc-hla-pipeline--3.7.5--1.3.5/somalier_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs the somalier extract function to call the fingerprint on the germline bam file
 
 #### Links
   
-[CWL File Path](../../../../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl)  
-[CWL File Help Page :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
+[CWL File Path](../../../../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)
+#### Subworkflow overview
+  
+[![somalier-extract__0.2.13.svg](../../../../images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.svg)  
 
 
 ## dragen-qc-hla-pipeline v(3.7.5--1.3.5) Outputs

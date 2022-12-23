@@ -17,7 +17,7 @@ qualimap 2.2.2 tool
 
   
 > ID: qualimap--2.2.2  
-> md5sum: 38111f0ed34ef6a66baf7f6dc7738b20
+> md5sum: f4ffb736f38152ccc4c2624f7c28ef6f
 
 ### qualimap v(2.2.2) documentation
   
@@ -30,12 +30,6 @@ It perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.e
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl)  
-
-
-### Used By
-  
-- [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
-- [dragen-wts-qc-pipeline 3.9.3](../../../workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
 
   
 
@@ -118,7 +112,7 @@ Output folder for HTML report and raw data.
 > ID: seq_protocol
   
 **Optional:** `True`  
-**Type:** `[ strand-specific-forward | strand-specific-reverse | non-strand-specific ]`  
+**Type:** `[ qualimap--2.2.2/seq_protocol/strand-specific-forward | qualimap--2.2.2/seq_protocol/strand-specific-reverse | qualimap--2.2.2/seq_protocol/non-strand-specific ]`  
 **Docs:**  
 Sequencing library protocol:
 strand-specific-forward, strand-specific-reverse or 
