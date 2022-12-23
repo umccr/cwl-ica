@@ -3,8 +3,10 @@ name: Create Workflow Release Asset
 on:
   push:
     tags:
-      - [A-Za-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+(?:--\S+)?
-      - [A-Za-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+(?:--\S+)?(-rc)
+      # Matches dragen-pon-qc/3.9.3
+      # Matches tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0
+      # Matches dragen-somatic-pipeline/4.0.3-rc
+      - [A-Za-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+(?:--\S+)?(-rc)?
 
 jobs:
   create_release:
