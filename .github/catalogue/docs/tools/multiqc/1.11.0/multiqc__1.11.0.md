@@ -17,7 +17,7 @@ multiqc 1.11.0 tool
 
   
 > ID: multiqc--1.11.0  
-> md5sum: bf9cc33107ce3c96ab27ed87e1b5f5a1
+> md5sum: 05ae2ea26c81a18afaee915711d04611
 
 ### multiqc v(1.11.0) documentation
   

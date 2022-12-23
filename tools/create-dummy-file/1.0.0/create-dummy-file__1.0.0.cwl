@@ -21,16 +21,17 @@ doc: |
     Create a dummy file for input into a workflow.
     Important if needing to set a tool into 'stream' mode by default
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
-    ResourceRequirement:
-      ilmn-tes:resources:
-        tier: standard
-        type: standard
-        size: small
-      coresMin: 2
-      ramMin: 4000
-    DockerRequirement:
-      dockerPull: alpine:latest
+  ResourceRequirement:
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: standard
+    ilmn-tes:resources/size: small
+    coresMin: 2
+    ramMin: 4000
+  DockerRequirement:
+    dockerPull: alpine:latest
 
 baseCommand: ["touch", "dummy_file.txt"]
 

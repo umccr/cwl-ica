@@ -29,9 +29,9 @@
 </g>
 </g>
 <!-- run_tso_ctdna_workflow_step -->
-<g id="node17" class="node">
+<g id="node16" class="node">
 <title>run_tso_ctdna_workflow_step</title>
-<g id="a_node17"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md" xlink:title="Run the CWL version of the tso500 ctDNA WDL / ISL workflow&#10;">
+<g id="a_node16"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md" xlink:title="Run the CWL version of the tso500 ctDNA WDL / ISL workflow&#10;">
 <polygon fill="#ee7ae9" stroke="black" points="540.5,-501.21 540.5,-538.21 745.5,-538.21 745.5,-501.21 540.5,-501.21"/>
 <text text-anchor="middle" x="643" y="-516.01" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna v(1.1.0&#45;&#45;120)</text>
 </a>
@@ -277,38 +277,38 @@
 <path fill="none" stroke="black" d="M657.57,-410.91C668.01,-398.14 682.24,-380.76 693.92,-366.48"/>
 <polygon fill="black" stroke="black" points="696.83,-368.45 700.45,-358.5 691.41,-364.02 696.83,-368.45"/>
 </g>
-<!-- run_tso_ctdna_post_processing_workflow_step -->
-<g id="node16" class="node">
-<title>run_tso_ctdna_post_processing_workflow_step</title>
-<g id="a_node16"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md" xlink:title="Run the very customised ctdna post processing workflow step for each sample&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="161.5,-411.21 161.5,-448.21 508.5,-448.21 508.5,-411.21 161.5,-411.21"/>
-<text text-anchor="middle" x="335" y="-426.01" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna&#45;post&#45;processing&#45;pipeline v(1.0.0)</text>
-</a>
-</g>
-</g>
-<!-- run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
-<g id="edge5" class="edge">
-<title>run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
-<path fill="none" stroke="black" d="M410.99,-411.12C474.03,-396.52 563.64,-375.77 629.24,-360.57"/>
-<polygon fill="black" stroke="black" points="630.19,-363.95 639.15,-358.28 628.61,-357.13 630.19,-363.95"/>
-</g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
-<g id="edge6" class="edge">
+<g id="edge5" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
 <path fill="none" stroke="black" d="M701.95,-501.11C727.26,-490.31 754.34,-473.62 769,-448.71 785.26,-421.08 762.81,-387.91 742.1,-365.68"/>
 <polygon fill="black" stroke="black" points="744.4,-363.03 734.92,-358.31 739.39,-367.91 744.4,-363.03"/>
 </g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;get_intermediate_samplesheet_from_validation_step -->
-<g id="edge7" class="edge">
+<g id="edge6" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;get_intermediate_samplesheet_from_validation_step</title>
 <path fill="none" stroke="black" d="M643,-500.91C643,-488.74 643,-472.37 643,-458.5"/>
 <polygon fill="black" stroke="black" points="646.5,-458.5 643,-448.5 639.5,-458.5 646.5,-458.5"/>
 </g>
+<!-- run_tso_ctdna_post_processing_workflow_step -->
+<g id="node17" class="node">
+<title>run_tso_ctdna_post_processing_workflow_step</title>
+<g id="a_node17"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md" xlink:title="Run the very customised ctdna post processing workflow step for each sample&#10;">
+<polygon fill="#ee7ae9" stroke="black" points="161.5,-411.21 161.5,-448.21 508.5,-448.21 508.5,-411.21 161.5,-411.21"/>
+<text text-anchor="middle" x="335" y="-426.01" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna&#45;post&#45;processing&#45;pipeline v(1.0.0)</text>
+</a>
+</g>
+</g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;run_tso_ctdna_post_processing_workflow_step -->
-<g id="edge8" class="edge">
+<g id="edge7" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;run_tso_ctdna_post_processing_workflow_step</title>
 <path fill="none" stroke="black" d="M581.41,-501.12C530.84,-486.67 459.17,-466.19 406.15,-451.04"/>
 <polygon fill="black" stroke="black" points="407.06,-447.66 396.48,-448.28 405.14,-454.39 407.06,-447.66"/>
+</g>
+<!-- run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
+<g id="edge8" class="edge">
+<title>run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
+<path fill="none" stroke="black" d="M410.99,-411.12C474.03,-396.52 563.64,-375.77 629.24,-360.57"/>
+<polygon fill="black" stroke="black" points="630.19,-363.95 639.15,-358.28 628.61,-357.13 630.19,-363.95"/>
 </g>
 <!-- get_sample_ids_from_tso500_sample_object&#45;&gt;get_sample_output_directory -->
 <g id="edge10" class="edge">

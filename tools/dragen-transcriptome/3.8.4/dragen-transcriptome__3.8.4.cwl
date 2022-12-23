@@ -20,13 +20,13 @@ label: dragen-transcriptome v(3.8.4)
 doc: |
     Documentation for dragen-transcriptome v3.8.4
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: fpga
+        ilmn-tes:resources/size: medium
     DockerRequirement:
         dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:3.8.4"
 

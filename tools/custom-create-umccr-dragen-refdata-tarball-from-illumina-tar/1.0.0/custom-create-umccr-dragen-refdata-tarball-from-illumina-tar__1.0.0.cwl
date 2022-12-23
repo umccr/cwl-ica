@@ -23,13 +23,13 @@ doc: |
     (multiple files and directories exist in the top directory), rather than a single directory that matches the nameroot of the directory.
     We also need to make sure that the reference name in the directory exists for Variant Interpreter to know which reference was used.
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: small
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
         coresMin: 2
         ramMin: 4000
     DockerRequirement:

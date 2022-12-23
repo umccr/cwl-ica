@@ -17,7 +17,7 @@ bedops 2.4.39 tool
 
   
 > ID: bedops--2.4.39  
-> md5sum: b19ead59da45dcb3645abe12eda674fe
+> md5sum: fa39b77f590e6110fe12a0a5d6209df2
 
 ### bedops v(2.4.39) documentation
   

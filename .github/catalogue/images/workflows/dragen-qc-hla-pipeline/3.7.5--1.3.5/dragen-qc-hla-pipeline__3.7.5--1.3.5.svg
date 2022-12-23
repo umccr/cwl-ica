@@ -374,13 +374,13 @@
 <polygon fill="black" stroke="black" points="1433.1,-408.78 1441.04,-401.76 1430.46,-402.3 1433.1,-408.78"/>
 </g>
 <!-- qc_step&#45;&gt;multiqc_output_directory -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>qc_step&#45;&gt;multiqc_output_directory</title>
 <path fill="none" stroke="black" d="M1151.36,-364.42C1177.49,-326.81 1238.42,-239.13 1268.93,-195.22"/>
 <polygon fill="black" stroke="black" points="1271.94,-197.01 1274.78,-186.8 1266.19,-193.02 1271.94,-197.01"/>
 </g>
 <!-- qc_step&#45;&gt;multiqc_output_file -->
-<g id="edge14" class="edge">
+<g id="edge13" class="edge">
 <title>qc_step&#45;&gt;multiqc_output_file</title>
 <path fill="none" stroke="black" d="M1167.2,-364.6C1228.59,-326.25 1374.34,-235.21 1443,-192.32"/>
 <polygon fill="black" stroke="black" points="1445.14,-195.11 1451.77,-186.84 1441.44,-189.17 1445.14,-195.11"/>
@@ -401,7 +401,7 @@
 </g>
 </g>
 <!-- create_dummy_file_step&#45;&gt;qc_step -->
-<g id="edge12" class="edge">
+<g id="edge14" class="edge">
 <title>create_dummy_file_step&#45;&gt;qc_step</title>
 <path fill="none" stroke="black" d="M1301.21,-578.5C1269.84,-540.92 1196.49,-453.07 1160.16,-409.56"/>
 <polygon fill="black" stroke="black" points="1162.72,-407.15 1153.62,-401.72 1157.34,-411.64 1162.72,-407.15"/>

@@ -17,7 +17,7 @@ optitype 1.3.5 tool
 
   
 > ID: optitype--1.3.5  
-> md5sum: b7329c4c212dbad828db34d0bf4bf7ab
+> md5sum: efdaa5b21f4b6dcddbd9a55d1a7d3701
 
 ### optitype v(1.3.5) documentation
   

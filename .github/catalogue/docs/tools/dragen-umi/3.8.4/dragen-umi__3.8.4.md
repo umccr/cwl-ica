@@ -17,7 +17,7 @@ dragen-umi 3.8.4 tool
 
   
 > ID: dragen-umi--3.8.4  
-> md5sum: dc23d9caf62b8c59f7210bf6262658c4
+> md5sum: fe60dcdc2910893dd52c7849e0ee2f63
 
 ### dragen-umi v(3.8.4) documentation
   

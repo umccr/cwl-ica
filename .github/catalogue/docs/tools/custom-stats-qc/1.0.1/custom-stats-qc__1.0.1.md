@@ -17,7 +17,7 @@ custom-stats-qc 1.0.1 tool
 
   
 > ID: custom-stats-qc--1.0.1  
-> md5sum: edfc6026963e978e63d0c51f4000b7e9
+> md5sum: 95b3962da8f83a65cb20cfdea45b0a6c
 
 ### custom-stats-qc v(1.0.1) documentation
   

@@ -17,7 +17,7 @@ sambamba-sort-and-index 0.8.0 tool
 
   
 > ID: sambamba-sort-and-index--0.8.0  
-> md5sum: a7f3c2b9ba800474007936cf4b30eaa6
+> md5sum: 764645083dfb16d429c04abeef56571a
 
 ### sambamba-sort-and-index v(0.8.0) documentation
   
