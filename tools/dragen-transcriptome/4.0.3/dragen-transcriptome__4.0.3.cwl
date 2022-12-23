@@ -74,7 +74,7 @@ requirements:
 
       - |
         ${
-            return generate_germline_mount_points(inputs);
+            return generate_transcriptome_mount_points(inputs);
         }
 
 baseCommand: [ "bash" ]
