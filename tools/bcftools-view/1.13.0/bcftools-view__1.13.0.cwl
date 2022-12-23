@@ -30,7 +30,7 @@ hints:
         coresMin: 1
         ramMin: 2000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/bcftools:1.13--h3a49de5_0
+        dockerPull: public.ecr.aws/biocontainers/bcftools:1.13--h3a49de5_0
 
 requirements:
   InlineJavascriptRequirement: {}

@@ -17,7 +17,7 @@ bedops 2.4.39 tool
 
   
 > ID: bedops--2.4.39  
-> md5sum: fa39b77f590e6110fe12a0a5d6209df2
+> md5sum: 46f5f9516607897de4d06a7cd2bd68c7
 
 ### bedops v(2.4.39) documentation
   
@@ -38,11 +38,6 @@ May use '-' for a file to indicate reading from standard input (BED format only)
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/bedops/2.4.39/bedops__2.4.39.cwl)  
-
-
-### Used By
-  
-- [get-hla-regions-bed 1.0.0](../../../workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md)  
 
   
 
@@ -171,7 +166,7 @@ Accept headers (VCF, GFF, SAM, BED, WIG) in any input file.
 > ID: input_files
   
 **Optional:** `False`  
-**Type:** `File[]`  
+**Type:** `.[]`  
 **Docs:**  
 The bcl directory
 

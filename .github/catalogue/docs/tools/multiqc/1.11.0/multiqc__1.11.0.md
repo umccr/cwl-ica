@@ -17,7 +17,7 @@ multiqc 1.11.0 tool
 
   
 > ID: multiqc--1.11.0  
-> md5sum: 05ae2ea26c81a18afaee915711d04611
+> md5sum: e2d76f164336ef9d521096f8c9c5984e
 
 ### multiqc v(1.11.0) documentation
   
@@ -32,12 +32,6 @@ Documentation for multiqc v1.11.0
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
-
-
-### Used By
-  
-- [bcl-conversion 3.7.5](../../../workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.md)  
-- [dragen-transcriptome-pipeline 3.8.4](../../../workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
 
   
 
@@ -106,7 +100,7 @@ saves having to download the entire input folder
 > ID: input_directories
   
 **Optional:** `False`  
-**Type:** `Directory[]`  
+**Type:** `.[]`  
 **Docs:**  
 The list of directories to place in the analysis
 

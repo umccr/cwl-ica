@@ -22,20 +22,14 @@
 <!-- regions_bed_file -->
 <g id="node1" class="node">
 <title>regions_bed_file</title>
-<g id="a_node1"><a xlink:title="Name of the output regions bed file we create&#10;">
 <polygon fill="#94ddf4" stroke="black" points="331,-567.63 331,-604.63 462,-604.63 462,-567.63 331,-567.63"/>
 <text text-anchor="middle" x="396.5" y="-582.43" font-family="Times,serif" font-size="14.00">regions_bed_file</text>
-</a>
-</g>
 </g>
 <!-- create_regions_bed_for_chr_6_hla_region_step -->
 <g id="node5" class="node">
 <title>create_regions_bed_for_chr_6_hla_region_step</title>
-<g id="a_node5"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.md" xlink:title="Merge the list of contigs from each the chr6 region and the hla_contigs&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="0,-319.63 0,-356.63 387,-356.63 387,-319.63 0,-319.63"/>
 <text text-anchor="middle" x="193.5" y="-334.43" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;regions&#45;bed&#45;from&#45;contigs&#45;list v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- regions_bed_file&#45;&gt;create_regions_bed_for_chr_6_hla_region_step -->
 <g id="edge5" class="edge">
@@ -46,11 +40,8 @@
 <!-- bedops_merge_step -->
 <g id="node6" class="node">
 <title>bedops_merge_step</title>
-<g id="a_node6"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/bedops/2.4.39/bedops__2.4.39.md" xlink:title="Merge the chromosome 6 and hla bed files&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="347.5,-198.63 347.5,-235.63 483.5,-235.63 483.5,-198.63 347.5,-198.63"/>
 <text text-anchor="middle" x="415.5" y="-213.43" font-family="Times,serif" font-size="14.00">bedops v(2.4.39)</text>
-</a>
-</g>
 </g>
 <!-- regions_bed_file&#45;&gt;bedops_merge_step -->
 <g id="edge6" class="edge">
@@ -61,20 +52,14 @@
 <!-- genome_version -->
 <g id="node2" class="node">
 <title>genome_version</title>
-<g id="a_node2"><a xlink:title="The name of the genome determines the chr6 contig we create&#10;">
 <polygon fill="#94ddf4" stroke="black" points="180.5,-567.63 180.5,-604.63 312.5,-604.63 312.5,-567.63 180.5,-567.63"/>
 <text text-anchor="middle" x="246.5" y="-582.43" font-family="Times,serif" font-size="14.00">genome_version</text>
-</a>
-</g>
 </g>
 <!-- create_contig_obj_for_chr6_step -->
 <g id="node8" class="node">
 <title>create_contig_obj_for_chr6_step</title>
-<g id="a_node8"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.md" xlink:title="Creates a contig object for the hla region&#10;in chr6 based on the reference type.&#10;">
-<polygon fill="#ee9a00" stroke="black" points="15.5,-440.63 15.5,-477.63 349.5,-477.63 349.5,-440.63 15.5,-440.63"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="15.5,-440.63 15.5,-477.63 349.5,-477.63 349.5,-440.63 15.5,-440.63"/>
 <text text-anchor="middle" x="182.5" y="-455.43" font-family="Times,serif" font-size="14.00">create&#45;contig&#45;obj&#45;for&#45;hla&#45;chr6&#45;region v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- genome_version&#45;&gt;create_contig_obj_for_chr6_step -->
 <g id="edge7" class="edge">
@@ -85,20 +70,14 @@
 <!-- faidx_file -->
 <g id="node3" class="node">
 <title>faidx_file</title>
-<g id="a_node3"><a xlink:title="May be extracted from a secondary files reference file if this is a subworkflow&#10;">
 <polygon fill="#94ddf4" stroke="black" points="480.5,-567.63 480.5,-604.63 560.5,-604.63 560.5,-567.63 480.5,-567.63"/>
 <text text-anchor="middle" x="520.5" y="-582.43" font-family="Times,serif" font-size="14.00">faidx_file</text>
-</a>
-</g>
 </g>
 <!-- create_regions_bed_for_hla_contigs_step -->
 <g id="node7" class="node">
 <title>create_regions_bed_for_hla_contigs_step</title>
-<g id="a_node7"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.md" xlink:title="Creates a contig object for the hla regions.&#10;Uses the faidx file in the input to search for HLA contigs&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="444,-440.63 444,-477.63 707,-477.63 707,-440.63 444,-440.63"/>
 <text text-anchor="middle" x="575.5" y="-455.43" font-family="Times,serif" font-size="14.00">custom&#45;hla&#45;bed&#45;from&#45;faidx v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- faidx_file&#45;&gt;create_regions_bed_for_hla_contigs_step -->
 <g id="edge8" class="edge">
@@ -109,11 +88,8 @@
 <!-- regions_bed -->
 <g id="node4" class="node">
 <title>regions_bed</title>
-<g id="a_node4"><a xlink:title="The output regions bed file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="364,-76.63 364,-113.63 467,-113.63 467,-76.63 364,-76.63"/>
 <text text-anchor="middle" x="415.5" y="-91.43" font-family="Times,serif" font-size="14.00">regions_bed</text>
-</a>
-</g>
 </g>
 <!-- create_regions_bed_for_chr_6_hla_region_step&#45;&gt;bedops_merge_step -->
 <g id="edge1" class="edge">

@@ -17,7 +17,7 @@ sambamba-slice-and-index 0.8.0 tool
 
   
 > ID: sambamba-slice-and-index--0.8.0  
-> md5sum: 9326e7b5a420b1c7d03f8cde436e7637
+> md5sum: 8094c8ef1ee6f3ad7f9c542226702ca8
 
 ### sambamba-slice-and-index v(0.8.0) documentation
   
@@ -33,11 +33,6 @@ More info can be found [here](https://lomereiter.github.io/sambamba/docs/sambamb
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.cwl)  
-
-
-### Used By
-  
-- [optitype-pipeline 1.3.5](../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
 
   
 

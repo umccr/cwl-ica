@@ -17,7 +17,7 @@ bgzip 1.12.0 tool
 
   
 > ID: bgzip--1.12.0  
-> md5sum: 482365a9cb2b972a57b2f0b05b01491f
+> md5sum: 9cc40fbd89c0aa5167d8c6b3e2e938fd
 
 ### bgzip v(1.12.0) documentation
   
@@ -30,11 +30,6 @@ compress a file with bgzip. More info can be found [here](http://www.htslib.org/
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/bgzip/1.12.0/bgzip__1.12.0.cwl)  
-
-
-### Used By
-  
-- [tso500-ctdna-post-processing-pipeline 1.0.0](../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
 
   
 

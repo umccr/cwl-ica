@@ -33,7 +33,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/optitype:1.3.5--0
+        dockerPull: public.ecr.aws/biocontainers/optitype:1.3.5--0
 
 requirements:
   InlineJavascriptRequirement: {}

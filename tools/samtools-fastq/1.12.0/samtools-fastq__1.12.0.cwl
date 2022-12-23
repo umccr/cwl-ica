@@ -55,7 +55,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/samtools:1.12--h9aed4be_1
+        dockerPull: public.ecr.aws/biocontainers/samtools:1.12--h9aed4be_1
 
 requirements:
   InlineJavascriptRequirement: {}
