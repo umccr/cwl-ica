@@ -30,12 +30,13 @@ doc: |
     Original CWL file [here](https://github.com/YinanWang16/tso500-ctdna-post-processing/blob/main/cwl/tools/mosdepth/mosdepth-thresholds-bed-to-coverage-QC-step.cwl)
 
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: standard
-        ilmn-tes:resources:size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: medium
         coresMin: 1
         ramMin: 4000
     DockerRequirement:

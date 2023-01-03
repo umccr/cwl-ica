@@ -22,20 +22,14 @@
 <!-- bcl_input_directory -->
 <g id="node1" class="node">
 <title>bcl_input_directory</title>
-<g id="a_node1"><a xlink:title="Path to the bcl files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2394,-1114.53 2394,-1151.53 2548,-1151.53 2548,-1114.53 2394,-1114.53"/>
 <text text-anchor="middle" x="2471" y="-1129.33" font-family="Times,serif" font-size="14.00">bcl_input_directory</text>
-</a>
-</g>
 </g>
 <!-- bcl_convert_step -->
 <g id="node20" class="node">
 <title>bcl_convert_step</title>
-<g id="a_node20"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/bclConvert/3.7.5/bclConvert__3.7.5.md" xlink:title="BCLConvert is then scattered across each of the samplesheets.&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1716,-522.53 1716,-559.53 1870,-559.53 1870,-522.53 1716,-522.53"/>
 <text text-anchor="middle" x="1793" y="-537.33" font-family="Times,serif" font-size="14.00">bclConvert v(3.7.5)</text>
-</a>
-</g>
 </g>
 <!-- bcl_input_directory&#45;&gt;bcl_convert_step -->
 <g id="edge14" class="edge">
@@ -46,11 +40,8 @@
 <!-- interop_qc_step -->
 <g id="node25" class="node">
 <title>interop_qc_step</title>
-<g id="a_node25"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md" xlink:title="Run the multiqc by first also generating the interop files for use&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="2538,-911.53 2538,-948.53 2724,-948.53 2724,-911.53 2538,-911.53"/>
 <text text-anchor="middle" x="2631" y="-926.33" font-family="Times,serif" font-size="14.00">multiqc&#45;interop v(1.2.1)</text>
-</a>
-</g>
 </g>
 <!-- bcl_input_directory&#45;&gt;interop_qc_step -->
 <g id="edge15" class="edge">
@@ -61,11 +52,8 @@
 <!-- bcl_only_lane_bcl_conversion -->
 <g id="node2" class="node">
 <title>bcl_only_lane_bcl_conversion</title>
-<g id="a_node2"><a xlink:title="Convert only the specified lane number. The value must&#10;be less than or equal to the number of lanes specified in the&#10;RunInfo.xml. Must be a single integer value.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2152.5,-1114.53 2152.5,-1151.53 2375.5,-1151.53 2375.5,-1114.53 2152.5,-1114.53"/>
 <text text-anchor="middle" x="2264" y="-1129.33" font-family="Times,serif" font-size="14.00">bcl_only_lane_bcl_conversion</text>
-</a>
-</g>
 </g>
 <!-- bcl_only_lane_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge16" class="edge">
@@ -76,11 +64,8 @@
 <!-- bcl_sampleproject_subdirectories_bcl_conversion -->
 <g id="node3" class="node">
 <title>bcl_sampleproject_subdirectories_bcl_conversion</title>
-<g id="a_node3"><a xlink:title="true — Allows creation of Sample_Project subdirectories&#10;as specified in the sample sheet. This option must be set to true for&#10;the Sample_Project column in the data section to be used.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16.5,-1114.53 16.5,-1151.53 383.5,-1151.53 383.5,-1114.53 16.5,-1114.53"/>
 <text text-anchor="middle" x="200" y="-1129.33" font-family="Times,serif" font-size="14.00">bcl_sampleproject_subdirectories_bcl_conversion</text>
-</a>
-</g>
 </g>
 <!-- bcl_sampleproject_subdirectories_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge17" class="edge">
@@ -91,11 +76,8 @@
 <!-- delete_undetermined_indices_bcl_conversion -->
 <g id="node4" class="node">
 <title>delete_undetermined_indices_bcl_conversion</title>
-<g id="a_node4"><a xlink:title="Delete undetermined indices on completion of the run&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1325.5,-1114.53 1325.5,-1151.53 1662.5,-1151.53 1662.5,-1114.53 1325.5,-1114.53"/>
 <text text-anchor="middle" x="1494" y="-1129.33" font-family="Times,serif" font-size="14.00">delete_undetermined_indices_bcl_conversion</text>
-</a>
-</g>
 </g>
 <!-- delete_undetermined_indices_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge18" class="edge">
@@ -106,11 +88,8 @@
 <!-- first_tile_only_bcl_conversion -->
 <g id="node5" class="node">
 <title>first_tile_only_bcl_conversion</title>
-<g id="a_node5"><a xlink:title="true — Only process the first tile of the first swath of the&#10; &#160;top surface of each lane specified in the sample sheet.&#10;false — Process all tiles in each lane, as specified in the sample&#10; &#160;sheet.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1681,-1114.53 1681,-1151.53 1905,-1151.53 1905,-1114.53 1681,-1114.53"/>
 <text text-anchor="middle" x="1793" y="-1129.33" font-family="Times,serif" font-size="14.00">first_tile_only_bcl_conversion</text>
-</a>
-</g>
 </g>
 <!-- first_tile_only_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge19" class="edge">
@@ -121,11 +100,8 @@
 <!-- strict_mode_bcl_conversion -->
 <g id="node6" class="node">
 <title>strict_mode_bcl_conversion</title>
-<g id="a_node6"><a xlink:title="true — Abort the program if any filter, locs, bcl, or bci lane&#10;files are missing or corrupt.&#10;false — Continue processing if any filter, locs, bcl, or bci lane files&#10;are missing. Return a warning message for each missing or corrupt&#10;file.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1923,-1114.53 1923,-1151.53 2135,-1151.53 2135,-1114.53 1923,-1114.53"/>
 <text text-anchor="middle" x="2029" y="-1129.33" font-family="Times,serif" font-size="14.00">strict_mode_bcl_conversion</text>
-</a>
-</g>
 </g>
 <!-- strict_mode_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge20" class="edge">
@@ -136,20 +112,14 @@
 <!-- runfolder_name -->
 <g id="node7" class="node">
 <title>runfolder_name</title>
-<g id="a_node7"><a xlink:title="Required &#45; used in naming run specific folder, reports and headings&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2566.5,-1114.53 2566.5,-1151.53 2695.5,-1151.53 2695.5,-1114.53 2566.5,-1114.53"/>
 <text text-anchor="middle" x="2631" y="-1129.33" font-family="Times,serif" font-size="14.00">runfolder_name</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_qc_step -->
 <g id="node22" class="node">
 <title>bclconvert_qc_step</title>
-<g id="a_node22"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc/1.11.0/multiqc__1.11.0.md" xlink:title="The bclconvert qc step &#45; from scatter this takes in an array of dirs&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="2422.5,-328.53 2422.5,-365.53 2561.5,-365.53 2561.5,-328.53 2422.5,-328.53"/>
 <text text-anchor="middle" x="2492" y="-343.33" font-family="Times,serif" font-size="14.00">multiqc v(1.11.0)</text>
-</a>
-</g>
 </g>
 <!-- runfolder_name&#45;&gt;bclconvert_qc_step -->
 <g id="edge21" class="edge">
@@ -190,20 +160,14 @@
 <!-- ignore_missing_samples -->
 <g id="node8" class="node">
 <title>ignore_missing_samples</title>
-<g id="a_node8"><a xlink:title="Remove the samples not present in the override cycles record&#10;">
 <polygon fill="#94ddf4" stroke="black" points="577,-1114.53 577,-1151.53 767,-1151.53 767,-1114.53 577,-1114.53"/>
 <text text-anchor="middle" x="672" y="-1129.33" font-family="Times,serif" font-size="14.00">ignore_missing_samples</text>
-</a>
-</g>
 </g>
 <!-- samplesheet_split_by_settings_step -->
 <g id="node19" class="node">
 <title>samplesheet_split_by_settings_step</title>
-<g id="a_node19"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md" xlink:title="Samplesheet is split by the different input types.&#10;These are generally a difference in override cycles parameters or adapter trimming settings&#10;This then scatters multiple bclconvert workflows split by sample id&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1083,-911.53 1083,-948.53 1425,-948.53 1425,-911.53 1083,-911.53"/>
 <text text-anchor="middle" x="1254" y="-926.33" font-family="Times,serif" font-size="14.00">custom&#45;samplesheet&#45;split&#45;by&#45;settings v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- ignore_missing_samples&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge27" class="edge">
@@ -214,11 +178,8 @@
 <!-- samplesheet_outdir -->
 <g id="node9" class="node">
 <title>samplesheet_outdir</title>
-<g id="a_node9"><a xlink:title="Output directory of the samplesheets split by settings&#10;">
 <polygon fill="#94ddf4" stroke="black" points="401.5,-1114.53 401.5,-1151.53 558.5,-1151.53 558.5,-1114.53 401.5,-1114.53"/>
 <text text-anchor="middle" x="480" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet_outdir</text>
-</a>
-</g>
 </g>
 <!-- samplesheet_outdir&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge28" class="edge">
@@ -229,11 +190,8 @@
 <!-- samplesheet -->
 <g id="node10" class="node">
 <title>samplesheet</title>
-<g id="a_node10"><a xlink:title="The path to the full samplesheet&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1200.5,-1114.53 1200.5,-1151.53 1307.5,-1151.53 1307.5,-1114.53 1200.5,-1114.53"/>
 <text text-anchor="middle" x="1254" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet</text>
-</a>
-</g>
 </g>
 <!-- samplesheet&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge29" class="edge">
@@ -244,11 +202,8 @@
 <!-- samplesheet_output_format -->
 <g id="node11" class="node">
 <title>samplesheet_output_format</title>
-<g id="a_node11"><a xlink:title="Convert headers to v2 samplesheet format&#10;">
 <polygon fill="#94ddf4" stroke="black" points="967.5,-1114.53 967.5,-1151.53 1182.5,-1151.53 1182.5,-1114.53 967.5,-1114.53"/>
 <text text-anchor="middle" x="1075" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet_output_format</text>
-</a>
-</g>
 </g>
 <!-- samplesheet_output_format&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge30" class="edge">
@@ -259,11 +214,8 @@
 <!-- settings_by_samples -->
 <g id="node12" class="node">
 <title>settings_by_samples</title>
-<g id="a_node12"><a xlink:title="List of settings by samples&#10;">
 <polygon fill="#94ddf4" stroke="black" points="785,-1114.53 785,-1151.53 949,-1151.53 949,-1114.53 785,-1114.53"/>
 <text text-anchor="middle" x="867" y="-1129.33" font-family="Times,serif" font-size="14.00">settings_by_samples</text>
-</a>
-</g>
 </g>
 <!-- settings_by_samples&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge31" class="edge">
@@ -274,56 +226,38 @@
 <!-- bclconvert_multiqc_out -->
 <g id="node13" class="node">
 <title>bclconvert_multiqc_out</title>
-<g id="a_node13"><a xlink:title="multiqc directory output that contains bclconvert multiqc data&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1948,-133.53 1948,-170.53 2130,-170.53 2130,-133.53 1948,-133.53"/>
 <text text-anchor="middle" x="2039" y="-148.33" font-family="Times,serif" font-size="14.00">bclconvert_multiqc_out</text>
-</a>
-</g>
 </g>
 <!-- fastq_directories -->
 <g id="node14" class="node">
 <title>fastq_directories</title>
-<g id="a_node14"><a xlink:title="The outputs from the bclconvert&#45;step&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1651.5,-133.53 1651.5,-170.53 1788.5,-170.53 1788.5,-133.53 1651.5,-133.53"/>
 <text text-anchor="middle" x="1720" y="-148.33" font-family="Times,serif" font-size="14.00">fastq_directories</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows -->
 <g id="node15" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node15"><a xlink:title="Contains the fastq list row schema for each of the output fastq files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1806.5,-133.53 1806.5,-170.53 1929.5,-170.53 1929.5,-133.53 1806.5,-133.53"/>
 <text text-anchor="middle" x="1868" y="-148.33" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- interop_multiqc_out -->
 <g id="node16" class="node">
 <title>interop_multiqc_out</title>
-<g id="a_node16"><a xlink:title="multiqc directory output that contains interop data&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2148.5,-133.53 2148.5,-170.53 2307.5,-170.53 2307.5,-133.53 2148.5,-133.53"/>
 <text text-anchor="middle" x="2228" y="-148.33" font-family="Times,serif" font-size="14.00">interop_multiqc_out</text>
-</a>
-</g>
 </g>
 <!-- split_sheets -->
 <g id="node17" class="node">
 <title>split_sheets</title>
-<g id="a_node17"><a xlink:title="List of samplesheets split by override cycles&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1532.5,-133.53 1532.5,-170.53 1633.5,-170.53 1633.5,-133.53 1532.5,-133.53"/>
 <text text-anchor="middle" x="1583" y="-148.33" font-family="Times,serif" font-size="14.00">split_sheets</text>
-</a>
-</g>
 </g>
 <!-- split_sheets_dir -->
 <g id="node18" class="node">
 <title>split_sheets_dir</title>
-<g id="a_node18"><a xlink:title="The directory containing the samplesheets used for each bcl convert&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1386,-133.53 1386,-170.53 1514,-170.53 1514,-133.53 1386,-133.53"/>
 <text text-anchor="middle" x="1450" y="-148.33" font-family="Times,serif" font-size="14.00">split_sheets_dir</text>
-</a>
-</g>
 </g>
 <!-- samplesheet_split_by_settings_step&#45;&gt;split_sheets -->
 <g id="edge3" class="edge">
@@ -346,11 +280,8 @@
 <!-- get_batch_dirs -->
 <g id="node21" class="node">
 <title>get_batch_dirs</title>
-<g id="a_node21"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md" xlink:title="Get the directory names of each of the directories we wish to scatter over&#10;">
-<polygon fill="#ee9a00" stroke="black" points="1409.5,-717.53 1409.5,-754.53 1696.5,-754.53 1696.5,-717.53 1409.5,-717.53"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1409.5,-717.53 1409.5,-754.53 1696.5,-754.53 1696.5,-717.53 1409.5,-717.53"/>
 <text text-anchor="middle" x="1553" y="-732.33" font-family="Times,serif" font-size="14.00">get&#45;samplesheet&#45;midfix&#45;regex v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- samplesheet_split_by_settings_step&#45;&gt;get_batch_dirs -->
 <g id="edge2" class="edge">
@@ -373,11 +304,8 @@
 <!-- flatten_fastq_list_rows_array -->
 <g id="node23" class="node">
 <title>flatten_fastq_list_rows_array</title>
-<g id="a_node23"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md" xlink:title="fastq list rows is an array and bcl convert is from a directory output.&#10;This scatters the arrays to a single array&#10;">
-<polygon fill="#ee9a00" stroke="black" points="1734.5,-328.53 1734.5,-365.53 2025.5,-365.53 2025.5,-328.53 1734.5,-328.53"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1734.5,-328.53 1734.5,-365.53 2025.5,-365.53 2025.5,-328.53 1734.5,-328.53"/>
 <text text-anchor="middle" x="1880" y="-343.33" font-family="Times,serif" font-size="14.00">flatten&#45;array&#45;fastq&#45;list&#45;schema v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- bcl_convert_step&#45;&gt;flatten_fastq_list_rows_array -->
 <g id="edge6" class="edge">
@@ -406,11 +334,8 @@
 <!-- create_dummy_file_step -->
 <g id="node24" class="node">
 <title>create_dummy_file_step</title>
-<g id="a_node24"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="2713.5,-1114.53 2713.5,-1151.53 2974.5,-1151.53 2974.5,-1114.53 2713.5,-1114.53"/>
 <text text-anchor="middle" x="2844" y="-1129.33" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- create_dummy_file_step&#45;&gt;bclconvert_qc_step -->
 <g id="edge10" class="edge">

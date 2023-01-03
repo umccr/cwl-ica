@@ -24,16 +24,17 @@ doc: |
   next to each other in the output. bamtofastq writes its output to the standard output channel by 
   default. All output channels can be compressed using gzip.
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: standardHiCpu
-        ilmn-tes:resources:size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standardHiCpu
+        ilmn-tes:resources/size: medium
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: "quay.io/biocontainers/biobambam:2.0.183--h9f5acd7_1"
+        dockerPull: "public.ecr.aws/biocontainers/biobambam:2.0.183--h9f5acd7_1"
 requirements:
   InlineJavascriptRequirement:
     expressionLib:

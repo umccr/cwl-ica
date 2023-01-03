@@ -19,7 +19,7 @@ bclconvert-with-qc-pipeline 4.0.3 workflow
 
   
 > ID: bclconvert-with-qc-pipeline--4.0.3  
-> md5sum: 0233d3a13b577d543870a55ba590219a
+> md5sum: 845393f522968b16899fb78e914692bc
 
 ### bclconvert-with-qc-pipeline v(4.0.3) documentation
   
@@ -39,10 +39,10 @@ Documentation for bclconvert-with-qc-pipeline v4.0.3
 
 ### Uses
   
-- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
-- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc-interop 1.2.1](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
-- [bclconvert-scatter 4.0.3](../../bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
+- [multiqc 1.12.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [multiqc-interop 1.2.1 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+- [bclconvert-scatter 4.0.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
 
   
 
@@ -98,15 +98,18 @@ Name to use in multiqc outputs
   
 > ID: bclconvert-with-qc-pipeline--4.0.3/bclconvert_qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 The bclconvert qc step - from scatter this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Path](../../../../../../workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)
+#### Subworkflow overview
+  
+[![multiqc__1.12.0.svg](../../../../images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)  
 
 
 ### create dummy file
@@ -115,15 +118,18 @@ The bclconvert qc step - from scatter this takes in an array of dirs
   
 > ID: bclconvert-with-qc-pipeline--4.0.3/create_dummy_file_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-touch-file__1.0.0.svg](../../../../images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
 
 
 ### interop qc step
@@ -132,15 +138,18 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: bclconvert-with-qc-pipeline--4.0.3/interop_qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Run the multiqc by first also generating the interop files for use
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl)  
-[CWL File Help Page](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+[CWL File Path](../../../../../../workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)
+#### Subworkflow overview
+  
+[![multiqc-interop__1.2.1.svg](../../../../images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.svg)  
 
 
 ### run bclconvert step
@@ -156,11 +165,11 @@ Runs the bcl convert configurations through the validation check and then throug
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.cwl)  
-[CWL File Help Page](../../bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)
+[CWL File Path](../../../../../../workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)
 #### Subworkflow overview
   
-[![bclconvert-scatter__4.0.3.svg](../../../../images/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.svg)  
+[![bclconvert-scatter__4.0.3.svg](../../../../images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-with-qc-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.svg)  
 
 
 ## bclconvert-with-qc-pipeline v(4.0.3) Outputs
@@ -189,7 +198,7 @@ bclconvert multiqc out
 
   
 **Optional:** `False`  
-**Output Type:** `Directory[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 Array of directories pointing to the fastq locations
   
@@ -234,7 +243,7 @@ Multiqc interop directory
 
   
 **Optional:** `False`  
-**Output Type:** `File[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 Array of file locations pointing to the samplesheets
   

@@ -19,7 +19,7 @@ tso500-ctdna-with-post-processing-pipeline 1.1.0--1.0.0 workflow
 
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0  
-> md5sum: b0560754ec0f463c517ff545fdd77bb9
+> md5sum: d6c4d94e6578877baa0b2749d9a58dad
 
 ### tso500-ctdna-with-post-processing-pipeline v(1.1.0--1.0.0) documentation
   
@@ -41,14 +41,14 @@ Only intermediate step is collecting the tso500 bed file from the resources dire
 
 ### Uses
   
-- [custom-create-directory 2.0.1](../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
-- [get-custom-output-dir-entry-for-tso500-with-post-processing 2.0.1](../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
-- [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
-- [get-attr-from-tso500-sample-object 1.0.0 :construction:](../../../expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.md)  
-- [get-subdirectory-from-directory 1.0.0 :construction:](../../../expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.md)  
-- [get-file-from-directory 1.0.0 :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
-- [tso500-ctdna-post-processing-pipeline 1.0.0](../../tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
-- [tso500-ctdna 1.1.0--120](../../tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md)  
+- [custom-create-directory 2.0.1 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
+- [get-custom-output-dir-entry-for-tso500-with-post-processing 2.0.1 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
+- [get-file-from-directory 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
+- [get-attr-from-tso500-sample-object 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.md)  
+- [get-subdirectory-from-directory 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.md)  
+- [get-file-from-directory 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
+- [tso500-ctdna-post-processing-pipeline 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
+- [tso500-ctdna 1.1.0--120 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md)  
 
   
 
@@ -195,15 +195,18 @@ A list of tso500 samples each element has the following attributes:
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0/create_final_output_directory
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Create the output directory containing all the files listed in the previous step.
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.cwl)  
-[CWL File Help Page](../../../tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)  
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.md)
+#### Subworkflow overview
+  
+[![custom-create-directory__2.0.1.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/2.0.1/custom-create-directory__2.0.1.svg)  
 
 
 ### create output directory
@@ -212,15 +215,18 @@ Create the output directory containing all the files listed in the previous step
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0/get_final_directory_output_for_tso500_pipeline
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 Create the output directory containing all the files and directories listed in the previous step.
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.cwl)  
-[CWL File Help Page](../../../expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)  
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.md)
+#### Subworkflow overview
+  
+[![get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-custom-output-dir-entry-for-tso500-with-post-processing/2.0.1/get-custom-output-dir-entry-for-tso500-with-post-processing__2.0.1.svg)  
 
 
 ### get intermediate samplesheet from validation step
@@ -229,7 +235,7 @@ Create the output directory containing all the files and directories listed in t
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0/get_intermediate_samplesheet_from_validation_step
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 Get the intermediate samplesheet from the validation step.
@@ -237,8 +243,11 @@ Returns a V1 samplesheet
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)
+#### Subworkflow overview
+  
+[![get-file-from-directory__1.0.0.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.svg)  
 
 
 ### get sample ids from tso500 sample objects
@@ -247,15 +256,18 @@ Returns a V1 samplesheet
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0/get_sample_ids_from_tso500_sample_object
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 Generate a list of sample ids from the tso500 sample objects
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.md)
+#### Subworkflow overview
+  
+[![get-attr-from-tso500-sample-object__1.0.0.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-attr-from-tso500-sample-object/1.0.0/get-attr-from-tso500-sample-object__1.0.0.svg)  
 
 
 ### sample output directory
@@ -264,15 +276,18 @@ Generate a list of sample ids from the tso500 sample objects
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0/get_sample_output_directory
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 The sample output directory containing all of the samples post-processing files
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.md)
+#### Subworkflow overview
+  
+[![get-subdirectory-from-directory__1.0.0.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-subdirectory-from-directory/1.0.0/get-subdirectory-from-directory__1.0.0.svg)  
 
 
 ### get tso bed file from resources dir
@@ -281,7 +296,7 @@ The sample output directory containing all of the samples post-processing files
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0/get_tso_manifest_bed_from_resources_dir
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 Given the resources directory collect the following file:
@@ -289,8 +304,11 @@ Given the resources directory collect the following file:
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.md)
+#### Subworkflow overview
+  
+[![get-file-from-directory__1.0.0.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.svg)  
 
 
 ### run tso ctdna post processing workflow step
@@ -306,11 +324,11 @@ Run the very customised ctdna post processing workflow step for each sample
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl)  
-[CWL File Help Page](../../tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)
 #### Subworkflow overview
   
-[![tso500-ctdna-post-processing-pipeline__1.0.0.svg](../../../../images/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.svg)  
+[![tso500-ctdna-post-processing-pipeline__1.0.0.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.svg)  
 
 
 ### run tso ctdna workflow step
@@ -326,11 +344,11 @@ Run the CWL version of the tso500 ctDNA WDL / ISL workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.cwl)  
-[CWL File Help Page](../../tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md)
+[CWL File Path](../../../../../../workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md)
 #### Subworkflow overview
   
-[![tso500-ctdna__1.1.0--120.svg](../../../../images/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)  
+[![tso500-ctdna__1.1.0--120.svg](../../../../images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.svg)  
 
 
 ## tso500-ctdna-with-post-processing-pipeline v(1.1.0--1.0.0) Outputs
@@ -359,7 +377,7 @@ The output directory
 
   
 **Optional:** `False`  
-**Output Type:** `Directory[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 The sample subdirectory of the results
   
@@ -393,7 +411,7 @@ The sample subdirectory of the results
 
   
 **workflow name:** tso500-ctdna-with-post-processing-pipeline_prod-wf  
-**wfl version name:** 1.1.0--1.0.0--cdc27e9  
+**wfl version name:** 1.1.0--1.0.0--66f4a1e  
 
 
 ### Project: collab-illumina-dev_workflows

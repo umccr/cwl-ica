@@ -22,11 +22,8 @@
 <!-- vcf_file -->
 <g id="node1" class="node">
 <title>vcf_file</title>
-<g id="a_node1"><a xlink:title="The input vcf file to be indexed&#10;">
 <polygon fill="#94ddf4" stroke="black" points="54.11,-188.5 54.11,-225.5 120.11,-225.5 120.11,-188.5 54.11,-188.5"/>
 <text text-anchor="middle" x="87.11" y="-203.3" font-family="Times,serif" font-size="14.00">vcf_file</text>
-</a>
-</g>
 </g>
 <!-- run_tabix_step -->
 <g id="node3" class="node">
@@ -43,11 +40,8 @@
 <!-- vcf_file_indexed -->
 <g id="node2" class="node">
 <title>vcf_file_indexed</title>
-<g id="a_node2"><a xlink:title="The indexed vcf file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="22.61,-39.5 22.61,-76.5 151.61,-76.5 151.61,-39.5 22.61,-39.5"/>
 <text text-anchor="middle" x="87.11" y="-54.3" font-family="Times,serif" font-size="14.00">vcf_file_indexed</text>
-</a>
-</g>
 </g>
 <!-- run_tabix_step&#45;&gt;vcf_file_indexed -->
 <g id="edge2" class="edge">

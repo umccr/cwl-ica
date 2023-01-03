@@ -17,7 +17,7 @@ multiqc 1.12.0 tool
 
   
 > ID: multiqc--1.12.0  
-> md5sum: 9cb7632a5f3c69c12107b1bbf5e5d145
+> md5sum: 7b0249500f0091ff69a004c57875af4c
 
 ### multiqc v(1.12.0) documentation
   
@@ -32,16 +32,6 @@ Documentation for multiqc v1.12.0
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-
-
-### Used By
-  
-- [dragen-germline-pipeline 3.9.3](../../../workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
-- [dragen-somatic-pipeline 3.9.3](../../../workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
-- [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
-- [dragen-alignment-pipeline 3.9.3](../../../workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
-- [tso500-ctdna-post-processing-pipeline 1.0.0](../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
-- [bclconvert-with-qc-pipeline 4.0.3](../../../workflows/bclconvert-with-qc-pipeline/4.0.3/bclconvert-with-qc-pipeline__4.0.3.md)  
 
   
 
@@ -110,7 +100,7 @@ saves having to download the entire input folder
 > ID: input_directories
   
 **Optional:** `False`  
-**Type:** `Directory[]`  
+**Type:** `.[]`  
 **Docs:**  
 The list of directories to place in the analysis
 

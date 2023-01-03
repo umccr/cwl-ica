@@ -19,7 +19,7 @@ ghif-qc 1.0.0 workflow
 
   
 > ID: ghif-qc--1.0.0  
-> md5sum: 39416c91ef03a91082d05b5b50591701
+> md5sum: 6fca3f7ac9f859e2875cabe425177344
 
 ### ghif-qc v(1.0.0) documentation
   
@@ -39,8 +39,8 @@ Documentation for ghif-qc v1.0.0
 
 ### Uses
   
-- [custom-stats-qc 1.0.0](../../../tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.md)  
-- [samtools-stats 1.13.0](../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md)  
+- [custom-stats-qc 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.md)  
+- [samtools-stats 1.13.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md)  
 
   
 
@@ -68,7 +68,7 @@ Only bases with coverage above this value will be included in the target percent
 > ID: coverage
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]
 
@@ -345,14 +345,17 @@ The BWA trimming parameter [0]
   
 > ID: ghif-qc--1.0.0/custom_stats_qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 A tool to extract custom QC metrics from samtools stats output and convert to json format.
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.cwl)  
-[CWL File Help Page](../../../tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/ghif-qc/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-stats-qc__1.0.0.svg](../../../../images/workflows/ghif-qc/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/ghif-qc/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-stats-qc/1.0.0/custom-stats-qc__1.0.0.svg)  
 
 
 ### samtools stats step
@@ -361,14 +364,17 @@ A tool to extract custom QC metrics from samtools stats output and convert to js
   
 > ID: ghif-qc--1.0.0/samtools_stats_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 samtools stats collects statistics from BAM files and outputs in a text format. The output can be visualized graphically using plot-bamstats.
 #### Links
   
-[CWL File Path](../../../../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.cwl)  
-[CWL File Help Page](../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md)  
+[CWL File Path](../../../../../../workflows/ghif-qc/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md)
+#### Subworkflow overview
+  
+[![samtools-stats__1.13.0.svg](../../../../images/workflows/ghif-qc/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/ghif-qc/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.svg)  
 
 
 ## ghif-qc v(1.0.0) Outputs

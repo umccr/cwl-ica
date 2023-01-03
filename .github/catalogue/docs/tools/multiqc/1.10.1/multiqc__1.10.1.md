@@ -17,7 +17,7 @@ multiqc 1.10.1 tool
 
   
 > ID: multiqc--1.10.1  
-> md5sum: 8d13789475d013b88875dce31bfe5115
+> md5sum: 2e5c5653eec08aca73480a8be1eae84a
 
 ### multiqc v(1.10.1) documentation
   
@@ -39,15 +39,6 @@ HTML report file. It also saves a directory of data files with all parsed data f
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl)  
-
-
-### Used By
-  
-- [dragen-germline-pipeline 3.7.5](../../../workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)  
-- [dragen-qc-hla-pipeline 3.7.5--1.3.5](../../../workflows/dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.md)  
-- [dragen-somatic-pipeline 3.7.5](../../../workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.md)  
-- [dragen-transcriptome-pipeline 3.7.5](../../../workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.md)  
-- [dragen-alignment-pipeline 3.7.5](../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
 
   
 
@@ -116,7 +107,7 @@ saves having to download the entire input folder
 > ID: input_directories
   
 **Optional:** `False`  
-**Type:** `Directory[]`  
+**Type:** `.[]`  
 **Docs:**  
 The list of directories to place in the analysis
 

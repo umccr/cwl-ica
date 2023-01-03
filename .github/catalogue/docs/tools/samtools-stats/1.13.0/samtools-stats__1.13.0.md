@@ -17,7 +17,7 @@ samtools-stats 1.13.0 tool
 
   
 > ID: samtools-stats--1.13.0  
-> md5sum: 619b47f0eb2be9c1553c4dc7485ae40e
+> md5sum: ce253d913c122a020a8f4a03c228053b
 
 ### samtools-stats v(1.13.0) documentation
   
@@ -31,12 +31,6 @@ The output can be visualized graphically using plot-bamstats.
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.cwl)  
-
-
-### Used By
-  
-- [ghif-qc 1.0.0](../../../workflows/ghif-qc/1.0.0/ghif-qc__1.0.0.md)  
-- [ghif-qc 1.0.1](../../../workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md)  
 
   
 
@@ -64,7 +58,7 @@ Only bases with coverage above this value will be included in the target percent
 > ID: coverage
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]
 

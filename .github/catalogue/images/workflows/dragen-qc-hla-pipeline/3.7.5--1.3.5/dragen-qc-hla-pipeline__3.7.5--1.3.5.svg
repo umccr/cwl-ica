@@ -22,20 +22,14 @@
 <!-- fastq_list_rows -->
 <g id="node1" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node1"><a xlink:title="The row of fastq lists.&#10; &#160;Each row has the following attributes:&#10; &#160;&#160;&#160;* RGID&#10; &#160;&#160;&#160;* RGLB&#10; &#160;&#160;&#160;* RGSM&#10; &#160;&#160;&#160;* Lane&#10; &#160;&#160;&#160;* Read1File&#10; &#160;&#160;&#160;* Read2File (optional)&#10;">
 <polygon fill="#94ddf4" stroke="black" points="941.5,-802.71 941.5,-839.71 1064.5,-839.71 1064.5,-802.71 941.5,-802.71"/>
 <text text-anchor="middle" x="1003" y="-817.51" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- dragen_germline_step -->
 <g id="node20" class="node">
 <title>dragen_germline_step</title>
-<g id="a_node20"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md" xlink:title="Runs the dragen germline 3.7.5 workflow&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="837,-578.71 837,-615.71 1093,-615.71 1093,-578.71 837,-578.71"/>
+<polygon fill="#f3cea1" stroke="black" points="837,-578.71 837,-615.71 1093,-615.71 1093,-578.71 837,-578.71"/>
 <text text-anchor="middle" x="965" y="-593.51" font-family="Times,serif" font-size="14.00">dragen&#45;germline&#45;pipeline v(3.7.5)</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows&#45;&gt;dragen_germline_step -->
 <g id="edge16" class="edge">
@@ -46,20 +40,14 @@
 <!-- sample_name -->
 <g id="node2" class="node">
 <title>sample_name</title>
-<g id="a_node2"><a xlink:title="What is the name of the sample?&#10;Used to pre&#45;fill out many other inputs.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1082.5,-802.71 1082.5,-839.71 1195.5,-839.71 1195.5,-802.71 1082.5,-802.71"/>
 <text text-anchor="middle" x="1139" y="-817.51" font-family="Times,serif" font-size="14.00">sample_name</text>
-</a>
-</g>
 </g>
 <!-- optitype_step -->
 <g id="node19" class="node">
 <title>optitype_step</title>
-<g id="a_node19"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md" xlink:title="Run the optitype pipeline&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="416.5,-364.71 416.5,-401.71 613.5,-401.71 613.5,-364.71 416.5,-364.71"/>
+<polygon fill="#f3cea1" stroke="black" points="416.5,-364.71 416.5,-401.71 613.5,-401.71 613.5,-364.71 416.5,-364.71"/>
 <text text-anchor="middle" x="515" y="-379.51" font-family="Times,serif" font-size="14.00">optitype&#45;pipeline v(1.3.5)</text>
-</a>
-</g>
 </g>
 <!-- sample_name&#45;&gt;optitype_step -->
 <g id="edge19" class="edge">
@@ -82,11 +70,8 @@
 <!-- qc_step -->
 <g id="node21" class="node">
 <title>qc_step</title>
-<g id="a_node21"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md" xlink:title="Runs multiqc on the run folder&#10;Uses a dummy file so that the folder can be placed in &#39;stream&#39; mode.&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1069.5,-364.71 1069.5,-401.71 1208.5,-401.71 1208.5,-364.71 1069.5,-364.71"/>
 <text text-anchor="middle" x="1139" y="-379.51" font-family="Times,serif" font-size="14.00">multiqc v(1.10.1)</text>
-</a>
-</g>
 </g>
 <!-- sample_name&#45;&gt;qc_step -->
 <g id="edge20" class="edge">
@@ -109,11 +94,8 @@
 <!-- somalier_step -->
 <g id="node22" class="node">
 <title>somalier_step</title>
-<g id="a_node22"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md" xlink:title="Runs the somalier extract function to call the fingerprint on the germline bam file&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1383,-364.71 1383,-401.71 1585,-401.71 1585,-364.71 1383,-364.71"/>
 <text text-anchor="middle" x="1484" y="-379.51" font-family="Times,serif" font-size="14.00">somalier&#45;extract v(0.2.13)</text>
-</a>
-</g>
 </g>
 <!-- sample_name&#45;&gt;somalier_step -->
 <g id="edge23" class="edge">
@@ -130,11 +112,8 @@
 <!-- reference_tar_dragen -->
 <g id="node3" class="node">
 <title>reference_tar_dragen</title>
-<g id="a_node3"><a xlink:title="Path to ref data tarball&#10;">
 <polygon fill="#94ddf4" stroke="black" points="753,-802.71 753,-839.71 923,-839.71 923,-802.71 753,-802.71"/>
 <text text-anchor="middle" x="838" y="-817.51" font-family="Times,serif" font-size="14.00">reference_tar_dragen</text>
-</a>
-</g>
 </g>
 <!-- reference_tar_dragen&#45;&gt;dragen_germline_step -->
 <g id="edge25" class="edge">
@@ -145,20 +124,14 @@
 <!-- reference_fasta -->
 <g id="node4" class="node">
 <title>reference_fasta</title>
-<g id="a_node4"><a xlink:title="The reference fasta file with a .fai index.&#10;Required for somalier and optitype steps&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1213.5,-802.71 1213.5,-839.71 1340.5,-839.71 1340.5,-802.71 1213.5,-802.71"/>
 <text text-anchor="middle" x="1277" y="-817.51" font-family="Times,serif" font-size="14.00">reference_fasta</text>
-</a>
-</g>
 </g>
 <!-- get_faidx_file_step -->
 <g id="node17" class="node">
 <title>get_faidx_file_step</title>
-<g id="a_node17"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/get-faidx-file-from-reference-file/1.0.0/get-faidx-file-from-reference-file__1.0.0.md" xlink:title="Get the index of the reference fasta as its own file.&#10;Used by the get&#45;regions&#45;bed workflow&#10;">
-<polygon fill="#ee9a00" stroke="black" points="109,-802.71 109,-839.71 411,-839.71 411,-802.71 109,-802.71"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="109,-802.71 109,-839.71 411,-839.71 411,-802.71 109,-802.71"/>
 <text text-anchor="middle" x="260" y="-817.51" font-family="Times,serif" font-size="14.00">get&#45;faidx&#45;file&#45;from&#45;reference&#45;file v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- reference_fasta&#45;&gt;get_faidx_file_step -->
 <g id="edge26" class="edge">
@@ -175,20 +148,14 @@
 <!-- genome_version -->
 <g id="node5" class="node">
 <title>genome_version</title>
-<g id="a_node5"><a xlink:title="Either hg38 (default) or GRCh37?&#10;Used to set chromosome regions to filter down bam file for optitype workflow&#10;">
 <polygon fill="#94ddf4" stroke="black" points="429,-802.71 429,-839.71 561,-839.71 561,-802.71 429,-802.71"/>
 <text text-anchor="middle" x="495" y="-817.51" font-family="Times,serif" font-size="14.00">genome_version</text>
-</a>
-</g>
 </g>
 <!-- get_hla_regions_bed_step -->
 <g id="node18" class="node">
 <title>get_hla_regions_bed_step</title>
-<g id="a_node18"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md" xlink:title="Get the hla regions for input into the optitype workflow&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="388,-578.71 388,-615.71 602,-615.71 602,-578.71 388,-578.71"/>
+<polygon fill="#f3cea1" stroke="black" points="388,-578.71 388,-615.71 602,-615.71 602,-578.71 388,-578.71"/>
 <text text-anchor="middle" x="495" y="-593.51" font-family="Times,serif" font-size="14.00">get&#45;hla&#45;regions&#45;bed v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- genome_version&#45;&gt;get_hla_regions_bed_step -->
 <g id="edge28" class="edge">
@@ -199,11 +166,8 @@
 <!-- hla_reference_fasta -->
 <g id="node6" class="node">
 <title>hla_reference_fasta</title>
-<g id="a_node6"><a xlink:title="Reference to align / filter large output bam to before running through optitype tool&#10;">
 <polygon fill="#94ddf4" stroke="black" points="579.5,-802.71 579.5,-839.71 734.5,-839.71 734.5,-802.71 579.5,-802.71"/>
 <text text-anchor="middle" x="657" y="-817.51" font-family="Times,serif" font-size="14.00">hla_reference_fasta</text>
-</a>
-</g>
 </g>
 <!-- hla_reference_fasta&#45;&gt;optitype_step -->
 <g id="edge29" class="edge">
@@ -214,11 +178,8 @@
 <!-- sites_somalier -->
 <g id="node7" class="node">
 <title>sites_somalier</title>
-<g id="a_node7"><a xlink:title="gzipped vcf file. Required for somalier sites&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1358.5,-802.71 1358.5,-839.71 1477.5,-839.71 1477.5,-802.71 1358.5,-802.71"/>
 <text text-anchor="middle" x="1418" y="-817.51" font-family="Times,serif" font-size="14.00">sites_somalier</text>
-</a>
-</g>
 </g>
 <!-- sites_somalier&#45;&gt;somalier_step -->
 <g id="edge30" class="edge">
@@ -229,83 +190,56 @@
 <!-- dragen_bam_output -->
 <g id="node8" class="node">
 <title>dragen_bam_output</title>
-<g id="a_node8"><a xlink:title="Output alignment file for dragen germline run&#10;">
 <polygon fill="#94ddf4" stroke="black" points="634,-149.71 634,-186.71 792,-186.71 792,-149.71 634,-149.71"/>
 <text text-anchor="middle" x="713" y="-164.51" font-family="Times,serif" font-size="14.00">dragen_bam_output</text>
-</a>
-</g>
 </g>
 <!-- dragen_output_directory -->
 <g id="node9" class="node">
 <title>dragen_output_directory</title>
-<g id="a_node9"><a xlink:title="Output directory for dragen&#10;">
 <polygon fill="#94ddf4" stroke="black" points="810.5,-149.71 810.5,-186.71 1003.5,-186.71 1003.5,-149.71 810.5,-149.71"/>
 <text text-anchor="middle" x="907" y="-164.51" font-family="Times,serif" font-size="14.00">dragen_output_directory</text>
-</a>
-</g>
 </g>
 <!-- dragen_vcf_output -->
 <g id="node10" class="node">
 <title>dragen_vcf_output</title>
-<g id="a_node10"><a xlink:title="Output vcf file for dragen germline run&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1021.5,-149.71 1021.5,-186.71 1170.5,-186.71 1170.5,-149.71 1021.5,-149.71"/>
 <text text-anchor="middle" x="1096" y="-164.51" font-family="Times,serif" font-size="14.00">dragen_vcf_output</text>
-</a>
-</g>
 </g>
 <!-- multiqc_output_directory -->
 <g id="node11" class="node">
 <title>multiqc_output_directory</title>
-<g id="a_node11"><a xlink:title="Output directory with multiqc data and html&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1188.5,-149.71 1188.5,-186.71 1385.5,-186.71 1385.5,-149.71 1188.5,-149.71"/>
 <text text-anchor="middle" x="1287" y="-164.51" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
-</a>
-</g>
 </g>
 <!-- multiqc_output_file -->
 <g id="node12" class="node">
 <title>multiqc_output_file</title>
-<g id="a_node12"><a xlink:title="Output html for multiqc&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1403.5,-149.71 1403.5,-186.71 1556.5,-186.71 1556.5,-149.71 1403.5,-149.71"/>
 <text text-anchor="middle" x="1480" y="-164.51" font-family="Times,serif" font-size="14.00">multiqc_output_file</text>
-</a>
-</g>
 </g>
 <!-- optitype_coverage_plot -->
 <g id="node13" class="node">
 <title>optitype_coverage_plot</title>
-<g id="a_node13"><a xlink:title="Output coverage pdf from optitype step&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16,-149.71 16,-186.71 198,-186.71 198,-149.71 16,-149.71"/>
 <text text-anchor="middle" x="107" y="-164.51" font-family="Times,serif" font-size="14.00">optitype_coverage_plot</text>
-</a>
-</g>
 </g>
 <!-- optitype_output_directory -->
 <g id="node14" class="node">
 <title>optitype_output_directory</title>
-<g id="a_node14"><a xlink:title="Output directory for optitype files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="414,-149.71 414,-186.71 616,-186.71 616,-149.71 414,-149.71"/>
 <text text-anchor="middle" x="515" y="-164.51" font-family="Times,serif" font-size="14.00">optitype_output_directory</text>
-</a>
-</g>
 </g>
 <!-- optitype_result_matrix -->
 <g id="node15" class="node">
 <title>optitype_result_matrix</title>
-<g id="a_node15"><a xlink:title="Output matrix file from optitype step&#10;">
 <polygon fill="#94ddf4" stroke="black" points="216.5,-149.71 216.5,-186.71 395.5,-186.71 395.5,-149.71 216.5,-149.71"/>
 <text text-anchor="middle" x="306" y="-164.51" font-family="Times,serif" font-size="14.00">optitype_result_matrix</text>
-</a>
-</g>
 </g>
 <!-- somalier_output_directory -->
 <g id="node16" class="node">
 <title>somalier_output_directory</title>
-<g id="a_node16"><a xlink:title="Output directory from somalier step&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1575,-149.71 1575,-186.71 1779,-186.71 1779,-149.71 1575,-149.71"/>
 <text text-anchor="middle" x="1677" y="-164.51" font-family="Times,serif" font-size="14.00">somalier_output_directory</text>
-</a>
-</g>
 </g>
 <!-- get_faidx_file_step&#45;&gt;get_hla_regions_bed_step -->
 <g id="edge1" class="edge">
@@ -394,11 +328,8 @@
 <!-- create_dummy_file_step -->
 <g id="node23" class="node">
 <title>create_dummy_file_step</title>
-<g id="a_node23"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1185.5,-578.71 1185.5,-615.71 1446.5,-615.71 1446.5,-578.71 1185.5,-578.71"/>
 <text text-anchor="middle" x="1316" y="-593.51" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- create_dummy_file_step&#45;&gt;qc_step -->
 <g id="edge12" class="edge">

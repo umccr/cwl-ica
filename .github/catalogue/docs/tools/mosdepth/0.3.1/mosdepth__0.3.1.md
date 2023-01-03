@@ -17,7 +17,7 @@ mosdepth 0.3.1 tool
 
   
 > ID: mosdepth--0.3.1  
-> md5sum: 64e52c84a88dcf36fe039e10a6dd6262
+> md5sum: b3b36078339fcb67debc983f79e5ff31
 
 ### mosdepth v(0.3.1) documentation
   
@@ -30,11 +30,6 @@ Output per-base depth in an easy to read format.
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/mosdepth/0.3.1/mosdepth__0.3.1.cwl)  
-
-
-### Used By
-  
-- [tso500-ctdna-post-processing-pipeline 1.0.0](../../../workflows/tso500-ctdna-post-processing-pipeline/1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.md)  
 
   
 
@@ -206,7 +201,7 @@ Number of BAM decompression threads [default: 0]
 > ID: thresholds
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 For each interval in --by, write number of bases covered by at least threshold bases.
 Specify multiple integer values separated by ','.

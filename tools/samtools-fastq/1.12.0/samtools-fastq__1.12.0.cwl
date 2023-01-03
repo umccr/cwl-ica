@@ -45,15 +45,17 @@ doc: |
    To get all non-supplementary/secondary reads in a single file, redirect the output:
      samtools fastq in.bam > all_reads.fq
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: standard
-        ilmn-tes:resources:size: xlarge
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: xlarge
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/samtools:1.12--h9aed4be_1
+        dockerPull: public.ecr.aws/biocontainers/samtools:1.12--h9aed4be_1
 
 requirements:
   InlineJavascriptRequirement: {}

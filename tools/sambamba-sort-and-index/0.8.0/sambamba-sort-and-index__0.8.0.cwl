@@ -23,15 +23,17 @@ doc: |
   Uses sambamba sort command.
   More info can be found [here](https://lomereiter.github.io/sambamba/docs/sambamba-sort.html)
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: standard
-        ilmn-tes:resources:size: xlarge
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: xlarge
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/sambamba:0.8.0--h984e79f_0
+        dockerPull: public.ecr.aws/biocontainers/sambamba:0.8.0--h984e79f_0
 
 baseCommand: ["bash", "sambamba-sort-and-index.sh"]
 

@@ -19,7 +19,7 @@ dragen-pon-qc 3.9.3 workflow
 
   
 > ID: dragen-pon-qc--3.9.3  
-> md5sum: 7a4b094a5f7f5d933796c1ef1e45faa1
+> md5sum: 566de5f32e62fa99303d48cbe92995e3
 
 ### dragen-pon-qc v(3.9.3) documentation
   
@@ -41,8 +41,8 @@ PoN. Additionally it performs QC on the output through GHIF-QC workflow.
 
 ### Uses
   
-- [ghif-qc 1.0.1](../../ghif-qc/1.0.1/ghif-qc__1.0.1.md)  
-- [dragen-somatic 3.9.3](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
+- [ghif-qc 1.0.1 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md)  
+- [dragen-somatic 3.9.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 
   
 
@@ -150,7 +150,7 @@ Only bases with coverage above this value will be included in the target percent
 > ID: coverage
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]
 
@@ -683,7 +683,7 @@ Sample identity
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ male | female ]`  
+**Type:** `[ dragen-pon-qc--3.9.3/sample_sex/male | dragen-pon-qc--3.9.3/sample_sex/female ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -1429,11 +1429,11 @@ The default value is 500 for germline mode and 50 for somatic mode.
 In-house workflow for collecting QC metrics
 #### Links
   
-[CWL File Path](../../../../../../workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.cwl)  
-[CWL File Help Page](../../ghif-qc/1.0.1/ghif-qc__1.0.1.md)
+[CWL File Path](../../../../../../workflows/dragen-pon-qc/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md)
 #### Subworkflow overview
   
-[![ghif-qc__1.0.1.svg](../../../../images/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.svg)  
+[![ghif-qc__1.0.1.svg](../../../../images/workflows/dragen-pon-qc/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-pon-qc/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.svg)  
 
 
 ### run dragen somatic step
@@ -1442,7 +1442,7 @@ In-house workflow for collecting QC metrics
   
 > ID: dragen-pon-qc--3.9.3/run_dragen_somatic_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs the dragen somatic workflow on the FPGA.
@@ -1451,8 +1451,11 @@ All other options avaiable at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.cwl)  
-[CWL File Help Page](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
+[CWL File Path](../../../../../../workflows/dragen-pon-qc/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)
+#### Subworkflow overview
+  
+[![dragen-somatic__3.9.3.svg](../../../../images/workflows/dragen-pon-qc/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-pon-qc/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.svg)  
 
 
 ## dragen-pon-qc v(3.9.3) Outputs
@@ -1842,7 +1845,7 @@ bash wfr.e0cccb29cf44482182507bd33579270c.launch.sh
 
   
 **workflow name:** dragen-pon-qc_prod-wf  
-**wfl version name:** 3.9.3--cdc27e9  
+**wfl version name:** 3.9.3--66f4a1e  
 
   
 

@@ -25,9 +25,9 @@ doc: |
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:tier: standard
-        ilmn-tes:resources:type: standard
-        ilmn-tes:resources:size: small
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
