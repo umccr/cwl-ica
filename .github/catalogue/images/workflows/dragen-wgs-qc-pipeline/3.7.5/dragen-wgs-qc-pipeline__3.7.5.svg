@@ -22,20 +22,14 @@
 <!-- fastq_list_rows -->
 <g id="node1" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node1"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
 <polygon fill="#94ddf4" stroke="black" points="325.5,-536.17 325.5,-573.17 448.5,-573.17 448.5,-536.17 325.5,-536.17"/>
 <text text-anchor="middle" x="387" y="-550.97" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_step -->
 <g id="node11" class="node">
 <title>run_dragen_step</title>
-<g id="a_node11"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md" xlink:title="Runs the alignment step on a dragen fpga&#10;Takes in a fastq list and corresponding mount paths from the predefined mount paths&#10;All other options available at the top of the workflow&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="339,-385.17 339,-422.17 603,-422.17 603,-385.17 339,-385.17"/>
+<polygon fill="#f3cea1" stroke="black" points="339,-385.17 339,-422.17 603,-422.17 603,-385.17 339,-385.17"/>
 <text text-anchor="middle" x="471" y="-399.97" font-family="Times,serif" font-size="14.00">dragen&#45;alignment&#45;pipeline v(3.7.5)</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows&#45;&gt;run_dragen_step -->
 <g id="edge6" class="edge">
@@ -46,11 +40,8 @@
 <!-- output_directory -->
 <g id="node2" class="node">
 <title>output_directory</title>
-<g id="a_node2"><a xlink:title="The directory where all output files are placed&#10;">
 <polygon fill="#94ddf4" stroke="black" points="467,-536.17 467,-573.17 603,-573.17 603,-536.17 467,-536.17"/>
 <text text-anchor="middle" x="535" y="-550.97" font-family="Times,serif" font-size="14.00">output_directory</text>
-</a>
-</g>
 </g>
 <!-- output_directory&#45;&gt;run_dragen_step -->
 <g id="edge7" class="edge">
@@ -61,11 +52,8 @@
 <!-- run_somalier_step -->
 <g id="node12" class="node">
 <title>run_somalier_step</title>
-<g id="a_node12"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md" xlink:title="Runs the somalier extract function to call the fingerprint on the germline bam file&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="637,-240.17 637,-277.17 839,-277.17 839,-240.17 637,-240.17"/>
 <text text-anchor="middle" x="738" y="-254.97" font-family="Times,serif" font-size="14.00">somalier&#45;extract v(0.2.13)</text>
-</a>
-</g>
 </g>
 <!-- output_directory&#45;&gt;run_somalier_step -->
 <g id="edge8" class="edge">
@@ -76,11 +64,8 @@
 <!-- output_file_prefix -->
 <g id="node3" class="node">
 <title>output_file_prefix</title>
-<g id="a_node3"><a xlink:title="The prefix given to all output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="621,-536.17 621,-573.17 761,-573.17 761,-536.17 621,-536.17"/>
 <text text-anchor="middle" x="691" y="-550.97" font-family="Times,serif" font-size="14.00">output_file_prefix</text>
-</a>
-</g>
 </g>
 <!-- output_file_prefix&#45;&gt;run_dragen_step -->
 <g id="edge9" class="edge">
@@ -97,11 +82,8 @@
 <!-- reference_tar -->
 <g id="node4" class="node">
 <title>reference_tar</title>
-<g id="a_node4"><a xlink:title="Path to ref data tarball&#10;">
 <polygon fill="#94ddf4" stroke="black" points="194.5,-536.17 194.5,-573.17 307.5,-573.17 307.5,-536.17 194.5,-536.17"/>
 <text text-anchor="middle" x="251" y="-550.97" font-family="Times,serif" font-size="14.00">reference_tar</text>
-</a>
-</g>
 </g>
 <!-- reference_tar&#45;&gt;run_dragen_step -->
 <g id="edge11" class="edge">
@@ -112,11 +94,8 @@
 <!-- reference_fasta -->
 <g id="node5" class="node">
 <title>reference_fasta</title>
-<g id="a_node5"><a xlink:title="FastA file with genome sequence&#10;">
 <polygon fill="#94ddf4" stroke="black" points="779.5,-536.17 779.5,-573.17 906.5,-573.17 906.5,-536.17 779.5,-536.17"/>
 <text text-anchor="middle" x="843" y="-550.97" font-family="Times,serif" font-size="14.00">reference_fasta</text>
-</a>
-</g>
 </g>
 <!-- reference_fasta&#45;&gt;run_somalier_step -->
 <g id="edge12" class="edge">
@@ -127,11 +106,8 @@
 <!-- sites_somalier -->
 <g id="node6" class="node">
 <title>sites_somalier</title>
-<g id="a_node6"><a xlink:title="gzipped vcf file. Required for somalier sites&#10;">
 <polygon fill="#94ddf4" stroke="black" points="924.5,-536.17 924.5,-573.17 1043.5,-573.17 1043.5,-536.17 924.5,-536.17"/>
 <text text-anchor="middle" x="984" y="-550.97" font-family="Times,serif" font-size="14.00">sites_somalier</text>
-</a>
-</g>
 </g>
 <!-- sites_somalier&#45;&gt;run_somalier_step -->
 <g id="edge13" class="edge">
@@ -142,38 +118,26 @@
 <!-- dragen_alignment_output_directory -->
 <g id="node7" class="node">
 <title>dragen_alignment_output_directory</title>
-<g id="a_node7"><a xlink:title="The output directory containing all alignment output files and qc metrics&#10;">
 <polygon fill="#94ddf4" stroke="black" points="232,-95.17 232,-132.17 504,-132.17 504,-95.17 232,-95.17"/>
 <text text-anchor="middle" x="368" y="-109.97" font-family="Times,serif" font-size="14.00">dragen_alignment_output_directory</text>
-</a>
-</g>
 </g>
 <!-- dragen_bam_out -->
 <g id="node8" class="node">
 <title>dragen_bam_out</title>
-<g id="a_node8"><a xlink:title="The output alignment file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="522,-95.17 522,-132.17 656,-132.17 656,-95.17 522,-95.17"/>
 <text text-anchor="middle" x="589" y="-109.97" font-family="Times,serif" font-size="14.00">dragen_bam_out</text>
-</a>
-</g>
 </g>
 <!-- multiqc_output_directory -->
 <g id="node9" class="node">
 <title>multiqc_output_directory</title>
-<g id="a_node9"><a xlink:title="The dragen multiQC output&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16.5,-95.17 16.5,-132.17 213.5,-132.17 213.5,-95.17 16.5,-95.17"/>
 <text text-anchor="middle" x="115" y="-109.97" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
-</a>
-</g>
 </g>
 <!-- somalier_output_directory -->
 <g id="node10" class="node">
 <title>somalier_output_directory</title>
-<g id="a_node10"><a xlink:title="Output directory from somalier step&#10;">
 <polygon fill="#94ddf4" stroke="black" points="674,-95.17 674,-132.17 878,-132.17 878,-95.17 674,-95.17"/>
 <text text-anchor="middle" x="776" y="-109.97" font-family="Times,serif" font-size="14.00">somalier_output_directory</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_step&#45;&gt;dragen_alignment_output_directory -->
 <g id="edge2" class="edge">

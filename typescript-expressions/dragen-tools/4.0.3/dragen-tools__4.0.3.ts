@@ -413,3 +413,14 @@ export function generate_somatic_mount_points(inputs: {
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
     return e;
 }
+
+export function generate_transcriptome_mount_points(inputs: {
+    fastq_list_rows: FastqListRow[] | null;
+    fastq_list: IFile | null;
+}): Array<IDirent> {
+    /*
+    Calls another function that generates mount points
+    */
+   return generate_germline_mount_points(inputs)
+
+}

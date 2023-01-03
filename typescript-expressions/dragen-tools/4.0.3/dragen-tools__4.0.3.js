@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generate_somatic_mount_points = exports.generate_germline_mount_points = exports.generate_fastq_list_csv = exports.get_fastq_list_row_as_csv_row = exports.build_fastq_list_csv_header = exports.get_normal_output_prefix = exports.get_normal_name_from_fastq_list_csv = exports.get_normal_name_from_fastq_list_rows = exports.get_tumor_fastq_list_csv_path = exports.get_fastq_list_csv_path = exports.get_dragen_eval_line = exports.get_dragen_bin_path = exports.get_ref_mount = exports.get_ref_path = exports.get_name_root_from_tarball = exports.get_intermediate_results_dir = exports.get_scratch_mount = exports.get_script_path = void 0;
+exports.generate_transcriptome_mount_points = exports.generate_somatic_mount_points = exports.generate_germline_mount_points = exports.generate_fastq_list_csv = exports.get_fastq_list_row_as_csv_row = exports.build_fastq_list_csv_header = exports.get_normal_output_prefix = exports.get_normal_name_from_fastq_list_csv = exports.get_normal_name_from_fastq_list_rows = exports.get_tumor_fastq_list_csv_path = exports.get_fastq_list_csv_path = exports.get_dragen_eval_line = exports.get_dragen_bin_path = exports.get_ref_mount = exports.get_ref_path = exports.get_name_root_from_tarball = exports.get_intermediate_results_dir = exports.get_scratch_mount = exports.get_script_path = void 0;
 // Author: Alexis Lucattini
 // For assistance on generation of typescript expressions
 // In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
@@ -362,3 +362,10 @@ function generate_somatic_mount_points(inputs) {
     return e;
 }
 exports.generate_somatic_mount_points = generate_somatic_mount_points;
+function generate_transcriptome_mount_points(inputs) {
+    /*
+    Calls another function that generates mount points
+    */
+    return generate_germline_mount_points(inputs);
+}
+exports.generate_transcriptome_mount_points = generate_transcriptome_mount_points;

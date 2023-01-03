@@ -19,7 +19,7 @@ get-hla-regions-bed 1.0.0 workflow
 
   
 > ID: get-hla-regions-bed--1.0.0  
-> md5sum: 3a134eed52bf880a6640b8444f384431
+> md5sum: 268ed5fae39bde0950d5cab64425ccd7
 
 ### get-hla-regions-bed v(1.0.0) documentation
   
@@ -44,15 +44,10 @@ Step 4 -> Merges the list from step 2 and step 3 and creates a regions bed file
 
 ### Uses
   
-- [bedops 2.4.39](../../../tools/bedops/2.4.39/bedops__2.4.39.md)  
-- [create-contig-obj-for-hla-chr6-region 1.0.0](../../../expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.md)  
-- [custom-create-regions-bed-from-contigs-list 1.0.0 :construction:](../../../tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.md)  
-- [custom-hla-bed-from-faidx 1.0.0](../../../tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.md)  
-
-
-### Used By
-  
-- [dragen-qc-hla-pipeline 3.7.5--1.3.5](../../dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.md)  
+- [bedops 2.4.39 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/bedops/2.4.39/bedops__2.4.39.md)  
+- [create-contig-obj-for-hla-chr6-region 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.md)  
+- [custom-create-regions-bed-from-contigs-list 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.md)  
+- [custom-hla-bed-from-faidx 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.md)  
 
   
 
@@ -80,7 +75,7 @@ May be extracted from a secondary files reference file if this is a subworkflow
 > ID: genome_version
   
 **Optional:** `False`  
-**Type:** `[ hg38 | GRCh37 ]`  
+**Type:** `[ get-hla-regions-bed--1.0.0/genome_version/hg38 | get-hla-regions-bed--1.0.0/genome_version/GRCh37 ]`  
 **Docs:**  
 The name of the genome determines the chr6 contig we create
 
@@ -108,15 +103,18 @@ Name of the output regions bed file we create
   
 > ID: get-hla-regions-bed--1.0.0/bedops_merge_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Merge the chromosome 6 and hla bed files
 
 #### Links
   
-[CWL File Path](../../../../../../tools/bedops/2.4.39/bedops__2.4.39.cwl)  
-[CWL File Help Page](../../../tools/bedops/2.4.39/bedops__2.4.39.md)  
+[CWL File Path](../../../../../../workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/bedops/2.4.39/bedops__2.4.39.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/bedops/2.4.39/bedops__2.4.39.md)
+#### Subworkflow overview
+  
+[![bedops__2.4.39.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/bedops/2.4.39/bedops__2.4.39.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/bedops/2.4.39/bedops__2.4.39.svg)  
 
 
 ### create contig obj for chr 6 step
@@ -125,7 +123,7 @@ Merge the chromosome 6 and hla bed files
   
 > ID: get-hla-regions-bed--1.0.0/create_contig_obj_for_chr6_step
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 Creates a contig object for the hla region
@@ -133,8 +131,11 @@ in chr6 based on the reference type.
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.cwl)  
-[CWL File Help Page](../../../expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.md)
+#### Subworkflow overview
+  
+[![create-contig-obj-for-hla-chr6-region__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/expressions/create-contig-obj-for-hla-chr6-region/1.0.0/create-contig-obj-for-hla-chr6-region__1.0.0.svg)  
 
 
 ### create regions bed from contigs
@@ -143,15 +144,18 @@ in chr6 based on the reference type.
   
 > ID: get-hla-regions-bed--1.0.0/create_regions_bed_for_chr_6_hla_region_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Merge the list of contigs from each the chr6 region and the hla_contigs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-create-regions-bed-from-contigs-list__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-regions-bed-from-contigs-list/1.0.0/custom-create-regions-bed-from-contigs-list__1.0.0.svg)  
 
 
 ### create contig obj for hla contigs step
@@ -160,7 +164,7 @@ Merge the list of contigs from each the chr6 region and the hla_contigs
   
 > ID: get-hla-regions-bed--1.0.0/create_regions_bed_for_hla_contigs_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Creates a contig object for the hla regions.
@@ -168,8 +172,11 @@ Uses the faidx file in the input to search for HLA contigs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.cwl)  
-[CWL File Help Page](../../../tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-hla-bed-from-faidx__1.0.0.svg](../../../../images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/get-hla-regions-bed/1.0.0/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-hla-bed-from-faidx/1.0.0/custom-hla-bed-from-faidx__1.0.0.svg)  
 
 
 ## get-hla-regions-bed v(1.0.0) Outputs

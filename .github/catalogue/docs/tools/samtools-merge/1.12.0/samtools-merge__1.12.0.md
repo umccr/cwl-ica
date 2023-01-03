@@ -17,7 +17,7 @@ samtools-merge 1.12.0 tool
 
   
 > ID: samtools-merge--1.12.0  
-> md5sum: a75e5f2110c073575f2d32e617f64609
+> md5sum: e2510c425c3172711b24c0e693e4713b
 
 ### samtools-merge v(1.12.0) documentation
   
@@ -209,7 +209,7 @@ Specify a bed file for multiple region filtering
 > ID: sorted_bams
   
 **Optional:** `False`  
-**Type:** `File[]`  
+**Type:** `.[]`  
 **Docs:**  
 List of sorted bam files
 

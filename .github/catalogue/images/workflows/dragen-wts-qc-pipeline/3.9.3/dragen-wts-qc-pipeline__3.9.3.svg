@@ -22,20 +22,14 @@
 <!-- annotation_file -->
 <g id="node1" class="node">
 <title>annotation_file</title>
-<g id="a_node1"><a xlink:title="Path to annotation transcript file.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1607,-742 1607,-779 1729,-779 1729,-742 1607,-742"/>
 <text text-anchor="middle" x="1668" y="-756.8" font-family="Times,serif" font-size="14.00">annotation_file</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_transcriptome_step -->
 <g id="node17" class="node">
 <title>run_dragen_transcriptome_step</title>
-<g id="a_node17"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md" xlink:title="Runs the dragen transcriptome workflow on the FPGA.&#10;Takes in a fastq list and corresponding mount paths from the predefined_mount_paths.&#10;All other options avaiable at the top of the workflow&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1140,-535 1140,-572 1372,-572 1372,-535 1140,-535"/>
 <text text-anchor="middle" x="1256" y="-549.8" font-family="Times,serif" font-size="14.00">dragen&#45;transcriptome v(3.9.3)</text>
-</a>
-</g>
 </g>
 <!-- annotation_file&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge4" class="edge">
@@ -46,11 +40,8 @@
 <!-- run_qualimap_step -->
 <g id="node18" class="node">
 <title>run_qualimap_step</title>
-<g id="a_node18"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/qualimap/2.2.2/qualimap__2.2.2.md" xlink:title="Run qualimap step to generate additional QC metrics&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1744,-336 1744,-373 1886,-373 1886,-336 1744,-336"/>
 <text text-anchor="middle" x="1815" y="-350.8" font-family="Times,serif" font-size="14.00">qualimap v(2.2.2)</text>
-</a>
-</g>
 </g>
 <!-- annotation_file&#45;&gt;run_qualimap_step -->
 <g id="edge5" class="edge">
@@ -61,11 +52,8 @@
 <!-- enable_duplicate_marking -->
 <g id="node2" class="node">
 <title>enable_duplicate_marking</title>
-<g id="a_node2"><a xlink:title="Mark identical alignments as duplicates&#10;">
 <polygon fill="#94ddf4" stroke="black" points="653.5,-742 653.5,-779 856.5,-779 856.5,-742 653.5,-742"/>
 <text text-anchor="middle" x="755" y="-756.8" font-family="Times,serif" font-size="14.00">enable_duplicate_marking</text>
-</a>
-</g>
 </g>
 <!-- enable_duplicate_marking&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge6" class="edge">
@@ -76,11 +64,8 @@
 <!-- enable_map_align_output -->
 <g id="node3" class="node">
 <title>enable_map_align_output</title>
-<g id="a_node3"><a xlink:title="Do you wish to have the output bam files present&#10;">
 <polygon fill="#94ddf4" stroke="black" points="438.5,-742 438.5,-779 635.5,-779 635.5,-742 438.5,-742"/>
 <text text-anchor="middle" x="537" y="-756.8" font-family="Times,serif" font-size="14.00">enable_map_align_output</text>
-</a>
-</g>
 </g>
 <!-- enable_map_align_output&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge7" class="edge">
@@ -91,11 +76,8 @@
 <!-- enable_rna_gene_fusion -->
 <g id="node4" class="node">
 <title>enable_rna_gene_fusion</title>
-<g id="a_node4"><a xlink:title="Optional &#45; Enable the DRAGEN Gene Fusion module &#45; defaults to true&#10;">
 <polygon fill="#94ddf4" stroke="black" points="234,-742 234,-779 420,-779 420,-742 234,-742"/>
 <text text-anchor="middle" x="327" y="-756.8" font-family="Times,serif" font-size="14.00">enable_rna_gene_fusion</text>
-</a>
-</g>
 </g>
 <!-- enable_rna_gene_fusion&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge8" class="edge">
@@ -106,11 +88,8 @@
 <!-- enable_rna_quantification -->
 <g id="node5" class="node">
 <title>enable_rna_quantification</title>
-<g id="a_node5"><a xlink:title="Optional &#45; Enable the quantification module &#45; defaults to true&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16,-742 16,-779 216,-779 216,-742 16,-742"/>
 <text text-anchor="middle" x="116" y="-756.8" font-family="Times,serif" font-size="14.00">enable_rna_quantification</text>
-</a>
-</g>
 </g>
 <!-- enable_rna_quantification&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge9" class="edge">
@@ -121,11 +100,8 @@
 <!-- fastq_list -->
 <g id="node6" class="node">
 <title>fastq_list</title>
-<g id="a_node6"><a xlink:title="CSV file that contains a list of FASTQ files&#10;to process. read_1 and read_2 components in the CSV file must be presigned urls.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1507,-742 1507,-779 1589,-779 1589,-742 1507,-742"/>
 <text text-anchor="middle" x="1548" y="-756.8" font-family="Times,serif" font-size="14.00">fastq_list</text>
-</a>
-</g>
 </g>
 <!-- fastq_list&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge10" class="edge">
@@ -136,11 +112,8 @@
 <!-- fastq_list_rows -->
 <g id="node7" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node7"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1365.5,-742 1365.5,-779 1488.5,-779 1488.5,-742 1365.5,-742"/>
 <text text-anchor="middle" x="1427" y="-756.8" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge11" class="edge">
@@ -151,11 +124,8 @@
 <!-- lic_instance_id_location -->
 <g id="node8" class="node">
 <title>lic_instance_id_location</title>
-<g id="a_node8"><a xlink:title="You may wish to place your own in.&#10;Optional value, default set to /opt/instance&#45;identity&#10;which is a path inside the dragen container&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1164.5,-742 1164.5,-779 1347.5,-779 1347.5,-742 1164.5,-742"/>
 <text text-anchor="middle" x="1256" y="-756.8" font-family="Times,serif" font-size="14.00">lic_instance_id_location</text>
-</a>
-</g>
 </g>
 <!-- lic_instance_id_location&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge12" class="edge">
@@ -166,11 +136,8 @@
 <!-- output_directory -->
 <g id="node9" class="node">
 <title>output_directory</title>
-<g id="a_node9"><a xlink:title="The directory where all output files are placed&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1747,-742 1747,-779 1883,-779 1883,-742 1747,-742"/>
 <text text-anchor="middle" x="1815" y="-756.8" font-family="Times,serif" font-size="14.00">output_directory</text>
-</a>
-</g>
 </g>
 <!-- output_directory&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge13" class="edge">
@@ -187,11 +154,8 @@
 <!-- output_file_prefix -->
 <g id="node10" class="node">
 <title>output_file_prefix</title>
-<g id="a_node10"><a xlink:title="The prefix given to all output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="875,-742 875,-779 1015,-779 1015,-742 875,-742"/>
 <text text-anchor="middle" x="945" y="-756.8" font-family="Times,serif" font-size="14.00">output_file_prefix</text>
-</a>
-</g>
 </g>
 <!-- output_file_prefix&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge15" class="edge">
@@ -202,11 +166,8 @@
 <!-- reference_tar -->
 <g id="node11" class="node">
 <title>reference_tar</title>
-<g id="a_node11"><a xlink:title="Path to ref data tarball&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1033.5,-742 1033.5,-779 1146.5,-779 1146.5,-742 1033.5,-742"/>
 <text text-anchor="middle" x="1090" y="-756.8" font-family="Times,serif" font-size="14.00">reference_tar</text>
-</a>
-</g>
 </g>
 <!-- reference_tar&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge16" class="edge">
@@ -217,11 +178,8 @@
 <!-- algorithm -->
 <g id="node12" class="node">
 <title>algorithm</title>
-<g id="a_node12"><a xlink:title="Counting algorithm:&#10;uniquely&#45;mapped&#45;reads(default) or proportional.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1901,-742 1901,-779 1987,-779 1987,-742 1901,-742"/>
 <text text-anchor="middle" x="1944" y="-756.8" font-family="Times,serif" font-size="14.00">algorithm</text>
-</a>
-</g>
 </g>
 <!-- algorithm&#45;&gt;run_qualimap_step -->
 <g id="edge17" class="edge">
@@ -232,11 +190,8 @@
 <!-- java_mem -->
 <g id="node13" class="node">
 <title>java_mem</title>
-<g id="a_node13"><a xlink:title="Set desired Java heap memory size&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2005,-742 2005,-779 2093,-779 2093,-742 2005,-742"/>
 <text text-anchor="middle" x="2049" y="-756.8" font-family="Times,serif" font-size="14.00">java_mem</text>
-</a>
-</g>
 </g>
 <!-- java_mem&#45;&gt;run_qualimap_step -->
 <g id="edge18" class="edge">
@@ -247,11 +202,8 @@
 <!-- tmp_dir -->
 <g id="node14" class="node">
 <title>tmp_dir</title>
-<g id="a_node14"><a xlink:title="Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). &#10;This can be avoided by sorting the bam file by name before running Qualimap.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2111,-742 2111,-779 2183,-779 2183,-742 2111,-742"/>
 <text text-anchor="middle" x="2147" y="-756.8" font-family="Times,serif" font-size="14.00">tmp_dir</text>
-</a>
-</g>
 </g>
 <!-- tmp_dir&#45;&gt;run_qualimap_step -->
 <g id="edge19" class="edge">
@@ -262,20 +214,14 @@
 <!-- dragen_transcriptome_output_directory -->
 <g id="node15" class="node">
 <title>dragen_transcriptome_output_directory</title>
-<g id="a_node15"><a xlink:title="The output directory containing all transcriptome output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1320.5,-137 1320.5,-174 1621.5,-174 1621.5,-137 1320.5,-137"/>
 <text text-anchor="middle" x="1471" y="-151.8" font-family="Times,serif" font-size="14.00">dragen_transcriptome_output_directory</text>
-</a>
-</g>
 </g>
 <!-- qualimap_output_directory -->
 <g id="node16" class="node">
 <title>qualimap_output_directory</title>
-<g id="a_node16"><a xlink:title="The output directory containing all transcriptome output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1639.5,-137 1639.5,-174 1848.5,-174 1848.5,-137 1639.5,-137"/>
 <text text-anchor="middle" x="1744" y="-151.8" font-family="Times,serif" font-size="14.00">qualimap_output_directory</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_transcriptome_step&#45;&gt;dragen_transcriptome_output_directory -->
 <g id="edge2" class="edge">

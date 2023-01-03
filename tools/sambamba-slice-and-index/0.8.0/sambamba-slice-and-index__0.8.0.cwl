@@ -33,7 +33,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/sambamba:0.8.0--h984e79f_0
+        dockerPull: public.ecr.aws/biocontainers/sambamba:0.8.0--h984e79f_0
 
 requirements:
   InitialWorkDirRequirement:

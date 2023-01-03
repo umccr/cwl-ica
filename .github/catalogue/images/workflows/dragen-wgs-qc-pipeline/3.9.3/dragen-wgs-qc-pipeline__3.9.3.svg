@@ -22,11 +22,8 @@
 <!-- enable_duplicate_marking -->
 <g id="node1" class="node">
 <title>enable_duplicate_marking</title>
-<g id="a_node1"><a xlink:title="Mark identical alignments as duplicates&#10;">
 <polygon fill="#94ddf4" stroke="black" points="933.5,-513.04 933.5,-550.04 1136.5,-550.04 1136.5,-513.04 933.5,-513.04"/>
 <text text-anchor="middle" x="1035" y="-527.84" font-family="Times,serif" font-size="14.00">enable_duplicate_marking</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_step -->
 <g id="node11" class="node">
@@ -43,11 +40,8 @@
 <!-- enable_map_align_output -->
 <g id="node2" class="node">
 <title>enable_map_align_output</title>
-<g id="a_node2"><a xlink:title="Do you wish to have the output bam files present&#10;">
 <polygon fill="#94ddf4" stroke="black" points="718.5,-513.04 718.5,-550.04 915.5,-550.04 915.5,-513.04 718.5,-513.04"/>
 <text text-anchor="middle" x="817" y="-527.84" font-family="Times,serif" font-size="14.00">enable_map_align_output</text>
-</a>
-</g>
 </g>
 <!-- enable_map_align_output&#45;&gt;run_dragen_step -->
 <g id="edge2" class="edge">
@@ -58,11 +52,8 @@
 <!-- enable_sort -->
 <g id="node3" class="node">
 <title>enable_sort</title>
-<g id="a_node3"><a xlink:title="The map/align system produces a BAM file sorted by &#10;reference sequence and position by default.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="601.5,-513.04 601.5,-550.04 700.5,-550.04 700.5,-513.04 601.5,-513.04"/>
 <text text-anchor="middle" x="651" y="-527.84" font-family="Times,serif" font-size="14.00">enable_sort</text>
-</a>
-</g>
 </g>
 <!-- enable_sort&#45;&gt;run_dragen_step -->
 <g id="edge3" class="edge">
@@ -73,11 +64,8 @@
 <!-- fastq_list_rows -->
 <g id="node4" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node4"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
 <polygon fill="#94ddf4" stroke="black" points="460.5,-513.04 460.5,-550.04 583.5,-550.04 583.5,-513.04 460.5,-513.04"/>
 <text text-anchor="middle" x="522" y="-527.84" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows&#45;&gt;run_dragen_step -->
 <g id="edge4" class="edge">
@@ -88,11 +76,8 @@
 <!-- output_directory -->
 <g id="node5" class="node">
 <title>output_directory</title>
-<g id="a_node5"><a xlink:title="The directory where all output files are placed&#10;">
 <polygon fill="#94ddf4" stroke="black" points="306,-513.04 306,-550.04 442,-550.04 442,-513.04 306,-513.04"/>
 <text text-anchor="middle" x="374" y="-527.84" font-family="Times,serif" font-size="14.00">output_directory</text>
-</a>
-</g>
 </g>
 <!-- output_directory&#45;&gt;run_dragen_step -->
 <g id="edge5" class="edge">
@@ -103,11 +88,8 @@
 <!-- output_file_prefix -->
 <g id="node6" class="node">
 <title>output_file_prefix</title>
-<g id="a_node6"><a xlink:title="The prefix given to all output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="148,-513.04 148,-550.04 288,-550.04 288,-513.04 148,-513.04"/>
 <text text-anchor="middle" x="218" y="-527.84" font-family="Times,serif" font-size="14.00">output_file_prefix</text>
-</a>
-</g>
 </g>
 <!-- output_file_prefix&#45;&gt;run_dragen_step -->
 <g id="edge6" class="edge">
@@ -118,11 +100,8 @@
 <!-- reference_tar -->
 <g id="node7" class="node">
 <title>reference_tar</title>
-<g id="a_node7"><a xlink:title="Path to ref data tarball&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16.5,-513.04 16.5,-550.04 129.5,-550.04 129.5,-513.04 16.5,-513.04"/>
 <text text-anchor="middle" x="73" y="-527.84" font-family="Times,serif" font-size="14.00">reference_tar</text>
-</a>
-</g>
 </g>
 <!-- reference_tar&#45;&gt;run_dragen_step -->
 <g id="edge7" class="edge">
@@ -133,29 +112,20 @@
 <!-- dragen_alignment_output_directory -->
 <g id="node8" class="node">
 <title>dragen_alignment_output_directory</title>
-<g id="a_node8"><a xlink:title="The output directory containing all alignment output files and qc metrics&#10;">
 <polygon fill="#94ddf4" stroke="black" points="607,-130.04 607,-167.04 879,-167.04 879,-130.04 607,-130.04"/>
 <text text-anchor="middle" x="743" y="-144.84" font-family="Times,serif" font-size="14.00">dragen_alignment_output_directory</text>
-</a>
-</g>
 </g>
 <!-- dragen_bam_out -->
 <g id="node9" class="node">
 <title>dragen_bam_out</title>
-<g id="a_node9"><a xlink:title="The output alignment file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="455,-130.04 455,-167.04 589,-167.04 589,-130.04 455,-130.04"/>
 <text text-anchor="middle" x="522" y="-144.84" font-family="Times,serif" font-size="14.00">dragen_bam_out</text>
-</a>
-</g>
 </g>
 <!-- multiqc_output_directory -->
 <g id="node10" class="node">
 <title>multiqc_output_directory</title>
-<g id="a_node10"><a xlink:title="The dragen multiQC output&#10;">
 <polygon fill="#94ddf4" stroke="black" points="239.5,-130.04 239.5,-167.04 436.5,-167.04 436.5,-130.04 239.5,-130.04"/>
 <text text-anchor="middle" x="338" y="-144.84" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_step&#45;&gt;dragen_alignment_output_directory -->
 <g id="edge8" class="edge">

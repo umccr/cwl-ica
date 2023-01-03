@@ -19,7 +19,7 @@ dragen-wts-qc-pipeline 3.9.3 workflow
 
   
 > ID: dragen-wts-qc-pipeline--3.9.3  
-> md5sum: fb296166b1e64762c372a79b441b5f5e
+> md5sum: 3f5b045de387f669795329c890ae697d
 
 ### dragen-wts-qc-pipeline v(3.9.3) documentation
   
@@ -42,8 +42,8 @@ More information on the documentation can be found [here](https://support-docs.i
 
 ### Uses
   
-- [dragen-transcriptome 3.9.3](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
-- [qualimap 2.2.2](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
+- [dragen-transcriptome 3.9.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
+- [qualimap 2.2.2 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 
   
 
@@ -254,7 +254,7 @@ This can be avoided by sorting the bam file by name before running Qualimap.
   
 > ID: dragen-wts-qc-pipeline--3.9.3/run_dragen_transcriptome_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs the dragen transcriptome workflow on the FPGA.
@@ -263,8 +263,11 @@ All other options avaiable at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.cwl)  
-[CWL File Help Page](../../../tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
+[CWL File Path](../../../../../../workflows/dragen-wts-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)
+#### Subworkflow overview
+  
+[![dragen-transcriptome__3.9.3.svg](../../../../images/workflows/dragen-wts-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-wts-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.svg)  
 
 
 ### run qualimap step
@@ -273,15 +276,18 @@ All other options avaiable at the top of the workflow
   
 > ID: dragen-wts-qc-pipeline--3.9.3/run_qualimap_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Run qualimap step to generate additional QC metrics
 
 #### Links
   
-[CWL File Path](../../../../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl)  
-[CWL File Help Page](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
+[CWL File Path](../../../../../../workflows/dragen-wts-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/qualimap/2.2.2/qualimap__2.2.2.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/qualimap/2.2.2/qualimap__2.2.2.md)
+#### Subworkflow overview
+  
+[![qualimap__2.2.2.svg](../../../../images/workflows/dragen-wts-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/qualimap/2.2.2/qualimap__2.2.2.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-wts-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/qualimap/2.2.2/qualimap__2.2.2.svg)  
 
 
 ## dragen-wts-qc-pipeline v(3.9.3) Outputs

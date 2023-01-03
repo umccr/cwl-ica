@@ -17,7 +17,7 @@ sambamba-view-and-index 0.8.0 tool
 
   
 > ID: sambamba-view-and-index--0.8.0  
-> md5sum: a52214de807e78ff7ea31028d96f2de1
+> md5sum: d6dc9e7711e6079bbdc6818e861a1c23
 
 ### sambamba-view-and-index v(0.8.0) documentation
   
@@ -32,11 +32,6 @@ Docs can be found [here](https://lomereiter.github.io/sambamba/docs/sambamba-vie
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.cwl)  
-
-
-### Used By
-  
-- [optitype-pipeline 1.3.5](../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
 
   
 
@@ -130,7 +125,7 @@ Name of the output file
 > ID: output_format
   
 **Optional:** `True`  
-**Type:** `[ bam | sam | cram ]`  
+**Type:** `[ sambamba-view-and-index--0.8.0/output_format/bam | sambamba-view-and-index--0.8.0/output_format/sam | sambamba-view-and-index--0.8.0/output_format/cram ]`  
 **Docs:**  
 The output file format of the filtered bam file.
 Can be bam, sam or cram. Sam by default.

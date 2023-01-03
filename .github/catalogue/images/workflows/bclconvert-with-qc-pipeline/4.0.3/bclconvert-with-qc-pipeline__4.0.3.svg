@@ -22,20 +22,14 @@
 <!-- runfolder_name -->
 <g id="node1" class="node">
 <title>runfolder_name</title>
-<g id="a_node1"><a xlink:title="Name to use in multiqc outputs&#10;">
 <polygon fill="#94ddf4" stroke="black" points="523.5,-794.48 523.5,-831.48 652.5,-831.48 652.5,-794.48 523.5,-794.48"/>
 <text text-anchor="middle" x="588" y="-809.28" font-family="Times,serif" font-size="14.00">runfolder_name</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_qc_step -->
 <g id="node10" class="node">
 <title>bclconvert_qc_step</title>
-<g id="a_node10"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc/1.12.0/multiqc__1.12.0.md" xlink:title="The bclconvert qc step &#45; from scatter this takes in an array of dirs&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="471.5,-360.48 471.5,-397.48 610.5,-397.48 610.5,-360.48 471.5,-360.48"/>
 <text text-anchor="middle" x="541" y="-375.28" font-family="Times,serif" font-size="14.00">multiqc v(1.12.0)</text>
-</a>
-</g>
 </g>
 <!-- runfolder_name&#45;&gt;bclconvert_qc_step -->
 <g id="edge9" class="edge">
@@ -58,11 +52,8 @@
 <!-- interop_qc_step -->
 <g id="node11" class="node">
 <title>interop_qc_step</title>
-<g id="a_node11"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md" xlink:title="Run the multiqc by first also generating the interop files for use&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="587,-573.48 587,-610.48 773,-610.48 773,-573.48 587,-573.48"/>
 <text text-anchor="middle" x="680" y="-588.28" font-family="Times,serif" font-size="14.00">multiqc&#45;interop v(1.2.1)</text>
-</a>
-</g>
 </g>
 <!-- runfolder_name&#45;&gt;interop_qc_step -->
 <g id="edge12" class="edge">
@@ -85,11 +76,8 @@
 <!-- bclconvert_run_input_directory -->
 <g id="node2" class="node">
 <title>bclconvert_run_input_directory</title>
-<g id="a_node2"><a xlink:title="The input directory for BCLConvert&#10;">
 <polygon fill="#94ddf4" stroke="black" points="266.5,-794.48 266.5,-831.48 505.5,-831.48 505.5,-794.48 266.5,-794.48"/>
 <text text-anchor="middle" x="386" y="-809.28" font-family="Times,serif" font-size="14.00">bclconvert_run_input_directory</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_run_input_directory&#45;&gt;interop_qc_step -->
 <g id="edge16" class="edge">
@@ -100,11 +88,8 @@
 <!-- run_bclconvert_step -->
 <g id="node12" class="node">
 <title>run_bclconvert_step</title>
-<g id="a_node12"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md" xlink:title="Runs the bcl convert configurations through the validation check and then through BCLConvert&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="170,-573.48 170,-610.48 376,-610.48 376,-573.48 170,-573.48"/>
+<polygon fill="#f3cea1" stroke="black" points="170,-573.48 170,-610.48 376,-610.48 376,-573.48 170,-573.48"/>
 <text text-anchor="middle" x="273" y="-588.28" font-family="Times,serif" font-size="14.00">bclconvert&#45;scatter v(4.0.3)</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_run_input_directory&#45;&gt;run_bclconvert_step -->
 <g id="edge15" class="edge">
@@ -115,11 +100,8 @@
 <!-- bclconvert_run_configurations -->
 <g id="node3" class="node">
 <title>bclconvert_run_configurations</title>
-<g id="a_node3"><a xlink:title="The BCLConvert run configuration jsons&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16,-794.48 16,-831.48 248,-831.48 248,-794.48 16,-794.48"/>
 <text text-anchor="middle" x="132" y="-809.28" font-family="Times,serif" font-size="14.00">bclconvert_run_configurations</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_run_configurations&#45;&gt;run_bclconvert_step -->
 <g id="edge17" class="edge">
@@ -130,56 +112,38 @@
 <!-- bclconvert_multiqc_out -->
 <g id="node4" class="node">
 <title>bclconvert_multiqc_out</title>
-<g id="a_node4"><a xlink:title="bclconvert multiqc out&#10;">
 <polygon fill="#94ddf4" stroke="black" points="450,-148.48 450,-185.48 632,-185.48 632,-148.48 450,-148.48"/>
 <text text-anchor="middle" x="541" y="-163.28" font-family="Times,serif" font-size="14.00">bclconvert_multiqc_out</text>
-</a>
-</g>
 </g>
 <!-- fastq_directories -->
 <g id="node5" class="node">
 <title>fastq_directories</title>
-<g id="a_node5"><a xlink:title="Array of directories pointing to the fastq locations&#10;">
 <polygon fill="#94ddf4" stroke="black" points="21.5,-148.48 21.5,-185.48 158.5,-185.48 158.5,-148.48 21.5,-148.48"/>
 <text text-anchor="middle" x="90" y="-163.28" font-family="Times,serif" font-size="14.00">fastq_directories</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows -->
 <g id="node6" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node6"><a xlink:title="Array of fastq list rows&#10;">
 <polygon fill="#94ddf4" stroke="black" points="176.5,-148.48 176.5,-185.48 299.5,-185.48 299.5,-148.48 176.5,-148.48"/>
 <text text-anchor="middle" x="238" y="-163.28" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- interop_multiqc_out -->
 <g id="node7" class="node">
 <title>interop_multiqc_out</title>
-<g id="a_node7"><a xlink:title="Multiqc interop directory&#10;">
 <polygon fill="#94ddf4" stroke="black" points="650.5,-148.48 650.5,-185.48 809.5,-185.48 809.5,-148.48 650.5,-148.48"/>
 <text text-anchor="middle" x="730" y="-163.28" font-family="Times,serif" font-size="14.00">interop_multiqc_out</text>
-</a>
-</g>
 </g>
 <!-- samplesheets -->
 <g id="node8" class="node">
 <title>samplesheets</title>
-<g id="a_node8"><a xlink:title="Array of file locations pointing to the samplesheets&#10;">
 <polygon fill="#94ddf4" stroke="black" points="318,-148.48 318,-185.48 432,-185.48 432,-148.48 318,-148.48"/>
 <text text-anchor="middle" x="375" y="-163.28" font-family="Times,serif" font-size="14.00">samplesheets</text>
-</a>
-</g>
 </g>
 <!-- create_dummy_file_step -->
 <g id="node9" class="node">
 <title>create_dummy_file_step</title>
-<g id="a_node9"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="670.5,-794.48 670.5,-831.48 931.5,-831.48 931.5,-794.48 670.5,-794.48"/>
 <text text-anchor="middle" x="801" y="-809.28" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- create_dummy_file_step&#45;&gt;bclconvert_qc_step -->
 <g id="edge1" class="edge">

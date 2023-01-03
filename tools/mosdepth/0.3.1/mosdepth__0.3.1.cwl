@@ -36,7 +36,7 @@ hints:
         coresMin: 4
         ramMin: 14000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/mosdepth:0.3.1--ha7ba039_0
+        dockerPull: public.ecr.aws/biocontainers/mosdepth:0.3.1--ha7ba039_0
 
 requirements:
   InlineJavascriptRequirement:
