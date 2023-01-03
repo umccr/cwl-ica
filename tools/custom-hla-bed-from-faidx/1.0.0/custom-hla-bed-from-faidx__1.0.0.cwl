@@ -22,17 +22,17 @@ doc: |
   Extract the HLA regions from the file.
   Takes in a fasta index file and returns a bed file
 
-
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: small
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
         coresMin: 2
         ramMin: 2000
     DockerRequirement:
-        dockerPull: umccr/alpine-pandas:latest
+        dockerPull: ghcr.io/umccr/alpine-pandas:1.4.3
 
 requirements:
   InlineJavascriptRequirement: {}

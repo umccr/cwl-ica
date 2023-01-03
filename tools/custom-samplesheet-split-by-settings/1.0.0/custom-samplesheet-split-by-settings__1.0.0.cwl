@@ -21,16 +21,17 @@ doc: |
   Use before running bcl-convert workflow to ensure that the bclConvert workflow can run in parallel.
   Samples will be split into separate samplesheets based on their cycles specification
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources:
-      tier: standard
-      type: standard
-      size: small
-      coresMin: 2
-      ramMin: 4000
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: standard
+    ilmn-tes:resources/size: small
+    coresMin: 2
+    ramMin: 4000
   DockerRequirement:
-    dockerPull: umccr/alpine_pandas:latest-cwl
+    dockerPull: ghcr.io/umccr/alpine-pandas:1.2.2
 
 requirements:
   SchemaDefRequirement:

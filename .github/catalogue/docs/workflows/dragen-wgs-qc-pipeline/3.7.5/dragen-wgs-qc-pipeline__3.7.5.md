@@ -19,7 +19,7 @@ dragen-wgs-qc-pipeline 3.7.5 workflow
 
   
 > ID: dragen-wgs-qc-pipeline--3.7.5  
-> md5sum: 96bc9c833ca8d4f8ef676776e382a436
+> md5sum: c8171e4e4941f0744b774992ed8f0520
 
 ### dragen-wgs-qc-pipeline v(3.7.5) documentation
   
@@ -40,8 +40,8 @@ Documentation for dragen-alignment-pipeline v3.7.5
 
 ### Uses
   
-- [dragen-alignment-pipeline 3.7.5](../../dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
-- [somalier-extract 0.2.13 :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
+- [dragen-alignment-pipeline 3.7.5 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
+- [somalier-extract 0.2.13 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
 
   
 
@@ -152,11 +152,11 @@ All other options available at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl)  
-[CWL File Help Page](../../dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)
+[CWL File Path](../../../../../../workflows/dragen-wgs-qc-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)
 #### Subworkflow overview
   
-[![dragen-alignment-pipeline__3.7.5.svg](../../../../images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)  
+[![dragen-alignment-pipeline__3.7.5.svg](../../../../images/workflows/dragen-wgs-qc-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-wgs-qc-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.svg)  
 
 
 ### somalier
@@ -165,15 +165,18 @@ All other options available at the top of the workflow
   
 > ID: dragen-wgs-qc-pipeline--3.7.5/run_somalier_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs the somalier extract function to call the fingerprint on the germline bam file
 
 #### Links
   
-[CWL File Path](../../../../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl)  
-[CWL File Help Page :construction:](../../../tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)  
+[CWL File Path](../../../../../../workflows/dragen-wgs-qc-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.md)
+#### Subworkflow overview
+  
+[![somalier-extract__0.2.13.svg](../../../../images/workflows/dragen-wgs-qc-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-wgs-qc-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/somalier-extract/0.2.13/somalier-extract__0.2.13.svg)  
 
 
 ## dragen-wgs-qc-pipeline v(3.7.5) Outputs
@@ -424,7 +427,7 @@ bash wfr.1fd8c32d79c34e179a4c0d6754edd3a2.launch.sh
 
   
 **workflow name:** dragen-wgs-qc-pipeline_prod-wf  
-**wfl version name:** 3.7.5--984c780  
+**wfl version name:** 3.7.5--66f4a1e  
 
   
 

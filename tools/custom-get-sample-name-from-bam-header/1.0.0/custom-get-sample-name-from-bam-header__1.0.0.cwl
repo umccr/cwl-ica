@@ -22,17 +22,17 @@ doc: |
     Documentation for custom-get-sample-name-from-bam-header
     v1.0.0
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: small
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/samtools:1.14--hb421002_0
+        dockerPull: public.ecr.aws/biocontainers/samtools:1.14--hb421002_0
 
 requirements:
   InlineJavascriptRequirement: {}
@@ -70,6 +70,9 @@ inputs:
 
 outputs:
   sample_name:
+    label: sample name
+    doc: |
+      Name of the sample
     type: string
     outputBinding:
       glob: "sample_name.txt"

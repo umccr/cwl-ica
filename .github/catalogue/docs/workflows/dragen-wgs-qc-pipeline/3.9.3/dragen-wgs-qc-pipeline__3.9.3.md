@@ -19,7 +19,7 @@ dragen-wgs-qc-pipeline 3.9.3 workflow
 
   
 > ID: dragen-wgs-qc-pipeline--3.9.3  
-> md5sum: 414f7d38adeeea505937de707fe9fb11
+> md5sum: 4f82cb8f3008c4d1842b78c59440ea88
 
 ### dragen-wgs-qc-pipeline v(3.9.3) documentation
   
@@ -40,7 +40,7 @@ Documentation for dragen-wgs-qc-pipeline v3.9.3
 
 ### Uses
   
-- [dragen-alignment-pipeline 3.9.3](../../dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
+- [dragen-alignment-pipeline 3.9.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
 
   
 
@@ -165,11 +165,11 @@ All other options available at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.cwl)  
-[CWL File Help Page](../../dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)
+[CWL File Path](../../../../../../workflows/dragen-wgs-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)
 #### Subworkflow overview
   
-[![dragen-alignment-pipeline__3.9.3.svg](../../../../images/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)  
+[![dragen-alignment-pipeline__3.9.3.svg](../../../../images/workflows/dragen-wgs-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-wgs-qc-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.svg)  
 
 
 ## dragen-wgs-qc-pipeline v(3.9.3) Outputs
@@ -405,7 +405,7 @@ bash wfr.8bb7083dc6e74a2f9c21edd65e627a2e.launch.sh
 
   
 **workflow name:** dragen-wgs-qc-pipeline_prod-wf  
-**wfl version name:** 3.9.3--4e00721  
+**wfl version name:** 3.9.3--66f4a1e  
 
   
 

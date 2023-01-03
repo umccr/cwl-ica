@@ -21,13 +21,13 @@ label: umccrise v(2.2.0--0)
 doc: |
     Documentation for umccrise v2.2.0--0
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standardHiMem
-            size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standardHiMem
+        ilmn-tes:resources/size: medium
         coresMin: 16
         ramMin: 50000
     DockerRequirement:

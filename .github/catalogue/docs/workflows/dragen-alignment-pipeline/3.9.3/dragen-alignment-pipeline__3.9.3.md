@@ -19,7 +19,7 @@ dragen-alignment-pipeline 3.9.3 workflow
 
   
 > ID: dragen-alignment-pipeline--3.9.3  
-> md5sum: 3fe6faf5fb177337bf7fc8c347494520
+> md5sum: 9c1b0c463cfb588172adf911378bdbab
 
 ### dragen-alignment-pipeline v(3.9.3) documentation
   
@@ -41,14 +41,9 @@ Documentation for dragen-alignment-pipeline v3.9.3
 
 ### Uses
   
-- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
-- [dragen-alignment 3.9.3](../../../tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
-
-
-### Used By
-  
-- [dragen-wgs-qc-pipeline 3.9.3](../../dragen-wgs-qc-pipeline/3.9.3/dragen-wgs-qc-pipeline__3.9.3.md)  
+- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [multiqc 1.12.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [dragen-alignment 3.9.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
 
   
 
@@ -140,7 +135,7 @@ Range: > 0
 > ID: edit_mode
   
 **Optional:** `True`  
-**Type:** `[ 0 | 1 | 2 | 3 ]`  
+**Type:** `[ dragen-alignment-pipeline--3.9.3/edit_mode/0 | dragen-alignment-pipeline--3.9.3/edit_mode/1 | dragen-alignment-pipeline--3.9.3/edit_mode/2 | dragen-alignment-pipeline--3.9.3/edit_mode/3 ]`  
 **Docs:**  
 0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.
 
@@ -380,7 +375,7 @@ secondary alignments use hard clipping.
 > ID: map_orientations
   
 **Optional:** `True`  
-**Type:** `[ 0 | 1 | 2 ]`  
+**Type:** `[ dragen-alignment-pipeline--3.9.3/map_orientations/0 | dragen-alignment-pipeline--3.9.3/map_orientations/1 | dragen-alignment-pipeline--3.9.3/map_orientations/2 ]`  
 **Docs:**  
 Constrain orientations to accept forward-only, reverse-complement only, or any alignments.
 
@@ -579,7 +574,7 @@ Range: 0-255
 > ID: pe_orientation
   
 **Optional:** `True`  
-**Type:** `[ 0 | 1 | 2 ]`  
+**Type:** `[ dragen-alignment-pipeline--3.9.3/pe_orientation/0 | dragen-alignment-pipeline--3.9.3/pe_orientation/1 | dragen-alignment-pipeline--3.9.3/pe_orientation/2 ]`  
 **Docs:**  
 Expected paired-end orientation: 0=FR, 1=RF, 2=FF.
 
@@ -795,15 +790,18 @@ Enable verbose output from DRAGEN.
   
 > ID: dragen-alignment-pipeline--3.9.3/create_dummy_file_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-touch-file__1.0.0.svg](../../../../images/workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
 
 
 ### dragen qc step
@@ -812,15 +810,18 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: dragen-alignment-pipeline--3.9.3/dragen_qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)
+#### Subworkflow overview
+  
+[![multiqc__1.12.0.svg](../../../../images/workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)  
 
 
 ### run dragen alignment step
@@ -829,7 +830,7 @@ The dragen qc step - this takes in an array of dirs
   
 > ID: dragen-alignment-pipeline--3.9.3/run_dragen_alignment_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs the alignment step on a dragen fpga
@@ -838,8 +839,11 @@ All other options available at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.cwl)  
-[CWL File Help Page](../../../tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
+[CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)
+#### Subworkflow overview
+  
+[![dragen-alignment__3.9.3.svg](../../../../images/workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.svg)  
 
 
 ## dragen-alignment-pipeline v(3.9.3) Outputs

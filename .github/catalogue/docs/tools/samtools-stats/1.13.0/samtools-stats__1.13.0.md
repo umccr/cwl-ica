@@ -17,7 +17,7 @@ samtools-stats 1.13.0 tool
 
   
 > ID: samtools-stats--1.13.0  
-> md5sum: c92d52b84311f5232e087c95b936c969
+> md5sum: ce253d913c122a020a8f4a03c228053b
 
 ### samtools-stats v(1.13.0) documentation
   
@@ -32,29 +32,10 @@ The output can be visualized graphically using plot-bamstats.
   
 - [CWL File Path](../../../../../../tools/samtools-stats/1.13.0/samtools-stats__1.13.0.cwl)  
 
-
-### Used By
-  
-- [ghif-qc 1.0.0](../../../workflows/ghif-qc/1.0.0/ghif-qc__1.0.0.md)  
-- [ghif-qc 1.0.1](../../../workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md)  
-
   
 
 
 ## samtools-stats v(1.13.0) Inputs
-
-### GC depth
-
-
-
-  
-> ID: GC_depth
-  
-**Optional:** `True`  
-**Type:** `float`  
-**Docs:**  
-the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
-
 
 ### cov threshold
 
@@ -77,7 +58,7 @@ Only bases with coverage above this value will be included in the target percent
 > ID: coverage
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]
 
@@ -93,6 +74,19 @@ Set coverage distribution to the specified range (MIN, MAX, STEP all given as in
 **Type:** `int`  
 **Docs:**  
 filtering flag, 0 for unset. See also `samtools flags` [0]
+
+
+### GC depth
+
+
+
+  
+> ID: gc_depth
+  
+**Optional:** `True`  
+**Type:** `float`  
+**Docs:**  
+the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
 
 
 ### id

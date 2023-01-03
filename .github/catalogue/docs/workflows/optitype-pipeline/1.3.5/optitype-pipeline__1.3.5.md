@@ -19,7 +19,7 @@ optitype-pipeline 1.3.5 workflow
 
   
 > ID: optitype-pipeline--1.3.5  
-> md5sum: ec5b9d1e7562766d5cd2ead920eb4381
+> md5sum: 380a5341f4dcf7405f0d0c6df378c7ec
 
 ### optitype-pipeline v(1.3.5) documentation
   
@@ -45,18 +45,13 @@ We then convert this bam file back to fastq and run through optitype v1.3.5 (wit
 
 ### Uses
   
-- [sambamba-slice-and-index 0.8.0](../../../tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.md)  
-- [sambamba-view-and-index 0.8.0](../../../tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.md)  
-- [sambamba-merge-and-index 0.8.0](../../../tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.md)  
-- [optitype 1.3.5](../../../tools/optitype/1.3.5/optitype__1.3.5.md)  
-- [sambamba-sort-and-index 0.8.0](../../../tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.md)  
-- [custom-subset-bam 1.12.0](../../../tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.md)  
-- [samtools-fastq 1.12.0 :construction:](../../../tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.md)  
-
-
-### Used By
-  
-- [dragen-qc-hla-pipeline 3.7.5--1.3.5](../../dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.md)  
+- [sambamba-slice-and-index 0.8.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.md)  
+- [sambamba-view-and-index 0.8.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.md)  
+- [sambamba-merge-and-index 0.8.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.md)  
+- [optitype 1.3.5 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/optitype/1.3.5/optitype__1.3.5.md)  
+- [sambamba-sort-and-index 0.8.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.md)  
+- [custom-subset-bam 1.12.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.md)  
+- [samtools-fastq 1.12.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.md)  
 
   
 
@@ -125,7 +120,7 @@ Used for file naming throughout workflow
   
 > ID: optitype-pipeline--1.3.5/get_bam_slice_from_bed_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Takes in the sorted full bam and hla regions bed and returns
@@ -133,8 +128,11 @@ a subsetted bam by hla region
 
 #### Links
   
-[CWL File Path](../../../../../../tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.cwl)  
-[CWL File Help Page](../../../tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.md)  
+[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.md)
+#### Subworkflow overview
+  
+[![sambamba-slice-and-index__0.8.0.svg](../../../../images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-slice-and-index/0.8.0/sambamba-slice-and-index__0.8.0.svg)  
 
 
 ### get unmapped file from sorted bam
@@ -143,15 +141,18 @@ a subsetted bam by hla region
   
 > ID: optitype-pipeline--1.3.5/get_unmapped_file_from_sorted_bam_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Takes in a sorted unmapped file and returns a sorted bam
 
 #### Links
   
-[CWL File Path](../../../../../../tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.cwl)  
-[CWL File Help Page](../../../tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.md)  
+[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.md)
+#### Subworkflow overview
+  
+[![sambamba-view-and-index__0.8.0.svg](../../../../images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-view-and-index/0.8.0/sambamba-view-and-index__0.8.0.svg)  
 
 
 ### merge hla and unmapped bam files
@@ -160,15 +161,18 @@ Takes in a sorted unmapped file and returns a sorted bam
   
 > ID: optitype-pipeline--1.3.5/merge_hla_and_unmapped_bam_files_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Merge the hla and unmapped files into one sorted bam
 
 #### Links
   
-[CWL File Path](../../../../../../tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.cwl)  
-[CWL File Help Page](../../../tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.md)  
+[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.md)
+#### Subworkflow overview
+  
+[![sambamba-merge-and-index__0.8.0.svg](../../../../images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.svg)  
 
 
 ### optitype step
@@ -177,15 +181,18 @@ Merge the hla and unmapped files into one sorted bam
   
 > ID: optitype-pipeline--1.3.5/optitype_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Run the optitype pipeline on our smaller fastq files
 
 #### Links
   
-[CWL File Path](../../../../../../tools/optitype/1.3.5/optitype__1.3.5.cwl)  
-[CWL File Help Page](../../../tools/optitype/1.3.5/optitype__1.3.5.md)  
+[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/optitype/1.3.5/optitype__1.3.5.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/optitype/1.3.5/optitype__1.3.5.md)
+#### Subworkflow overview
+  
+[![optitype__1.3.5.svg](../../../../images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/optitype/1.3.5/optitype__1.3.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/optitype/1.3.5/optitype__1.3.5.svg)  
 
 
 ### Sort merged bam by name
@@ -194,7 +201,7 @@ Run the optitype pipeline on our smaller fastq files
   
 > ID: optitype-pipeline--1.3.5/sort_merged_bam_by_name_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Use sambamba sort to sort indexed bam by readname
@@ -202,8 +209,11 @@ This is a prerequisite for samtools-fastq when using paired data
 
 #### Links
   
-[CWL File Path](../../../../../../tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.cwl)  
-[CWL File Help Page](../../../tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.md)  
+[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.md)
+#### Subworkflow overview
+  
+[![sambamba-sort-and-index__0.8.0.svg](../../../../images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.svg)  
 
 
 ### set unmapped file from sorted bam
@@ -212,15 +222,18 @@ This is a prerequisite for samtools-fastq when using paired data
   
 > ID: optitype-pipeline--1.3.5/subset_unmapped_bam
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Takes in a list of n reads and randomly reduces the bam to that number of reads
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.cwl)  
-[CWL File Help Page](../../../tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.md)  
+[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.md)
+#### Subworkflow overview
+  
+[![custom-subset-bam__1.12.0.svg](../../../../images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.svg)  
 
 
 ### unmapped and hla bam to fastq
@@ -229,15 +242,18 @@ Takes in a list of n reads and randomly reduces the bam to that number of reads
   
 > ID: optitype-pipeline--1.3.5/unmapped_and_hla_bam_to_fastq_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Convert our truncated bam file to paired fastq files
 
 #### Links
   
-[CWL File Path](../../../../../../tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.md)  
+[CWL File Path](../../../../../../workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.md)
+#### Subworkflow overview
+  
+[![samtools-fastq__1.12.0.svg](../../../../images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/optitype-pipeline/1.3.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/samtools-fastq/1.12.0/samtools-fastq__1.12.0.svg)  
 
 
 ## optitype-pipeline v(1.3.5) Outputs

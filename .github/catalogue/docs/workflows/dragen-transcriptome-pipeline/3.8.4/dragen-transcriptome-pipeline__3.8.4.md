@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.8.4 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.8.4  
-> md5sum: 830464ca802948cd5212a7d1abdd2a35
+> md5sum: 98896503b84e0d14b48d8b6ab8f484e6
 
 ### dragen-transcriptome-pipeline v(3.8.4) documentation
   
@@ -41,13 +41,13 @@ More information on the documentation can be found [here](https://sapac.support.
 
 ### Uses
   
-- [arriba-drawing 2.0.0](../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)  
-- [arriba-fusion-calling 2.0.0](../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
-- [custom-create-directory 1.0.0](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
-- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-- [multiqc 1.11.0](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
-- [dragen-transcriptome 3.8.4](../../../tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
+- [arriba-drawing 2.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)  
+- [arriba-fusion-calling 2.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
+- [custom-create-directory 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
+- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
+- [multiqc 1.11.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+- [dragen-transcriptome 3.8.4 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
 
   
 
@@ -254,15 +254,18 @@ Path to ref data tarball
   
 > ID: dragen-transcriptome-pipeline--3.8.4/arriba_drawing_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Run Arriba drawing script for fusions predicted by previous step.
 
 #### Links
   
-[CWL File Path](../../../../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl)  
-[CWL File Help Page](../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)
+#### Subworkflow overview
+  
+[![arriba-drawing__2.0.0.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.svg)  
 
 
 ### arriba fusion step
@@ -271,15 +274,18 @@ Run Arriba drawing script for fusions predicted by previous step.
   
 > ID: dragen-transcriptome-pipeline--3.8.4/arriba_fusion_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs Arriba fusion calling on the bam file produced by Dragen.
 
 #### Links
   
-[CWL File Path](../../../../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl)  
-[CWL File Help Page](../../../tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)
+#### Subworkflow overview
+  
+[![arriba-fusion-calling__2.0.0.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.svg)  
 
 
 ### create arriba output directory
@@ -288,15 +294,18 @@ Runs Arriba fusion calling on the bam file produced by Dragen.
   
 > ID: dragen-transcriptome-pipeline--3.8.4/create_arriba_output_directory
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Create an output directory to contain the arriba files
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl)  
-[CWL File Help Page](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-create-directory__1.0.0.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.svg)  
 
 
 ### Create dummy file
@@ -305,15 +314,18 @@ Create an output directory to contain the arriba files
   
 > ID: dragen-transcriptome-pipeline--3.8.4/create_dummy_file_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-touch-file__1.0.0.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
 
 
 ### create fastq list csv step
@@ -322,7 +334,7 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: dragen-transcriptome-pipeline--3.8.4/create_fastq_list_csv_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Create the fastq list csv to then run the germline tool.
@@ -331,8 +343,11 @@ Returns a csv file along with predefined_mount_path schema
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-create-csv-from-fastq-list-rows__1.0.0.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.svg)  
 
 
 ### dragen qc step
@@ -341,15 +356,18 @@ Returns a csv file along with predefined_mount_path schema
   
 > ID: dragen-transcriptome-pipeline--3.8.4/dragen_qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+[CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.md)
+#### Subworkflow overview
+  
+[![multiqc__1.11.0.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.svg)  
 
 
 ### run dragen transcriptome step
@@ -358,7 +376,7 @@ The dragen qc step - this takes in an array of dirs
   
 > ID: dragen-transcriptome-pipeline--3.8.4/run_dragen_transcriptome_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Runs the dragen transcriptome workflow on the FPGA.
@@ -367,8 +385,11 @@ All other options avaiable at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.cwl)  
-[CWL File Help Page](../../../tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
+[CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)
+#### Subworkflow overview
+  
+[![dragen-transcriptome__3.8.4.svg](../../../../images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/3.8.4/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.svg)  
 
 
 ## dragen-transcriptome-pipeline v(3.8.4) Outputs

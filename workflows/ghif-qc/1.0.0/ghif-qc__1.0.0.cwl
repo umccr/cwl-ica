@@ -60,7 +60,7 @@ inputs:
     doc: |
       iltering flag, 0 for unset. See also `samtools flags` [0]
     type: int?
-  GC_depth:
+  gc_depth:
     label: GC depth 
     doc: |
       the size of GC-depth bins (decreasing bin size increases memory requirement) [2e4]
@@ -165,8 +165,8 @@ steps:
         source: required_flag
       filtering_flag:
         source: filtering_flag
-      GC_depth:
-        source: GC_depth
+      gc_depth:
+        source: gc_depth
       insert_size:
         source: insert_size
       read_length:

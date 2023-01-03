@@ -21,16 +21,17 @@ label: custom-create-tso500-samplesheet v(1.0.0)
 doc: |
     Given a v2 samplesheet updates the [<SampleSheet_Prefix"_Data] section to include the 'Sample_Type' and 'Pair_ID' attributes
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: small
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
         coresMin: 2
         ramMin: 4000
     DockerRequirement:
-        dockerPull: umccr/alpine-pandas:1.2.2
+        dockerPull: ghcr.io/umccr/alpine-pandas:1.2.2
 
 requirements:
   SchemaDefRequirement:

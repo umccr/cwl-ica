@@ -1,0 +1,29 @@
+type: record
+name: samplesheet
+
+fields:
+  header:
+    label: samplesheet header
+    doc: |
+      The samplesheet header object
+    type:
+      - { "$import": "../../../schemas/samplesheet-header/2.0.0/samplesheet-header__2.0.0.yaml#samplesheet-header" }
+  reads:
+    label: reads
+    doc: |
+      The reads
+    type:
+      - { "$import": "../../../schemas/samplesheet-reads/2.0.0/samplesheet-reads__2.0.0.yaml#samplesheet-reads" }
+  bclconvert_settings:
+    label: BCLConvert Settings section
+    doc: |
+      The bclconvert settings used for demux
+    type:
+      - { "$import": "../../../schemas/bclconvert-settings/4.0.3/bclconvert-settings__4.0.3.yaml#bclconvert-settings" }
+  bclconvert_data:
+    label: BCLConvert Data section
+    doc: |
+      The array of bclconvert data objects
+    type:
+      type: array
+      items: { "$import": "../../../schemas/bclconvert-data-row/4.0.3/bclconvert-data-row__4.0.3.yaml#bclconvert-data-row" }

@@ -406,10 +406,9 @@ steps:
     # bgzip needs drastically less than usual given how small these files are!
     requirements:
       ResourceRequirement:
-        ilmn-tes:resources:
-          tier: standard
-          type: standard
-          size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: medium
         coresMin: 1
         ramMin: 4000
     in:
@@ -432,10 +431,9 @@ steps:
     # tar needs drastically less than usual given how small these files are!
     requirements:
       ResourceRequirement:
-        ilmn-tes:resources:
-          tier: standard
-          type: standard
-          size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: medium
         coresMin: 1
         ramMin: 4000
     in:
@@ -541,10 +539,9 @@ steps:
     # gzip needs drastically less than usual given how small these files are!
     requirements:
       ResourceRequirement:
-        ilmn-tes:resources:
-          tier: standard
-          type: standard
-          size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: medium
         coresMin: 1
         ramMin: 4000
     in:
@@ -575,10 +572,9 @@ steps:
     # bgzip needs drastically less than usual given how small these files are!
     requirements:
       ResourceRequirement:
-        ilmn-tes:resources:
-          tier: standard
-          type: standard
-          size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: medium
         coresMin: 1
         ramMin: 4000
     in:
@@ -609,10 +605,9 @@ steps:
     # tar needs drastically less than usual given how small these files are!
     requirements:
       ResourceRequirement:
-        ilmn-tes:resources:
-          tier: standard
-          type: standard
-          size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: medium
         coresMin: 1
         ramMin: 4000
     in:

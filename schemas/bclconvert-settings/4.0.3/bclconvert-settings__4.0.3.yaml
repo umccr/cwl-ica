@@ -1,0 +1,101 @@
+type: record
+name: bclconvert-settings
+
+fields:
+  adapter_behavior:
+    label: adapter_behavior
+    doc: |
+      Defines whether fastqs are masked or trimmed of Read 1 and/or Read 2 adapter sequence(s). 
+      When AdapterRead1 or AdapterRead2 is not specified, this setting cannot be specified.
+      *	mask — masks the identified Read 1 and/or Read 2 sequence(s) with N.
+      * trim - trims the identified Read 1 and/or Read 2 sequence(s)
+    type: string?
+  adapter_read_1:
+    label: adapter_read_1
+    doc: |
+      The sequence of the Read 1 adapter to be masked or trimmed.
+      To trim multiple adapters, separate the sequences with a plus sign (+) to indicate 
+      independent adapters that must be independently assessed for masking or trimming for each read.
+      Allowed characters: A, T, C, G.
+    type: string?
+  adapter_read_2:
+    label: adapter_read_2
+    doc: |
+      The sequence of the Read 2 adapter to be masked or trimmed.
+      To trim multiple adapters, separate the sequences with a plus sign (+) to indicate independent adapters 
+      that must be independently assessed for masking or trimming for each read.
+      Allowed characters: A, T, C, G.
+    type: string?
+  adapter_stringency:
+    label: adapter_stringency
+    doc: |
+      The minimum match rate that triggers masking or trimming. 
+      This value is calculated as MatchCount / (MatchCount+MismatchCount). 
+      Accepted values are 0.5–1. 
+      The default value of 0.9 indicates that only reads with ≥ 90% sequence identity with the adapter are trimmed.
+    type: float?
+  minimum_adapter_overlap:
+    label: minimum_adapter_overlap
+    doc: |
+      Do not trim any bases unless the adapter matches are greater than or equal to the number of bases specified. 
+      At least one AdapterRead1 or AdapterRead2 must be specified to use MinimumAdapterOverlap.
+      Allowed characters: 1, 2, 3.
+    type: int?
+  mask_short_reads:
+    label: mask_short_reads
+    doc: |
+      Reads trimmed below this point become masked out.
+    type: int?
+  override_cycles:
+    label: override_cycles
+    doc: |
+      String used to specify UMI cycles and mask out cycles of a read.
+    type: string?
+  trim_umi:
+    label: trim_umi
+    doc: |
+      If set to 0, UMI sequences are not trimmed from output FASTQ reads. 
+      The UMI is still placed in sequence header.
+    type: boolean?
+  create_fastq_for_index_reads:
+    label: create_fastq_for_index_reads
+    doc: |
+      If set to 1, output FASTQ files for index reads as well as genomic reads.
+    type: boolean?
+  no_lane_splitting:
+    label: no lane splitting
+    doc: |
+      If set to true, output all lanes of a flow cell to the same FASTQ files consecutively.
+    type: boolean?
+  fastq_compression_format:
+    label: fastq compression format
+    doc: |
+      Beta feature, compress BCL files:
+        If the value is gzip, output FASTQ.GZ.
+        If the value is dragen, output FASTQ.ORA not interleaving paired reads. (dragen-only)
+        If the value is dragen-interleaved, output FASTQ.ORA interleaving paired reads in a single FASTQ.ORA file 
+        for a higher compression rate.
+    type: string?
+  find_adapter_with_indels:
+    label: find adapter with indels
+    doc: |
+      Use single-indel-detection adapter trimming (for matching default bcl2fastq2 behavior)
+    type: boolean?
+  barcode_mismatches_index_1:
+    label: barcode_mismatches_index_1
+    doc: |
+      Allow mismatch of length x in the i7 index sequence
+    type: int?
+  barcode_mismatches_index_2:
+    label: barcode_mismatches_index_2
+    doc: |
+      Allow mismatch of length x in the i5 index sequence
+    type: int?
+  minimum_trimmed_read_length:
+    label: minimum_trimmed_read_length
+    doc: |
+      Make sure that all trimmed reads are at least x base pairs long after adapter trimming 
+      by appending Ns to any read shorter than x base pairs.
+    type: int?
+
+

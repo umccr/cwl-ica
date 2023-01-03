@@ -1,30 +1,9 @@
-# Test started at 2022-09-27T16:19:34+10:00
+# Test started at 2022-10-25T23:22:16+11:00
 
-yarn exec v1.22.19
-warning package.json: No license field
-FAIL tests/get-bam-file-from-directory__1.0.1.test.js
-  ● Test suite failed to run
-
-    Cannot find module '../get_bam_file_from_directory' from 'tests/get-bam-file-from-directory__1.0.1.test.js'
-
-      2 | Object.defineProperty(exports, "__esModule", { value: true });
-      3 | var cwl_ts_auto_1 = require("cwl-ts-auto");
-    > 4 | var get_bam_file_from_directory_1 = require("../get_bam_file_from_directory");
-        |                                     ^
-      5 | // Test the get bam file from directory
-      6 | var INPUT_BAM_FILE_NAMEROOT = "footest";
-      7 | var INPUT_BAM_FILE_NAMEEXT = ".bam";
-
-      at Resolver._throwModNotFoundError (node_modules/jest-resolve/build/resolver.js:487:11)
-      at Object.<anonymous> (tests/get-bam-file-from-directory__1.0.1.test.js:4:37)
-
+PASS tests/get-bam-file-from-directory__1.0.1.test.js (14.948 s)
 FAIL tests/get-bam-file-from-directory__1.0.1.test.ts
   ● Test suite failed to run
 
-    [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m8[0m:[93m43[0m - [91merror[0m[90m TS2307: [0mCannot find module '../get_bam_file_from_directory' or its corresponding type declarations.
-
-    [7m8[0m import {get_bam_file_from_directory} from "../get_bam_file_from_directory";
-    [7m [0m [91m                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [96mtests/get-bam-file-from-directory__1.0.1.test.ts[0m:[93m21[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
       Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
 
@@ -141,23 +120,15 @@ FAIL tests/get-bam-file-from-directory__1.0.1.test.ts
 
 
 =============================== Coverage summary ===============================
-Statements   : Unknown% ( 0/0 )
-Branches     : Unknown% ( 0/0 )
-Functions    : Unknown% ( 0/0 )
-Lines        : Unknown% ( 0/0 )
+Statements   : 87.8% ( 36/41 )
+Branches     : 82.35% ( 28/34 )
+Functions    : 100% ( 1/1 )
+Lines        : 86.11% ( 31/36 )
 ================================================================================
-Test Suites: 2 failed, 2 total
-Tests:       0 total
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       2 passed, 2 total
 Snapshots:   0 total
-Time:        15.401 s
+Time:        21.541 s
 Ran all test suites.
-error Command failed.
-Exit code: 1
-Command: jest
-Arguments: 
-Directory: /e/Users/awluc/OneDrive/GitHub/UMCCR/cwl-ica/expressions/get-bam-file-from-directory/1.0.1/typescript-expressions
-Output:
-
-info Visit https://yarnpkg.com/en/docs/cli/exec for documentation about this command.
-# Test completed at 2022-09-27T16:20:03+10:00
+# Test completed at 2022-10-25T23:22:58+11:00
 

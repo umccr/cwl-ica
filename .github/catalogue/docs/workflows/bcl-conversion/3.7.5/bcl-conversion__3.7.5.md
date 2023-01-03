@@ -19,7 +19,7 @@ bcl-conversion 3.7.5 workflow
 
   
 > ID: bcl-conversion--3.7.5  
-> md5sum: cfda6e4e2640cc844ca0c667c708a410
+> md5sum: 03a144459438eb5c603cca8fe6a0baae
 
 ### bcl-conversion v(3.7.5) documentation
   
@@ -39,13 +39,13 @@ Runs bcl-convert v3.7.5 with multiqc output of the bcl input directory
 
 ### Uses
   
-- [bclConvert 3.7.5](../../../tools/bclConvert/3.7.5/bclConvert__3.7.5.md)  
-- [multiqc 1.11.0](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
-- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [flatten-array-fastq-list 1.0.0](../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md)  
-- [get-samplesheet-midfix-regex 1.0.0](../../../expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md)  
-- [multiqc-interop 1.2.1](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
-- [custom-samplesheet-split-by-settings 1.0.0](../../../tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md)  
+- [bclConvert 3.7.5 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/bclConvert/3.7.5/bclConvert__3.7.5.md)  
+- [multiqc 1.11.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [flatten-array-fastq-list 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md)  
+- [get-samplesheet-midfix-regex 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md)  
+- [multiqc-interop 1.2.1 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+- [custom-samplesheet-split-by-settings 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md)  
 
   
 
@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `[ v1 | v2 ]`  
+**Type:** `[ bcl-conversion--3.7.5/samplesheet_output_format/v1 | bcl-conversion--3.7.5/samplesheet_output_format/v2 ]`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
@@ -229,15 +229,18 @@ file.
   
 > ID: bcl-conversion--3.7.5/bcl_convert_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 BCLConvert is then scattered across each of the samplesheets.
 
 #### Links
   
-[CWL File Path](../../../../../../tools/bclConvert/3.7.5/bclConvert__3.7.5.cwl)  
-[CWL File Help Page](../../../tools/bclConvert/3.7.5/bclConvert__3.7.5.md)  
+[CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/bclConvert/3.7.5/bclConvert__3.7.5.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/bclConvert/3.7.5/bclConvert__3.7.5.md)
+#### Subworkflow overview
+  
+[![bclConvert__3.7.5.svg](../../../../images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/bclConvert/3.7.5/bclConvert__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/bclConvert/3.7.5/bclConvert__3.7.5.svg)  
 
 
 ### bclconvert qc step
@@ -246,15 +249,18 @@ BCLConvert is then scattered across each of the samplesheets.
   
 > ID: bcl-conversion--3.7.5/bclconvert_qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 The bclconvert qc step - from scatter this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+[CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.md)
+#### Subworkflow overview
+  
+[![multiqc__1.11.0.svg](../../../../images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.11.0/multiqc__1.11.0.svg)  
 
 
 ### create dummy file
@@ -263,15 +269,18 @@ The bclconvert qc step - from scatter this takes in an array of dirs
   
 > ID: bcl-conversion--3.7.5/create_dummy_file_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-touch-file__1.0.0.svg](../../../../images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
 
 
 ### flatten fastq list rows array
@@ -280,7 +289,7 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: bcl-conversion--3.7.5/flatten_fastq_list_rows_array
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 fastq list rows is an array and bcl convert is from a directory output.
@@ -288,8 +297,11 @@ This scatters the arrays to a single array
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.cwl)  
-[CWL File Help Page](../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md)
+#### Subworkflow overview
+  
+[![flatten-array-fastq-list__1.0.0.svg](../../../../images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.svg)  
 
 
 ### get batch directories
@@ -298,15 +310,18 @@ This scatters the arrays to a single array
   
 > ID: bcl-conversion--3.7.5/get_batch_dirs
   
-**Step Type:** expression  
+**Step Type:** workflow  
 **Docs:**
   
 Get the directory names of each of the directories we wish to scatter over
 
 #### Links
   
-[CWL File Path](../../../../../../expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.cwl)  
-[CWL File Help Page](../../../expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md)
+#### Subworkflow overview
+  
+[![get-samplesheet-midfix-regex__1.0.0.svg](../../../../images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.svg)  
 
 
 ### interop qc step
@@ -315,15 +330,18 @@ Get the directory names of each of the directories we wish to scatter over
   
 > ID: bcl-conversion--3.7.5/interop_qc_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Run the multiqc by first also generating the interop files for use
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl)  
-[CWL File Help Page](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+[CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)
+#### Subworkflow overview
+  
+[![multiqc-interop__1.2.1.svg](../../../../images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.svg)  
 
 
 ### Split samplesheet by settings step
@@ -332,7 +350,7 @@ Run the multiqc by first also generating the interop files for use
   
 > ID: bcl-conversion--3.7.5/samplesheet_split_by_settings_step
   
-**Step Type:** tool  
+**Step Type:** workflow  
 **Docs:**
   
 Samplesheet is split by the different input types.
@@ -341,8 +359,11 @@ This then scatters multiple bclconvert workflows split by sample id
 
 #### Links
   
-[CWL File Path](../../../../../../tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl)  
-[CWL File Help Page](../../../tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md)  
+[CWL File Path](../../../../../../workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.cwl)  
+[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md)
+#### Subworkflow overview
+  
+[![custom-samplesheet-split-by-settings__1.0.0.svg](../../../../images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bcl-conversion/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.svg)  
 
 
 ## bcl-conversion v(3.7.5) Outputs
@@ -371,7 +392,7 @@ multiqc directory output that contains bclconvert multiqc data
 
   
 **Optional:** `False`  
-**Output Type:** `Directory[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 The outputs from the bclconvert-step
   
@@ -416,7 +437,7 @@ multiqc directory output that contains interop data
 
   
 **Optional:** `False`  
-**Output Type:** `File[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 List of samplesheets split by override cycles
   
@@ -1445,7 +1466,7 @@ bash wfr.d9ddc8eb7d544d32bdbe285fd45a4365.launch.sh
 
   
 **workflow name:** bcl-conversion_prod-wf  
-**wfl version name:** 3.7.5--984c780  
+**wfl version name:** 3.7.5--66f4a1e  
 
   
 

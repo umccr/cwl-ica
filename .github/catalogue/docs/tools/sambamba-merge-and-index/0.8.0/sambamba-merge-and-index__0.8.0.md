@@ -17,7 +17,7 @@ sambamba-merge-and-index 0.8.0 tool
 
   
 > ID: sambamba-merge-and-index--0.8.0  
-> md5sum: ecae41fe6c2238a8a475e936c115e2b1
+> md5sum: b27c60de1644e77ef3b05dceba2f8aa4
 
 ### sambamba-merge-and-index v(0.8.0) documentation
   
@@ -33,11 +33,6 @@ More info can be found [here](https://lomereiter.github.io/sambamba/docs/sambamb
   
 - [CWL File Path](../../../../../../tools/sambamba-merge-and-index/0.8.0/sambamba-merge-and-index__0.8.0.cwl)  
 
-
-### Used By
-  
-- [optitype-pipeline 1.3.5](../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
-
   
 
 
@@ -51,7 +46,7 @@ More info can be found [here](https://lomereiter.github.io/sambamba/docs/sambamb
 > ID: bams_sorted
   
 **Optional:** `False`  
-**Type:** `File[]`  
+**Type:** `.[]`  
 **Docs:**  
 Array of sorted bam files
 

@@ -17,7 +17,7 @@ bcftools-view 1.13.0 tool
 
   
 > ID: bcftools-view--1.13.0  
-> md5sum: 6269a0f25775d60c4cdde36f885d3589
+> md5sum: a30e1513b7bc3d8a353678f0d8fa3036
 
 ### bcftools-view v(1.13.0) documentation
   
@@ -97,7 +97,7 @@ Exclude sites for which EXPRESSION is true.
 > ID: exclude_types
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 comma-separated list of variant types to exclude. Site is excluded if any of the ALT alleles is of the type requested. 
 
@@ -300,7 +300,7 @@ unnecessary compression/decompression and VCF←→BCF conversion.
 > ID: regions
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Comma-separated list of regions, see also -R, --regions-file. 
 Overlapping records are matched even when the starting coordinate is outside of the region, 
@@ -329,7 +329,7 @@ Regions can be specified either on command line or in a VCF, BED, or tab-delimit
 > ID: samples
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Comma-separated list of samples to include or exclude if prefixed with "^". 
 The sample order is updated to reflect that given on the command line. 
@@ -414,7 +414,7 @@ be trimmed as well.
 > ID: types
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Comma-separated list of variant types to select. Site is selected if any of the ALT alleles is of the type requested.  
 

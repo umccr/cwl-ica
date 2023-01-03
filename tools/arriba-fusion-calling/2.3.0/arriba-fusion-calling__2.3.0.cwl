@@ -21,12 +21,13 @@ doc: |
     Arriba is a command-line tool for the detection of gene fusions from RNA-Seq data  
     https://github.com/suhrig/arriba.
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources:
-      type: standardHiCpu
-      size: large
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: standardHiCpu
+    ilmn-tes:resources/size: large
   DockerRequirement:
     dockerPull: "uhrigs/arriba:2.3.0"
 
