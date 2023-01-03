@@ -86,7 +86,7 @@ tools:
         md5sum: e10b55eb562f50646d908ba5041b5663
       - name: 4.0.3
         path: 4.0.3/dragen-germline__4.0.3.cwl
-        md5sum: 5752f258929d02b340e12a61eac33c3a
+        md5sum: b91174993a28d3651c6fd12ddbad4eaa
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -220,7 +220,7 @@ tools:
         md5sum: 38cb0058d542ea649b1fbfdb9767ed95
       - name: 4.0.3
         path: 4.0.3/dragen-alignment__4.0.3.cwl
-        md5sum: 88342cc5250c83d9155aaf5b50fcfcdb
+        md5sum: a6e392b672c768a390646b70c43ffc38
     categories: []
   - name: custom-create-directory
     path: custom-create-directory

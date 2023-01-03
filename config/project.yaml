@@ -120,7 +120,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-germline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-12-22T09:42:55UTC
+            modification_time: 2023-01-03T02:32:20UTC
             run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
@@ -200,7 +200,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-alignment__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-12-22T09:43:08UTC
+            modification_time: 2023-01-03T02:32:30UTC
             run_instances: []
       - name: arriba-drawing
         path: arriba-drawing
@@ -554,7 +554,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-12-23T07:47:30UTC
+            modification_time: 2023-01-03T03:07:26UTC
             run_instances: []
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
@@ -640,7 +640,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-12-21T22:59:23UTC
+            modification_time: 2023-01-03T03:07:38UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
