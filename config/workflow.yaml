@@ -61,7 +61,7 @@ workflows:
         md5sum: 8bbb0956901bd69a6c825b2205f6ef15
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
-        md5sum: 19cace8b0e1cd7910c47cc8511f3ee9f
+        md5sum: 86f1a3d1b30de68719ca12a50e381054
     categories:
       - dragen
       - variant-calling
@@ -226,4 +226,11 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
         md5sum: d2716a57829f9f8c414ae4289192426a
+    categories: []
+  - name: dragen-somatic-with-germline-pipeline
+    path: dragen-somatic-with-germline-pipeline
+    versions:
+      - name: 4.0.3
+        path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
+        md5sum: 807b8c01df4b8f28748f1d2873cc9b40
     categories: []

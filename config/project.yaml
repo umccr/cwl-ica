@@ -342,7 +342,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-11-28T04:08:04UTC
+            modification_time: 2023-01-04T00:27:59UTC
             run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -605,7 +605,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2022-11-07T06:04:32UTC
+            modification_time: 2023-01-04T01:04:07UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -837,6 +837,16 @@ projects:
             path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
             modification_time: 2022-12-22T09:58:28UTC
+            run_instances: []
+      - name: dragen-somatic-with-germline-pipeline
+        path: dragen-somatic-with-germline-pipeline
+        ica_workflow_name: dragen-somatic-with-germline-pipeline_dev-wf
+        ica_workflow_id: wfl.a4056543ef9a474d8b16182a4e6b6c50
+        versions:
+          - name: 4.0.3
+            path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3
+            modification_time: 2023-01-04T01:04:38UTC
             run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
