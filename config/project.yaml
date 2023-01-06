@@ -526,7 +526,7 @@ projects:
           - name: 2.7.10
             path: 2.7.10/star__2.7.10.cwl
             ica_workflow_version_name: 2.7.10
-            modification_time: 2023-01-05T23:56:59UTC
+            modification_time: 2023-01-06T00:01:30UTC
             run_instances: []
     workflows:
       - name: optitype-pipeline

@@ -458,5 +458,5 @@ tools:
     versions:
       - name: 2.7.10
         path: 2.7.10/star__2.7.10.cwl
-        md5sum: 1307d61a3f938e6934528436b34addeb
+        md5sum: 246bcafcbefa85c0f6ce80d8cec0e043
     categories: []
