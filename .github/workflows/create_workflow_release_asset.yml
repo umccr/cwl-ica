@@ -105,6 +105,10 @@ jobs:
         shell: bash -l {0}
     needs: release_asset_precheck
     steps:
+      # Checkout code
+      - name: Checkout code
+        id: git_checkout
+        uses: actions/checkout@v3
       # Create release asset
       - name: create release asset
         id: create_release_asset
