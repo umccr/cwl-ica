@@ -107,7 +107,7 @@ jobs:
       # Create release asset
       - name: create release asset
         id: create_release_asset
-        if: needs.release_asset_precheck.outputs.create_release == "true"
+        if: needs.release_asset_precheck.outputs.create_release == 'true'
         run: |
           docker run \
             --rm \
