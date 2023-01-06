@@ -59,8 +59,8 @@ jobs:
           if [[ -n "${{ steps.tag_regex_match.outputs.group1 }}" ]]; then
             is_prerelease="--draft-release"
           fi
-          echo "create_release='${create_release}'" >> "${GITHUB_OUTPUT}"
-          echo "is_prelease='${is_prerelease}'" >> "${GITHUB_OUTPUT}"
+          echo "create_release=${create_release}" >> "${GITHUB_OUTPUT}"
+          echo "is_prelease=${is_prerelease}" >> "${GITHUB_OUTPUT}"
       # Get date
       - name: get date
         id: get_date
