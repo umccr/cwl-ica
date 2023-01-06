@@ -124,4 +124,4 @@ jobs:
             ghcr.io/umccr/cwl-ica-cli:latest \
               cwl-ica github-actions-build-workflow-release-asset \
                 --workflow-path "${{ needs.release_asset_precheck.outputs.workflow_path }}" \
-                "${{ needs.release_asset_precheck.outputs.is_prerelease }}"
+                ${{ needs.release_asset_precheck.outputs.is_prerelease }}
