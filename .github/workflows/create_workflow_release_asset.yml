@@ -6,18 +6,22 @@ on:
       # Matches dragen-pon-qc/3.9.3
       # Matches tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0
       # Matches dragen-somatic-pipeline/4.0.3-rc
-      - [A-Za-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+(?:--\S+)?(-rc)?
+      # ** required since our tags have '/' in them -- https://stackoverflow.com/a/61892639/6946787
+      # Single quotes required since * is a special character in yaml
+      # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+      - '**'
 
 jobs:
-  create_release:
-    name: create release
+  # Workflow split due to https://github.com/actions/runner/issues/662
+  # This way we do a 'precheck', update a few vars and most importantly make sure that the tag is legix
+  release_asset_precheck:
+    name: release asset precheck
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0}
     steps:
-      # # DEBUG
-      # - uses: hmarr/debug-action@v2
+      # Checkout code
       - name: Checkout code
         id: git_checkout
         uses: actions/checkout@v3
@@ -26,30 +30,42 @@ jobs:
         id: update_bash_settings
         run: |
           set -euo pipefail
-      # Get tag
-      - name: Set output
-        id: get_tag
-        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
       # Install jq (for querying branch name)
       - name: Install Jq
         id: install_jq
         run: |
           sudo apt-get update -y
           sudo apt-get install jq -y
+      # Get tag
+      - name: Set output
+        id: get_tag
+        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+      # Ensure tag matches regex
+      - name: action regex match
+        id: tag_regex_match
+        uses: actions-ecosystem/action-regex-match@v2
+        with:
+          text: ${{ steps.get_tag.outputs.tag }}
+          regex: '^[A-Za-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+(?:--\S+)?(-rc)?$'
+      # Has regex match
+      - name: has regex match
+        id: has_regex_match
+        run: |
+          create_release="false"
+          is_prerelease=""
+          if [[ -n "${{ steps.tag_regex_match.outputs.match }}" ]]; then
+            create_release="true"
+          fi
+          if [[ -n "${{ steps.tag_regex_match.outputs.group1 }}" ]]; then
+            is_prerelease="--draft-release"
+          fi
+          echo "create_release='${create_release}'" >> "${GITHUB_OUTPUT}"
+          echo "is_prelease='${is_prerelease}'" >> "${GITHUB_OUTPUT}"
       # Get date
       - name: get date
         id: get_date
         run: |
           echo "date_str=$(date +%s)" >> "${GITHUB_OUTPUT}"
-      # Get is prerelease
-      - name: is pre-release
-        id: is_prerelease
-        run: |
-          if [[ "${{ steps.get_tag.outputs.tag }}" =~ .*-rc ]]; then
-            echo "is_prerelease="--draft-release" >> "${GITHUB_OUTPUT}"
-          else
-            echo "is_prelease=''" >> "${GITHUB_OUTPUT}"
-          fi
       # Get workflow path
       - name: get workflow path
         id: get_workflow_path
@@ -76,9 +92,22 @@ jobs:
         run: |
           echo "git_tag=${{ steps.get_tag.outputs.tag }},${{ steps.get_tag.outputs.tag }}__${{ steps.get_date.outputs.date_str }}" >> "${GITHUB_OUTPUT}"
       # Set up complete
+    outputs:
+      git_tag: ${{ steps.set_git_tag.outputs.git_tag }}
+      workflow_path: ${{ steps.get_workflow_path.outputs.workflow_path }}
+      create_release: ${{ steps.has_regex_match.outputs.create_release }}
+      is_prerelease: ${{ steps.has_regex_match.outputs.is_prerelease }}
+  create_release_asset:
+    name: create release asset
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
       # Create release asset
       - name: create release asset
         id: create_release_asset
+        if: needs.release_asset_precheck.outputs.create_release == "true"
         run: |
           docker run \
             --rm \
@@ -89,9 +118,9 @@ jobs:
             --env CWL_ICA_REPO_PATH="${PWD}" \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
-            --env GITHUB_TAG="${{ steps.set_git_tag.outputs.git_tag }}" \
+            --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \
             --env GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               cwl-ica github-actions-build-workflow-release-asset \
-                --workflow-path "${{ steps.get_workflow_path.outputs.workflow_path }}" \
-                "${{ steps.is_prerelease.outputs.is_prerelease }}"
+                --workflow-path "${{ needs.release_asset_precheck.outputs.workflow_path }}" \
+                "${{ needs.release_asset_precheck.outputs.is_prerelease }}"
