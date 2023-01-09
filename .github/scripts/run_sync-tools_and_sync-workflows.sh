@@ -46,20 +46,35 @@ for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
     export "${project_token_env_var_name}"="${project_token}"
 done
 
+# Set conda env path
+export CONDA_ENVS_PATH="$(mktemp -d)"
+
+# Softlink envs into this environment
+ENVS_LIST=( "cwl-ica" "cwltool-icav1" )
+for env_name in "${ENVS_LIST[@]}"; do
+  ln -s \
+    /home/cwl_ica_user/.conda/envs/${env_name} \
+    "${CONDA_ENVS_PATH}/${env_name}"
+done
+
 # Now run the github-schema-sync-command
 echo "Syncing all schemas" 1>&2
-cwl-ica github-actions-sync-schemas
+conda run --name cwl-ica \
+  cwl-ica github-actions-sync-schemas
 
 # Now run the github-expression-sync-command
 echo "Syncing all expressions" 1>&2
-cwl-ica github-actions-sync-expressions
+conda run --name cwl-ica \
+  cwl-ica github-actions-sync-expressions
 
 # Now run the github-tool-sync-command
 echo "Syncing all tools" 1>&2
-cwl-ica github-actions-sync-tools \
+conda run --name cwl-ica \
+  cwl-ica github-actions-sync-tools \
 
 # Now run the github-workflow-sync-command
 echo "Syncing all workflows" 1>&2
-cwl-ica github-actions-sync-workflows
+conda run --name cwl-ica \
+  cwl-ica github-actions-sync-workflows
 
 
