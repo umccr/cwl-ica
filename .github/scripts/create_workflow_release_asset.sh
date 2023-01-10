@@ -5,6 +5,10 @@
 # Set Globals
 export CWL_ICA_REPO_PATH="$PWD"
 
+# Add Globals for Github actions bot
+GITHUB_ACTIONS_USERNAME="github-actions[bot]"
+GITHUB_ACTIONS_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
+
 help_message="Usage: create_workflow_release_asset.sh
 Wrapper script around cwl-ica github-actions-build-workflow-release-asset subcommand
 Optional parameters:
@@ -67,6 +71,10 @@ done
 
 # Check workflow path
 
+# Set github name and email as github actions bot
+# See this https://github.com/orgs/community/discussions/26560 for more info
+
+
 # Run create release asset command
 is_prerelease="false"
 workflow_path=""
@@ -105,6 +113,10 @@ arg_array=( "--workflow-path" "${workflow_path}" )
 if [[ "${is_prerelease}" == "true" ]]; then
   arg_array+=( "--draft-release" )
 fi
+
+# Add git configuration
+git config user.name "${GITHUB_ACTIONS_USERNAME}"
+git config user.email "${GITHUB_ACTIONS_EMAIL}"
 
 # Launch cwl-ica github-actions-build-workflow-release-asset
 eval cwl-ica github-actions-build-workflow-release-asset '"${arg_array[@]}"'
