@@ -176,7 +176,9 @@ schemas/*/*/*
 !schemas/*/*/*.yaml
 !schemas/*/*/*.ts
 
-
 #### Items in config that don't end in .yaml
 config/*/*/*
 !config/*/*/*.yaml
+
+#### Caches in typescript expressions
+typescript-expressions/*/*/.yarn/
