@@ -52,15 +52,15 @@ jobs:
         id: has_regex_match
         run: |
           create_release="false"
-          is_prerelease=""
+          is_prerelease="false"
           if [[ -n "${{ steps.tag_regex_match.outputs.match }}" ]]; then
             create_release="true"
           fi
           if [[ -n "${{ steps.tag_regex_match.outputs.group1 }}" ]]; then
-            is_prerelease="--draft-release"
+            is_prerelease="true"
           fi
           echo "create_release=${create_release}" >> "${GITHUB_OUTPUT}"
-          echo "is_prelease=${is_prerelease}" >> "${GITHUB_OUTPUT}"
+          echo "is_prerelease=${is_prerelease}" >> "${GITHUB_OUTPUT}"
       # Get date
       - name: get date
         id: get_date
@@ -126,6 +126,4 @@ jobs:
             --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \
             --env GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
-              cwl-ica github-actions-build-workflow-release-asset \
-                --workflow-path "${{ needs.release_asset_precheck.outputs.workflow_path }}" \
-                ${{ needs.release_asset_precheck.outputs.is_prerelease }}
+              bash ".github/scripts/create_workflow_release_asset.sh"
