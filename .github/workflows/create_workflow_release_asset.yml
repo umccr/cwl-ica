@@ -126,4 +126,6 @@ jobs:
             --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \
             --env GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
-              bash ".github/scripts/create_workflow_release_asset.sh"
+              bash ".github/scripts/create_workflow_release_asset.sh" \
+                --workflow-path "${{ needs.release_asset_precheck.outputs.workflow_path }}" \
+                --is-prerelease "${{ needs.release_asset_precheck.outputs.is_prerelease }}"
