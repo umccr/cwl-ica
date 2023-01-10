@@ -48,6 +48,18 @@ if [[ ! -v GITHUB_TAG ]]; then
   exit 1
 fi
 
+# Set conda envs
+CONDA_ENVS_PATH="$(mktemp -d)"
+export CONDA_ENVS_PATH
+
+# Softlink envs into this environment
+ENVS_LIST=( "cwl-ica" "cwltool-icav1" )
+for env_name in "${ENVS_LIST[@]}"; do
+  ln -s \
+    "/home/cwl_ica_user/.conda/envs/${env_name}" \
+    "${CONDA_ENVS_PATH}/${env_name}"
+done
+
 
 # Get args
 
