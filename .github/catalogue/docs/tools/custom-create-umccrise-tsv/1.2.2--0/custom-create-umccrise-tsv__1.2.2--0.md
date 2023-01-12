@@ -17,7 +17,7 @@ custom-create-umccrise-tsv 1.2.2--0 tool
 
   
 > ID: custom-create-umccrise-tsv--1.2.2--0  
-> md5sum: b9fc7fdec47ee2fb68dbb3f3673f733d
+> md5sum: c1bd3d953cb6f76f45ab1f1778ce0a20
 
 ### custom-create-umccrise-tsv v(1.2.2--0) documentation
   
@@ -50,7 +50,7 @@ Create umccrise tsv based on the mount paths. Take inputs as a json string and d
 > ID: input_json_strs
   
 **Optional:** `False`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 A list json strings as output from the the create-predefined-mount-paths-and-umccrise-row-from-umccrise-input-schema expression
 

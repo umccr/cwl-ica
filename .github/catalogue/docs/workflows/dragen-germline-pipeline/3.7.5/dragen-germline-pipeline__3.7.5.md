@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.7.5 workflow
 
   
 > ID: dragen-germline-pipeline--3.7.5  
-> md5sum: 0ade8dbe7ba1c28b9b3d9f6be35c0fe3
+> md5sum: 89dbc5b5b33b1761741ec39a7f42b3e5
 
 ### dragen-germline-pipeline v(3.7.5) documentation
   
@@ -42,10 +42,15 @@ More information on the documentation can be found [here](https://sapac.support.
 
 ### Uses
   
-- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
-- [multiqc 1.10.1 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.md)  
-- [dragen-germline 3.7.5 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)  
+- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [custom-create-csv-from-fastq-list-rows 1.0.0 :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
+- [multiqc 1.10.1](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
+- [dragen-germline 3.7.5](../../../tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)  
+
+
+### Used By
+  
+- [dragen-qc-hla-pipeline 3.7.5--1.3.5](../../dragen-qc-hla-pipeline/3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.md)  
 
   
 
@@ -190,7 +195,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ dragen-germline-pipeline--3.7.5/sample_sex/male | dragen-germline-pipeline--3.7.5/sample_sex/female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -418,18 +423,15 @@ The default value is 500 for germline mode and 50 for somatic mode.
   
 > ID: dragen-germline-pipeline--3.7.5/create_dummy_file_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
-#### Subworkflow overview
-  
-[![custom-touch-file__1.0.0.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
+[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
 ### create fastq list csv step
@@ -438,7 +440,7 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: dragen-germline-pipeline--3.7.5/create_fastq_list_csv_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Create the fastq list csv to then run the germline tool.
@@ -447,11 +449,8 @@ Returns a csv file along with predefined_mount_path schema
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)
-#### Subworkflow overview
-  
-[![custom-create-csv-from-fastq-list-rows__1.0.0.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.svg)  
+[CWL File Path](../../../../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md)  
 
 
 ### dragen qc step
@@ -460,18 +459,15 @@ Returns a csv file along with predefined_mount_path schema
   
 > ID: dragen-germline-pipeline--3.7.5/dragen_qc_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.md)
-#### Subworkflow overview
-  
-[![multiqc__1.10.1.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.10.1/multiqc__1.10.1.svg)  
+[CWL File Path](../../../../../../tools/multiqc/1.10.1/multiqc__1.10.1.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.10.1/multiqc__1.10.1.md)  
 
 
 ### run dragen germline step
@@ -480,7 +476,7 @@ The dragen qc step - this takes in an array of dirs
   
 > ID: dragen-germline-pipeline--3.7.5/run_dragen_germline_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Runs the dragen germline workflow on the FPGA.
@@ -489,11 +485,8 @@ All other options available at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)
-#### Subworkflow overview
-  
-[![dragen-germline__3.7.5.svg](../../../../images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.7.5/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.svg)  
+[CWL File Path](../../../../../../tools/dragen-germline/3.7.5/dragen-germline__3.7.5.cwl)  
+[CWL File Help Page](../../../tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)  
 
 
 ## dragen-germline-pipeline v(3.7.5) Outputs
@@ -585,7 +578,7 @@ The output directory for multiqc
 
   
 **workflow name:** dragen-germline-pipeline_prod-wf  
-**wfl version name:** 3.7.5--66f4a1e  
+**wfl version name:** 3.7.5--75e015e  
 
   
 
