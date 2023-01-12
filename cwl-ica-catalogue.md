@@ -172,6 +172,7 @@ UMCCR CWL-ICA Catalogue
 - [qualimap](#qualimap)  
 - [map_resource_requirements](#map_resource_requirements)  
 - [bcl-convert](#bcl-convert)  
+- [star](#star)  
 
 
 ### samtools-merge
@@ -604,6 +605,13 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [4.0.3](.github/catalogue/docs/tools/bcl-convert/4.0.3/bcl-convert__4.0.3.md)  
+
+
+### star
+
+#### Versions
+  
+- [2.7.10](.github/catalogue/docs/tools/star/2.7.10/star__2.7.10.md)  
 
 
 ## Workflows
