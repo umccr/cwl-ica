@@ -17,7 +17,7 @@ dragen-somatic 3.7.5 tool
 
   
 > ID: dragen-somatic--3.7.5  
-> md5sum: b75af06428f593b8ef4b0caf87ea0282
+> md5sum: b252e6652dc81960e65f738d5af3c22a
 
 ### dragen-somatic v(3.7.5) documentation
   
@@ -209,7 +209,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ male | female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 

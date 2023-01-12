@@ -19,7 +19,7 @@ validate-bclconvert-samplesheet 4.0.3 workflow
 
   
 > ID: validate-bclconvert-samplesheet--4.0.3  
-> md5sum: d2716a57829f9f8c414ae4289192426a
+> md5sum: e7c8258844e007dcfd34d361bf54c13c
 
 ### validate-bclconvert-samplesheet v(4.0.3) documentation
   
@@ -64,7 +64,7 @@ Documentation for validate-bclconvert-samplesheet v4.0.3
 > ID: bclconvert_run_configuration
   
 **Optional:** `False`  
-**Type:** `../../../schemas/bclconvert-run-configuration/2.0.0--4.0.3/bclconvert-run-configuration__2.0.0--4.0.3.yaml#bclconvert-run-configuration`  
+**Type:** `file:///home/runner/work/cwl-ica/cwl-ica/schemas/bclconvert-run-configuration/2.0.0--4.0.3/bclconvert-run-configuration__2.0.0--4.0.3.yaml#bclconvert-run-configuration`  
 **Docs:**  
 The BCLConvert run configuration
 

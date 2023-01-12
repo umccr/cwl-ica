@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: 8bbb0956901bd69a6c825b2205f6ef15
+> md5sum: 1e8a521f265bdd67c0665f52ad708e07
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -45,9 +45,9 @@ More information on the documentation can be found [here](https://support-docs.i
 
 ### Uses
   
-- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
-- [dragen-somatic 3.9.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
+- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [dragen-somatic 3.9.3](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 
   
 
@@ -504,7 +504,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ dragen-somatic-pipeline--3.9.3/sample_sex/male | dragen-somatic-pipeline--3.9.3/sample_sex/female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -1174,18 +1174,15 @@ The default value is 500 for germline mode and 50 for somatic mode.
   
 > ID: dragen-somatic-pipeline--3.9.3/create_dummy_file_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
-#### Subworkflow overview
-  
-[![custom-touch-file__1.0.0.svg](../../../../images/workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
+[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
 ### dragen qc step
@@ -1194,18 +1191,15 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: dragen-somatic-pipeline--3.9.3/dragen_qc_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)
-#### Subworkflow overview
-  
-[![multiqc__1.12.0.svg](../../../../images/workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)  
+[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen somatic step
@@ -1214,7 +1208,7 @@ The dragen qc step - this takes in an array of dirs
   
 > ID: dragen-somatic-pipeline--3.9.3/run_dragen_somatic_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Runs the dragen somatic workflow on the FPGA.
@@ -1223,11 +1217,8 @@ All other options avaiable at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)
-#### Subworkflow overview
-  
-[![dragen-somatic__3.9.3.svg](../../../../images/workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.svg)  
+[CWL File Path](../../../../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.cwl)  
+[CWL File Help Page](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 
 
 ## dragen-somatic-pipeline v(3.9.3) Outputs
@@ -2230,7 +2221,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--66f4a1e  
+**wfl version name:** 3.9.3--75e015e  
 
   
 

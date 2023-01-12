@@ -17,7 +17,7 @@ dragen-alignment 4.0.3 tool
 
   
 > ID: dragen-alignment--4.0.3  
-> md5sum: a6e392b672c768a390646b70c43ffc38
+> md5sum: e08efece9ae8806e7014ef53ed064e4e
 
 ### dragen-alignment v(4.0.3) documentation
   
@@ -30,6 +30,11 @@ Documentation for dragen-alignment v4.0.3
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/dragen-alignment/4.0.3/dragen-alignment__4.0.3.cwl)  
+
+
+### Used By
+  
+- [dragen-alignment-pipeline 4.0.3](../../../workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.md)  
 
   
 
@@ -121,7 +126,7 @@ Range: > 0
 > ID: edit_mode
   
 **Optional:** `True`  
-**Type:** `[ dragen-alignment--4.0.3/edit_mode/0 | dragen-alignment--4.0.3/edit_mode/1 | dragen-alignment--4.0.3/edit_mode/2 | dragen-alignment--4.0.3/edit_mode/3 ]`  
+**Type:** `[ 0 | 1 | 2 | 3  ]`  
 **Docs:**  
 0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.
 
@@ -371,7 +376,7 @@ which is a path inside the dragen container
 > ID: map_orientations
   
 **Optional:** `True`  
-**Type:** `[ dragen-alignment--4.0.3/map_orientations/0 | dragen-alignment--4.0.3/map_orientations/1 | dragen-alignment--4.0.3/map_orientations/2 ]`  
+**Type:** `[ 0 | 1 | 2  ]`  
 **Docs:**  
 Constrain orientations to accept forward-only, reverse-complement only, or any alignments.
 
@@ -570,7 +575,7 @@ Range: 0-255
 > ID: pe_orientation
   
 **Optional:** `True`  
-**Type:** `[ dragen-alignment--4.0.3/pe_orientation/0 | dragen-alignment--4.0.3/pe_orientation/1 | dragen-alignment--4.0.3/pe_orientation/2 ]`  
+**Type:** `[ 0 | 1 | 2  ]`  
 **Docs:**  
 Expected paired-end orientation: 0=FR, 1=RF, 2=FF.
 

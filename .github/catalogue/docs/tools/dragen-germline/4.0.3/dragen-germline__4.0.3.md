@@ -17,7 +17,7 @@ dragen-germline 4.0.3 tool
 
   
 > ID: dragen-germline--4.0.3  
-> md5sum: b91174993a28d3651c6fd12ddbad4eaa
+> md5sum: 05ef4c62b1149fd5d3d74c8d56426fc1
 
 ### dragen-germline v(4.0.3) documentation
   
@@ -30,6 +30,12 @@ Documentation for dragen-germline v4.0.3
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/dragen-germline/4.0.3/dragen-germline__4.0.3.cwl)  
+
+
+### Used By
+  
+- [dragen-germline-pipeline 4.0.3](../../../workflows/dragen-germline-pipeline/4.0.3/dragen-germline-pipeline__4.0.3.md)  
+- [dragen-somatic-with-germline-pipeline 4.0.3](../../../workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
 
   
 
@@ -384,7 +390,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ dragen-germline--4.0.3/sample_sex/male | dragen-germline--4.0.3/sample_sex/female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 

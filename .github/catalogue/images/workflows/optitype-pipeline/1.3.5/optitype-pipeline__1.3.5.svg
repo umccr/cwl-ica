@@ -26,7 +26,7 @@
 <text text-anchor="middle" x="451" y="-657.44" font-family="Times,serif" font-size="14.00">bam_sorted</text>
 </g>
 <!-- get_bam_slice_from_bed_step -->
-<g id="node10" class="node">
+<g id="node7" class="node">
 <title>get_bam_slice_from_bed_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="0,-554.64 0,-591.64 264,-591.64 264,-554.64 0,-554.64"/>
 <text text-anchor="middle" x="132" y="-569.44" font-family="Times,serif" font-size="14.00">sambamba&#45;slice&#45;and&#45;index v(0.8.0)</text>
@@ -55,6 +55,12 @@
 <polygon fill="#94ddf4" stroke="black" points="519.5,-642.64 519.5,-679.64 632.5,-679.64 632.5,-642.64 519.5,-642.64"/>
 <text text-anchor="middle" x="576" y="-657.44" font-family="Times,serif" font-size="14.00">sample_name</text>
 </g>
+<!-- sample_name&#45;&gt;get_bam_slice_from_bed_step -->
+<g id="edge13" class="edge">
+<title>sample_name&#45;&gt;get_bam_slice_from_bed_step</title>
+<path fill="none" stroke="black" d="M558.07,-642.43C545.66,-631.37 528.17,-617.97 510,-611.14 463.15,-593.54 339.55,-597.13 274.39,-592.12"/>
+<polygon fill="black" stroke="black" points="274.34,-588.6 264.07,-591.19 273.72,-595.57 274.34,-588.6"/>
+</g>
 <!-- merge_hla_and_unmapped_bam_files_step -->
 <g id="node8" class="node">
 <title>merge_hla_and_unmapped_bam_files_step</title>
@@ -62,7 +68,7 @@
 <text text-anchor="middle" x="437" y="-400.44" font-family="Times,serif" font-size="14.00">sambamba&#45;merge&#45;and&#45;index v(0.8.0)</text>
 </g>
 <!-- sample_name&#45;&gt;merge_hla_and_unmapped_bam_files_step -->
-<g id="edge13" class="edge">
+<g id="edge14" class="edge">
 <title>sample_name&#45;&gt;merge_hla_and_unmapped_bam_files_step</title>
 <path fill="none" stroke="black" d="M578.03,-642.38C581.18,-606.49 583.53,-524.19 547,-470.14 534.4,-451.5 514.52,-437.42 495.1,-427.22"/>
 <polygon fill="black" stroke="black" points="496.45,-423.99 485.94,-422.67 493.33,-430.26 496.45,-423.99"/>
@@ -78,12 +84,6 @@
 <title>sample_name&#45;&gt;sort_merged_bam_by_name_step</title>
 <path fill="none" stroke="black" d="M582.32,-642.64C597.69,-596.89 632.4,-471.38 585,-385.14 575.5,-367.86 559.11,-354.18 542.83,-343.99"/>
 <polygon fill="black" stroke="black" points="544.23,-340.75 533.84,-338.68 540.67,-346.78 544.23,-340.75"/>
-</g>
-<!-- sample_name&#45;&gt;get_bam_slice_from_bed_step -->
-<g id="edge14" class="edge">
-<title>sample_name&#45;&gt;get_bam_slice_from_bed_step</title>
-<path fill="none" stroke="black" d="M558.07,-642.43C545.66,-631.37 528.17,-617.97 510,-611.14 463.15,-593.54 339.55,-597.13 274.39,-592.12"/>
-<polygon fill="black" stroke="black" points="274.34,-588.6 264.07,-591.19 273.72,-595.57 274.34,-588.6"/>
 </g>
 <!-- unmapped_and_hla_bam_to_fastq_step -->
 <g id="node11" class="node">
@@ -157,17 +157,11 @@
 <polygon fill="#94ddf4" stroke="black" points="555.5,-47.64 555.5,-84.64 668.5,-84.64 668.5,-47.64 555.5,-47.64"/>
 <text text-anchor="middle" x="612" y="-62.44" font-family="Times,serif" font-size="14.00">result_matrix</text>
 </g>
-<!-- subset_unmapped_bam -->
-<g id="node7" class="node">
-<title>subset_unmapped_bam</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="314,-470.64 314,-507.64 538,-507.64 538,-470.64 314,-470.64"/>
-<text text-anchor="middle" x="426" y="-485.44" font-family="Times,serif" font-size="14.00">custom&#45;subset&#45;bam v(1.12.0)</text>
-</g>
-<!-- subset_unmapped_bam&#45;&gt;merge_hla_and_unmapped_bam_files_step -->
+<!-- get_bam_slice_from_bed_step&#45;&gt;merge_hla_and_unmapped_bam_files_step -->
 <g id="edge1" class="edge">
-<title>subset_unmapped_bam&#45;&gt;merge_hla_and_unmapped_bam_files_step</title>
-<path fill="none" stroke="black" d="M428.33,-470.54C429.79,-459.53 431.7,-445.13 433.36,-432.64"/>
-<polygon fill="black" stroke="black" points="436.83,-433.09 434.67,-422.72 429.89,-432.17 436.83,-433.09"/>
+<title>get_bam_slice_from_bed_step&#45;&gt;merge_hla_and_unmapped_bam_files_step</title>
+<path fill="none" stroke="black" d="M160.4,-554.51C194.37,-533.62 253.15,-498.14 305,-470.14 332.93,-455.06 364.84,-439.31 390.29,-427.09"/>
+<polygon fill="black" stroke="black" points="391.84,-430.22 399.35,-422.75 388.82,-423.91 391.84,-430.22"/>
 </g>
 <!-- merge_hla_and_unmapped_bam_files_step&#45;&gt;sort_merged_bam_by_name_step -->
 <g id="edge2" class="edge">
@@ -181,11 +175,17 @@
 <path fill="none" stroke="black" d="M521.36,-301.54C540.51,-289.21 566.3,-272.62 587.1,-259.24"/>
 <polygon fill="black" stroke="black" points="589.17,-262.07 595.68,-253.72 585.38,-256.18 589.17,-262.07"/>
 </g>
-<!-- get_bam_slice_from_bed_step&#45;&gt;merge_hla_and_unmapped_bam_files_step -->
+<!-- subset_unmapped_bam -->
+<g id="node10" class="node">
+<title>subset_unmapped_bam</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="314,-470.64 314,-507.64 538,-507.64 538,-470.64 314,-470.64"/>
+<text text-anchor="middle" x="426" y="-485.44" font-family="Times,serif" font-size="14.00">custom&#45;subset&#45;bam v(1.12.0)</text>
+</g>
+<!-- subset_unmapped_bam&#45;&gt;merge_hla_and_unmapped_bam_files_step -->
 <g id="edge3" class="edge">
-<title>get_bam_slice_from_bed_step&#45;&gt;merge_hla_and_unmapped_bam_files_step</title>
-<path fill="none" stroke="black" d="M160.4,-554.51C194.37,-533.62 253.15,-498.14 305,-470.14 332.93,-455.06 364.84,-439.31 390.29,-427.09"/>
-<polygon fill="black" stroke="black" points="391.84,-430.22 399.35,-422.75 388.82,-423.91 391.84,-430.22"/>
+<title>subset_unmapped_bam&#45;&gt;merge_hla_and_unmapped_bam_files_step</title>
+<path fill="none" stroke="black" d="M428.33,-470.54C429.79,-459.53 431.7,-445.13 433.36,-432.64"/>
+<polygon fill="black" stroke="black" points="436.83,-433.09 434.67,-422.72 429.89,-432.17 436.83,-433.09"/>
 </g>
 <!-- unmapped_and_hla_bam_to_fastq_step&#45;&gt;optitype_step -->
 <g id="edge4" class="edge">
