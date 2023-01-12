@@ -17,7 +17,7 @@ custom-subset-bam 1.12.0 tool
 
   
 > ID: custom-subset-bam--1.12.0  
-> md5sum: afc5368ba66b23e1fb008df1fb2c3f7e
+> md5sum: 94f639083619db1eb8f60f2e16309895
 
 ### custom-subset-bam v(1.12.0) documentation
   
@@ -31,6 +31,11 @@ Use samtools v1.12.0 and shuf to take a random subset of a bam file
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/custom-subset-bam/1.12.0/custom-subset-bam__1.12.0.cwl)  
+
+
+### Used By
+  
+- [optitype-pipeline 1.3.5](../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
 
   
 

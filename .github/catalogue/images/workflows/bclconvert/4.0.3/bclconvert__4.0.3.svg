@@ -22,11 +22,8 @@
 <!-- bclconvert_run_configuration -->
 <g id="node1" class="node">
 <title>bclconvert_run_configuration</title>
-<g id="a_node1"><a xlink:title="The BCLConvert run configuration jsons&#10;">
 <polygon fill="#94ddf4" stroke="black" points="273,-640.99 273,-677.99 497,-677.99 497,-640.99 273,-640.99"/>
 <text text-anchor="middle" x="385" y="-655.79" font-family="Times,serif" font-size="14.00">bclconvert_run_configuration</text>
-</a>
-</g>
 </g>
 <!-- bcl_convert_run_step -->
 <g id="node7" class="node">
@@ -175,11 +172,8 @@
 <!-- bclconvert_run_input_directory -->
 <g id="node2" class="node">
 <title>bclconvert_run_input_directory</title>
-<g id="a_node2"><a xlink:title="The input directory for BCLConvert&#10;">
 <polygon fill="#94ddf4" stroke="black" points="15.5,-640.99 15.5,-677.99 254.5,-677.99 254.5,-640.99 15.5,-640.99"/>
 <text text-anchor="middle" x="135" y="-655.79" font-family="Times,serif" font-size="14.00">bclconvert_run_input_directory</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_run_input_directory&#45;&gt;bcl_convert_run_step -->
 <g id="edge24" class="edge">
@@ -190,38 +184,26 @@
 <!-- bcl_convert_directory_output -->
 <g id="node3" class="node">
 <title>bcl_convert_directory_output</title>
-<g id="a_node3"><a xlink:title="Directories to output fastq files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="531,-165.99 531,-202.99 755,-202.99 755,-165.99 531,-165.99"/>
 <text text-anchor="middle" x="643" y="-180.79" font-family="Times,serif" font-size="14.00">bcl_convert_directory_output</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows -->
 <g id="node4" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node4"><a xlink:title="Directories to fastq list rows&#10;Optional output since this workflow may be used as a validation workflow&#10;">
 <polygon fill="#94ddf4" stroke="black" points="389.5,-165.99 389.5,-202.99 512.5,-202.99 512.5,-165.99 389.5,-165.99"/>
 <text text-anchor="middle" x="451" y="-180.79" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- run_info_out -->
 <g id="node5" class="node">
 <title>run_info_out</title>
-<g id="a_node5"><a xlink:title="The run info file used by the workflow&#10;">
 <polygon fill="#94ddf4" stroke="black" points="266.5,-165.99 266.5,-202.99 371.5,-202.99 371.5,-165.99 266.5,-165.99"/>
 <text text-anchor="middle" x="319" y="-180.79" font-family="Times,serif" font-size="14.00">run_info_out</text>
-</a>
-</g>
 </g>
 <!-- samplesheet_out -->
 <g id="node6" class="node">
 <title>samplesheet_out</title>
-<g id="a_node6"><a xlink:title="The samplesheet file used by the workflow&#10;">
 <polygon fill="#94ddf4" stroke="black" points="111.5,-165.99 111.5,-202.99 248.5,-202.99 248.5,-165.99 111.5,-165.99"/>
 <text text-anchor="middle" x="180" y="-180.79" font-family="Times,serif" font-size="14.00">samplesheet_out</text>
-</a>
-</g>
 </g>
 <!-- bcl_convert_run_step&#45;&gt;bcl_convert_directory_output -->
 <g id="edge25" class="edge">

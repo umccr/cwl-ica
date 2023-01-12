@@ -17,7 +17,7 @@ bcl-convert 4.0.3 tool
 
   
 > ID: bcl-convert--4.0.3  
-> md5sum: 53ca40b4c9a516eb3c0c0e2d4fce1c92
+> md5sum: 926023fbf8c0f1f1b973d3f0e2cd15b2
 
 ### bcl-convert v(4.0.3) documentation
   
@@ -350,7 +350,7 @@ Use Sample_Name Sample Sheet column for *.fastq file names in Sample_Project sub
 > ID: samplesheet
   
 **Optional:** `True`  
-**Type:** `['../../../schemas/samplesheet/2.0.0--4.0.3/samplesheet__2.0.0--4.0.3.yaml#samplesheet', 'File']`  
+**Type:** `['file:///home/runner/work/cwl-ica/cwl-ica/schemas/samplesheet/2.0.0--4.0.3/samplesheet__2.0.0--4.0.3.yaml#samplesheet', 'File']`  
 **Docs:**  
 Use sample sheet object to specify the
 sample sheet location and name, if different from the default under /bcl_input_directory / SampleSheet.csv.

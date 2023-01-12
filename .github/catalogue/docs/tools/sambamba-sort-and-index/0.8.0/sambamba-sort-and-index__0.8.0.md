@@ -17,7 +17,7 @@ sambamba-sort-and-index 0.8.0 tool
 
   
 > ID: sambamba-sort-and-index--0.8.0  
-> md5sum: e84b280b74e78271988d5a7cbc26966a
+> md5sum: 50358a8f67cd5b6b14b3201a87f6b5cc
 
 ### sambamba-sort-and-index v(0.8.0) documentation
   
@@ -33,6 +33,11 @@ More info can be found [here](https://lomereiter.github.io/sambamba/docs/sambamb
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/sambamba-sort-and-index/0.8.0/sambamba-sort-and-index__0.8.0.cwl)  
+
+
+### Used By
+  
+- [optitype-pipeline 1.3.5](../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
 
   
 

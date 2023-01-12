@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 4.0.3 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--4.0.3  
-> md5sum: 807b8c01df4b8f28748f1d2873cc9b40
+> md5sum: 81f0178b538d77113c7e0d60e7f3e4b4
 
 ### dragen-somatic-with-germline-pipeline v(4.0.3) documentation
   
@@ -40,10 +40,10 @@ v4.0.3
 
 ### Uses
   
-- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [dragen-germline 4.0.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)  
-- [multiqc 1.12.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
-- [dragen-somatic 4.0.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.md)  
+- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [dragen-germline 4.0.3](../../../tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [dragen-somatic 4.0.3](../../../tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.md)  
 
   
 
@@ -583,7 +583,7 @@ from /opt/edico/repeat-specs/ based on the reference provided.
 > ID: repeat_genotype_use_catalog
   
 **Optional:** `True`  
-**Type:** `[ dragen-somatic-with-germline-pipeline--4.0.3/repeat_genotype_use_catalog/default | dragen-somatic-with-germline-pipeline--4.0.3/repeat_genotype_use_catalog/default_plus_smn | dragen-somatic-with-germline-pipeline--4.0.3/repeat_genotype_use_catalog/expanded ]`  
+**Type:** `[ default | default_plus_smn | expanded  ]`  
 **Docs:**  
 Repeat variant catalog type to use (default - ~60 repeats, default_plus_smn - 
 same as default with SMN repeat, expanded - ~50K repeats)
@@ -597,7 +597,7 @@ same as default with SMN repeat, expanded - ~50K repeats)
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ dragen-somatic-with-germline-pipeline--4.0.3/sample_sex/male | dragen-somatic-with-germline-pipeline--4.0.3/sample_sex/female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -1105,7 +1105,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7fd7212979d0>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f3ada2aa500>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 
@@ -1367,18 +1367,15 @@ greater than zero. For example, vc-tin-contam-tolerance=-0.1.
   
 > ID: dragen-somatic-with-germline-pipeline--4.0.3/create_dummy_file_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
-#### Subworkflow overview
-  
-[![custom-touch-file__1.0.0.svg](../../../../images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
+[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
 ### run dragen germline step
@@ -1387,7 +1384,7 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: dragen-somatic-with-germline-pipeline--4.0.3/run_dragen_germline_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Runs the dragen germline workflow on the FPGA.
@@ -1395,11 +1392,8 @@ Takes in either a fastq list as a file or a fastq_list_rows schema object
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)
-#### Subworkflow overview
-  
-[![dragen-germline__4.0.3.svg](../../../../images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.svg)  
+[CWL File Path](../../../../../../tools/dragen-germline/4.0.3/dragen-germline__4.0.3.cwl)  
+[CWL File Help Page](../../../tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)  
 
 
 ### dragen qc step
@@ -1408,18 +1402,15 @@ Takes in either a fastq list as a file or a fastq_list_rows schema object
   
 > ID: dragen-somatic-with-germline-pipeline--4.0.3/run_dragen_qc_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)
-#### Subworkflow overview
-  
-[![multiqc__1.12.0.svg](../../../../images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)  
+[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen somatic step
@@ -1428,18 +1419,15 @@ The dragen qc step - this takes in an array of dirs
   
 > ID: dragen-somatic-with-germline-pipeline--4.0.3/run_dragen_somatic_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Run dragen somatic v4.0.3
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.md)
-#### Subworkflow overview
-  
-[![dragen-somatic__4.0.3.svg](../../../../images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-with-germline-pipeline/4.0.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.svg)  
+[CWL File Path](../../../../../../tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.cwl)  
+[CWL File Help Page](../../../tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.md)  
 
 
 ## dragen-somatic-with-germline-pipeline v(4.0.3) Outputs
