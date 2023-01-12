@@ -453,3 +453,10 @@ tools:
         path: 4.0.3/bcl-convert__4.0.3.cwl
         md5sum: 926023fbf8c0f1f1b973d3f0e2cd15b2
     categories: []
+  - name: star
+    path: star
+    versions:
+      - name: 2.7.10
+        path: 2.7.10/star__2.7.10.cwl
+        md5sum: 246bcafcbefa85c0f6ce80d8cec0e043
+    categories: []

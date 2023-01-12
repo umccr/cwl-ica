@@ -518,6 +518,16 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-01-12T02:37:00UTC
             run_instances: []
+      - name: star
+        path: star
+        ica_workflow_name: star_dev-wf
+        ica_workflow_id: wfl.1d2ef6fb37fe4adbb2b42495620999c0
+        versions:
+          - name: 2.7.10
+            path: 2.7.10/star__2.7.10.cwl
+            ica_workflow_version_name: 2.7.10
+            modification_time: 2023-01-06T00:01:30UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline
