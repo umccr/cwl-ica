@@ -19,7 +19,7 @@ bclconvert-scatter 4.0.3 workflow
 
   
 > ID: bclconvert-scatter--4.0.3  
-> md5sum: d0bffff70d7ab7411eafa8f32d983cba
+> md5sum: ccea2e0ed768e8589adcb21eace4dd84
 
 ### bclconvert-scatter v(4.0.3) documentation
   
@@ -187,7 +187,7 @@ Directories to fastq list rows
 
   
 **Optional:** `False`  
-**Output Type:** `Directory[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 Directories to output fastq files
   
@@ -202,7 +202,7 @@ Directories to output fastq files
 
   
 **Optional:** `False`  
-**Output Type:** `File[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 List of samplesheets used to convert
   

@@ -17,7 +17,7 @@ rnasum 0.4.3 tool
 
   
 > ID: rnasum--0.4.3  
-> md5sum: e19adaf8610062dbe53da3fb6dd9a502
+> md5sum: 8f5ce09ffdd303dfe10ffac57949ab02
 
 ### rnasum v(0.4.3) documentation
   

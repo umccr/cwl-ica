@@ -17,7 +17,7 @@ custom-tar-file-list 1.0.0 tool
 
   
 > ID: custom-tar-file-list--1.0.0  
-> md5sum: a0c746969e748b61a19775efedf9e82a
+> md5sum: 6b61818c4be42363b96226a7e1d00863
 
 ### custom-tar-file-list v(1.0.0) documentation
   
@@ -64,7 +64,7 @@ The directory name all files will be placed in
 > ID: file_list
   
 **Optional:** `False`  
-**Type:** `File[]`  
+**Type:** `.[]`  
 **Docs:**  
 List of files to be placed in the directory
 

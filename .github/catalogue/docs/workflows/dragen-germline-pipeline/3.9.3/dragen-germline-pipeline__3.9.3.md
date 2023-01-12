@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: 09c7a09993887bae2389d644ff1dfff0
+> md5sum: 1e17909a4c6b42ef309701704798619d
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -42,9 +42,20 @@ More information on the documentation can be found [here](https://support-docs.i
 
 ### Uses
   
-- [custom-touch-file 1.0.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
-- [dragen-germline 3.9.3 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
+- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [dragen-germline 3.9.3](../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
+
+
+### Used By
+  
+- [umccrise-with-dragen-germline-pipeline 2.0.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.0.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.0.2--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.1.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.1.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.2.0--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.md)  
+- [umccrise-with-dragen-germline-pipeline 2.2.1--3.9.3](../../umccrise-with-dragen-germline-pipeline/2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.md)  
 
   
 
@@ -408,7 +419,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ dragen-germline-pipeline--3.9.3/sample_sex/male | dragen-germline-pipeline--3.9.3/sample_sex/female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -764,18 +775,15 @@ The default value is 500 for germline mode and 50 for somatic mode.
   
 > ID: dragen-germline-pipeline--3.9.3/create_dummy_file_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Intermediate step for letting multiqc-interop be placed in stream mode
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)
-#### Subworkflow overview
-  
-[![custom-touch-file__1.0.0.svg](../../../../images/workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.svg)  
+[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
 ### dragen qc step
@@ -784,18 +792,15 @@ Intermediate step for letting multiqc-interop be placed in stream mode
   
 > ID: dragen-germline-pipeline--3.9.3/dragen_qc_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.md)
-#### Subworkflow overview
-  
-[![multiqc__1.12.0.svg](../../../../images/workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/multiqc/1.12.0/multiqc__1.12.0.svg)  
+[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 
 
 ### run dragen germline step
@@ -804,7 +809,7 @@ The dragen qc step - this takes in an array of dirs
   
 > ID: dragen-germline-pipeline--3.9.3/run_dragen_germline_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Runs the dragen germline workflow on the FPGA.
@@ -812,11 +817,8 @@ Takes in either a fastq list as a file or a fastq_list_rows schema object
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)
-#### Subworkflow overview
-  
-[![dragen-germline__3.9.3.svg](../../../../images/workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/3.9.3/file:/home/runner/work/cwl-ica/cwl-ica/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.svg)  
+[CWL File Path](../../../../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.cwl)  
+[CWL File Help Page](../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
 
 
 ## dragen-germline-pipeline v(3.9.3) Outputs

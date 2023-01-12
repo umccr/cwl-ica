@@ -19,7 +19,7 @@ tabix-workflow 0.2.6 workflow
 
   
 > ID: tabix-workflow--0.2.6  
-> md5sum: 04754879b824a05abe76bb28708b6d70
+> md5sum: fa196f985abbd96da13b855e1c15b626
 
 ### tabix-workflow v(0.2.6) documentation
   
@@ -39,7 +39,7 @@ Just run the tabix tool
 
 ### Uses
   
-- [tabix 0.2.6 :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/tabix/0.2.6/tabix__0.2.6.md)  
+- [tabix 0.2.6](../../../tools/tabix/0.2.6/tabix__0.2.6.md)  
 
   
 
@@ -69,18 +69,15 @@ The input vcf file to be indexed
   
 > ID: tabix-workflow--0.2.6/run_tabix_step
   
-**Step Type:** workflow  
+**Step Type:** tool  
 **Docs:**
   
 Run tabix workflow
 
 #### Links
   
-[CWL File Path](../../../../../../workflows/tabix-workflow/0.2.6/file:/home/runner/work/cwl-ica/cwl-ica/tools/tabix/0.2.6/tabix__0.2.6.cwl)  
-[CWL File Help Page :construction:](file:/home/runner/work/cwl-ica/cwl-ica/tools/tabix/0.2.6/tabix__0.2.6.md)
-#### Subworkflow overview
-  
-[![tabix__0.2.6.svg](../../../../images/workflows/tabix-workflow/0.2.6/file:/home/runner/work/cwl-ica/cwl-ica/tools/tabix/0.2.6/tabix__0.2.6.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/tabix-workflow/0.2.6/file:/home/runner/work/cwl-ica/cwl-ica/tools/tabix/0.2.6/tabix__0.2.6.svg)  
+[CWL File Path](../../../../../../tools/tabix/0.2.6/tabix__0.2.6.cwl)  
+[CWL File Help Page](../../../tools/tabix/0.2.6/tabix__0.2.6.md)  
 
 
 ## tabix-workflow v(0.2.6) Outputs

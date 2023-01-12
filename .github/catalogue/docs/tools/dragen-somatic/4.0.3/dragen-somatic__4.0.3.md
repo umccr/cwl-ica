@@ -17,7 +17,7 @@ dragen-somatic 4.0.3 tool
 
   
 > ID: dragen-somatic--4.0.3  
-> md5sum: 53a60b05aaacc794a632171cc7ea634c
+> md5sum: 6b0d23660664eb83bc8c32d60618fcc1
 
 ### dragen-somatic v(4.0.3) documentation
   
@@ -33,6 +33,12 @@ More information on the documentation can be found [here](https://support-docs.i
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.cwl)  
+
+
+### Used By
+  
+- [dragen-somatic-pipeline 4.0.3](../../../workflows/dragen-somatic-pipeline/4.0.3/dragen-somatic-pipeline__4.0.3.md)  
+- [dragen-somatic-with-germline-pipeline 4.0.3](../../../workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
 
   
 
@@ -539,7 +545,7 @@ from /opt/edico/repeat-specs/ based on the reference provided.
 > ID: repeat_genotype_use_catalog
   
 **Optional:** `True`  
-**Type:** `[ dragen-somatic--4.0.3/repeat_genotype_use_catalog/default | dragen-somatic--4.0.3/repeat_genotype_use_catalog/default_plus_smn | dragen-somatic--4.0.3/repeat_genotype_use_catalog/expanded ]`  
+**Type:** `[ default | default_plus_smn | expanded  ]`  
 **Docs:**  
 Repeat variant catalog type to use (default - ~60 repeats, default_plus_smn - 
 same as default with SMN repeat, expanded - ~50K repeats)
@@ -553,7 +559,7 @@ same as default with SMN repeat, expanded - ~50K repeats)
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ dragen-somatic--4.0.3/sample_sex/male | dragen-somatic--4.0.3/sample_sex/female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -1054,7 +1060,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fe73e952110>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fdef2858bb0>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 

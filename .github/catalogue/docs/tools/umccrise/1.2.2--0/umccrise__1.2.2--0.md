@@ -17,7 +17,7 @@ umccrise 1.2.2--0 tool
 
   
 > ID: umccrise--1.2.2--0  
-> md5sum: 6e77fc6fc4fe0170b937d996202067de
+> md5sum: 153235bb6526bf1978460457000bd905
 
 ### umccrise v(1.2.2--0) documentation
   
@@ -103,7 +103,7 @@ Optionally, samples or batches to ignore
 > ID: genome
   
 **Optional:** `True`  
-**Type:** `[ GRCh37 | hg38 ]`  
+**Type:** `[ GRCh37 | hg38  ]`  
 **Docs:**  
 genome
 
@@ -170,7 +170,7 @@ The argument has to be a file path ending with ".html"
 > ID: resources
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Can be used to limit the amount of memory allowed to be used
 
@@ -209,7 +209,7 @@ Optionally, specific sample or batch to process
 > ID: skip_stage
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Optionally, stages to skip, e.g.: -E oncoviruses -E cpsr
 
@@ -222,7 +222,7 @@ Optionally, stages to skip, e.g.: -E oncoviruses -E cpsr
 > ID: stage
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Optionally, specific stage to run, e.g.: -T pcgr -T coverage -T structural -T small_variants
 

@@ -17,7 +17,7 @@ bedops 2.4.39 tool
 
   
 > ID: bedops--2.4.39  
-> md5sum: 46f5f9516607897de4d06a7cd2bd68c7
+> md5sum: 613f6314413dff5d45f3c27437e80857
 
 ### bedops v(2.4.39) documentation
   
@@ -38,6 +38,11 @@ May use '-' for a file to indicate reading from standard input (BED format only)
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/bedops/2.4.39/bedops__2.4.39.cwl)  
+
+
+### Used By
+  
+- [get-hla-regions-bed 1.0.0](../../../workflows/get-hla-regions-bed/1.0.0/get-hla-regions-bed__1.0.0.md)  
 
   
 

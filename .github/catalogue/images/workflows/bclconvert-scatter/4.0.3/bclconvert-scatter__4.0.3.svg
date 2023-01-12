@@ -22,20 +22,14 @@
 <!-- bclconvert_run_input_directory -->
 <g id="node1" class="node">
 <title>bclconvert_run_input_directory</title>
-<g id="a_node1"><a xlink:title="The input directory for BCLConvert&#10;">
 <polygon fill="#94ddf4" stroke="black" points="143.5,-701.87 143.5,-738.87 382.5,-738.87 382.5,-701.87 143.5,-701.87"/>
 <text text-anchor="middle" x="263" y="-716.67" font-family="Times,serif" font-size="14.00">bclconvert_run_input_directory</text>
-</a>
-</g>
 </g>
 <!-- bcl_convert_scatter_step -->
 <g id="node7" class="node">
 <title>bcl_convert_scatter_step</title>
-<g id="a_node7"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/bclconvert/4.0.3/bclconvert__4.0.3.md" xlink:title="Run BCLConvert with the &#45;&#45;bcl&#45;validate&#45;sample&#45;sheet&#45;only parameter set to true&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="171.5,-325.87 171.5,-362.87 322.5,-362.87 322.5,-325.87 171.5,-325.87"/>
+<polygon fill="#f3cea1" stroke="black" points="171.5,-325.87 171.5,-362.87 322.5,-362.87 322.5,-325.87 171.5,-325.87"/>
 <text text-anchor="middle" x="247" y="-340.67" font-family="Times,serif" font-size="14.00">bclconvert v(4.0.3)</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_run_input_directory&#45;&gt;bcl_convert_scatter_step -->
 <g id="edge8" class="edge">
@@ -46,11 +40,8 @@
 <!-- bcl_convert_samplesheet_check_scatter_step -->
 <g id="node9" class="node">
 <title>bcl_convert_samplesheet_check_scatter_step</title>
-<g id="a_node9"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md" xlink:title="Run BCLConvert with the &#45;&#45;bcl&#45;validate&#45;sample&#45;sheet&#45;only parameter set to true&#10;">
-<polygon fill="#ee7ae9" stroke="black" points="254.5,-572.87 254.5,-609.87 561.5,-609.87 561.5,-572.87 254.5,-572.87"/>
+<polygon fill="#f3cea1" stroke="black" points="254.5,-572.87 254.5,-609.87 561.5,-609.87 561.5,-572.87 254.5,-572.87"/>
 <text text-anchor="middle" x="408" y="-587.67" font-family="Times,serif" font-size="14.00">validate&#45;bclconvert&#45;samplesheet v(4.0.3)</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_run_input_directory&#45;&gt;bcl_convert_samplesheet_check_scatter_step -->
 <g id="edge9" class="edge">
@@ -61,20 +52,14 @@
 <!-- bclconvert_run_configurations -->
 <g id="node2" class="node">
 <title>bclconvert_run_configurations</title>
-<g id="a_node2"><a xlink:title="The BCLConvert run configuration jsons&#10;">
 <polygon fill="#94ddf4" stroke="black" points="401,-701.87 401,-738.87 633,-738.87 633,-701.87 401,-701.87"/>
 <text text-anchor="middle" x="517" y="-716.67" font-family="Times,serif" font-size="14.00">bclconvert_run_configurations</text>
-</a>
-</g>
 </g>
 <!-- get_bcl_convert_run_configuration_object_step -->
 <g id="node6" class="node">
 <title>get_bcl_convert_run_configuration_object_step</title>
-<g id="a_node6"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/add-run-info-and-samplesheet-to-bclconvert-run-configuration/2.0.0--4.0.3/add-run-info-and-samplesheet-to-bclconvert-run-configuration__2.0.0--4.0.3.md" xlink:title="Get bcl convert run configuration object step for samplesheet validation. &#160;&#10;This means that the bcl_validate_sample_sheet_only is set to true and we&#10;have the run_info and samplesheet parameters set&#10;">
-<polygon fill="#ee9a00" stroke="black" points="219,-449.87 219,-486.87 779,-486.87 779,-449.87 219,-449.87"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="219,-449.87 219,-486.87 779,-486.87 779,-449.87 219,-449.87"/>
 <text text-anchor="middle" x="499" y="-464.67" font-family="Times,serif" font-size="14.00">add&#45;run&#45;info&#45;and&#45;samplesheet&#45;to&#45;bclconvert&#45;run&#45;configuration v(2.0.0&#45;&#45;4.0.3)</text>
-</a>
-</g>
 </g>
 <!-- bclconvert_run_configurations&#45;&gt;get_bcl_convert_run_configuration_object_step -->
 <g id="edge10" class="edge">
@@ -91,29 +76,20 @@
 <!-- fastq_list_rows -->
 <g id="node3" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node3"><a xlink:title="Directories to fastq list rows&#10;">
 <polygon fill="#94ddf4" stroke="black" points="358.5,-78.87 358.5,-115.87 481.5,-115.87 481.5,-78.87 358.5,-78.87"/>
 <text text-anchor="middle" x="420" y="-93.67" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- fastq_output_directories -->
 <g id="node4" class="node">
 <title>fastq_output_directories</title>
-<g id="a_node4"><a xlink:title="Directories to output fastq files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16.5,-78.87 16.5,-115.87 207.5,-115.87 207.5,-78.87 16.5,-78.87"/>
 <text text-anchor="middle" x="112" y="-93.67" font-family="Times,serif" font-size="14.00">fastq_output_directories</text>
-</a>
-</g>
 </g>
 <!-- samplesheets -->
 <g id="node5" class="node">
 <title>samplesheets</title>
-<g id="a_node5"><a xlink:title="List of samplesheets used to convert&#10;">
 <polygon fill="#94ddf4" stroke="black" points="226,-78.87 226,-115.87 340,-115.87 340,-78.87 226,-78.87"/>
 <text text-anchor="middle" x="283" y="-93.67" font-family="Times,serif" font-size="14.00">samplesheets</text>
-</a>
-</g>
 </g>
 <!-- get_bcl_convert_run_configuration_object_step&#45;&gt;bcl_convert_scatter_step -->
 <g id="edge1" class="edge">
@@ -136,11 +112,8 @@
 <!-- flatten_fastq_list_rows_array_step -->
 <g id="node8" class="node">
 <title>flatten_fastq_list_rows_array_step</title>
-<g id="a_node8"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md" xlink:title="fastq list rows is an array and bcl convert is from a directory output.&#10;This scatters the arrays to a single array&#10;">
-<polygon fill="#ee9a00" stroke="black" points="274.5,-201.87 274.5,-238.87 565.5,-238.87 565.5,-201.87 274.5,-201.87"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="274.5,-201.87 274.5,-238.87 565.5,-238.87 565.5,-201.87 274.5,-201.87"/>
 <text text-anchor="middle" x="420" y="-216.67" font-family="Times,serif" font-size="14.00">flatten&#45;array&#45;fastq&#45;list&#45;schema v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- bcl_convert_scatter_step&#45;&gt;flatten_fastq_list_rows_array_step -->
 <g id="edge2" class="edge">

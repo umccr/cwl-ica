@@ -17,7 +17,7 @@ custom-create-directory 1.0.1 tool
 
   
 > ID: custome-create-directory--1.0.1  
-> md5sum: 65e25c17130dea6673a2de78021c2e17
+> md5sum: 4b74c6c5e23e715c682fa6d7c5d025ef
 
 ### custome-create-directory v(1.0.1) documentation
   
@@ -47,7 +47,7 @@ and a directory with a trailing slash as copy the contents of this directory.
 > ID: input_directories
   
 **Optional:** `True`  
-**Type:** `Directory[]`  
+**Type:** `.[]`  
 **Docs:**  
 List of input directories to go into the output directory
 
