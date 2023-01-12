@@ -124,7 +124,7 @@ workflows:
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
         md5sum: dfe4d663df914d9d131597ded5298c10
-    categories: &id001 []
+    categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline
     versions:
@@ -142,7 +142,7 @@ workflows:
       - name: 1.2.2--0
         path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
         md5sum: dfe4d663df914d9d131597ded5298c10
-    categories: *id001
+    categories: []
   - name: umccrise-with-dragen-germline-pipeline
     path: umccrise-with-dragen-germline-pipeline
     versions:
