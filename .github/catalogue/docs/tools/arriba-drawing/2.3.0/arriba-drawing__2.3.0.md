@@ -17,7 +17,7 @@ arriba-drawing 2.3.0 tool
 
   
 > ID: arriba-drawing--2.3.0  
-> md5sum: 2ffff3e0fa4412d4ea1a62582da26ca6
+> md5sum: 685242701386888b9abf4af575860662
 
 ### arriba-drawing v(2.3.0) documentation
   
@@ -35,6 +35,7 @@ Documentation for arriba-drawing v2.3.0
 ### Used By
   
 - [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
+- [dragen-transcriptome-pipeline 4.0.3](../../../workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
 
   
 

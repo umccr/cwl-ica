@@ -17,7 +17,7 @@ custom-samplesheet-split-by-settings 1.0.0 tool
 
   
 > ID: custom-samplesheet-split-by-settings--1.0.0  
-> md5sum: bec84971fcc33b2b92e2aafc14ae57dc
+> md5sum: bf183faa2f522e07f674377acb9a73e5
 
 ### custom-samplesheet-split-by-settings v(1.0.0) documentation
   
@@ -89,7 +89,7 @@ The path to the original samplesheet csv file
 > ID: samplesheet_format
   
 **Optional:** `True`  
-**Type:** `[ v1 | v2 ]`  
+**Type:** `[ v1 | v2  ]`  
 **Docs:**  
 Set samplesheet to be in v1 or v2 format
 
@@ -135,7 +135,7 @@ Directory of samplesheets
 
   
 **Optional:** `False`  
-**Output Type:** `File[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 List of output samplesheets
   

@@ -19,7 +19,7 @@ umccrise-pipeline 1.2.2--0 workflow
 
   
 > ID: umccrise-pipeline--1.2.2--0  
-> md5sum: dfe4d663df914d9d131597ded5298c10
+> md5sum: 23e0df54d3a6ddaa46a9712add1218a9
 
 ### umccrise-pipeline v(1.2.2--0) documentation
   
@@ -95,7 +95,7 @@ Propagated to snakemake. Prints rules and commands to be run without actually ex
 > ID: genome
   
 **Optional:** `True`  
-**Type:** `[ GRCh37 | hg38 ]`  
+**Type:** `[ GRCh37 | hg38  ]`  
 **Docs:**  
 genome
 
@@ -162,7 +162,7 @@ The argument has to be a file path ending with ".html"
 > ID: resources
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Can be used to limit the amount of memory allowed to be used
 
@@ -188,7 +188,7 @@ Number of attempts to complete a job
 > ID: skip_stage
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Optionally, stages to skip, e.g.: -E oncoviruses -E cpsr
 
@@ -201,7 +201,7 @@ Optionally, stages to skip, e.g.: -E oncoviruses -E cpsr
 > ID: stage
   
 **Optional:** `True`  
-**Type:** `string[]`  
+**Type:** `.[]`  
 **Docs:**  
 Optionally, specific stage to run, e.g.: -T pcgr -T coverage -T structural -T small_variants
 

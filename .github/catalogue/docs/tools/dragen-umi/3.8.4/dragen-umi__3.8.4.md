@@ -17,7 +17,7 @@ dragen-umi 3.8.4 tool
 
   
 > ID: dragen-umi--3.8.4  
-> md5sum: fe60dcdc2910893dd52c7849e0ee2f63
+> md5sum: 56a1733172d405b6ebd4f6467254bddd
 
 ### dragen-umi v(3.8.4) documentation
   
@@ -387,7 +387,7 @@ The sample name of the tumor sample
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ male | female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -439,7 +439,7 @@ Second FASTQ file of tumor reads for somatic mode
 > ID: umi_correction_scheme
   
 **Optional:** `True`  
-**Type:** `[ lookup | random | none | positional ]`  
+**Type:** `[ lookup | random | none | positional  ]`  
 **Docs:**  
 Describes the methodology to use for correcting sequencing errors in UMIs.
 
@@ -465,7 +465,7 @@ Enter the path to a customized correction table.
 > ID: umi_emit_multiplicity
   
 **Optional:** `True`  
-**Type:** `[ both | duplex | simplex ]`  
+**Type:** `[ both | duplex | simplex  ]`  
 **Docs:**  
 Set the consensus sequence type to output.
 Default value is "both" that outputs both simplex and duplex sequences.

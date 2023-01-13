@@ -17,7 +17,7 @@ custom-gzip-file 1.0.0 tool
 
   
 > ID: custom-gzip-file--1.0.0  
-> md5sum: 2dc3c246676d097daba533bdc35d8474
+> md5sum: b45042c3cbea47d896b757ecf348a677
 
 ### custom-gzip-file v(1.0.0) documentation
   

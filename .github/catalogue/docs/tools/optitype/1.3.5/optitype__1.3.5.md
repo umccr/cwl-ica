@@ -17,7 +17,7 @@ optitype 1.3.5 tool
 
   
 > ID: optitype--1.3.5  
-> md5sum: cc623454d5f6cdbff4ac0c1dbdb9e800
+> md5sum: d71bc1e36ff0c898fb5a4d74afc33502
 
 ### optitype v(1.3.5) documentation
   
@@ -33,6 +33,11 @@ selecting all major and minor HLA Class I alleles.
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/optitype/1.3.5/optitype__1.3.5.cwl)  
+
+
+### Used By
+  
+- [optitype-pipeline 1.3.5](../../../workflows/optitype-pipeline/1.3.5/optitype-pipeline__1.3.5.md)  
 
   
 
@@ -131,7 +136,7 @@ Name of the sample - used for the prefix argument
 > ID: seq_datatype
   
 **Optional:** `False`  
-**Type:** `[ optitype--1.3.5/seq_datatype/dna | optitype--1.3.5/seq_datatype/rna ]`  
+**Type:** `[ dna | rna  ]`  
 **Docs:**  
 The sequencing type either dna or rna
 

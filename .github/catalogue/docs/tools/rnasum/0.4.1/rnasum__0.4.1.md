@@ -17,7 +17,7 @@ rnasum 0.4.1 tool
 
   
 > ID: rnasum--0.4.1  
-> md5sum: d37bdd307abdeb1cc95d6a85eda4dfd7
+> md5sum: 0c871e1ae94a3859d660862ed786b278
 
 ### rnasum v(0.4.1) documentation
   
@@ -595,7 +595,7 @@ bash wfr.dce6425b60044757a78bb545c627c58a.launch.sh
 
   
 **workflow name:** rnasum_prod-wf  
-**wfl version name:** 0.4.1--dc397e0  
+**wfl version name:** 0.4.1--75e015e  
 
   
 

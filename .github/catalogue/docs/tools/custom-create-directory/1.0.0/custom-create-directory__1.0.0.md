@@ -17,7 +17,7 @@ custom-create-directory 1.0.0 tool
 
   
 > ID: custom-create-directory--1.0.0  
-> md5sum: 83e11ed9bce6a9ea0e5e9bb28a1b1c77
+> md5sum: 76cecdd499a7db79c994373ff95c5862
 
 ### custom-create-directory v(1.0.0) documentation
   
@@ -38,6 +38,7 @@ Create a directory based on a list of inputs generated as input files or input d
 - [dragen-transcriptome-pipeline 3.7.5](../../../workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.md)  
 - [dragen-transcriptome-pipeline 3.8.4](../../../workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
 - [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
+- [dragen-transcriptome-pipeline 4.0.3](../../../workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
 
   
 
@@ -52,7 +53,7 @@ Create a directory based on a list of inputs generated as input files or input d
 > ID: input_directories
   
 **Optional:** `True`  
-**Type:** `Directory[]`  
+**Type:** `.[]`  
 **Docs:**  
 List of input directories to go into the output directory
 
@@ -65,7 +66,7 @@ List of input directories to go into the output directory
 > ID: input_files
   
 **Optional:** `True`  
-**Type:** `File[]`  
+**Type:** `.[]`  
 **Docs:**  
 List of input files to go into the output directory
 
