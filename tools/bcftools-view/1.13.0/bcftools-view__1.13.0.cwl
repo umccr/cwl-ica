@@ -4,7 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -20,17 +20,17 @@ label: bcftools-view v(1.13.0)
 doc: |
     Documentation for bcftools-view v1.13.0. Detail at https://samtools.github.io/bcftools/bcftools.html#view 
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: small
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
         coresMin: 1
         ramMin: 2000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/bcftools:1.13--h3a49de5_0
+        dockerPull: public.ecr.aws/biocontainers/bcftools:1.13--h3a49de5_0
 
 requirements:
   InlineJavascriptRequirement: {}

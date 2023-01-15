@@ -22,20 +22,14 @@
 <!-- output_filename -->
 <g id="node1" class="node">
 <title>output_filename</title>
-<g id="a_node1"><a xlink:title="Redirects stdout&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16.5,-2721.96 16.5,-2758.96 147.5,-2758.96 147.5,-2721.96 16.5,-2721.96"/>
 <text text-anchor="middle" x="82" y="-2736.76" font-family="Times,serif" font-size="14.00">output_filename</text>
-</a>
-</g>
 </g>
 <!-- ghif_qc_workflow -->
 <g id="node87" class="node">
 <title>ghif_qc_workflow</title>
-<g id="a_node87"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/ghif-qc/1.0.1/ghif-qc__1.0.1.md" xlink:title="In&#45;house workflow for collecting QC metrics">
-<polygon fill="#ee7ae9" stroke="black" points="682,-1259.96 682,-1296.96 806,-1296.96 806,-1259.96 682,-1259.96"/>
+<polygon fill="#f3cea1" stroke="black" points="682,-1259.96 682,-1296.96 806,-1296.96 806,-1259.96 682,-1259.96"/>
 <text text-anchor="middle" x="744" y="-1274.76" font-family="Times,serif" font-size="14.00">ghif&#45;qc v(1.0.1)</text>
-</a>
-</g>
 </g>
 <!-- output_filename&#45;&gt;ghif_qc_workflow -->
 <g id="edge10" class="edge">
@@ -46,11 +40,8 @@
 <!-- output_json -->
 <g id="node2" class="node">
 <title>output_json</title>
-<g id="a_node2"><a xlink:title="output file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="166,-2721.96 166,-2758.96 266,-2758.96 266,-2721.96 166,-2721.96"/>
 <text text-anchor="middle" x="216" y="-2736.76" font-family="Times,serif" font-size="14.00">output_json</text>
-</a>
-</g>
 </g>
 <!-- output_json&#45;&gt;ghif_qc_workflow -->
 <g id="edge11" class="edge">
@@ -61,11 +52,8 @@
 <!-- output_json_filename -->
 <g id="node3" class="node">
 <title>output_json_filename</title>
-<g id="a_node3"><a xlink:title="output file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="284.5,-2721.96 284.5,-2758.96 451.5,-2758.96 451.5,-2721.96 284.5,-2721.96"/>
 <text text-anchor="middle" x="368" y="-2736.76" font-family="Times,serif" font-size="14.00">output_json_filename</text>
-</a>
-</g>
 </g>
 <!-- output_json_filename&#45;&gt;ghif_qc_workflow -->
 <g id="edge12" class="edge">
@@ -76,11 +64,8 @@
 <!-- sample_id -->
 <g id="node4" class="node">
 <title>sample_id</title>
-<g id="a_node4"><a xlink:title="Sample identity&#10;">
 <polygon fill="#94ddf4" stroke="black" points="469,-2721.96 469,-2758.96 557,-2758.96 557,-2721.96 469,-2721.96"/>
 <text text-anchor="middle" x="513" y="-2736.76" font-family="Times,serif" font-size="14.00">sample_id</text>
-</a>
-</g>
 </g>
 <!-- sample_id&#45;&gt;ghif_qc_workflow -->
 <g id="edge13" class="edge">
@@ -91,11 +76,8 @@
 <!-- sample_source -->
 <g id="node5" class="node">
 <title>sample_source</title>
-<g id="a_node5"><a xlink:title="Sample original source&#10;">
 <polygon fill="#94ddf4" stroke="black" points="575,-2721.96 575,-2758.96 697,-2758.96 697,-2721.96 575,-2721.96"/>
 <text text-anchor="middle" x="636" y="-2736.76" font-family="Times,serif" font-size="14.00">sample_source</text>
-</a>
-</g>
 </g>
 <!-- sample_source&#45;&gt;ghif_qc_workflow -->
 <g id="edge14" class="edge">
@@ -106,11 +88,8 @@
 <!-- script -->
 <g id="node6" class="node">
 <title>script</title>
-<g id="a_node6"><a xlink:title="Path to PRECISE python script on GitHub&#10;">
 <polygon fill="#94ddf4" stroke="black" points="715,-2721.96 715,-2758.96 773,-2758.96 773,-2721.96 715,-2721.96"/>
 <text text-anchor="middle" x="744" y="-2736.76" font-family="Times,serif" font-size="14.00">script</text>
-</a>
-</g>
 </g>
 <!-- script&#45;&gt;ghif_qc_workflow -->
 <g id="edge15" class="edge">
@@ -121,11 +100,8 @@
 <!-- target_regions -->
 <g id="node7" class="node">
 <title>target_regions</title>
-<g id="a_node7"><a xlink:title="Do stats in these regions only. Tab&#45;delimited file chr,from,to, 1&#45;based, inclusive. []&#10;">
 <polygon fill="#94ddf4" stroke="black" points="791.5,-2721.96 791.5,-2758.96 912.5,-2758.96 912.5,-2721.96 791.5,-2721.96"/>
 <text text-anchor="middle" x="852" y="-2736.76" font-family="Times,serif" font-size="14.00">target_regions</text>
-</a>
-</g>
 </g>
 <!-- target_regions&#45;&gt;ghif_qc_workflow -->
 <g id="edge16" class="edge">
@@ -136,20 +112,14 @@
 <!-- cnv_normal_b_allele_vcf -->
 <g id="node8" class="node">
 <title>cnv_normal_b_allele_vcf</title>
-<g id="a_node8"><a xlink:title="Specify a matched normal SNV VCF.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="12597.5,-2721.96 12597.5,-2758.96 12784.5,-2758.96 12784.5,-2721.96 12597.5,-2721.96"/>
 <text text-anchor="middle" x="12691" y="-2736.76" font-family="Times,serif" font-size="14.00">cnv_normal_b_allele_vcf</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_somatic_step -->
 <g id="node86" class="node">
 <title>run_dragen_somatic_step</title>
-<g id="a_node86"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md" xlink:title="Runs the dragen somatic workflow on the FPGA.&#10;Step can take in tumor fastq list or tumor fastq list rows to be run in TO mode.&#10;All other options avaiable at the top of the workflow&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="7491,-1975.96 7491,-2012.96 7677,-2012.96 7677,-1975.96 7491,-1975.96"/>
 <text text-anchor="middle" x="7584" y="-1990.76" font-family="Times,serif" font-size="14.00">dragen&#45;somatic v(3.9.3)</text>
-</a>
-</g>
 </g>
 <!-- cnv_normal_b_allele_vcf&#45;&gt;run_dragen_somatic_step -->
 <g id="edge17" class="edge">
@@ -160,11 +130,8 @@
 <!-- cnv_normal_cnv_vcf -->
 <g id="node9" class="node">
 <title>cnv_normal_cnv_vcf</title>
-<g id="a_node9"><a xlink:title="Specify germline CNVs from the matched normal sample.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="12422,-2721.96 12422,-2758.96 12580,-2758.96 12580,-2721.96 12422,-2721.96"/>
 <text text-anchor="middle" x="12501" y="-2736.76" font-family="Times,serif" font-size="14.00">cnv_normal_cnv_vcf</text>
-</a>
-</g>
 </g>
 <!-- cnv_normal_cnv_vcf&#45;&gt;run_dragen_somatic_step -->
 <g id="edge18" class="edge">
@@ -175,11 +142,8 @@
 <!-- cnv_population_b_allele_vcf -->
 <g id="node10" class="node">
 <title>cnv_population_b_allele_vcf</title>
-<g id="a_node10"><a xlink:title="Specify a population SNP catalog.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="12192,-2721.96 12192,-2758.96 12404,-2758.96 12404,-2721.96 12192,-2721.96"/>
 <text text-anchor="middle" x="12298" y="-2736.76" font-family="Times,serif" font-size="14.00">cnv_population_b_allele_vcf</text>
-</a>
-</g>
 </g>
 <!-- cnv_population_b_allele_vcf&#45;&gt;run_dragen_somatic_step -->
 <g id="edge19" class="edge">
@@ -190,11 +154,8 @@
 <!-- cnv_somatic_enable_het_calling -->
 <g id="node11" class="node">
 <title>cnv_somatic_enable_het_calling</title>
-<g id="a_node11"><a xlink:title="Enable HET&#45;calling mode for heterogeneous segments.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="11932,-2721.96 11932,-2758.96 12174,-2758.96 12174,-2721.96 11932,-2721.96"/>
 <text text-anchor="middle" x="12053" y="-2736.76" font-family="Times,serif" font-size="14.00">cnv_somatic_enable_het_calling</text>
-</a>
-</g>
 </g>
 <!-- cnv_somatic_enable_het_calling&#45;&gt;run_dragen_somatic_step -->
 <g id="edge20" class="edge">
@@ -205,11 +166,8 @@
 <!-- cnv_use_somatic_vc_baf -->
 <g id="node12" class="node">
 <title>cnv_use_somatic_vc_baf</title>
-<g id="a_node12"><a xlink:title="If running in tumor&#45;normal mode with the SNV caller enabled, use this option&#10;to specify the germline heterozygous sites.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="11727.5,-2721.96 11727.5,-2758.96 11914.5,-2758.96 11914.5,-2721.96 11727.5,-2721.96"/>
 <text text-anchor="middle" x="11821" y="-2736.76" font-family="Times,serif" font-size="14.00">cnv_use_somatic_vc_baf</text>
-</a>
-</g>
 </g>
 <!-- cnv_use_somatic_vc_baf&#45;&gt;run_dragen_somatic_step -->
 <g id="edge21" class="edge">
@@ -220,11 +178,8 @@
 <!-- cnv_use_somatic_vc_vaf -->
 <g id="node13" class="node">
 <title>cnv_use_somatic_vc_vaf</title>
-<g id="a_node13"><a xlink:title="Use the variant allele frequencies (VAFs) from the somatic SNVs to help select&#10;the tumor model for the sample.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="11524,-2721.96 11524,-2758.96 11710,-2758.96 11710,-2721.96 11524,-2721.96"/>
 <text text-anchor="middle" x="11617" y="-2736.76" font-family="Times,serif" font-size="14.00">cnv_use_somatic_vc_vaf</text>
-</a>
-</g>
 </g>
 <!-- cnv_use_somatic_vc_vaf&#45;&gt;run_dragen_somatic_step -->
 <g id="edge22" class="edge">
@@ -235,11 +190,8 @@
 <!-- dbsnp_annotation -->
 <g id="node14" class="node">
 <title>dbsnp_annotation</title>
-<g id="a_node14"><a xlink:title="In Germline, Tumor&#45;Normal somatic, or Tumor&#45;Only somatic modes,&#10;DRAGEN can look up variant calls in a dbSNP database and add annotations for any matches that it finds there.&#10;To enable the dbSNP database search, set the &#45;&#45;dbsnp option to the full path to the dbSNP database&#10;VCF or .vcf.gz file, which must be sorted in reference order.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="11362.5,-2721.96 11362.5,-2758.96 11505.5,-2758.96 11505.5,-2721.96 11362.5,-2721.96"/>
 <text text-anchor="middle" x="11434" y="-2736.76" font-family="Times,serif" font-size="14.00">dbsnp_annotation</text>
-</a>
-</g>
 </g>
 <!-- dbsnp_annotation&#45;&gt;run_dragen_somatic_step -->
 <g id="edge23" class="edge">
@@ -250,11 +202,8 @@
 <!-- enable_cnv -->
 <g id="node15" class="node">
 <title>enable_cnv</title>
-<g id="a_node15"><a xlink:title="Enable CNV processing in the DRAGEN Host Software.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="11249.5,-2721.96 11249.5,-2758.96 11344.5,-2758.96 11344.5,-2721.96 11249.5,-2721.96"/>
 <text text-anchor="middle" x="11297" y="-2736.76" font-family="Times,serif" font-size="14.00">enable_cnv</text>
-</a>
-</g>
 </g>
 <!-- enable_cnv&#45;&gt;run_dragen_somatic_step -->
 <g id="edge24" class="edge">
@@ -265,11 +214,8 @@
 <!-- enable_duplicate_marking -->
 <g id="node16" class="node">
 <title>enable_duplicate_marking</title>
-<g id="a_node16"><a xlink:title="Enable the flagging of duplicate output&#10;alignment records.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="11028.5,-2721.96 11028.5,-2758.96 11231.5,-2758.96 11231.5,-2721.96 11028.5,-2721.96"/>
 <text text-anchor="middle" x="11130" y="-2736.76" font-family="Times,serif" font-size="14.00">enable_duplicate_marking</text>
-</a>
-</g>
 </g>
 <!-- enable_duplicate_marking&#45;&gt;run_dragen_somatic_step -->
 <g id="edge25" class="edge">
@@ -280,11 +226,8 @@
 <!-- enable_hla -->
 <g id="node17" class="node">
 <title>enable_hla</title>
-<g id="a_node17"><a xlink:title="Enable HLA typing by setting &#45;&#45;enable&#45;hla flag to true&#10;">
 <polygon fill="#94ddf4" stroke="black" points="10918,-2721.96 10918,-2758.96 11010,-2758.96 11010,-2721.96 10918,-2721.96"/>
 <text text-anchor="middle" x="10964" y="-2736.76" font-family="Times,serif" font-size="14.00">enable_hla</text>
-</a>
-</g>
 </g>
 <!-- enable_hla&#45;&gt;run_dragen_somatic_step -->
 <g id="edge26" class="edge">
@@ -295,11 +238,8 @@
 <!-- enable_hrd -->
 <g id="node18" class="node">
 <title>enable_hrd</title>
-<g id="a_node18"><a xlink:title="Set to true to enable HRD scoring to quantify genomic instability.&#10;Requires somatic CNV calls.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="10804.5,-2721.96 10804.5,-2758.96 10899.5,-2758.96 10899.5,-2721.96 10804.5,-2721.96"/>
 <text text-anchor="middle" x="10852" y="-2736.76" font-family="Times,serif" font-size="14.00">enable_hrd</text>
-</a>
-</g>
 </g>
 <!-- enable_hrd&#45;&gt;run_dragen_somatic_step -->
 <g id="edge27" class="edge">
@@ -310,11 +250,8 @@
 <!-- enable_sv -->
 <g id="node19" class="node">
 <title>enable_sv</title>
-<g id="a_node19"><a xlink:title="Enable/disable structural variant&#10;caller. Default is false.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="10700,-2721.96 10700,-2758.96 10786,-2758.96 10786,-2721.96 10700,-2721.96"/>
 <text text-anchor="middle" x="10743" y="-2736.76" font-family="Times,serif" font-size="14.00">enable_sv</text>
-</a>
-</g>
 </g>
 <!-- enable_sv&#45;&gt;run_dragen_somatic_step -->
 <g id="edge28" class="edge">
@@ -325,11 +262,8 @@
 <!-- enable_tmb -->
 <g id="node20" class="node">
 <title>enable_tmb</title>
-<g id="a_node20"><a xlink:title="Enables TMB. If set, the small variant caller, Illumina Annotation Engine,&#10;and the related callability report are enabled.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="10582.5,-2721.96 10582.5,-2758.96 10681.5,-2758.96 10681.5,-2721.96 10582.5,-2721.96"/>
 <text text-anchor="middle" x="10632" y="-2736.76" font-family="Times,serif" font-size="14.00">enable_tmb</text>
-</a>
-</g>
 </g>
 <!-- enable_tmb&#45;&gt;run_dragen_somatic_step -->
 <g id="edge29" class="edge">
@@ -340,11 +274,8 @@
 <!-- hla_allele_frequency_file -->
 <g id="node21" class="node">
 <title>hla_allele_frequency_file</title>
-<g id="a_node21"><a xlink:title="Use the population&#45;level HLA allele frequency file to break ties if one or more HLA allele produces the same or similar results.&#10;The input HLA allele frequency file must be in CSV format and contain the HLA alleles and the occurrence frequency in population.&#10;If &#45;&#45;hla&#45;allele&#45;frequency&#45;file is not specified, DRAGEN automatically uses hla_classI_allele_frequency.csv from /opt/edico/config/.&#10;Population&#45;level allele frequencies can be obtained from the Allele Frequency Net database.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="10374,-2721.96 10374,-2758.96 10564,-2758.96 10564,-2721.96 10374,-2721.96"/>
 <text text-anchor="middle" x="10469" y="-2736.76" font-family="Times,serif" font-size="14.00">hla_allele_frequency_file</text>
-</a>
-</g>
 </g>
 <!-- hla_allele_frequency_file&#45;&gt;run_dragen_somatic_step -->
 <g id="edge30" class="edge">
@@ -355,11 +286,8 @@
 <!-- hla_bed_file -->
 <g id="node22" class="node">
 <title>hla_bed_file</title>
-<g id="a_node22"><a xlink:title="Use the HLA region BED input file to specify the region to extract HLA reads from.&#10;DRAGEN HLA Caller parses the input file for regions within the BED file, and then&#10;extracts reads accordingly to align with the HLA allele reference.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="10256,-2721.96 10256,-2758.96 10356,-2758.96 10356,-2721.96 10256,-2721.96"/>
 <text text-anchor="middle" x="10306" y="-2736.76" font-family="Times,serif" font-size="14.00">hla_bed_file</text>
-</a>
-</g>
 </g>
 <!-- hla_bed_file&#45;&gt;run_dragen_somatic_step -->
 <g id="edge31" class="edge">
@@ -370,11 +298,8 @@
 <!-- hla_min_reads -->
 <g id="node23" class="node">
 <title>hla_min_reads</title>
-<g id="a_node23"><a xlink:title="Set the minimum number of reads to align to HLA alleles to ensure sufficient coverage and perform HLA typing.&#10;The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a&#10;lower threshold value.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="10118.5,-2721.96 10118.5,-2758.96 10237.5,-2758.96 10237.5,-2721.96 10118.5,-2721.96"/>
 <text text-anchor="middle" x="10178" y="-2736.76" font-family="Times,serif" font-size="14.00">hla_min_reads</text>
-</a>
-</g>
 </g>
 <!-- hla_min_reads&#45;&gt;run_dragen_somatic_step -->
 <g id="edge32" class="edge">
@@ -385,11 +310,8 @@
 <!-- hla_reference_file -->
 <g id="node24" class="node">
 <title>hla_reference_file</title>
-<g id="a_node24"><a xlink:title="Use the HLA allele reference file to specify the reference alleles to align against.&#10;The input HLA reference file must be in FASTA format and contain the protein sequence separated into exons.&#10;If &#45;&#45;hla&#45;reference&#45;file is not specified, DRAGEN uses hla_classI_ref_freq.fasta from /opt/edico/config/.&#10;The reference HLA sequences are obtained from the IMGT/HLA database.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="9958,-2721.96 9958,-2758.96 10100,-2758.96 10100,-2721.96 9958,-2721.96"/>
 <text text-anchor="middle" x="10029" y="-2736.76" font-family="Times,serif" font-size="14.00">hla_reference_file</text>
-</a>
-</g>
 </g>
 <!-- hla_reference_file&#45;&gt;run_dragen_somatic_step -->
 <g id="edge33" class="edge">
@@ -400,11 +322,8 @@
 <!-- hla_tiebreaker_threshold -->
 <g id="node25" class="node">
 <title>hla_tiebreaker_threshold</title>
-<g id="a_node25"><a xlink:title="If more than one allele has a similar number of reads aligned and there is not a clear indicator for the best allele,&#10;the alleles are considered as ties. The HLA Caller places the tied alleles into a candidate set for tie breaking based&#10;on the population allele frequency. If an allele has more than the specified fraction of reads aligned (normalized to&#10;the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="9746,-2721.96 9746,-2758.96 9940,-2758.96 9940,-2721.96 9746,-2721.96"/>
 <text text-anchor="middle" x="9843" y="-2736.76" font-family="Times,serif" font-size="14.00">hla_tiebreaker_threshold</text>
-</a>
-</g>
 </g>
 <!-- hla_tiebreaker_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge34" class="edge">
@@ -415,11 +334,8 @@
 <!-- hla_zygosity_threshold -->
 <g id="node26" class="node">
 <title>hla_zygosity_threshold</title>
-<g id="a_node26"><a xlink:title="If the minor allele at a given locus has fewer reads mapped than a fraction of the read count of the major allele,&#10;then the HLA Caller infers homozygosity for the given HLA&#45;I gene. You can use this option to specify the fraction value.&#10;The default value is 0.15.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="9548.5,-2721.96 9548.5,-2758.96 9727.5,-2758.96 9727.5,-2721.96 9548.5,-2721.96"/>
 <text text-anchor="middle" x="9638" y="-2736.76" font-family="Times,serif" font-size="14.00">hla_zygosity_threshold</text>
-</a>
-</g>
 </g>
 <!-- hla_zygosity_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge35" class="edge">
@@ -430,11 +346,8 @@
 <!-- output_directory -->
 <g id="node27" class="node">
 <title>output_directory</title>
-<g id="a_node27"><a xlink:title="Required &#45; The output directory.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="9394,-2721.96 9394,-2758.96 9530,-2758.96 9530,-2721.96 9394,-2721.96"/>
 <text text-anchor="middle" x="9462" y="-2736.76" font-family="Times,serif" font-size="14.00">output_directory</text>
-</a>
-</g>
 </g>
 <!-- output_directory&#45;&gt;run_dragen_somatic_step -->
 <g id="edge36" class="edge">
@@ -445,11 +358,8 @@
 <!-- output_file_prefix -->
 <g id="node28" class="node">
 <title>output_file_prefix</title>
-<g id="a_node28"><a xlink:title="Required &#45; the output file prefix&#10;">
 <polygon fill="#94ddf4" stroke="black" points="9236,-2721.96 9236,-2758.96 9376,-2758.96 9376,-2721.96 9236,-2721.96"/>
 <text text-anchor="middle" x="9306" y="-2736.76" font-family="Times,serif" font-size="14.00">output_file_prefix</text>
-</a>
-</g>
 </g>
 <!-- output_file_prefix&#45;&gt;run_dragen_somatic_step -->
 <g id="edge37" class="edge">
@@ -460,11 +370,8 @@
 <!-- qc_coverage_ignore_overlaps -->
 <g id="node29" class="node">
 <title>qc_coverage_ignore_overlaps</title>
-<g id="a_node29"><a xlink:title="Set to true to resolve all of the alignments for each fragment and avoid double&#45;counting any&#10;overlapping bases. This might result in marginally longer run times.&#10;This option also requires setting &#45;&#45;enable&#45;map&#45;align=true.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="8994,-2721.96 8994,-2758.96 9218,-2758.96 9218,-2721.96 8994,-2721.96"/>
 <text text-anchor="middle" x="9106" y="-2736.76" font-family="Times,serif" font-size="14.00">qc_coverage_ignore_overlaps</text>
-</a>
-</g>
 </g>
 <!-- qc_coverage_ignore_overlaps&#45;&gt;run_dragen_somatic_step -->
 <g id="edge38" class="edge">
@@ -475,11 +382,8 @@
 <!-- qc_coverage_region_1 -->
 <g id="node30" class="node">
 <title>qc_coverage_region_1</title>
-<g id="a_node30"><a xlink:title="Generates coverage region report using bed file 1.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="8802.5,-2721.96 8802.5,-2758.96 8975.5,-2758.96 8975.5,-2721.96 8802.5,-2721.96"/>
 <text text-anchor="middle" x="8889" y="-2736.76" font-family="Times,serif" font-size="14.00">qc_coverage_region_1</text>
-</a>
-</g>
 </g>
 <!-- qc_coverage_region_1&#45;&gt;run_dragen_somatic_step -->
 <g id="edge39" class="edge">
@@ -490,11 +394,8 @@
 <!-- qc_coverage_region_2 -->
 <g id="node31" class="node">
 <title>qc_coverage_region_2</title>
-<g id="a_node31"><a xlink:title="Generates coverage region report using bed file 2.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="8611.5,-2721.96 8611.5,-2758.96 8784.5,-2758.96 8784.5,-2721.96 8611.5,-2721.96"/>
 <text text-anchor="middle" x="8698" y="-2736.76" font-family="Times,serif" font-size="14.00">qc_coverage_region_2</text>
-</a>
-</g>
 </g>
 <!-- qc_coverage_region_2&#45;&gt;run_dragen_somatic_step -->
 <g id="edge40" class="edge">
@@ -505,11 +406,8 @@
 <!-- qc_coverage_region_3 -->
 <g id="node32" class="node">
 <title>qc_coverage_region_3</title>
-<g id="a_node32"><a xlink:title="Generates coverage region report using bed file 3.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="8420.5,-2721.96 8420.5,-2758.96 8593.5,-2758.96 8593.5,-2721.96 8420.5,-2721.96"/>
 <text text-anchor="middle" x="8507" y="-2736.76" font-family="Times,serif" font-size="14.00">qc_coverage_region_3</text>
-</a>
-</g>
 </g>
 <!-- qc_coverage_region_3&#45;&gt;run_dragen_somatic_step -->
 <g id="edge41" class="edge">
@@ -520,11 +418,8 @@
 <!-- reference_tar -->
 <g id="node33" class="node">
 <title>reference_tar</title>
-<g id="a_node33"><a xlink:title="Path to ref data tarball&#10;">
 <polygon fill="#94ddf4" stroke="black" points="8289.5,-2721.96 8289.5,-2758.96 8402.5,-2758.96 8402.5,-2721.96 8289.5,-2721.96"/>
 <text text-anchor="middle" x="8346" y="-2736.76" font-family="Times,serif" font-size="14.00">reference_tar</text>
-</a>
-</g>
 </g>
 <!-- reference_tar&#45;&gt;run_dragen_somatic_step -->
 <g id="edge42" class="edge">
@@ -535,11 +430,8 @@
 <!-- sample_sex -->
 <g id="node34" class="node">
 <title>sample_sex</title>
-<g id="a_node34"><a xlink:title="Specifies the sex of a sample&#10;">
 <polygon fill="#94ddf4" stroke="black" points="8173,-2721.96 8173,-2758.96 8271,-2758.96 8271,-2721.96 8173,-2721.96"/>
 <text text-anchor="middle" x="8222" y="-2736.76" font-family="Times,serif" font-size="14.00">sample_sex</text>
-</a>
-</g>
 </g>
 <!-- sample_sex&#45;&gt;run_dragen_somatic_step -->
 <g id="edge43" class="edge">
@@ -550,11 +442,8 @@
 <!-- sv_call_regions_bed -->
 <g id="node35" class="node">
 <title>sv_call_regions_bed</title>
-<g id="a_node35"><a xlink:title="Specifies a BED file containing the set of regions to call.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7997.5,-2721.96 7997.5,-2758.96 8154.5,-2758.96 8154.5,-2721.96 7997.5,-2721.96"/>
 <text text-anchor="middle" x="8076" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_call_regions_bed</text>
-</a>
-</g>
 </g>
 <!-- sv_call_regions_bed&#45;&gt;run_dragen_somatic_step -->
 <g id="edge44" class="edge">
@@ -565,11 +454,8 @@
 <!-- sv_discovery -->
 <g id="node36" class="node">
 <title>sv_discovery</title>
-<g id="a_node36"><a xlink:title="Enable SV discovery. This flag can be set to false only when &#45;&#45;sv&#45;forcegt&#45;vcf is used.&#10;When set to false, SV discovery is disabled and only the forced genotyping input variants&#10;are processed. The default is true.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7872.5,-2721.96 7872.5,-2758.96 7979.5,-2758.96 7979.5,-2721.96 7872.5,-2721.96"/>
 <text text-anchor="middle" x="7926" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_discovery</text>
-</a>
-</g>
 </g>
 <!-- sv_discovery&#45;&gt;run_dragen_somatic_step -->
 <g id="edge45" class="edge">
@@ -580,11 +466,8 @@
 <!-- sv_enable_liquid_tumor_mode -->
 <g id="node37" class="node">
 <title>sv_enable_liquid_tumor_mode</title>
-<g id="a_node37"><a xlink:title="Enable liquid tumor mode.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7624,-2721.96 7624,-2758.96 7854,-2758.96 7854,-2721.96 7624,-2721.96"/>
 <text text-anchor="middle" x="7739" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_enable_liquid_tumor_mode</text>
-</a>
-</g>
 </g>
 <!-- sv_enable_liquid_tumor_mode&#45;&gt;run_dragen_somatic_step -->
 <g id="edge46" class="edge">
@@ -595,11 +478,8 @@
 <!-- sv_enable_somatic_ins_tandup_hotspot_regions -->
 <g id="node38" class="node">
 <title>sv_enable_somatic_ins_tandup_hotspot_regions</title>
-<g id="a_node38"><a xlink:title="Enable or disable the ITD hotspot region input. The default is true in somatic variant analysis.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7252,-2721.96 7252,-2758.96 7606,-2758.96 7606,-2721.96 7252,-2721.96"/>
 <text text-anchor="middle" x="7429" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_enable_somatic_ins_tandup_hotspot_regions</text>
-</a>
-</g>
 </g>
 <!-- sv_enable_somatic_ins_tandup_hotspot_regions&#45;&gt;run_dragen_somatic_step -->
 <g id="edge47" class="edge">
@@ -610,11 +490,8 @@
 <!-- sv_exome -->
 <g id="node39" class="node">
 <title>sv_exome</title>
-<g id="a_node39"><a xlink:title="Set to true to configure the variant caller for targeted sequencing inputs,&#10;which includes disabling high depth filters.&#10;In integrated mode, the default is to autodetect targeted sequencing input,&#10;and in standalone mode the default is false.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7148,-2721.96 7148,-2758.96 7234,-2758.96 7234,-2721.96 7148,-2721.96"/>
 <text text-anchor="middle" x="7191" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_exome</text>
-</a>
-</g>
 </g>
 <!-- sv_exome&#45;&gt;run_dragen_somatic_step -->
 <g id="edge48" class="edge">
@@ -625,11 +502,8 @@
 <!-- sv_forcegt_vcf -->
 <g id="node40" class="node">
 <title>sv_forcegt_vcf</title>
-<g id="a_node40"><a xlink:title="Specify a VCF of structural variants for forced genotyping. The variants are scored and emitted&#10;in the output VCF even if not found in the sample data.&#10;The variants are merged with any additional variants discovered directly from the sample data.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7012,-2721.96 7012,-2758.96 7130,-2758.96 7130,-2721.96 7012,-2721.96"/>
 <text text-anchor="middle" x="7071" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_forcegt_vcf</text>
-</a>
-</g>
 </g>
 <!-- sv_forcegt_vcf&#45;&gt;run_dragen_somatic_step -->
 <g id="edge49" class="edge">
@@ -640,11 +514,8 @@
 <!-- sv_output_contigs -->
 <g id="node41" class="node">
 <title>sv_output_contigs</title>
-<g id="a_node41"><a xlink:title="Set to true to have assembled contig sequences output in a VCF file. The default is false.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6848.5,-2721.96 6848.5,-2758.96 6993.5,-2758.96 6993.5,-2721.96 6848.5,-2721.96"/>
 <text text-anchor="middle" x="6921" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_output_contigs</text>
-</a>
-</g>
 </g>
 <!-- sv_output_contigs&#45;&gt;run_dragen_somatic_step -->
 <g id="edge50" class="edge">
@@ -655,11 +526,8 @@
 <!-- sv_region -->
 <g id="node42" class="node">
 <title>sv_region</title>
-<g id="a_node42"><a xlink:title="Limit the analysis to a specified region of the genome for debugging purposes.&#10;This option can be specified multiple times to build a list of regions.&#10;The value must be in the format “chr:startPos&#45;endPos”..&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6745.5,-2721.96 6745.5,-2758.96 6830.5,-2758.96 6830.5,-2721.96 6745.5,-2721.96"/>
 <text text-anchor="middle" x="6788" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_region</text>
-</a>
-</g>
 </g>
 <!-- sv_region&#45;&gt;run_dragen_somatic_step -->
 <g id="edge51" class="edge">
@@ -670,11 +538,8 @@
 <!-- sv_se_overlap_pair_evidence -->
 <g id="node43" class="node">
 <title>sv_se_overlap_pair_evidence</title>
-<g id="a_node43"><a xlink:title="Allow overlapping read pairs to be considered as evidence.&#10;By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if &lt;20%.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6507,-2721.96 6507,-2758.96 6727,-2758.96 6727,-2721.96 6507,-2721.96"/>
 <text text-anchor="middle" x="6617" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_se_overlap_pair_evidence</text>
-</a>
-</g>
 </g>
 <!-- sv_se_overlap_pair_evidence&#45;&gt;run_dragen_somatic_step -->
 <g id="edge52" class="edge">
@@ -685,11 +550,8 @@
 <!-- sv_somatic_ins_tandup_hotspot_regions_bed -->
 <g id="node44" class="node">
 <title>sv_somatic_ins_tandup_hotspot_regions_bed</title>
-<g id="a_node44"><a xlink:title="Specify a BED of ITD hotspot regions to increase sensitivity for calling ITDs in somatic variant analysis.&#10;By default, DRAGEN SV automatically selects areference&#45;specific hotspots BED file from&#10;/opt/edico/config/sv_somatic_ins_tandup_hotspot_*.bed.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6155.5,-2721.96 6155.5,-2758.96 6488.5,-2758.96 6488.5,-2721.96 6155.5,-2721.96"/>
 <text text-anchor="middle" x="6322" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_somatic_ins_tandup_hotspot_regions_bed</text>
-</a>
-</g>
 </g>
 <!-- sv_somatic_ins_tandup_hotspot_regions_bed&#45;&gt;run_dragen_somatic_step -->
 <g id="edge53" class="edge">
@@ -700,11 +562,8 @@
 <!-- sv_tin_contam_tolerance -->
 <g id="node45" class="node">
 <title>sv_tin_contam_tolerance</title>
-<g id="a_node45"><a xlink:title="Set the Tumor&#45;in&#45;Normal (TiN) contamination tolerance level.&#10;You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="5946.5,-2721.96 5946.5,-2758.96 6137.5,-2758.96 6137.5,-2721.96 5946.5,-2721.96"/>
 <text text-anchor="middle" x="6042" y="-2736.76" font-family="Times,serif" font-size="14.00">sv_tin_contam_tolerance</text>
-</a>
-</g>
 </g>
 <!-- sv_tin_contam_tolerance&#45;&gt;run_dragen_somatic_step -->
 <g id="edge54" class="edge">
@@ -715,11 +574,8 @@
 <!-- tmb_db_threshold -->
 <g id="node46" class="node">
 <title>tmb_db_threshold</title>
-<g id="a_node46"><a xlink:title="Specify the minimum allele count (total number of observations) for an allele in gnomAD or 1000 Genome&#10;to be considered a germline variant. &#160;Variant calls that have the same positions and allele are ignored&#10;from the TMB calculation. The default value is 10.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="5783.5,-2721.96 5783.5,-2758.96 5928.5,-2758.96 5928.5,-2721.96 5783.5,-2721.96"/>
 <text text-anchor="middle" x="5856" y="-2736.76" font-family="Times,serif" font-size="14.00">tmb_db_threshold</text>
-</a>
-</g>
 </g>
 <!-- tmb_db_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge55" class="edge">
@@ -730,11 +586,8 @@
 <!-- tmb_vaf_threshold -->
 <g id="node47" class="node">
 <title>tmb_vaf_threshold</title>
-<g id="a_node47"><a xlink:title="Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out.&#10;The default value is 0.05.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="5616.5,-2721.96 5616.5,-2758.96 5765.5,-2758.96 5765.5,-2721.96 5616.5,-2721.96"/>
 <text text-anchor="middle" x="5691" y="-2736.76" font-family="Times,serif" font-size="14.00">tmb_vaf_threshold</text>
-</a>
-</g>
 </g>
 <!-- tmb_vaf_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge56" class="edge">
@@ -745,11 +598,8 @@
 <!-- tumor_fastq_list -->
 <g id="node48" class="node">
 <title>tumor_fastq_list</title>
-<g id="a_node48"><a xlink:title="CSV file that contains a list of FASTQ files&#10;to process. read_1 and read_2 components in the CSV file must be presigned urls.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="5466,-2721.96 5466,-2758.96 5598,-2758.96 5598,-2721.96 5466,-2721.96"/>
 <text text-anchor="middle" x="5532" y="-2736.76" font-family="Times,serif" font-size="14.00">tumor_fastq_list</text>
-</a>
-</g>
 </g>
 <!-- tumor_fastq_list&#45;&gt;run_dragen_somatic_step -->
 <g id="edge57" class="edge">
@@ -760,11 +610,8 @@
 <!-- tumor_fastq_list_rows -->
 <g id="node49" class="node">
 <title>tumor_fastq_list_rows</title>
-<g id="a_node49"><a xlink:title="Alternative to providing a file, one can instead provide a list of &#39;fastq&#45;list&#45;row&#39; objects for tumor sample&#10;">
 <polygon fill="#94ddf4" stroke="black" points="5274.5,-2721.96 5274.5,-2758.96 5447.5,-2758.96 5447.5,-2721.96 5274.5,-2721.96"/>
 <text text-anchor="middle" x="5361" y="-2736.76" font-family="Times,serif" font-size="14.00">tumor_fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- tumor_fastq_list_rows&#45;&gt;run_dragen_somatic_step -->
 <g id="edge58" class="edge">
@@ -775,11 +622,8 @@
 <!-- vc_af_call_threshold -->
 <g id="node50" class="node">
 <title>vc_af_call_threshold</title>
-<g id="a_node50"><a xlink:title="Set the allele frequency call threshold to emit a call in the VCF if the AF filter is enabled.&#10;The default is 0.01.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="5097.5,-2721.96 5097.5,-2758.96 5256.5,-2758.96 5256.5,-2721.96 5097.5,-2721.96"/>
 <text text-anchor="middle" x="5177" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_af_call_threshold</text>
-</a>
-</g>
 </g>
 <!-- vc_af_call_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge59" class="edge">
@@ -790,11 +634,8 @@
 <!-- vc_af_filter_threshold -->
 <g id="node51" class="node">
 <title>vc_af_filter_threshold</title>
-<g id="a_node51"><a xlink:title="Set the allele frequency filter threshold to mark emitted VCF calls as filtered if the AF filter is&#10;enabled.&#10;The default is 0.05.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="4910.5,-2721.96 4910.5,-2758.96 5079.5,-2758.96 5079.5,-2721.96 4910.5,-2721.96"/>
 <text text-anchor="middle" x="4995" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_af_filter_threshold</text>
-</a>
-</g>
 </g>
 <!-- vc_af_filter_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge60" class="edge">
@@ -805,11 +646,8 @@
 <!-- vc_callability_normal_thresh -->
 <g id="node52" class="node">
 <title>vc_callability_normal_thresh</title>
-<g id="a_node52"><a xlink:title="The &#45;&#45;vc&#45;callability&#45;normal&#45;thresh option specifies the callability threshold for normal samples.&#10;The somatic callable regions report includes all regions with normal coverage above the normal threshold.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="4673.5,-2721.96 4673.5,-2758.96 4892.5,-2758.96 4892.5,-2721.96 4673.5,-2721.96"/>
 <text text-anchor="middle" x="4783" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_callability_normal_thresh</text>
-</a>
-</g>
 </g>
 <!-- vc_callability_normal_thresh&#45;&gt;run_dragen_somatic_step -->
 <g id="edge61" class="edge">
@@ -820,11 +658,8 @@
 <!-- vc_callability_tumor_thresh -->
 <g id="node53" class="node">
 <title>vc_callability_tumor_thresh</title>
-<g id="a_node53"><a xlink:title="The &#45;&#45;vc&#45;callability&#45;tumor&#45;thresh option specifies the callability threshold for tumor samples. The&#10;somatic callable regions report includes all regions with tumor coverage above the tumor threshold.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="4443,-2721.96 4443,-2758.96 4655,-2758.96 4655,-2721.96 4443,-2721.96"/>
 <text text-anchor="middle" x="4549" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_callability_tumor_thresh</text>
-</a>
-</g>
 </g>
 <!-- vc_callability_tumor_thresh&#45;&gt;run_dragen_somatic_step -->
 <g id="edge62" class="edge">
@@ -835,11 +670,8 @@
 <!-- vc_decoy_contigs -->
 <g id="node54" class="node">
 <title>vc_decoy_contigs</title>
-<g id="a_node54"><a xlink:title="The &#45;&#45;vc&#45;decoy&#45;contigs option specifies a comma&#45;separated list of contigs to skip during variant calling.&#10;This option can be set in the configuration file.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="4285.5,-2721.96 4285.5,-2758.96 4424.5,-2758.96 4424.5,-2721.96 4285.5,-2721.96"/>
 <text text-anchor="middle" x="4355" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_decoy_contigs</text>
-</a>
-</g>
 </g>
 <!-- vc_decoy_contigs&#45;&gt;run_dragen_somatic_step -->
 <g id="edge63" class="edge">
@@ -850,11 +682,8 @@
 <!-- vc_enable_af_filter -->
 <g id="node55" class="node">
 <title>vc_enable_af_filter</title>
-<g id="a_node55"><a xlink:title="Enables the allele frequency filter. The default value is false. When set to true, the VCF excludes variants&#10;with allele frequencies below the AF call threshold or variants with an allele frequency below the AF filter&#10;threshold and tagged with low AF filter tag. The default AF call threshold is 1% and the default AF filter&#10;threshold is 5%.&#10;To change the threshold values, use the following command line options:&#10; &#160;&#45;&#45;vc&#45;af&#45;callthreshold and &#45;&#45;vc&#45;af&#45;filter&#45;threshold.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="4119,-2721.96 4119,-2758.96 4267,-2758.96 4267,-2721.96 4119,-2721.96"/>
 <text text-anchor="middle" x="4193" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_af_filter</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_af_filter&#45;&gt;run_dragen_somatic_step -->
 <g id="edge64" class="edge">
@@ -865,11 +694,8 @@
 <!-- vc_enable_baf -->
 <g id="node56" class="node">
 <title>vc_enable_baf</title>
-<g id="a_node56"><a xlink:title="Enable or disable B&#45;allele frequency output. Enabled by default.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="3985,-2721.96 3985,-2758.96 4101,-2758.96 4101,-2721.96 3985,-2721.96"/>
 <text text-anchor="middle" x="4043" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_baf</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_baf&#45;&gt;run_dragen_somatic_step -->
 <g id="edge65" class="edge">
@@ -880,11 +706,8 @@
 <!-- vc_enable_decoy_contigs -->
 <g id="node57" class="node">
 <title>vc_enable_decoy_contigs</title>
-<g id="a_node57"><a xlink:title="If &#45;&#45;vc&#45;enable&#45;decoy&#45;contigs is set to true, variant calls on the decoy contigs are enabled.&#10;The default value is false.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="3773.5,-2721.96 3773.5,-2758.96 3966.5,-2758.96 3966.5,-2721.96 3773.5,-2721.96"/>
 <text text-anchor="middle" x="3870" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_decoy_contigs</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_decoy_contigs&#45;&gt;run_dragen_somatic_step -->
 <g id="edge66" class="edge">
@@ -895,11 +718,8 @@
 <!-- vc_enable_gatk_acceleration -->
 <g id="node58" class="node">
 <title>vc_enable_gatk_acceleration</title>
-<g id="a_node58"><a xlink:title="If is set to true, the variant caller runs in GATK mode&#10;(concordant with GATK 3.7 in germline mode and GATK 4.0 in somatic mode).&#10;">
 <polygon fill="#94ddf4" stroke="black" points="3537,-2721.96 3537,-2758.96 3755,-2758.96 3755,-2721.96 3537,-2721.96"/>
 <text text-anchor="middle" x="3646" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_gatk_acceleration</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_gatk_acceleration&#45;&gt;run_dragen_somatic_step -->
 <g id="edge67" class="edge">
@@ -910,11 +730,8 @@
 <!-- vc_enable_liquid_tumor_mode -->
 <g id="node59" class="node">
 <title>vc_enable_liquid_tumor_mode</title>
-<g id="a_node59"><a xlink:title="In a tumor&#45;normal analysis, DRAGEN accounts for tumor&#45;in&#45;normal (TiN) contamination by running liquid&#10;tumor mode. Liquid tumor mode is disabled by default. When liquid tumor mode is enabled, DRAGEN is&#10;able to call variants in the presence of TiN contamination up to a specified maximum tolerance level.&#10;vc&#45;enable&#45;liquid&#45;tumor&#45;mode enables liquid tumor mode with a default maximum contamination&#10;TiN tolerance of 0.15. If using the default maximum contamination TiN tolerance, somatic variants are&#10;expected to be observed in the normal sample with allele frequencies up to 15% of the corresponding&#10;allele in the tumor sample.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="3289,-2721.96 3289,-2758.96 3519,-2758.96 3519,-2721.96 3289,-2721.96"/>
 <text text-anchor="middle" x="3404" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_liquid_tumor_mode</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_liquid_tumor_mode&#45;&gt;run_dragen_somatic_step -->
 <g id="edge68" class="edge">
@@ -925,11 +742,8 @@
 <!-- vc_enable_non_homref_normal_filter -->
 <g id="node60" class="node">
 <title>vc_enable_non_homref_normal_filter</title>
-<g id="a_node60"><a xlink:title="Enables the non&#45;homref normal filter. The default value is true. When set to true, the VCF filters out&#10;variants if the normal sample genotype is not a homozygous reference.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2995.5,-2721.96 2995.5,-2758.96 3270.5,-2758.96 3270.5,-2721.96 2995.5,-2721.96"/>
 <text text-anchor="middle" x="3133" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_non_homref_normal_filter</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_non_homref_normal_filter&#45;&gt;run_dragen_somatic_step -->
 <g id="edge69" class="edge">
@@ -940,11 +754,8 @@
 <!-- vc_enable_phasing -->
 <g id="node61" class="node">
 <title>vc_enable_phasing</title>
-<g id="a_node61"><a xlink:title="The –vc&#45;enable&#45;phasing option enables variants to be phased when possible. The default value is true.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2828.5,-2721.96 2828.5,-2758.96 2977.5,-2758.96 2977.5,-2721.96 2828.5,-2721.96"/>
 <text text-anchor="middle" x="2903" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_phasing</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_phasing&#45;&gt;run_dragen_somatic_step -->
 <g id="edge70" class="edge">
@@ -955,11 +766,8 @@
 <!-- vc_enable_roh -->
 <g id="node62" class="node">
 <title>vc_enable_roh</title>
-<g id="a_node62"><a xlink:title="Enable or disable the ROH caller by setting this option to true or false. Enabled by default for human autosomes only.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2693.5,-2721.96 2693.5,-2758.96 2810.5,-2758.96 2810.5,-2721.96 2693.5,-2721.96"/>
 <text text-anchor="middle" x="2752" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_roh</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_roh&#45;&gt;run_dragen_somatic_step -->
 <g id="edge71" class="edge">
@@ -970,11 +778,8 @@
 <!-- vc_enable_triallelic_filter -->
 <g id="node63" class="node">
 <title>vc_enable_triallelic_filter</title>
-<g id="a_node63"><a xlink:title="Enables the multiallelic filter. The default is true.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2481,-2721.96 2481,-2758.96 2675,-2758.96 2675,-2721.96 2481,-2721.96"/>
 <text text-anchor="middle" x="2578" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_triallelic_filter</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_triallelic_filter&#45;&gt;run_dragen_somatic_step -->
 <g id="edge72" class="edge">
@@ -985,11 +790,8 @@
 <!-- vc_enable_vcf_output -->
 <g id="node64" class="node">
 <title>vc_enable_vcf_output</title>
-<g id="a_node64"><a xlink:title="The –vc&#45;enable&#45;vcf&#45;output option enables VCF file output during a gVCF run. The default value is false.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2295,-2721.96 2295,-2758.96 2463,-2758.96 2463,-2721.96 2295,-2721.96"/>
 <text text-anchor="middle" x="2379" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_enable_vcf_output</text>
-</a>
-</g>
 </g>
 <!-- vc_enable_vcf_output&#45;&gt;run_dragen_somatic_step -->
 <g id="edge73" class="edge">
@@ -1000,11 +802,8 @@
 <!-- vc_hotspot_log10_prior_boost -->
 <g id="node65" class="node">
 <title>vc_hotspot_log10_prior_boost</title>
-<g id="a_node65"><a xlink:title="The size of the hotspot adjustment can be controlled via vc&#45;hotspotlog10&#45;prior&#45;boost,&#10;which has a default value of 4 (log10 scale) corresponding to an increase of 40 phred.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2049.5,-2721.96 2049.5,-2758.96 2276.5,-2758.96 2276.5,-2721.96 2049.5,-2721.96"/>
 <text text-anchor="middle" x="2163" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_hotspot_log10_prior_boost</text>
-</a>
-</g>
 </g>
 <!-- vc_hotspot_log10_prior_boost&#45;&gt;run_dragen_somatic_step -->
 <g id="edge74" class="edge">
@@ -1015,11 +814,8 @@
 <!-- vc_max_reads_per_active_region -->
 <g id="node66" class="node">
 <title>vc_max_reads_per_active_region</title>
-<g id="a_node66"><a xlink:title="specifies the maximum number of reads covering a given active region.&#10;Default is 10000 for the somatic workflow&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1783,-2721.96 1783,-2758.96 2031,-2758.96 2031,-2721.96 1783,-2721.96"/>
 <text text-anchor="middle" x="1907" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_max_reads_per_active_region</text>
-</a>
-</g>
 </g>
 <!-- vc_max_reads_per_active_region&#45;&gt;run_dragen_somatic_step -->
 <g id="edge75" class="edge">
@@ -1030,11 +826,8 @@
 <!-- vc_max_reads_per_raw_region -->
 <g id="node67" class="node">
 <title>vc_max_reads_per_raw_region</title>
-<g id="a_node67"><a xlink:title="specifies the maximum number of reads covering a given raw region.&#10;Default is 30000 for the somatic workflow&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1531.5,-2721.96 1531.5,-2758.96 1764.5,-2758.96 1764.5,-2721.96 1531.5,-2721.96"/>
 <text text-anchor="middle" x="1648" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_max_reads_per_raw_region</text>
-</a>
-</g>
 </g>
 <!-- vc_max_reads_per_raw_region&#45;&gt;run_dragen_somatic_step -->
 <g id="edge76" class="edge">
@@ -1045,11 +838,8 @@
 <!-- vc_min_tumor_read_qual -->
 <g id="node68" class="node">
 <title>vc_min_tumor_read_qual</title>
-<g id="a_node68"><a xlink:title="The &#45;&#45;vc&#45;min&#45;tumor&#45;read&#45;qual option specifies the minimum read quality (MAPQ) to be considered for&#10;variant calling. The default value is 3 for tumor&#45;normal analysis or 20 for tumor&#45;only analysis.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1320.5,-2721.96 1320.5,-2758.96 1513.5,-2758.96 1513.5,-2721.96 1320.5,-2721.96"/>
 <text text-anchor="middle" x="1417" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_min_tumor_read_qual</text>
-</a>
-</g>
 </g>
 <!-- vc_min_tumor_read_qual&#45;&gt;run_dragen_somatic_step -->
 <g id="edge77" class="edge">
@@ -1060,11 +850,8 @@
 <!-- vc_remove_all_soft_clips -->
 <g id="node69" class="node">
 <title>vc_remove_all_soft_clips</title>
-<g id="a_node69"><a xlink:title="If is set to true, the variant caller does not use soft clips of reads to determine variants.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1112,-2721.96 1112,-2758.96 1302,-2758.96 1302,-2721.96 1112,-2721.96"/>
 <text text-anchor="middle" x="1207" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_remove_all_soft_clips</text>
-</a>
-</g>
 </g>
 <!-- vc_remove_all_soft_clips&#45;&gt;run_dragen_somatic_step -->
 <g id="edge78" class="edge">
@@ -1075,11 +862,8 @@
 <!-- vc_roh_blacklist_bed -->
 <g id="node70" class="node">
 <title>vc_roh_blacklist_bed</title>
-<g id="a_node70"><a xlink:title="If provided, the ROH caller ignores variants that are contained in any region in the blacklist BED file.&#10;DRAGEN distributes blacklist files for all popular human genomes and automatically selects a blacklist to&#10;match the genome in use, unless this option is used explicitly select a file.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="930.5,-2721.96 930.5,-2758.96 1093.5,-2758.96 1093.5,-2721.96 930.5,-2721.96"/>
 <text text-anchor="middle" x="1012" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_roh_blacklist_bed</text>
-</a>
-</g>
 </g>
 <!-- vc_roh_blacklist_bed&#45;&gt;run_dragen_somatic_step -->
 <g id="edge79" class="edge">
@@ -1090,11 +874,8 @@
 <!-- vc_somatic_hotspots -->
 <g id="node71" class="node">
 <title>vc_somatic_hotspots</title>
-<g id="a_node71"><a xlink:title="The somatic hotspots option allows an input VCF to specify the positions where the risk for somatic&#10;mutations are assumed to be significantly elevated. DRAGEN genotyping priors are boosted for all&#10;postions specified in the VCF, so it is possible to call a variant at one of these sites with fewer supporting&#10;reads. The cosmic database in VCF format can be used as one source of prior information to boost&#10;sensitivity for known somatic mutations.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="13888.5,-2721.96 13888.5,-2758.96 14051.5,-2758.96 14051.5,-2721.96 13888.5,-2721.96"/>
 <text text-anchor="middle" x="13970" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_somatic_hotspots</text>
-</a>
-</g>
 </g>
 <!-- vc_somatic_hotspots&#45;&gt;run_dragen_somatic_step -->
 <g id="edge80" class="edge">
@@ -1105,11 +886,8 @@
 <!-- vc_sq_call_threshold -->
 <g id="node72" class="node">
 <title>vc_sq_call_threshold</title>
-<g id="a_node72"><a xlink:title="Emits calls in the VCF. The default is 3.&#10;If the value for vc&#45;sq&#45;filter&#45;threshold is lower than vc&#45;sq&#45;callthreshold,&#10;the filter threshold value is used instead of the call threshold value&#10;">
 <polygon fill="#94ddf4" stroke="black" points="13708,-2721.96 13708,-2758.96 13870,-2758.96 13870,-2721.96 13708,-2721.96"/>
 <text text-anchor="middle" x="13789" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_sq_call_threshold</text>
-</a>
-</g>
 </g>
 <!-- vc_sq_call_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge81" class="edge">
@@ -1120,11 +898,8 @@
 <!-- vc_sq_filter_threshold -->
 <g id="node73" class="node">
 <title>vc_sq_filter_threshold</title>
-<g id="a_node73"><a xlink:title="Marks emitted VCF calls as filtered.&#10;The default is 17.5 for tumor&#45;normal and 6.5 for tumor&#45;only.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="13518,-2721.96 13518,-2758.96 13690,-2758.96 13690,-2721.96 13518,-2721.96"/>
 <text text-anchor="middle" x="13604" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_sq_filter_threshold</text>
-</a>
-</g>
 </g>
 <!-- vc_sq_filter_threshold&#45;&gt;run_dragen_somatic_step -->
 <g id="edge82" class="edge">
@@ -1135,11 +910,8 @@
 <!-- vc_target_bed -->
 <g id="node74" class="node">
 <title>vc_target_bed</title>
-<g id="a_node74"><a xlink:title="This is an optional command line input that restricts processing of the small variant caller,&#10;target bed related coverage, and callability metrics to regions specified in a BED file.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="13384,-2721.96 13384,-2758.96 13500,-2758.96 13500,-2721.96 13384,-2721.96"/>
 <text text-anchor="middle" x="13442" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_target_bed</text>
-</a>
-</g>
 </g>
 <!-- vc_target_bed&#45;&gt;run_dragen_somatic_step -->
 <g id="edge83" class="edge">
@@ -1150,11 +922,8 @@
 <!-- vc_target_bed_padding -->
 <g id="node75" class="node">
 <title>vc_target_bed_padding</title>
-<g id="a_node75"><a xlink:title="This is an optional command line input that can be used to pad all of the target&#10;BED regions with the specified value.&#10;For example, if a BED region is 1:1000&#45;2000 and a padding value of 100 is used,&#10;it is equivalent to using a BED region of 1:900&#45;2100 and a padding value of 0.&#10;&#10;Any padding added to &#45;&#45;vc&#45;target&#45;bed&#45;padding is used by the small variant caller&#10;and by the target bed coverage/callability reports. The default padding is 0.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="13184.5,-2721.96 13184.5,-2758.96 13365.5,-2758.96 13365.5,-2721.96 13184.5,-2721.96"/>
 <text text-anchor="middle" x="13275" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_target_bed_padding</text>
-</a>
-</g>
 </g>
 <!-- vc_target_bed_padding&#45;&gt;run_dragen_somatic_step -->
 <g id="edge84" class="edge">
@@ -1165,11 +934,8 @@
 <!-- vc_target_coverage -->
 <g id="node76" class="node">
 <title>vc_target_coverage</title>
-<g id="a_node76"><a xlink:title="The &#45;&#45;vc&#45;target&#45;coverage option specifies the target coverage for down&#45;sampling.&#10;The default value is 500 for germline mode and 50 for somatic mode.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="13011.5,-2721.96 13011.5,-2758.96 13166.5,-2758.96 13166.5,-2721.96 13011.5,-2721.96"/>
 <text text-anchor="middle" x="13089" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_target_coverage</text>
-</a>
-</g>
 </g>
 <!-- vc_target_coverage&#45;&gt;run_dragen_somatic_step -->
 <g id="edge85" class="edge">
@@ -1180,11 +946,8 @@
 <!-- vc_tin_contam_tolerance -->
 <g id="node77" class="node">
 <title>vc_tin_contam_tolerance</title>
-<g id="a_node77"><a xlink:title="&#45;&#45;vc&#45;tin&#45;contam&#45;tolerance enables liquid tumor mode and allows you to&#10; set the maximum contamination TiN tolerance. The maximum contamination TiN tolerance must be&#10; greater than zero. For example, vc&#45;tin&#45;contam&#45;tolerance=&#45;0.1.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="12802.5,-2721.96 12802.5,-2758.96 12993.5,-2758.96 12993.5,-2721.96 12802.5,-2721.96"/>
 <text text-anchor="middle" x="12898" y="-2736.76" font-family="Times,serif" font-size="14.00">vc_tin_contam_tolerance</text>
-</a>
-</g>
 </g>
 <!-- vc_tin_contam_tolerance&#45;&gt;run_dragen_somatic_step -->
 <g id="edge86" class="edge">
@@ -1195,74 +958,50 @@
 <!-- custom_stats_qc_combined_json -->
 <g id="node78" class="node">
 <title>custom_stats_qc_combined_json</title>
-<g id="a_node78"><a xlink:title="Internal custom JSON output file combined with PRECISE JSON output&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6392.5,-542.96 6392.5,-579.96 6637.5,-579.96 6637.5,-542.96 6392.5,-542.96"/>
 <text text-anchor="middle" x="6515" y="-557.76" font-family="Times,serif" font-size="14.00">custom_stats_qc_combined_json</text>
-</a>
-</g>
 </g>
 <!-- custom_stats_qc_output_json -->
 <g id="node79" class="node">
 <title>custom_stats_qc_output_json</title>
-<g id="a_node79"><a xlink:title="JSON output file containing custom metrics&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6150,-542.96 6150,-579.96 6374,-579.96 6374,-542.96 6150,-542.96"/>
 <text text-anchor="middle" x="6262" y="-557.76" font-family="Times,serif" font-size="14.00">custom_stats_qc_output_json</text>
-</a>
-</g>
 </g>
 <!-- dragen_somatic_output_directory -->
 <g id="node80" class="node">
 <title>dragen_somatic_output_directory</title>
-<g id="a_node80"><a xlink:title="Output directory containing all outputs of the somatic dragen run&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6655.5,-542.96 6655.5,-579.96 6910.5,-579.96 6910.5,-542.96 6655.5,-542.96"/>
 <text text-anchor="middle" x="6783" y="-557.76" font-family="Times,serif" font-size="14.00">dragen_somatic_output_directory</text>
-</a>
-</g>
 </g>
 <!-- precise_output_json -->
 <g id="node81" class="node">
 <title>precise_output_json</title>
-<g id="a_node81"><a xlink:title="Output file from PRECISE QC script/implementation&#10;">
 <polygon fill="#94ddf4" stroke="black" points="5974,-542.96 5974,-579.96 6132,-579.96 6132,-542.96 5974,-542.96"/>
 <text text-anchor="middle" x="6053" y="-557.76" font-family="Times,serif" font-size="14.00">precise_output_json</text>
-</a>
-</g>
 </g>
 <!-- somatic_snv_vcf_hard_filtered_out -->
 <g id="node82" class="node">
 <title>somatic_snv_vcf_hard_filtered_out</title>
-<g id="a_node82"><a xlink:title="Output of the snv vcf filtered tumor calls&#10;">
 <polygon fill="#94ddf4" stroke="black" points="6929,-542.96 6929,-579.96 7189,-579.96 7189,-542.96 6929,-542.96"/>
 <text text-anchor="middle" x="7059" y="-557.76" font-family="Times,serif" font-size="14.00">somatic_snv_vcf_hard_filtered_out</text>
-</a>
-</g>
 </g>
 <!-- somatic_snv_vcf_out -->
 <g id="node83" class="node">
 <title>somatic_snv_vcf_out</title>
-<g id="a_node83"><a xlink:title="Output of the snv vcf tumor calls&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7207.5,-542.96 7207.5,-579.96 7368.5,-579.96 7368.5,-542.96 7207.5,-542.96"/>
 <text text-anchor="middle" x="7288" y="-557.76" font-family="Times,serif" font-size="14.00">somatic_snv_vcf_out</text>
-</a>
-</g>
 </g>
 <!-- somatic_structural_vcf_out -->
 <g id="node84" class="node">
 <title>somatic_structural_vcf_out</title>
-<g id="a_node84"><a xlink:title="Output of the sv vcf filtered tumor calls.&#10;Exists only if &#45;&#45;enable&#45;sv is set to true.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7387,-542.96 7387,-579.96 7595,-579.96 7595,-542.96 7387,-542.96"/>
 <text text-anchor="middle" x="7491" y="-557.76" font-family="Times,serif" font-size="14.00">somatic_structural_vcf_out</text>
-</a>
-</g>
 </g>
 <!-- tumor_bam_out -->
 <g id="node85" class="node">
 <title>tumor_bam_out</title>
-<g id="a_node85"><a xlink:title="Bam file of the tumor sample&#10;">
 <polygon fill="#94ddf4" stroke="black" points="7613,-542.96 7613,-579.96 7741,-579.96 7741,-542.96 7613,-542.96"/>
 <text text-anchor="middle" x="7677" y="-557.76" font-family="Times,serif" font-size="14.00">tumor_bam_out</text>
-</a>
-</g>
 </g>
 <!-- run_dragen_somatic_step&#45;&gt;dragen_somatic_output_directory -->
 <g id="edge2" class="edge">

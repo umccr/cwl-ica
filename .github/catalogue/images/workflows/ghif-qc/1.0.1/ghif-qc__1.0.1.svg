@@ -22,20 +22,14 @@
 <!-- log_level -->
 <g id="node1" class="node">
 <title>log_level</title>
-<g id="a_node1"><a xlink:title="Set logging level to INFO (default), WARNING or DEBUG.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="462.5,-845.95 462.5,-882.95 541.5,-882.95 541.5,-845.95 462.5,-845.95"/>
 <text text-anchor="middle" x="502" y="-860.75" font-family="Times,serif" font-size="14.00">log_level</text>
-</a>
-</g>
 </g>
 <!-- calculate_coverage_step -->
 <g id="node34" class="node">
 <title>calculate_coverage_step</title>
-<g id="a_node34"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/calculate-coverage/1.0.0/calculate-coverage__1.0.0.md" xlink:title="PRECISE tool that runs a script to calculate few custom QC metrics&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="397.5,-610.95 397.5,-647.95 606.5,-647.95 606.5,-610.95 397.5,-610.95"/>
 <text text-anchor="middle" x="502" y="-625.75" font-family="Times,serif" font-size="14.00">calculate&#45;coverage v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- log_level&#45;&gt;calculate_coverage_step -->
 <g id="edge7" class="edge">
@@ -46,11 +40,8 @@
 <!-- map_quality -->
 <g id="node2" class="node">
 <title>map_quality</title>
-<g id="a_node2"><a xlink:title="Mapping quality threshold. Default: 20.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="340,-845.95 340,-882.95 444,-882.95 444,-845.95 340,-845.95"/>
 <text text-anchor="middle" x="392" y="-860.75" font-family="Times,serif" font-size="14.00">map_quality</text>
-</a>
-</g>
 </g>
 <!-- map_quality&#45;&gt;calculate_coverage_step -->
 <g id="edge8" class="edge">
@@ -61,11 +52,8 @@
 <!-- out_directory -->
 <g id="node3" class="node">
 <title>out_directory</title>
-<g id="a_node3"><a xlink:title="Path to scratch directory. Default: ./&#10;">
 <polygon fill="#94ddf4" stroke="black" points="210,-845.95 210,-882.95 322,-882.95 322,-845.95 210,-845.95"/>
 <text text-anchor="middle" x="266" y="-860.75" font-family="Times,serif" font-size="14.00">out_directory</text>
-</a>
-</g>
 </g>
 <!-- out_directory&#45;&gt;calculate_coverage_step -->
 <g id="edge9" class="edge">
@@ -76,11 +64,8 @@
 <!-- output_json -->
 <g id="node4" class="node">
 <title>output_json</title>
-<g id="a_node4"><a xlink:title="output file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="92,-845.95 92,-882.95 192,-882.95 192,-845.95 92,-845.95"/>
 <text text-anchor="middle" x="142" y="-860.75" font-family="Times,serif" font-size="14.00">output_json</text>
-</a>
-</g>
 </g>
 <!-- output_json&#45;&gt;calculate_coverage_step -->
 <g id="edge10" class="edge">
@@ -91,20 +76,14 @@
 <!-- input_bam -->
 <g id="node5" class="node">
 <title>input_bam</title>
-<g id="a_node5"><a xlink:title="The BAM file to gather statistics from&#10;">
 <polygon fill="#94ddf4" stroke="black" points="560,-845.95 560,-882.95 652,-882.95 652,-845.95 560,-845.95"/>
 <text text-anchor="middle" x="606" y="-860.75" font-family="Times,serif" font-size="14.00">input_bam</text>
-</a>
-</g>
 </g>
 <!-- samtools_stats_step -->
 <g id="node32" class="node">
 <title>samtools_stats_step</title>
-<g id="a_node32"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/samtools-stats/1.13.0/samtools-stats__1.13.0.md" xlink:title="samtools stats collects statistics from BAM files and outputs in a text format. The output can be visualized graphically using plot&#45;bamstats.">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1845,-610.95 1845,-647.95 2033,-647.95 2033,-610.95 1845,-610.95"/>
 <text text-anchor="middle" x="1939" y="-625.75" font-family="Times,serif" font-size="14.00">samtools&#45;stats v(1.13.0)</text>
-</a>
-</g>
 </g>
 <!-- input_bam&#45;&gt;samtools_stats_step -->
 <g id="edge11" class="edge">
@@ -121,11 +100,8 @@
 <!-- script -->
 <g id="node6" class="node">
 <title>script</title>
-<g id="a_node6"><a xlink:title="Path to PRECISE python script on GitHub&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16,-845.95 16,-882.95 74,-882.95 74,-845.95 16,-845.95"/>
 <text text-anchor="middle" x="45" y="-860.75" font-family="Times,serif" font-size="14.00">script</text>
-</a>
-</g>
 </g>
 <!-- script&#45;&gt;calculate_coverage_step -->
 <g id="edge13" class="edge">
@@ -136,11 +112,8 @@
 <!-- target_regions -->
 <g id="node7" class="node">
 <title>target_regions</title>
-<g id="a_node7"><a xlink:title="Do stats in these regions only. Tab&#45;delimited file chr,from,to, 1&#45;based, inclusive. []&#10;">
 <polygon fill="#94ddf4" stroke="black" points="670.5,-845.95 670.5,-882.95 791.5,-882.95 791.5,-845.95 670.5,-845.95"/>
 <text text-anchor="middle" x="731" y="-860.75" font-family="Times,serif" font-size="14.00">target_regions</text>
-</a>
-</g>
 </g>
 <!-- target_regions&#45;&gt;samtools_stats_step -->
 <g id="edge14" class="edge">
@@ -157,20 +130,14 @@
 <!-- output_json_filename -->
 <g id="node8" class="node">
 <title>output_json_filename</title>
-<g id="a_node8"><a xlink:title="output file&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1056.5,-845.95 1056.5,-882.95 1223.5,-882.95 1223.5,-845.95 1056.5,-845.95"/>
 <text text-anchor="middle" x="1140" y="-860.75" font-family="Times,serif" font-size="14.00">output_json_filename</text>
-</a>
-</g>
 </g>
 <!-- custom_stats_qc_step -->
 <g id="node33" class="node">
 <title>custom_stats_qc_step</title>
-<g id="a_node33"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-stats-qc/1.0.1/custom-stats-qc__1.0.1.md" xlink:title="A tool to extract custom QC metrics from samtools stats output and convert to json format.">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="883,-384.95 883,-421.95 1071,-421.95 1071,-384.95 883,-384.95"/>
 <text text-anchor="middle" x="977" y="-399.75" font-family="Times,serif" font-size="14.00">custom&#45;stats&#45;qc v(1.0.1)</text>
-</a>
-</g>
 </g>
 <!-- output_json_filename&#45;&gt;custom_stats_qc_step -->
 <g id="edge16" class="edge">
@@ -181,11 +148,8 @@
 <!-- sample_id -->
 <g id="node9" class="node">
 <title>sample_id</title>
-<g id="a_node9"><a xlink:title="Sample identity&#10;">
 <polygon fill="#94ddf4" stroke="black" points="810,-845.95 810,-882.95 898,-882.95 898,-845.95 810,-845.95"/>
 <text text-anchor="middle" x="854" y="-860.75" font-family="Times,serif" font-size="14.00">sample_id</text>
-</a>
-</g>
 </g>
 <!-- sample_id&#45;&gt;custom_stats_qc_step -->
 <g id="edge17" class="edge">
@@ -196,11 +160,8 @@
 <!-- sample_source -->
 <g id="node10" class="node">
 <title>sample_source</title>
-<g id="a_node10"><a xlink:title="Sample original source&#10;">
 <polygon fill="#94ddf4" stroke="black" points="916,-845.95 916,-882.95 1038,-882.95 1038,-845.95 916,-845.95"/>
 <text text-anchor="middle" x="977" y="-860.75" font-family="Times,serif" font-size="14.00">sample_source</text>
-</a>
-</g>
 </g>
 <!-- sample_source&#45;&gt;custom_stats_qc_step -->
 <g id="edge18" class="edge">
@@ -211,11 +172,8 @@
 <!-- cov_threshold -->
 <g id="node11" class="node">
 <title>cov_threshold</title>
-<g id="a_node11"><a xlink:title="Only bases with coverage above this value will be included in the target percentage computation [0]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2929,-845.95 2929,-882.95 3045,-882.95 3045,-845.95 2929,-845.95"/>
 <text text-anchor="middle" x="2987" y="-860.75" font-family="Times,serif" font-size="14.00">cov_threshold</text>
-</a>
-</g>
 </g>
 <!-- cov_threshold&#45;&gt;samtools_stats_step -->
 <g id="edge19" class="edge">
@@ -226,11 +184,8 @@
 <!-- coverage -->
 <g id="node12" class="node">
 <title>coverage</title>
-<g id="a_node12"><a xlink:title="Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2829.5,-845.95 2829.5,-882.95 2910.5,-882.95 2910.5,-845.95 2829.5,-845.95"/>
 <text text-anchor="middle" x="2870" y="-860.75" font-family="Times,serif" font-size="14.00">coverage</text>
-</a>
-</g>
 </g>
 <!-- coverage&#45;&gt;samtools_stats_step -->
 <g id="edge20" class="edge">
@@ -241,11 +196,8 @@
 <!-- filtering_flag -->
 <g id="node13" class="node">
 <title>filtering_flag</title>
-<g id="a_node13"><a xlink:title="iltering flag, 0 for unset. See also `samtools flags` [0]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2704.5,-845.95 2704.5,-882.95 2811.5,-882.95 2811.5,-845.95 2704.5,-845.95"/>
 <text text-anchor="middle" x="2758" y="-860.75" font-family="Times,serif" font-size="14.00">filtering_flag</text>
-</a>
-</g>
 </g>
 <!-- filtering_flag&#45;&gt;samtools_stats_step -->
 <g id="edge21" class="edge">
@@ -256,11 +208,8 @@
 <!-- gc_depth -->
 <g id="node14" class="node">
 <title>gc_depth</title>
-<g id="a_node14"><a xlink:title="the size of GC&#45;depth bins (decreasing bin size increases memory requirement) [2e4]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2605.5,-845.95 2605.5,-882.95 2686.5,-882.95 2686.5,-845.95 2605.5,-845.95"/>
 <text text-anchor="middle" x="2646" y="-860.75" font-family="Times,serif" font-size="14.00">gc_depth</text>
-</a>
-</g>
 </g>
 <!-- gc_depth&#45;&gt;samtools_stats_step -->
 <g id="edge22" class="edge">
@@ -271,11 +220,8 @@
 <!-- insert_size -->
 <g id="node15" class="node">
 <title>insert_size</title>
-<g id="a_node15"><a xlink:title="Maximum insert size [8000]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2494.5,-845.95 2494.5,-882.95 2587.5,-882.95 2587.5,-845.95 2494.5,-845.95"/>
 <text text-anchor="middle" x="2541" y="-860.75" font-family="Times,serif" font-size="14.00">insert_size</text>
-</a>
-</g>
 </g>
 <!-- insert_size&#45;&gt;samtools_stats_step -->
 <g id="edge23" class="edge">
@@ -286,11 +232,8 @@
 <!-- most_inserts -->
 <g id="node16" class="node">
 <title>most_inserts</title>
-<g id="a_node16"><a xlink:title="Report only the main part of inserts [0.99]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2368,-845.95 2368,-882.95 2476,-882.95 2476,-845.95 2368,-845.95"/>
 <text text-anchor="middle" x="2422" y="-860.75" font-family="Times,serif" font-size="14.00">most_inserts</text>
-</a>
-</g>
 </g>
 <!-- most_inserts&#45;&gt;samtools_stats_step -->
 <g id="edge24" class="edge">
@@ -301,11 +244,8 @@
 <!-- output_filename -->
 <g id="node17" class="node">
 <title>output_filename</title>
-<g id="a_node17"><a xlink:title="Redirects stdout&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2218.5,-845.95 2218.5,-882.95 2349.5,-882.95 2349.5,-845.95 2218.5,-845.95"/>
 <text text-anchor="middle" x="2284" y="-860.75" font-family="Times,serif" font-size="14.00">output_filename</text>
-</a>
-</g>
 </g>
 <!-- output_filename&#45;&gt;samtools_stats_step -->
 <g id="edge25" class="edge">
@@ -316,11 +256,8 @@
 <!-- read_length -->
 <g id="node18" class="node">
 <title>read_length</title>
-<g id="a_node18"><a xlink:title="Include in the statistics only reads with the given read length [&#45;1]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2099.5,-845.95 2099.5,-882.95 2200.5,-882.95 2200.5,-845.95 2099.5,-845.95"/>
 <text text-anchor="middle" x="2150" y="-860.75" font-family="Times,serif" font-size="14.00">read_length</text>
-</a>
-</g>
 </g>
 <!-- read_length&#45;&gt;samtools_stats_step -->
 <g id="edge26" class="edge">
@@ -331,11 +268,8 @@
 <!-- ref_seq -->
 <g id="node19" class="node">
 <title>ref_seq</title>
-<g id="a_node19"><a xlink:title="Reference sequence (required for GC&#45;depth and mismatches&#45;per&#45;cycle calculation). []&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2013,-845.95 2013,-882.95 2081,-882.95 2081,-845.95 2013,-845.95"/>
 <text text-anchor="middle" x="2047" y="-860.75" font-family="Times,serif" font-size="14.00">ref_seq</text>
-</a>
-</g>
 </g>
 <!-- ref_seq&#45;&gt;samtools_stats_step -->
 <g id="edge27" class="edge">
@@ -346,11 +280,8 @@
 <!-- remove_dups -->
 <g id="node20" class="node">
 <title>remove_dups</title>
-<g id="a_node20"><a xlink:title="Exclude from statistics reads marked as duplicates&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1883.5,-845.95 1883.5,-882.95 1994.5,-882.95 1994.5,-845.95 1883.5,-845.95"/>
 <text text-anchor="middle" x="1939" y="-860.75" font-family="Times,serif" font-size="14.00">remove_dups</text>
-</a>
-</g>
 </g>
 <!-- remove_dups&#45;&gt;samtools_stats_step -->
 <g id="edge28" class="edge">
@@ -361,11 +292,8 @@
 <!-- remove_overlaps -->
 <g id="node21" class="node">
 <title>remove_overlaps</title>
-<g id="a_node21"><a xlink:title="Remove overlaps of paired&#45;end reads from coverage and base count computations.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1728.5,-845.95 1728.5,-882.95 1865.5,-882.95 1865.5,-845.95 1728.5,-845.95"/>
 <text text-anchor="middle" x="1797" y="-860.75" font-family="Times,serif" font-size="14.00">remove_overlaps</text>
-</a>
-</g>
 </g>
 <!-- remove_overlaps&#45;&gt;samtools_stats_step -->
 <g id="edge29" class="edge">
@@ -376,11 +304,8 @@
 <!-- required_flag -->
 <g id="node22" class="node">
 <title>required_flag</title>
-<g id="a_node22"><a xlink:title="Required flag, 0 for unset. See also `samtools flags` [0]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1599.5,-845.95 1599.5,-882.95 1710.5,-882.95 1710.5,-845.95 1599.5,-845.95"/>
 <text text-anchor="middle" x="1655" y="-860.75" font-family="Times,serif" font-size="14.00">required_flag</text>
-</a>
-</g>
 </g>
 <!-- required_flag&#45;&gt;samtools_stats_step -->
 <g id="edge30" class="edge">
@@ -391,11 +316,8 @@
 <!-- sparse -->
 <g id="node23" class="node">
 <title>sparse</title>
-<g id="a_node23"><a xlink:title="Suppress outputting IS rows where there are no insertions.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1517,-845.95 1517,-882.95 1581,-882.95 1581,-845.95 1517,-845.95"/>
 <text text-anchor="middle" x="1549" y="-860.75" font-family="Times,serif" font-size="14.00">sparse</text>
-</a>
-</g>
 </g>
 <!-- sparse&#45;&gt;samtools_stats_step -->
 <g id="edge31" class="edge">
@@ -406,11 +328,8 @@
 <!-- split -->
 <g id="node24" class="node">
 <title>split</title>
-<g id="a_node24"><a xlink:title="In addition to the complete statistics, also output categorised statistics based on the tagged field TAG &#10;(e.g., use &#45;&#45;split RG to split into read groups).&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1445,-845.95 1445,-882.95 1499,-882.95 1499,-845.95 1445,-845.95"/>
 <text text-anchor="middle" x="1472" y="-860.75" font-family="Times,serif" font-size="14.00">split</text>
-</a>
-</g>
 </g>
 <!-- split&#45;&gt;samtools_stats_step -->
 <g id="edge32" class="edge">
@@ -421,11 +340,8 @@
 <!-- split_prefix -->
 <g id="node25" class="node">
 <title>split_prefix</title>
-<g id="a_node25"><a xlink:title="A path or string prefix to prepend to filenames output when creating categorised &#10;statistics files with &#45;S/&#45;&#45;split. [input filename]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1331,-845.95 1331,-882.95 1427,-882.95 1427,-845.95 1331,-845.95"/>
 <text text-anchor="middle" x="1379" y="-860.75" font-family="Times,serif" font-size="14.00">split_prefix</text>
-</a>
-</g>
 </g>
 <!-- split_prefix&#45;&gt;samtools_stats_step -->
 <g id="edge33" class="edge">
@@ -436,11 +352,8 @@
 <!-- threads -->
 <g id="node26" class="node">
 <title>threads</title>
-<g id="a_node26"><a xlink:title="Number of input/output compression threads to use in addition to main thread [0].&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1241.5,-845.95 1241.5,-882.95 1312.5,-882.95 1312.5,-845.95 1241.5,-845.95"/>
 <text text-anchor="middle" x="1277" y="-860.75" font-family="Times,serif" font-size="14.00">threads</text>
-</a>
-</g>
 </g>
 <!-- threads&#45;&gt;samtools_stats_step -->
 <g id="edge34" class="edge">
@@ -451,11 +364,8 @@
 <!-- trim_quality -->
 <g id="node27" class="node">
 <title>trim_quality</title>
-<g id="a_node27"><a xlink:title="The BWA trimming parameter [0]&#10;">
 <polygon fill="#94ddf4" stroke="black" points="3063,-845.95 3063,-882.95 3167,-882.95 3167,-845.95 3063,-845.95"/>
 <text text-anchor="middle" x="3115" y="-860.75" font-family="Times,serif" font-size="14.00">trim_quality</text>
-</a>
-</g>
 </g>
 <!-- trim_quality&#45;&gt;samtools_stats_step -->
 <g id="edge35" class="edge">
@@ -466,38 +376,26 @@
 <!-- custom_stats_qc_combined_json -->
 <g id="node28" class="node">
 <title>custom_stats_qc_combined_json</title>
-<g id="a_node28"><a xlink:title="Internal custom JSON output file combined with PRECISE JSON output&#10;">
 <polygon fill="#94ddf4" stroke="black" points="727.5,-158.95 727.5,-195.95 972.5,-195.95 972.5,-158.95 727.5,-158.95"/>
 <text text-anchor="middle" x="850" y="-173.75" font-family="Times,serif" font-size="14.00">custom_stats_qc_combined_json</text>
-</a>
-</g>
 </g>
 <!-- custom_stats_qc_output_json -->
 <g id="node29" class="node">
 <title>custom_stats_qc_output_json</title>
-<g id="a_node29"><a xlink:title="JSON output file containing custom metrics&#10;">
 <polygon fill="#94ddf4" stroke="black" points="991,-158.95 991,-195.95 1215,-195.95 1215,-158.95 991,-158.95"/>
 <text text-anchor="middle" x="1103" y="-173.75" font-family="Times,serif" font-size="14.00">custom_stats_qc_output_json</text>
-</a>
-</g>
 </g>
 <!-- precise_output_json -->
 <g id="node30" class="node">
 <title>precise_output_json</title>
-<g id="a_node30"><a xlink:title="Output file from PRECISE QC script/implementation&#10;">
 <polygon fill="#94ddf4" stroke="black" points="551,-158.95 551,-195.95 709,-195.95 709,-158.95 551,-158.95"/>
 <text text-anchor="middle" x="630" y="-173.75" font-family="Times,serif" font-size="14.00">precise_output_json</text>
-</a>
-</g>
 </g>
 <!-- samtools_stats_output_txt -->
 <g id="node31" class="node">
 <title>samtools_stats_output_txt</title>
-<g id="a_node31"><a xlink:title="Output file, of varying format depending on the command run&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1233.5,-158.95 1233.5,-195.95 1436.5,-195.95 1436.5,-158.95 1233.5,-158.95"/>
 <text text-anchor="middle" x="1335" y="-173.75" font-family="Times,serif" font-size="14.00">samtools_stats_output_txt</text>
-</a>
-</g>
 </g>
 <!-- samtools_stats_step&#45;&gt;samtools_stats_output_txt -->
 <g id="edge2" class="edge">

@@ -17,7 +17,7 @@ samtools-stats 1.13.0 tool
 
   
 > ID: samtools-stats--1.13.0  
-> md5sum: c1539b6e597b7fe6ba72cc369f3e9a2b
+> md5sum: 4557a8ee15e51ae13045bc80f5acc54b
 
 ### samtools-stats v(1.13.0) documentation
   
@@ -64,7 +64,7 @@ Only bases with coverage above this value will be included in the target percent
 > ID: coverage
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]
 

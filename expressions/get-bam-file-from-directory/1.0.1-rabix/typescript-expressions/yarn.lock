@@ -928,6 +928,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ajv@npm:^6.1.1":
+  version: 6.12.6
+  resolution: "ajv@npm:6.12.6"
+  dependencies:
+    fast-deep-equal: ^3.1.1
+    fast-json-stable-stringify: ^2.0.0
+    json-schema-traverse: ^0.4.1
+    uri-js: ^4.2.2
+  checksum: 874972efe5c4202ab0a68379481fbd3d1b5d0a7bd6d3cc21d40d3536ebff3352a2a1fabb632d4fd2cc7fe4cbdcd5ed6782084c9bbf7f32a1536d18f9da5007d4
+  languageName: node
+  linkType: hard
+
 "ansi-escapes@npm:^4.2.1":
   version: 4.3.2
   resolution: "ansi-escapes@npm:4.3.2"
@@ -1389,6 +1401,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cwlts@npm:^1.23.6":
+  version: 1.23.8
+  resolution: "cwlts@npm:1.23.8"
+  dependencies:
+    ajv: ^6.1.1
+    js-yaml: ^3.10.0
+  checksum: 65b143bdda1355fc664ca5e327c797cab257ad51b6d9bc2f63b9450bcba6484015afd52567e92f848c20e42d07766f70d90ce6fc5ef34742961964222a53e15f
+  languageName: node
+  linkType: hard
+
 "debug@npm:4, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.3":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
@@ -1564,7 +1586,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.1.0":
+"fast-deep-equal@npm:^3.1.1":
+  version: 3.1.3
+  resolution: "fast-deep-equal@npm:3.1.3"
+  checksum: e21a9d8d84f53493b6aa15efc9cfd53dd5b714a1f23f67fb5dc8f574af80df889b3bce25dc081887c6d25457cce704e636395333abad896ccdec03abaf1f3f9d
+  languageName: node
+  linkType: hard
+
+"fast-json-stable-stringify@npm:2.x, fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
   checksum: b191531e36c607977e5b1c47811158733c34ccb3bfde92c44798929e9b4154884378536d26ad90dfecd32e1ffc09c545d23535ad91b3161a27ddbb8ebe0cbecb
@@ -1663,6 +1692,20 @@ __metadata:
   checksum: a7437e58c6be12aa6c90f7730eac7fa9833dc78872b4ad2963d2031b00a3367a93f98aec75f9aaac7220848e4026d67a8655e870b24f20a543d103c0d65952ec
   languageName: node
   linkType: hard
+
+"get-bam-file-from-directory__1.0.1-rabix@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "get-bam-file-from-directory__1.0.1-rabix@workspace:."
+  dependencies:
+    "@types/jest": ^29.2.3
+    "@types/node": ^18.11.9
+    cwl-ts-auto: ^0.1.3
+    cwlts: ^1.23.6
+    jest: ^29.3.1
+    ts-jest: ^29.0.3
+    typescript: ^4.9.3
+  languageName: unknown
+  linkType: soft
 
 "get-caller-file@npm:^2.0.5":
   version: 2.0.5
@@ -2432,7 +2475,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^3.13.1":
+"js-yaml@npm:^3.10.0, js-yaml@npm:^3.13.1":
   version: 3.14.1
   resolution: "js-yaml@npm:3.14.1"
   dependencies:
@@ -2471,12 +2514,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"json-schema-traverse@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "json-schema-traverse@npm:0.4.1"
+  checksum: 7486074d3ba247769fda17d5181b345c9fb7d12e0da98b22d1d71a5db9698d8b4bd900a3ec1a4ffdd60846fc2556274a5c894d0c48795f14cb03aeae7b55260b
+  languageName: node
+  linkType: hard
+
 "json5@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "json5@npm:2.2.1"
+  version: 2.2.3
+  resolution: "json5@npm:2.2.3"
   bin:
     json5: lib/cli.js
-  checksum: 74b8a23b102a6f2bf2d224797ae553a75488b5adbaee9c9b6e5ab8b510a2fc6e38f876d4c77dea672d4014a44b2399e15f2051ac2b37b87f74c0c7602003543b
+  checksum: 2a7436a93393830bce797d4626275152e37e877b265e94ca69c99e3d20c2b9dab021279146a39cdb700e71b2dd32a4cebd1514cd57cee102b1af906ce5040349
   languageName: node
   linkType: hard
 
@@ -3353,19 +3403,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tmp.1V4YsWZmhO@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "tmp.1V4YsWZmhO@workspace:."
-  dependencies:
-    "@types/jest": ^29.2.3
-    "@types/node": ^18.11.9
-    cwl-ts-auto: ^0.1.3
-    jest: ^29.3.1
-    ts-jest: ^29.0.3
-    typescript: ^4.9.3
-  languageName: unknown
-  linkType: soft
-
 "tmpl@npm:1.0.5":
   version: 1.0.5
   resolution: "tmpl@npm:1.0.5"
@@ -3495,7 +3532,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uri-js@npm:^4.4.1":
+"uri-js@npm:^4.2.2, uri-js@npm:^4.4.1":
   version: 4.4.1
   resolution: "uri-js@npm:4.4.1"
   dependencies:

@@ -4,7 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -26,13 +26,13 @@ label: dragen-germline v(3.9.3)
 doc: |
     Documentation for dragen-germline v3.9.3
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: fpga
+        ilmn-tes:resources/size: medium
         coresMin: 16
         ramMin: 240000
     DockerRequirement:

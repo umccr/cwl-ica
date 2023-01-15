@@ -17,7 +17,7 @@ multiqc-interop 1.2.1 tool
 
   
 > ID: multiqc-interop--1.2.1  
-> md5sum: 78150b7293b9c348b390f081d0626eac
+> md5sum: 6c58f7dc6295b75ad6231267ee77bbc5
 
 ### multiqc-interop v(1.2.1) documentation
   
@@ -35,6 +35,7 @@ Producing QC report using interop matrix
 ### Used By
   
 - [bcl-conversion 3.7.5](../../../workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.md)  
+- [bclconvert-with-qc-pipeline 4.0.3](../../../workflows/bclconvert-with-qc-pipeline/4.0.3/bclconvert-with-qc-pipeline__4.0.3.md)  
 
   
 

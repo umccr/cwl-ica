@@ -19,7 +19,7 @@ dragen-alignment-pipeline 3.9.3 workflow
 
   
 > ID: dragen-alignment-pipeline--3.9.3  
-> md5sum: 3fe6faf5fb177337bf7fc8c347494520
+> md5sum: 698ffa83e9abb70e2482d0a45521bffe
 
 ### dragen-alignment-pipeline v(3.9.3) documentation
   
@@ -140,7 +140,7 @@ Range: > 0
 > ID: edit_mode
   
 **Optional:** `True`  
-**Type:** `[ 0 | 1 | 2 | 3 ]`  
+**Type:** `[ 0 | 1 | 2 | 3  ]`  
 **Docs:**  
 0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.
 
@@ -380,7 +380,7 @@ secondary alignments use hard clipping.
 > ID: map_orientations
   
 **Optional:** `True`  
-**Type:** `[ 0 | 1 | 2 ]`  
+**Type:** `[ 0 | 1 | 2  ]`  
 **Docs:**  
 Constrain orientations to accept forward-only, reverse-complement only, or any alignments.
 
@@ -579,7 +579,7 @@ Range: 0-255
 > ID: pe_orientation
   
 **Optional:** `True`  
-**Type:** `[ 0 | 1 | 2 ]`  
+**Type:** `[ 0 | 1 | 2  ]`  
 **Docs:**  
 Expected paired-end orientation: 0=FR, 1=RF, 2=FF.
 

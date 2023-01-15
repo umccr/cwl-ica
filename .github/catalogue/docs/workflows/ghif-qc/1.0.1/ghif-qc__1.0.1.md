@@ -19,7 +19,7 @@ ghif-qc 1.0.1 workflow
 
   
 > ID: ghif-qc--1.0.1  
-> md5sum: d47dabf31ec6376a04781c4ef2ce3e27
+> md5sum: 8121a6989c635bde160972c900358fa1
 
 ### ghif-qc v(1.0.1) documentation
   
@@ -74,7 +74,7 @@ Only bases with coverage above this value will be included in the target percent
 > ID: coverage
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 Set coverage distribution to the specified range (MIN, MAX, STEP all given as integers) [1,1000,1]
 

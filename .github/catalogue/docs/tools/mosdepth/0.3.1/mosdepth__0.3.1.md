@@ -17,7 +17,7 @@ mosdepth 0.3.1 tool
 
   
 > ID: mosdepth--0.3.1  
-> md5sum: 2e210a08546d984b01a59ac6955f97a8
+> md5sum: 3b4c16dead3a6f175abcff1a5f5f0b64
 
 ### mosdepth v(0.3.1) documentation
   
@@ -206,7 +206,7 @@ Number of BAM decompression threads [default: 0]
 > ID: thresholds
   
 **Optional:** `True`  
-**Type:** `int[]`  
+**Type:** `.[]`  
 **Docs:**  
 For each interval in --by, write number of bases covered by at least threshold bases.
 Specify multiple integer values separated by ','.

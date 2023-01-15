@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: 28bfaad1194d2f7d1f8608401dd79685
+> md5sum: 1e17909a4c6b42ef309701704798619d
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -419,7 +419,7 @@ Path to ref data tarball
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ male | female ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 

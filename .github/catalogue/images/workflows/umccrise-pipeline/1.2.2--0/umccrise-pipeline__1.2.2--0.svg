@@ -22,20 +22,14 @@
 <!-- umccrise_tsv_rows -->
 <g id="node1" class="node">
 <title>umccrise_tsv_rows</title>
-<g id="a_node1"><a xlink:title="The list of tsv rows schema&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1300.5,-504.51 1300.5,-541.51 1451.5,-541.51 1451.5,-504.51 1300.5,-504.51"/>
 <text text-anchor="middle" x="1376" y="-519.31" font-family="Times,serif" font-size="14.00">umccrise_tsv_rows</text>
-</a>
-</g>
 </g>
 <!-- create_mount_paths_and_umccrise_tsv_input_jsons_step -->
 <g id="node16" class="node">
 <title>create_mount_paths_and_umccrise_tsv_input_jsons_step</title>
-<g id="a_node16"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/expressions/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema/1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.md" xlink:title="Expression does two main things,&#10;creates a list of predefined mount paths for listing in the umccrise step&#10;and creates a list of jsons that represent umccrise list rows for the tsv creation&#10;">
-<polygon fill="#ee9a00" stroke="black" points="1309.5,-689.51 1309.5,-726.51 1920.5,-726.51 1920.5,-689.51 1309.5,-689.51"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1309.5,-689.51 1309.5,-726.51 1920.5,-726.51 1920.5,-689.51 1309.5,-689.51"/>
 <text text-anchor="middle" x="1615" y="-704.31" font-family="Times,serif" font-size="14.00">create&#45;predefined&#45;mount&#45;paths&#45;and&#45;umccrise&#45;row&#45;from&#45;umccrise&#45;schema v(1.2.2&#45;&#45;0)</text>
-</a>
-</g>
 </g>
 <!-- umccrise_tsv_rows&#45;&gt;create_mount_paths_and_umccrise_tsv_input_jsons_step -->
 <g id="edge5" class="edge">
@@ -46,20 +40,14 @@
 <!-- dag -->
 <g id="node2" class="node">
 <title>dag</title>
-<g id="a_node2"><a xlink:title="Propagated to snakemake. Print the DAG of jobs in the dot language.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1228,-504.51 1228,-541.51 1282,-541.51 1282,-504.51 1228,-504.51"/>
 <text text-anchor="middle" x="1255" y="-519.31" font-family="Times,serif" font-size="14.00">dag</text>
-</a>
-</g>
 </g>
 <!-- run_umccrise_step -->
 <g id="node18" class="node">
 <title>run_umccrise_step</title>
-<g id="a_node18"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/umccrise/1.2.2--0/umccrise__1.2.2--0.md" xlink:title="Run the umccrise step&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="719,-311.51 719,-348.51 877,-348.51 877,-311.51 719,-311.51"/>
 <text text-anchor="middle" x="798" y="-326.31" font-family="Times,serif" font-size="14.00">umccrise v(1.2.2&#45;&#45;0)</text>
-</a>
-</g>
 </g>
 <!-- dag&#45;&gt;run_umccrise_step -->
 <g id="edge6" class="edge">
@@ -70,11 +58,8 @@
 <!-- debug -->
 <g id="node3" class="node">
 <title>debug</title>
-<g id="a_node3"><a xlink:title="More verbose messages&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1148.5,-504.51 1148.5,-541.51 1209.5,-541.51 1209.5,-504.51 1148.5,-504.51"/>
 <text text-anchor="middle" x="1179" y="-519.31" font-family="Times,serif" font-size="14.00">debug</text>
-</a>
-</g>
 </g>
 <!-- debug&#45;&gt;run_umccrise_step -->
 <g id="edge7" class="edge">
@@ -85,11 +70,8 @@
 <!-- dryrun -->
 <g id="node4" class="node">
 <title>dryrun</title>
-<g id="a_node4"><a xlink:title="Propagated to snakemake. Prints rules and commands to be run without actually executing them.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1065.5,-504.51 1065.5,-541.51 1130.5,-541.51 1130.5,-504.51 1065.5,-504.51"/>
 <text text-anchor="middle" x="1098" y="-519.31" font-family="Times,serif" font-size="14.00">dryrun</text>
-</a>
-</g>
 </g>
 <!-- dryrun&#45;&gt;run_umccrise_step -->
 <g id="edge8" class="edge">
@@ -100,11 +82,8 @@
 <!-- genome -->
 <g id="node5" class="node">
 <title>genome</title>
-<g id="a_node5"><a xlink:title="genome">
 <polygon fill="#94ddf4" stroke="black" points="974.5,-504.51 974.5,-541.51 1047.5,-541.51 1047.5,-504.51 974.5,-504.51"/>
 <text text-anchor="middle" x="1011" y="-519.31" font-family="Times,serif" font-size="14.00">genome</text>
-</a>
-</g>
 </g>
 <!-- genome&#45;&gt;run_umccrise_step -->
 <g id="edge9" class="edge">
@@ -115,11 +94,8 @@
 <!-- genomes_tar -->
 <g id="node6" class="node">
 <title>genomes_tar</title>
-<g id="a_node6"><a xlink:title="The reference data bundle for the umccrise tool&#10;">
 <polygon fill="#94ddf4" stroke="black" points="848,-504.51 848,-541.51 956,-541.51 956,-504.51 848,-504.51"/>
 <text text-anchor="middle" x="902" y="-519.31" font-family="Times,serif" font-size="14.00">genomes_tar</text>
-</a>
-</g>
 </g>
 <!-- genomes_tar&#45;&gt;run_umccrise_step -->
 <g id="edge10" class="edge">
@@ -130,11 +106,8 @@
 <!-- min_af -->
 <g id="node7" class="node">
 <title>min_af</title>
-<g id="a_node7"><a xlink:title="AF threshold to filter small variants (unless a known hotspot)&#10;">
 <polygon fill="#94ddf4" stroke="black" points="766,-504.51 766,-541.51 830,-541.51 830,-504.51 766,-504.51"/>
 <text text-anchor="middle" x="798" y="-519.31" font-family="Times,serif" font-size="14.00">min_af</text>
-</a>
-</g>
 </g>
 <!-- min_af&#45;&gt;run_umccrise_step -->
 <g id="edge11" class="edge">
@@ -145,11 +118,8 @@
 <!-- output_directory_name -->
 <g id="node8" class="node">
 <title>output_directory_name</title>
-<g id="a_node8"><a xlink:title="The name of the output directory&#10;">
 <polygon fill="#94ddf4" stroke="black" points="566,-504.51 566,-541.51 748,-541.51 748,-504.51 566,-504.51"/>
 <text text-anchor="middle" x="657" y="-519.31" font-family="Times,serif" font-size="14.00">output_directory_name</text>
-</a>
-</g>
 </g>
 <!-- output_directory_name&#45;&gt;run_umccrise_step -->
 <g id="edge12" class="edge">
@@ -160,11 +130,8 @@
 <!-- report -->
 <g id="node9" class="node">
 <title>report</title>
-<g id="a_node9"><a xlink:title="Propagated to snakemake.&#10;Create an HTML report with results and statistics.&#10;The argument has to be a file path ending with &quot;.html&quot;&#10;">
 <polygon fill="#94ddf4" stroke="black" points="486,-504.51 486,-541.51 548,-541.51 548,-504.51 486,-504.51"/>
 <text text-anchor="middle" x="517" y="-519.31" font-family="Times,serif" font-size="14.00">report</text>
-</a>
-</g>
 </g>
 <!-- report&#45;&gt;run_umccrise_step -->
 <g id="edge13" class="edge">
@@ -175,11 +142,8 @@
 <!-- resources -->
 <g id="node10" class="node">
 <title>resources</title>
-<g id="a_node10"><a xlink:title="Can be used to limit the amount of memory allowed to be used&#10;">
 <polygon fill="#94ddf4" stroke="black" points="382,-504.51 382,-541.51 468,-541.51 468,-504.51 382,-504.51"/>
 <text text-anchor="middle" x="425" y="-519.31" font-family="Times,serif" font-size="14.00">resources</text>
-</a>
-</g>
 </g>
 <!-- resources&#45;&gt;run_umccrise_step -->
 <g id="edge14" class="edge">
@@ -190,11 +154,8 @@
 <!-- restarts -->
 <g id="node11" class="node">
 <title>restarts</title>
-<g id="a_node11"><a xlink:title="Number of attempts to complete a job&#10;">
 <polygon fill="#94ddf4" stroke="black" points="290,-504.51 290,-541.51 364,-541.51 364,-504.51 290,-504.51"/>
 <text text-anchor="middle" x="327" y="-519.31" font-family="Times,serif" font-size="14.00">restarts</text>
-</a>
-</g>
 </g>
 <!-- restarts&#45;&gt;run_umccrise_step -->
 <g id="edge15" class="edge">
@@ -205,11 +166,8 @@
 <!-- skip_stage -->
 <g id="node12" class="node">
 <title>skip_stage</title>
-<g id="a_node12"><a xlink:title="Optionally, stages to skip, e.g.: &#45;E oncoviruses &#45;E cpsr&#10;">
 <polygon fill="#94ddf4" stroke="black" points="180,-504.51 180,-541.51 272,-541.51 272,-504.51 180,-504.51"/>
 <text text-anchor="middle" x="226" y="-519.31" font-family="Times,serif" font-size="14.00">skip_stage</text>
-</a>
-</g>
 </g>
 <!-- skip_stage&#45;&gt;run_umccrise_step -->
 <g id="edge16" class="edge">
@@ -220,11 +178,8 @@
 <!-- stage -->
 <g id="node13" class="node">
 <title>stage</title>
-<g id="a_node13"><a xlink:title="Optionally, specific stage to run, e.g.: &#45;T pcgr &#45;T coverage &#45;T structural &#45;T small_variants&#10;">
 <polygon fill="#94ddf4" stroke="black" points="106,-504.51 106,-541.51 162,-541.51 162,-504.51 106,-504.51"/>
 <text text-anchor="middle" x="134" y="-519.31" font-family="Times,serif" font-size="14.00">stage</text>
-</a>
-</g>
 </g>
 <!-- stage&#45;&gt;run_umccrise_step -->
 <g id="edge17" class="edge">
@@ -235,11 +190,8 @@
 <!-- threads -->
 <g id="node14" class="node">
 <title>threads</title>
-<g id="a_node14"><a xlink:title="Maximum number of cores to use at single time.&#10;Defaults to runtime.cores&#10;">
 <polygon fill="#94ddf4" stroke="black" points="16.5,-504.51 16.5,-541.51 87.5,-541.51 87.5,-504.51 16.5,-504.51"/>
 <text text-anchor="middle" x="52" y="-519.31" font-family="Times,serif" font-size="14.00">threads</text>
-</a>
-</g>
 </g>
 <!-- threads&#45;&gt;run_umccrise_step -->
 <g id="edge18" class="edge">
@@ -250,20 +202,14 @@
 <!-- output_directory -->
 <g id="node15" class="node">
 <title>output_directory</title>
-<g id="a_node15"><a xlink:title="The umccrise output directory&#10;">
 <polygon fill="#94ddf4" stroke="black" points="730,-126.51 730,-163.51 866,-163.51 866,-126.51 730,-126.51"/>
 <text text-anchor="middle" x="798" y="-141.31" font-family="Times,serif" font-size="14.00">output_directory</text>
-</a>
-</g>
 </g>
 <!-- create_umccrise_tsv_step -->
 <g id="node17" class="node">
 <title>create_umccrise_tsv_step</title>
-<g id="a_node17"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-create-umccrise-tsv/1.2.2--0/custom-create-umccrise-tsv__1.2.2--0.md" xlink:title="Create the umccrise tsv from the jsonised input rows&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1470,-504.51 1470,-541.51 1760,-541.51 1760,-504.51 1470,-504.51"/>
 <text text-anchor="middle" x="1615" y="-519.31" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;umccrise&#45;tsv v(1.2.2&#45;&#45;0)</text>
-</a>
-</g>
 </g>
 <!-- create_mount_paths_and_umccrise_tsv_input_jsons_step&#45;&gt;create_umccrise_tsv_step -->
 <g id="edge1" class="edge">

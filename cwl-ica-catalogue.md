@@ -172,6 +172,7 @@ UMCCR CWL-ICA Catalogue
 - [qualimap](#qualimap)  
 - [map_resource_requirements](#map_resource_requirements)  
 - [bcl-convert](#bcl-convert)  
+- [star](#star)  
 
 
 ### samtools-merge
@@ -280,6 +281,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)  
 
 
 ### custom-create-tso500-samplesheet
@@ -364,6 +366,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.md)  
 
 
 ### dragen-transcriptome
@@ -373,6 +376,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/tools/dragen-transcriptome/3.7.5/dragen-transcriptome__3.7.5.md)  
 - [3.8.4](.github/catalogue/docs/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/tools/dragen-transcriptome/4.0.3/dragen-transcriptome__4.0.3.md)  
 
 
 ### arriba-fusion-calling
@@ -412,6 +416,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/tools/dragen-alignment/3.7.5/dragen-alignment__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/tools/dragen-alignment/4.0.3/dragen-alignment__4.0.3.md)  
 
 
 ### custom-create-directory
@@ -602,6 +607,13 @@ UMCCR CWL-ICA Catalogue
 - [4.0.3](.github/catalogue/docs/tools/bcl-convert/4.0.3/bcl-convert__4.0.3.md)  
 
 
+### star
+
+#### Versions
+  
+- [2.7.10](.github/catalogue/docs/tools/star/2.7.10/star__2.7.10.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -629,6 +641,7 @@ UMCCR CWL-ICA Catalogue
 - [bclconvert](#bclconvert)  
 - [bclconvert-scatter](#bclconvert-scatter)  
 - [validate-bclconvert-samplesheet](#validate-bclconvert-samplesheet)  
+- [dragen-somatic-with-germline-pipeline](#dragen-somatic-with-germline-pipeline)  
 
 
 ### optitype-pipeline
@@ -661,6 +674,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/4.0.3/dragen-germline-pipeline__4.0.3.md)  
 
 
 ### dragen-qc-hla-pipeline
@@ -701,6 +715,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-pipeline/4.0.3/dragen-somatic-pipeline__4.0.3.md)  
 
 
 ### dragen-transcriptome-pipeline
@@ -710,6 +725,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.7.5/dragen-transcriptome-pipeline__3.7.5.md)  
 - [3.8.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
 
 
 ### dragen-alignment-pipeline
@@ -724,6 +740,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.7.5](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.md)  
 
 
 ### dragen-wgs-qc-pipeline
@@ -847,4 +864,11 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [4.0.3](.github/catalogue/docs/workflows/validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md)  
+
+
+### dragen-somatic-with-germline-pipeline
+
+#### Versions
+  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
 

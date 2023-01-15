@@ -19,7 +19,7 @@ get-hla-regions-bed 1.0.0 workflow
 
   
 > ID: get-hla-regions-bed--1.0.0  
-> md5sum: 6a8d8b96322fb3fcbc97ca76f13445f2
+> md5sum: 843d173bb0781e81e06a3e4935cb8f32
 
 ### get-hla-regions-bed v(1.0.0) documentation
   
@@ -80,7 +80,7 @@ May be extracted from a secondary files reference file if this is a subworkflow
 > ID: genome_version
   
 **Optional:** `False`  
-**Type:** `[ hg38 | GRCh37 ]`  
+**Type:** `[ hg38 | GRCh37  ]`  
 **Docs:**  
 The name of the genome determines the chr6 contig we create
 

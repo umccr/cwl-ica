@@ -4,7 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -22,12 +22,13 @@ doc: |
   Documentation for custom-create-directory v1.0.0
   Create a directory based on a list of inputs generated as input files or input directories
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/ICA_CLI/Content/SW/ICA/IAPWES_RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            type: standardHiCpu
-            size: small
+        ilmn-tes:resources:tier: standard
+        ilmn-tes:resources:type: standardHiCpu
+        ilmn-tes:resources:size: small
         coresMin: 15
         ramMin: 28
     DockerRequirement:

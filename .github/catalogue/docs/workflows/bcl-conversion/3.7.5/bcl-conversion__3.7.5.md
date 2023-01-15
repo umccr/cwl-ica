@@ -19,7 +19,7 @@ bcl-conversion 3.7.5 workflow
 
   
 > ID: bcl-conversion--3.7.5  
-> md5sum: 897d544f99e7f257bd885146eab47cd6
+> md5sum: 1edbffc7211256748ec61998ed70de30
 
 ### bcl-conversion v(3.7.5) documentation
   
@@ -184,7 +184,7 @@ Output directory of the samplesheets split by settings
 > ID: samplesheet_output_format
   
 **Optional:** `True`  
-**Type:** `[ v1 | v2 ]`  
+**Type:** `[ v1 | v2  ]`  
 **Docs:**  
 Convert headers to v2 samplesheet format
 
@@ -371,7 +371,7 @@ multiqc directory output that contains bclconvert multiqc data
 
   
 **Optional:** `False`  
-**Output Type:** `Directory[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 The outputs from the bclconvert-step
   
@@ -416,7 +416,7 @@ multiqc directory output that contains interop data
 
   
 **Optional:** `False`  
-**Output Type:** `File[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 List of samplesheets split by override cycles
   
@@ -1445,7 +1445,7 @@ bash wfr.d9ddc8eb7d544d32bdbe285fd45a4365.launch.sh
 
   
 **workflow name:** bcl-conversion_prod-wf  
-**wfl version name:** 3.7.5--ae20fad  
+**wfl version name:** 3.7.5--75e015e  
 
   
 

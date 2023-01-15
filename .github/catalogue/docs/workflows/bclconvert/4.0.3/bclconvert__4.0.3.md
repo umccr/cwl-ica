@@ -19,7 +19,7 @@ bclconvert 4.0.3 workflow
 
   
 > ID: bclconvert--4.0.3  
-> md5sum: f6917b1eb9135f3c2859df31355f28a2
+> md5sum: fa6f90f8cf8391593470a5c03c98bd1c
 
 ### bclconvert v(4.0.3) documentation
   
@@ -59,7 +59,7 @@ Documentation for bclconvert v4.0.3
 > ID: bclconvert_run_configuration
   
 **Optional:** `False`  
-**Type:** `../../../schemas/bclconvert-run-configuration/2.0.0--4.0.3/bclconvert-run-configuration__2.0.0--4.0.3.yaml#bclconvert-run-configuration`  
+**Type:** `file:///home/runner/work/cwl-ica/cwl-ica/schemas/bclconvert-run-configuration/2.0.0--4.0.3/bclconvert-run-configuration__2.0.0--4.0.3.yaml#bclconvert-run-configuration`  
 **Docs:**  
 The BCLConvert run configuration jsons
 

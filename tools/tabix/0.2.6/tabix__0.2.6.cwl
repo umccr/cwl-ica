@@ -4,7 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -24,16 +24,17 @@ label: tabix v(0.2.6)
 doc: |
     Add an index to a vcf file, more info can be found [here](http://www.htslib.org/doc/tabix.html)
 
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: standard
-            size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: medium
         coresMin: 1
         ramMin: 4000
     DockerRequirement:
-        dockerPull: quay.io/biocontainers/tabix:1.11--hdfd78af_0
+        dockerPull: public.ecr.aws/biocontainers/tabix:1.11--hdfd78af_0
 
 requirements:
   InlineJavascriptRequirement: {}

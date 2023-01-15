@@ -17,7 +17,7 @@ multiqc 1.10.1 tool
 
   
 > ID: multiqc--1.10.1  
-> md5sum: 9480df70cb4c418c0e46997137564b51
+> md5sum: f04cc180ac6d92f66fba7e536aa9d2fa
 
 ### multiqc v(1.10.1) documentation
   
@@ -116,7 +116,7 @@ saves having to download the entire input folder
 > ID: input_directories
   
 **Optional:** `False`  
-**Type:** `Directory[]`  
+**Type:** `.[]`  
 **Docs:**  
 The list of directories to place in the analysis
 

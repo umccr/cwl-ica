@@ -72,6 +72,17 @@ if [[ ! -v GITHUB_SERVER_URL ]]; then
   exit 1
 fi
 
+# Set conda env path
+export CONDA_ENVS_PATH="$(mktemp -d)"
+
+# Softlink envs into this environment
+ENVS_LIST=( "cwl-ica" "cwltool-icav1" )
+for env_name in "${ENVS_LIST[@]}"; do
+  ln -s \
+    /home/cwl_ica_user/.conda/envs/${env_name} \
+    "${CONDA_ENVS_PATH}/${env_name}"
+done
+
 # Now create the markdowns for the cwl expressions
 if [[ -f "config/expression.yaml" ]]; then
   # Get the array of cwl expression paths
@@ -116,5 +127,7 @@ fi
 
 # Now create the catalogue
 echo_stderr "Building the CWL Catalogue"
-cwl-ica github-actions-create-catalogue \
-        --output-path "cwl-ica-catalogue.md"
+
+conda run --name "cwl-ica" \
+  cwl-ica github-actions-create-catalogue \
+    --output-path "cwl-ica-catalogue.md"

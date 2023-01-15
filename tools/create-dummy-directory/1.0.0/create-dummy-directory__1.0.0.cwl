@@ -4,7 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -21,13 +21,13 @@ label: create-dummy-directory v(1.0.0)
 doc: |
     Documentation for create-dummy-directory v1.0.0
 
-# ILMN Resources Guide: https://support-docs.illumina.com/SW/ICA/Content/SW/ICA/RequestResources.htm
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources:
-      tier: standard
-      type: standard
-      size: small
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: standard
+    ilmn-tes:resources/size: small
     coresMin: 2
     ramMin: 4000
   DockerRequirement:

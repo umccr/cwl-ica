@@ -19,7 +19,7 @@ bclconvert-scatter 4.0.3 workflow
 
   
 > ID: bclconvert-scatter--4.0.3  
-> md5sum: c77a928579098e1001f6732715fcecc3
+> md5sum: ccea2e0ed768e8589adcb21eace4dd84
 
 ### bclconvert-scatter v(4.0.3) documentation
   
@@ -39,7 +39,7 @@ Documentation for bclconvert-scatter v4.0.3
 
 ### Uses
   
-- [validate-bclconvert-samplesheet 4.0.3 :construction:](../../validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md)  
+- [validate-bclconvert-samplesheet 4.0.3](../../validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md)  
 - [bclconvert 4.0.3](../../bclconvert/4.0.3/bclconvert__4.0.3.md)  
 - [flatten-array-fastq-list 1.0.0](../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md)  
 - [add-run-info-and-samplesheet-to-bclconvert-run-configuration 2.0.0--4.0.3 :construction:](../../../expressions/add-run-info-and-samplesheet-to-bclconvert-run-configuration/2.0.0--4.0.3/add-run-info-and-samplesheet-to-bclconvert-run-configuration__2.0.0--4.0.3.md)  
@@ -98,7 +98,7 @@ Run BCLConvert with the --bcl-validate-sample-sheet-only parameter set to true
 #### Links
   
 [CWL File Path](../../../../../../workflows/validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl)  
-[CWL File Help Page :construction:](../../validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md)
+[CWL File Help Page](../../validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.md)
 #### Subworkflow overview
   
 [![validate-bclconvert-samplesheet__4.0.3.svg](../../../../images/workflows/validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/validate-bclconvert-samplesheet/4.0.3/validate-bclconvert-samplesheet__4.0.3.svg)  
@@ -187,7 +187,7 @@ Directories to fastq list rows
 
   
 **Optional:** `False`  
-**Output Type:** `Directory[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 Directories to output fastq files
   
@@ -202,7 +202,7 @@ Directories to output fastq files
 
   
 **Optional:** `False`  
-**Output Type:** `File[]`  
+**Output Type:** `.[]`  
 **Docs:**  
 List of samplesheets used to convert
   

@@ -17,7 +17,7 @@ custom-tar-vcf-file-list 1.0.0 tool
 
   
 > ID: custom-tar-vcf-file-list--1.0.0  
-> md5sum: a283e690279244a20dee0b92eac0006c
+> md5sum: 13b55bcd131966369168c08d179b6bb0
 
 ### custom-tar-vcf-file-list v(1.0.0) documentation
   
@@ -63,7 +63,7 @@ The directory name all files will be placed in
 > ID: vcf_file_list
   
 **Optional:** `False`  
-**Type:** `File[]`  
+**Type:** `.[]`  
 **Docs:**  
 List of files to be placed in the directory
 

@@ -17,7 +17,7 @@ arriba-fusion-calling 2.3.0 tool
 
   
 > ID: arriba-fusion-calling--2.3.0  
-> md5sum: a2c3efe3a03969476ff56688735669ac
+> md5sum: a6125c2d8b3bff835b175d2f3479c550
 
 ### arriba-fusion-calling v(2.3.0) documentation
   
@@ -36,6 +36,7 @@ https://github.com/suhrig/arriba.
 ### Used By
   
 - [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
+- [dragen-transcriptome-pipeline 4.0.3](../../../workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
 
   
 

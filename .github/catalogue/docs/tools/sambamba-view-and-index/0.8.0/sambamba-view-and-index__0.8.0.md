@@ -17,7 +17,7 @@ sambamba-view-and-index 0.8.0 tool
 
   
 > ID: sambamba-view-and-index--0.8.0  
-> md5sum: 4d98dd119aaf74acce21fc103f481865
+> md5sum: b862319e1ac077b174d6c9e765ba17d7
 
 ### sambamba-view-and-index v(0.8.0) documentation
   
@@ -130,7 +130,7 @@ Name of the output file
 > ID: output_format
   
 **Optional:** `True`  
-**Type:** `[ bam | sam | cram ]`  
+**Type:** `[ bam | sam | cram  ]`  
 **Docs:**  
 The output file format of the filtered bam file.
 Can be bam, sam or cram. Sam by default.

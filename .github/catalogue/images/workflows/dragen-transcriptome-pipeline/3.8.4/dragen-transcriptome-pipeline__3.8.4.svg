@@ -22,20 +22,14 @@
 <!-- annotation_file -->
 <g id="node1" class="node">
 <title>annotation_file</title>
-<g id="a_node1"><a xlink:title="Path to annotation transcript file.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1890,-887.32 1890,-924.32 2012,-924.32 2012,-887.32 1890,-887.32"/>
 <text text-anchor="middle" x="1951" y="-902.12" font-family="Times,serif" font-size="14.00">annotation_file</text>
-</a>
-</g>
 </g>
 <!-- arriba_fusion_step -->
 <g id="node18" class="node">
 <title>arriba_fusion_step</title>
-<g id="a_node18"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md" xlink:title="Runs Arriba fusion calling on the bam file produced by Dragen.&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1819.5,-570.32 1819.5,-607.32 2038.5,-607.32 2038.5,-570.32 1819.5,-570.32"/>
 <text text-anchor="middle" x="1929" y="-585.12" font-family="Times,serif" font-size="14.00">arriba&#45;fusion&#45;calling v(2.0.0)</text>
-</a>
-</g>
 </g>
 <!-- annotation_file&#45;&gt;arriba_fusion_step -->
 <g id="edge14" class="edge">
@@ -46,11 +40,8 @@
 <!-- arriba_drawing_step -->
 <g id="node19" class="node">
 <title>arriba_drawing_step</title>
-<g id="a_node19"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md" xlink:title="Run Arriba drawing script for fusions predicted by previous step.&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1971,-414.32 1971,-451.32 2153,-451.32 2153,-414.32 1971,-414.32"/>
 <text text-anchor="middle" x="2062" y="-429.12" font-family="Times,serif" font-size="14.00">arriba&#45;drawing v(2.0.0)</text>
-</a>
-</g>
 </g>
 <!-- annotation_file&#45;&gt;arriba_drawing_step -->
 <g id="edge15" class="edge">
@@ -61,11 +52,8 @@
 <!-- run_dragen_transcriptome_step -->
 <g id="node21" class="node">
 <title>run_dragen_transcriptome_step</title>
-<g id="a_node21"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md" xlink:title="Runs the dragen transcriptome workflow on the FPGA.&#10;Takes in a fastq list and corresponding mount paths from the predefined_mount_paths.&#10;All other options avaiable at the top of the workflow&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="929,-725.32 929,-762.32 1161,-762.32 1161,-725.32 929,-725.32"/>
 <text text-anchor="middle" x="1045" y="-740.12" font-family="Times,serif" font-size="14.00">dragen&#45;transcriptome v(3.8.4)</text>
-</a>
-</g>
 </g>
 <!-- annotation_file&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge16" class="edge">
@@ -76,11 +64,8 @@
 <!-- cytobands -->
 <g id="node2" class="node">
 <title>cytobands</title>
-<g id="a_node2"><a xlink:title="Coordinates of the Giemsa staining bands.&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2423.5,-887.32 2423.5,-924.32 2512.5,-924.32 2512.5,-887.32 2423.5,-887.32"/>
 <text text-anchor="middle" x="2468" y="-902.12" font-family="Times,serif" font-size="14.00">cytobands</text>
-</a>
-</g>
 </g>
 <!-- cytobands&#45;&gt;arriba_drawing_step -->
 <g id="edge17" class="edge">
@@ -91,11 +76,8 @@
 <!-- protein_domains -->
 <g id="node3" class="node">
 <title>protein_domains</title>
-<g id="a_node3"><a xlink:title="GFF3 file containing the genomic coordinates of protein domains&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2270.5,-887.32 2270.5,-924.32 2405.5,-924.32 2405.5,-887.32 2270.5,-887.32"/>
 <text text-anchor="middle" x="2338" y="-902.12" font-family="Times,serif" font-size="14.00">protein_domains</text>
-</a>
-</g>
 </g>
 <!-- protein_domains&#45;&gt;arriba_drawing_step -->
 <g id="edge18" class="edge">
@@ -106,11 +88,8 @@
 <!-- blacklist -->
 <g id="node4" class="node">
 <title>blacklist</title>
-<g id="a_node4"><a xlink:title="File with blacklist range&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2175.5,-887.32 2175.5,-924.32 2252.5,-924.32 2252.5,-887.32 2175.5,-887.32"/>
 <text text-anchor="middle" x="2214" y="-902.12" font-family="Times,serif" font-size="14.00">blacklist</text>
-</a>
-</g>
 </g>
 <!-- blacklist&#45;&gt;arriba_fusion_step -->
 <g id="edge19" class="edge">
@@ -121,11 +100,8 @@
 <!-- contigs -->
 <g id="node5" class="node">
 <title>contigs</title>
-<g id="a_node5"><a xlink:title="Optional &#45; List of interesting contigs&#10;If not specified, defaults to 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1804,-887.32 1804,-924.32 1872,-924.32 1872,-887.32 1804,-887.32"/>
 <text text-anchor="middle" x="1838" y="-902.12" font-family="Times,serif" font-size="14.00">contigs</text>
-</a>
-</g>
 </g>
 <!-- contigs&#45;&gt;arriba_fusion_step -->
 <g id="edge20" class="edge">
@@ -136,11 +112,8 @@
 <!-- reference_fasta -->
 <g id="node6" class="node">
 <title>reference_fasta</title>
-<g id="a_node6"><a xlink:title="FastA file with genome sequence&#10;">
 <polygon fill="#94ddf4" stroke="black" points="2030.5,-887.32 2030.5,-924.32 2157.5,-924.32 2157.5,-887.32 2030.5,-887.32"/>
 <text text-anchor="middle" x="2094" y="-902.12" font-family="Times,serif" font-size="14.00">reference_fasta</text>
-</a>
-</g>
 </g>
 <!-- reference_fasta&#45;&gt;arriba_fusion_step -->
 <g id="edge21" class="edge">
@@ -151,20 +124,14 @@
 <!-- fastq_list_rows -->
 <g id="node7" class="node">
 <title>fastq_list_rows</title>
-<g id="a_node7"><a xlink:title="The row of fastq lists.&#10;Each row has the following attributes:&#10; &#160;* RGID&#10; &#160;* RGLB&#10; &#160;* RGSM&#10; &#160;* Lane&#10; &#160;* Read1File&#10; &#160;* Read2File (optional)&#10;">
 <polygon fill="#94ddf4" stroke="black" points="518.5,-887.32 518.5,-924.32 641.5,-924.32 641.5,-887.32 518.5,-887.32"/>
 <text text-anchor="middle" x="580" y="-902.12" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
-</a>
-</g>
 </g>
 <!-- create_fastq_list_csv_step -->
 <g id="node24" class="node">
 <title>create_fastq_list_csv_step</title>
-<g id="a_node24"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-create-csv-from-fastq-list-rows/1.0.0/custom-create-csv-from-fastq-list-rows__1.0.0.md" xlink:title="Create the fastq list csv to then run the germline tool.&#10;Takes in an array of fastq_list_row schema.&#10;Returns a csv file along with predefined_mount_path schema&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="0,-887.32 0,-924.32 342,-924.32 342,-887.32 0,-887.32"/>
 <text text-anchor="middle" x="171" y="-902.12" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;csv&#45;from&#45;fastq&#45;list&#45;row v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- fastq_list_rows&#45;&gt;create_fastq_list_csv_step -->
 <g id="edge22" class="edge">
@@ -175,11 +142,8 @@
 <!-- output_file_prefix -->
 <g id="node8" class="node">
 <title>output_file_prefix</title>
-<g id="a_node8"><a xlink:title="The prefix given to all output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="360,-887.32 360,-924.32 500,-924.32 500,-887.32 360,-887.32"/>
 <text text-anchor="middle" x="430" y="-902.12" font-family="Times,serif" font-size="14.00">output_file_prefix</text>
-</a>
-</g>
 </g>
 <!-- output_file_prefix&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge23" class="edge">
@@ -190,11 +154,8 @@
 <!-- dragen_qc_step -->
 <g id="node22" class="node">
 <title>dragen_qc_step</title>
-<g id="a_node22"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/multiqc/1.11.0/multiqc__1.11.0.md" xlink:title="The dragen qc step &#45; this takes in an array of dirs&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="360.5,-570.32 360.5,-607.32 499.5,-607.32 499.5,-570.32 360.5,-570.32"/>
 <text text-anchor="middle" x="430" y="-585.12" font-family="Times,serif" font-size="14.00">multiqc v(1.11.0)</text>
-</a>
-</g>
 </g>
 <!-- output_file_prefix&#45;&gt;dragen_qc_step -->
 <g id="edge24" class="edge">
@@ -217,11 +178,8 @@
 <!-- enable_duplicate_marking -->
 <g id="node9" class="node">
 <title>enable_duplicate_marking</title>
-<g id="a_node9"><a xlink:title="Mark identical alignments as duplicates&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1582.5,-887.32 1582.5,-924.32 1785.5,-924.32 1785.5,-887.32 1582.5,-887.32"/>
 <text text-anchor="middle" x="1684" y="-902.12" font-family="Times,serif" font-size="14.00">enable_duplicate_marking</text>
-</a>
-</g>
 </g>
 <!-- enable_duplicate_marking&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge27" class="edge">
@@ -232,11 +190,8 @@
 <!-- enable_map_align_output -->
 <g id="node10" class="node">
 <title>enable_map_align_output</title>
-<g id="a_node10"><a xlink:title="Do you wish to have the output bam files present&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1367.5,-887.32 1367.5,-924.32 1564.5,-924.32 1564.5,-887.32 1367.5,-887.32"/>
 <text text-anchor="middle" x="1466" y="-902.12" font-family="Times,serif" font-size="14.00">enable_map_align_output</text>
-</a>
-</g>
 </g>
 <!-- enable_map_align_output&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge28" class="edge">
@@ -247,11 +202,8 @@
 <!-- enable_rna_gene_fusion -->
 <g id="node11" class="node">
 <title>enable_rna_gene_fusion</title>
-<g id="a_node11"><a xlink:title="Optional &#45; Enable the DRAGEN Gene Fusion module &#45; defaults to true&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1163,-887.32 1163,-924.32 1349,-924.32 1349,-887.32 1163,-887.32"/>
 <text text-anchor="middle" x="1256" y="-902.12" font-family="Times,serif" font-size="14.00">enable_rna_gene_fusion</text>
-</a>
-</g>
 </g>
 <!-- enable_rna_gene_fusion&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge29" class="edge">
@@ -262,11 +214,8 @@
 <!-- enable_rna_quantification -->
 <g id="node12" class="node">
 <title>enable_rna_quantification</title>
-<g id="a_node12"><a xlink:title="Optional &#45; Enable the quantification module &#45; defaults to true&#10;">
 <polygon fill="#94ddf4" stroke="black" points="945,-887.32 945,-924.32 1145,-924.32 1145,-887.32 945,-887.32"/>
 <text text-anchor="middle" x="1045" y="-902.12" font-family="Times,serif" font-size="14.00">enable_rna_quantification</text>
-</a>
-</g>
 </g>
 <!-- enable_rna_quantification&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge30" class="edge">
@@ -277,11 +226,8 @@
 <!-- output_directory -->
 <g id="node13" class="node">
 <title>output_directory</title>
-<g id="a_node13"><a xlink:title="The directory where all output files are placed&#10;">
 <polygon fill="#94ddf4" stroke="black" points="791,-887.32 791,-924.32 927,-924.32 927,-887.32 791,-887.32"/>
 <text text-anchor="middle" x="859" y="-902.12" font-family="Times,serif" font-size="14.00">output_directory</text>
-</a>
-</g>
 </g>
 <!-- output_directory&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge31" class="edge">
@@ -292,11 +238,8 @@
 <!-- reference_tar -->
 <g id="node14" class="node">
 <title>reference_tar</title>
-<g id="a_node14"><a xlink:title="Path to ref data tarball&#10;">
 <polygon fill="#94ddf4" stroke="black" points="659.5,-887.32 659.5,-924.32 772.5,-924.32 772.5,-887.32 659.5,-887.32"/>
 <text text-anchor="middle" x="716" y="-902.12" font-family="Times,serif" font-size="14.00">reference_tar</text>
-</a>
-</g>
 </g>
 <!-- reference_tar&#45;&gt;run_dragen_transcriptome_step -->
 <g id="edge32" class="edge">
@@ -307,29 +250,20 @@
 <!-- arriba_output_directory -->
 <g id="node15" class="node">
 <title>arriba_output_directory</title>
-<g id="a_node15"><a xlink:title="The directory containing output files from arriba&#10;">
 <polygon fill="#94ddf4" stroke="black" points="1214,-103.32 1214,-140.32 1400,-140.32 1400,-103.32 1214,-103.32"/>
 <text text-anchor="middle" x="1307" y="-118.12" font-family="Times,serif" font-size="14.00">arriba_output_directory</text>
-</a>
-</g>
 </g>
 <!-- dragen_transcriptome_output_directory -->
 <g id="node16" class="node">
 <title>dragen_transcriptome_output_directory</title>
-<g id="a_node16"><a xlink:title="The output directory containing all transcriptome output files&#10;">
 <polygon fill="#94ddf4" stroke="black" points="894.5,-103.32 894.5,-140.32 1195.5,-140.32 1195.5,-103.32 894.5,-103.32"/>
 <text text-anchor="middle" x="1045" y="-118.12" font-family="Times,serif" font-size="14.00">dragen_transcriptome_output_directory</text>
-</a>
-</g>
 </g>
 <!-- multiqc_output_directory -->
 <g id="node17" class="node">
 <title>multiqc_output_directory</title>
-<g id="a_node17"><a xlink:title="The output directory for multiqc&#10;">
 <polygon fill="#94ddf4" stroke="black" points="679.5,-103.32 679.5,-140.32 876.5,-140.32 876.5,-103.32 679.5,-103.32"/>
 <text text-anchor="middle" x="778" y="-118.12" font-family="Times,serif" font-size="14.00">multiqc_output_directory</text>
-</a>
-</g>
 </g>
 <!-- arriba_fusion_step&#45;&gt;arriba_drawing_step -->
 <g id="edge1" class="edge">
@@ -340,11 +274,8 @@
 <!-- create_arriba_output_directory -->
 <g id="node20" class="node">
 <title>create_arriba_output_directory</title>
-<g id="a_node20"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md" xlink:title="Create an output directory to contain the arriba files&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1805.5,-259.32 1805.5,-296.32 2052.5,-296.32 2052.5,-259.32 1805.5,-259.32"/>
 <text text-anchor="middle" x="1929" y="-274.12" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;directory v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- arriba_fusion_step&#45;&gt;create_arriba_output_directory -->
 <g id="edge2" class="edge">
@@ -403,11 +334,8 @@
 <!-- create_dummy_file_step -->
 <g id="node23" class="node">
 <title>create_dummy_file_step</title>
-<g id="a_node23"><a xlink:href="https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md" xlink:title="Intermediate step for letting multiqc&#45;interop be placed in stream mode&#10;">
 <polygon fill="lightgoldenrodyellow" stroke="black" points="122.5,-725.32 122.5,-762.32 383.5,-762.32 383.5,-725.32 122.5,-725.32"/>
 <text text-anchor="middle" x="253" y="-740.12" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
-</a>
-</g>
 </g>
 <!-- create_dummy_file_step&#45;&gt;dragen_qc_step -->
 <g id="edge10" class="edge">
