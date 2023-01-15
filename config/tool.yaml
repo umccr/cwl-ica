@@ -147,6 +147,9 @@ tools:
       - name: 1.2.1
         path: 1.2.1/multiqc-interop__1.2.1.cwl
         md5sum: 6c58f7dc6295b75ad6231267ee77bbc5
+      - name: 1.14.0--1.2.0
+        path: 1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.cwl
+        md5sum: 461c52b5d3d389ce2bf532622fc4c341
     categories: []
   - name: dragen-somatic
     path: dragen-somatic
