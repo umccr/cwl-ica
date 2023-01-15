@@ -81,7 +81,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: interop_multi_qc_out
-    run: ../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl
+    run: ../../../tools/multiqc-interop/1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.cwl
 
   # Run bclconvert scatter over directory
   run_bclconvert_step:
@@ -127,7 +127,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
+    run: ../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl
 
 outputs:
   samplesheets:

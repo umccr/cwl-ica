@@ -531,9 +531,6 @@ steps:
     label: dragen qc step
     doc: |
       The dragen qc step - this takes in an array of dirs
-    requirements:
-      DockerRequirement:
-        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-file-update-and-gc-content-to-general--7fd8f85
     in:
       input_directories:
         source: run_dragen_germline_step/dragen_germline_output_directory
@@ -554,7 +551,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
+    run: ../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl
 
 outputs:
   dragen_germline_output_directory:
