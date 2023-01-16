@@ -139,7 +139,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/create-dummy-file__1.0.0.cwl
-        md5sum: 5984a09cddb912d43546dc2db68c6c0e
+        md5sum: a20fc102686ad30946feae257f2fe608
     categories: []
   - name: multiqc-interop
     path: multiqc-interop
@@ -239,7 +239,7 @@ tools:
         md5sum: f2d49a1e8ec053ce391d97c10f1d50f6
       - name: 2.0.1
         path: 2.0.1/custom-create-directory__2.0.1.cwl
-        md5sum: 87f8c54bf6015fb0bd32a239713ad69e
+        md5sum: 84c466193fa140a22c8b643edfa054af
       - name: 1.0.1
         path: 1.0.1/custom-create-directory__1.0.1.cwl
         md5sum: 4b74c6c5e23e715c682fa6d7c5d025ef
@@ -366,7 +366,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-create-umccr-dragen-refdata-tarball-from-illumina-tar__1.0.0.cwl
-        md5sum: de68d78ec6ddfbd03410c3417923b39b
+        md5sum: 02c4be3706d6f8313c09718488962144
     categories: []
   - name: dragen-umi
     path: dragen-umi

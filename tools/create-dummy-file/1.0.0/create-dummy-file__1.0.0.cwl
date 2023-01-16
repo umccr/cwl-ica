@@ -31,7 +31,7 @@ hints:
     coresMin: 2
     ramMin: 4000
   DockerRequirement:
-    dockerPull: alpine:latest
+    dockerPull: public.ecr.aws/docker/library/alpine:latest
 
 baseCommand: ["touch", "dummy_file.txt"]
 

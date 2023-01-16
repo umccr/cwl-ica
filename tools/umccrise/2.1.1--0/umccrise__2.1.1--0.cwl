@@ -31,7 +31,7 @@ hints:
         coresMin: 16
         ramMin: 50000
     DockerRequirement:
-        #dockerPull: alpine:latest
+        #dockerPull: public.ecr.aws/docker/library/alpine:latest
         dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:2.1.1-a14aaccecb
 
 requirements:
