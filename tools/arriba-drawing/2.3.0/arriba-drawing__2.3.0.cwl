@@ -25,17 +25,17 @@ doc: |
 hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: standardHiCpu
-    ilmn-tes:resources/size: large
-    coresMin: 72
-    ramMin: 140000
+    ilmn-tes:resources/type: standard
+    ilmn-tes:resources/size: xlarge
+    coresMin: 4
+    ramMin: 14000
   DockerRequirement:
-    dockerPull: "uhrigs/arriba:2.3.0"
+    dockerPull: public.ecr.aws/biocontainers/arriba:2.3.0--ha04fe3b_1
 
 requirements:
   InlineJavascriptRequirement: {}
 
-baseCommand: [ "/arriba_v2.3.0/draw_fusions.R" ]
+baseCommand: [ "draw_fusions.R" ]
 
 inputs:
   annotation:
