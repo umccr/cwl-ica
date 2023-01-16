@@ -31,7 +31,7 @@ hints:
         coresMin: 1
         ramMin: 1000
     DockerRequirement:
-        dockerPull: alpine:latest
+        dockerPull: public.ecr.aws/docker/library/alpine:latest
 
 requirements:
   InlineJavascriptRequirement: {}

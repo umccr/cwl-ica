@@ -146,7 +146,7 @@
 <polygon fill="black" stroke="black" points="4372,-1493.48 4361.7,-1495.94 4371.29,-1500.44 4372,-1493.48"/>
 </g>
 <!-- create_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step -->
-<g id="edge6" class="edge">
+<g id="edge4" class="edge">
 <title>create_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step</title>
 <path fill="none" stroke="black" d="M7879.89,-2022.33C7846.44,-2012.11 7800.67,-1999.49 7759.5,-1990.9 6434.58,-1714.5 4794.67,-1538.62 4371.75,-1496.32"/>
 <polygon fill="black" stroke="black" points="4371.98,-1492.82 4361.68,-1495.31 4371.29,-1499.79 4371.98,-1492.82"/>
@@ -158,13 +158,13 @@
 <text text-anchor="middle" x="8287.5" y="-2036.7" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;csv&#45;from&#45;fastq&#45;list&#45;row v(1.0.0)</text>
 </g>
 <!-- create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step</title>
 <path fill="none" stroke="black" d="M8223.85,-2022.28C8187.3,-2011.99 8140.55,-1999.29 8098.5,-1990.9 6633.41,-1698.59 4818.82,-1533.59 4371.62,-1495.15"/>
 <polygon fill="black" stroke="black" points="4371.89,-1491.66 4361.63,-1494.3 4371.29,-1498.64 4371.89,-1491.66"/>
 </g>
 <!-- create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step -->
-<g id="edge5" class="edge">
+<g id="edge6" class="edge">
 <title>create_tumor_fastq_list_csv_step&#45;&gt;run_dragen_somatic_step</title>
 <path fill="none" stroke="black" d="M8239.36,-2022.28C8205.3,-2011.99 8158.55,-1999.29 8116.5,-1990.9 6644.87,-1697.28 4820.6,-1532.12 4371.77,-1494.65"/>
 <polygon fill="black" stroke="black" points="4372,-1491.15 4361.75,-1493.81 4371.42,-1498.13 4372,-1491.15"/>

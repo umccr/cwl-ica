@@ -17,7 +17,7 @@ custom-create-umccr-dragen-refdata-tarball-from-illumina-tar 1.0.0 tool
 
   
 > ID: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar--1.0.0  
-> md5sum: de68d78ec6ddfbd03410c3417923b39b
+> md5sum: 02c4be3706d6f8313c09718488962144
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar v(1.0.0) documentation
   
@@ -304,7 +304,7 @@ bash wfr.f0f2f6f602e54d3ebcbc1837d1fc7074.launch.sh
 
   
 **workflow name:** custom-create-umccr-dragen-refdata-tarball-from-illumina-tar_prod-wf  
-**wfl version name:** 1.0.0--75e015e  
+**wfl version name:** 1.0.0--40e48c4  
 
   
 
