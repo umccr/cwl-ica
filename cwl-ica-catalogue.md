@@ -408,6 +408,7 @@ UMCCR CWL-ICA Catalogue
 - [1.10.1](.github/catalogue/docs/tools/multiqc/1.10.1/multiqc__1.10.1.md)  
 - [1.11.0](.github/catalogue/docs/tools/multiqc/1.11.0/multiqc__1.11.0.md)  
 - [1.12.0](.github/catalogue/docs/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [1.14.0](.github/catalogue/docs/tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 
 
 ### dragen-alignment

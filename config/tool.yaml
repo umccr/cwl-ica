@@ -209,6 +209,9 @@ tools:
       - name: 1.12.0
         path: 1.12.0/multiqc__1.12.0.cwl
         md5sum: e0b47899b72228c48907da94c3f798b3
+      - name: 1.14.0
+        path: 1.14.0/multiqc__1.14.0.cwl
+        md5sum: 72b0c0635d8da1e882718a612dce2440
     categories:
       - qc
       - visual
