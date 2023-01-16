@@ -533,6 +533,16 @@ projects:
             ica_workflow_version_name: 2.7.10
             modification_time: 2023-01-06T00:01:30UTC
             run_instances: []
+      - name: multiqc-interop
+        path: multiqc-interop
+        ica_workflow_name: multiqc-interop_dev-wf
+        ica_workflow_id: wfl.d14e91dc019349afa57febf4034bc39b
+        versions:
+          - name: 1.14.0--1.2.0
+            path: 1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.cwl
+            ica_workflow_version_name: 1.14.0--1.2.0
+            modification_time: 2023-01-15T21:53:52UTC
+            run_instances: []
     workflows:
       - name: optitype-pipeline
         path: optitype-pipeline

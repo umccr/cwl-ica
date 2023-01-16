@@ -358,6 +358,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.2.1](.github/catalogue/docs/tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+- [1.14.0--1.2.0](.github/catalogue/docs/tools/multiqc-interop/1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.md)  
 
 
 ### dragen-somatic
