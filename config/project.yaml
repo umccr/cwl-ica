@@ -873,6 +873,16 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-01-16T00:55:51UTC
             run_instances: []
+      - name: illumina-interop-qc
+        path: illumina-interop-qc
+        ica_workflow_name: illumina-interop-qc_dev-wf
+        ica_workflow_id: wfl.6423709b62684c348f7b8305fe40cdf1
+        versions:
+          - name: 1.2.0--1.14.0
+            path: 1.2.0--1.14.0/illumina-interop-qc__1.2.0--1.14.0.cwl
+            ica_workflow_version_name: 1.2.0--1.14.0
+            modification_time: 2023-01-24T01:05:30UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
