@@ -299,6 +299,13 @@ inputs:
     inputBinding:
       prefix: "--ref-dir"
       valueFrom: "$(get_ref_path(self))"
+  enable_rna:
+    label: enable rna
+    doc: |
+      Enable rna specific settings
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-rna"
   # Output naming options
   output_file_prefix:
     label: output file prefix
