@@ -299,6 +299,7 @@ inputs:
     inputBinding:
       prefix: "--ref-dir"
       valueFrom: "$(get_ref_path(self))"
+  # RNA options
   enable_rna:
     label: enable rna
     doc: |
@@ -306,6 +307,15 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--enable-rna"
+      valueFrom: "$(self.toString())"
+  enable_rrna_filter:
+    label: enable rrna filtering
+    doc: |
+      Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
+    type: boolean?
+    inputBinding:
+      prefix: "--rrna-filter-enable"
+      valueFrom: "$(self.toString())"
   # Output naming options
   output_file_prefix:
     label: output file prefix

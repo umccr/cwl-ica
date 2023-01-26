@@ -55,6 +55,17 @@ inputs:
     doc: |
       Path to ref data tarball
     type: File
+  # RNA option
+  enable_rna:
+    label: enable rna
+    doc: |
+      Enable rna specific settings
+    type: boolean?
+  enable_rrna_filter:
+    label: enable rrna filtering
+    doc: |
+      Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
+    type: boolean?
   # Output naming options
   output_file_prefix:
     label: output file prefix
@@ -385,6 +396,10 @@ steps:
         source: fastq_list_rows
       reference_tar:
         source: reference_tar
+      enable_rna:
+        source: enable_rna
+      enable_rrna_filter:
+        source: enable_rrna_filter
       output_file_prefix:
         source: output_file_prefix
       output_directory:

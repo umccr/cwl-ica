@@ -200,7 +200,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-25T00:41:02UTC
+            modification_time: 2023-01-25T04:57:50UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-alignment__4.0.3.cwl
@@ -695,7 +695,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-16T00:54:55UTC
+            modification_time: 2023-01-25T04:59:01UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
