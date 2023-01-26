@@ -58,8 +58,10 @@ requirements:
 hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: standardHiCpu
+    ilmn-tes:resources/type: standard
     ilmn-tes:resources/size: large
+    coresMin: 8
+    ramMin: 32000
   DockerRequirement:
     dockerPull: "ghcr.io/umccr/rnasum:0.4.5"
 
