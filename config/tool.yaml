@@ -466,10 +466,3 @@ tools:
         path: 2.7.10/star__2.7.10.cwl
         md5sum: 246bcafcbefa85c0f6ce80d8cec0e043
     categories: []
-  - name: dragen-wts-alignment
-    path: dragen-wts-alignment
-    versions:
-      - name: 3.9.3
-        path: 3.9.3/dragen-wts-alignment__3.9.3.cwl
-        md5sum: 919d22c2e8ba367c86db95ec9ff70348
-    categories: []
