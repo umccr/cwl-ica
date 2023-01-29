@@ -29,7 +29,7 @@ hints:
         ilmn-tes:resources/type: standardHiMem
         ilmn-tes:resources/size: medium
         coresMin: 16
-        ramMin: 50000
+        ramMin: 128000
     DockerRequirement:
         dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:2.2.0-fcef79d982
 
