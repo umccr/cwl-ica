@@ -501,7 +501,7 @@ projects:
           - name: 2.2.2
             path: 2.2.2/qualimap__2.2.2.cwl
             ica_workflow_version_name: 2.2.2
-            modification_time: 2023-01-12T02:36:56UTC
+            modification_time: 2023-01-29T23:06:49UTC
             run_instances: []
       - name: map_resource_requirements
         path: map_resource_requirements
@@ -662,7 +662,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-16T00:54:46UTC
+            modification_time: 2023-01-29T23:26:55UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -670,7 +670,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-01-16T00:54:49UTC
+            modification_time: 2023-01-29T23:26:58UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
@@ -821,7 +821,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-12T02:55:39UTC
+            modification_time: 2023-01-29T23:27:24UTC
             run_instances: []
       - name: bclconvert-with-qc-pipeline
         path: bclconvert-with-qc-pipeline
@@ -1696,6 +1696,11 @@ projects:
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--40e48c4
             modification_time: 2023-01-16T00:56:12UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--23ecb68
+            modification_time: 2023-01-29T23:27:37UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
