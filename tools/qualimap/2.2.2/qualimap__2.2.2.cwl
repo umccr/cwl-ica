@@ -25,10 +25,10 @@ doc: |
 hints:
     ResourceRequirement:
         ilmn-tes:resources/tier: standard
-        ilmn-tes:resources/type: standardHiCpu
+        ilmn-tes:resources/type: standard
         ilmn-tes:resources/size: large
-        coresMin: 2
-        ramMin: 4000
+        coresMin: 8
+        ramMin: 32000
     DockerRequirement:
         dockerPull: public.ecr.aws/biocontainers/qualimap:2.2.2d--hdfd78af_2
 

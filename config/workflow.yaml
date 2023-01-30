@@ -76,10 +76,10 @@ workflows:
         md5sum: ec42222cb084c954a9a2d425a4106a77
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
-        md5sum: b3da2f4a32a4d1f7f4f7dc6f759a39aa
+        md5sum: 7a9b87ca9c5cc956b6e0b46eb140e532
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
-        md5sum: ebca2a05d7a071c7edd483a4a5263012
+        md5sum: 1396c5c0b3c4309af0388694c8e38ebe
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -163,10 +163,10 @@ workflows:
         md5sum: b0639c540d1cc9115b4f06156cd78fc1
       - name: 2.2.0--3.9.3
         path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
-        md5sum: ea9a9e25e578d4d95acabf77a7d6848b
+        md5sum: 4f9069b359782fd804a69309bb7a1db1
       - name: 2.2.1--3.9.3
         path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
-        md5sum: c597d229dcb6ec4eb07acb3edcd1ee17
+        md5sum: 187ba7b5d8dbe8fa9a7e029305d1eab3
     categories: []
   - name: ghif-qc
     path: ghif-qc
@@ -190,7 +190,7 @@ workflows:
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
-        md5sum: 630ba20e9f70fedd1adbdd77c39086bd
+        md5sum: ed9e878a704bbfbda463a8d24224e71e
     categories: []
   - name: tabix-workflow
     path: tabix-workflow
