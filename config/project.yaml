@@ -220,7 +220,7 @@ projects:
           - name: 2.3.0
             path: 2.3.0/arriba-drawing__2.3.0.cwl
             ica_workflow_version_name: 2.3.0
-            modification_time: 2023-01-12T02:35:42UTC
+            modification_time: 2023-01-30T00:41:27UTC
             run_instances: []
       - name: custom-create-directory
         path: custom-create-directory
@@ -471,7 +471,7 @@ projects:
           - name: 2.3.0
             path: 2.3.0/arriba-fusion-calling__2.3.0.cwl
             ica_workflow_version_name: 2.3.0
-            modification_time: 2023-01-12T02:36:50UTC
+            modification_time: 2023-01-30T00:41:53UTC
             run_instances: []
       - name: bamtofastq
         path: bamtofastq
@@ -662,7 +662,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-29T23:26:55UTC
+            modification_time: 2023-01-30T01:04:22UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -670,7 +670,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-01-29T23:26:58UTC
+            modification_time: 2023-01-30T01:04:25UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
@@ -1701,6 +1701,11 @@ projects:
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--23ecb68
             modification_time: 2023-01-29T23:27:37UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--ad2d159
+            modification_time: 2023-01-30T01:04:54UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
