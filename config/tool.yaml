@@ -188,7 +188,7 @@ tools:
         md5sum: 214d1ea4873d8c9517bb3ebc1d7d359d
       - name: 2.3.0
         path: 2.3.0/arriba-fusion-calling__2.3.0.cwl
-        md5sum: a6125c2d8b3bff835b175d2f3479c550
+        md5sum: c0907e46308cb57ee6eed801b5b641d8
     categories: []
   - name: arriba-drawing
     path: arriba-drawing
@@ -198,7 +198,7 @@ tools:
         md5sum: effa18cd592fd7186ddee75ea616b2bc
       - name: 2.3.0
         path: 2.3.0/arriba-drawing__2.3.0.cwl
-        md5sum: 685242701386888b9abf4af575860662
+        md5sum: 41a6ca144a31223e32ba97bab30c8a33
     categories: []
   - name: multiqc
     path: multiqc
