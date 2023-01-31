@@ -466,3 +466,10 @@ tools:
         path: 2.7.10/star__2.7.10.cwl
         md5sum: 246bcafcbefa85c0f6ce80d8cec0e043
     categories: []
+  - name: illumina-interop
+    path: illumina-interop
+    versions:
+      - name: 1.2.0
+        path: 1.2.0/illumina-interop__1.2.0.cwl
+        md5sum: cfe5334a2e43b6ac9ad7b763f93e33d9
+    categories: []

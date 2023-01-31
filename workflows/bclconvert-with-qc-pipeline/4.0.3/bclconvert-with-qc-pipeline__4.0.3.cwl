@@ -64,24 +64,15 @@ steps:
   interop_qc_step:
     label: interop qc step
     doc: |
-      Run the multiqc by first also generating the interop files for use
+      Run illumina interop on the run
     in:
-      input_directory:
+      input_run_dir:
         source: bclconvert_run_input_directory
-      output_directory_name:
-        source: runfolder_name
-        valueFrom: "$(self)_interop_multiqc"
-      output_filename:
-        source: runfolder_name
-        valueFrom: "$(self)_interop_multiqc.html"
-      title:
-        source: runfolder_name
-        valueFrom: "UMCCR MultiQC Interop report for $(self)"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
     out:
-      - id: interop_multi_qc_out
-    run: ../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl
+      - id: interop_outdir
+    run: ../../../tools/illumina-interop/1.2.0/illumina-interop__1.2.0.cwl
 
   # Run bclconvert scatter over directory
   run_bclconvert_step:
@@ -108,7 +99,10 @@ steps:
     # This allows us to run the bclconvert multiqc module over the array of directories
     in:
       input_directories:
-        source: run_bclconvert_step/fastq_output_directories
+        source:
+          - run_bclconvert_step/fastq_output_directories
+          - interop_qc_step/interop_outdir
+        linkMerge: merge_flattened
       output_directory_name:
         source: runfolder_name
         valueFrom: "$(self)_bclconvert_multiqc"
@@ -148,12 +142,6 @@ outputs:
       Array of fastq list rows
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]
     outputSource: run_bclconvert_step/fastq_list_rows
-  interop_multiqc_out:
-    label: interop multiqc out
-    doc: |
-      Multiqc interop directory
-    type: Directory
-    outputSource: interop_qc_step/interop_multi_qc_out
   bclconvert_multiqc_out:
     label: bclconvert multiqc out
     doc: |

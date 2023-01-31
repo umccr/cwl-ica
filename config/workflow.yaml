@@ -204,7 +204,7 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
-        md5sum: b1ca0ecb9052bcd0762ae08b6d6f70d0
+        md5sum: 68107de60b429f4385785ae51f9ba87a
     categories: []
   - name: bclconvert
     path: bclconvert
@@ -233,4 +233,11 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
         md5sum: 10887b815c586b1df8b5dba8a339e7ec
+    categories: []
+  - name: illumina-interop-qc
+    path: illumina-interop-qc
+    versions:
+      - name: 1.2.0--1.14.0
+        path: 1.2.0--1.14.0/illumina-interop-qc__1.2.0--1.14.0.cwl
+        md5sum: 0ce252fa8165d4afd7242b37a2f2540c
     categories: []
