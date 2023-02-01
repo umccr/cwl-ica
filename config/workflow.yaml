@@ -89,10 +89,10 @@ workflows:
         md5sum: 5c57286fb085c3be10da23bd4c3a95a0
       - name: 3.9.3
         path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
-        md5sum: 6f71898a6d42df4a621a5f78b676b6bc
+        md5sum: d0f3ff931887b8429d9dc6efde3bde6a
       - name: 4.0.3
         path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
-        md5sum: 3288d65382cb225d446d27b0f1d071e9
+        md5sum: a3ab8a1038aada683f5f4cea0034d0df
     categories:
       - alignment
       - dragen
@@ -104,7 +104,7 @@ workflows:
         md5sum: 7d815a6148a8af9140bfb7cfe529ed5b
       - name: 3.9.3
         path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
-        md5sum: 90af8c54fac6ea277c445c5f5678c884
+        md5sum: 9d572c366219544c814d9730911d39fe
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
