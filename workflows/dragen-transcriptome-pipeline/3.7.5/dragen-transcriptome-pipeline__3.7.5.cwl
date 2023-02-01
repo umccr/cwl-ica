@@ -205,7 +205,7 @@ steps:
         source: protein_domains
     out: 
       - id: output_pdf
-    run:  ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
+    run: ../../../tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.cwl
   # Step-5: Create Arriba output directory
   create_arriba_output_directory:
     label: create arriba output directory

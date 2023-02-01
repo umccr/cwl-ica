@@ -19,7 +19,7 @@ bcl-conversion 3.7.5 workflow
 
   
 > ID: bcl-conversion--3.7.5  
-> md5sum: 66d92a0f06931a80b0402f13e28efbcc
+> md5sum: d19c7b0a624ed8b24974bd5ba52619f7
 
 ### bcl-conversion v(3.7.5) documentation
   
@@ -40,11 +40,11 @@ Runs bcl-convert v3.7.5 with multiqc output of the bcl input directory
 ### Uses
   
 - [bclConvert 3.7.5](../../../tools/bclConvert/3.7.5/bclConvert__3.7.5.md)  
-- [multiqc 1.11.0](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+- [multiqc 1.14.0](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 - [flatten-array-fastq-list 1.0.0](../../../expressions/flatten-array-fastq-list/1.0.0/flatten-array-fastq-list__1.0.0.md)  
 - [get-samplesheet-midfix-regex 1.0.0](../../../expressions/get-samplesheet-midfix-regex/1.0.0/get-samplesheet-midfix-regex__1.0.0.md)  
-- [multiqc-interop 1.2.1](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+- [multiqc-interop 1.14.0--1.2.0](../../../tools/multiqc-interop/1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.md)  
 - [custom-samplesheet-split-by-settings 1.0.0](../../../tools/custom-samplesheet-split-by-settings/1.0.0/custom-samplesheet-split-by-settings__1.0.0.md)  
 
   
@@ -253,8 +253,8 @@ The bclconvert qc step - from scatter this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.11.0/multiqc__1.11.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.11.0/multiqc__1.11.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 
 
 ### create dummy file
@@ -322,8 +322,8 @@ Run the multiqc by first also generating the interop files for use
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl)  
-[CWL File Help Page](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+[CWL File Path](../../../../../../tools/multiqc-interop/1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc-interop/1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.md)  
 
 
 ### Split samplesheet by settings step
@@ -1445,7 +1445,7 @@ bash wfr.d9ddc8eb7d544d32bdbe285fd45a4365.launch.sh
 
   
 **workflow name:** bcl-conversion_prod-wf  
-**wfl version name:** 3.7.5--40e48c4  
+**wfl version name:** 3.7.5--3b07571  
 
   
 

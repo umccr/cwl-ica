@@ -528,7 +528,7 @@ steps:
         source: create_dummy_file_step/dummy_file_output
     out:
       - id: output_directory
-    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
+    run: ../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl
 
 outputs:
   # All output files will be under the output directory
