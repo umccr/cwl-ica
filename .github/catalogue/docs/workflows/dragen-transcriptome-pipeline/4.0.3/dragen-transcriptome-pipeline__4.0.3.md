@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.0.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.0.3  
-> md5sum: 1396c5c0b3c4309af0388694c8e38ebe
+> md5sum: 5ce5231aea403a518578e14eca9a8e46
 
 ### dragen-transcriptome-pipeline v(4.0.3) documentation
   
@@ -43,7 +43,7 @@ Documentation for dragen-transcriptome-pipeline v4.0.3
 - [arriba-fusion-calling 2.3.0](../../../tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.md)  
 - [custom-create-directory 1.0.0](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.14.0](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 - [dragen-transcriptome 4.0.3](../../../tools/dragen-transcriptome/4.0.3/dragen-transcriptome__4.0.3.md)  
 - [qualimap 2.2.2](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 
@@ -436,8 +436,8 @@ The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 
 
 ### run dragen transcriptome step

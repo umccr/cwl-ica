@@ -29,7 +29,7 @@
 <g id="node96" class="node">
 <title>run_dragen_qc_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="16.5,-1534.61 16.5,-1571.61 155.5,-1571.61 155.5,-1534.61 16.5,-1534.61"/>
-<text text-anchor="middle" x="86" y="-1549.41" font-family="Times,serif" font-size="14.00">multiqc v(1.12.0)</text>
+<text text-anchor="middle" x="86" y="-1549.41" font-family="Times,serif" font-size="14.00">multiqc v(1.14.0)</text>
 </g>
 <!-- output_file_prefix&#45;&gt;run_dragen_qc_step -->
 <g id="edge10" class="edge">

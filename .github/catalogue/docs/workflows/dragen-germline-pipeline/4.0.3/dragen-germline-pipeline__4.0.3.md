@@ -19,7 +19,7 @@ dragen-germline-pipeline 4.0.3 workflow
 
   
 > ID: dragen-germline-pipeline--4.0.3  
-> md5sum: 84cf90a4230d40004c1f9b0edc4047a5
+> md5sum: ef3b05f88085480d3ee4b0c7788f3e49
 
 ### dragen-germline-pipeline v(4.0.3) documentation
   
@@ -41,7 +41,7 @@ Documentation for dragen-germline-pipeline v4.0.3
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.14.0](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 - [dragen-germline 4.0.3](../../../tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)  
 
   
@@ -799,8 +799,8 @@ The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 
 
 ### run dragen germline step
