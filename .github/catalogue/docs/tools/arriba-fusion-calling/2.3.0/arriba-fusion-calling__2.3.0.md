@@ -17,7 +17,7 @@ arriba-fusion-calling 2.3.0 tool
 
   
 > ID: arriba-fusion-calling--2.3.0  
-> md5sum: a6125c2d8b3bff835b175d2f3479c550
+> md5sum: c0907e46308cb57ee6eed801b5b641d8
 
 ### arriba-fusion-calling v(2.3.0) documentation
   

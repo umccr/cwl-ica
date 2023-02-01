@@ -247,7 +247,7 @@ steps:
         source: protein_domains
     out: 
       - id: output_pdf
-    run:  ../../../tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.cwl
+    run: ../../../tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.cwl
   # Step-4: Create Arriba output directory
   create_arriba_output_directory:
     label: create arriba output directory
@@ -300,9 +300,6 @@ steps:
     label: dragen qc step
     doc: |
       The dragen qc step - this takes in an array of dirs
-    requirements: 
-      DockerRequirement: 
-        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-file-update-and-gc-content-to-general--7fd8f85
     in:
       input_directories:
         source:
@@ -326,7 +323,7 @@ steps:
     out:
       - id: output_directory
       - id: output_file
-    run: ../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl
+    run: ../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl
 
 outputs:
   # The dragen output directory

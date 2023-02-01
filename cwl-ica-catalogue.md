@@ -173,6 +173,7 @@ UMCCR CWL-ICA Catalogue
 - [map_resource_requirements](#map_resource_requirements)  
 - [bcl-convert](#bcl-convert)  
 - [star](#star)  
+- [illumina-interop](#illumina-interop)  
 
 
 ### samtools-merge
@@ -616,6 +617,13 @@ UMCCR CWL-ICA Catalogue
 - [2.7.10](.github/catalogue/docs/tools/star/2.7.10/star__2.7.10.md)  
 
 
+### illumina-interop
+
+#### Versions
+  
+- [1.2.0](.github/catalogue/docs/tools/illumina-interop/1.2.0/illumina-interop__1.2.0.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -644,6 +652,7 @@ UMCCR CWL-ICA Catalogue
 - [bclconvert-scatter](#bclconvert-scatter)  
 - [validate-bclconvert-samplesheet](#validate-bclconvert-samplesheet)  
 - [dragen-somatic-with-germline-pipeline](#dragen-somatic-with-germline-pipeline)  
+- [illumina-interop-qc](#illumina-interop-qc)  
 
 
 ### optitype-pipeline
@@ -873,4 +882,11 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
+
+
+### illumina-interop-qc
+
+#### Versions
+  
+- [1.2.0--1.14.0](.github/catalogue/docs/workflows/illumina-interop-qc/1.2.0--1.14.0/illumina-interop-qc__1.2.0--1.14.0.md)  
 

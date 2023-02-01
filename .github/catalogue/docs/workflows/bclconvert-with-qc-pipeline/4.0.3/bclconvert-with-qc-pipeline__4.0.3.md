@@ -19,7 +19,7 @@ bclconvert-with-qc-pipeline 4.0.3 workflow
 
   
 > ID: bclconvert-with-qc-pipeline--4.0.3  
-> md5sum: b1ca0ecb9052bcd0762ae08b6d6f70d0
+> md5sum: c13bcb7a85b364daa407734a7b6e66bf
 
 ### bclconvert-with-qc-pipeline v(4.0.3) documentation
   
@@ -39,9 +39,9 @@ Documentation for bclconvert-with-qc-pipeline v4.0.3
 
 ### Uses
   
-- [multiqc 1.12.0](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+- [multiqc 1.14.0](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc-interop 1.2.1](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+- [illumina-interop 1.2.0](../../../tools/illumina-interop/1.2.0/illumina-interop__1.2.0.md)  
 - [bclconvert-scatter 4.0.3](../../bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
 
   
@@ -105,8 +105,8 @@ The bclconvert qc step - from scatter this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.12.0/multiqc__1.12.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.12.0/multiqc__1.12.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 
 
 ### create dummy file
@@ -135,12 +135,12 @@ Intermediate step for letting multiqc-interop be placed in stream mode
 **Step Type:** tool  
 **Docs:**
   
-Run the multiqc by first also generating the interop files for use
+Run illumina interop on the run
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.cwl)  
-[CWL File Help Page](../../../tools/multiqc-interop/1.2.1/multiqc-interop__1.2.1.md)  
+[CWL File Path](../../../../../../tools/illumina-interop/1.2.0/illumina-interop__1.2.0.cwl)  
+[CWL File Help Page](../../../tools/illumina-interop/1.2.0/illumina-interop__1.2.0.md)  
 
 
 ### run bclconvert step
@@ -207,21 +207,6 @@ Array of directories pointing to the fastq locations
 **Output Type:** `fastq-list-row[]`  
 **Docs:**  
 Array of fastq list rows
-  
-
-
-### interop multiqc out
-
-
-
-  
-> ID: bclconvert-with-qc-pipeline--4.0.3/interop_multiqc_out  
-
-  
-**Optional:** `False`  
-**Output Type:** `Directory`  
-**Docs:**  
-Multiqc interop directory
   
 
 
