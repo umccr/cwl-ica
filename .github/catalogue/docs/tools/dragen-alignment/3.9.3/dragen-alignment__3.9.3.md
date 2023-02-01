@@ -17,7 +17,7 @@ dragen-alignment 3.9.3 tool
 
   
 > ID: dragen-alignment--3.9.3  
-> md5sum: 7ce1635789b68d5a0e909578687d5657
+> md5sum: ce1302293a895e1a648b8dfe0c171024
 
 ### dragen-alignment v(3.9.3) documentation
   
@@ -209,6 +209,32 @@ Enable the flagging of duplicate output alignment records.
 **Type:** `boolean`  
 **Docs:**  
 Enable use of BAM input files for mapper/aligner.
+
+
+### enable rna
+
+
+
+  
+> ID: enable_rna
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable rna specific settings
+
+
+### enable rrna filtering
+
+
+
+  
+> ID: enable_rrna_filter
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
 
 
 ### enable sort

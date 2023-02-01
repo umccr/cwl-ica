@@ -104,7 +104,7 @@ workflows:
         md5sum: 7d815a6148a8af9140bfb7cfe529ed5b
       - name: 3.9.3
         path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
-        md5sum: 90af8c54fac6ea277c445c5f5678c884
+        md5sum: 9d572c366219544c814d9730911d39fe
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
