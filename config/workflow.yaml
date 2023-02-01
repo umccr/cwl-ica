@@ -241,3 +241,10 @@ workflows:
         path: 1.2.0--1.14.0/illumina-interop-qc__1.2.0--1.14.0.cwl
         md5sum: 0ce252fa8165d4afd7242b37a2f2540c
     categories: []
+  - name: rnasum-pipeline
+    path: rnasum-pipeline
+    versions:
+      - name: 0.4.5
+        path: 0.4.5/rnasum-pipeline__0.4.5.cwl
+        md5sum: c381ec8ec73ffdc0d1b2573692d94f33
+    categories: []
