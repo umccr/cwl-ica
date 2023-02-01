@@ -205,7 +205,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-alignment__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-01-12T02:35:38UTC
+            modification_time: 2023-02-01T03:01:58UTC
             run_instances: []
       - name: arriba-drawing
         path: arriba-drawing
@@ -700,7 +700,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-01-16T00:54:58UTC
+            modification_time: 2023-02-01T03:05:15UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
