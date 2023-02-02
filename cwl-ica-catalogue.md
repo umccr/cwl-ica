@@ -641,7 +641,6 @@ UMCCR CWL-ICA Catalogue
 - [tso500-ctdna-post-processing-pipeline](#tso500-ctdna-post-processing-pipeline)  
 - [umccrise-pipeline](#umccrise-pipeline)  
 - [tso500-ctdna-with-post-processing-pipeline](#tso500-ctdna-with-post-processing-pipeline)  
-- [umccrise-pipeline](#umccrise-pipeline)  
 - [umccrise-with-dragen-germline-pipeline](#umccrise-with-dragen-germline-pipeline)  
 - [ghif-qc](#ghif-qc)  
 - [dragen-pon-qc](#dragen-pon-qc)  
@@ -785,6 +784,8 @@ UMCCR CWL-ICA Catalogue
   
 - [1.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.1--0/umccrise-pipeline__1.2.1--0.md)  
 - [1.2.2--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.2--0/umccrise-pipeline__1.2.2--0.md)  
+- [2.2.0--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.2.0--0/umccrise-pipeline__2.2.0--0.md)  
+- [2.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.2.1--0/umccrise-pipeline__2.2.1--0.md)  
 
 
 ### tso500-ctdna-with-post-processing-pipeline
@@ -797,14 +798,6 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.1.0--1.0.0](.github/catalogue/docs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.md)  
-
-
-### umccrise-pipeline
-
-#### Versions
-  
-- [1.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.1--0/umccrise-pipeline__1.2.1--0.md)  
-- [1.2.2--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.2--0/umccrise-pipeline__1.2.2--0.md)  
 
 
 ### umccrise-with-dragen-germline-pipeline
