@@ -139,16 +139,6 @@ workflows:
         md5sum: df9f86f8a324c6cded025e347bab0660
     categories:
       - tso500
-  - name: umccrise-pipeline
-    path: umccrise-pipeline
-    versions:
-      - name: 1.2.1--0
-        path: 1.2.1--0/umccrise-pipeline__1.2.1--0.cwl
-        md5sum: af8f723b42d82fc53563802358971b33
-      - name: 1.2.2--0
-        path: 1.2.2--0/umccrise-pipeline__1.2.2--0.cwl
-        md5sum: dfe4d663df914d9d131597ded5298c10
-    categories: []
   - name: umccrise-with-dragen-germline-pipeline
     path: umccrise-with-dragen-germline-pipeline
     versions:
