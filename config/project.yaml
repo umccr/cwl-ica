@@ -903,6 +903,16 @@ projects:
             ica_workflow_version_name: 1.2.0--1.14.0
             modification_time: 2023-01-24T01:05:30UTC
             run_instances: []
+      - name: rnasum-pipeline
+        path: rnasum-pipeline
+        ica_workflow_name: rnasum-pipeline_dev-wf
+        ica_workflow_id: wfl.410c83a1132f4130b5d902f105198878
+        versions:
+          - name: 0.4.5
+            path: 0.4.5/rnasum-pipeline__0.4.5.cwl
+            ica_workflow_version_name: 0.4.5
+            modification_time: 2023-02-01T23:51:56UTC
+            run_instances: []
   - project_name: production_workflows
     project_id: fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d
     project_description: |
