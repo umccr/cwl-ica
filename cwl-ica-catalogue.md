@@ -652,6 +652,7 @@ UMCCR CWL-ICA Catalogue
 - [validate-bclconvert-samplesheet](#validate-bclconvert-samplesheet)  
 - [dragen-somatic-with-germline-pipeline](#dragen-somatic-with-germline-pipeline)  
 - [illumina-interop-qc](#illumina-interop-qc)  
+- [rnasum-pipeline](#rnasum-pipeline)  
 
 
 ### optitype-pipeline
@@ -882,4 +883,11 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.2.0--1.14.0](.github/catalogue/docs/workflows/illumina-interop-qc/1.2.0--1.14.0/illumina-interop-qc__1.2.0--1.14.0.md)  
+
+
+### rnasum-pipeline
+
+#### Versions
+  
+- [0.4.5](.github/catalogue/docs/workflows/rnasum-pipeline/0.4.5/rnasum-pipeline__0.4.5.md)  
 
