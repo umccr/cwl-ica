@@ -190,7 +190,8 @@ inputs:
       file.
     type: boolean?
     inputBinding:
-      prefix: --strict-mode
+      prefix: --strict-mode=
+      separate: False
       valueFrom: "$(self.toString())"
   # Tile options
   first_tile_only:
@@ -202,7 +203,8 @@ inputs:
       sheet. Default is false
     type: boolean?
     inputBinding:
-      prefix: --first-tile-only
+      prefix: --first-tile-only=
+      separate: False
       valueFrom: "$(self.toString())"
   tiles:
     label: tiles
@@ -228,7 +230,8 @@ inputs:
       Default set to false.
     type: boolean?
     inputBinding:
-      prefix: --bcl-sampleproject-subdirectories
+      prefix: --bcl-sampleproject-subdirectories=
+      separate: False
       valueFrom: "$(self.toString())"
   sample_name_column_enabled:
     label: sample name column enabled
@@ -237,7 +240,8 @@ inputs:
       (requires bcl-sampleproject-subdirectories true as well).
     type: boolean?
     inputBinding:
-      prefix: --sample-name-column-enabled
+      prefix: --sample-name-column-enabled=
+      separate: False
       valueFrom: "$(self.toString())"
   # Performance options
   fastq_gzip_compression_level:
@@ -258,7 +262,8 @@ inputs:
       as GPFS or Lustre. Default is false
     type: boolean?
     inputBinding:
-      prefix: "--shared-thread-odirect-output"
+      prefix: "--shared-thread-odirect-output="
+      separate: False
       valueFrom: "$(self.toString())"
   bcl_num_parallel_tiles:
     label: bcl num parallel tiles
@@ -303,7 +308,8 @@ inputs:
       Disable outputting unmapped reads to FASTQ files marked as Undetermined.
     type: boolean?
     inputBinding:
-      prefix: "--bcl-only-matched-reads"
+      prefix: "--bcl-only-matched-reads="
+      separate: False
       valueFrom: "$(self.toString())"
   run_info:
     label: run info
@@ -321,7 +327,8 @@ inputs:
        *  Only allowed when Lane column is excluded from the sample sheet.
     type: boolean?
     inputBinding:
-      prefix: --no-lane-splitting
+      prefix: --no-lane-splitting=
+      separate: False
       valueFrom: "$(self.toString())"
   num_unknown_barcodes_reported:
     label: num unknown barcodes reported
@@ -336,7 +343,8 @@ inputs:
       Only validate RunInfo.xml & SampleSheet files (produce no FASTQ files)
     type: boolean?
     inputBinding:
-      prefix: --bcl-validate-sample-sheet-only
+      prefix: --bcl-validate-sample-sheet-only=
+      separate: False
       valueFrom: "$(self.toString())"
   output_legacy_stats:
     label: output legacy stats

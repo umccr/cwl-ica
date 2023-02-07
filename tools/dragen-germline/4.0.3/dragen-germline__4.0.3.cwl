@@ -158,7 +158,8 @@ inputs:
       Do you wish to have the output bam files present
     type: boolean?
     inputBinding:
-      prefix: "--enable-map-align-output"
+      prefix: "--enable-map-align-output="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_duplicate_marking:
     label: enable duplicate marking
@@ -166,7 +167,8 @@ inputs:
       Mark identical alignments as duplicates
     type: boolean?
     inputBinding:
-      prefix: "--enable-duplicate-marking"
+      prefix: "--enable-duplicate-marking="
+      separate: False
       valueFrom: "$(self.toString())"
   dedup_min_qual:
     label: deduplicate minimum quality
@@ -175,7 +177,8 @@ inputs:
       calculation used for choosing among duplicate reads.
     type: int?
     inputBinding:
-      prefix: "--dedup-min-qual"
+      prefix: "--dedup-min-qual="
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Structural Variant Caller Options
@@ -187,7 +190,8 @@ inputs:
       caller. Default is false.
     type: boolean?
     inputBinding:
-      prefix: "--enable-sv"
+      prefix: "--enable-sv="
+      separate: False
       valueFrom: "$(self.toString())"
   # Structural Variant Caller Options
   sv_call_regions_bed:
@@ -205,7 +209,8 @@ inputs:
       The value must be in the format “chr:startPos-endPos”..
     type: string?
     inputBinding:
-      prefix: "--sv-region"
+      prefix: "--sv-region="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_exome:
     label: sv exome
@@ -216,7 +221,8 @@ inputs:
       and in standalone mode the default is false.
     type: boolean?
     inputBinding:
-      prefix: "--sv-exome"
+      prefix: "--sv-exome="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_output_contigs:
     label: sv output contigs
@@ -224,7 +230,8 @@ inputs:
       Set to true to have assembled contig sequences output in a VCF file. The default is false.
     type: boolean?
     inputBinding:
-      prefix: "--sv-output-contigs"
+      prefix: "--sv-output-contigs="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_forcegt_vcf:
     label: sv forcegt vcf
@@ -243,7 +250,8 @@ inputs:
       are processed. The default is true.
     type: boolean?
     inputBinding:
-      prefix: "--sv-discovery"
+      prefix: "--sv-discovery="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_se_overlap_pair_evidence:
     label: sv use overlap pair evidence
@@ -252,7 +260,8 @@ inputs:
       By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
     type: boolean?
     inputBinding:
-      prefix: "--sv-use-overlap-pair-evidence"
+      prefix: "--sv-use-overlap-pair-evidence="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_enable_liquid_tumor_mode:
     label: sv enable liquid tumor mode
@@ -260,7 +269,8 @@ inputs:
       Enable liquid tumor mode.
     type: boolean?
     inputBinding:
-      prefix: "--sv-enable-liquid-tumor-mode"
+      prefix: "--sv-enable-liquid-tumor-mode="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_tin_contam_tolerance:
     label: sv tin contam tolerance
@@ -309,7 +319,8 @@ inputs:
       (concordant with GATK 3.7 in germline mode and GATK 4.0 in somatic mode).
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-gatk-acceleration"
+      prefix: "--vc-enable-gatk-acceleration="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_remove_all_soft_clips:
     label: vc remove all soft clips
@@ -317,7 +328,8 @@ inputs:
       If is set to true, the variant caller does not use soft clips of reads to determine variants.
     type: boolean?
     inputBinding:
-      prefix: "--vc-remove-all-soft-clips"
+      prefix: "--vc-remove-all-soft-clips="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_decoy_contigs:
     label: vc decoy contigs
@@ -334,7 +346,8 @@ inputs:
       The default value is false.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-decoy-contigs"
+      prefix: "--vc-enable-decoy-contigs="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_phasing:
     label: vc enable phasing
@@ -342,7 +355,8 @@ inputs:
       The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-phasing"
+      prefix: "--vc-enable-phasing="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_vcf_output:
     label: vc enable vcf output
@@ -350,7 +364,8 @@ inputs:
       The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-vcf-output"
+      prefix: "--vc-enable-vcf-output="
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Downsampling options
@@ -389,7 +404,8 @@ inputs:
       Enable or disable the ROH caller by setting this option to true or false. Enabled by default for human autosomes only.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-roh"
+      prefix: "--vc-enable-roh="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_roh_blacklist_bed:
     label: vc roh blacklist bed
@@ -466,7 +482,8 @@ inputs:
       Enable CNV processing in the DRAGEN Host Software.
     type: boolean?
     inputBinding:
-      prefix: --enable-cnv
+      prefix: --enable-cnv=
+      separate: False
       valueFrom: "$(self.toString())"
   cnv_enable_self_normalization:
     label: cnv enable self normalization
@@ -475,7 +492,8 @@ inputs:
       Self Normalization requires that the DRAGEN hash table be generated with the enable-cnv=true option.
     type: boolean?
     inputBinding:
-      prefix: --cnv-enable-self-normalization
+      prefix: --cnv-enable-self-normalization=
+      separate: False
       valueFrom: "$(self.toString())"
 
   # QC options
@@ -508,7 +526,8 @@ inputs:
       This option also requires setting --enable-map-align=true.
     type: boolean?
     inputBinding:
-      prefix: --qc-coverage-ignore-overlaps
+      prefix: --qc-coverage-ignore-overlaps=
+      separate: False
       valueFrom: "$(self.toString())"
 
   # HLA calling
@@ -518,7 +537,8 @@ inputs:
       Enable HLA typing by setting --enable-hla flag to true
     type: boolean?
     inputBinding:
-      prefix: --enable-hla
+      prefix: --enable-hla=
+      separate: False
       valueFrom: "$(self.toString())"
   hla_bed_file:
     label: hla bed file

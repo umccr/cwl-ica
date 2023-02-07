@@ -137,7 +137,8 @@ inputs:
       Do you wish to have the output bam files present
     type: boolean
     inputBinding:
-      prefix: "--enable-map-align-output"
+      prefix: "--enable-map-align-output="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_duplicate_marking:
     label: enable duplicate marking
@@ -145,7 +146,8 @@ inputs:
       Mark identical alignments as duplicates
     type: boolean
     inputBinding:
-      prefix: "--enable-duplicate-marking"
+      prefix: "--enable-duplicate-marking="
+      separate: False
       valueFrom: "$(self.toString())"
   # Transcript annotation file
   annotation_file:
@@ -163,7 +165,8 @@ inputs:
     doc: |
       Enable the quantification module. The default value is true.
     inputBinding:
-      prefix: "--enable-rna-quantification"
+      prefix: "--enable-rna-quantification="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_rna_gene_fusion:
     label: enable rna gene fusion
@@ -172,7 +175,8 @@ inputs:
     doc: |
       Enable the DRAGEN Gene Fusion module. The default value is true.
     inputBinding:
-      prefix: "--enable-rna-gene-fusion"
+      prefix: "--enable-rna-gene-fusion="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_rrna_filter:
     label: enable rrna filtering
@@ -181,7 +185,8 @@ inputs:
     doc: |
       Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
     inputBinding:
-      prefix: "--rrna-filter-enable"
+      prefix: "--rrna-filter-enable="
+      separate: False
       valueFrom: "$(self.toString())"
   rrna_filter_contig:
     label: name of the rRNA sequences to use for filtering

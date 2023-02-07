@@ -134,7 +134,8 @@ inputs:
       Enable rna specific settings
     type: boolean?
     inputBinding:
-      prefix: "--enable-rna"
+      prefix: "--enable-rna="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_rrna_filter:
     label: enable rrna filtering
@@ -142,7 +143,8 @@ inputs:
       Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
     type: boolean?
     inputBinding:
-      prefix: "--rrna-filter-enable"
+      prefix: "--rrna-filter-enable="
+      separate: False
       valueFrom: "$(self.toString())"
   # Output naming options
   output_file_prefix:
@@ -213,7 +215,8 @@ inputs:
       Enable use of BAM input files for mapper/aligner.
     type: boolean?
     inputBinding:
-      prefix: "--enable-map-align"
+      prefix: "--enable-map-align="
+      separate: False
       valueFrom: "$(self.toString())"
   max_intron_bases:
     label: max intron bases
@@ -510,7 +513,8 @@ inputs:
       Enabled by default if reference was built with liftover.
     type: boolean?
     inputBinding:
-      prefix: "--alt-aware"
+      prefix: "--alt-aware="
+      separate: False
       valueFrom: "$(self.toString())"
   # Duplicate marking
   enable_duplicate_marking:
@@ -519,7 +523,8 @@ inputs:
       Enable the flagging of duplicate output alignment records.
     type: boolean?
     inputBinding:
-      prefix: "--enable-duplicate-marking"
+      prefix: "--enable-duplicate-marking="
+      separate: False
       valueFrom: "$(self.toString())"
   remove_duplicates:
     label: remove duplicates
@@ -527,7 +532,8 @@ inputs:
       If true, remove duplicate alignment records instead of just flagging them.
     type: boolean?
     inputBinding:
-      prefix: "--remove-duplicates"
+      prefix: "--remove-duplicates="
+      separate: False
       valueFrom: "$(self.toString())"
   # Tag generation
   generate_md_tags:
@@ -536,7 +542,8 @@ inputs:
       Whether to generate MD tags with alignment output records. Default is false.
     type: boolean?
     inputBinding:
-      prefix: "--generate-md-tags"
+      prefix: "--generate-md-tags="
+      separate: False
       valueFrom: "$(self.toString())"
   generate_sa_tags:
     label: generate sa tags
@@ -544,7 +551,8 @@ inputs:
       Whether to generate SA:Z tags for records that have chimeric/supplemental alignments.
     type: boolean?
     inputBinding:
-      prefix: "--generate-sa-tags"
+      prefix: "--generate-sa-tags="
+      separate: False
       valueFrom: "$(self.toString())"
   generate_zs_tags:
     label: generate zs tags
@@ -552,7 +560,8 @@ inputs:
       Whether to generate ZS tags for alignment output records. Default is false.
     type: boolean?
     inputBinding:
-      prefix: "--generate-zs-tags"
+      prefix: "--generate-zs-tags="
+      separate: False
       valueFrom: "$(self.toString())"
   # Sorting logic
   enable_sort:
@@ -561,7 +570,8 @@ inputs:
       Enable sorting after mapping/alignment.
     type: boolean?
     inputBinding:
-      prefix: "--enable-sort"
+      prefix: "--enable-sort="
+      separate: False
       valueFrom: "$(self.toString())"
   preserve_map_align_order:
     label: preserve map align order
@@ -569,7 +579,8 @@ inputs:
       Produce output file that preserves original order of reads in the input file.
     type: boolean?
     inputBinding:
-      prefix: "--preserve-map-align-order"
+      prefix: "--preserve-map-align-order="
+      separate: False
       valueFrom: "$(self.toString())"
   # Add in the lic-license-id-location
   lic_instance_id_location:

@@ -28,10 +28,9 @@ doc: |
 # ILMN Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 hints:
     ResourceRequirement:
-        ilmn-tes:resources:
-            tier: standard
-            type: fpga
-            size: medium
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: fpga
+        ilmn-tes:resources/size: medium
         coresMin: 16
         ramMin: 240000
     DockerRequirement:
@@ -217,7 +216,8 @@ inputs:
       running the variant caller.
     type: boolean?
     inputBinding:
-      prefix: "--enable-map-align-output"
+      prefix: "--enable-map-align-output="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_duplicate_marking:
     label: enable duplicate marking
@@ -226,7 +226,8 @@ inputs:
       alignment records.
     type: boolean?
     inputBinding:
-      prefix: "--enable-duplicate-marking"
+      prefix: "--enable-duplicate-marking="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_sv:
     label: enable sv
@@ -235,7 +236,8 @@ inputs:
       caller. Default is false.
     type: boolean?
     inputBinding:
-      prefix: "--enable-sv"
+      prefix: "--enable-sv="
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Deduplication options
@@ -266,7 +268,8 @@ inputs:
       The value must be in the format “chr:startPos-endPos”..
     type: string?
     inputBinding:
-      prefix: "--sv-region"
+      prefix: "--sv-region="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_exome:
     label: sv exome
@@ -277,7 +280,8 @@ inputs:
       and in standalone mode the default is false.
     type: boolean?
     inputBinding:
-      prefix: "--sv-exome"
+      prefix: "--sv-exome="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_output_contigs:
     label: sv output contigs
@@ -285,7 +289,8 @@ inputs:
       Set to true to have assembled contig sequences output in a VCF file. The default is false.
     type: boolean?
     inputBinding:
-      prefix: "--sv-output-contigs"
+      prefix: "--sv-output-contigs="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_forcegt_vcf:
     label: sv forcegt vcf
@@ -304,7 +309,8 @@ inputs:
       are processed. The default is true.
     type: boolean?
     inputBinding:
-      prefix: "--sv-discovery"
+      prefix: "--sv-discovery="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_se_overlap_pair_evidence:
     label: sv use overlap pair evidence
@@ -313,7 +319,8 @@ inputs:
       By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
     type: boolean?
     inputBinding:
-      prefix: "--sv-use-overlap-pair-evidence"
+      prefix: "--sv-use-overlap-pair-evidence="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_somatic_ins_tandup_hotspot_regions_bed:
     label: sv somatic ins tandup hotspot regions bed
@@ -330,7 +337,8 @@ inputs:
       Enable or disable the ITD hotspot region input. The default is true in somatic variant analysis.
     type: boolean?
     inputBinding:
-      prefix: "--sv-enable-somatic-ins-tandup-hotspot-regions"
+      prefix: "--sv-enable-somatic-ins-tandup-hotspot-regions="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_enable_liquid_tumor_mode:
     label: sv enable liquid tumor mode
@@ -338,7 +346,8 @@ inputs:
       Enable liquid tumor mode.
     type: boolean?
     inputBinding:
-      prefix: "--sv-enable-liquid-tumor-mode"
+      prefix: "--sv-enable-liquid-tumor-mode="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_tin_contam_tolerance:
     label: sv tin contam tolerance
@@ -387,7 +396,8 @@ inputs:
       (concordant with GATK 3.7 in germline mode and GATK 4.0 in somatic mode).
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-gatk-acceleration"
+      prefix: "--vc-enable-gatk-acceleration="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_remove_all_soft_clips:
     label: vc remove all soft clips
@@ -395,7 +405,8 @@ inputs:
       If is set to true, the variant caller does not use soft clips of reads to determine variants.
     type: boolean?
     inputBinding:
-      prefix: "--vc-remove-all-soft-clips"
+      prefix: "--vc-remove-all-soft-clips="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_decoy_contigs:
     label: vc decoy contigs
@@ -412,7 +423,8 @@ inputs:
       The default value is false.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-decoy-contigs"
+      prefix: "--vc-enable-decoy-contigs="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_phasing:
     label: vc enable phasing
@@ -420,7 +432,8 @@ inputs:
       The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-phasing"
+      prefix: "--vc-enable-phasing="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_vcf_output:
     label: vc enable vcf output
@@ -428,7 +441,8 @@ inputs:
       The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-vcf-output"
+      prefix: "--vc-enable-vcf-output="
+      separate: False
       valueFrom: "$(self.toString())"
   # Downsampling options
   vc_max_reads_per_active_region:
@@ -465,7 +479,8 @@ inputs:
       Enable or disable the ROH caller by setting this option to true or false. Enabled by default for human autosomes only.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-roh"
+      prefix: "--vc-enable-roh="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_roh_blacklist_bed:
     label: vc roh blacklist bed
@@ -540,7 +555,8 @@ inputs:
       expected to be observed in the normal sample with allele frequencies up to 15% of the corresponding
       allele in the tumor sample.
     inputBinding:
-      prefix: --vc-enable-liquid-tumor-mode
+      prefix: --vc-enable-liquid-tumor-mode=
+      separate: False
       valueFrom: "$(self.toString())"
   vc_tin_contam_tolerance:
     label: vc tin contam tolerance
@@ -557,7 +573,8 @@ inputs:
     doc: |
       Enables the orientation bias filter. The default value is false, which means the option is disabled.
     inputBinding:
-      prefix: --vc-enable-orientation-bias-filter
+      prefix: --vc-enable-orientation-bias-filter=
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_orientation_bias_filter_artifacts:
     label: vc enable orientation bias filter artifacts
@@ -568,7 +585,8 @@ inputs:
       An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
       For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
     inputBinding:
-      prefix: --vc-enable-orientation-bias-filter-artifacts
+      prefix: --vc-enable-orientation-bias-filter-artifacts=
+      separate: False
       valueFrom: "$(self.toString())"
   # Post somatic calling filtering options
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/PostSomaticFilters.htm
@@ -582,7 +600,8 @@ inputs:
       For this reason, the default post-VCF filtering in DRAGEN is very simple
     type: string?
     inputBinding:
-      prefix: --vc-hard-filter
+      prefix: --vc-hard-filter=
+      separate: False
       valueFrom: "$(self.toString())"
   vc_sq_call_threshold:
     label: vc sq call threshold
@@ -607,7 +626,8 @@ inputs:
     doc: |
       Enables the multiallelic filter. The default is true.
     inputBinding:
-      prefix: --vc-enable-triallelic-filter
+      prefix: --vc-enable-triallelic-filter=
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_af_filter:
     label: vc enable af filter
@@ -620,7 +640,8 @@ inputs:
       To change the threshold values, use the following command line options:
         --vc-af-callthreshold and --vc-af-filter-threshold.
     inputBinding:
-      prefix: --vc-enable-af-filter
+      prefix: --vc-enable-af-filter=
+      separate: False
       valueFrom: "$(self.toString())"
   vc_af_call_threshold:
     label: vc af call threshold
@@ -646,7 +667,8 @@ inputs:
       variants if the normal sample genotype is not a homozygous reference.
     type: boolean?
     inputBinding:
-      prefix: --vc-enable-non-homref-normal-filter
+      prefix: --vc-enable-non-homref-normal-filter=
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Mitochondrial allele frequency filters
@@ -659,7 +681,8 @@ inputs:
       The default value is 0.01.
     type: boolean?
     inputBinding:
-      prefix: --vc-af-call-threshold-mito
+      prefix: --vc-af-call-threshold-mito=
+      separate: False
       valueFrom: "$(self.toString())"
   vc_af_filter_threshold_mito:
     label: vc af filter threshold mito
@@ -669,7 +692,8 @@ inputs:
       as filtered for mitochondrial variant calling. The default value is 0.02.
     type: float?
     inputBinding:
-      prefix: --vc-af-filter-threshold-mito
+      prefix: --vc-af-filter-threshold-mito=
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Enable non primary allelic filter
@@ -682,7 +706,8 @@ inputs:
       The default is false. Not compatible with vc-enable-triallelic-filter.
     type: boolean?
     inputBinding:
-      prefix: --vc-enable-non-primary-allelic-filter
+      prefix: --vc-enable-non-primary-allelic-filter=
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Turn off ntd error bias estimation
@@ -704,7 +729,8 @@ inputs:
           - "false"
           - "auto"
     inputBinding:
-      prefix: --vc-enable-unequal-ntd
+      prefix: --vc-enable-unequal-ntd=
+      separate: False
       valueFrom: "$(self.toString())"
 
   # dbSNP annotation
@@ -731,7 +757,8 @@ inputs:
       Enable CNV processing in the DRAGEN Host Software.
     type: boolean?
     inputBinding:
-      prefix: --enable-cnv
+      prefix: --enable-cnv=
+      separate: False
       valueFrom: "$(self.toString())"
   cnv_normal_b_allele_vcf:
     label: cnv normal b allele vcf
