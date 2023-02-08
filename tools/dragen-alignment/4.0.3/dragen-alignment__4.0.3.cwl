@@ -91,12 +91,15 @@ arguments:
   - valueFrom: "$(get_script_path())"
     position: -1
   # Set fastq list
-  - prefix: "--fastq-list"
+  - prefix: "--fastq-list="
+    separate: False
     valueFrom: "$(get_fastq_list_csv_path())"
   # Preset parameters
-  - prefix: "--intermediate-results-dir"
+  - prefix: "--intermediate-results-dir="
+    separate: False
     valueFrom: "$(get_intermediate_results_dir())"
-  - prefix: "--output-format"
+  - prefix: "--output-format="
+    separate: False
     valueFrom: "BAM"
 
 # Inputs
@@ -111,8 +114,6 @@ inputs:
       Read1File and Read2File must be presigned urls in order to use the fastq_list option.
       Otherwise use the fastq_list_rows option
     type: File?
-    inputBinding:
-      prefix: "--fastq-list"
   # Option 2:
   fastq_list_rows:
     label: fastq list rows
@@ -125,7 +126,8 @@ inputs:
       Path to ref data tarball
     type: File
     inputBinding:
-      prefix: "--ref-dir"
+      prefix: "--ref-dir="
+      separate: False
       valueFrom: "$(get_ref_path(self))"
   # RNA options
   enable_rna:
@@ -153,14 +155,16 @@ inputs:
       The prefix given to all output files
     type: string
     inputBinding:
-      prefix: "--output-file-prefix"
+      prefix: "--output-file-prefix="
+      separate: False
   output_directory:
     label: output directory
     doc: |
       The directory where all output files are placed
     type: string
     inputBinding:
-      prefix: "--output-directory"
+      prefix: "--output-directory="
+      separate: False
 
   ### Start mapper options ###
   ann_sj_max_indel:
@@ -170,7 +174,8 @@ inputs:
       Range: 0 - 63
     type: int?
     inputBinding:
-      prefix: "--Mapper.ann-sj-max-indel"
+      prefix: "--Mapper.ann-sj-max-indel="
+      separate: False
   edit_chain_limit:
     label: edit chain limit
     doc: |
@@ -178,7 +183,8 @@ inputs:
       Range: > 0
     type: int?
     inputBinding:
-      prefix: "--Mapper.edit-chain-limit"
+      prefix: "--Mapper.edit-chain-limit="
+      separate: False
   edit_mode:
     label: edit mode
     doc: |
@@ -192,7 +198,8 @@ inputs:
           - "2"
           - "3"
     inputBinding:
-      prefix: "--Mapper.edit-mode"
+      prefix: "--Mapper.edit-mode="
+      separate: False
   edit_read_len:
     label: edit read len
     doc: |
@@ -200,7 +207,8 @@ inputs:
       Range: > 0
     type: int?
     inputBinding:
-      prefix: "--Mapper.edit-read-len"
+      prefix: "--Mapper.edit-read-len="
+      separate: False
   edit_seed_num:
     label: edit seed num
     doc: |
@@ -208,7 +216,8 @@ inputs:
       Range: > 0
     type: int?
     inputBinding:
-      prefix: "--Mapper.edit-seed-num"
+      prefix: "--Mapper.edit-seed-num="
+      separate: False
   enable_map_align:
     label: enable map align
     doc: |
@@ -224,14 +233,16 @@ inputs:
       Maximum intron length reported.
     type: int?
     inputBinding:
-      prefix: "--Mapper.max-intron-bases"
+      prefix: "--Mapper.max-intron-bases="
+      separate: False
   min_intron_bases:
     label: min intron bases
     doc: |
       Minimum reference deletion length reported as an intron.
     type: int?
     inputBinding:
-      prefix: "--Mapper.min-intron-bases"
+      prefix: "--Mapper.min-intron-bases="
+      separate: False
   seed_density:
     label: seed density
     doc: |
@@ -239,7 +250,8 @@ inputs:
       Range: 0 - 1
     type: float?
     inputBinding:
-      prefix: "--Mapper.seed-density"
+      prefix: "--Mapper.seed-density="
+      separate: False
   ### End mapper options
   ### Start Alignment options ###
   aln_min_score:
@@ -256,7 +268,8 @@ inputs:
       Range: −2,147,483,648 to 2,147,483,647
     type: int?
     inputBinding:
-      prefix: "--Aligner.aln-min-score"
+      prefix: "--Aligner.aln-min-score="
+      separate: False
   dedup_min_qual:
     label: dedup min qual
     doc: |
@@ -264,14 +277,16 @@ inputs:
       Range: 0-63
     type: int?
     inputBinding:
-      prefix: "--Aligner.dedup-min-qual"
+      prefix: "--Aligner.dedup-min-qual="
+      separate: False
   en_alt_hap_aln:
     label: en alt hap aln
     doc: |
       Allows chimeric alignments to be output, as supplementary.
     type: boolean?
     inputBinding:
-      prefix: "--Aligner.en-alt-hap-aln"
+      prefix: "--Aligner.en-alt-hap-aln="
+      separate: False
       valueFrom: "$(Number(self))"
   en_chimeric_aln:
     label: en chimeric aln
@@ -279,7 +294,8 @@ inputs:
       Allows chimeric alignments to be output, as supplementary.
     type: boolean?
     inputBinding:
-      prefix: "--Aligner.en-chimeric-aln"
+      prefix: "--Aligner.en-chimeric-aln="
+      separate: False
       valueFrom: "$(Number(self))"
   gap_ext_pen:
     label: gap ext pen
@@ -287,21 +303,24 @@ inputs:
       Score penalty for gap extension.
     type: int?
     inputBinding:
-      prefix: "--Aligner.gap-ext-pen"
+      prefix: "--Aligner.gap-ext-pen="
+      separate: False
   gap_open_pen:
     label: gap open pen
     doc: |
       Score penalty for opening a gap (insertion or deletion).
     type: int?
     inputBinding:
-      prefix: "--gap-open-pen"
+      prefix: "--gap-open-pen="
+      separate: False
   global:
     label: global
     doc: |
       If alignment is global (Needleman-Wunsch) rather than local (Smith-Waterman).
     type: boolean?
     inputBinding:
-      prefix: "--Aligner.global"
+      prefix: "--Aligner.global="
+      separate: False
       valueFrom: "$(Number(self))"
   hard_clips:
     label: hard clips
@@ -318,7 +337,8 @@ inputs:
       secondary alignments use hard clipping.
     type: int?
     inputBinding:
-      prefix: "--Aligner.hard-clips"
+      prefix: "--Aligner.hard-clips="
+      separate: False
       valueFrom: |
         ${
           return (self >> 0).toString(2);
@@ -335,21 +355,24 @@ inputs:
           - "1"  # (forward only)
           - "2"  # (reverse only)
     inputBinding:
-      prefix: "--Aligner.map-orientations"
+      prefix: "--Aligner.map-orientations="
+      separate: False
   mapq_max:
     label: mapq max
     doc: |
       Ceiling on reported MAPQ. Max 255
     type: int?
     inputBinding:
-      prefix: "--Aligner.mapq-max"
+      prefix: "--Aligner.mapq-max="
+      separate: False
   mapq_strict_js:
     label: mapq strict js
     doc: |
       Specific to RNA. When set to 0, a higher MAPQ value is returned, expressing confidence that the alignment is at least partially correct. When set to 1, a lower MAPQ value is returned, expressing the splice junction ambiguity.
     type: boolean?
     inputBinding:
-      prefix: "--mapq-strict-js"
+      prefix: "--mapq-strict-js="
+      separate: False
       valueFrom: "$(Number(self))"
   match_n_score:
     label: match n score
@@ -358,7 +381,8 @@ inputs:
       Range: -16 to 15
     type: int?
     inputBinding:
-      prefix: "--Aligner.match-n-score"
+      prefix: "--Aligner.match-n-score="
+      separate: False
   match_score:
     label: match score
     doc: |
@@ -366,14 +390,16 @@ inputs:
       When global = 0, match-score > 0; When global = 1, match-score >= 0
     type: float?
     inputBinding:
-      prefix: "--Aligner.match-score"
+      prefix: "--Aligner.match-score="
+      separate: False
   max_rescues:
     label: max rescues
     doc: |
       Maximum rescue alignments per read pair. Default is 10
     type: int?
     inputBinding:
-      prefix: "--max-rescues"
+      prefix: "--max-rescues="
+      separate: False
   min_score_coeff:
     label: min score coeff
     doc: |
@@ -381,21 +407,24 @@ inputs:
       Range: -64 to 63.999
     type: float?
     inputBinding:
-      prefix: "--Aligner.min-score-coeff"
+      prefix: "--Aligner.min-score-coeff="
+      separate: False
   mismatch_pen:
     label: mismatch pen
     doc: |
       Score penalty for a mismatch.
     type: int?
     inputBinding:
-      prefix: "--Aligner.mismatch-pen"
+      prefix: "--Aligner.mismatch-pen="
+      separate: False
   no_unclip_score:
     label: no unclip score
     doc: |
       When no-unclip-score is set to 1, any unclipped bonus (unclip-score) contributing to an alignment is removed from the alignment score before further processing.
     type: boolean?
     inputBinding:
-      prefix: "--Aligner.no-unclip-score"
+      prefix: "--Aligner.no-unclip-score="
+      separate: False
       valueFrom: "$(Number(self))"
   no_unpaired:
     label: no unpaired
@@ -403,7 +432,8 @@ inputs:
       If only properly paired alignments should be reported for paired reads.
     type: boolean?
     inputBinding:
-      prefix: "--Aligner.no-unpaired"
+      prefix: "--Aligner.no-unpaired="
+      separate: False
       valueFrom: "$(Number(self))"
   pe_max_penalty:
     label: pe max penalty
@@ -412,7 +442,8 @@ inputs:
       Range: 0-255
     type: int?
     inputBinding:
-      prefix: "--Aligner.pe-max-penalty"
+      prefix: "--Aligner.pe-max-penalty="
+      separate: False
   pe_orientation:
     label: pe orientation
     doc: |
@@ -425,14 +456,16 @@ inputs:
           - "1"  # RF
           - "2"  # FF
     inputBinding:
-      prefix: "--Aligner.pe-orientation"
+      prefix: "--Aligner.pe-orientation="
+      separate: False
   rescue_sigmas:
     label: rescue sigmas
     doc: |
       Deviations from the mean read length used for rescue scan radius. Default is 2.5.
     type: float?
     inputBinding:
-      prefix: "--Aligner.rescue-sigmas"
+      prefix: "--Aligner.rescue-sigmas="
+      separate: False
   sec_aligns:
     label: sec aligns
     doc: |
@@ -440,14 +473,16 @@ inputs:
       Range: 0 - 30
     type: int?
     inputBinding:
-      prefix: "--Aligner.sec-aligns"
+      prefix: "--Aligner.sec-aligns="
+      separate: False
   sec_aligns_hard:
     label: sec aligns hard
     doc: |
       Set to force unmapped when not all secondary alignments can be output.
     type: boolean?
     inputBinding:
-      prefix: "--Aligner.sec-aligns-hard"
+      prefix: "--Aligner.sec-aligns-hard="
+      separate: False
       valueFrom: "$(Number(self))"
   sec_phred_delta:
     label: sec phred delta
@@ -456,28 +491,32 @@ inputs:
       Range: 0 - 255
     type: int?
     inputBinding:
-      prefix: "--Aligner.sec-phred-delta"
+      prefix: "--Aligner.sec-phred-delta="
+      separate: False
   sec_score_delta:
     label: sec score delta
     doc: |
       Secondary aligns allowed with pair score no more than this far below primary.
     type: float?
     inputBinding:
-      prefix: "--Aligner.sec-score-delta"
+      prefix: "--Aligner.sec-score-delta="
+      separate: False
   supp_aligns:
     label: supp aligns
     doc: |
       Maximum supplementary (chimeric) alignments to report per read.
     type: int?
     inputBinding:
-      prefix: "--Aligner.supp-aligns"
+      prefix: "--Aligner.supp-aligns="
+      separate: False
   supp_as_sec:
     label: supp as sec
     doc: |
       If supplementary alignments should be reported with secondary flag.
     type: boolean?
     inputBinding:
-      prefix: "--Aligner.supp-as-sec"
+      prefix: "--Aligner.supp-as-sec="
+      separate: False
       valueFrom: "$(Number(self))"
   supp_min_score_adj:
     label: supp min score adj
@@ -486,7 +525,8 @@ inputs:
       This score is computed by host software as "8 * match-score" for DNA, and is default 0 for RNA.
     type: float?
     inputBinding:
-      prefix: "--Aligner.supp-min-score-adj"
+      prefix: "--Aligner.supp-min-score-adj="
+      separate: False
   unclip_score:
     label: unclip score
     doc: |
@@ -494,7 +534,8 @@ inputs:
       Range: 0 - 127
     type: int?
     inputBinding:
-      prefix: "--Aligner.unclip-score"
+      prefix: "--Aligner.unclip-score="
+      separate: False
   unpaired_pen:
     label: unpaired pen
     doc: |
@@ -502,7 +543,8 @@ inputs:
       Range: 0 - 255
     type: int?
     inputBinding:
-      prefix: "--Aligner.unpaired-pen"
+      prefix: "--Aligner.unpaired-pen="
+      separate: False
   ### End Alignment options ###
   ### Start General software options
   # Alt aware mapping
@@ -594,7 +636,8 @@ inputs:
       - string?
     default: "/opt/instance-identity"
     inputBinding:
-      prefix: "--lic-instance-id-location"
+      prefix: "--lic-instance-id-location="
+      separate: False
   # Verbosity
   verbose:
     label: verbose
