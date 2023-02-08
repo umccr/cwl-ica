@@ -207,21 +207,21 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert__4.0.3.cwl
-        md5sum: 15f1904291b4c1ec0ef7a6f77c29a627
+        md5sum: 4a8e2e842cb57b4a1c9159d545075192
     categories: []
   - name: bclconvert-scatter
     path: bclconvert-scatter
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-scatter__4.0.3.cwl
-        md5sum: 67f8ab60f4b7fb021308e7e41ca26a6f
+        md5sum: 401f2a0ab2af0d12a3b42f39573c44d5
     categories: []
   - name: validate-bclconvert-samplesheet
     path: validate-bclconvert-samplesheet
     versions:
       - name: 4.0.3
         path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
-        md5sum: a840c54c482782d4b134b0b6cf21d77b
+        md5sum: dc99a789624cd8ab43277e38ffa94ec3
     categories: []
   - name: dragen-somatic-with-germline-pipeline
     path: dragen-somatic-with-germline-pipeline
