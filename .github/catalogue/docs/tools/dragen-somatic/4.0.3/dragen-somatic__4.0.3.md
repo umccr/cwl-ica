@@ -17,7 +17,7 @@ dragen-somatic 4.0.3 tool
 
   
 > ID: dragen-somatic--4.0.3  
-> md5sum: 6b0d23660664eb83bc8c32d60618fcc1
+> md5sum: 734fe5e495f295f7c15659d456c037e8
 
 ### dragen-somatic v(4.0.3) documentation
   
@@ -559,7 +559,7 @@ same as default with SMN repeat, expanded - ~50K repeats)
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ male | female  ]`  
+**Type:** `[ none | auto | male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -1060,7 +1060,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fdef2858bb0>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7f485ad5fc10>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 

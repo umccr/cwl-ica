@@ -70,7 +70,6 @@ requirements:
 
           # Run dragen command and import options from cli
           $(get_dragen_eval_line())
-
       - |
         ${
             return generate_transcriptome_mount_points(inputs);
@@ -83,13 +82,16 @@ arguments:
   - valueFrom: "$(get_script_path())"
     position: -1
   # Set fastq list
-  - prefix: "--fastq-list"
+  - prefix: "--fastq-list="
+    separate: False
     valueFrom: "$(get_fastq_list_csv_path())"
   # Set intermediate directory
-  - prefix: "--intermediate-results-dir"
+  - prefix: "--intermediate-results-dir="
+    separate: False
     valueFrom: "$(get_intermediate_results_dir())"
   # Parameters that are always true
-  - prefix: "--enable-rna"
+  - prefix: "--enable-rna="
+    separate: False
     valueFrom: "true"
 
 inputs:
@@ -113,7 +115,8 @@ inputs:
       Path to ref data tarball.
     type: File
     inputBinding:
-      prefix: "--ref-dir"
+      prefix: "--ref-dir="
+      separate: False
       valueFrom: "$(get_ref_path(self))"
   # Output naming options
   output_file_prefix:
@@ -122,14 +125,16 @@ inputs:
       The prefix given to all output files.
     type: string
     inputBinding:
-      prefix: "--output-file-prefix"
+      prefix: "--output-file-prefix="
+      separate: False
   output_directory:
     label: output directory
     doc: |
       The directory where all output files are placed.
     type: string
     inputBinding:
-      prefix: "--output-directory"
+      prefix: "--output-directory="
+      separate: False
   # Alignment options
   enable_map_align_output:
     label: enable map align output
@@ -137,7 +142,8 @@ inputs:
       Do you wish to have the output bam files present
     type: boolean
     inputBinding:
-      prefix: "--enable-map-align-output"
+      prefix: "--enable-map-align-output="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_duplicate_marking:
     label: enable duplicate marking
@@ -145,7 +151,8 @@ inputs:
       Mark identical alignments as duplicates
     type: boolean
     inputBinding:
-      prefix: "--enable-duplicate-marking"
+      prefix: "--enable-duplicate-marking="
+      separate: False
       valueFrom: "$(self.toString())"
   # Transcript annotation file
   annotation_file:
@@ -154,7 +161,8 @@ inputs:
       Path to annotation transcript file.
     type: File
     inputBinding:
-      prefix: "--annotation-file"
+      prefix: "--annotation-file="
+      separate: False
   # Optional operation modes
   enable_rna_quantification:
     label: enable rna quantification
@@ -163,7 +171,8 @@ inputs:
     doc: |
       Enable the quantification module. The default value is true.
     inputBinding:
-      prefix: "--enable-rna-quantification"
+      prefix: "--enable-rna-quantification="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_rna_gene_fusion:
     label: enable rna gene fusion
@@ -172,7 +181,8 @@ inputs:
     doc: |
       Enable the DRAGEN Gene Fusion module. The default value is true.
     inputBinding:
-      prefix: "--enable-rna-gene-fusion"
+      prefix: "--enable-rna-gene-fusion="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_rrna_filter:
     label: enable rrna filtering
@@ -181,7 +191,8 @@ inputs:
     doc: |
       Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
     inputBinding:
-      prefix: "--rrna-filter-enable"
+      prefix: "--rrna-filter-enable="
+      separate: False
       valueFrom: "$(self.toString())"
   rrna_filter_contig:
     label: name of the rRNA sequences to use for filtering
@@ -190,7 +201,8 @@ inputs:
     doc: |
       Specify the name of the rRNA sequences to use for filtering.
     inputBinding:
-      prefix: "--rrna-filter-contig"
+      prefix: "--rrna-filter-contig="
+      separate: False
   lic_instance_id_location:
     label: license instance id location
     doc: |
@@ -202,7 +214,8 @@ inputs:
       - string?
     default: "/opt/instance-identity"
     inputBinding:
-      prefix: "--lic-instance-id-location"
+      prefix: "--lic-instance-id-location="
+      separate: False
 
 outputs:
   # Will also include mounted-files.txt

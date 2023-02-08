@@ -74,42 +74,36 @@ requirements:
             # Only set --fastq-compression-format value if 
             # --bcl-validate-sample-sheet-only is set to false
             if [[ "$(is_not_null(inputs.fastq_compression_format))" == "true" && "$(is_not_null(inputs.bcl_validate_sample_sheet_only))" == "false" ]]; then
-              fastq_compression_format_key="--fastq-compression-format"
-              fastq_compression_format_value="$(inputs.fastq_compression_format)"
+              fastq_compression_format_parameter="--fastq-compression-format=\"$(inputs.fastq_compression_format)\""
             else
-              fastq_compression_format_key=""
-              fastq_compression_format_value=""
+              fastq_compression_format_parameter=""
             fi
           
             # Only set --ora-reference value if
             # --bcl-validate-sample-sheet-only is set to false
             if [[ "$(is_not_null(inputs.ora_reference))" == "true" && "$(is_not_null(inputs.bcl_validate_sample_sheet_only))" == "false" ]]; then
-              ora_reference_key="--ora-reference"
-              ora_reference_value="$(get_attribute_from_optional_input(inputs.ora_reference, "path"))"
+              ora_reference_parameter="--ora-reference=\"$(get_attribute_from_optional_input(inputs.ora_reference, "path"))\""
             else
-              ora_reference_key=""
-              ora_reference_value=""
+              ora_reference_parameter=""
             fi
             
             # Only set --lic-instance-id location 
             # Set to string /opt/instance-identity if instance id location is a string
             # Otherwise set to path attribute of inputs.lic_instance_id
             if [[ "$(is_not_null(inputs.lic_instance_id_location))" == "true" ]]; then
-              lic_instance_id_location_key="--lic-instance-id"
-              lic_instance_id_location_value="$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))"
+              lic_instance_id_location_parameter="--lic-instance-id=\"$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))\""
             else
-              lic_instance_id_location_key=""
-              lic_instance_id_location_value=""
+              lic_instance_id_location_parameter=""
             fi
             
             # Run bclconvert through dragen
             eval /opt/edico/bin/dragen \\
               -v \\
-              --logging-to-output-dir=true \\
-              --bcl-conversion-only "true" \\
-              "\${fastq_compression_format_key}" "\${fastq_compression_format_value}" \\
-              "\${ora_reference_key}" "\${ora_reference_value}" \\
-              "\${lic_instance_id_location_key}" "\${lic_instance_id_location_value}" \\
+              --logging-to-output-dir="true" \\
+              --bcl-conversion-only="true" \\
+              \${fastq_compression_format_parameter} \\
+              \${ora_reference_parameter} \\
+              \${lic_instance_id_location_parameter} \\
               '"\${@}"'
           else
             # Run through standard bclconvert executable
@@ -148,7 +142,8 @@ inputs:
       is set and --run-info and --sample-sheet are provided
     type: Directory?
     inputBinding:
-      prefix: --bcl-input-directory
+      prefix: "--bcl-input-directory="
+      separate: False
   output_directory:
     label: output directory
     doc: |
@@ -157,7 +152,8 @@ inputs:
       force is specified
     type: string
     inputBinding:
-      prefix: --output-directory
+      prefix: "--output-directory="
+      separate: False
   # Optional inputs
   samplesheet:
     label: sample sheet
@@ -169,7 +165,8 @@ inputs:
       - ../../../schemas/samplesheet/2.0.0--4.0.3/samplesheet__2.0.0--4.0.3.yaml#samplesheet
       - File
     inputBinding:
-      prefix: --sample-sheet
+      prefix: "--sample-sheet="
+      separate: False
       valueFrom: "SampleSheet.csv"
   bcl_only_lane:
     label: convert only one lane
@@ -179,7 +176,8 @@ inputs:
       RunInfo.xml. Must be a single integer value.
     type: int?
     inputBinding:
-      prefix: --bcl-only-lane
+      prefix: "--bcl-only-lane="
+      separate: False
   strict_mode:
     label: strict mode
     doc: |
@@ -190,7 +188,8 @@ inputs:
       file.
     type: boolean?
     inputBinding:
-      prefix: --strict-mode
+      prefix: "--strict-mode="
+      separate: False
       valueFrom: "$(self.toString())"
   # Tile options
   first_tile_only:
@@ -202,7 +201,8 @@ inputs:
       sheet. Default is false
     type: boolean?
     inputBinding:
-      prefix: --first-tile-only
+      prefix: "--first-tile-only="
+      separate: False
       valueFrom: "$(self.toString())"
   tiles:
     label: tiles
@@ -210,14 +210,16 @@ inputs:
       Only converts tiles that match a set of regular expressions.
     type: string?
     inputBinding:
-      prefix: --tiles
+      prefix: "--tiles="
+      separate: False
   exclude_tiles:
     label: tiles
     doc: |
       Do not convert tiles that match a set of regular expressions, even if included in --tiles.
     type: string?
     inputBinding:
-      prefix: --exclude-tiles
+      prefix: "--exclude-tiles="
+      separate: False
   # Output configuration options
   bcl_sampleproject_subdirectories:
     label: bcl sample project subdirectories
@@ -228,7 +230,8 @@ inputs:
       Default set to false.
     type: boolean?
     inputBinding:
-      prefix: --bcl-sampleproject-subdirectories
+      prefix: "--bcl-sampleproject-subdirectories="
+      separate: False
       valueFrom: "$(self.toString())"
   sample_name_column_enabled:
     label: sample name column enabled
@@ -237,7 +240,8 @@ inputs:
       (requires bcl-sampleproject-subdirectories true as well).
     type: boolean?
     inputBinding:
-      prefix: --sample-name-column-enabled
+      prefix: "--sample-name-column-enabled="
+      separate: False
       valueFrom: "$(self.toString())"
   # Performance options
   fastq_gzip_compression_level:
@@ -246,7 +250,8 @@ inputs:
       Set fastq output compression level 0-9 (default 1)
     type: int?
     inputBinding:
-      prefix: --fastq-gzip-compression-level
+      prefix: "--fastq-gzip-compression-level="
+      separate: False
   shared_thread_odirect_output:
     label: shared thread odirect output
     doc: |
@@ -258,7 +263,8 @@ inputs:
       as GPFS or Lustre. Default is false
     type: boolean?
     inputBinding:
-      prefix: "--shared-thread-odirect-output"
+      prefix: "--shared-thread-odirect-output="
+      separate: False
       valueFrom: "$(self.toString())"
   bcl_num_parallel_tiles:
     label: bcl num parallel tiles
@@ -268,7 +274,8 @@ inputs:
       inclusive.
     type: int?
     inputBinding:
-      prefix: "--bcl-num-parallel-tiles"
+      prefix: "--bcl-num-parallel-tiles="
+      separate: False
   bcl_conversion_threads:
     label: bcl conversion threads
     doc: |
@@ -277,7 +284,8 @@ inputs:
       inclusive.
     type: int?
     inputBinding:
-      prefix: "--bcl-conversion-threads"
+      prefix: "--bcl-conversion-threads="
+      separate: False
   bcl_num_compression_threads:
     label: bcl num compression threads
     doc: |
@@ -286,7 +294,8 @@ inputs:
       hardware threads, inclusive.
     type: int?
     inputBinding:
-      prefix: "--bcl-num-compression-threads"
+      prefix: "--bcl-num-compression-threads="
+      separate: False
   bcl_num_decompression_threads:
     label: bcl num decompression threads
     doc: |
@@ -295,7 +304,8 @@ inputs:
       hardware threads, inclusive.
     type: int?
     inputBinding:
-      prefix: "--bcl-num-decompression-threads"
+      prefix: "--bcl-num-decompression-threads="
+      separate: False
   # Miscellaneous options
   bcl_only_matched_reads:
     label: bcl only matched reads
@@ -303,7 +313,8 @@ inputs:
       Disable outputting unmapped reads to FASTQ files marked as Undetermined.
     type: boolean?
     inputBinding:
-      prefix: "--bcl-only-matched-reads"
+      prefix: "--bcl-only-matched-reads="
+      separate: False
       valueFrom: "$(self.toString())"
   run_info:
     label: run info
@@ -311,7 +322,8 @@ inputs:
       Overrides the path to the RunInfo.xml file.
     type: File?
     inputBinding:
-      prefix: --run-info
+      prefix: "--run-info="
+      separate: False
   no_lane_splitting:
     label: no lane splitting
     doc: |
@@ -321,7 +333,8 @@ inputs:
        *  Only allowed when Lane column is excluded from the sample sheet.
     type: boolean?
     inputBinding:
-      prefix: --no-lane-splitting
+      prefix: "--no-lane-splitting="
+      separate: False
       valueFrom: "$(self.toString())"
   num_unknown_barcodes_reported:
     label: num unknown barcodes reported
@@ -329,14 +342,16 @@ inputs:
       Num of Top Unknown Barcodes to output (1000 by default)
     type: int?
     inputBinding:
-      prefix: --num-unknown-barcodes-reported
+      prefix: "--num-unknown-barcodes-reported="
+      separate: False
   bcl_validate_sample_sheet_only:
     label: bcl validate sample sheet only
     doc: |
       Only validate RunInfo.xml & SampleSheet files (produce no FASTQ files)
     type: boolean?
     inputBinding:
-      prefix: --bcl-validate-sample-sheet-only
+      prefix: "--bcl-validate-sample-sheet-only="
+      separate: False
       valueFrom: "$(self.toString())"
   output_legacy_stats:
     label: output legacy stats
@@ -344,7 +359,8 @@ inputs:
       Also output stats in legacy (bcl2fastq) format (false by default)
     type: boolean?
     inputBinding:
-      prefix: --output-legacy-stats
+      prefix: "--output-legacy-stats="
+      separate: False
   # Dragen ora specific parameters
   ora_reference:
     label: ora reference
