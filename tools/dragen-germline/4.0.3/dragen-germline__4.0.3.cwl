@@ -93,12 +93,15 @@ arguments:
   - valueFrom: "$(get_script_path())"
     position: -1
   # Set fastq list
-  - prefix: "--fastq-list"
+  - prefix: "--fastq-list="
+    separate: False
     valueFrom: "$(get_fastq_list_csv_path())"
   # Parameters that are always true
-  - prefix: "--enable-variant-caller"
+  - prefix: "--enable-variant-caller="
+    separate: False
     valueFrom: "true"
-  - prefix: "--intermediate-results-dir"
+  - prefix: "--intermediate-results-dir="
+    separate: False
     valueFrom: "$(get_intermediate_results_dir())"
 
 
@@ -127,7 +130,8 @@ inputs:
       Path to ref data tarball
     type: File
     inputBinding:
-      prefix: "--ref-dir"
+      prefix: "--ref-dir="
+      separate: False
       valueFrom: "$(get_ref_path(self))"
 
   # Output naming options
@@ -137,14 +141,16 @@ inputs:
       The prefix given to all output files
     type: string
     inputBinding:
-      prefix: "--output-file-prefix"
+      prefix: "--output-file-prefix="
+      separate: False
   output_directory:
     label: output directory
     doc: |
       The directory where all output files are placed
     type: string
     inputBinding:
-      prefix: "--output-directory"
+      prefix: "--output-directory="
+      separate: False
 
   # Optional operation modes
   # Given we're running from fastqs
@@ -158,7 +164,8 @@ inputs:
       Do you wish to have the output bam files present
     type: boolean?
     inputBinding:
-      prefix: "--enable-map-align-output"
+      prefix: "--enable-map-align-output="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_duplicate_marking:
     label: enable duplicate marking
@@ -166,7 +173,8 @@ inputs:
       Mark identical alignments as duplicates
     type: boolean?
     inputBinding:
-      prefix: "--enable-duplicate-marking"
+      prefix: "--enable-duplicate-marking="
+      separate: False
       valueFrom: "$(self.toString())"
   dedup_min_qual:
     label: deduplicate minimum quality
@@ -175,7 +183,8 @@ inputs:
       calculation used for choosing among duplicate reads.
     type: int?
     inputBinding:
-      prefix: "--dedup-min-qual"
+      prefix: "--dedup-min-qual="
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Structural Variant Caller Options
@@ -187,7 +196,8 @@ inputs:
       caller. Default is false.
     type: boolean?
     inputBinding:
-      prefix: "--enable-sv"
+      prefix: "--enable-sv="
+      separate: False
       valueFrom: "$(self.toString())"
   # Structural Variant Caller Options
   sv_call_regions_bed:
@@ -196,7 +206,8 @@ inputs:
       Specifies a BED file containing the set of regions to call.
     type: File?
     inputBinding:
-      prefix: "--sv-call-regions-bed"
+      prefix: "--sv-call-regions-bed="
+      separate: False
   sv_region:
     label: sv region
     doc: |
@@ -205,7 +216,8 @@ inputs:
       The value must be in the format “chr:startPos-endPos”..
     type: string?
     inputBinding:
-      prefix: "--sv-region"
+      prefix: "--sv-region="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_exome:
     label: sv exome
@@ -216,7 +228,8 @@ inputs:
       and in standalone mode the default is false.
     type: boolean?
     inputBinding:
-      prefix: "--sv-exome"
+      prefix: "--sv-exome="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_output_contigs:
     label: sv output contigs
@@ -224,7 +237,8 @@ inputs:
       Set to true to have assembled contig sequences output in a VCF file. The default is false.
     type: boolean?
     inputBinding:
-      prefix: "--sv-output-contigs"
+      prefix: "--sv-output-contigs="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_forcegt_vcf:
     label: sv forcegt vcf
@@ -234,7 +248,8 @@ inputs:
       The variants are merged with any additional variants discovered directly from the sample data.
     type: File?
     inputBinding:
-      prefix: "--sv-forcegt-vcf"
+      prefix: "--sv-forcegt-vcf="
+      separate: False
   sv_discovery:
     label: sv discovery
     doc: |
@@ -243,7 +258,8 @@ inputs:
       are processed. The default is true.
     type: boolean?
     inputBinding:
-      prefix: "--sv-discovery"
+      prefix: "--sv-discovery="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_se_overlap_pair_evidence:
     label: sv use overlap pair evidence
@@ -252,7 +268,8 @@ inputs:
       By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if <20%.
     type: boolean?
     inputBinding:
-      prefix: "--sv-use-overlap-pair-evidence"
+      prefix: "--sv-use-overlap-pair-evidence="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_enable_liquid_tumor_mode:
     label: sv enable liquid tumor mode
@@ -260,7 +277,8 @@ inputs:
       Enable liquid tumor mode.
     type: boolean?
     inputBinding:
-      prefix: "--sv-enable-liquid-tumor-mode"
+      prefix: "--sv-enable-liquid-tumor-mode="
+      separate: False
       valueFrom: "$(self.toString())"
   sv_tin_contam_tolerance:
     label: sv tin contam tolerance
@@ -269,7 +287,8 @@ inputs:
       You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
     type: float?
     inputBinding:
-      prefix: "--sv-tin-contam-tolerance"
+      prefix: "--sv-tin-contam-tolerance="
+      separate: False
 
   # Variant calling options
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/SmallVariantCaller.htm
@@ -280,7 +299,8 @@ inputs:
       target bed related coverage, and callability metrics to regions specified in a BED file.
     type: File?
     inputBinding:
-      prefix: "--vc-target-bed"
+      prefix: "--vc-target-bed="
+      separate: False
   vc_target_bed_padding:
     label: vc target bed padding
     doc: |
@@ -293,7 +313,8 @@ inputs:
       and by the target bed coverage/callability reports. The default padding is 0.
     type: int?
     inputBinding:
-      prefix: "--vc-target-bed-padding"
+      prefix: "--vc-target-bed-padding="
+      separate: False
   vc_target_coverage:
     label: vc target coverage
     doc: |
@@ -301,7 +322,8 @@ inputs:
       The default value is 500 for germline mode and 50 for somatic mode.
     type: int?
     inputBinding:
-      prefix: "--vc-target-coverage"
+      prefix: "--vc-target-coverage="
+      separate: False
   vc_enable_gatk_acceleration:
     label: vc enable gatk acceleration
     doc: |
@@ -309,7 +331,8 @@ inputs:
       (concordant with GATK 3.7 in germline mode and GATK 4.0 in somatic mode).
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-gatk-acceleration"
+      prefix: "--vc-enable-gatk-acceleration="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_remove_all_soft_clips:
     label: vc remove all soft clips
@@ -317,7 +340,8 @@ inputs:
       If is set to true, the variant caller does not use soft clips of reads to determine variants.
     type: boolean?
     inputBinding:
-      prefix: "--vc-remove-all-soft-clips"
+      prefix: "--vc-remove-all-soft-clips="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_decoy_contigs:
     label: vc decoy contigs
@@ -326,7 +350,8 @@ inputs:
       This option can be set in the configuration file.
     type: string?
     inputBinding:
-      prefix: "--vc-decoy-contigs"
+      prefix: "--vc-decoy-contigs="
+      separate: False
   vc_enable_decoy_contigs:
     label: vc enable decoy contigs
     doc: |
@@ -334,7 +359,8 @@ inputs:
       The default value is false.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-decoy-contigs"
+      prefix: "--vc-enable-decoy-contigs="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_phasing:
     label: vc enable phasing
@@ -342,7 +368,8 @@ inputs:
       The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-phasing"
+      prefix: "--vc-enable-phasing="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_enable_vcf_output:
     label: vc enable vcf output
@@ -350,7 +377,8 @@ inputs:
       The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-vcf-output"
+      prefix: "--vc-enable-vcf-output="
+      separate: False
       valueFrom: "$(self.toString())"
 
   # Downsampling options
@@ -361,7 +389,8 @@ inputs:
       Default is 10000 for the germline workflow
     type: int?
     inputBinding:
-      prefix: "--vc-max-reads-per-active-region"
+      prefix: "--vc-max-reads-per-active-region="
+      separate: False
   vc_max_reads_per_raw_region:
     label: vc max reads per raw region
     doc: |
@@ -369,7 +398,8 @@ inputs:
       Default is 30000 for the germline workflow
     type: int?
     inputBinding:
-      prefix: "--vc-max-read-per-raw-region"
+      prefix: "--vc-max-read-per-raw-region="
+      separate: False
 
   # Ploidy support
   sample_sex:
@@ -380,8 +410,13 @@ inputs:
       - "null"
       - type: enum
         symbols:
+          - none
+          - auto
           - male
           - female
+    inputBinding:
+      prefix: "--sample-sex="
+      separate: False
   # ROH options
   vc_enable_roh:
     label: vc enable roh
@@ -389,7 +424,8 @@ inputs:
       Enable or disable the ROH caller by setting this option to true or false. Enabled by default for human autosomes only.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-roh"
+      prefix: "--vc-enable-roh="
+      separate: False
       valueFrom: "$(self.toString())"
   vc_roh_blacklist_bed:
     label: vc roh blacklist bed
@@ -399,7 +435,8 @@ inputs:
       match the genome in use, unless this option is used explicitly select a file.
     type: File?
     inputBinding:
-      prefix: "--vc-roh-blacklist-bed"
+      prefix: "--vc-roh-blacklist-bed="
+      separate: False
 
   # BAF options
   vc_enable_baf:
@@ -408,7 +445,9 @@ inputs:
       Enable or disable B-allele frequency output. Enabled by default.
     type: boolean?
     inputBinding:
-      prefix: "--vc-enable-baf"
+      prefix: "--vc-enable-baf="
+      separate: False
+      valueFrom: "$(self.toString())"
 
   # Germline variant small hard filtering options
   vc_hard_filter:
@@ -421,8 +460,8 @@ inputs:
       For this reason, the default post-VCF filtering in DRAGEN is very simple
     type: string?
     inputBinding:
-      prefix: "--vc-hard-filter"
-
+      prefix: "--vc-hard-filter="
+      separate: False
   # dbSNP annotation
   dbsnp_annotation:
     label: dbsnp annotation
@@ -436,7 +475,8 @@ inputs:
       - pattern: ".tbi"
         required: true
     inputBinding:
-      prefix: "--dbsnp"
+      prefix: "--dbsnp="
+      separate: False
 
   # Force genotyping
   vc_forcegt_vcf:
@@ -456,7 +496,8 @@ inputs:
       - pattern: ".tbi"
         required: true
     inputBinding:
-      prefix: "--vc-forcegt-vcf"
+      prefix: "--vc-forcegt-vcf="
+      separate: False
 
   # cnv pipeline - with this we must also specify one of --cnv-normal-b-allele-vcf,
   # More info at https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/CNVExamples_fDG_dtREF.htm?Highlight=cnv-normal-b-allele-vcf
@@ -466,7 +507,8 @@ inputs:
       Enable CNV processing in the DRAGEN Host Software.
     type: boolean?
     inputBinding:
-      prefix: --enable-cnv
+      prefix: "--enable-cnv="
+      separate: False
       valueFrom: "$(self.toString())"
   cnv_enable_self_normalization:
     label: cnv enable self normalization
@@ -475,7 +517,8 @@ inputs:
       Self Normalization requires that the DRAGEN hash table be generated with the enable-cnv=true option.
     type: boolean?
     inputBinding:
-      prefix: --cnv-enable-self-normalization
+      prefix: "--cnv-enable-self-normalization="
+      separate: False
       valueFrom: "$(self.toString())"
 
   # QC options
@@ -485,21 +528,24 @@ inputs:
       Generates coverage region report using bed file 1.
     type: File?
     inputBinding:
-      prefix: --qc-coverage-region-1
+      prefix: "--qc-coverage-region-1="
+      separate: False
   qc_coverage_region_2:
     label: qc coverage region 2
     doc: |
       Generates coverage region report using bed file 2.
     type: File?
     inputBinding:
-      prefix: --qc-coverage-region-2
+      prefix: "--qc-coverage-region-2="
+      separate: False
   qc_coverage_region_3:
     label: qc coverage region 3
     doc: |
       Generates coverage region report using bed file 3.
     type: File?
     inputBinding:
-      prefix: --qc-coverage-region-3
+      prefix: "--qc-coverage-region-3="
+      separate: False
   qc_coverage_ignore_overlaps:
     label: qc coverage ignore overlaps
     doc: |
@@ -508,7 +554,8 @@ inputs:
       This option also requires setting --enable-map-align=true.
     type: boolean?
     inputBinding:
-      prefix: --qc-coverage-ignore-overlaps
+      prefix: "--qc-coverage-ignore-overlaps="
+      separate: False
       valueFrom: "$(self.toString())"
 
   # HLA calling
@@ -518,7 +565,8 @@ inputs:
       Enable HLA typing by setting --enable-hla flag to true
     type: boolean?
     inputBinding:
-      prefix: --enable-hla
+      prefix: "--enable-hla="
+      separate: False
       valueFrom: "$(self.toString())"
   hla_bed_file:
     label: hla bed file
@@ -528,7 +576,8 @@ inputs:
       extracts reads accordingly to align with the HLA allele reference.
     type: File?
     inputBinding:
-      prefix: --hla-bed-file
+      prefix: "--hla-bed-file="
+      separate: False
   hla_reference_file:
     label: hla reference file
     doc: |
@@ -538,7 +587,8 @@ inputs:
       The reference HLA sequences are obtained from the IMGT/HLA database.
     type: File?
     inputBinding:
-      prefix: --hla-reference-file
+      prefix: "--hla-reference-file="
+      separate: False
   hla_allele_frequency_file:
     label: hla allele frequency file
     doc: |
@@ -548,7 +598,8 @@ inputs:
       Population-level allele frequencies can be obtained from the Allele Frequency Net database.
     type: File?
     inputBinding:
-      prefix: --hla-allele-frequency-file
+      prefix: "--hla-allele-frequency-file="
+      separate: False
   hla_tiebreaker_threshold:
     label: hla tiebreaker threshold
     doc: |
@@ -558,7 +609,8 @@ inputs:
       the top hit), then the allele is included into the candidate set for tie breaking. The default value is 0.97.
     type: float?
     inputBinding:
-      prefix: --hla-tiebreaker-threshold
+      prefix: "--hla-tiebreaker-threshold="
+      separate: False
   hla_zygosity_threshold:
     label: hla zygosity threshold
     doc: |
@@ -567,7 +619,8 @@ inputs:
       The default value is 0.15.
     type: float?
     inputBinding:
-      prefix: --hla zygosity threshold
+      prefix: "--hla zygosity threshold="
+      separate: False
   hla_min_reads:
     label: hla min reads
     doc: |
@@ -576,7 +629,8 @@ inputs:
       lower threshold value.
     type: int?
     inputBinding:
-      prefix: --hla-min-reads
+      prefix: "--hla-min-reads="
+      separate: False
 
   # Miscellaneous options
   lic_instance_id_location:
@@ -590,7 +644,8 @@ inputs:
       - string?
     default: "/opt/instance-identity"
     inputBinding:
-      prefix: "--lic-instance-id-location"
+      prefix: "--lic-instance-id-location="
+      separate: False
 
 outputs:
   # Will also include mounted-files.txt

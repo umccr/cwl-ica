@@ -25,7 +25,7 @@ workflows:
         md5sum: b4559d476446b4e6c88a01420761a411
       - name: 4.0.3
         path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
-        md5sum: ef3b05f88085480d3ee4b0c7788f3e49
+        md5sum: 60261decc17d5920501d7f0cfce325ad
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -61,7 +61,7 @@ workflows:
         md5sum: bf93f4862c24e9cd88e2d542aeb0a986
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
-        md5sum: 95fe9e7c62a0d5aefa649a76226d045f
+        md5sum: 9b6e727965b6c5de356f71b155c505d8
     categories:
       - dragen
       - variant-calling
@@ -79,7 +79,7 @@ workflows:
         md5sum: 0060342914141c96074b140be027e8b2
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
-        md5sum: 5ce5231aea403a518578e14eca9a8e46
+        md5sum: 1b251be68c64dc599d2bcd1af937e18f
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -92,7 +92,7 @@ workflows:
         md5sum: d0f3ff931887b8429d9dc6efde3bde6a
       - name: 4.0.3
         path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
-        md5sum: a3ab8a1038aada683f5f4cea0034d0df
+        md5sum: 1f14efeb36646c951201ba561a9a958d
     categories:
       - alignment
       - dragen
@@ -200,35 +200,35 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
-        md5sum: c13bcb7a85b364daa407734a7b6e66bf
+        md5sum: acdad9931e0efcd0d2e29c3bc57d2ffe
     categories: []
   - name: bclconvert
     path: bclconvert
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert__4.0.3.cwl
-        md5sum: fa6f90f8cf8391593470a5c03c98bd1c
+        md5sum: 4a8e2e842cb57b4a1c9159d545075192
     categories: []
   - name: bclconvert-scatter
     path: bclconvert-scatter
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-scatter__4.0.3.cwl
-        md5sum: ccea2e0ed768e8589adcb21eace4dd84
+        md5sum: 401f2a0ab2af0d12a3b42f39573c44d5
     categories: []
   - name: validate-bclconvert-samplesheet
     path: validate-bclconvert-samplesheet
     versions:
       - name: 4.0.3
         path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
-        md5sum: e7c8258844e007dcfd34d361bf54c13c
+        md5sum: dc99a789624cd8ab43277e38ffa94ec3
     categories: []
   - name: dragen-somatic-with-germline-pipeline
     path: dragen-somatic-with-germline-pipeline
     versions:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
-        md5sum: a7e5e4f0880127953d7287d140959c78
+        md5sum: 24115f47d3eb939fbb6310db57a2ce1e
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc
