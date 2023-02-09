@@ -23,7 +23,22 @@ on:
 
 jobs:
   sync_tools_and_workflows_and_create_catalogue:
-    if: ${{ ( github.event.review.state == 'approved' && github.event.pull_request.draft == false ) || github.event_name == 'workflow_dispatch' }}
+    # First check
+    # 1a. It's a PR that's in an approved state
+    # AND
+    # 1b. It's not a PR to 'Add in images for release'
+    # 2. OR it's been run manually by using the workflow_dispatch command
+    if: |
+      ${{ 
+        (
+          ( 
+            github.event.review.state == 'approved' && 
+            github.event.pull_request.draft == false 
+          ) &&
+          ! startsWith( github.event.pull_request.title, 'Add in images for release' ) 
+        ) ||
+        github.event_name == 'workflow_dispatch'
+      }}
     name: sync-tools and sync-workflows and create-catalogue
     concurrency: git_commits
     runs-on: ubuntu-latest
