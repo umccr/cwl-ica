@@ -35,7 +35,7 @@ jobs:
             github.event.review.state == 'approved' && 
             github.event.pull_request.draft == false 
           ) &&
-          ! startsWith( github.event.pull_request.title, "Add in images for release" ) 
+          ! startsWith( github.event.pull_request.title, 'Add in images for release' ) 
         ) ||
         github.event_name == 'workflow_dispatch'
       }}
