@@ -131,7 +131,7 @@ inputs:
     type: string
     doc: |
       Set desired Java heap memory size
-    default: "96G"
+    default: "20G"
   tmp_dir:
     label: tmp dir
     type: string?
