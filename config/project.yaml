@@ -841,7 +841,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-29T23:27:24UTC
+            modification_time: 2023-02-12T22:05:11UTC
             run_instances: []
       - name: bclconvert-with-qc-pipeline
         path: bclconvert-with-qc-pipeline
@@ -1766,6 +1766,11 @@ projects:
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--3b07571
             modification_time: 2023-02-01T01:33:12UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--a8fdcf1
+            modification_time: 2023-02-12T22:05:26UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline

@@ -186,7 +186,7 @@ workflows:
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
-        md5sum: ed9e878a704bbfbda463a8d24224e71e
+        md5sum: aaf0fe540b14168b2612500887d3abc6
     categories: []
   - name: tabix-workflow
     path: tabix-workflow

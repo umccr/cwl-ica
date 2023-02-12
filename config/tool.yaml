@@ -443,7 +443,7 @@ tools:
     versions:
       - name: 2.2.2
         path: 2.2.2/qualimap__2.2.2.cwl
-        md5sum: 62cf5ded51e203395c48c954c30377d2
+        md5sum: 60018cd5a8c036ebaa3cbc3f61443c28
     categories: []
   - name: map_resource_requirements
     path: map_resource_requirements
