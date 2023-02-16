@@ -22,7 +22,9 @@ doc: |
   More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/TPipelineIntro_fDG.htm)
 
 requirements:
-    InlineJavascriptRequirement: {}
+    InlineJavascriptRequirement:
+      expressionLib:
+      - $include: ../../../typescript-expressions/multiqc-tools/1.0.0/multiqc-tools__1.0.0.cwljs
     ScatterFeatureRequirement: {}
     MultipleInputFeatureRequirement: {}
     StepInputExpressionRequirement: {}
@@ -321,7 +323,13 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
       cl_config:
-        source: cl_config
+        source:
+          - cl_config
+          - output_file_prefix
+        valueFrom: |
+          ${
+            return add_sample_to_sample_name_replace_in_multiqc_cl_config(self[0], self[1] + "_qualimap", self[1]);
+          }
     out:
       - id: output_directory
       - id: output_file
