@@ -1,0 +1,19 @@
+# Test started at 2023-02-16T10:54:28+11:00
+
+PASS tests/multiqc-tools__1.0.0.test.js
+PASS tests/multiqc-tools__1.0.0.test.ts
+
+=============================== Coverage summary ===============================
+Statements   : 90.9% ( 10/11 )
+Branches     : 88.88% ( 8/9 )
+Functions    : 100% ( 1/1 )
+Lines        : 90.9% ( 10/11 )
+================================================================================
+
+Test Suites: 2 passed, 2 total
+Tests:       4 passed, 4 total
+Snapshots:   0 total
+Time:        3.142 s
+Ran all test suites.
+# Test completed at 2023-02-16T10:54:34+11:00
+
