@@ -17,7 +17,7 @@ dragen-germline 3.9.3 tool
 
   
 > ID: dragen-germline--3.9.3  
-> md5sum: 12d3c2fea21bf067d740ddc4ffa546ed
+> md5sum: 6f6a6e0396861f947800f63d3f3b8139
 
 ### dragen-germline v(3.9.3) documentation
   

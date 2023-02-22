@@ -25,7 +25,7 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/flatten-array-fastq-list__1.0.0.cwl
-        md5sum: 9ab47e6cf8399450acdf8d00493db458
+        md5sum: 281a98ea2191d72635e891f5a044983a
     categories: []
   - name: parse-int-array
     path: parse-int-array

@@ -115,12 +115,12 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-germline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-12T02:35:14UTC
+            modification_time: 2023-02-21T23:52:41UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-germline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:19:15UTC
+            modification_time: 2023-02-21T23:52:45UTC
             run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
@@ -140,7 +140,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2023-01-12T02:35:22UTC
+            modification_time: 2023-02-21T23:52:47UTC
             run_instances: []
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
@@ -150,7 +150,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2023-01-12T02:35:24UTC
+            modification_time: 2023-02-21T23:52:49UTC
             run_instances: []
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
@@ -200,12 +200,12 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-alignment__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-25T04:57:50UTC
+            modification_time: 2023-02-21T23:52:54UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-alignment__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:19:26UTC
+            modification_time: 2023-02-21T23:52:59UTC
             run_instances: []
       - name: arriba-drawing
         path: arriba-drawing
@@ -275,12 +275,12 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-12T02:35:57UTC
+            modification_time: 2023-02-21T23:53:06UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:19:36UTC
+            modification_time: 2023-02-21T23:53:07UTC
             run_instances: []
       - name: umccrise
         path: umccrise
@@ -340,14 +340,14 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-somatic__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-12T02:36:18UTC
+            modification_time: 2023-02-21T23:53:14UTC
             run_instances:
               - wfr.63351b7bd8f9431db0a58c27d5538f0e
               - wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
           - name: 4.0.3
             path: 4.0.3/dragen-somatic__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:19:44UTC
+            modification_time: 2023-02-21T23:53:16UTC
             run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -521,7 +521,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/bcl-convert__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:19:58UTC
+            modification_time: 2023-02-21T23:53:30UTC
             run_instances: []
       - name: star
         path: star
@@ -582,19 +582,19 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2023-01-16T00:54:13UTC
+            modification_time: 2023-02-22T00:23:38UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-02-01T01:31:30UTC
+            modification_time: 2023-02-22T00:23:40UTC
             run_instances:
               - wfr.d058e5f7be4b4683a9b1a59b8f67f91b
               - wfr.4759b2ccf6234141b06d5aab5b932dbb
           - name: 4.0.3
             path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T03:58:41UTC
+            modification_time: 2023-02-22T00:23:42UTC
             run_instances: []
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
@@ -604,7 +604,7 @@ projects:
           - name: 3.7.5--1.3.5
             path: 3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl
             ica_workflow_version_name: 3.7.5--1.3.5
-            modification_time: 2023-01-16T00:54:23UTC
+            modification_time: 2023-02-22T00:23:45UTC
             run_instances: []
       - name: tso500-ctdna
         path: tso500-ctdna
@@ -614,7 +614,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2023-01-12T02:54:16UTC
+            modification_time: 2023-02-22T00:23:47UTC
             run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline
@@ -624,14 +624,14 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2023-01-16T00:54:28UTC
+            modification_time: 2023-02-22T00:23:49UTC
             run_instances:
               - wfr.e3c6b8ce7e4447cbbd321b5c96ef7670
               - wfr.58436856778e4f70ae7856869571470c
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-02-01T01:31:45UTC
+            modification_time: 2023-02-22T00:23:51UTC
             run_instances:
               - wfr.b19291caab384e78b7661a85c3f82003
               - wfr.128790246e9c48f39e14d8f8ef7d868e
@@ -640,7 +640,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T02:33:29UTC
+            modification_time: 2023-02-21T10:14:19UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -650,7 +650,7 @@ projects:
           - name: 3.7.5
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2023-02-01T01:31:52UTC
+            modification_time: 2023-02-22T00:23:54UTC
             run_instances:
               - wfr.d9ddc8eb7d544d32bdbe285fd45a4365
       - name: dragen-transcriptome-pipeline
@@ -661,18 +661,18 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2023-01-16T00:54:40UTC
+            modification_time: 2023-02-22T00:23:56UTC
             run_instances:
               - wfr.f0fa0ea3972f405aa5af5003e1427428
           - name: 3.8.4
             path: 3.8.4/dragen-transcriptome-pipeline__3.8.4.cwl
             ica_workflow_version_name: 3.8.4
-            modification_time: 2023-01-16T00:54:43UTC
+            modification_time: 2023-02-22T00:23:58UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-02-16T00:10:09UTC
+            modification_time: 2023-02-22T00:24:00UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -680,7 +680,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-10T06:16:36UTC
+            modification_time: 2023-02-22T00:24:02UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
@@ -690,17 +690,17 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-alignment-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2023-01-16T00:54:52UTC
+            modification_time: 2023-02-22T00:24:05UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-02-01T04:32:19UTC
+            modification_time: 2023-02-22T00:24:07UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T02:35:45UTC
+            modification_time: 2023-02-22T00:24:09UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
@@ -710,13 +710,13 @@ projects:
           - name: 3.7.5
             path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5
-            modification_time: 2023-01-16T00:55:01UTC
+            modification_time: 2023-02-22T00:24:11UTC
             run_instances:
               - wfr.1fd8c32d79c34e179a4c0d6754edd3a2
           - name: 3.9.3
             path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-02-01T05:57:28UTC
+            modification_time: 2023-02-22T00:24:13UTC
             run_instances:
               - wfr.8bb7083dc6e74a2f9c21edd65e627a2e
       - name: tso500-ctdna-post-processing-pipeline
@@ -763,7 +763,7 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2023-02-01T01:32:19UTC
+            modification_time: 2023-02-22T00:24:19UTC
             run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
@@ -773,37 +773,37 @@ projects:
           - name: 2.0.0--3.9.3
             path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
             ica_workflow_version_name: 2.0.0--3.9.3
-            modification_time: 2023-02-01T01:32:22UTC
+            modification_time: 2023-02-22T00:24:21UTC
             run_instances: []
           - name: 2.0.1--3.9.3
             path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
             ica_workflow_version_name: 2.0.1--3.9.3
-            modification_time: 2023-02-01T01:32:25UTC
+            modification_time: 2023-02-22T00:24:23UTC
             run_instances: []
           - name: 2.0.2--3.9.3
             path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
             ica_workflow_version_name: 2.0.2--3.9.3
-            modification_time: 2023-02-01T01:32:28UTC
+            modification_time: 2023-02-22T00:24:25UTC
             run_instances: []
           - name: 2.1.0--3.9.3
             path: 2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.cwl
             ica_workflow_version_name: 2.1.0--3.9.3
-            modification_time: 2023-02-01T01:32:31UTC
+            modification_time: 2023-02-22T00:24:28UTC
             run_instances: []
           - name: 2.1.1--3.9.3
             path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
             ica_workflow_version_name: 2.1.1--3.9.3
-            modification_time: 2023-02-01T01:32:34UTC
+            modification_time: 2023-02-22T00:24:30UTC
             run_instances: []
           - name: 2.2.0--3.9.3
             path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
             ica_workflow_version_name: 2.2.0--3.9.3
-            modification_time: 2023-02-01T01:32:37UTC
+            modification_time: 2023-02-22T00:24:32UTC
             run_instances: []
           - name: 2.2.1--3.9.3
             path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
             ica_workflow_version_name: 2.2.1--3.9.3
-            modification_time: 2023-02-01T01:32:40UTC
+            modification_time: 2023-02-22T00:24:34UTC
             run_instances: []
       - name: ghif-qc
         path: ghif-qc
@@ -830,7 +830,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-pon-qc__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-01-12T02:55:36UTC
+            modification_time: 2023-02-22T00:24:38UTC
             run_instances:
               - wfr.e0cccb29cf44482182507bd33579270c
       - name: dragen-wts-qc-pipeline
@@ -841,7 +841,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-02-12T22:05:11UTC
+            modification_time: 2023-02-22T00:24:39UTC
             run_instances: []
       - name: bclconvert-with-qc-pipeline
         path: bclconvert-with-qc-pipeline
@@ -851,7 +851,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T04:20:36UTC
+            modification_time: 2023-02-22T00:24:42UTC
             run_instances: []
       - name: bclconvert
         path: bclconvert
@@ -861,7 +861,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/bclconvert__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:47:09UTC
+            modification_time: 2023-02-22T00:24:44UTC
             run_instances: []
       - name: bclconvert-scatter
         path: bclconvert-scatter
@@ -871,7 +871,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/bclconvert-scatter__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:47:11UTC
+            modification_time: 2023-02-22T00:24:46UTC
             run_instances: []
       - name: validate-bclconvert-samplesheet
         path: validate-bclconvert-samplesheet
@@ -881,7 +881,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T05:47:14UTC
+            modification_time: 2023-02-22T00:24:48UTC
             run_instances: []
       - name: dragen-somatic-with-germline-pipeline
         path: dragen-somatic-with-germline-pipeline
@@ -891,7 +891,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-02-08T03:57:06UTC
+            modification_time: 2023-02-22T00:24:51UTC
             run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc
@@ -1267,6 +1267,11 @@ projects:
             ica_workflow_version_name: 1.1.0--120--75e015e
             modification_time: 2023-01-12T02:55:59UTC
             run_instances: []
+          - name: 1.1.0--120
+            path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
+            ica_workflow_version_name: 1.1.0--120--8fdabfc
+            modification_time: 2023-02-22T00:24:54UTC
+            run_instances: []
       - name: dragen-somatic-pipeline
         path: dragen-somatic-pipeline
         ica_workflow_name: dragen-somatic-pipeline_prod-wf
@@ -1442,6 +1447,16 @@ projects:
             ica_workflow_version_name: 3.9.3--3b07571
             modification_time: 2023-02-01T01:33:02UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-somatic-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--8fdabfc
+            modification_time: 2023-02-22T00:24:58UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:00UTC
+            run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
         ica_workflow_name: bcl-conversion_prod-wf
@@ -1546,6 +1561,11 @@ projects:
             path: 3.7.5/bcl-conversion__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--3b07571
             modification_time: 2023-02-01T01:33:07UTC
+            run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/bcl-conversion__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--8fdabfc
+            modification_time: 2023-02-22T00:25:03UTC
             run_instances: []
       - name: dragen-transcriptome-pipeline
         path: dragen-transcriptome-pipeline
@@ -1777,6 +1797,16 @@ projects:
             ica_workflow_version_name: 3.9.3--a0960f3
             modification_time: 2023-02-21T02:39:18UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-transcriptome-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--8fdabfc
+            modification_time: 2023-02-22T00:25:07UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:09UTC
+            run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_prod-wf
@@ -1836,6 +1866,11 @@ projects:
             path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
             ica_workflow_version_name: 3.7.5--40e48c4
             modification_time: 2023-01-16T00:56:17UTC
+            run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-germline-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--8fdabfc
+            modification_time: 2023-02-22T00:25:12UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
@@ -1967,6 +2002,16 @@ projects:
             ica_workflow_version_name: 3.9.3--e71d3eb
             modification_time: 2023-02-01T05:57:58UTC
             run_instances: []
+          - name: 3.7.5
+            path: 3.7.5/dragen-wgs-qc-pipeline__3.7.5.cwl
+            ica_workflow_version_name: 3.7.5--8fdabfc
+            modification_time: 2023-02-22T00:25:16UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:18UTC
+            run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
         ica_workflow_name: tso500-ctdna-with-post-processing-pipeline_prod-wf
@@ -2051,6 +2096,11 @@ projects:
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0--3b07571
             modification_time: 2023-02-01T01:33:24UTC
+            run_instances: []
+          - name: 1.1.0--1.0.0
+            path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
+            ica_workflow_version_name: 1.1.0--1.0.0--8fdabfc
+            modification_time: 2023-02-22T00:25:21UTC
             run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
@@ -2492,6 +2542,41 @@ projects:
             ica_workflow_version_name: 2.2.1--3.9.3--3b07571
             modification_time: 2023-02-01T01:33:55UTC
             run_instances: []
+          - name: 2.0.0--3.9.3
+            path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
+            ica_workflow_version_name: 2.0.0--3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:30UTC
+            run_instances: []
+          - name: 2.0.1--3.9.3
+            path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
+            ica_workflow_version_name: 2.0.1--3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:32UTC
+            run_instances: []
+          - name: 2.0.2--3.9.3
+            path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
+            ica_workflow_version_name: 2.0.2--3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:34UTC
+            run_instances: []
+          - name: 2.1.0--3.9.3
+            path: 2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.cwl
+            ica_workflow_version_name: 2.1.0--3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:36UTC
+            run_instances: []
+          - name: 2.1.1--3.9.3
+            path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
+            ica_workflow_version_name: 2.1.1--3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:38UTC
+            run_instances: []
+          - name: 2.2.0--3.9.3
+            path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
+            ica_workflow_version_name: 2.2.0--3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:40UTC
+            run_instances: []
+          - name: 2.2.1--3.9.3
+            path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
+            ica_workflow_version_name: 2.2.1--3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:43UTC
+            run_instances: []
       - name: dragen-pon-qc
         path: dragen-pon-qc
         ica_workflow_name: dragen-pon-qc_prod-wf
@@ -2562,6 +2647,11 @@ projects:
             ica_workflow_version_name: 3.9.3--75e015e
             modification_time: 2023-01-12T02:57:14UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-pon-qc__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--8fdabfc
+            modification_time: 2023-02-22T00:25:46UTC
+            run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
     project_description: |
@@ -2592,7 +2682,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-demultiplex-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2023-01-12T02:37:27UTC
+            modification_time: 2023-02-21T23:53:38UTC
             run_instances: []
       - name: tso500-ctdna-analysis-workflow
         path: tso500-ctdna-analysis-workflow
@@ -2602,7 +2692,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna-analysis-workflow__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2023-01-12T02:37:29UTC
+            modification_time: 2023-02-21T23:53:40UTC
             run_instances: []
       - name: tso500-ctdna-reporting-workflow
         path: tso500-ctdna-reporting-workflow
@@ -2633,7 +2723,7 @@ projects:
           - name: 1.1.0--120
             path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
             ica_workflow_version_name: 1.1.0--120
-            modification_time: 2023-01-12T02:57:18UTC
+            modification_time: 2023-02-22T00:25:49UTC
             run_instances: []
       - name: tso500-ctdna-post-processing-pipeline
         path: tso500-ctdna-post-processing-pipeline
@@ -2653,7 +2743,7 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2023-02-01T01:34:06UTC
+            modification_time: 2023-02-22T00:25:53UTC
             run_instances:
               - wfr.d92a2d28bbfe46fe878f6513fdb06723
               - wfr.c419c549d0c349538ba811f65c8ed684
