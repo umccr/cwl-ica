@@ -16,7 +16,7 @@ flatten-array-fastq-list 1.0.0 expression
 
   
 > ID: flatten-array-fastq-list-schema--1.0.0  
-> md5sum: 9ab47e6cf8399450acdf8d00493db458
+> md5sum: 281a98ea2191d72635e891f5a044983a
 
 ### flatten-array-fastq-list-schema v(1.0.0) documentation
   
@@ -34,6 +34,7 @@ Documentation for flatten-array-fastq-list-schema v1.0.0
 ### Used By
   
 - [bcl-conversion 3.7.5](../../../workflows/bcl-conversion/3.7.5/bcl-conversion__3.7.5.md)  
+- [bclconvert-scatter 4.0.3](../../../workflows/bclconvert-scatter/4.0.3/bclconvert-scatter__4.0.3.md)  
 
   
 

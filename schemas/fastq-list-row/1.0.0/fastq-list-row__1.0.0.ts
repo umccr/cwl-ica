@@ -11,13 +11,13 @@ export interface FastqListRow {
 	read 1: 
 	The path to R1 of a sample
 	*/
-	read_1: IFile
+	read_1: IFile | string
 
 	/*
 	read 2: 
 	The path to R2 of a sample
 	*/
-	read_2?: IFile
+	read_2?: IFile | string
 
 	/*
 	rgid: 

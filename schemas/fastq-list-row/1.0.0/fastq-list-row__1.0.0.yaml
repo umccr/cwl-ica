@@ -27,11 +27,16 @@ fields:
     label: read 1
     doc: |
       The path to R1 of a sample
-    type: File
+    type:
+      - File
+      - string
     streamable: true
   read_2:
     label: read 2
     doc: |
       The path to R2 of a sample
-    type: File?
+    type:
+      - "null"
+      - File
+      - string
     streamable: true
