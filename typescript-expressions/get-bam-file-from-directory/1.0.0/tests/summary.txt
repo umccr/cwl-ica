@@ -1,0 +1,19 @@
+# Test started at 2023-02-23T20:46:46+11:00
+
+PASS tests/get-bam-file-from-directory__1.0.0.test.js
+PASS tests/get-bam-file-from-directory__1.0.0.test.ts
+
+=============================== Coverage summary ===============================
+Statements   : 88.88% ( 16/18 )
+Branches     : 75% ( 9/12 )
+Functions    : 100% ( 3/3 )
+Lines        : 88.88% ( 16/18 )
+================================================================================
+
+Test Suites: 2 passed, 2 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.59 s, estimated 3 s
+Ran all test suites.
+# Test completed at 2023-02-23T20:46:51+11:00
+

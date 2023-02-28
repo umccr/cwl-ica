@@ -1,0 +1,38 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.get_bam_file_from_directory = void 0;
+// Functions
+function get_bam_file_from_directory(directory, filename) {
+    /*
+    Given a listing, return a bam file from in the listing that matches the filename input
+     */
+    if (directory.listing === null || directory.listing === undefined) {
+        throw new Error("Error! Directory '".concat(directory.basename, " has no listing attribute"));
+    }
+    // Local vars
+    var bam_file = null;
+    var bam_file_index = null;
+    var bam_file_array = directory.listing.filter(function (listed_item) {
+        return listed_item.basename == filename && listed_item.class == "File";
+    });
+    var bam_file_index_array = directory.listing.filter(function (listed_item) {
+        return listed_item.basename == filename + ".bai" && listed_item.class == "File";
+    });
+    // Check bam file isnt missing
+    if (bam_file_array.length == 0) {
+        throw new Error("Error! Cannot find bam file '".concat(filename, "' in directory '").concat(directory.basename, "'"));
+    }
+    else {
+        bam_file = bam_file_array[0];
+    }
+    // Add index file to bam file if it exists
+    if (bam_file_index_array.length == 1) {
+        // Bam file has an index attach secondary file
+        bam_file_index = bam_file_index_array[0];
+        bam_file.secondaryFiles = [
+            bam_file_index
+        ];
+    }
+    return bam_file;
+}
+exports.get_bam_file_from_directory = get_bam_file_from_directory;
