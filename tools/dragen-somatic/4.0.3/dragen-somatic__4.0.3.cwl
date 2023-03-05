@@ -54,17 +54,14 @@ requirements:
           set -euo pipefail
 
           # Confirm not both fastq_list and fastq_list_rows are defined
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" && "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
-            echo "Cannot set both CWL inputs fastq_list AND fastq_list_rows for normal sample" 1>&2
+          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -gt "1" ]]; then
+            echo "Please set no more than one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
             exit 1
           fi
 
           # Ensure that at least one of tumor_fastq_list and tumor_fastq_list_rows are defined but not both defined (XOR)
-          if [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "One of inputs tumor_fastq_list OR inputs.tumor_fastq_list_rows must be defined" 1>&2
-              exit 1
-          elif [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "Cannot set both CWL inputs tumor_fastq_list AND tumor_fastq_list_rows for tumor sample" 1>&2
+          if [[ "$(boolean_to_int(is_not_null(inputs.tumor_fastq_list)) + boolean_to_int(is_not_null(inputs.tumor_fastq_list_rows)) + boolean_to_int(is_not_null(inputs.tumor_bam_input)))" -ne "1" ]]; then
+              echo "One and only one of inputs tumor_fastq_list, inputs.tumor_fastq_list_rows, inputs.tumor_bam_input must be defined" 1>&2
               exit 1
           fi
 
@@ -108,7 +105,7 @@ requirements:
             new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
 
             # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-            if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
+            if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
               # Move normal bam, normal bam index and normal bam md5sum
               (
                 cd "$(inputs.output_directory)"
@@ -181,6 +178,21 @@ inputs:
       prefix: "--tumor-fastq-list="
       separate: False
       valueFrom: "$(get_tumor_fastq_list_csv_path())"
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--bam-input"
+  tumor_bam_input:
+    label: tumor bam input
+    doc: |
+      Input a tumor BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--tumor-bam-input"
   reference_tar:
     label: reference tar
     doc: |
