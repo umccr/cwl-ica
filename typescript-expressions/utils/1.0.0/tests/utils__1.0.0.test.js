@@ -69,3 +69,24 @@ describe('Test is_not_null utils', function () {
         expect((0, utils__1_0_0_1.is_not_null)(NOT_NULL)).toEqual(true);
     });
 });
+// boolean_to_input Test
+describe('Test boolean_to_int utils', function () {
+    test('We expect boolean_to_int(NULL) to be 0', function () {
+        expect((0, utils__1_0_0_1.boolean_to_int)(NULL)).toEqual(0);
+    });
+    test('We expect boolean_to_int(UNDEFINED) to be 0', function () {
+        expect((0, utils__1_0_0_1.boolean_to_int)(UNDEFINED)).toEqual(0);
+    });
+    test('We expect boolean_to_int(TRUE) to be 1', function () {
+        expect((0, utils__1_0_0_1.boolean_to_int)(TRUE)).toEqual(1);
+    });
+    test('We expect boolean_to_int(FALSE) to be 0', function () {
+        expect((0, utils__1_0_0_1.boolean_to_int)(FALSE)).toEqual(0);
+    });
+    test('We expect boolean_to_int("true") to be 1', function () {
+        expect((0, utils__1_0_0_1.boolean_to_int)("true")).toEqual(1);
+    });
+    test('We expect boolean_to_int("false") to be 0', function () {
+        expect((0, utils__1_0_0_1.boolean_to_int)("false")).toEqual(0);
+    });
+});

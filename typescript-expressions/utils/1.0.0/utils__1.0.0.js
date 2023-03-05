@@ -4,7 +4,7 @@
 // In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
 // Imports
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.get_optional_attribute_from_multi_type_input_object = exports.get_bool_value_as_str = exports.get_optional_attribute_from_object = exports.get_attribute_from_optional_input = exports.is_not_null = void 0;
+exports.get_optional_attribute_from_multi_type_input_object = exports.boolean_to_int = exports.get_bool_value_as_str = exports.get_optional_attribute_from_object = exports.get_attribute_from_optional_input = exports.is_not_null = void 0;
 // Functions
 function is_not_null(input_obj) {
     /*
@@ -47,6 +47,15 @@ function get_bool_value_as_str(input_bool) {
     }
 }
 exports.get_bool_value_as_str = get_bool_value_as_str;
+function boolean_to_int(input_bool) {
+    if (is_not_null(input_bool) && String(input_bool).toLowerCase() === "true") {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+exports.boolean_to_int = boolean_to_int;
 function get_optional_attribute_from_multi_type_input_object(object, attribute) {
     /*
     Get attribute from optional input
