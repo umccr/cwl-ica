@@ -893,6 +893,11 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-02-22T00:24:51UTC
             run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3
+            modification_time: 2023-03-04T02:32:40UTC
+            run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc
         ica_workflow_name: illumina-interop-qc_dev-wf
@@ -2651,6 +2656,16 @@ projects:
             path: 3.9.3/dragen-pon-qc__3.9.3.cwl
             ica_workflow_version_name: 3.9.3--8fdabfc
             modification_time: 2023-02-22T00:25:46UTC
+            run_instances: []
+      - name: dragen-somatic-with-germline-pipeline
+        path: dragen-somatic-with-germline-pipeline
+        ica_workflow_name: dragen-somatic-with-germline-pipeline_prod-wf
+        ica_workflow_id: wfl.5830565f0858423cb49de2a1534d65c5
+        versions:
+          - name: 3.9.3
+            path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--__GIT_COMMIT_ID__
+            modification_time:
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
