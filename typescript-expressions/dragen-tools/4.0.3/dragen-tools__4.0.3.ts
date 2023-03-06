@@ -175,20 +175,33 @@ export function get_normal_name_from_fastq_list_csv(fastq_list_csv: IFile | null
     return contents_by_line[1].split(",")[rgsm_index]
 }
 
-export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow[] | null;  fastq_list: IFile | null; }): string {
+export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow[] | null;  fastq_list: IFile | null; bam_input: IFile | null }): string {
     /*
     Get the normal RGSM value and then add _normal to it
     */
     let normal_name: string | null = null
-    if (inputs.fastq_list !== null && inputs.fastq_list !== undefined){
+
+    /*
+    Check if bam_input is set
+    */
+    if (inputs.bam_input !== null && inputs.bam_input !== undefined){
+        return <string>inputs.bam_input.nameroot
+    }
+
+    /*
+    Check if fastq list file is set
+    */
+    if (inputs.fastq_list !== null && inputs.fastq_list !== undefined) {
         normal_name = get_normal_name_from_fastq_list_csv(inputs.fastq_list)
         if ( normal_name !== null) {
             return normal_name
         }
     }
 
+    /*
+    Otherwise collect and return from schema object
+    */
     normal_name = get_normal_name_from_fastq_list_rows(inputs.fastq_list_rows)
-
     return <string>normal_name
 }
 

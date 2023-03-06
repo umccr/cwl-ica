@@ -185,14 +185,16 @@ inputs:
       Input a normal BAM file for the variant calling stage
     type: File?
     inputBinding:
-      prefix: "--bam-input"
+      prefix: "--bam-input="
+      separate: False
   tumor_bam_input:
     label: tumor bam input
     doc: |
       Input a tumor BAM file for the variant calling stage
     type: File?
     inputBinding:
-      prefix: "--tumor-bam-input"
+      prefix: "--tumor-bam-input="
+      separate: False
   reference_tar:
     label: reference tar
     doc: |

@@ -22,6 +22,12 @@ import {
     get_tumor_fastq_list_csv_path
 } from "../dragen-tools__4.0.3";
 
+const NORMAL_BAM_INPUT_FILE: IFile = {
+    class_: File_class.FILE,
+    basename: "MY_SAMPLE_ID.bam",
+    nameroot: "MY_SAMPLE_ID"
+}
+
 const FASTQ_LIST_CSV_FILE_PATH = "tests/data/fastq_list.csv"
 
 const FASTQ_LIST_REORDERED_CSV_FILE_PATH = "tests/data/fastq_list.reordered.csv";
@@ -157,12 +163,19 @@ describe('Test the get normal name function suite', function () {
     const expected_rgsm_value = "MY_SAMPLE_ID";
     const fastq_list_as_input = {
         "fastq_list_rows": null,
-        "fastq_list": FASTQ_LIST_CSV_FILE
+        "fastq_list": FASTQ_LIST_CSV_FILE,
+        "bam_input": null
     };
     const fastq_list_rows_as_input = {
         "fastq_list_rows": FASTQ_LIST_ROWS,
-        "fastq_list": null
+        "fastq_list": null,
+        "bam_input": null,
     };
+    const bam_input_as_input = {
+        "fastq_list_rows": null,
+        "fastq_list": null,
+        "bam_input": NORMAL_BAM_INPUT_FILE
+    }
     /*
     Testing from file
     */
@@ -183,6 +196,13 @@ describe('Test the get normal name function suite', function () {
     });
     test("Test the get normal output prefix function with fastq list rows as non null", function () {
         expect(get_normal_output_prefix(fastq_list_rows_as_input)).toEqual(expected_rgsm_value);
+    });
+    /*
+    Test from bam input
+    */
+    test(
+        "Test the get_normal_output prefix function with bam input as non null", function() {
+            expect(get_normal_output_prefix(bam_input_as_input)).toEqual(expected_rgsm_value);
     });
 });
 

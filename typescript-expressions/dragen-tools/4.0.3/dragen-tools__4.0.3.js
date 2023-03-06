@@ -150,12 +150,24 @@ function get_normal_output_prefix(inputs) {
     Get the normal RGSM value and then add _normal to it
     */
     var normal_name = null;
+    /*
+    Check if bam_input is set
+    */
+    if (inputs.bam_input !== null && inputs.bam_input !== undefined) {
+        return inputs.bam_input.nameroot;
+    }
+    /*
+    Check if fastq list file is set
+    */
     if (inputs.fastq_list !== null && inputs.fastq_list !== undefined) {
         normal_name = get_normal_name_from_fastq_list_csv(inputs.fastq_list);
         if (normal_name !== null) {
             return normal_name;
         }
     }
+    /*
+    Otherwise collect and return from schema object
+    */
     normal_name = get_normal_name_from_fastq_list_rows(inputs.fastq_list_rows);
     return normal_name;
 }
