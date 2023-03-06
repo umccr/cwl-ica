@@ -58,7 +58,7 @@ workflows:
         md5sum: fa6900b85cdcff25ac5fc5bf436fe1f8
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
-        md5sum: f7861390ab5fd41abf037e4956e4d27c
+        md5sum: 2827f7b2c69c89d7b1ae2b70ac11210c
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
         md5sum: c53c23f90221ddc7a0ffaf59070c1639
