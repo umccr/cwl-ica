@@ -136,7 +136,7 @@ requirements:
           /*
           If rgsm is not in input, return null else return the value
           */
-          if (rgsm_value == null) {
+          if (rgsm_value === null) {
               return null;
           } else {
               return rgsm_value;
@@ -194,7 +194,11 @@ requirements:
           /*
           Get the normal RGSM value and then add _normal to it
           */
-          return get_normal_name_from_fastq_list_csv() + "_normal";
+          if (is_not_null(inputs.bam_input)){
+            return inputs.bam_input.nameroot;
+          } else {
+            return get_normal_name_from_fastq_list_csv() + "_normal";
+          }
         }
       - var get_dragen_eval_line = function(){
           /*
