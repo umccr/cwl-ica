@@ -64,11 +64,17 @@ inputs:
     doc: |
       Input a BAM file for the variant calling stage
     type: File?
+    secondaryFiles:
+      - pattern: ".bam"
+        required: true
   tumor_bam_input:
     label: tumor bam input
     doc: |
       Input a BAM file for the variant calling stage
     type: File?
+    secondaryFiles:
+      - pattern: ".bam"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -94,6 +100,12 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -722,6 +734,8 @@ steps:
       # --enable-map-align-output to keep bams
       # --enable-duplicate-marking to mark duplicate reads at the same time
       # --enable-sv to enable the structural variant calling step.
+      enable_map_align:
+        source: enable_map_align
       enable_map_align_output:
         source: enable_map_align_output
       enable_duplicate_marking:

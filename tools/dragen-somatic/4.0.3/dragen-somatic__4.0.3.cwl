@@ -95,7 +95,7 @@ requirements:
             fi
 
             # Ensure that we have a normal RGSM value, otherwise exit.
-            if [[ -z "$(get_bool_value_as_str(get_normal_name_from_fastq_list_csv()))" ]]; then
+            if [[ "$(is_not_null(get_normal_output_prefix()))" == "false" ]]; then
               echo "Could not get the normal bam file prefix" 1>&2
               echo "Exiting" 1>&2
               exit
@@ -187,6 +187,9 @@ inputs:
     inputBinding:
       prefix: "--bam-input="
       separate: False
+    secondaryFiles:
+      - pattern: ".bam"
+        required: true
   tumor_bam_input:
     label: tumor bam input
     doc: |
@@ -195,6 +198,9 @@ inputs:
     inputBinding:
       prefix: "--tumor-bam-input="
       separate: False
+    secondaryFiles:
+      - pattern: ".bam"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -230,6 +236,16 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align="
+      separate: False
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |
