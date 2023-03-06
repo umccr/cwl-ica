@@ -188,7 +188,7 @@ inputs:
       prefix: "--bam-input="
       separate: False
     secondaryFiles:
-      - pattern: ".bam"
+      - pattern: ".bai"
         required: true
   tumor_bam_input:
     label: tumor bam input
@@ -199,7 +199,7 @@ inputs:
       prefix: "--tumor-bam-input="
       separate: False
     secondaryFiles:
-      - pattern: ".bam"
+      - pattern: ".bai"
         required: true
   reference_tar:
     label: reference tar
