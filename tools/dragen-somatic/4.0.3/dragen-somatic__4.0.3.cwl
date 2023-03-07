@@ -95,7 +95,7 @@ requirements:
             fi
 
             # Ensure that we have a normal RGSM value, otherwise exit.
-            if [[ "$(is_not_null(get_normal_output_prefix()))" == "false" ]]; then
+            if [[ "$(is_not_null(get_normal_output_prefix(inputs)))" == "false" ]]; then
               echo "Could not get the normal bam file prefix" 1>&2
               echo "Exiting" 1>&2
               exit
