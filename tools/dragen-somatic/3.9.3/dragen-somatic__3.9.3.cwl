@@ -521,6 +521,14 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-sort"
+      valueFrom: "$(self.toString())"
   enable_map_align:
     label: enable map align
     doc: |

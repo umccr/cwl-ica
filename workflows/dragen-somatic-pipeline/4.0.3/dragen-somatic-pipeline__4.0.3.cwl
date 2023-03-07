@@ -94,12 +94,16 @@ inputs:
     type: string
 
   # Optional operation modes
-  # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+    type: boolean?
   enable_map_align:
     label: enable map align
     doc: |
@@ -734,6 +738,8 @@ steps:
       # --enable-map-align-output to keep bams
       # --enable-duplicate-marking to mark duplicate reads at the same time
       # --enable-sv to enable the structural variant calling step.
+      enable_sort:
+        source: enable_sort
       enable_map_align:
         source: enable_map_align
       enable_map_align_output:
