@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: bbf8cd854d5242bf6382a07b86905e59
+> md5sum: d1f20740a83cddc9f4d4039f409ed3a5
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -574,7 +574,7 @@ This option can be set in the configuration file.
 > ID: vc_enable_baf
   
 **Optional:** `True`  
-**Type:** `File`  
+**Type:** `boolean`  
 **Docs:**  
 Enable or disable B-allele frequency output. Enabled by default.
 
