@@ -22,7 +22,7 @@ workflows:
         md5sum: 77403579ba50402bd6a8c2dc8219fcd1
       - name: 3.9.3
         path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
-        md5sum: bbf8cd854d5242bf6382a07b86905e59
+        md5sum: d1f20740a83cddc9f4d4039f409ed3a5
       - name: 4.0.3
         path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
         md5sum: 45e734af505e36f419b5db10a44c06f7
@@ -144,25 +144,25 @@ workflows:
     versions:
       - name: 2.0.0--3.9.3
         path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
-        md5sum: 7dab368cfe0644a1c6e910136f6a3685
+        md5sum: 8ad1fa2fcc6b69f907ae84da8117fad2
       - name: 2.0.1--3.9.3
         path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
-        md5sum: 43f616658d40ba09bde4ad9045fc03fd
+        md5sum: 32d1441f7f808287d12cf17657f248d7
       - name: 2.0.2--3.9.3
         path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
-        md5sum: 0feb4e21b93c06f73ebc0c9986f36323
+        md5sum: 43a44d4cb84c3a6b39fb86602da4e6ea
       - name: 2.1.0--3.9.3
         path: 2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.cwl
-        md5sum: bc8004d67bbe0c078d0d816e47479c68
+        md5sum: 55dd979524c5b7f58ea3a76e714dfbd8
       - name: 2.1.1--3.9.3
         path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
-        md5sum: 6b9b6fd7299ea1d5119587bc41f5ad30
+        md5sum: e64b7b40e1d4cc484a3bb7abe711d9b5
       - name: 2.2.0--3.9.3
         path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
-        md5sum: 566ba45603a8f7313f73375ac779c1e5
+        md5sum: f41e43451bb74816b18e0b93fe9981ed
       - name: 2.2.1--3.9.3
         path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
-        md5sum: d278c1a1248a023a4c906d47f490bb18
+        md5sum: 7c511793c6a139064dcf3fb07e6aaf18
     categories: []
   - name: ghif-qc
     path: ghif-qc
@@ -229,6 +229,9 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
         md5sum: 0c53faa68a0641b5b304d5e73efa1c01
+      - name: 3.9.3
+        path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
+        md5sum: ff4fddf9f8565d5492ae4d1ef45fc0d6
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc

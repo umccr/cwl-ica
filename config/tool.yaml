@@ -83,7 +83,7 @@ tools:
         md5sum: c88f8998e64f1b3b94156773f02a5a59
       - name: 3.9.3
         path: 3.9.3/dragen-germline__3.9.3.cwl
-        md5sum: 6f6a6e0396861f947800f63d3f3b8139
+        md5sum: 1ff5be4c69d15c0724d64b6914531b03
       - name: 4.0.3
         path: 4.0.3/dragen-germline__4.0.3.cwl
         md5sum: 9712f36be63e842fd5ed0e795fb9e7c5

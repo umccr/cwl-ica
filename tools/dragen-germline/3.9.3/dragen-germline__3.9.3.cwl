@@ -565,9 +565,10 @@ inputs:
     label: vc enable baf
     doc: |
       Enable or disable B-allele frequency output. Enabled by default.
-    type: File?
+    type: boolean?
     inputBinding:
       prefix: "--vc-enable-baf"
+      valueFrom: "$(self.toString())"
   # Germline variant small hard filtering options
   vc_hard_filter:
     label: vc hard fitler
