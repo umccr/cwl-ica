@@ -185,7 +185,7 @@ export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow
     Check if bam_input is set
     */
     if (inputs.bam_input !== null && inputs.bam_input !== undefined){
-        return <string>inputs.bam_input.nameroot
+        return <string>`${inputs.bam_input.nameroot}_normal`
     }
 
     /*
@@ -194,7 +194,7 @@ export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow
     if (inputs.fastq_list !== null && inputs.fastq_list !== undefined) {
         normal_name = get_normal_name_from_fastq_list_csv(inputs.fastq_list)
         if ( normal_name !== null) {
-            return normal_name
+            return `${normal_name}_normal`
         }
     }
 
@@ -202,7 +202,7 @@ export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow
     Otherwise collect and return from schema object
     */
     normal_name = get_normal_name_from_fastq_list_rows(inputs.fastq_list_rows)
-    return <string>normal_name
+    return <string>`${normal_name}_normal`
 }
 
 export function build_fastq_list_csv_header(header_names: Array<string>): string {

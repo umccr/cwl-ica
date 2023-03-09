@@ -186,7 +186,7 @@ describe('Test the get normal name function suite', function () {
         expect(get_normal_name_from_fastq_list_csv(FASTQ_LIST_REORDERED_CSV_FILE)).toEqual(expected_rgsm_value);
     });
     test("Test the get normal output prefix function with fastq list rows as non null", function () {
-        expect(get_normal_output_prefix(fastq_list_as_input)).toEqual(expected_rgsm_value);
+        expect(get_normal_output_prefix(fastq_list_as_input)).toEqual(expected_rgsm_value + "_normal");
     });
     /*
     Testing from schema
@@ -195,14 +195,14 @@ describe('Test the get normal name function suite', function () {
         expect(get_normal_name_from_fastq_list_rows(FASTQ_LIST_ROWS)).toEqual(expected_rgsm_value);
     });
     test("Test the get normal output prefix function with fastq list rows as non null", function () {
-        expect(get_normal_output_prefix(fastq_list_rows_as_input)).toEqual(expected_rgsm_value);
+        expect(get_normal_output_prefix(fastq_list_rows_as_input)).toEqual(expected_rgsm_value + "_normal");
     });
     /*
     Test from bam input
     */
     test(
         "Test the get_normal_output prefix function with bam input as non null", function() {
-            expect(get_normal_output_prefix(bam_input_as_input)).toEqual(expected_rgsm_value);
+            expect(get_normal_output_prefix(bam_input_as_input)).toEqual(expected_rgsm_value + "_normal");
     });
 });
 

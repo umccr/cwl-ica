@@ -167,7 +167,7 @@ describe('Test the get normal name function suite', function () {
         expect((0, dragen_tools__4_0_3_1.get_normal_name_from_fastq_list_csv)(FASTQ_LIST_REORDERED_CSV_FILE)).toEqual(expected_rgsm_value);
     });
     test("Test the get normal output prefix function with fastq list rows as non null", function () {
-        expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(fastq_list_as_input)).toEqual(expected_rgsm_value);
+        expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(fastq_list_as_input)).toEqual(expected_rgsm_value + "_normal");
     });
     /*
     Testing from schema
@@ -176,13 +176,13 @@ describe('Test the get normal name function suite', function () {
         expect((0, dragen_tools__4_0_3_1.get_normal_name_from_fastq_list_rows)(FASTQ_LIST_ROWS)).toEqual(expected_rgsm_value);
     });
     test("Test the get normal output prefix function with fastq list rows as non null", function () {
-        expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(fastq_list_rows_as_input)).toEqual(expected_rgsm_value);
+        expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(fastq_list_rows_as_input)).toEqual(expected_rgsm_value + "_normal");
     });
     /*
     Test from bam input
     */
     test("Test the get_normal_output prefix function with bam input as non null", function () {
-        expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(bam_input_as_input)).toEqual(expected_rgsm_value);
+        expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(bam_input_as_input)).toEqual(expected_rgsm_value + "_normal");
     });
 });
 // Test the fastq list csv builders
