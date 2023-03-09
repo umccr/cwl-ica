@@ -194,7 +194,7 @@ requirements:
           /*
           Get the normal RGSM value and then add _normal to it
           */
-          if (is_not_null(inputs.bam_input)){
+          if (is_not_null(inputs.bam_input) === "true"){
             return inputs.bam_input.nameroot;
           } else {
             return get_normal_name_from_fastq_list_csv() + "_normal";
