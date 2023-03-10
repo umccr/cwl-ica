@@ -54,17 +54,14 @@ requirements:
           set -euo pipefail
 
           # Confirm not both fastq_list and fastq_list_rows are defined
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" && "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
-            echo "Cannot set both CWL inputs fastq_list AND fastq_list_rows for normal sample" 1>&2
+          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -gt "1" ]]; then
+            echo "Please set no more than one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
             exit 1
           fi
 
           # Ensure that at least one of tumor_fastq_list and tumor_fastq_list_rows are defined but not both defined (XOR)
-          if [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "One of inputs tumor_fastq_list OR inputs.tumor_fastq_list_rows must be defined" 1>&2
-              exit 1
-          elif [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "Cannot set both CWL inputs tumor_fastq_list AND tumor_fastq_list_rows for tumor sample" 1>&2
+          if [[ "$(boolean_to_int(is_not_null(inputs.tumor_fastq_list)) + boolean_to_int(is_not_null(inputs.tumor_fastq_list_rows)) + boolean_to_int(is_not_null(inputs.tumor_bam_input)))" -ne "1" ]]; then
+              echo "One and only one of inputs tumor_fastq_list, inputs.tumor_fastq_list_rows, inputs.tumor_bam_input must be defined" 1>&2
               exit 1
           fi
 
@@ -98,7 +95,7 @@ requirements:
             fi
 
             # Ensure that we have a normal RGSM value, otherwise exit.
-            if [[ -z "$(get_bool_value_as_str(get_normal_name_from_fastq_list_csv()))" ]]; then
+            if [[ "$(is_not_null(get_normal_output_prefix(inputs)))" == "false" ]]; then
               echo "Could not get the normal bam file prefix" 1>&2
               echo "Exiting" 1>&2
               exit
@@ -108,7 +105,7 @@ requirements:
             new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
 
             # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-            if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
+            if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
               # Move normal bam, normal bam index and normal bam md5sum
               (
                 cd "$(inputs.output_directory)"
@@ -181,6 +178,29 @@ inputs:
       prefix: "--tumor-fastq-list="
       separate: False
       valueFrom: "$(get_tumor_fastq_list_csv_path())"
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--bam-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
+  tumor_bam_input:
+    label: tumor bam input
+    doc: |
+      Input a tumor BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--tumor-bam-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -216,6 +236,25 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-sort="
+      separate: False
+      valueFrom: "$(self.toString())"
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align="
+      separate: False
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |

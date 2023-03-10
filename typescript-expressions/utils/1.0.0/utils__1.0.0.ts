@@ -62,6 +62,14 @@ export function get_bool_value_as_str(input_bool: boolean | null): string {
     }
 }
 
+export function boolean_to_int(input_bool: boolean | string | null | undefined): Number {
+    if (is_not_null(input_bool) && String(input_bool).toLowerCase() === "true"){
+        return 1
+    } else {
+        return 0
+    }
+}
+
 export function get_optional_attribute_from_multi_type_input_object(object: any, attribute: string){
     /*
     Get attribute from optional input
@@ -77,3 +85,4 @@ export function get_optional_attribute_from_multi_type_input_object(object: any,
         return object
     }
 }
+

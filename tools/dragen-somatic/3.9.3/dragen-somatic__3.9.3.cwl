@@ -110,6 +110,12 @@ requirements:
             return input_parameter.toString();
           }
         }
+      - var boolean_to_int = function(input_bool){
+          /*
+          Return 0 for false and 1 for true
+          */
+          return Number(String(input_bool).toLowerCase() === "true");
+        }
       - var get_normal_name_from_fastq_list_rows = function(){
           /*
           Get the normal sample name form  fastq list rows object
@@ -130,7 +136,7 @@ requirements:
           /*
           If rgsm is not in input, return null else return the value
           */
-          if (rgsm_value == null) {
+          if (rgsm_value === null) {
               return null;
           } else {
               return rgsm_value;
@@ -188,7 +194,11 @@ requirements:
           /*
           Get the normal RGSM value and then add _normal to it
           */
-          return get_normal_name_from_fastq_list_csv() + "_normal";
+          if (is_not_null(inputs.bam_input) === "true"){
+            return inputs.bam_input.nameroot;
+          } else {
+            return get_normal_name_from_fastq_list_csv() + "_normal";
+          }
         }
       - var get_dragen_eval_line = function(){
           /*
@@ -309,17 +319,14 @@ requirements:
           set -euo pipefail
 
           # Confirm not both fastq_list and fastq_list_rows are defined
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" && "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
-            echo "Cannot set both CWL inputs fastq_list AND fastq_list_rows for normal sample" 1>&2
+          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -gt "1" ]]; then
+            echo "Please set no more than one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
             exit 1
           fi
           
-          # Ensure that at least one of tumor_fastq_list and tumor_fastq_list_rows are defined but not both defined (XOR)
-          if [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "One of inputs tumor_fastq_list OR inputs.tumor_fastq_list_rows must be defined" 1>&2
-              exit 1
-          elif [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "Cannot set both CWL inputs tumor_fastq_list AND tumor_fastq_list_rows for tumor sample" 1>&2
+          # Ensure that at one and ONLY one of tumor_fastq_list, tumor_fastq_list_rows and tumor_bam_input are defined
+          if [[ "$(boolean_to_int(is_not_null(inputs.tumor_fastq_list)) + boolean_to_int(is_not_null(inputs.tumor_fastq_list_rows)) + boolean_to_int(is_not_null(inputs.tumor_bam_input)))" -ne "1" ]]; then
+              echo "One and only one of inputs tumor_fastq_list, inputs.tumor_fastq_list_rows, inputs.tumor_bam_input must be defined" 1>&2
               exit 1
           fi
 
@@ -344,7 +351,7 @@ requirements:
           $(get_dragen_eval_line())
 
           # Check if fastq_list or fastq_list_rows is set
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" ]] || [[ "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
             # Check if --enable-map-align-output is set
             if [[ ! "$(get_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
               echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
@@ -353,7 +360,7 @@ requirements:
             fi
 
             # Ensure that we have a normal RGSM value, otherwise exit.
-            if [[ -z "$(get_value_as_str(get_normal_name_from_fastq_list_csv()))" ]]; then
+            if [[ -z "$(get_value_as_str(get_normal_output_prefix()))" ]]; then
               echo "Could not get the normal bam file prefix" 1>&2
               echo "Exiting" 1>&2
               exit
@@ -464,6 +471,27 @@ inputs:
     inputBinding:
       prefix: "--tumor-fastq-list"
       valueFrom: "$(get_tumor_fastq_list_csv_path())"
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--bam-input"
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
+  tumor_bam_input:
+    label: tumor bam input
+    doc: |
+      Input a tumor BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--tumor-bam-input"
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -493,6 +521,23 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-sort"
+      valueFrom: "$(self.toString())"
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align"
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |

@@ -17,7 +17,7 @@ dragen-somatic 3.9.3 tool
 
   
 > ID: dragen-somatic--3.9.3  
-> md5sum: 2e14443ec6d5c65a2d1c6d4d7fe48536
+> md5sum: b74703c108b8ac76211b7806801eaf97
 
 ### dragen-somatic v(3.9.3) documentation
   
@@ -39,11 +39,25 @@ More information on the documentation can be found [here](https://sapac.support.
   
 - [dragen-somatic-pipeline 3.9.3](../../../workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
 - [dragen-pon-qc 3.9.3](../../../workflows/dragen-pon-qc/3.9.3/dragen-pon-qc__3.9.3.md)  
+- [dragen-somatic-with-germline-pipeline 3.9.3](../../../workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.md)  
 
   
 
 
 ## dragen-somatic v(3.9.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal BAM file for the variant calling stage
+
 
 ### cnv normal b allele vcf
 
@@ -195,6 +209,20 @@ Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input AND tumor_bam_input
+
+
 ### enable map align output
 
 
@@ -222,6 +250,19 @@ running the variant caller.
 **Type:** `boolean`  
 **Docs:**  
 Set this option for running RNA samples through T/N workflow
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
 
 
 ### enable sv
@@ -676,6 +717,19 @@ from the TMB calculation. The default value is 10.
 **Docs:**  
 Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out.
 The default value is 0.05.
+
+
+### tumor bam input
+
+
+
+  
+> ID: tumor_bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a tumor BAM file for the variant calling stage
 
 
 ### tumor fastq list
