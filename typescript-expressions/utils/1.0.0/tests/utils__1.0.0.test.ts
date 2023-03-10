@@ -88,7 +88,7 @@ describe('Test is_not_null utils', function() {
     })
 })
 
-// boolean_to_input Test
+// boolean_to_int Test
 describe('Test boolean_to_int utils', function() {
     test('We expect boolean_to_int(NULL) to be 0', () => {
         expect(boolean_to_int(NULL)).toEqual(0)

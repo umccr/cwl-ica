@@ -69,7 +69,7 @@ describe('Test is_not_null utils', function () {
         expect((0, utils__1_0_0_1.is_not_null)(NOT_NULL)).toEqual(true);
     });
 });
-// boolean_to_input Test
+// boolean_to_int Test
 describe('Test boolean_to_int utils', function () {
     test('We expect boolean_to_int(NULL) to be 0', function () {
         expect((0, utils__1_0_0_1.boolean_to_int)(NULL)).toEqual(0);
