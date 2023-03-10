@@ -19,7 +19,7 @@ dragen-somatic-pipeline 4.0.3 workflow
 
   
 > ID: dragen-somatic-pipeline--4.0.3  
-> md5sum: a2bc78a77d691e531bd09b998d2a06dd
+> md5sum: c91aec8bf871d65cd3a4b090e283ac80
 
 ### dragen-somatic-pipeline v(4.0.3) documentation
   
@@ -49,6 +49,19 @@ Documentation for dragen-somatic-pipeline v4.0.3
 
 
 ## dragen-somatic-pipeline v(4.0.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the variant calling stage
+
 
 ### cnv enable self normalization
 
@@ -228,6 +241,20 @@ Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input AND tumor_bam_input
+
+
 ### enable map align output
 
 
@@ -255,6 +282,19 @@ running the variant caller.
 **Type:** `boolean`  
 **Docs:**  
 Set this option for running RNA samples through T/N workflow
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
 
 
 ### enable sv
@@ -754,6 +794,19 @@ Specify the minimum VAF threshold for a variant. Variants that do not meet the t
 The default value is 0.05.
 
 
+### tumor bam input
+
+
+
+  
+> ID: tumor_bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the variant calling stage
+
+
 ### tumor fastq list
 
 
@@ -1065,7 +1118,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f3589b0a710>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f93ea043430>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 

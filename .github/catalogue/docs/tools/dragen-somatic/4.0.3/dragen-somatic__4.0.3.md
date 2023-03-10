@@ -17,7 +17,7 @@ dragen-somatic 4.0.3 tool
 
   
 > ID: dragen-somatic--4.0.3  
-> md5sum: 43be7a2f254b6911bef3225f67f89a6d
+> md5sum: e72dbf059205dc47f7f3300daf95262c
 
 ### dragen-somatic v(4.0.3) documentation
   
@@ -44,6 +44,19 @@ More information on the documentation can be found [here](https://support-docs.i
 
 
 ## dragen-somatic v(4.0.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal BAM file for the variant calling stage
+
 
 ### cnv enable self normalization
 
@@ -223,6 +236,20 @@ Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input AND tumor_bam_input
+
+
 ### enable map align output
 
 
@@ -250,6 +277,19 @@ running the variant caller.
 **Type:** `boolean`  
 **Docs:**  
 Set this option for running RNA samples through T/N workflow
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
 
 
 ### enable sv
@@ -749,6 +789,19 @@ Specify the minimum VAF threshold for a variant. Variants that do not meet the t
 The default value is 0.05.
 
 
+### tumor bam input
+
+
+
+  
+> ID: tumor_bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a tumor BAM file for the variant calling stage
+
+
 ### tumor fastq list
 
 
@@ -1060,7 +1113,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7f4a352341f0>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fe97e832650>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 
