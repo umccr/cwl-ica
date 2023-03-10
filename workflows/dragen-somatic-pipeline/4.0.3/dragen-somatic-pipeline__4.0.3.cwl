@@ -57,6 +57,24 @@ inputs:
     doc: |
       Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for tumor sample
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+  # Option 3
+  # Input bams
+  bam_input:
+    label: bam input
+    doc: |
+      Input a BAM file for the variant calling stage
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
+  tumor_bam_input:
+    label: tumor bam input
+    doc: |
+      Input a BAM file for the variant calling stage
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -76,12 +94,22 @@ inputs:
     type: string
 
   # Optional operation modes
-  # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+    type: boolean?
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -691,6 +719,11 @@ steps:
         source: fastq_list_rows
       tumor_fastq_list_rows:
         source: tumor_fastq_list_rows
+      # Option 3
+      bam_input:
+        source: bam_input
+      tumor_bam_input:
+        source: tumor_bam_input
       reference_tar:
         source: reference_tar
       # Mandatory parameters
@@ -705,6 +738,10 @@ steps:
       # --enable-map-align-output to keep bams
       # --enable-duplicate-marking to mark duplicate reads at the same time
       # --enable-sv to enable the structural variant calling step.
+      enable_sort:
+        source: enable_sort
+      enable_map_align:
+        source: enable_map_align
       enable_map_align_output:
         source: enable_map_align_output
       enable_duplicate_marking:

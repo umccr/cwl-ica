@@ -8,7 +8,8 @@ import {
     get_attribute_from_optional_input,
     is_not_null,
     get_optional_attribute_from_object,
-    get_optional_attribute_from_multi_type_input_object
+    get_optional_attribute_from_multi_type_input_object,
+    boolean_to_int
 } from "../utils__1.0.0";
 
 import {
@@ -84,6 +85,28 @@ describe('Test is_not_null utils', function() {
     })
     test('We expect is_not_null(NOT_NULL) to be true', () => {
         expect(is_not_null(NOT_NULL)).toEqual(true)
+    })
+})
+
+// boolean_to_int Test
+describe('Test boolean_to_int utils', function() {
+    test('We expect boolean_to_int(NULL) to be 0', () => {
+        expect(boolean_to_int(NULL)).toEqual(0)
+    })
+    test('We expect boolean_to_int(UNDEFINED) to be 0', () => {
+        expect(boolean_to_int(UNDEFINED)).toEqual(0)
+    })
+    test('We expect boolean_to_int(TRUE) to be 1', () => {
+        expect(boolean_to_int(TRUE)).toEqual(1)
+    })
+    test('We expect boolean_to_int(FALSE) to be 0', () => {
+        expect(boolean_to_int(FALSE)).toEqual(0)
+    })
+    test('We expect boolean_to_int("true") to be 1', () => {
+        expect(boolean_to_int("true")).toEqual(1)
+    })
+    test('We expect boolean_to_int("false") to be 0', () => {
+        expect(boolean_to_int("false")).toEqual(0)
     })
 })
 

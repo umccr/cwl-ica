@@ -1,63 +1,54 @@
 
-dragen-somatic 3.9.3 tool
-=========================
+dragen-somatic-with-germline-pipeline 3.9.3 workflow
+====================================================
 
 ## Table of Contents
   
-- [Overview](#dragen-somatic-v393-overview)  
+- [Overview](#dragen-somatic-with-germline-pipeline-v393-overview)  
+- [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-somatic-v393-inputs)  
-- [Outputs](#dragen-somatic-v393-outputs)  
+- [Inputs](#dragen-somatic-with-germline-pipeline-v393-inputs)  
+- [Steps](#dragen-somatic-with-germline-pipeline-v393-steps)  
+- [Outputs](#dragen-somatic-with-germline-pipeline-v393-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-somatic v(3.9.3) Overview
+## dragen-somatic-with-germline-pipeline v(3.9.3) Overview
 
 
 
   
-> ID: dragen-somatic--3.9.3  
-> md5sum: b74703c108b8ac76211b7806801eaf97
+> ID: dragen-somatic-with-germline-pipeline--3.9.3  
+> md5sum: e2a4cf4d8cff6185820369c47e2ae2e5
 
-### dragen-somatic v(3.9.3) documentation
+### dragen-somatic-with-germline-pipeline v(3.9.3) documentation
   
-Run tumor-normal dragen somatic pipeline v 3.9.3.
-Workflow takes in two separate lists of object stor version of the fastq_list.csv equivalent
-See the fastq_list_row schema definitions for more information.
-More information on the documentation can be found [here](https://sapac.support.illumina.com/content/dam/illumina-support/help/Illumina_DRAGEN_Bio_IT_Platform_v3_7_1000000141465/Content/SW/Informatics/Dragen/GPipelineSomCom_appDRAG.htm).
+Documentation for dragen-somatic-with-germline-pipeline
+v3.9.3
 
 ### Categories
   
 
 
+## Visual Workflow Overview
+  
+[![dragen-somatic-with-germline-pipeline__3.9.3.svg](../../../../images/workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.svg)
 ## Related Links
   
-- [CWL File Path](../../../../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.cwl)  
+- [CWL File Path](../../../../../../workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl)  
 
 
-### Used By
+### Uses
   
-- [dragen-somatic-pipeline 3.9.3](../../../workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
-- [dragen-pon-qc 3.9.3](../../../workflows/dragen-pon-qc/3.9.3/dragen-pon-qc__3.9.3.md)  
-- [dragen-somatic-with-germline-pipeline 3.9.3](../../../workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.md)  
-
-  
-
-
-## dragen-somatic v(3.9.3) Inputs
-
-### bam input
-
-
+- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [dragen-germline 3.9.3](../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
+- [multiqc 1.14.0](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
+- [dragen-somatic 3.9.3](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 
   
-> ID: bam_input
-  
-**Optional:** `True`  
-**Type:** `File`  
-**Docs:**  
-Input a normal BAM file for the variant calling stage
 
+
+## dragen-somatic-with-germline-pipeline v(3.9.3) Inputs
 
 ### cnv normal b allele vcf
 
@@ -175,7 +166,7 @@ Enable CNV processing in the DRAGEN Host Software.
   
 > ID: enable_duplicate_marking
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
 Enable the flagging of duplicate output
@@ -209,20 +200,6 @@ Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
 
 
-### enable map align
-
-
-
-  
-> ID: enable_map_align
-  
-**Optional:** `True`  
-**Type:** `boolean`  
-**Docs:**  
-Enabled by default since --enable-variant-caller option is set to true.
-Set this value to false if using bam_input AND tumor_bam_input
-
-
 ### enable map align output
 
 
@@ -230,7 +207,7 @@ Set this value to false if using bam_input AND tumor_bam_input
   
 > ID: enable_map_align_output
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
 Enables saving the output from the
@@ -250,19 +227,6 @@ running the variant caller.
 **Type:** `boolean`  
 **Docs:**  
 Set this option for running RNA samples through T/N workflow
-
-
-### enable sort
-
-
-
-  
-> ID: enable_sort
-  
-**Optional:** `True`  
-**Type:** `boolean`  
-**Docs:**  
-True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
 
 
 ### enable sv
@@ -304,10 +268,10 @@ and the related callability report are enabled.
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files for normal sample
-to process. read_1 and read_2 components in the CSV file must be presigned urls.
+to process.
 
 
-### fastq list rows
+### Row of fastq lists
 
 
 
@@ -317,7 +281,14 @@ to process. read_1 and read_2 components in the CSV file must be presigned urls.
 **Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
-Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for normal sample
+The row of fastq lists.
+Each row has the following attributes:
+  * RGID
+  * RGLB
+  * RGSM
+  * Lane
+  * Read1File
+  * Read2File (optional)
 
 
 ### hla allele frequency file
@@ -428,30 +399,56 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
-### output directory
+### output directory germline
 
 
 
   
-> ID: output_directory
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-Required - The output directory.
-
-
-### output file prefix
-
-
-
-  
-> ID: output_file_prefix
+> ID: output_directory_germline
   
 **Optional:** `False`  
 **Type:** `string`  
 **Docs:**  
-Required - the output file prefix
+The directory where all output files are placed for the germline pipeline
+
+
+### output directory somatic
+
+
+
+  
+> ID: output_directory_somatic
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+The directory where all output files are placed for the somatic pipeline
+
+
+### output file prefix germline
+
+
+
+  
+> ID: output_file_prefix_germline
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+The prefix given to all output files for the germline pipeline
+
+
+### output file prefix somatic
+
+
+
+  
+> ID: output_file_prefix_somatic
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+The prefix given to all output files for the somatic pipeline
 
 
 ### qc coverage ignore overlaps
@@ -719,19 +716,6 @@ Specify the minimum VAF threshold for a variant. Variants that do not meet the t
 The default value is 0.05.
 
 
-### tumor bam input
-
-
-
-  
-> ID: tumor_bam_input
-  
-**Optional:** `True`  
-**Type:** `File`  
-**Docs:**  
-Input a tumor BAM file for the variant calling stage
-
-
 ### tumor fastq list
 
 
@@ -743,10 +727,10 @@ Input a tumor BAM file for the variant calling stage
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files
-to process. read_1 and read_2 components in the CSV file must be presigned urls.
+to process.
 
 
-### tumor fastq list rows
+### Row of fastq lists
 
 
 
@@ -756,7 +740,14 @@ to process. read_1 and read_2 components in the CSV file must be presigned urls.
 **Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
-Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for tumor sample
+The row of fastq lists.
+Each row has the following attributes:
+  * RGID
+  * RGLB
+  * RGSM
+  * Lane
+  * Read1File
+  * Read2File (optional)
 
 
 ### vc af call threshold
@@ -1003,6 +994,27 @@ Enables the multiallelic filter. The default is true.
 The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
+### vc forcegt vcf
+
+
+
+  
+> ID: vc_forcegt_vcf
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+AGENsupports force genotyping (ForceGT) for Germline SNV variant calling.
+To use ForceGT, use the --vc-forcegt-vcf option with a list of small variants to force genotype.
+The input list of small variants can be a .vcf or .vcf.gz file.
+
+The current limitations of ForceGT are as follows:
+*	ForceGT is supported for Germline SNV variant calling in the V3 mode.
+The V1, V2, and V2+ modes are not supported.
+*	ForceGT is not supported for Somatic SNV variant calling.
+*	ForceGT variants do not propagate through Joint Genotyping.
+
+
 ### vc hotspot log10 prior boost
 
 
@@ -1197,14 +1209,100 @@ greater than zero. For example, vc-tin-contam-tolerance=-0.1.
   
 
 
-## dragen-somatic v(3.9.3) Outputs
+## dragen-somatic-with-germline-pipeline v(3.9.3) Steps
+
+### Create dummy file
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/create_dummy_file_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Intermediate step for letting multiqc-interop be placed in stream mode
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+
+
+### run dragen germline step
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/run_dragen_germline_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Runs the dragen germline workflow on the FPGA.
+Takes in either a fastq list as a file or a fastq_list_rows schema object
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.cwl)  
+[CWL File Help Page](../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
+
+
+### dragen qc step
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/run_dragen_qc_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+The dragen qc step - this takes in an array of dirs
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
+
+
+### run dragen somatic step
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/run_dragen_somatic_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Run dragen somatic v3.9.3
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.cwl)  
+[CWL File Help Page](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
+
+
+## dragen-somatic-with-germline-pipeline v(3.9.3) Outputs
+
+### dragen germline output directory
+
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/dragen_germline_output_directory  
+
+  
+**Optional:** `False`  
+**Output Type:** `Directory`  
+**Docs:**  
+The output directory containing all germline output files
+  
+
 
 ### dragen somatic output directory
 
 
 
   
-> ID: dragen-somatic--3.9.3/dragen_somatic_output_directory  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/dragen_somatic_output_directory  
 
   
 **Optional:** `False`  
@@ -1214,19 +1312,48 @@ Output directory containing all outputs of the somatic dragen run
   
 
 
+### germline snv vcf out
+
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/germline_snv_vcf_out  
+
+  
+**Optional:** `True`  
+**Output Type:** `File`  
+**Docs:**  
+The output vcf file of germline step
+  
+
+
+### multiqc output directory
+
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/multiqc_output_directory  
+
+  
+**Optional:** `False`  
+**Output Type:** `Directory`  
+**Docs:**  
+The output directory for multiqc
+  
+
+
 ### output normal bam
 
 
 
   
-> ID: dragen-somatic--3.9.3/normal_bam_out  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/normal_bam_out  
 
   
 **Optional:** `True`  
 **Output Type:** `File`  
 **Docs:**  
 Bam file of the normal sample
-Exists only if --enable-map-align-output set to true
   
 
 
@@ -1235,7 +1362,7 @@ Exists only if --enable-map-align-output set to true
 
 
   
-> ID: dragen-somatic--3.9.3/somatic_snv_vcf_hard_filtered_out  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/somatic_snv_vcf_hard_filtered_out  
 
   
 **Optional:** `True`  
@@ -1250,7 +1377,7 @@ Output of the snv vcf filtered tumor calls
 
 
   
-> ID: dragen-somatic--3.9.3/somatic_snv_vcf_out  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/somatic_snv_vcf_out  
 
   
 **Optional:** `True`  
@@ -1265,7 +1392,7 @@ Output of the snv vcf tumor calls
 
 
   
-> ID: dragen-somatic--3.9.3/somatic_structural_vcf_out  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/somatic_structural_vcf_out  
 
   
 **Optional:** `True`  
@@ -1281,14 +1408,13 @@ Exists only if --enable-sv is set to true.
 
 
   
-> ID: dragen-somatic--3.9.3/tumor_bam_out  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/tumor_bam_out  
 
   
 **Optional:** `True`  
 **Output Type:** `File`  
 **Docs:**  
-Bam file of the tumor sample.
-Exists only if --enable-map-align-output set to true
+Bam file of the tumor sample
   
 
   
@@ -1299,437 +1425,27 @@ Exists only if --enable-map-align-output set to true
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
 
 
-> wfl id: wfl.8f8f70998abd4dbd85200e1692b1ef94  
+> wfl id: wfl.a4056543ef9a474d8b16182a4e6b6c50  
 
   
-**workflow name:** dragen-somatic_dev-wf  
+**workflow name:** dragen-somatic-with-germline-pipeline_dev-wf  
 **wfl version name:** 3.9.3  
 
 
-#### Run Instances
-
-##### ToC
-  
-- [Run wfr.63351b7bd8f9431db0a58c27d5538f0e](#run-wfr63351b7bd8f9431db0a58c27d5538f0e)  
-- [Run wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f](#run-wfr4aef0ef9d4154f7a9a3a8138c12dbd6f)  
+### Project: production_workflows
 
 
-##### Run wfr.63351b7bd8f9431db0a58c27d5538f0e
-
-
+> wfl id: wfl.5830565f0858423cb49de2a1534d65c5  
 
   
-> Run Name: InlineCSV-pipeline-test2Mar  
-
-  
-**Start Time:** 2022-03-02 04:55:34 UTC  
-**Duration:** 2022-03-02 15:09:57 UTC  
-**End Time:** 0 days 10:14:22  
-
-
-###### Reproduce Run
-
-
-```bash
-
-# Run the submission template to create the workflow input json and launch script            
-cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.63351b7bd8f9431db0a58c27d5538f0e
-
-# Edit the input json file (optional)
-# vim wfr.63351b7bd8f9431db0a58c27d5538f0e.template.json 
-
-# Run the launch script
-bash wfr.63351b7bd8f9431db0a58c27d5538f0e.launch.sh
-                                    
-```  
-
-
-###### Run Inputs
-
-
-```
-{
-    "cnv_use_somatic_vc_baf": true,
-    "enable_duplicate_marking": true,
-    "enable_map_align_output": true,
-    "enable_sv": true,
-    "fastq_list_rows": [
-        {
-            "lane": 2,
-            "read_1": {
-                "class": "File",
-                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R1_001.fastq.gz"
-            },
-            "read_2": {
-                "class": "File",
-                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R2_001.fastq.gz"
-            },
-            "rgid": "GTTCCAAT.GCAGAATT.2.210708_A00130_0166_AH7KTJDSX2.MDX210178_L2100747",
-            "rglb": "L2100747",
-            "rgsm": "MDX210178"
-        }
-    ],
-    "output_directory": "L2100748_L2100747_dragen",
-    "output_file_prefix": "MDX210179",
-    "reference_tar": {
-        "class": "File",
-        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
-    },
-    "tumor_fastq_list_rows": [
-        {
-            "lane": 2,
-            "read_1": {
-                "class": "File",
-                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210179_L2100748_S8_L002_R1_001.fastq.gz"
-            },
-            "read_2": {
-                "class": "File",
-                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210179_L2100748_S8_L002_R2_001.fastq.gz"
-            },
-            "rgid": "ACCTTGGC.ATGAGGCC.2.210708_A00130_0166_AH7KTJDSX2.MDX210179_L2100748",
-            "rglb": "L2100748",
-            "rgsm": "MDX210179"
-        }
-    ]
-}
-```  
-
-
-###### Run Engine Parameters
-
-
-```
-{
-    "workDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar",
-    "outputDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs",
-    "tmpOutputDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/steps",
-    "logDirectory": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/logs",
-    "maxScatter": 32,
-    "outputSetting": "move",
-    "copyOutputInstanceType": "StandardHiCpu",
-    "copyOutputInstanceSize": "Medium",
-    "defaultInputMode": "'Download'",
-    "inputModeOverrides": {},
-    "tesUseInputManifest": "'auto'",
-    "cwltool": "3.0.20201203173111",
-    "engine": "1.20.0-202201191609-develop"
-}
-```  
-
-
-###### Run Outputs
-
-
-```
-{
-    "dragen_somatic_output_directory": {
-        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen",
-        "basename": "L2100748_L2100747_dragen",
-        "nameroot": "L2100748_L2100747_dragen",
-        "nameext": "",
-        "class": "Directory",
-        "size": null
-    },
-    "normal_bam_out": {
-        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210178_normal.bam",
-        "basename": "MDX210178_normal.bam",
-        "nameroot": "MDX210178_normal",
-        "nameext": ".bam",
-        "class": "File",
-        "size": 86553070272,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210178_normal.bam.bai",
-                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210178_normal.bam.bai",
-                "class": "File",
-                "nameroot": "MDX210178_normal.bam",
-                "nameext": ".bai",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "somatic_snv_vcf_hard_filtered_out": {
-        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz",
-        "basename": "MDX210179.hard-filtered.vcf.gz",
-        "nameroot": "MDX210179.hard-filtered.vcf",
-        "nameext": ".gz",
-        "class": "File",
-        "size": 7869417,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179.hard-filtered.vcf.gz.tbi",
-                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz.tbi",
-                "class": "File",
-                "nameroot": "MDX210179.hard-filtered.vcf.gz",
-                "nameext": ".tbi",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "somatic_snv_vcf_out": {
-        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz",
-        "basename": "MDX210179.vcf.gz",
-        "nameroot": "MDX210179.vcf",
-        "nameext": ".gz",
-        "class": "File",
-        "size": 7352169,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179.vcf.gz.tbi",
-                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz.tbi",
-                "class": "File",
-                "nameroot": "MDX210179.vcf.gz",
-                "nameext": ".tbi",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "somatic_structural_vcf_out": {
-        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz",
-        "basename": "MDX210179.sv.vcf.gz",
-        "nameroot": "MDX210179.sv.vcf",
-        "nameext": ".gz",
-        "class": "File",
-        "size": 99280,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179.sv.vcf.gz.tbi",
-                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz.tbi",
-                "class": "File",
-                "nameroot": "MDX210179.sv.vcf.gz",
-                "nameext": ".tbi",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "tumor_bam_out": {
-        "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam",
-        "basename": "MDX210179_tumor.bam",
-        "nameroot": "MDX210179_tumor",
-        "nameext": ".bam",
-        "class": "File",
-        "size": 195321311241,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179_tumor.bam.bai",
-                "location": "gds://wfr.63351b7bd8f9431db0a58c27d5538f0e/InlineCSV-pipeline-test2Mar/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam.bai",
-                "class": "File",
-                "nameroot": "MDX210179_tumor.bam",
-                "nameext": ".bai",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "output_dir_gds_session_id": "ssn.75448d45a8cf4a0da0cacc35fb196715",
-    "output_dir_gds_folder_id": "fol.52d7bc8d23ef493bec8608d9ebfc12bc"
-}
-```  
-
-
-###### Run Resources Usage
-  
-
-  
-[![InlineCSV-pipeline-test2Mar__wfr.63351b7bd8f9431db0a58c27d5538f0e.svg](../../../../images/runs/tools/dragen-somatic/3.9.3/InlineCSV-pipeline-test2Mar__wfr.63351b7bd8f9431db0a58c27d5538f0e.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/tools/dragen-somatic/3.9.3/InlineCSV-pipeline-test2Mar__wfr.63351b7bd8f9431db0a58c27d5538f0e.svg)  
-
-
-##### Run wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
-
-
-
-  
-> Run Name: InlineCSV-test-TO  
-
-  
-**Start Time:** 2022-03-02 05:17:11 UTC  
-**Duration:** 2022-03-02 07:33:45 UTC  
-**End Time:** 0 days 02:16:33  
-
-
-###### Reproduce Run
-
-
-```bash
-
-# Run the submission template to create the workflow input json and launch script            
-cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f
-
-# Edit the input json file (optional)
-# vim wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.template.json 
-
-# Run the launch script
-bash wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.launch.sh
-                                    
-```  
-
-
-###### Run Inputs
-
-
-```
-{
-    "enable_duplicate_marking": true,
-    "enable_map_align_output": true,
-    "enable_sv": true,
-    "output_directory": "L2100748_L2100747_dragen",
-    "output_file_prefix": "MDX210179",
-    "reference_tar": {
-        "class": "File",
-        "location": "gds://development/reference-data/dragen_hash_tables/v8/hg38/altaware-cnv-anchored/hg38-v8-altaware-cnv-anchored.tar.gz"
-    },
-    "tumor_fastq_list_rows": [
-        {
-            "lane": 2,
-            "read_1": {
-                "class": "File",
-                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R1_001.fastq.gz"
-            },
-            "read_2": {
-                "class": "File",
-                "location": "gds://development/primary_data/210708_A00130_0166_AH7KTJDSX2/20220121870cbe6f/WGS_TsqNano/MDX210178_L2100747_S7_L002_R2_001.fastq.gz"
-            },
-            "rgid": "ACCTTGGC.ATGAGGCC.2.210708_A00130_0166_AH7KTJDSX2.MDX210179_L2100748",
-            "rglb": "L2100748",
-            "rgsm": "MDX210179"
-        }
-    ]
-}
-```  
-
-
-###### Run Engine Parameters
-
-
-```
-{
-    "workDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO",
-    "outputDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs",
-    "tmpOutputDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/steps",
-    "logDirectory": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/logs",
-    "maxScatter": 32,
-    "outputSetting": "move",
-    "copyOutputInstanceType": "StandardHiCpu",
-    "copyOutputInstanceSize": "Medium",
-    "defaultInputMode": "'Download'",
-    "inputModeOverrides": {},
-    "tesUseInputManifest": "'auto'",
-    "cwltool": "3.0.20201203173111",
-    "engine": "1.20.0-202201191609-develop"
-}
-```  
-
-
-###### Run Outputs
-
-
-```
-{
-    "dragen_somatic_output_directory": {
-        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen",
-        "basename": "L2100748_L2100747_dragen",
-        "nameroot": "L2100748_L2100747_dragen",
-        "nameext": "",
-        "class": "Directory",
-        "size": null
-    },
-    "normal_bam_out": null,
-    "somatic_snv_vcf_hard_filtered_out": {
-        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz",
-        "basename": "MDX210179.hard-filtered.vcf.gz",
-        "nameroot": "MDX210179.hard-filtered.vcf",
-        "nameext": ".gz",
-        "class": "File",
-        "size": 209221814,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179.hard-filtered.vcf.gz.tbi",
-                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.hard-filtered.vcf.gz.tbi",
-                "class": "File",
-                "nameroot": "MDX210179.hard-filtered.vcf.gz",
-                "nameext": ".tbi",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "somatic_snv_vcf_out": {
-        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz",
-        "basename": "MDX210179.vcf.gz",
-        "nameroot": "MDX210179.vcf",
-        "nameext": ".gz",
-        "class": "File",
-        "size": 202612647,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179.vcf.gz.tbi",
-                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.vcf.gz.tbi",
-                "class": "File",
-                "nameroot": "MDX210179.vcf.gz",
-                "nameext": ".tbi",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "somatic_structural_vcf_out": {
-        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz",
-        "basename": "MDX210179.sv.vcf.gz",
-        "nameroot": "MDX210179.sv.vcf",
-        "nameext": ".gz",
-        "class": "File",
-        "size": 1576733,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179.sv.vcf.gz.tbi",
-                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179.sv.vcf.gz.tbi",
-                "class": "File",
-                "nameroot": "MDX210179.sv.vcf.gz",
-                "nameext": ".tbi",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "tumor_bam_out": {
-        "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam",
-        "basename": "MDX210179_tumor.bam",
-        "nameroot": "MDX210179_tumor",
-        "nameext": ".bam",
-        "class": "File",
-        "size": 85794594341,
-        "secondaryFiles": [
-            {
-                "basename": "MDX210179_tumor.bam.bai",
-                "location": "gds://wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f/InlineCSV-test-TO/outputs/L2100748_L2100747_dragen/MDX210179_tumor.bam.bai",
-                "class": "File",
-                "nameroot": "MDX210179_tumor.bam",
-                "nameext": ".bai",
-                "http://commonwl.org/cwltool#generation": 0
-            }
-        ],
-        "http://commonwl.org/cwltool#generation": 0
-    },
-    "output_dir_gds_session_id": "ssn.5afa493ddde54b15ac9c90044cb43b5c",
-    "output_dir_gds_folder_id": "fol.aa6274ea92f14814eb3508d9ebfc12bc"
-}
-```  
-
-
-###### Run Resources Usage
-  
-
-  
-[![InlineCSV-test-TO__wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.svg](../../../../images/runs/tools/dragen-somatic/3.9.3/InlineCSV-test-TO__wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/runs/tools/dragen-somatic/3.9.3/InlineCSV-test-TO__wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.svg)  
+**workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
+**wfl version name:** 3.9.3--e4acc1a  
 
   
 

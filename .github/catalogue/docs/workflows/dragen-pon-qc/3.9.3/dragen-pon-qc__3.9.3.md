@@ -19,7 +19,7 @@ dragen-pon-qc 3.9.3 workflow
 
   
 > ID: dragen-pon-qc--3.9.3  
-> md5sum: 7bc274331f100a3dc6e52ac0ca5a8f49
+> md5sum: 5e48bccdcc464895dd013be4b276b46c
 
 ### dragen-pon-qc v(3.9.3) documentation
   
@@ -1842,7 +1842,7 @@ bash wfr.e0cccb29cf44482182507bd33579270c.launch.sh
 
   
 **workflow name:** dragen-pon-qc_prod-wf  
-**wfl version name:** 3.9.3--8fdabfc  
+**wfl version name:** 3.9.3--e4acc1a  
 
   
 
