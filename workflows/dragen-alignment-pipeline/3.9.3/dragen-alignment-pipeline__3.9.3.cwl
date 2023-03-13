@@ -520,9 +520,6 @@ steps:
     label: dragen qc step
     doc: |
       The dragen qc step - this takes in an array of dirs
-    requirements:
-      DockerRequirement:
-        dockerPull: quay.io/umccr/multiqc:1.13dev--alexiswl--merge-docker-update-and-clean-names--a5e0179
     in:
       input_directories:
         source: run_dragen_alignment_step/dragen_alignment_output_directory
