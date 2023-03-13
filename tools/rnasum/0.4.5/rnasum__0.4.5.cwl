@@ -59,7 +59,7 @@ hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
     ilmn-tes:resources/type: standard
-    ilmn-tes:resources/size: large
+    ilmn-tes:resources/size: xxlarge
     coresMin: 8
     ramMin: 32000
   DockerRequirement:
