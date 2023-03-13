@@ -58,7 +58,7 @@ workflows:
         md5sum: fa6900b85cdcff25ac5fc5bf436fe1f8
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
-        md5sum: cd3ed31f864cbc5da709b457c9761339
+        md5sum: 833d7c6cc97a9f3f7d3ab65fdb838934
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
         md5sum: c91aec8bf871d65cd3a4b090e283ac80
@@ -89,7 +89,7 @@ workflows:
         md5sum: 6baa58169de4b6e69053bbe1e645ecdb
       - name: 3.9.3
         path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
-        md5sum: 67fdeaa5cfc12133cec9fdd6da927bae
+        md5sum: e550b6cbbca7a8bc9a86a47ecafc6498
       - name: 4.0.3
         path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
         md5sum: c84335fca1cbf8663088a9b52422ef2b
@@ -104,7 +104,7 @@ workflows:
         md5sum: 5a2b1e0e75d91384e7946fec0c173941
       - name: 3.9.3
         path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
-        md5sum: 3e4ddd37bcddaf109c5a30d975cba3f1
+        md5sum: dffd8f18cd8d42ee5569ae9a4ea9eab2
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
