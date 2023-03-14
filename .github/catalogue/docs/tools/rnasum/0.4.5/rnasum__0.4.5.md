@@ -17,7 +17,7 @@ rnasum 0.4.5 tool
 
   
 > ID: rnasum--0.4.5  
-> md5sum: c822d2a92bb62101b6560166b049dcc7
+> md5sum: 03e33239bd729a96789df0cdd2367080
 
 ### rnasum v(0.4.5) documentation
   
@@ -30,6 +30,11 @@ Documentation for rnasum v0.4.5
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/rnasum/0.4.5/rnasum__0.4.5.cwl)  
+
+
+### Used By
+  
+- [rnasum-pipeline 0.4.5](../../../workflows/rnasum-pipeline/0.4.5/rnasum-pipeline__0.4.5.md)  
 
   
 
@@ -488,7 +493,7 @@ Output directory containing all outputs of the RNAsum run
 
   
 **workflow name:** rnasum_prod-wf  
-**wfl version name:** 0.4.5--682c084  
+**wfl version name:** 0.4.5--d4e20ab  
 
   
 
