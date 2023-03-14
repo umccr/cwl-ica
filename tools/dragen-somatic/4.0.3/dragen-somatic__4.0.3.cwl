@@ -25,7 +25,8 @@ doc: |
   More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/SomaticMode.htm).
 
 
-# ILMN Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
         ilmn-tes:resources/tier: standard
