@@ -19,7 +19,7 @@ rnasum-pipeline 0.4.5 workflow
 
   
 > ID: rnasum-pipeline--0.4.5  
-> md5sum: c381ec8ec73ffdc0d1b2573692d94f33
+> md5sum: ad6b02cc13df51a8ddbebd108215d9c8
 
 ### rnasum-pipeline v(0.4.5) documentation
   
