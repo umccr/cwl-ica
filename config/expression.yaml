@@ -53,7 +53,7 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/get-compressed-vcf-file-from-directory__1.0.0.cwl
-        md5sum: 9bf177a6424362a27ea4a4d1d1392de0
+        md5sum: 3a1abadef3ef578b7084e4d83fe19396
     categories: []
   - name: get-custom-output-dir-entry-for-tso500-post-processing
     path: get-custom-output-dir-entry-for-tso500-post-processing
