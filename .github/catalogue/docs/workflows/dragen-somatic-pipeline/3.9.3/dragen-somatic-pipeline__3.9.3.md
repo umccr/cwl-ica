@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: 833d7c6cc97a9f3f7d3ab65fdb838934
+> md5sum: b40e0e4027e623a8e218effbc64f014f
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -2274,7 +2274,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--7f70c71  
+**wfl version name:** 3.9.3--6eacfb8  
 
   
 

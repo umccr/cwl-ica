@@ -19,7 +19,7 @@ tso500-ctdna-with-post-processing-pipeline 1.1.0--1.0.0 workflow
 
   
 > ID: tso500-ctdna-with-post-processing-pipeline--1.1.0--1.0.0  
-> md5sum: 3f47af849d2eee40ee98c60424548d2f
+> md5sum: 9367ebf24b6171d0b6f79e2aa58433bc
 
 ### tso500-ctdna-with-post-processing-pipeline v(1.1.0--1.0.0) documentation
   
@@ -393,7 +393,7 @@ The sample subdirectory of the results
 
   
 **workflow name:** tso500-ctdna-with-post-processing-pipeline_prod-wf  
-**wfl version name:** 1.1.0--1.0.0--8fdabfc  
+**wfl version name:** 1.1.0--1.0.0--6eacfb8  
 
 
 ### Project: collab-illumina-dev_workflows

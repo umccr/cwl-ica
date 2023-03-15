@@ -43,23 +43,23 @@
 <polygon fill="#94ddf4" stroke="black" points="6687.5,-3421.76 6687.5,-3458.76 6830.5,-3458.76 6830.5,-3421.76 6687.5,-3421.76"/>
 <text text-anchor="middle" x="6759" y="-3436.56" font-family="Times,serif" font-size="14.00">dbsnp_annotation</text>
 </g>
+<!-- dbsnp_annotation&#45;&gt;run_dragen_germline_step -->
+<g id="edge14" class="edge">
+<title>dbsnp_annotation&#45;&gt;run_dragen_germline_step</title>
+<path fill="none" stroke="black" d="M6731.55,-3421.71C6716.25,-3412.12 6696.76,-3400.21 6679,-3390.26 6020.56,-3021.62 5191.46,-2623.8 4988.43,-2527.26"/>
+<polygon fill="black" stroke="black" points="4989.77,-2524.02 4979.23,-2522.89 4986.76,-2530.34 4989.77,-2524.02"/>
+</g>
 <!-- run_dragen_somatic_step -->
-<g id="node100" class="node">
+<g id="node103" class="node">
 <title>run_dragen_somatic_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="7769,-2485.76 7769,-2522.76 7955,-2522.76 7955,-2485.76 7769,-2485.76"/>
 <text text-anchor="middle" x="7862" y="-2500.56" font-family="Times,serif" font-size="14.00">dragen&#45;somatic v(4.0.3)</text>
 </g>
 <!-- dbsnp_annotation&#45;&gt;run_dragen_somatic_step -->
-<g id="edge14" class="edge">
+<g id="edge15" class="edge">
 <title>dbsnp_annotation&#45;&gt;run_dragen_somatic_step</title>
 <path fill="none" stroke="black" d="M6780.05,-3421.44C6916.55,-3305.85 7675.58,-2663.12 7833.3,-2529.57"/>
 <polygon fill="black" stroke="black" points="7835.81,-2532.03 7841.18,-2522.89 7831.28,-2526.69 7835.81,-2532.03"/>
-</g>
-<!-- dbsnp_annotation&#45;&gt;run_dragen_germline_step -->
-<g id="edge15" class="edge">
-<title>dbsnp_annotation&#45;&gt;run_dragen_germline_step</title>
-<path fill="none" stroke="black" d="M6731.55,-3421.71C6716.25,-3412.12 6696.76,-3400.21 6679,-3390.26 6020.56,-3021.62 5191.46,-2623.8 4988.43,-2527.26"/>
-<polygon fill="black" stroke="black" points="4989.77,-2524.02 4979.23,-2522.89 4986.76,-2530.34 4989.77,-2524.02"/>
 </g>
 <!-- dedup_min_qual -->
 <g id="node3" class="node">
@@ -79,17 +79,17 @@
 <polygon fill="#94ddf4" stroke="black" points="6574.5,-3421.76 6574.5,-3458.76 6669.5,-3458.76 6669.5,-3421.76 6574.5,-3421.76"/>
 <text text-anchor="middle" x="6622" y="-3436.56" font-family="Times,serif" font-size="14.00">enable_cnv</text>
 </g>
-<!-- enable_cnv&#45;&gt;run_dragen_somatic_step -->
-<g id="edge17" class="edge">
-<title>enable_cnv&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M6641.77,-3421.69C6652.61,-3412.2 6666.38,-3400.39 6679,-3390.26 7123.33,-3033.75 7687.11,-2629.71 7828.63,-2528.95"/>
-<polygon fill="black" stroke="black" points="7830.85,-2531.68 7836.96,-2523.03 7826.79,-2525.97 7830.85,-2531.68"/>
-</g>
 <!-- enable_cnv&#45;&gt;run_dragen_germline_step -->
-<g id="edge18" class="edge">
+<g id="edge17" class="edge">
 <title>enable_cnv&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M6603.92,-3421.62C6593.35,-3411.78 6579.46,-3399.65 6566,-3390.26 5982.64,-2983.5 5193.09,-2618.13 4990.79,-2527"/>
 <polygon fill="black" stroke="black" points="4992.16,-2523.78 4981.6,-2522.87 4989.29,-2530.17 4992.16,-2523.78"/>
+</g>
+<!-- enable_cnv&#45;&gt;run_dragen_somatic_step -->
+<g id="edge18" class="edge">
+<title>enable_cnv&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M6641.77,-3421.69C6652.61,-3412.2 6666.38,-3400.39 6679,-3390.26 7123.33,-3033.75 7687.11,-2629.71 7828.63,-2528.95"/>
+<polygon fill="black" stroke="black" points="7830.85,-2531.68 7836.96,-2523.03 7826.79,-2525.97 7830.85,-2531.68"/>
 </g>
 <!-- enable_duplicate_marking -->
 <g id="node5" class="node">
@@ -97,17 +97,17 @@
 <polygon fill="#94ddf4" stroke="black" points="6353.5,-3421.76 6353.5,-3458.76 6556.5,-3458.76 6556.5,-3421.76 6353.5,-3421.76"/>
 <text text-anchor="middle" x="6455" y="-3436.56" font-family="Times,serif" font-size="14.00">enable_duplicate_marking</text>
 </g>
-<!-- enable_duplicate_marking&#45;&gt;run_dragen_somatic_step -->
-<g id="edge19" class="edge">
-<title>enable_duplicate_marking&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M6481.54,-3421.64C6655.24,-3306.34 7628.78,-2660.08 7826.83,-2528.61"/>
-<polygon fill="black" stroke="black" points="7829.01,-2531.36 7835.41,-2522.91 7825.14,-2525.53 7829.01,-2531.36"/>
-</g>
 <!-- enable_duplicate_marking&#45;&gt;run_dragen_germline_step -->
-<g id="edge20" class="edge">
+<g id="edge19" class="edge">
 <title>enable_duplicate_marking&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M6426.46,-3421.64C6239.49,-3306.23 5190.71,-2658.8 4979.18,-2528.22"/>
 <polygon fill="black" stroke="black" points="4980.94,-2525.19 4970.59,-2522.91 4977.26,-2531.14 4980.94,-2525.19"/>
+</g>
+<!-- enable_duplicate_marking&#45;&gt;run_dragen_somatic_step -->
+<g id="edge20" class="edge">
+<title>enable_duplicate_marking&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M6481.54,-3421.64C6655.24,-3306.34 7628.78,-2660.08 7826.83,-2528.61"/>
+<polygon fill="black" stroke="black" points="7829.01,-2531.36 7835.41,-2522.91 7825.14,-2525.53 7829.01,-2531.36"/>
 </g>
 <!-- enable_hla -->
 <g id="node6" class="node">
@@ -115,17 +115,17 @@
 <polygon fill="#94ddf4" stroke="black" points="6243,-3421.76 6243,-3458.76 6335,-3458.76 6335,-3421.76 6243,-3421.76"/>
 <text text-anchor="middle" x="6289" y="-3436.56" font-family="Times,serif" font-size="14.00">enable_hla</text>
 </g>
-<!-- enable_hla&#45;&gt;run_dragen_somatic_step -->
-<g id="edge21" class="edge">
-<title>enable_hla&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M6307.43,-3421.54C6318.01,-3411.78 6331.79,-3399.76 6345,-3390.26 6893.94,-2995.48 7630.16,-2620.57 7817.3,-2527.34"/>
-<polygon fill="black" stroke="black" points="7818.91,-2530.45 7826.3,-2522.86 7815.79,-2524.18 7818.91,-2530.45"/>
-</g>
 <!-- enable_hla&#45;&gt;run_dragen_germline_step -->
-<g id="edge22" class="edge">
+<g id="edge21" class="edge">
 <title>enable_hla&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M6270.42,-3421.64C6260,-3412.03 6246.59,-3400.11 6234,-3390.26 5759.09,-3018.49 5137.1,-2626.5 4979.52,-2528.48"/>
 <polygon fill="black" stroke="black" points="4981.01,-2525.28 4970.67,-2522.98 4977.31,-2531.23 4981.01,-2525.28"/>
+</g>
+<!-- enable_hla&#45;&gt;run_dragen_somatic_step -->
+<g id="edge22" class="edge">
+<title>enable_hla&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M6307.43,-3421.54C6318.01,-3411.78 6331.79,-3399.76 6345,-3390.26 6893.94,-2995.48 7630.16,-2620.57 7817.3,-2527.34"/>
+<polygon fill="black" stroke="black" points="7818.91,-2530.45 7826.3,-2522.86 7815.79,-2524.18 7818.91,-2530.45"/>
 </g>
 <!-- enable_map_align_output -->
 <g id="node7" class="node">
@@ -133,17 +133,17 @@
 <polygon fill="#94ddf4" stroke="black" points="6027.5,-3421.76 6027.5,-3458.76 6224.5,-3458.76 6224.5,-3421.76 6027.5,-3421.76"/>
 <text text-anchor="middle" x="6126" y="-3436.56" font-family="Times,serif" font-size="14.00">enable_map_align_output</text>
 </g>
-<!-- enable_map_align_output&#45;&gt;run_dragen_somatic_step -->
-<g id="edge23" class="edge">
-<title>enable_map_align_output&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M6158.75,-3421.64C6373.48,-3306.11 7579.01,-2657.51 7820.05,-2527.83"/>
-<polygon fill="black" stroke="black" points="7822.04,-2530.73 7829.19,-2522.91 7818.73,-2524.57 7822.04,-2530.73"/>
-</g>
 <!-- enable_map_align_output&#45;&gt;run_dragen_germline_step -->
-<g id="edge24" class="edge">
+<g id="edge23" class="edge">
 <title>enable_map_align_output&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M6103.67,-3421.64C5957.72,-3306.51 5140.69,-2662 4972.34,-2529.2"/>
 <polygon fill="black" stroke="black" points="4974.39,-2526.36 4964.38,-2522.91 4970.06,-2531.85 4974.39,-2526.36"/>
+</g>
+<!-- enable_map_align_output&#45;&gt;run_dragen_somatic_step -->
+<g id="edge24" class="edge">
+<title>enable_map_align_output&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M6158.75,-3421.64C6373.48,-3306.11 7579.01,-2657.51 7820.05,-2527.83"/>
+<polygon fill="black" stroke="black" points="7822.04,-2530.73 7829.19,-2522.91 7818.73,-2524.57 7822.04,-2530.73"/>
 </g>
 <!-- enable_sv -->
 <g id="node8" class="node">
@@ -151,17 +151,17 @@
 <polygon fill="#94ddf4" stroke="black" points="5923,-3421.76 5923,-3458.76 6009,-3458.76 6009,-3421.76 5923,-3421.76"/>
 <text text-anchor="middle" x="5966" y="-3436.56" font-family="Times,serif" font-size="14.00">enable_sv</text>
 </g>
-<!-- enable_sv&#45;&gt;run_dragen_somatic_step -->
-<g id="edge25" class="edge">
-<title>enable_sv&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M5982.55,-3421.52C5992.48,-3411.53 6005.73,-3399.28 6019,-3390.26 6666.13,-2950.43 7565.37,-2611.85 7802.67,-2526.28"/>
-<polygon fill="black" stroke="black" points="7803.93,-2529.55 7812.15,-2522.87 7801.56,-2522.96 7803.93,-2529.55"/>
-</g>
 <!-- enable_sv&#45;&gt;run_dragen_germline_step -->
-<g id="edge26" class="edge">
+<g id="edge25" class="edge">
 <title>enable_sv&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M5947.3,-3421.49C5937.43,-3412.16 5925.1,-3400.54 5914,-3390.26 5542.44,-3046.09 5084.63,-2633.56 4969.33,-2529.83"/>
 <polygon fill="black" stroke="black" points="4971.4,-2526.99 4961.63,-2522.9 4966.72,-2532.19 4971.4,-2526.99"/>
+</g>
+<!-- enable_sv&#45;&gt;run_dragen_somatic_step -->
+<g id="edge26" class="edge">
+<title>enable_sv&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M5982.55,-3421.52C5992.48,-3411.53 6005.73,-3399.28 6019,-3390.26 6666.13,-2950.43 7565.37,-2611.85 7802.67,-2526.28"/>
+<polygon fill="black" stroke="black" points="7803.93,-2529.55 7812.15,-2522.87 7801.56,-2522.96 7803.93,-2529.55"/>
 </g>
 <!-- fastq_list -->
 <g id="node9" class="node">
@@ -169,17 +169,17 @@
 <polygon fill="#94ddf4" stroke="black" points="5823,-3421.76 5823,-3458.76 5905,-3458.76 5905,-3421.76 5823,-3421.76"/>
 <text text-anchor="middle" x="5864" y="-3436.56" font-family="Times,serif" font-size="14.00">fastq_list</text>
 </g>
-<!-- fastq_list&#45;&gt;run_dragen_somatic_step -->
-<g id="edge27" class="edge">
-<title>fastq_list&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M5879.38,-3421.36C5888.67,-3411.31 5901.17,-3399.06 5914,-3390.26 6586.7,-2929.19 7538.34,-2608.03 7795.69,-2525.93"/>
-<polygon fill="black" stroke="black" points="7796.8,-2529.25 7805.27,-2522.88 7794.68,-2522.58 7796.8,-2529.25"/>
-</g>
 <!-- fastq_list&#45;&gt;run_dragen_germline_step -->
-<g id="edge28" class="edge">
+<g id="edge27" class="edge">
 <title>fastq_list&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M5846.41,-3421.44C5732.53,-3306.08 5100.35,-2665.67 4966.79,-2530.37"/>
 <polygon fill="black" stroke="black" points="4968.92,-2527.55 4959.41,-2522.89 4963.94,-2532.47 4968.92,-2527.55"/>
+</g>
+<!-- fastq_list&#45;&gt;run_dragen_somatic_step -->
+<g id="edge28" class="edge">
+<title>fastq_list&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M5879.38,-3421.36C5888.67,-3411.31 5901.17,-3399.06 5914,-3390.26 6586.7,-2929.19 7538.34,-2608.03 7795.69,-2525.93"/>
+<polygon fill="black" stroke="black" points="7796.8,-2529.25 7805.27,-2522.88 7794.68,-2522.58 7796.8,-2529.25"/>
 </g>
 <!-- fastq_list_rows -->
 <g id="node10" class="node">
@@ -187,17 +187,17 @@
 <polygon fill="#94ddf4" stroke="black" points="5681.5,-3421.76 5681.5,-3458.76 5804.5,-3458.76 5804.5,-3421.76 5681.5,-3421.76"/>
 <text text-anchor="middle" x="5743" y="-3436.56" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
 </g>
-<!-- fastq_list_rows&#45;&gt;run_dragen_somatic_step -->
-<g id="edge29" class="edge">
-<title>fastq_list_rows&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M5765.92,-3421.73C5779.48,-3411.8 5797.23,-3399.55 5814,-3390.26 6564.99,-2974.13 7550.92,-2615.12 7801.88,-2526.3"/>
-<polygon fill="black" stroke="black" points="7803.28,-2529.51 7811.55,-2522.88 7800.95,-2522.91 7803.28,-2529.51"/>
-</g>
 <!-- fastq_list_rows&#45;&gt;run_dragen_germline_step -->
-<g id="edge30" class="edge">
+<g id="edge29" class="edge">
 <title>fastq_list_rows&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M5727.71,-3421.44C5628.89,-3306.2 5080.66,-2666.95 4963.88,-2530.78"/>
 <polygon fill="black" stroke="black" points="4966.29,-2528.21 4957.12,-2522.89 4960.98,-2532.76 4966.29,-2528.21"/>
+</g>
+<!-- fastq_list_rows&#45;&gt;run_dragen_somatic_step -->
+<g id="edge30" class="edge">
+<title>fastq_list_rows&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M5765.92,-3421.73C5779.48,-3411.8 5797.23,-3399.55 5814,-3390.26 6564.99,-2974.13 7550.92,-2615.12 7801.88,-2526.3"/>
+<polygon fill="black" stroke="black" points="7803.28,-2529.51 7811.55,-2522.88 7800.95,-2522.91 7803.28,-2529.51"/>
 </g>
 <!-- hla_allele_frequency_file -->
 <g id="node11" class="node">
@@ -205,17 +205,17 @@
 <polygon fill="#94ddf4" stroke="black" points="5473,-3421.76 5473,-3458.76 5663,-3458.76 5663,-3421.76 5473,-3421.76"/>
 <text text-anchor="middle" x="5568" y="-3436.56" font-family="Times,serif" font-size="14.00">hla_allele_frequency_file</text>
 </g>
-<!-- hla_allele_frequency_file&#45;&gt;run_dragen_somatic_step -->
-<g id="edge31" class="edge">
-<title>hla_allele_frequency_file&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M5604.72,-3421.55C5624.78,-3412.02 5650.13,-3400.21 5673,-3390.26 6513.6,-3024.49 7556.06,-2622.4 7806.2,-2526.58"/>
-<polygon fill="black" stroke="black" points="7807.71,-2529.75 7815.8,-2522.9 7805.21,-2523.21 7807.71,-2529.75"/>
-</g>
 <!-- hla_allele_frequency_file&#45;&gt;run_dragen_germline_step -->
-<g id="edge32" class="edge">
+<g id="edge31" class="edge">
 <title>hla_allele_frequency_file&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M5556.05,-3421.44C5478.97,-3306.43 5052.08,-2669.5 4959.65,-2531.6"/>
 <polygon fill="black" stroke="black" points="4962.29,-2529.25 4953.82,-2522.89 4956.48,-2533.15 4962.29,-2529.25"/>
+</g>
+<!-- hla_allele_frequency_file&#45;&gt;run_dragen_somatic_step -->
+<g id="edge32" class="edge">
+<title>hla_allele_frequency_file&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M5604.72,-3421.55C5624.78,-3412.02 5650.13,-3400.21 5673,-3390.26 6513.6,-3024.49 7556.06,-2622.4 7806.2,-2526.58"/>
+<polygon fill="black" stroke="black" points="7807.71,-2529.75 7815.8,-2522.9 7805.21,-2523.21 7807.71,-2529.75"/>
 </g>
 <!-- hla_bed_file -->
 <g id="node12" class="node">
@@ -223,17 +223,17 @@
 <polygon fill="#94ddf4" stroke="black" points="5355,-3421.76 5355,-3458.76 5455,-3458.76 5455,-3421.76 5355,-3421.76"/>
 <text text-anchor="middle" x="5405" y="-3436.56" font-family="Times,serif" font-size="14.00">hla_bed_file</text>
 </g>
-<!-- hla_bed_file&#45;&gt;run_dragen_somatic_step -->
-<g id="edge33" class="edge">
-<title>hla_bed_file&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M5422.91,-3421.62C5434.03,-3411.41 5449.01,-3398.91 5464,-3390.26 6304.59,-2905.27 7458.95,-2603.06 7777.6,-2525.27"/>
-<polygon fill="black" stroke="black" points="7778.79,-2528.58 7787.68,-2522.82 7777.13,-2521.78 7778.79,-2528.58"/>
-</g>
 <!-- hla_bed_file&#45;&gt;run_dragen_germline_step -->
-<g id="edge34" class="edge">
+<g id="edge33" class="edge">
 <title>hla_bed_file&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M5396.16,-3421.44C5339.21,-3306.54 5024.04,-2670.77 4955.26,-2532.01"/>
 <polygon fill="black" stroke="black" points="4958.32,-2530.3 4950.74,-2522.89 4952.05,-2533.41 4958.32,-2530.3"/>
+</g>
+<!-- hla_bed_file&#45;&gt;run_dragen_somatic_step -->
+<g id="edge34" class="edge">
+<title>hla_bed_file&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M5422.91,-3421.62C5434.03,-3411.41 5449.01,-3398.91 5464,-3390.26 6304.59,-2905.27 7458.95,-2603.06 7777.6,-2525.27"/>
+<polygon fill="black" stroke="black" points="7778.79,-2528.58 7787.68,-2522.82 7777.13,-2521.78 7778.79,-2528.58"/>
 </g>
 <!-- hla_min_reads -->
 <g id="node13" class="node">
@@ -241,17 +241,17 @@
 <polygon fill="#94ddf4" stroke="black" points="5217.5,-3421.76 5217.5,-3458.76 5336.5,-3458.76 5336.5,-3421.76 5217.5,-3421.76"/>
 <text text-anchor="middle" x="5277" y="-3436.56" font-family="Times,serif" font-size="14.00">hla_min_reads</text>
 </g>
-<!-- hla_min_reads&#45;&gt;run_dragen_somatic_step -->
-<g id="edge35" class="edge">
-<title>hla_min_reads&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M5298.37,-3421.72C5311.51,-3411.54 5329.04,-3399.05 5346,-3390.26 6249.94,-2922.11 7456.86,-2605.35 7779.72,-2525.22"/>
-<polygon fill="black" stroke="black" points="7780.61,-2528.6 7789.47,-2522.8 7778.92,-2521.81 7780.61,-2528.6"/>
-</g>
 <!-- hla_min_reads&#45;&gt;run_dragen_germline_step -->
-<g id="edge36" class="edge">
+<g id="edge35" class="edge">
 <title>hla_min_reads&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M5270.61,-3421.44C5229.44,-3306.66 5001.82,-2672.04 4951.74,-2532.43"/>
 <polygon fill="black" stroke="black" points="4955,-2531.13 4948.32,-2522.89 4948.41,-2533.49 4955,-2531.13"/>
+</g>
+<!-- hla_min_reads&#45;&gt;run_dragen_somatic_step -->
+<g id="edge36" class="edge">
+<title>hla_min_reads&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M5298.37,-3421.72C5311.51,-3411.54 5329.04,-3399.05 5346,-3390.26 6249.94,-2922.11 7456.86,-2605.35 7779.72,-2525.22"/>
+<polygon fill="black" stroke="black" points="7780.61,-2528.6 7789.47,-2522.8 7778.92,-2521.81 7780.61,-2528.6"/>
 </g>
 <!-- hla_reference_file -->
 <g id="node14" class="node">
@@ -259,17 +259,17 @@
 <polygon fill="#94ddf4" stroke="black" points="5057,-3421.76 5057,-3458.76 5199,-3458.76 5199,-3421.76 5057,-3421.76"/>
 <text text-anchor="middle" x="5128" y="-3436.56" font-family="Times,serif" font-size="14.00">hla_reference_file</text>
 </g>
-<!-- hla_reference_file&#45;&gt;run_dragen_somatic_step -->
-<g id="edge37" class="edge">
-<title>hla_reference_file&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M5153.82,-3421.62C5169.34,-3411.53 5189.76,-3399.16 5209,-3390.26 6182.29,-2940.34 7450.62,-2608.08 7780.68,-2525.3"/>
-<polygon fill="black" stroke="black" points="7781.78,-2528.63 7790.63,-2522.81 7780.08,-2521.84 7781.78,-2528.63"/>
-</g>
 <!-- hla_reference_file&#45;&gt;run_dragen_germline_step -->
-<g id="edge38" class="edge">
+<g id="edge37" class="edge">
 <title>hla_reference_file&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M5124.45,-3421.44C5101.62,-3306.77 4975.47,-2673.31 4947.49,-2532.85"/>
 <polygon fill="black" stroke="black" points="4950.9,-2532.02 4945.51,-2522.89 4944.03,-2533.38 4950.9,-2532.02"/>
+</g>
+<!-- hla_reference_file&#45;&gt;run_dragen_somatic_step -->
+<g id="edge38" class="edge">
+<title>hla_reference_file&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M5153.82,-3421.62C5169.34,-3411.53 5189.76,-3399.16 5209,-3390.26 6182.29,-2940.34 7450.62,-2608.08 7780.68,-2525.3"/>
+<polygon fill="black" stroke="black" points="7781.78,-2528.63 7790.63,-2522.81 7780.08,-2521.84 7781.78,-2528.63"/>
 </g>
 <!-- hla_tiebreaker_threshold -->
 <g id="node15" class="node">
@@ -277,17 +277,17 @@
 <polygon fill="#94ddf4" stroke="black" points="4845,-3421.76 4845,-3458.76 5039,-3458.76 5039,-3421.76 4845,-3421.76"/>
 <text text-anchor="middle" x="4942" y="-3436.56" font-family="Times,serif" font-size="14.00">hla_tiebreaker_threshold</text>
 </g>
-<!-- hla_tiebreaker_threshold&#45;&gt;run_dragen_somatic_step -->
-<g id="edge39" class="edge">
-<title>hla_tiebreaker_threshold&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M4977.33,-3421.55C4997.71,-3411.68 5023.98,-3399.54 5048,-3390.26 6111.78,-2979.06 7454.2,-2613.57 7785.51,-2525.42"/>
-<polygon fill="black" stroke="black" points="7786.72,-2528.73 7795.48,-2522.77 7784.92,-2521.96 7786.72,-2528.73"/>
-</g>
 <!-- hla_tiebreaker_threshold&#45;&gt;run_dragen_germline_step -->
-<g id="edge40" class="edge">
+<g id="edge39" class="edge">
 <title>hla_tiebreaker_threshold&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M4942,-3421.44C4942,-3306.89 4942,-2674.58 4942,-2533.27"/>
 <polygon fill="black" stroke="black" points="4945.5,-2532.89 4942,-2522.89 4938.5,-2532.89 4945.5,-2532.89"/>
+</g>
+<!-- hla_tiebreaker_threshold&#45;&gt;run_dragen_somatic_step -->
+<g id="edge40" class="edge">
+<title>hla_tiebreaker_threshold&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M4977.33,-3421.55C4997.71,-3411.68 5023.98,-3399.54 5048,-3390.26 6111.78,-2979.06 7454.2,-2613.57 7785.51,-2525.42"/>
+<polygon fill="black" stroke="black" points="7786.72,-2528.73 7795.48,-2522.77 7784.92,-2521.96 7786.72,-2528.73"/>
 </g>
 <!-- hla_zygosity_threshold -->
 <g id="node16" class="node">
@@ -295,17 +295,17 @@
 <polygon fill="#94ddf4" stroke="black" points="4647.5,-3421.76 4647.5,-3458.76 4826.5,-3458.76 4826.5,-3421.76 4647.5,-3421.76"/>
 <text text-anchor="middle" x="4737" y="-3436.56" font-family="Times,serif" font-size="14.00">hla_zygosity_threshold</text>
 </g>
-<!-- hla_zygosity_threshold&#45;&gt;run_dragen_somatic_step -->
-<g id="edge41" class="edge">
-<title>hla_zygosity_threshold&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M4768.9,-3421.69C4788,-3411.63 4812.95,-3399.25 4836,-3390.26 5965.97,-2949.3 7407.14,-2608.6 7774,-2525.01"/>
-<polygon fill="black" stroke="black" points="7774.79,-2528.42 7783.76,-2522.79 7773.24,-2521.6 7774.79,-2528.42"/>
-</g>
 <!-- hla_zygosity_threshold&#45;&gt;run_dragen_germline_step -->
-<g id="edge42" class="edge">
+<g id="edge41" class="edge">
 <title>hla_zygosity_threshold&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M4740.91,-3421.44C4766.08,-3306.77 4905.12,-2673.31 4935.94,-2532.85"/>
 <polygon fill="black" stroke="black" points="4939.4,-2533.41 4938.13,-2522.89 4932.57,-2531.91 4939.4,-2533.41"/>
+</g>
+<!-- hla_zygosity_threshold&#45;&gt;run_dragen_somatic_step -->
+<g id="edge42" class="edge">
+<title>hla_zygosity_threshold&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M4768.9,-3421.69C4788,-3411.63 4812.95,-3399.25 4836,-3390.26 5965.97,-2949.3 7407.14,-2608.6 7774,-2525.01"/>
+<polygon fill="black" stroke="black" points="7774.79,-2528.42 7783.76,-2522.79 7773.24,-2521.6 7774.79,-2528.42"/>
 </g>
 <!-- lic_instance_id_location -->
 <g id="node17" class="node">
@@ -313,17 +313,17 @@
 <polygon fill="#94ddf4" stroke="black" points="4446.5,-3421.76 4446.5,-3458.76 4629.5,-3458.76 4629.5,-3421.76 4446.5,-3421.76"/>
 <text text-anchor="middle" x="4538" y="-3436.56" font-family="Times,serif" font-size="14.00">lic_instance_id_location</text>
 </g>
-<!-- lic_instance_id_location&#45;&gt;run_dragen_somatic_step -->
-<g id="edge43" class="edge">
-<title>lic_instance_id_location&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M4570.53,-3421.58C4590.01,-3411.49 4615.47,-3399.11 4639,-3390.26 5840.09,-2938.39 7371.31,-2606.77 7765.88,-2524.87"/>
-<polygon fill="black" stroke="black" points="7766.75,-2528.26 7775.83,-2522.81 7765.33,-2521.41 7766.75,-2528.26"/>
-</g>
 <!-- lic_instance_id_location&#45;&gt;run_dragen_germline_step -->
-<g id="edge44" class="edge">
+<g id="edge43" class="edge">
 <title>lic_instance_id_location&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M4545.71,-3421.44C4595.36,-3306.66 4869.86,-2672.04 4930.25,-2532.43"/>
 <polygon fill="black" stroke="black" points="4933.62,-2533.46 4934.37,-2522.89 4927.19,-2530.68 4933.62,-2533.46"/>
+</g>
+<!-- lic_instance_id_location&#45;&gt;run_dragen_somatic_step -->
+<g id="edge44" class="edge">
+<title>lic_instance_id_location&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M4570.53,-3421.58C4590.01,-3411.49 4615.47,-3399.11 4639,-3390.26 5840.09,-2938.39 7371.31,-2606.77 7765.88,-2524.87"/>
+<polygon fill="black" stroke="black" points="7766.75,-2528.26 7775.83,-2522.81 7765.33,-2521.41 7766.75,-2528.26"/>
 </g>
 <!-- output_directory_germline -->
 <g id="node18" class="node">
@@ -379,17 +379,17 @@
 <polygon fill="#94ddf4" stroke="black" points="4204,-3421.76 4204,-3458.76 4428,-3458.76 4428,-3421.76 4204,-3421.76"/>
 <text text-anchor="middle" x="4316" y="-3436.56" font-family="Times,serif" font-size="14.00">qc_coverage_ignore_overlaps</text>
 </g>
-<!-- qc_coverage_ignore_overlaps&#45;&gt;run_dragen_somatic_step -->
-<g id="edge50" class="edge">
-<title>qc_coverage_ignore_overlaps&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M4355.91,-3421.72C4379.51,-3411.73 4410.14,-3399.42 4438,-3390.26 5735.57,-2963.96 7363.46,-2610.29 7767.85,-2524.91"/>
-<polygon fill="black" stroke="black" points="7768.68,-2528.31 7777.75,-2522.82 7767.24,-2521.46 7768.68,-2528.31"/>
-</g>
 <!-- qc_coverage_ignore_overlaps&#45;&gt;run_dragen_germline_step -->
-<g id="edge51" class="edge">
+<g id="edge50" class="edge">
 <title>qc_coverage_ignore_overlaps&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M4327.95,-3421.44C4405.03,-3306.43 4831.92,-2669.5 4924.35,-2531.6"/>
 <polygon fill="black" stroke="black" points="4927.52,-2533.15 4930.18,-2522.89 4921.71,-2529.25 4927.52,-2533.15"/>
+</g>
+<!-- qc_coverage_ignore_overlaps&#45;&gt;run_dragen_somatic_step -->
+<g id="edge51" class="edge">
+<title>qc_coverage_ignore_overlaps&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M4355.91,-3421.72C4379.51,-3411.73 4410.14,-3399.42 4438,-3390.26 5735.57,-2963.96 7363.46,-2610.29 7767.85,-2524.91"/>
+<polygon fill="black" stroke="black" points="7768.68,-2528.31 7777.75,-2522.82 7767.24,-2521.46 7768.68,-2528.31"/>
 </g>
 <!-- qc_coverage_region_1 -->
 <g id="node21" class="node">
@@ -397,17 +397,17 @@
 <polygon fill="#94ddf4" stroke="black" points="4012.5,-3421.76 4012.5,-3458.76 4185.5,-3458.76 4185.5,-3421.76 4012.5,-3421.76"/>
 <text text-anchor="middle" x="4099" y="-3436.56" font-family="Times,serif" font-size="14.00">qc_coverage_region_1</text>
 </g>
-<!-- qc_coverage_region_1&#45;&gt;run_dragen_somatic_step -->
-<g id="edge52" class="edge">
-<title>qc_coverage_region_1&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M4128.87,-3421.71C4147.41,-3411.4 4172.01,-3398.77 4195,-3390.26 5560.09,-2885.18 7318.79,-2590.05 7758.78,-2521.01"/>
-<polygon fill="black" stroke="black" points="7759.59,-2524.43 7768.93,-2519.43 7758.51,-2517.52 7759.59,-2524.43"/>
-</g>
 <!-- qc_coverage_region_1&#45;&gt;run_dragen_germline_step -->
-<g id="edge53" class="edge">
+<g id="edge52" class="edge">
 <title>qc_coverage_region_1&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M4115.09,-3421.44C4219.2,-3306.08 4797.22,-2665.67 4919.34,-2530.37"/>
 <polygon fill="black" stroke="black" points="4921.98,-2532.66 4926.09,-2522.89 4916.79,-2527.97 4921.98,-2532.66"/>
+</g>
+<!-- qc_coverage_region_1&#45;&gt;run_dragen_somatic_step -->
+<g id="edge53" class="edge">
+<title>qc_coverage_region_1&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M4128.87,-3421.71C4147.41,-3411.4 4172.01,-3398.77 4195,-3390.26 5560.09,-2885.18 7318.79,-2590.05 7758.78,-2521.01"/>
+<polygon fill="black" stroke="black" points="7759.59,-2524.43 7768.93,-2519.43 7758.51,-2517.52 7759.59,-2524.43"/>
 </g>
 <!-- qc_coverage_region_2 -->
 <g id="node22" class="node">
@@ -415,17 +415,17 @@
 <polygon fill="#94ddf4" stroke="black" points="3821.5,-3421.76 3821.5,-3458.76 3994.5,-3458.76 3994.5,-3421.76 3821.5,-3421.76"/>
 <text text-anchor="middle" x="3908" y="-3436.56" font-family="Times,serif" font-size="14.00">qc_coverage_region_2</text>
 </g>
-<!-- qc_coverage_region_2&#45;&gt;run_dragen_somatic_step -->
-<g id="edge54" class="edge">
-<title>qc_coverage_region_2&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M3937.84,-3421.61C3956.36,-3411.27 3980.96,-3398.64 4004,-3390.26 5444.91,-2866.38 7304.62,-2583.44 7758.68,-2519.39"/>
-<polygon fill="black" stroke="black" points="7759.41,-2522.82 7768.82,-2517.96 7758.43,-2515.89 7759.41,-2522.82"/>
-</g>
 <!-- qc_coverage_region_2&#45;&gt;run_dragen_germline_step -->
-<g id="edge55" class="edge">
+<g id="edge54" class="edge">
 <title>qc_coverage_region_2&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M3927.73,-3421.44C4055.56,-3305.97 4765.83,-2664.4 4914.65,-2529.97"/>
 <polygon fill="black" stroke="black" points="4917.4,-2532.19 4922.48,-2522.89 4912.71,-2527 4917.4,-2532.19"/>
+</g>
+<!-- qc_coverage_region_2&#45;&gt;run_dragen_somatic_step -->
+<g id="edge55" class="edge">
+<title>qc_coverage_region_2&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M3937.84,-3421.61C3956.36,-3411.27 3980.96,-3398.64 4004,-3390.26 5444.91,-2866.38 7304.62,-2583.44 7758.68,-2519.39"/>
+<polygon fill="black" stroke="black" points="7759.41,-2522.82 7768.82,-2517.96 7758.43,-2515.89 7759.41,-2522.82"/>
 </g>
 <!-- qc_coverage_region_3 -->
 <g id="node23" class="node">
@@ -433,17 +433,17 @@
 <polygon fill="#94ddf4" stroke="black" points="3630.5,-3421.76 3630.5,-3458.76 3803.5,-3458.76 3803.5,-3421.76 3630.5,-3421.76"/>
 <text text-anchor="middle" x="3717" y="-3436.56" font-family="Times,serif" font-size="14.00">qc_coverage_region_3</text>
 </g>
-<!-- qc_coverage_region_3&#45;&gt;run_dragen_somatic_step -->
-<g id="edge56" class="edge">
-<title>qc_coverage_region_3&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M3746.8,-3421.53C3765.32,-3411.16 3789.92,-3398.52 3813,-3390.26 5329.98,-2847.55 7290.84,-2577.17 7758.6,-2517.91"/>
-<polygon fill="black" stroke="black" points="7759.22,-2521.36 7768.7,-2516.63 7758.35,-2514.41 7759.22,-2521.36"/>
-</g>
 <!-- qc_coverage_region_3&#45;&gt;run_dragen_germline_step -->
-<g id="edge57" class="edge">
+<g id="edge56" class="edge">
 <title>qc_coverage_region_3&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M3740.11,-3421.64C3891.18,-3306.45 4737.27,-2661.36 4910.87,-2529"/>
 <polygon fill="black" stroke="black" points="4913.02,-2531.76 4918.85,-2522.91 4908.78,-2526.19 4913.02,-2531.76"/>
+</g>
+<!-- qc_coverage_region_3&#45;&gt;run_dragen_somatic_step -->
+<g id="edge57" class="edge">
+<title>qc_coverage_region_3&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M3746.8,-3421.53C3765.32,-3411.16 3789.92,-3398.52 3813,-3390.26 5329.98,-2847.55 7290.84,-2577.17 7758.6,-2517.91"/>
+<polygon fill="black" stroke="black" points="7759.22,-2521.36 7768.7,-2516.63 7758.35,-2514.41 7759.22,-2521.36"/>
 </g>
 <!-- reference_tar -->
 <g id="node24" class="node">
@@ -451,17 +451,17 @@
 <polygon fill="#94ddf4" stroke="black" points="3499.5,-3421.76 3499.5,-3458.76 3612.5,-3458.76 3612.5,-3421.76 3499.5,-3421.76"/>
 <text text-anchor="middle" x="3556" y="-3436.56" font-family="Times,serif" font-size="14.00">reference_tar</text>
 </g>
-<!-- reference_tar&#45;&gt;run_dragen_somatic_step -->
-<g id="edge58" class="edge">
-<title>reference_tar&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M3575.08,-3421.58C3587.55,-3410.96 3604.69,-3398.04 3622,-3390.26 5165.51,-2696.89 7271.47,-2538.68 7758.56,-2510.54"/>
-<polygon fill="black" stroke="black" points="7758.95,-2514.03 7768.74,-2509.96 7758.55,-2507.04 7758.95,-2514.03"/>
-</g>
 <!-- reference_tar&#45;&gt;run_dragen_germline_step -->
-<g id="edge59" class="edge">
+<g id="edge58" class="edge">
 <title>reference_tar&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M3579.01,-3421.75C3591.61,-3412.28 3607.54,-3400.47 3622,-3390.26 4123.69,-3036.15 4750.77,-2628.83 4906.01,-2528.48"/>
 <polygon fill="black" stroke="black" points="4908.22,-2531.22 4914.72,-2522.85 4904.42,-2525.34 4908.22,-2531.22"/>
+</g>
+<!-- reference_tar&#45;&gt;run_dragen_somatic_step -->
+<g id="edge59" class="edge">
+<title>reference_tar&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M3575.08,-3421.58C3587.55,-3410.96 3604.69,-3398.04 3622,-3390.26 5165.51,-2696.89 7271.47,-2538.68 7758.56,-2510.54"/>
+<polygon fill="black" stroke="black" points="7758.95,-2514.03 7768.74,-2509.96 7758.55,-2507.04 7758.95,-2514.03"/>
 </g>
 <!-- sample_sex -->
 <g id="node25" class="node">
@@ -469,17 +469,17 @@
 <polygon fill="#94ddf4" stroke="black" points="3383,-3421.76 3383,-3458.76 3481,-3458.76 3481,-3421.76 3383,-3421.76"/>
 <text text-anchor="middle" x="3432" y="-3436.56" font-family="Times,serif" font-size="14.00">sample_sex</text>
 </g>
-<!-- sample_sex&#45;&gt;run_dragen_somatic_step -->
-<g id="edge60" class="edge">
-<title>sample_sex&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M3448.46,-3421.73C3459.5,-3411.03 3474.91,-3397.96 3491,-3390.26 5066.77,-2636.02 7260.38,-2523.83 7758.61,-2507.83"/>
-<polygon fill="black" stroke="black" points="7758.77,-2511.32 7768.65,-2507.51 7758.55,-2504.33 7758.77,-2511.32"/>
-</g>
 <!-- sample_sex&#45;&gt;run_dragen_germline_step -->
-<g id="edge61" class="edge">
+<g id="edge60" class="edge">
 <title>sample_sex&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M3451.63,-3421.73C3462.84,-3412.04 3477.35,-3400.01 3491,-3390.26 4024.06,-3009.4 4723.92,-2623.48 4900.28,-2527.76"/>
 <polygon fill="black" stroke="black" points="4902.12,-2530.75 4909.25,-2522.9 4898.79,-2524.59 4902.12,-2530.75"/>
+</g>
+<!-- sample_sex&#45;&gt;run_dragen_somatic_step -->
+<g id="edge61" class="edge">
+<title>sample_sex&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M3448.46,-3421.73C3459.5,-3411.03 3474.91,-3397.96 3491,-3390.26 5066.77,-2636.02 7260.38,-2523.83 7758.61,-2507.83"/>
+<polygon fill="black" stroke="black" points="7758.77,-2511.32 7768.65,-2507.51 7758.55,-2504.33 7758.77,-2511.32"/>
 </g>
 <!-- sv_call_regions_bed -->
 <g id="node26" class="node">
@@ -487,17 +487,17 @@
 <polygon fill="#94ddf4" stroke="black" points="3207.5,-3421.76 3207.5,-3458.76 3364.5,-3458.76 3364.5,-3421.76 3207.5,-3421.76"/>
 <text text-anchor="middle" x="3286" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_call_regions_bed</text>
 </g>
-<!-- sv_call_regions_bed&#45;&gt;run_dragen_somatic_step -->
-<g id="edge62" class="edge">
-<title>sv_call_regions_bed&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M3312.3,-3421.74C3329.26,-3411.18 3352.16,-3398.27 3374,-3390.26 5056.44,-2773.49 7259.58,-2556.44 7758.56,-2513.63"/>
-<polygon fill="black" stroke="black" points="7758.95,-2517.11 7768.62,-2512.77 7758.36,-2510.13 7758.95,-2517.11"/>
-</g>
 <!-- sv_call_regions_bed&#45;&gt;run_dragen_germline_step -->
-<g id="edge63" class="edge">
+<g id="edge62" class="edge">
 <title>sv_call_regions_bed&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M3317.24,-3421.64C3522.08,-3306.11 4672.05,-2657.51 4901.99,-2527.83"/>
 <polygon fill="black" stroke="black" points="4903.71,-2530.87 4910.7,-2522.91 4900.27,-2524.78 4903.71,-2530.87"/>
+</g>
+<!-- sv_call_regions_bed&#45;&gt;run_dragen_somatic_step -->
+<g id="edge63" class="edge">
+<title>sv_call_regions_bed&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M3312.3,-3421.74C3329.26,-3411.18 3352.16,-3398.27 3374,-3390.26 5056.44,-2773.49 7259.58,-2556.44 7758.56,-2513.63"/>
+<polygon fill="black" stroke="black" points="7758.95,-2517.11 7768.62,-2512.77 7758.36,-2510.13 7758.95,-2517.11"/>
 </g>
 <!-- sv_discovery -->
 <g id="node27" class="node">
@@ -505,17 +505,17 @@
 <polygon fill="#94ddf4" stroke="black" points="3082.5,-3421.76 3082.5,-3458.76 3189.5,-3458.76 3189.5,-3421.76 3082.5,-3421.76"/>
 <text text-anchor="middle" x="3136" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_discovery</text>
 </g>
-<!-- sv_discovery&#45;&gt;run_dragen_somatic_step -->
-<g id="edge64" class="edge">
-<title>sv_discovery&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M3153.76,-3421.69C3165.61,-3410.97 3182.08,-3397.91 3199,-3390.26 4900.31,-2621.71 7242.46,-2520.34 7758.67,-2507.19"/>
-<polygon fill="black" stroke="black" points="7758.8,-2510.69 7768.71,-2506.94 7758.62,-2503.69 7758.8,-2510.69"/>
-</g>
 <!-- sv_discovery&#45;&gt;run_dragen_germline_step -->
-<g id="edge65" class="edge">
+<g id="edge64" class="edge">
 <title>sv_discovery&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M3156.55,-3421.66C3168.52,-3411.82 3184.14,-3399.69 3199,-3390.26 3834.69,-2986.88 4677.53,-2618.04 4891.14,-2526.78"/>
 <polygon fill="black" stroke="black" points="4892.71,-2529.92 4900.54,-2522.77 4889.96,-2523.48 4892.71,-2529.92"/>
+</g>
+<!-- sv_discovery&#45;&gt;run_dragen_somatic_step -->
+<g id="edge65" class="edge">
+<title>sv_discovery&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M3153.76,-3421.69C3165.61,-3410.97 3182.08,-3397.91 3199,-3390.26 4900.31,-2621.71 7242.46,-2520.34 7758.67,-2507.19"/>
+<polygon fill="black" stroke="black" points="7758.8,-2510.69 7768.71,-2506.94 7758.62,-2503.69 7758.8,-2510.69"/>
 </g>
 <!-- sv_enable_liquid_tumor_mode -->
 <g id="node28" class="node">
@@ -523,17 +523,17 @@
 <polygon fill="#94ddf4" stroke="black" points="2834,-3421.76 2834,-3458.76 3064,-3458.76 3064,-3421.76 2834,-3421.76"/>
 <text text-anchor="middle" x="2949" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_enable_liquid_tumor_mode</text>
 </g>
-<!-- sv_enable_liquid_tumor_mode&#45;&gt;run_dragen_somatic_step -->
-<g id="edge66" class="edge">
-<title>sv_enable_liquid_tumor_mode&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M2988.02,-3421.74C3012.35,-3411.38 3044.53,-3398.68 3074,-3390.26 4914.54,-2864.63 7245.07,-2576.46 7758.81,-2516.91"/>
-<polygon fill="black" stroke="black" points="7759.27,-2520.38 7768.8,-2515.76 7758.46,-2513.43 7759.27,-2520.38"/>
-</g>
 <!-- sv_enable_liquid_tumor_mode&#45;&gt;run_dragen_germline_step -->
-<g id="edge67" class="edge">
+<g id="edge66" class="edge">
 <title>sv_enable_liquid_tumor_mode&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M2986.59,-3421.64C3233.48,-3305.94 4621.23,-2655.59 4895.07,-2527.26"/>
 <polygon fill="black" stroke="black" points="4896.77,-2530.32 4904.34,-2522.91 4893.8,-2523.99 4896.77,-2530.32"/>
+</g>
+<!-- sv_enable_liquid_tumor_mode&#45;&gt;run_dragen_somatic_step -->
+<g id="edge67" class="edge">
+<title>sv_enable_liquid_tumor_mode&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M2988.02,-3421.74C3012.35,-3411.38 3044.53,-3398.68 3074,-3390.26 4914.54,-2864.63 7245.07,-2576.46 7758.81,-2516.91"/>
+<polygon fill="black" stroke="black" points="7759.27,-2520.38 7768.8,-2515.76 7758.46,-2513.43 7759.27,-2520.38"/>
 </g>
 <!-- sv_exome -->
 <g id="node29" class="node">
@@ -541,17 +541,17 @@
 <polygon fill="#94ddf4" stroke="black" points="2730,-3421.76 2730,-3458.76 2816,-3458.76 2816,-3421.76 2730,-3421.76"/>
 <text text-anchor="middle" x="2773" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_exome</text>
 </g>
-<!-- sv_exome&#45;&gt;run_dragen_somatic_step -->
-<g id="edge68" class="edge">
-<title>sv_exome&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M2787.05,-3421.56C2796.59,-3410.79 2810.14,-3397.71 2825,-3390.26 3744.17,-2929.33 7123.49,-2578 7758.69,-2515.27"/>
-<polygon fill="black" stroke="black" points="7759.14,-2518.74 7768.74,-2514.28 7758.45,-2511.77 7759.14,-2518.74"/>
-</g>
 <!-- sv_exome&#45;&gt;run_dragen_germline_step -->
-<g id="edge69" class="edge">
+<g id="edge68" class="edge">
 <title>sv_exome&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M2788.56,-3421.72C2798.28,-3411.54 2811.47,-3399.04 2825,-3390.26 3556.81,-2915.15 4586.05,-2605.2 4868.08,-2525.58"/>
 <polygon fill="black" stroke="black" points="4869.12,-2528.92 4877.79,-2522.84 4867.22,-2522.18 4869.12,-2528.92"/>
+</g>
+<!-- sv_exome&#45;&gt;run_dragen_somatic_step -->
+<g id="edge69" class="edge">
+<title>sv_exome&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M2787.05,-3421.56C2796.59,-3410.79 2810.14,-3397.71 2825,-3390.26 3744.17,-2929.33 7123.49,-2578 7758.69,-2515.27"/>
+<polygon fill="black" stroke="black" points="7759.14,-2518.74 7768.74,-2514.28 7758.45,-2511.77 7759.14,-2518.74"/>
 </g>
 <!-- sv_forcegt_vcf -->
 <g id="node30" class="node">
@@ -559,17 +559,17 @@
 <polygon fill="#94ddf4" stroke="black" points="2594,-3421.76 2594,-3458.76 2712,-3458.76 2712,-3421.76 2594,-3421.76"/>
 <text text-anchor="middle" x="2653" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_forcegt_vcf</text>
 </g>
-<!-- sv_forcegt_vcf&#45;&gt;run_dragen_somatic_step -->
-<g id="edge70" class="edge">
-<title>sv_forcegt_vcf&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M2672.36,-3421.62C2685.23,-3410.88 2703.02,-3397.81 2721,-3390.26 4624.28,-2591.3 7213.56,-2513.49 7758.7,-2506.03"/>
-<polygon fill="black" stroke="black" points="7758.94,-2509.53 7768.9,-2505.9 7758.85,-2502.53 7758.94,-2509.53"/>
-</g>
 <!-- sv_forcegt_vcf&#45;&gt;run_dragen_germline_step -->
-<g id="edge71" class="edge">
+<g id="edge70" class="edge">
 <title>sv_forcegt_vcf&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M2674.45,-3421.71C2687.4,-3411.66 2704.54,-3399.29 2721,-3390.26 3524.79,-2949.27 4594.96,-2610.43 4873.45,-2525.76"/>
 <polygon fill="black" stroke="black" points="4874.47,-2529.11 4883.03,-2522.85 4872.44,-2522.41 4874.47,-2529.11"/>
+</g>
+<!-- sv_forcegt_vcf&#45;&gt;run_dragen_somatic_step -->
+<g id="edge71" class="edge">
+<title>sv_forcegt_vcf&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M2672.36,-3421.62C2685.23,-3410.88 2703.02,-3397.81 2721,-3390.26 4624.28,-2591.3 7213.56,-2513.49 7758.7,-2506.03"/>
+<polygon fill="black" stroke="black" points="7758.94,-2509.53 7768.9,-2505.9 7758.85,-2502.53 7758.94,-2509.53"/>
 </g>
 <!-- sv_output_contigs -->
 <g id="node31" class="node">
@@ -577,17 +577,17 @@
 <polygon fill="#94ddf4" stroke="black" points="2430.5,-3421.76 2430.5,-3458.76 2575.5,-3458.76 2575.5,-3421.76 2430.5,-3421.76"/>
 <text text-anchor="middle" x="2503" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_output_contigs</text>
 </g>
-<!-- sv_output_contigs&#45;&gt;run_dragen_somatic_step -->
-<g id="edge72" class="edge">
-<title>sv_output_contigs&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M2526.91,-3421.71C2542.65,-3411 2564.14,-3397.93 2585,-3390.26 4573.75,-2658.91 7208.06,-2528.24 7758.53,-2508.44"/>
-<polygon fill="black" stroke="black" points="7758.95,-2511.93 7768.82,-2508.08 7758.7,-2504.94 7758.95,-2511.93"/>
-</g>
 <!-- sv_output_contigs&#45;&gt;run_dragen_germline_step -->
-<g id="edge73" class="edge">
+<g id="edge72" class="edge">
 <title>sv_output_contigs&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M2529.66,-3421.67C2545.38,-3411.72 2565.88,-3399.47 2585,-3390.26 3458.7,-2969.39 4588.38,-2613.29 4874.07,-2525.82"/>
 <polygon fill="black" stroke="black" points="4875.34,-2529.09 4883.88,-2522.82 4873.29,-2522.4 4875.34,-2529.09"/>
+</g>
+<!-- sv_output_contigs&#45;&gt;run_dragen_somatic_step -->
+<g id="edge73" class="edge">
+<title>sv_output_contigs&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M2526.91,-3421.71C2542.65,-3411 2564.14,-3397.93 2585,-3390.26 4573.75,-2658.91 7208.06,-2528.24 7758.53,-2508.44"/>
+<polygon fill="black" stroke="black" points="7758.95,-2511.93 7768.82,-2508.08 7758.7,-2504.94 7758.95,-2511.93"/>
 </g>
 <!-- sv_region -->
 <g id="node32" class="node">
@@ -595,17 +595,17 @@
 <polygon fill="#94ddf4" stroke="black" points="2327.5,-3421.76 2327.5,-3458.76 2412.5,-3458.76 2412.5,-3421.76 2327.5,-3421.76"/>
 <text text-anchor="middle" x="2370" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_region</text>
 </g>
-<!-- sv_region&#45;&gt;run_dragen_somatic_step -->
-<g id="edge74" class="edge">
-<title>sv_region&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M2384.02,-3421.49C2393.55,-3410.7 2407.09,-3397.62 2422,-3390.26 3419.82,-2897.77 7094.83,-2569.66 7758.82,-2513.76"/>
-<polygon fill="black" stroke="black" points="7759.17,-2517.24 7768.84,-2512.92 7758.58,-2510.27 7759.17,-2517.24"/>
-</g>
 <!-- sv_region&#45;&gt;run_dragen_germline_step -->
-<g id="edge75" class="edge">
+<g id="edge74" class="edge">
 <title>sv_region&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M2385.38,-3421.43C2395.03,-3411.15 2408.22,-3398.64 2422,-3390.26 3279,-2868.69 4487.39,-2596.6 4841.08,-2524.83"/>
 <polygon fill="black" stroke="black" points="4841.94,-2528.23 4851.04,-2522.82 4840.55,-2521.37 4841.94,-2528.23"/>
+</g>
+<!-- sv_region&#45;&gt;run_dragen_somatic_step -->
+<g id="edge75" class="edge">
+<title>sv_region&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M2384.02,-3421.49C2393.55,-3410.7 2407.09,-3397.62 2422,-3390.26 3419.82,-2897.77 7094.83,-2569.66 7758.82,-2513.76"/>
+<polygon fill="black" stroke="black" points="7759.17,-2517.24 7768.84,-2512.92 7758.58,-2510.27 7759.17,-2517.24"/>
 </g>
 <!-- sv_se_overlap_pair_evidence -->
 <g id="node33" class="node">
@@ -613,17 +613,17 @@
 <polygon fill="#94ddf4" stroke="black" points="2089,-3421.76 2089,-3458.76 2309,-3458.76 2309,-3421.76 2089,-3421.76"/>
 <text text-anchor="middle" x="2199" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_se_overlap_pair_evidence</text>
 </g>
-<!-- sv_se_overlap_pair_evidence&#45;&gt;run_dragen_somatic_step -->
-<g id="edge76" class="edge">
-<title>sv_se_overlap_pair_evidence&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M2235.79,-3421.67C2259.15,-3411.14 2290.29,-3398.3 2319,-3390.26 4464.21,-2789.63 7198.08,-2556 7758.79,-2512.87"/>
-<polygon fill="black" stroke="black" points="7759.17,-2516.35 7768.88,-2512.09 7758.64,-2509.37 7759.17,-2516.35"/>
-</g>
 <!-- sv_se_overlap_pair_evidence&#45;&gt;run_dragen_germline_step -->
-<g id="edge77" class="edge">
+<g id="edge76" class="edge">
 <title>sv_se_overlap_pair_evidence&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M2240.13,-3421.73C2263.18,-3412.09 2292.53,-3400.12 2319,-3390.26 3327.1,-3014.79 4577.58,-2619.34 4875.92,-2525.88"/>
 <polygon fill="black" stroke="black" points="4877.21,-2529.15 4885.71,-2522.82 4875.12,-2522.47 4877.21,-2529.15"/>
+</g>
+<!-- sv_se_overlap_pair_evidence&#45;&gt;run_dragen_somatic_step -->
+<g id="edge77" class="edge">
+<title>sv_se_overlap_pair_evidence&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M2235.79,-3421.67C2259.15,-3411.14 2290.29,-3398.3 2319,-3390.26 4464.21,-2789.63 7198.08,-2556 7758.79,-2512.87"/>
+<polygon fill="black" stroke="black" points="7759.17,-2516.35 7768.88,-2512.09 7758.64,-2509.37 7759.17,-2516.35"/>
 </g>
 <!-- sv_tin_contam_tolerance -->
 <g id="node34" class="node">
@@ -631,17 +631,17 @@
 <polygon fill="#94ddf4" stroke="black" points="1879.5,-3421.76 1879.5,-3458.76 2070.5,-3458.76 2070.5,-3421.76 1879.5,-3421.76"/>
 <text text-anchor="middle" x="1975" y="-3436.56" font-family="Times,serif" font-size="14.00">sv_tin_contam_tolerance</text>
 </g>
-<!-- sv_tin_contam_tolerance&#45;&gt;run_dragen_somatic_step -->
-<g id="edge78" class="edge">
-<title>sv_tin_contam_tolerance&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M2006.69,-3421.57C2027.05,-3410.94 2054.4,-3398.02 2080,-3390.26 4307.68,-2715.16 7181.58,-2539.49 7758.53,-2510.13"/>
-<polygon fill="black" stroke="black" points="7759.09,-2513.6 7768.9,-2509.6 7758.74,-2506.61 7759.09,-2513.6"/>
-</g>
 <!-- sv_tin_contam_tolerance&#45;&gt;run_dragen_germline_step -->
-<g id="edge79" class="edge">
+<g id="edge78" class="edge">
 <title>sv_tin_contam_tolerance&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M2009.48,-3421.71C2029.73,-3411.78 2055.98,-3399.53 2080,-3390.26 3159.88,-2973.57 4525.2,-2612.52 4863.51,-2525.29"/>
 <polygon fill="black" stroke="black" points="4864.41,-2528.68 4873.22,-2522.79 4862.66,-2521.9 4864.41,-2528.68"/>
+</g>
+<!-- sv_tin_contam_tolerance&#45;&gt;run_dragen_somatic_step -->
+<g id="edge79" class="edge">
+<title>sv_tin_contam_tolerance&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M2006.69,-3421.57C2027.05,-3410.94 2054.4,-3398.02 2080,-3390.26 4307.68,-2715.16 7181.58,-2539.49 7758.53,-2510.13"/>
+<polygon fill="black" stroke="black" points="7759.09,-2513.6 7768.9,-2509.6 7758.74,-2506.61 7759.09,-2513.6"/>
 </g>
 <!-- vc_decoy_contigs -->
 <g id="node35" class="node">
@@ -649,17 +649,17 @@
 <polygon fill="#94ddf4" stroke="black" points="1722.5,-3421.76 1722.5,-3458.76 1861.5,-3458.76 1861.5,-3421.76 1722.5,-3421.76"/>
 <text text-anchor="middle" x="1792" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_decoy_contigs</text>
 </g>
-<!-- vc_decoy_contigs&#45;&gt;run_dragen_somatic_step -->
-<g id="edge80" class="edge">
-<title>vc_decoy_contigs&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M1814.89,-3421.55C1830,-3410.77 1850.69,-3397.7 1871,-3390.26 4140.79,-2559.36 7165.37,-2507.09 7758.62,-2505.07"/>
-<polygon fill="black" stroke="black" points="7758.87,-2508.57 7768.86,-2505.04 7758.85,-2501.57 7758.87,-2508.57"/>
-</g>
 <!-- vc_decoy_contigs&#45;&gt;run_dragen_germline_step -->
-<g id="edge81" class="edge">
+<g id="edge80" class="edge">
 <title>vc_decoy_contigs&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M1816.29,-3421.76C1831.44,-3411.47 1851.68,-3398.84 1871,-3390.26 2980.57,-2897.58 4436.83,-2600.59 4836.6,-2524.68"/>
 <polygon fill="black" stroke="black" points="4837.53,-2528.07 4846.7,-2522.77 4836.23,-2521.19 4837.53,-2528.07"/>
+</g>
+<!-- vc_decoy_contigs&#45;&gt;run_dragen_somatic_step -->
+<g id="edge81" class="edge">
+<title>vc_decoy_contigs&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M1814.89,-3421.55C1830,-3410.77 1850.69,-3397.7 1871,-3390.26 4140.79,-2559.36 7165.37,-2507.09 7758.62,-2505.07"/>
+<polygon fill="black" stroke="black" points="7758.87,-2508.57 7768.86,-2505.04 7758.85,-2501.57 7758.87,-2508.57"/>
 </g>
 <!-- vc_enable_baf -->
 <g id="node36" class="node">
@@ -667,17 +667,17 @@
 <polygon fill="#94ddf4" stroke="black" points="1588,-3421.76 1588,-3458.76 1704,-3458.76 1704,-3421.76 1588,-3421.76"/>
 <text text-anchor="middle" x="1646" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_enable_baf</text>
 </g>
-<!-- vc_enable_baf&#45;&gt;run_dragen_somatic_step -->
-<g id="edge82" class="edge">
-<title>vc_enable_baf&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M1665.01,-3421.7C1677.87,-3410.84 1695.78,-3397.61 1714,-3390.26 2883.52,-2918.13 7048.76,-2569.91 7758.74,-2513.34"/>
-<polygon fill="black" stroke="black" points="7759.25,-2516.81 7768.94,-2512.53 7758.69,-2509.84 7759.25,-2516.81"/>
-</g>
 <!-- vc_enable_baf&#45;&gt;run_dragen_germline_step -->
-<g id="edge83" class="edge">
+<g id="edge82" class="edge">
 <title>vc_enable_baf&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M1666.21,-3421.74C1679.13,-3411.32 1696.67,-3398.55 1714,-3390.26 2310.53,-3105.04 4397.35,-2627.56 4853.48,-2525.03"/>
 <polygon fill="black" stroke="black" points="4854.32,-2528.43 4863.31,-2522.82 4852.79,-2521.6 4854.32,-2528.43"/>
+</g>
+<!-- vc_enable_baf&#45;&gt;run_dragen_somatic_step -->
+<g id="edge83" class="edge">
+<title>vc_enable_baf&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M1665.01,-3421.7C1677.87,-3410.84 1695.78,-3397.61 1714,-3390.26 2883.52,-2918.13 7048.76,-2569.91 7758.74,-2513.34"/>
+<polygon fill="black" stroke="black" points="7759.25,-2516.81 7768.94,-2512.53 7758.69,-2509.84 7759.25,-2516.81"/>
 </g>
 <!-- vc_enable_decoy_contigs -->
 <g id="node37" class="node">
@@ -685,17 +685,17 @@
 <polygon fill="#94ddf4" stroke="black" points="1376.5,-3421.76 1376.5,-3458.76 1569.5,-3458.76 1569.5,-3421.76 1376.5,-3421.76"/>
 <text text-anchor="middle" x="1473" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_enable_decoy_contigs</text>
 </g>
-<!-- vc_enable_decoy_contigs&#45;&gt;run_dragen_somatic_step -->
-<g id="edge84" class="edge">
-<title>vc_enable_decoy_contigs&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M1504.52,-3421.71C1525.12,-3411 1552.94,-3397.94 1579,-3390.26 4012.78,-2673.33 7153.08,-2530.07 7758.52,-2508.55"/>
-<polygon fill="black" stroke="black" points="7758.66,-2512.04 7768.53,-2508.19 7758.41,-2505.05 7758.66,-2512.04"/>
-</g>
 <!-- vc_enable_decoy_contigs&#45;&gt;run_dragen_germline_step -->
-<g id="edge85" class="edge">
+<g id="edge84" class="edge">
 <title>vc_enable_decoy_contigs&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M1507.21,-3421.58C1527.67,-3411.48 1554.39,-3399.11 1579,-3390.26 2835.75,-2938.39 4431.65,-2606.64 4842.19,-2524.82"/>
 <polygon fill="black" stroke="black" points="4843.12,-2528.2 4852.25,-2522.81 4841.76,-2521.33 4843.12,-2528.2"/>
+</g>
+<!-- vc_enable_decoy_contigs&#45;&gt;run_dragen_somatic_step -->
+<g id="edge85" class="edge">
+<title>vc_enable_decoy_contigs&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M1504.52,-3421.71C1525.12,-3411 1552.94,-3397.94 1579,-3390.26 4012.78,-2673.33 7153.08,-2530.07 7758.52,-2508.55"/>
+<polygon fill="black" stroke="black" points="7758.66,-2512.04 7768.53,-2508.19 7758.41,-2505.05 7758.66,-2512.04"/>
 </g>
 <!-- vc_enable_gatk_acceleration -->
 <g id="node38" class="node">
@@ -703,17 +703,17 @@
 <polygon fill="#94ddf4" stroke="black" points="1140,-3421.76 1140,-3458.76 1358,-3458.76 1358,-3421.76 1140,-3421.76"/>
 <text text-anchor="middle" x="1249" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_enable_gatk_acceleration</text>
 </g>
-<!-- vc_enable_gatk_acceleration&#45;&gt;run_dragen_somatic_step -->
-<g id="edge86" class="edge">
-<title>vc_enable_gatk_acceleration&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M1284.88,-3421.67C1308.07,-3411.01 1339.2,-3398.02 1368,-3390.26 3902.71,-2707.75 7142.78,-2536.64 7758.5,-2509.49"/>
-<polygon fill="black" stroke="black" points="7758.85,-2512.98 7768.68,-2509.04 7758.54,-2505.98 7758.85,-2512.98"/>
-</g>
 <!-- vc_enable_gatk_acceleration&#45;&gt;run_dragen_germline_step -->
-<g id="edge87" class="edge">
+<g id="edge86" class="edge">
 <title>vc_enable_gatk_acceleration&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M1287.58,-3421.67C1310.61,-3411.61 1340.61,-3399.24 1368,-3390.26 2715.78,-2948.59 4412.03,-2607.72 4840.27,-2524.7"/>
 <polygon fill="black" stroke="black" points="4841,-2528.12 4850.15,-2522.79 4839.67,-2521.25 4841,-2528.12"/>
+</g>
+<!-- vc_enable_gatk_acceleration&#45;&gt;run_dragen_somatic_step -->
+<g id="edge87" class="edge">
+<title>vc_enable_gatk_acceleration&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M1284.88,-3421.67C1308.07,-3411.01 1339.2,-3398.02 1368,-3390.26 3902.71,-2707.75 7142.78,-2536.64 7758.5,-2509.49"/>
+<polygon fill="black" stroke="black" points="7758.85,-2512.98 7768.68,-2509.04 7758.54,-2505.98 7758.85,-2512.98"/>
 </g>
 <!-- vc_enable_phasing -->
 <g id="node39" class="node">
@@ -721,17 +721,17 @@
 <polygon fill="#94ddf4" stroke="black" points="8584.5,-3421.76 8584.5,-3458.76 8733.5,-3458.76 8733.5,-3421.76 8584.5,-3421.76"/>
 <text text-anchor="middle" x="8659" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_enable_phasing</text>
 </g>
-<!-- vc_enable_phasing&#45;&gt;run_dragen_somatic_step -->
-<g id="edge88" class="edge">
-<title>vc_enable_phasing&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M8643.79,-3421.44C8545.46,-3306.2 7999.97,-2666.95 7883.77,-2530.78"/>
-<polygon fill="black" stroke="black" points="7886.2,-2528.23 7877.05,-2522.89 7880.88,-2532.77 7886.2,-2528.23"/>
-</g>
 <!-- vc_enable_phasing&#45;&gt;run_dragen_germline_step -->
-<g id="edge89" class="edge">
+<g id="edge88" class="edge">
 <title>vc_enable_phasing&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M8633.48,-3421.53C8617.57,-3411.15 8596.31,-3398.52 8576,-3390.26 7243.22,-2848.49 5495.4,-2581.59 5049.25,-2519.59"/>
 <polygon fill="black" stroke="black" points="5049.66,-2516.11 5039.27,-2518.2 5048.69,-2523.04 5049.66,-2516.11"/>
+</g>
+<!-- vc_enable_phasing&#45;&gt;run_dragen_somatic_step -->
+<g id="edge89" class="edge">
+<title>vc_enable_phasing&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M8643.79,-3421.44C8545.46,-3306.2 7999.97,-2666.95 7883.77,-2530.78"/>
+<polygon fill="black" stroke="black" points="7886.2,-2528.23 7877.05,-2522.89 7880.88,-2532.77 7886.2,-2528.23"/>
 </g>
 <!-- vc_enable_roh -->
 <g id="node40" class="node">
@@ -739,17 +739,17 @@
 <polygon fill="#94ddf4" stroke="black" points="8449.5,-3421.76 8449.5,-3458.76 8566.5,-3458.76 8566.5,-3421.76 8449.5,-3421.76"/>
 <text text-anchor="middle" x="8508" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_enable_roh</text>
 </g>
-<!-- vc_enable_roh&#45;&gt;run_dragen_somatic_step -->
-<g id="edge90" class="edge">
-<title>vc_enable_roh&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M8495.67,-3421.44C8416.05,-3306.31 7974.71,-2668.22 7879.93,-2531.18"/>
-<polygon fill="black" stroke="black" points="7882.76,-2529.13 7874.2,-2522.89 7877.01,-2533.11 7882.76,-2529.13"/>
-</g>
 <!-- vc_enable_roh&#45;&gt;run_dragen_germline_step -->
-<g id="edge91" class="edge">
+<g id="edge90" class="edge">
 <title>vc_enable_roh&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M8487.85,-3421.62C8474.94,-3411.15 8457.41,-3398.37 8440,-3390.26 7794.67,-3089.52 5537.46,-2625.1 5039.64,-2524.78"/>
 <polygon fill="black" stroke="black" points="5040.1,-2521.31 5029.61,-2522.76 5038.72,-2528.17 5040.1,-2521.31"/>
+</g>
+<!-- vc_enable_roh&#45;&gt;run_dragen_somatic_step -->
+<g id="edge91" class="edge">
+<title>vc_enable_roh&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M8495.67,-3421.44C8416.05,-3306.31 7974.71,-2668.22 7879.93,-2531.18"/>
+<polygon fill="black" stroke="black" points="7882.76,-2529.13 7874.2,-2522.89 7877.01,-2533.11 7882.76,-2529.13"/>
 </g>
 <!-- vc_enable_vcf_output -->
 <g id="node41" class="node">
@@ -757,17 +757,17 @@
 <polygon fill="#94ddf4" stroke="black" points="8263,-3421.76 8263,-3458.76 8431,-3458.76 8431,-3421.76 8263,-3421.76"/>
 <text text-anchor="middle" x="8347" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_enable_vcf_output</text>
 </g>
-<!-- vc_enable_vcf_output&#45;&gt;run_dragen_somatic_step -->
-<g id="edge92" class="edge">
-<title>vc_enable_vcf_output&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M8337.74,-3421.44C8278.08,-3306.54 7947.94,-2670.77 7875.89,-2532.01"/>
-<polygon fill="black" stroke="black" points="7878.87,-2530.16 7871.16,-2522.89 7872.66,-2533.38 7878.87,-2530.16"/>
-</g>
 <!-- vc_enable_vcf_output&#45;&gt;run_dragen_germline_step -->
-<g id="edge93" class="edge">
+<g id="edge92" class="edge">
 <title>vc_enable_vcf_output&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M8317.65,-3421.62C8299.73,-3411.41 8276.09,-3398.91 8254,-3390.26 7035.21,-2913.3 5466.47,-2602.74 5048.29,-2524.64"/>
 <polygon fill="black" stroke="black" points="5048.8,-2521.17 5038.33,-2522.78 5047.52,-2528.06 5048.8,-2521.17"/>
+</g>
+<!-- vc_enable_vcf_output&#45;&gt;run_dragen_somatic_step -->
+<g id="edge93" class="edge">
+<title>vc_enable_vcf_output&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M8337.74,-3421.44C8278.08,-3306.54 7947.94,-2670.77 7875.89,-2532.01"/>
+<polygon fill="black" stroke="black" points="7878.87,-2530.16 7871.16,-2522.89 7872.66,-2533.38 7878.87,-2530.16"/>
 </g>
 <!-- vc_forcegt_vcf -->
 <g id="node42" class="node">
@@ -799,17 +799,17 @@
 <polygon fill="#94ddf4" stroke="black" points="7997,-3421.76 7997,-3458.76 8245,-3458.76 8245,-3421.76 7997,-3421.76"/>
 <text text-anchor="middle" x="8121" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_max_reads_per_active_region</text>
 </g>
-<!-- vc_max_reads_per_active_region&#45;&gt;run_dragen_somatic_step -->
-<g id="edge96" class="edge">
-<title>vc_max_reads_per_active_region&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M8116.06,-3421.44C8084.26,-3306.77 7908.6,-2673.31 7869.65,-2532.85"/>
-<polygon fill="black" stroke="black" points="7872.93,-2531.6 7866.89,-2522.89 7866.19,-2533.47 7872.93,-2531.6"/>
-</g>
 <!-- vc_max_reads_per_active_region&#45;&gt;run_dragen_germline_step -->
-<g id="edge97" class="edge">
+<g id="edge96" class="edge">
 <title>vc_max_reads_per_active_region&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M8075.73,-3421.68C8050.13,-3411.97 8017.45,-3399.95 7988,-3390.26 6817.02,-3004.97 5364.85,-2616.8 5018.63,-2525.39"/>
 <polygon fill="black" stroke="black" points="5019.27,-2521.94 5008.71,-2522.78 5017.49,-2528.71 5019.27,-2521.94"/>
+</g>
+<!-- vc_max_reads_per_active_region&#45;&gt;run_dragen_somatic_step -->
+<g id="edge97" class="edge">
+<title>vc_max_reads_per_active_region&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M8116.06,-3421.44C8084.26,-3306.77 7908.6,-2673.31 7869.65,-2532.85"/>
+<polygon fill="black" stroke="black" points="7872.93,-2531.6 7866.89,-2522.89 7866.19,-2533.47 7872.93,-2531.6"/>
 </g>
 <!-- vc_max_reads_per_raw_region -->
 <g id="node45" class="node">
@@ -817,17 +817,17 @@
 <polygon fill="#94ddf4" stroke="black" points="7745.5,-3421.76 7745.5,-3458.76 7978.5,-3458.76 7978.5,-3421.76 7745.5,-3421.76"/>
 <text text-anchor="middle" x="7862" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_max_reads_per_raw_region</text>
 </g>
-<!-- vc_max_reads_per_raw_region&#45;&gt;run_dragen_somatic_step -->
-<g id="edge98" class="edge">
-<title>vc_max_reads_per_raw_region&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M7862,-3421.44C7862,-3306.89 7862,-2674.58 7862,-2533.27"/>
-<polygon fill="black" stroke="black" points="7865.5,-2532.89 7862,-2522.89 7858.5,-2532.89 7865.5,-2532.89"/>
-</g>
 <!-- vc_max_reads_per_raw_region&#45;&gt;run_dragen_germline_step -->
-<g id="edge99" class="edge">
+<g id="edge98" class="edge">
 <title>vc_max_reads_per_raw_region&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M7818.81,-3421.68C7794.61,-3412.02 7763.78,-3400.05 7736,-3390.26 6661.9,-3011.74 5330.25,-2618.61 5012.43,-2525.75"/>
 <polygon fill="black" stroke="black" points="5013.02,-2522.28 5002.44,-2522.84 5011.06,-2529 5013.02,-2522.28"/>
+</g>
+<!-- vc_max_reads_per_raw_region&#45;&gt;run_dragen_somatic_step -->
+<g id="edge99" class="edge">
+<title>vc_max_reads_per_raw_region&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M7862,-3421.44C7862,-3306.89 7862,-2674.58 7862,-2533.27"/>
+<polygon fill="black" stroke="black" points="7865.5,-2532.89 7862,-2522.89 7858.5,-2532.89 7865.5,-2532.89"/>
 </g>
 <!-- vc_remove_all_soft_clips -->
 <g id="node46" class="node">
@@ -835,17 +835,17 @@
 <polygon fill="#94ddf4" stroke="black" points="7537,-3421.76 7537,-3458.76 7727,-3458.76 7727,-3421.76 7537,-3421.76"/>
 <text text-anchor="middle" x="7632" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_remove_all_soft_clips</text>
 </g>
-<!-- vc_remove_all_soft_clips&#45;&gt;run_dragen_somatic_step -->
-<g id="edge100" class="edge">
-<title>vc_remove_all_soft_clips&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M7636.39,-3421.44C7664.63,-3306.77 7820.62,-2673.31 7855.21,-2532.85"/>
-<polygon fill="black" stroke="black" points="7858.67,-2533.44 7857.66,-2522.89 7851.87,-2531.77 7858.67,-2533.44"/>
-</g>
 <!-- vc_remove_all_soft_clips&#45;&gt;run_dragen_germline_step -->
-<g id="edge101" class="edge">
+<g id="edge100" class="edge">
 <title>vc_remove_all_soft_clips&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M7597.29,-3421.73C7577.27,-3411.92 7551.49,-3399.78 7528,-3390.26 6547.43,-2992.89 5313.25,-2616.37 5011.08,-2525.81"/>
 <polygon fill="black" stroke="black" points="5011.73,-2522.36 5001.14,-2522.84 5009.72,-2529.06 5011.73,-2522.36"/>
+</g>
+<!-- vc_remove_all_soft_clips&#45;&gt;run_dragen_somatic_step -->
+<g id="edge101" class="edge">
+<title>vc_remove_all_soft_clips&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M7636.39,-3421.44C7664.63,-3306.77 7820.62,-2673.31 7855.21,-2532.85"/>
+<polygon fill="black" stroke="black" points="7858.67,-2533.44 7857.66,-2522.89 7851.87,-2531.77 7858.67,-2533.44"/>
 </g>
 <!-- vc_roh_blacklist_bed -->
 <g id="node47" class="node">
@@ -853,17 +853,17 @@
 <polygon fill="#94ddf4" stroke="black" points="7355.5,-3421.76 7355.5,-3458.76 7518.5,-3458.76 7518.5,-3421.76 7355.5,-3421.76"/>
 <text text-anchor="middle" x="7437" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_roh_blacklist_bed</text>
 </g>
-<!-- vc_roh_blacklist_bed&#45;&gt;run_dragen_somatic_step -->
-<g id="edge102" class="edge">
-<title>vc_roh_blacklist_bed&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M7445.11,-3421.44C7497.39,-3306.54 7786.69,-2670.77 7849.83,-2532.01"/>
-<polygon fill="black" stroke="black" points="7853.02,-2533.45 7853.98,-2522.89 7846.65,-2530.55 7853.02,-2533.45"/>
-</g>
 <!-- vc_roh_blacklist_bed&#45;&gt;run_dragen_germline_step -->
-<g id="edge103" class="edge">
+<g id="edge102" class="edge">
 <title>vc_roh_blacklist_bed&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M7406.79,-3421.61C7389.33,-3411.76 7366.78,-3399.62 7346,-3390.26 6443.85,-2983.77 5294.02,-2615.38 5008.43,-2525.89"/>
 <polygon fill="black" stroke="black" points="5009.22,-2522.47 4998.64,-2522.83 5007.13,-2529.15 5009.22,-2522.47"/>
+</g>
+<!-- vc_roh_blacklist_bed&#45;&gt;run_dragen_somatic_step -->
+<g id="edge103" class="edge">
+<title>vc_roh_blacklist_bed&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M7445.11,-3421.44C7497.39,-3306.54 7786.69,-2670.77 7849.83,-2532.01"/>
+<polygon fill="black" stroke="black" points="7853.02,-2533.45 7853.98,-2522.89 7846.65,-2530.55 7853.02,-2533.45"/>
 </g>
 <!-- vc_target_bed -->
 <g id="node48" class="node">
@@ -871,17 +871,17 @@
 <polygon fill="#94ddf4" stroke="black" points="7221,-3421.76 7221,-3458.76 7337,-3458.76 7337,-3421.76 7221,-3421.76"/>
 <text text-anchor="middle" x="7279" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_target_bed</text>
 </g>
-<!-- vc_target_bed&#45;&gt;run_dragen_somatic_step -->
-<g id="edge104" class="edge">
-<title>vc_target_bed&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M7290.13,-3421.44C7361.91,-3306.43 7759.48,-2669.5 7845.56,-2531.6"/>
-<polygon fill="black" stroke="black" points="7848.67,-2533.23 7850.99,-2522.89 7842.73,-2529.52 7848.67,-2533.23"/>
-</g>
 <!-- vc_target_bed&#45;&gt;run_dragen_germline_step -->
-<g id="edge105" class="edge">
+<g id="edge104" class="edge">
 <title>vc_target_bed&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M7257.93,-3421.65C7245.19,-3411.57 7228.3,-3399.2 7212,-3390.26 6394.16,-2941.78 5301.01,-2609.28 5013.63,-2525.71"/>
 <polygon fill="black" stroke="black" points="5014.33,-2522.27 5003.75,-2522.85 5012.38,-2528.99 5014.33,-2522.27"/>
+</g>
+<!-- vc_target_bed&#45;&gt;run_dragen_somatic_step -->
+<g id="edge105" class="edge">
+<title>vc_target_bed&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M7290.13,-3421.44C7361.91,-3306.43 7759.48,-2669.5 7845.56,-2531.6"/>
+<polygon fill="black" stroke="black" points="7848.67,-2533.23 7850.99,-2522.89 7842.73,-2529.52 7848.67,-2533.23"/>
 </g>
 <!-- vc_target_bed_padding -->
 <g id="node49" class="node">
@@ -889,17 +889,17 @@
 <polygon fill="#94ddf4" stroke="black" points="7021.5,-3421.76 7021.5,-3458.76 7202.5,-3458.76 7202.5,-3421.76 7021.5,-3421.76"/>
 <text text-anchor="middle" x="7112" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_target_bed_padding</text>
 </g>
-<!-- vc_target_bed_padding&#45;&gt;run_dragen_somatic_step -->
-<g id="edge106" class="edge">
-<title>vc_target_bed_padding&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M7126.31,-3421.44C7218.85,-3306.2 7732.16,-2666.95 7841.51,-2530.78"/>
-<polygon fill="black" stroke="black" points="7844.31,-2532.88 7847.84,-2522.89 7838.85,-2528.5 7844.31,-2532.88"/>
-</g>
 <!-- vc_target_bed_padding&#45;&gt;run_dragen_germline_step -->
-<g id="edge107" class="edge">
+<g id="edge106" class="edge">
 <title>vc_target_bed_padding&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M7077.41,-3421.55C7058.5,-3412.02 7034.6,-3400.21 7013,-3390.26 6219.2,-3024.55 5232.7,-2622.76 4995.2,-2526.72"/>
 <polygon fill="black" stroke="black" points="4996.34,-2523.4 4985.76,-2522.9 4993.72,-2529.89 4996.34,-2523.4"/>
+</g>
+<!-- vc_target_bed_padding&#45;&gt;run_dragen_somatic_step -->
+<g id="edge107" class="edge">
+<title>vc_target_bed_padding&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M7126.31,-3421.44C7218.85,-3306.2 7732.16,-2666.95 7841.51,-2530.78"/>
+<polygon fill="black" stroke="black" points="7844.31,-2532.88 7847.84,-2522.89 7838.85,-2528.5 7844.31,-2532.88"/>
 </g>
 <!-- vc_target_coverage -->
 <g id="node50" class="node">
@@ -907,17 +907,17 @@
 <polygon fill="#94ddf4" stroke="black" points="6848.5,-3421.76 6848.5,-3458.76 7003.5,-3458.76 7003.5,-3421.76 6848.5,-3421.76"/>
 <text text-anchor="middle" x="6926" y="-3436.56" font-family="Times,serif" font-size="14.00">vc_target_coverage</text>
 </g>
-<!-- vc_target_coverage&#45;&gt;run_dragen_somatic_step -->
-<g id="edge108" class="edge">
-<title>vc_target_coverage&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M6943.86,-3421.44C7059.58,-3305.97 7702.52,-2664.4 7837.24,-2529.97"/>
-<polygon fill="black" stroke="black" points="7839.72,-2532.43 7844.33,-2522.89 7834.78,-2527.48 7839.72,-2532.43"/>
-</g>
 <!-- vc_target_coverage&#45;&gt;run_dragen_germline_step -->
-<g id="edge109" class="edge">
+<g id="edge108" class="edge">
 <title>vc_target_coverage&#45;&gt;run_dragen_germline_step</title>
 <path fill="none" stroke="black" d="M6896.48,-3421.65C6880.03,-3412.04 6859.08,-3400.12 6840,-3390.26 6119.58,-3017.85 5213.63,-2622.52 4992.41,-2526.95"/>
 <polygon fill="black" stroke="black" points="4993.56,-2523.64 4983,-2522.89 4990.79,-2530.07 4993.56,-2523.64"/>
+</g>
+<!-- vc_target_coverage&#45;&gt;run_dragen_somatic_step -->
+<g id="edge109" class="edge">
+<title>vc_target_coverage&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M6943.86,-3421.44C7059.58,-3305.97 7702.52,-2664.4 7837.24,-2529.97"/>
+<polygon fill="black" stroke="black" points="7839.72,-2532.43 7844.33,-2522.89 7834.78,-2527.48 7839.72,-2532.43"/>
 </g>
 <!-- output_file_prefix_somatic -->
 <g id="node51" class="node">
@@ -925,29 +925,29 @@
 <polygon fill="#94ddf4" stroke="black" points="8751.5,-3421.76 8751.5,-3458.76 8954.5,-3458.76 8954.5,-3421.76 8751.5,-3421.76"/>
 <text text-anchor="middle" x="8853" y="-3436.56" font-family="Times,serif" font-size="14.00">output_file_prefix_somatic</text>
 </g>
-<!-- output_file_prefix_somatic&#45;&gt;run_dragen_somatic_step -->
-<g id="edge110" class="edge">
-<title>output_file_prefix_somatic&#45;&gt;run_dragen_somatic_step</title>
-<path fill="none" stroke="black" d="M8834.09,-3421.44C8711.57,-3305.97 8030.85,-2664.4 7888.21,-2529.97"/>
-<polygon fill="black" stroke="black" points="7890.39,-2527.21 7880.71,-2522.89 7885.59,-2532.3 7890.39,-2527.21"/>
-</g>
 <!-- output_file_prefix_somatic&#45;&gt;run_dragen_qc_step -->
-<g id="edge111" class="edge">
+<g id="edge110" class="edge">
 <title>output_file_prefix_somatic&#45;&gt;run_dragen_qc_step</title>
 <path fill="none" stroke="black" d="M8802.34,-3421.7C8778.69,-3411.52 8750.73,-3399.02 8725,-3390.26 7171.52,-2861.54 6177.5,-3791.38 5136,-2523.26 4909.77,-2247.8 5049.91,-1753.51 5100.88,-1633.2"/>
 <polygon fill="black" stroke="black" points="5104.12,-1634.51 5104.95,-1623.95 5097.72,-1631.69 5104.12,-1634.51"/>
 </g>
 <!-- output_file_prefix_somatic&#45;&gt;run_dragen_qc_step -->
-<g id="edge112" class="edge">
+<g id="edge111" class="edge">
 <title>output_file_prefix_somatic&#45;&gt;run_dragen_qc_step</title>
 <path fill="none" stroke="black" d="M8817.99,-3421.7C8796.69,-3411.52 8768.73,-3399.02 8743,-3390.26 7189.52,-2861.54 6195.5,-3791.38 5154,-2523.26 4927.99,-2248.08 5067.63,-1754.5 5106.75,-1633.56"/>
 <polygon fill="black" stroke="black" points="5110.11,-1634.55 5109.9,-1623.95 5103.46,-1632.36 5110.11,-1634.55"/>
 </g>
 <!-- output_file_prefix_somatic&#45;&gt;run_dragen_qc_step -->
-<g id="edge113" class="edge">
+<g id="edge112" class="edge">
 <title>output_file_prefix_somatic&#45;&gt;run_dragen_qc_step</title>
 <path fill="none" stroke="black" d="M8833.63,-3421.7C8814.69,-3411.52 8786.73,-3399.02 8761,-3390.26 7207.52,-2861.54 6213.5,-3791.38 5172,-2523.26 4946.22,-2248.35 5085.35,-1755.49 5112.69,-1633.93"/>
 <polygon fill="black" stroke="black" points="5116.15,-1634.47 5114.84,-1623.95 5109.31,-1632.99 5116.15,-1634.47"/>
+</g>
+<!-- output_file_prefix_somatic&#45;&gt;run_dragen_somatic_step -->
+<g id="edge113" class="edge">
+<title>output_file_prefix_somatic&#45;&gt;run_dragen_somatic_step</title>
+<path fill="none" stroke="black" d="M8834.09,-3421.44C8711.57,-3305.97 8030.85,-2664.4 7888.21,-2529.97"/>
+<polygon fill="black" stroke="black" points="7890.39,-2527.21 7880.71,-2522.89 7885.59,-2532.3 7890.39,-2527.21"/>
 </g>
 <!-- cnv_normal_b_allele_vcf -->
 <g id="node52" class="node">
@@ -1471,83 +1471,83 @@
 <polygon fill="#94ddf4" stroke="black" points="6880,-686.76 6880,-723.76 7008,-723.76 7008,-686.76 6880,-686.76"/>
 <text text-anchor="middle" x="6944" y="-701.56" font-family="Times,serif" font-size="14.00">tumor_bam_out</text>
 </g>
-<!-- run_dragen_somatic_step&#45;&gt;dragen_somatic_output_directory -->
-<g id="edge2" class="edge">
-<title>run_dragen_somatic_step&#45;&gt;dragen_somatic_output_directory</title>
-<path fill="none" stroke="black" d="M7854.99,-2485.48C7787.13,-2313.24 7247.49,-943.56 7164.66,-733.31"/>
-<polygon fill="black" stroke="black" points="7167.88,-731.94 7160.96,-723.92 7161.37,-734.51 7167.88,-731.94"/>
-</g>
-<!-- run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_hard_filtered_out -->
-<g id="edge3" class="edge">
-<title>run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_hard_filtered_out</title>
-<path fill="none" stroke="black" d="M7857.72,-2485.48C7816.36,-2313.41 7487.7,-946.27 7436.65,-733.93"/>
-<polygon fill="black" stroke="black" points="7439.99,-732.82 7434.24,-723.92 7433.18,-734.46 7439.99,-732.82"/>
-</g>
-<!-- run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_out -->
-<g id="edge4" class="edge">
-<title>run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_out</title>
-<path fill="none" stroke="black" d="M7859.99,-2485.48C7840.55,-2313.41 7686.11,-946.27 7662.13,-733.93"/>
-<polygon fill="black" stroke="black" points="7665.6,-733.46 7660.99,-723.92 7658.64,-734.25 7665.6,-733.46"/>
-</g>
-<!-- run_dragen_somatic_step&#45;&gt;somatic_structural_vcf_out -->
-<g id="edge5" class="edge">
-<title>run_dragen_somatic_step&#45;&gt;somatic_structural_vcf_out</title>
-<path fill="none" stroke="black" d="M7862,-2485.48C7862,-2313.41 7862,-946.27 7862,-733.93"/>
-<polygon fill="black" stroke="black" points="7865.5,-733.92 7862,-723.92 7858.5,-733.92 7865.5,-733.92"/>
-</g>
-<!-- run_dragen_somatic_step&#45;&gt;tumor_bam_out -->
-<g id="edge6" class="edge">
-<title>run_dragen_somatic_step&#45;&gt;tumor_bam_out</title>
-<path fill="none" stroke="black" d="M7852.91,-2485.48C7764.88,-2313.15 7064.53,-942.2 6957.66,-732.99"/>
-<polygon fill="black" stroke="black" points="6960.69,-731.23 6953.02,-723.92 6954.45,-734.42 6960.69,-731.23"/>
-</g>
-<!-- run_dragen_somatic_step&#45;&gt;run_dragen_qc_step -->
-<g id="edge1" class="edge">
-<title>run_dragen_somatic_step&#45;&gt;run_dragen_qc_step</title>
-<path fill="none" stroke="black" d="M7808.38,-2485.75C7462.83,-2372.87 5552.49,-1748.84 5179.25,-1626.92"/>
-<polygon fill="black" stroke="black" points="5180.28,-1623.58 5169.68,-1623.8 5178.1,-1630.23 5180.28,-1623.58"/>
-</g>
-<!-- run_dragen_qc_step&#45;&gt;multiqc_output_directory -->
-<g id="edge7" class="edge">
-<title>run_dragen_qc_step&#45;&gt;multiqc_output_directory</title>
-<path fill="none" stroke="black" d="M5148.16,-1586.73C5354.44,-1474.25 6490.45,-854.86 6721.85,-728.7"/>
-<polygon fill="black" stroke="black" points="6723.53,-731.77 6730.63,-723.91 6720.18,-725.62 6723.53,-731.77"/>
-</g>
-<!-- run_dragen_germline_step&#45;&gt;dragen_germline_output_directory -->
-<g id="edge9" class="edge">
-<title>run_dragen_germline_step&#45;&gt;dragen_germline_output_directory</title>
-<path fill="none" stroke="black" d="M4937.08,-2485.59C4911.02,-2388.14 4796.4,-1909.12 4966,-1586.26 5227.02,-1089.37 5909.44,-803.89 6114.73,-727.32"/>
-<polygon fill="black" stroke="black" points="6115.98,-730.59 6124.15,-723.83 6113.55,-724.03 6115.98,-730.59"/>
-</g>
-<!-- run_dragen_germline_step&#45;&gt;germline_snv_vcf_out -->
-<g id="edge10" class="edge">
-<title>run_dragen_germline_step&#45;&gt;germline_snv_vcf_out</title>
-<path fill="none" stroke="black" d="M4937.74,-2485.6C4915.02,-2387.23 4816.12,-1900.13 5004,-1586.26 5320.76,-1057.08 6091.61,-797.24 6334.45,-726.6"/>
-<polygon fill="black" stroke="black" points="6335.61,-729.91 6344.25,-723.77 6333.67,-723.18 6335.61,-729.91"/>
-</g>
-<!-- run_dragen_germline_step&#45;&gt;normal_bam_out -->
-<g id="edge11" class="edge">
-<title>run_dragen_germline_step&#45;&gt;normal_bam_out</title>
-<path fill="none" stroke="black" d="M4938.42,-2485.71C4919.29,-2386.94 4837.25,-1893.93 5038,-1586.26 5228.12,-1294.88 6282.25,-832.67 6527.85,-727.87"/>
-<polygon fill="black" stroke="black" points="6529.43,-731 6537.25,-723.86 6526.68,-724.56 6529.43,-731"/>
-</g>
-<!-- run_dragen_germline_step&#45;&gt;run_dragen_qc_step -->
-<g id="edge8" class="edge">
-<title>run_dragen_germline_step&#45;&gt;run_dragen_qc_step</title>
-<path fill="none" stroke="black" d="M4945.4,-2485.75C4966.9,-2374.9 5084.02,-1771.14 5110.62,-1633.99"/>
-<polygon fill="black" stroke="black" points="5114.11,-1634.37 5112.58,-1623.89 5107.24,-1633.04 5114.11,-1634.37"/>
-</g>
 <!-- create_dummy_file_step -->
-<g id="node103" class="node">
+<g id="node100" class="node">
 <title>create_dummy_file_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="5162.5,-2485.76 5162.5,-2522.76 5423.5,-2522.76 5423.5,-2485.76 5162.5,-2485.76"/>
 <text text-anchor="middle" x="5293" y="-2500.56" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </g>
 <!-- create_dummy_file_step&#45;&gt;run_dragen_qc_step -->
-<g id="edge12" class="edge">
+<g id="edge1" class="edge">
 <title>create_dummy_file_step&#45;&gt;run_dragen_qc_step</title>
 <path fill="none" stroke="black" d="M5289.54,-2485.75C5267.67,-2374.9 5148.53,-1771.14 5121.47,-1633.99"/>
 <polygon fill="black" stroke="black" points="5124.85,-1633.02 5119.48,-1623.89 5117.98,-1634.38 5124.85,-1633.02"/>
+</g>
+<!-- run_dragen_qc_step&#45;&gt;multiqc_output_directory -->
+<g id="edge2" class="edge">
+<title>run_dragen_qc_step&#45;&gt;multiqc_output_directory</title>
+<path fill="none" stroke="black" d="M5148.16,-1586.73C5354.44,-1474.25 6490.45,-854.86 6721.85,-728.7"/>
+<polygon fill="black" stroke="black" points="6723.53,-731.77 6730.63,-723.91 6720.18,-725.62 6723.53,-731.77"/>
+</g>
+<!-- run_dragen_germline_step&#45;&gt;dragen_germline_output_directory -->
+<g id="edge4" class="edge">
+<title>run_dragen_germline_step&#45;&gt;dragen_germline_output_directory</title>
+<path fill="none" stroke="black" d="M4937.08,-2485.59C4911.02,-2388.14 4796.4,-1909.12 4966,-1586.26 5227.02,-1089.37 5909.44,-803.89 6114.73,-727.32"/>
+<polygon fill="black" stroke="black" points="6115.98,-730.59 6124.15,-723.83 6113.55,-724.03 6115.98,-730.59"/>
+</g>
+<!-- run_dragen_germline_step&#45;&gt;germline_snv_vcf_out -->
+<g id="edge5" class="edge">
+<title>run_dragen_germline_step&#45;&gt;germline_snv_vcf_out</title>
+<path fill="none" stroke="black" d="M4937.74,-2485.6C4915.02,-2387.23 4816.12,-1900.13 5004,-1586.26 5320.76,-1057.08 6091.61,-797.24 6334.45,-726.6"/>
+<polygon fill="black" stroke="black" points="6335.61,-729.91 6344.25,-723.77 6333.67,-723.18 6335.61,-729.91"/>
+</g>
+<!-- run_dragen_germline_step&#45;&gt;normal_bam_out -->
+<g id="edge6" class="edge">
+<title>run_dragen_germline_step&#45;&gt;normal_bam_out</title>
+<path fill="none" stroke="black" d="M4938.42,-2485.71C4919.29,-2386.94 4837.25,-1893.93 5038,-1586.26 5228.12,-1294.88 6282.25,-832.67 6527.85,-727.87"/>
+<polygon fill="black" stroke="black" points="6529.43,-731 6537.25,-723.86 6526.68,-724.56 6529.43,-731"/>
+</g>
+<!-- run_dragen_germline_step&#45;&gt;run_dragen_qc_step -->
+<g id="edge3" class="edge">
+<title>run_dragen_germline_step&#45;&gt;run_dragen_qc_step</title>
+<path fill="none" stroke="black" d="M4945.4,-2485.75C4966.9,-2374.9 5084.02,-1771.14 5110.62,-1633.99"/>
+<polygon fill="black" stroke="black" points="5114.11,-1634.37 5112.58,-1623.89 5107.24,-1633.04 5114.11,-1634.37"/>
+</g>
+<!-- run_dragen_somatic_step&#45;&gt;dragen_somatic_output_directory -->
+<g id="edge8" class="edge">
+<title>run_dragen_somatic_step&#45;&gt;dragen_somatic_output_directory</title>
+<path fill="none" stroke="black" d="M7854.99,-2485.48C7787.13,-2313.24 7247.49,-943.56 7164.66,-733.31"/>
+<polygon fill="black" stroke="black" points="7167.88,-731.94 7160.96,-723.92 7161.37,-734.51 7167.88,-731.94"/>
+</g>
+<!-- run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_hard_filtered_out -->
+<g id="edge9" class="edge">
+<title>run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_hard_filtered_out</title>
+<path fill="none" stroke="black" d="M7857.72,-2485.48C7816.36,-2313.41 7487.7,-946.27 7436.65,-733.93"/>
+<polygon fill="black" stroke="black" points="7439.99,-732.82 7434.24,-723.92 7433.18,-734.46 7439.99,-732.82"/>
+</g>
+<!-- run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_out -->
+<g id="edge10" class="edge">
+<title>run_dragen_somatic_step&#45;&gt;somatic_snv_vcf_out</title>
+<path fill="none" stroke="black" d="M7859.99,-2485.48C7840.55,-2313.41 7686.11,-946.27 7662.13,-733.93"/>
+<polygon fill="black" stroke="black" points="7665.6,-733.46 7660.99,-723.92 7658.64,-734.25 7665.6,-733.46"/>
+</g>
+<!-- run_dragen_somatic_step&#45;&gt;somatic_structural_vcf_out -->
+<g id="edge11" class="edge">
+<title>run_dragen_somatic_step&#45;&gt;somatic_structural_vcf_out</title>
+<path fill="none" stroke="black" d="M7862,-2485.48C7862,-2313.41 7862,-946.27 7862,-733.93"/>
+<polygon fill="black" stroke="black" points="7865.5,-733.92 7862,-723.92 7858.5,-733.92 7865.5,-733.92"/>
+</g>
+<!-- run_dragen_somatic_step&#45;&gt;tumor_bam_out -->
+<g id="edge12" class="edge">
+<title>run_dragen_somatic_step&#45;&gt;tumor_bam_out</title>
+<path fill="none" stroke="black" d="M7852.91,-2485.48C7764.88,-2313.15 7064.53,-942.2 6957.66,-732.99"/>
+<polygon fill="black" stroke="black" points="6960.69,-731.23 6953.02,-723.92 6954.45,-734.42 6960.69,-731.23"/>
+</g>
+<!-- run_dragen_somatic_step&#45;&gt;run_dragen_qc_step -->
+<g id="edge7" class="edge">
+<title>run_dragen_somatic_step&#45;&gt;run_dragen_qc_step</title>
+<path fill="none" stroke="black" d="M7808.38,-2485.75C7462.83,-2372.87 5552.49,-1748.84 5179.25,-1626.92"/>
+<polygon fill="black" stroke="black" points="5180.28,-1623.58 5169.68,-1623.8 5178.1,-1630.23 5180.28,-1623.58"/>
 </g>
 <!-- \n -->
 <g id="node104" class="node">

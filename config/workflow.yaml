@@ -22,10 +22,10 @@ workflows:
         md5sum: 77403579ba50402bd6a8c2dc8219fcd1
       - name: 3.9.3
         path: 3.9.3/dragen-germline-pipeline__3.9.3.cwl
-        md5sum: d1f20740a83cddc9f4d4039f409ed3a5
+        md5sum: 8b017ba4dae2cb1137b80644b47f566e
       - name: 4.0.3
         path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
-        md5sum: 2b59f6f3edc270524a3987c54d899ef3
+        md5sum: 514263991432fc43c0732bbc62205719
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -48,7 +48,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/bcl-conversion__3.7.5.cwl
-        md5sum: 020851ea2f37d42c57186f7db6794b57
+        md5sum: 6e338b92ae3ef8267361a7c066998464
     categories: []
   - name: dragen-somatic-pipeline
     path: dragen-somatic-pipeline
@@ -58,10 +58,10 @@ workflows:
         md5sum: fa6900b85cdcff25ac5fc5bf436fe1f8
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-pipeline__3.9.3.cwl
-        md5sum: 833d7c6cc97a9f3f7d3ab65fdb838934
+        md5sum: b40e0e4027e623a8e218effbc64f014f
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
-        md5sum: c91aec8bf871d65cd3a4b090e283ac80
+        md5sum: cc640dea0278ad17f65f72b7dcd094b1
     categories:
       - dragen
       - variant-calling
@@ -76,10 +76,10 @@ workflows:
         md5sum: a9f114ec0ddf31225eea520fab8d2ce6
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
-        md5sum: 038d3874e34e619632ac04e10dd0b580
+        md5sum: 77e0f99b2dfb47c694fc590151c89c7c
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
-        md5sum: 2d69825d4bb58c6979604898a194674f
+        md5sum: 15e0d5df3625ed1db6e00cd4ee270540
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -89,10 +89,10 @@ workflows:
         md5sum: 6baa58169de4b6e69053bbe1e645ecdb
       - name: 3.9.3
         path: 3.9.3/dragen-alignment-pipeline__3.9.3.cwl
-        md5sum: e550b6cbbca7a8bc9a86a47ecafc6498
+        md5sum: 90ad86ba83eabf9b83bcc16546bcd222
       - name: 4.0.3
         path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
-        md5sum: c84335fca1cbf8663088a9b52422ef2b
+        md5sum: 9776652b03e6b4262d9407707e7f4b3c
     categories:
       - alignment
       - dragen
@@ -104,7 +104,7 @@ workflows:
         md5sum: 5a2b1e0e75d91384e7946fec0c173941
       - name: 3.9.3
         path: 3.9.3/dragen-wgs-qc-pipeline__3.9.3.cwl
-        md5sum: dffd8f18cd8d42ee5569ae9a4ea9eab2
+        md5sum: 8670d756cb23913d33b9cbaaec15879f
     categories:
       - dragen
   - name: tso500-ctdna-post-processing-pipeline
@@ -112,7 +112,7 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
-        md5sum: 83899f9a2e2a52fcf57f9011d9437391
+        md5sum: acaa9ef002be899cda9477c9b8ccee34
     categories:
       - tso500
   - name: umccrise-pipeline
@@ -136,7 +136,7 @@ workflows:
     versions:
       - name: 1.1.0--1.0.0
         path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
-        md5sum: 3f47af849d2eee40ee98c60424548d2f
+        md5sum: 9367ebf24b6171d0b6f79e2aa58433bc
     categories:
       - tso500
   - name: umccrise-with-dragen-germline-pipeline
@@ -144,25 +144,25 @@ workflows:
     versions:
       - name: 2.0.0--3.9.3
         path: 2.0.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.0--3.9.3.cwl
-        md5sum: 8ad1fa2fcc6b69f907ae84da8117fad2
+        md5sum: aea5baf06d980741ddd3411481924664
       - name: 2.0.1--3.9.3
         path: 2.0.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.1--3.9.3.cwl
-        md5sum: 32d1441f7f808287d12cf17657f248d7
+        md5sum: df2975bb5f0b12d8760757b121408fc5
       - name: 2.0.2--3.9.3
         path: 2.0.2--3.9.3/umccrise-with-dragen-germline-pipeline__2.0.2--3.9.3.cwl
-        md5sum: 43a44d4cb84c3a6b39fb86602da4e6ea
+        md5sum: 0d12236b8b49c4b29a6b5f3565c5c7bc
       - name: 2.1.0--3.9.3
         path: 2.1.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.0--3.9.3.cwl
-        md5sum: 55dd979524c5b7f58ea3a76e714dfbd8
+        md5sum: 6e336935eedf40f065b542c6a98e67c3
       - name: 2.1.1--3.9.3
         path: 2.1.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.1.1--3.9.3.cwl
-        md5sum: e64b7b40e1d4cc484a3bb7abe711d9b5
+        md5sum: be349a39b3da4cf2facfed2b70ce90ec
       - name: 2.2.0--3.9.3
         path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
-        md5sum: f41e43451bb74816b18e0b93fe9981ed
+        md5sum: fee63a2d495c801b6ba1b88e5fc32173
       - name: 2.2.1--3.9.3
         path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
-        md5sum: 7c511793c6a139064dcf3fb07e6aaf18
+        md5sum: 9080034ffc1a02990e4eaffb45f556d6
     categories: []
   - name: ghif-qc
     path: ghif-qc
@@ -200,7 +200,7 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
-        md5sum: 8feb3e4778e1a302d40101e938806e5f
+        md5sum: 076bfc713ff5bf98ee639b1739b1efa4
     categories: []
   - name: bclconvert
     path: bclconvert
@@ -228,17 +228,17 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
-        md5sum: 18257926d6f3eeacd8c0f74841a50445
+        md5sum: 667fba85244ebf3630418f633324cda6
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
-        md5sum: e2a4cf4d8cff6185820369c47e2ae2e5
+        md5sum: 17ff59071859dd5aae1eddf03d52e758
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc
     versions:
       - name: 1.2.0--1.14.0
         path: 1.2.0--1.14.0/illumina-interop-qc__1.2.0--1.14.0.cwl
-        md5sum: 0ce252fa8165d4afd7242b37a2f2540c
+        md5sum: ec64f42859ab41764fa82b8806772767
     categories: []
   - name: rnasum-pipeline
     path: rnasum-pipeline

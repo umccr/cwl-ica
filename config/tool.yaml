@@ -149,7 +149,7 @@ tools:
         md5sum: 6c58f7dc6295b75ad6231267ee77bbc5
       - name: 1.14.0--1.2.0
         path: 1.14.0--1.2.0/multiqc-interop__1.14.0--1.2.0.cwl
-        md5sum: 461c52b5d3d389ce2bf532622fc4c341
+        md5sum: 51124a92668705d8417ad48cc52eb6f8
     categories: []
   - name: dragen-somatic
     path: dragen-somatic
@@ -214,7 +214,7 @@ tools:
         md5sum: e0b47899b72228c48907da94c3f798b3
       - name: 1.14.0
         path: 1.14.0/multiqc__1.14.0.cwl
-        md5sum: 72b0c0635d8da1e882718a612dce2440
+        md5sum: 2d583d96391f5bafbf49a69c14b557f3
     categories:
       - qc
       - visual

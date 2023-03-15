@@ -16,8 +16,8 @@
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_outputs</title>
-<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="1378,-21.03 1378,-223.42 2315,-223.42 2315,-21.03 1378,-21.03"/>
-<text text-anchor="middle" x="2242.5" y="-28.83" font-family="Times,serif" font-size="14.00">Workflow Outputs</text>
+<polygon fill="#eeeeee" stroke="black" stroke-dasharray="5,2" points="1487,-21.03 1487,-223.42 2424,-223.42 2424,-21.03 1487,-21.03"/>
+<text text-anchor="middle" x="2351.5" y="-28.83" font-family="Times,serif" font-size="14.00">Workflow Outputs</text>
 </g>
 <!-- bcl_input_directory -->
 <g id="node1" class="node">
@@ -28,14 +28,14 @@
 <!-- bcl_convert_step -->
 <g id="node20" class="node">
 <title>bcl_convert_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="1716,-522.53 1716,-559.53 1870,-559.53 1870,-522.53 1716,-522.53"/>
-<text text-anchor="middle" x="1793" y="-537.33" font-family="Times,serif" font-size="14.00">bclConvert v(3.7.5)</text>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1441,-522.53 1441,-559.53 1595,-559.53 1595,-522.53 1441,-522.53"/>
+<text text-anchor="middle" x="1518" y="-537.33" font-family="Times,serif" font-size="14.00">bclConvert v(3.7.5)</text>
 </g>
 <!-- bcl_input_directory&#45;&gt;bcl_convert_step -->
 <g id="edge14" class="edge">
 <title>bcl_input_directory&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M2450.71,-1114.37C2353.24,-1029.55 1933.19,-664.02 1820.77,-566.19"/>
-<polygon fill="black" stroke="black" points="1823.05,-563.54 1813.21,-559.62 1818.46,-568.82 1823.05,-563.54"/>
+<path fill="none" stroke="black" d="M2446.2,-1114.36C2362.99,-1055.34 2085.41,-860.61 1845,-717.03 1746.21,-658.02 1625.99,-596.12 1562.41,-564.12"/>
+<polygon fill="black" stroke="black" points="1563.95,-560.98 1553.44,-559.61 1560.81,-567.23 1563.95,-560.98"/>
 </g>
 <!-- interop_qc_step -->
 <g id="node25" class="node">
@@ -52,62 +52,62 @@
 <!-- bcl_only_lane_bcl_conversion -->
 <g id="node2" class="node">
 <title>bcl_only_lane_bcl_conversion</title>
-<polygon fill="#94ddf4" stroke="black" points="2152.5,-1114.53 2152.5,-1151.53 2375.5,-1151.53 2375.5,-1114.53 2152.5,-1114.53"/>
-<text text-anchor="middle" x="2264" y="-1129.33" font-family="Times,serif" font-size="14.00">bcl_only_lane_bcl_conversion</text>
+<polygon fill="#94ddf4" stroke="black" points="15.5,-1114.53 15.5,-1151.53 238.5,-1151.53 238.5,-1114.53 15.5,-1114.53"/>
+<text text-anchor="middle" x="127" y="-1129.33" font-family="Times,serif" font-size="14.00">bcl_only_lane_bcl_conversion</text>
 </g>
 <!-- bcl_only_lane_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge16" class="edge">
 <title>bcl_only_lane_bcl_conversion&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M2249.9,-1114.37C2182.53,-1029.97 1893.3,-667.67 1813.48,-567.68"/>
-<polygon fill="black" stroke="black" points="1816.02,-565.25 1807.04,-559.62 1810.54,-569.62 1816.02,-565.25"/>
+<path fill="none" stroke="black" d="M168.63,-1114.37C370.41,-1028.79 1245.94,-657.42 1467.11,-563.61"/>
+<polygon fill="black" stroke="black" points="1468.69,-566.74 1476.53,-559.62 1465.96,-560.3 1468.69,-566.74"/>
 </g>
 <!-- bcl_sampleproject_subdirectories_bcl_conversion -->
 <g id="node3" class="node">
 <title>bcl_sampleproject_subdirectories_bcl_conversion</title>
-<polygon fill="#94ddf4" stroke="black" points="16.5,-1114.53 16.5,-1151.53 383.5,-1151.53 383.5,-1114.53 16.5,-1114.53"/>
-<text text-anchor="middle" x="200" y="-1129.33" font-family="Times,serif" font-size="14.00">bcl_sampleproject_subdirectories_bcl_conversion</text>
+<polygon fill="#94ddf4" stroke="black" points="729.5,-1114.53 729.5,-1151.53 1096.5,-1151.53 1096.5,-1114.53 729.5,-1114.53"/>
+<text text-anchor="middle" x="913" y="-1129.33" font-family="Times,serif" font-size="14.00">bcl_sampleproject_subdirectories_bcl_conversion</text>
 </g>
 <!-- bcl_sampleproject_subdirectories_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge17" class="edge">
 <title>bcl_sampleproject_subdirectories_bcl_conversion&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M247.68,-1114.37C479.1,-1028.66 1484.42,-656.32 1735.84,-563.2"/>
-<polygon fill="black" stroke="black" points="1737.35,-566.37 1745.51,-559.62 1734.92,-559.81 1737.35,-566.37"/>
+<path fill="none" stroke="black" d="M931.11,-1114.37C1017.91,-1029.72 1391.4,-665.49 1492.62,-566.78"/>
+<polygon fill="black" stroke="black" points="1495.25,-569.1 1499.96,-559.62 1490.36,-564.09 1495.25,-569.1"/>
 </g>
 <!-- delete_undetermined_indices_bcl_conversion -->
 <g id="node4" class="node">
 <title>delete_undetermined_indices_bcl_conversion</title>
-<polygon fill="#94ddf4" stroke="black" points="1325.5,-1114.53 1325.5,-1151.53 1662.5,-1151.53 1662.5,-1114.53 1325.5,-1114.53"/>
-<text text-anchor="middle" x="1494" y="-1129.33" font-family="Times,serif" font-size="14.00">delete_undetermined_indices_bcl_conversion</text>
+<polygon fill="#94ddf4" stroke="black" points="1114.5,-1114.53 1114.5,-1151.53 1451.5,-1151.53 1451.5,-1114.53 1114.5,-1114.53"/>
+<text text-anchor="middle" x="1283" y="-1129.33" font-family="Times,serif" font-size="14.00">delete_undetermined_indices_bcl_conversion</text>
 </g>
 <!-- delete_undetermined_indices_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge18" class="edge">
 <title>delete_undetermined_indices_bcl_conversion&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M1504.96,-1114.4C1537.75,-1061.29 1637.08,-897.69 1706,-755.03 1737.48,-689.87 1767.97,-610.27 1783.11,-569.3"/>
-<polygon fill="black" stroke="black" points="1786.46,-570.34 1786.62,-559.74 1779.88,-567.92 1786.46,-570.34"/>
+<path fill="none" stroke="black" d="M1290.03,-1114.37C1323.48,-1030.4 1466.51,-671.31 1507.18,-569.21"/>
+<polygon fill="black" stroke="black" points="1510.55,-570.2 1510.99,-559.62 1504.04,-567.61 1510.55,-570.2"/>
 </g>
 <!-- first_tile_only_bcl_conversion -->
 <g id="node5" class="node">
 <title>first_tile_only_bcl_conversion</title>
-<polygon fill="#94ddf4" stroke="black" points="1681,-1114.53 1681,-1151.53 1905,-1151.53 1905,-1114.53 1681,-1114.53"/>
-<text text-anchor="middle" x="1793" y="-1129.33" font-family="Times,serif" font-size="14.00">first_tile_only_bcl_conversion</text>
+<polygon fill="#94ddf4" stroke="black" points="257,-1114.53 257,-1151.53 481,-1151.53 481,-1114.53 257,-1114.53"/>
+<text text-anchor="middle" x="369" y="-1129.33" font-family="Times,serif" font-size="14.00">first_tile_only_bcl_conversion</text>
 </g>
 <!-- first_tile_only_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge19" class="edge">
 <title>first_tile_only_bcl_conversion&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M1793,-1114.37C1793,-1030.57 1793,-672.76 1793,-569.83"/>
-<polygon fill="black" stroke="black" points="1796.5,-569.62 1793,-559.62 1789.5,-569.62 1796.5,-569.62"/>
+<path fill="none" stroke="black" d="M403.39,-1114.37C569.65,-1029 1289.69,-659.26 1474.59,-564.32"/>
+<polygon fill="black" stroke="black" points="1476.45,-567.3 1483.75,-559.62 1473.25,-561.07 1476.45,-567.3"/>
 </g>
 <!-- strict_mode_bcl_conversion -->
 <g id="node6" class="node">
 <title>strict_mode_bcl_conversion</title>
-<polygon fill="#94ddf4" stroke="black" points="1923,-1114.53 1923,-1151.53 2135,-1151.53 2135,-1114.53 1923,-1114.53"/>
-<text text-anchor="middle" x="2029" y="-1129.33" font-family="Times,serif" font-size="14.00">strict_mode_bcl_conversion</text>
+<polygon fill="#94ddf4" stroke="black" points="499,-1114.53 499,-1151.53 711,-1151.53 711,-1114.53 499,-1114.53"/>
+<text text-anchor="middle" x="605" y="-1129.33" font-family="Times,serif" font-size="14.00">strict_mode_bcl_conversion</text>
 </g>
 <!-- strict_mode_bcl_conversion&#45;&gt;bcl_convert_step -->
 <g id="edge20" class="edge">
 <title>strict_mode_bcl_conversion&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M2021.94,-1114.37C1988.35,-1030.4 1844.71,-671.31 1803.87,-569.21"/>
-<polygon fill="black" stroke="black" points="1807,-567.6 1800.04,-559.62 1800.5,-570.2 1807,-567.6"/>
+<path fill="none" stroke="black" d="M632.32,-1114.37C763.97,-1029.3 1332.61,-661.83 1481.96,-565.32"/>
+<polygon fill="black" stroke="black" points="1484.28,-567.98 1490.78,-559.62 1480.48,-562.1 1484.28,-567.98"/>
 </g>
 <!-- runfolder_name -->
 <g id="node7" class="node">
@@ -116,7 +116,7 @@
 <text text-anchor="middle" x="2631" y="-1129.33" font-family="Times,serif" font-size="14.00">runfolder_name</text>
 </g>
 <!-- bclconvert_qc_step -->
-<g id="node22" class="node">
+<g id="node21" class="node">
 <title>bclconvert_qc_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="2395.5,-328.53 2395.5,-365.53 2534.5,-365.53 2534.5,-328.53 2395.5,-328.53"/>
 <text text-anchor="middle" x="2465" y="-343.33" font-family="Times,serif" font-size="14.00">multiqc v(1.14.0)</text>
@@ -160,176 +160,176 @@
 <!-- ignore_missing_samples -->
 <g id="node8" class="node">
 <title>ignore_missing_samples</title>
-<polygon fill="#94ddf4" stroke="black" points="577,-1114.53 577,-1151.53 767,-1151.53 767,-1114.53 577,-1114.53"/>
-<text text-anchor="middle" x="672" y="-1129.33" font-family="Times,serif" font-size="14.00">ignore_missing_samples</text>
+<polygon fill="#94ddf4" stroke="black" points="1470,-1114.53 1470,-1151.53 1660,-1151.53 1660,-1114.53 1470,-1114.53"/>
+<text text-anchor="middle" x="1565" y="-1129.33" font-family="Times,serif" font-size="14.00">ignore_missing_samples</text>
 </g>
 <!-- samplesheet_split_by_settings_step -->
-<g id="node19" class="node">
+<g id="node23" class="node">
 <title>samplesheet_split_by_settings_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="1083,-911.53 1083,-948.53 1425,-948.53 1425,-911.53 1083,-911.53"/>
-<text text-anchor="middle" x="1254" y="-926.33" font-family="Times,serif" font-size="14.00">custom&#45;samplesheet&#45;split&#45;by&#45;settings v(1.0.0)</text>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1693,-911.53 1693,-948.53 2035,-948.53 2035,-911.53 1693,-911.53"/>
+<text text-anchor="middle" x="1864" y="-926.33" font-family="Times,serif" font-size="14.00">custom&#45;samplesheet&#45;split&#45;by&#45;settings v(1.0.0)</text>
 </g>
 <!-- ignore_missing_samples&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge27" class="edge">
 <title>ignore_missing_samples&#45;&gt;samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="black" d="M706.64,-1114.3C726.63,-1104.42 752.4,-1092.29 776,-1083.03 916.14,-1028.01 1084.99,-977.98 1179.87,-951.3"/>
-<polygon fill="black" stroke="black" points="1180.98,-954.62 1189.66,-948.55 1179.09,-947.88 1180.98,-954.62"/>
+<path fill="none" stroke="black" d="M1591.27,-1114.37C1645.33,-1078.03 1769,-994.89 1829.45,-954.25"/>
+<polygon fill="black" stroke="black" points="1831.55,-957.06 1837.89,-948.58 1827.64,-951.25 1831.55,-957.06"/>
 </g>
 <!-- samplesheet_outdir -->
 <g id="node9" class="node">
 <title>samplesheet_outdir</title>
-<polygon fill="#94ddf4" stroke="black" points="401.5,-1114.53 401.5,-1151.53 558.5,-1151.53 558.5,-1114.53 401.5,-1114.53"/>
-<text text-anchor="middle" x="480" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet_outdir</text>
+<polygon fill="#94ddf4" stroke="black" points="2218.5,-1114.53 2218.5,-1151.53 2375.5,-1151.53 2375.5,-1114.53 2218.5,-1114.53"/>
+<text text-anchor="middle" x="2297" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet_outdir</text>
 </g>
 <!-- samplesheet_outdir&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge28" class="edge">
 <title>samplesheet_outdir&#45;&gt;samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="black" d="M506.75,-1114.45C523.7,-1104 546.42,-1091.23 568,-1083.03 749.94,-1013.91 971.55,-971.91 1112.71,-950.07"/>
-<polygon fill="black" stroke="black" points="1113.38,-953.5 1122.74,-948.53 1112.32,-946.59 1113.38,-953.5"/>
+<path fill="none" stroke="black" d="M2267.6,-1114.51C2250.92,-1104.81 2229.54,-1092.79 2210,-1083.03 2108.26,-1032.19 1985.66,-980.5 1917.1,-952.43"/>
+<polygon fill="black" stroke="black" points="1918.37,-949.17 1907.79,-948.63 1915.72,-955.65 1918.37,-949.17"/>
 </g>
 <!-- samplesheet -->
 <g id="node10" class="node">
 <title>samplesheet</title>
-<polygon fill="#94ddf4" stroke="black" points="1200.5,-1114.53 1200.5,-1151.53 1307.5,-1151.53 1307.5,-1114.53 1200.5,-1114.53"/>
-<text text-anchor="middle" x="1254" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet</text>
+<polygon fill="#94ddf4" stroke="black" points="2093.5,-1114.53 2093.5,-1151.53 2200.5,-1151.53 2200.5,-1114.53 2093.5,-1114.53"/>
+<text text-anchor="middle" x="2147" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet</text>
 </g>
 <!-- samplesheet&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge29" class="edge">
 <title>samplesheet&#45;&gt;samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="black" d="M1254,-1114.19C1254,-1079.01 1254,-1000.48 1254,-958.59"/>
-<polygon fill="black" stroke="black" points="1257.5,-958.54 1254,-948.54 1250.5,-958.54 1257.5,-958.54"/>
+<path fill="none" stroke="black" d="M2125.47,-1114.44C2113.66,-1104.94 2098.69,-1093.13 2085,-1083.03 2020.71,-1035.6 1943.34,-983.47 1899.29,-954.25"/>
+<polygon fill="black" stroke="black" points="1901.2,-951.32 1890.93,-948.72 1897.34,-957.16 1901.2,-951.32"/>
 </g>
 <!-- samplesheet_output_format -->
 <g id="node11" class="node">
 <title>samplesheet_output_format</title>
-<polygon fill="#94ddf4" stroke="black" points="967.5,-1114.53 967.5,-1151.53 1182.5,-1151.53 1182.5,-1114.53 967.5,-1114.53"/>
-<text text-anchor="middle" x="1075" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet_output_format</text>
+<polygon fill="#94ddf4" stroke="black" points="1860.5,-1114.53 1860.5,-1151.53 2075.5,-1151.53 2075.5,-1114.53 1860.5,-1114.53"/>
+<text text-anchor="middle" x="1968" y="-1129.33" font-family="Times,serif" font-size="14.00">samplesheet_output_format</text>
 </g>
 <!-- samplesheet_output_format&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge30" class="edge">
 <title>samplesheet_output_format&#45;&gt;samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="black" d="M1090.89,-1114.19C1122.81,-1078.34 1194.83,-997.47 1231.55,-956.23"/>
-<polygon fill="black" stroke="black" points="1234.37,-958.33 1238.41,-948.54 1229.14,-953.68 1234.37,-958.33"/>
+<path fill="none" stroke="black" d="M1958.77,-1114.19C1940.42,-1078.71 1899.25,-999.15 1877.71,-957.53"/>
+<polygon fill="black" stroke="black" points="1880.76,-955.81 1873.06,-948.54 1874.55,-959.03 1880.76,-955.81"/>
 </g>
 <!-- settings_by_samples -->
 <g id="node12" class="node">
 <title>settings_by_samples</title>
-<polygon fill="#94ddf4" stroke="black" points="785,-1114.53 785,-1151.53 949,-1151.53 949,-1114.53 785,-1114.53"/>
-<text text-anchor="middle" x="867" y="-1129.33" font-family="Times,serif" font-size="14.00">settings_by_samples</text>
+<polygon fill="#94ddf4" stroke="black" points="1678,-1114.53 1678,-1151.53 1842,-1151.53 1842,-1114.53 1678,-1114.53"/>
+<text text-anchor="middle" x="1760" y="-1129.33" font-family="Times,serif" font-size="14.00">settings_by_samples</text>
 </g>
 <!-- settings_by_samples&#45;&gt;samplesheet_split_by_settings_step -->
 <g id="edge31" class="edge">
 <title>settings_by_samples&#45;&gt;samplesheet_split_by_settings_step</title>
-<path fill="none" stroke="black" d="M899.73,-1114.46C917.27,-1105.07 939.28,-1093.36 959,-1083.03 1047.95,-1036.43 1152.53,-982.82 1210.22,-953.35"/>
-<polygon fill="black" stroke="black" points="1212.09,-956.33 1219.4,-948.66 1208.91,-950.09 1212.09,-956.33"/>
+<path fill="none" stroke="black" d="M1769.23,-1114.19C1787.58,-1078.71 1828.75,-999.15 1850.29,-957.53"/>
+<polygon fill="black" stroke="black" points="1853.45,-959.03 1854.94,-948.54 1847.24,-955.81 1853.45,-959.03"/>
 </g>
 <!-- bclconvert_multiqc_out -->
 <g id="node13" class="node">
 <title>bclconvert_multiqc_out</title>
-<polygon fill="#94ddf4" stroke="black" points="1948,-133.53 1948,-170.53 2130,-170.53 2130,-133.53 1948,-133.53"/>
-<text text-anchor="middle" x="2039" y="-148.33" font-family="Times,serif" font-size="14.00">bclconvert_multiqc_out</text>
+<polygon fill="#94ddf4" stroke="black" points="2057,-133.53 2057,-170.53 2239,-170.53 2239,-133.53 2057,-133.53"/>
+<text text-anchor="middle" x="2148" y="-148.33" font-family="Times,serif" font-size="14.00">bclconvert_multiqc_out</text>
 </g>
 <!-- fastq_directories -->
 <g id="node14" class="node">
 <title>fastq_directories</title>
-<polygon fill="#94ddf4" stroke="black" points="1651.5,-133.53 1651.5,-170.53 1788.5,-170.53 1788.5,-133.53 1651.5,-133.53"/>
-<text text-anchor="middle" x="1720" y="-148.33" font-family="Times,serif" font-size="14.00">fastq_directories</text>
+<polygon fill="#94ddf4" stroke="black" points="1495.5,-133.53 1495.5,-170.53 1632.5,-170.53 1632.5,-133.53 1495.5,-133.53"/>
+<text text-anchor="middle" x="1564" y="-148.33" font-family="Times,serif" font-size="14.00">fastq_directories</text>
 </g>
 <!-- fastq_list_rows -->
 <g id="node15" class="node">
 <title>fastq_list_rows</title>
-<polygon fill="#94ddf4" stroke="black" points="1806.5,-133.53 1806.5,-170.53 1929.5,-170.53 1929.5,-133.53 1806.5,-133.53"/>
-<text text-anchor="middle" x="1868" y="-148.33" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
+<polygon fill="#94ddf4" stroke="black" points="1650.5,-133.53 1650.5,-170.53 1773.5,-170.53 1773.5,-133.53 1650.5,-133.53"/>
+<text text-anchor="middle" x="1712" y="-148.33" font-family="Times,serif" font-size="14.00">fastq_list_rows</text>
 </g>
 <!-- interop_multiqc_out -->
 <g id="node16" class="node">
 <title>interop_multiqc_out</title>
-<polygon fill="#94ddf4" stroke="black" points="2148.5,-133.53 2148.5,-170.53 2307.5,-170.53 2307.5,-133.53 2148.5,-133.53"/>
-<text text-anchor="middle" x="2228" y="-148.33" font-family="Times,serif" font-size="14.00">interop_multiqc_out</text>
+<polygon fill="#94ddf4" stroke="black" points="2257.5,-133.53 2257.5,-170.53 2416.5,-170.53 2416.5,-133.53 2257.5,-133.53"/>
+<text text-anchor="middle" x="2337" y="-148.33" font-family="Times,serif" font-size="14.00">interop_multiqc_out</text>
 </g>
 <!-- split_sheets -->
 <g id="node17" class="node">
 <title>split_sheets</title>
-<polygon fill="#94ddf4" stroke="black" points="1532.5,-133.53 1532.5,-170.53 1633.5,-170.53 1633.5,-133.53 1532.5,-133.53"/>
-<text text-anchor="middle" x="1583" y="-148.33" font-family="Times,serif" font-size="14.00">split_sheets</text>
+<polygon fill="#94ddf4" stroke="black" points="1791.5,-133.53 1791.5,-170.53 1892.5,-170.53 1892.5,-133.53 1791.5,-133.53"/>
+<text text-anchor="middle" x="1842" y="-148.33" font-family="Times,serif" font-size="14.00">split_sheets</text>
 </g>
 <!-- split_sheets_dir -->
 <g id="node18" class="node">
 <title>split_sheets_dir</title>
-<polygon fill="#94ddf4" stroke="black" points="1386,-133.53 1386,-170.53 1514,-170.53 1514,-133.53 1386,-133.53"/>
-<text text-anchor="middle" x="1450" y="-148.33" font-family="Times,serif" font-size="14.00">split_sheets_dir</text>
-</g>
-<!-- samplesheet_split_by_settings_step&#45;&gt;split_sheets -->
-<g id="edge3" class="edge">
-<title>samplesheet_split_by_settings_step&#45;&gt;split_sheets</title>
-<path fill="none" stroke="black" d="M1261.49,-911.36C1304.42,-810.09 1519.2,-303.51 1571.5,-180.14"/>
-<polygon fill="black" stroke="black" points="1574.84,-181.24 1575.52,-170.67 1568.4,-178.51 1574.84,-181.24"/>
-</g>
-<!-- samplesheet_split_by_settings_step&#45;&gt;split_sheets_dir -->
-<g id="edge4" class="edge">
-<title>samplesheet_split_by_settings_step&#45;&gt;split_sheets_dir</title>
-<path fill="none" stroke="black" d="M1250.73,-911.33C1237.77,-836.67 1195.01,-541.4 1286,-328.03 1313.83,-262.77 1377.26,-206.86 1416.58,-176.76"/>
-<polygon fill="black" stroke="black" points="1418.69,-179.55 1424.58,-170.74 1414.48,-173.95 1418.69,-179.55"/>
-</g>
-<!-- samplesheet_split_by_settings_step&#45;&gt;bcl_convert_step -->
-<g id="edge1" class="edge">
-<title>samplesheet_split_by_settings_step&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M1262.13,-911.24C1281.11,-871.43 1332.04,-774.2 1401,-717.03 1496.2,-638.1 1632.68,-587.97 1716.93,-562.46"/>
-<polygon fill="black" stroke="black" points="1718.1,-565.76 1726.68,-559.55 1716.1,-559.06 1718.1,-565.76"/>
+<polygon fill="#94ddf4" stroke="black" points="1911,-133.53 1911,-170.53 2039,-170.53 2039,-133.53 1911,-133.53"/>
+<text text-anchor="middle" x="1975" y="-148.33" font-family="Times,serif" font-size="14.00">split_sheets_dir</text>
 </g>
 <!-- get_batch_dirs -->
-<g id="node21" class="node">
+<g id="node19" class="node">
 <title>get_batch_dirs</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="1409.5,-717.53 1409.5,-754.53 1696.5,-754.53 1696.5,-717.53 1409.5,-717.53"/>
-<text text-anchor="middle" x="1553" y="-732.33" font-family="Times,serif" font-size="14.00">get&#45;samplesheet&#45;midfix&#45;regex v(1.0.0)</text>
-</g>
-<!-- samplesheet_split_by_settings_step&#45;&gt;get_batch_dirs -->
-<g id="edge2" class="edge">
-<title>samplesheet_split_by_settings_step&#45;&gt;get_batch_dirs</title>
-<path fill="none" stroke="black" d="M1281.33,-911.48C1335.46,-876.72 1456.34,-799.1 1516.93,-760.19"/>
-<polygon fill="black" stroke="black" points="1518.89,-763.09 1525.41,-754.74 1515.11,-757.2 1518.89,-763.09"/>
-</g>
-<!-- bcl_convert_step&#45;&gt;fastq_directories -->
-<g id="edge7" class="edge">
-<title>bcl_convert_step&#45;&gt;fastq_directories</title>
-<path fill="none" stroke="black" d="M1783.86,-522.35C1768.49,-491.57 1737.96,-425.7 1726,-366.03 1712.88,-300.6 1715.27,-221.63 1717.83,-180.68"/>
-<polygon fill="black" stroke="black" points="1721.32,-180.86 1718.51,-170.65 1714.34,-180.39 1721.32,-180.86"/>
-</g>
-<!-- bcl_convert_step&#45;&gt;bclconvert_qc_step -->
-<g id="edge5" class="edge">
-<title>bcl_convert_step&#45;&gt;bclconvert_qc_step</title>
-<path fill="none" stroke="black" d="M1854.42,-522.48C1979.12,-486.85 2261.35,-406.21 2393.82,-368.36"/>
-<polygon fill="black" stroke="black" points="2394.83,-371.72 2403.48,-365.6 2392.91,-364.99 2394.83,-371.72"/>
-</g>
-<!-- flatten_fastq_list_rows_array -->
-<g id="node23" class="node">
-<title>flatten_fastq_list_rows_array</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="1734.5,-328.53 1734.5,-365.53 2025.5,-365.53 2025.5,-328.53 1734.5,-328.53"/>
-<text text-anchor="middle" x="1880" y="-343.33" font-family="Times,serif" font-size="14.00">flatten&#45;array&#45;fastq&#45;list&#45;schema v(1.0.0)</text>
-</g>
-<!-- bcl_convert_step&#45;&gt;flatten_fastq_list_rows_array -->
-<g id="edge6" class="edge">
-<title>bcl_convert_step&#45;&gt;flatten_fastq_list_rows_array</title>
-<path fill="none" stroke="black" d="M1801.03,-522.31C1816.34,-488.52 1849.79,-414.69 1867.86,-374.83"/>
-<polygon fill="black" stroke="black" points="1871.05,-376.26 1871.99,-365.7 1864.68,-373.37 1871.05,-376.26"/>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1548.5,-717.53 1548.5,-754.53 1835.5,-754.53 1835.5,-717.53 1548.5,-717.53"/>
+<text text-anchor="middle" x="1692" y="-732.33" font-family="Times,serif" font-size="14.00">get&#45;samplesheet&#45;midfix&#45;regex v(1.0.0)</text>
 </g>
 <!-- get_batch_dirs&#45;&gt;bcl_convert_step -->
-<g id="edge8" class="edge">
+<g id="edge1" class="edge">
 <title>get_batch_dirs&#45;&gt;bcl_convert_step</title>
-<path fill="none" stroke="black" d="M1575.15,-717.22C1618.37,-682.46 1713.99,-605.56 1762.9,-566.23"/>
-<polygon fill="black" stroke="black" points="1765.31,-568.79 1770.91,-559.8 1760.92,-563.34 1765.31,-568.79"/>
+<path fill="none" stroke="black" d="M1675.94,-717.22C1644.93,-682.82 1576.71,-607.15 1540.93,-567.46"/>
+<polygon fill="black" stroke="black" points="1543.31,-564.88 1534.02,-559.8 1538.12,-569.57 1543.31,-564.88"/>
+</g>
+<!-- bcl_convert_step&#45;&gt;fastq_directories -->
+<g id="edge4" class="edge">
+<title>bcl_convert_step&#45;&gt;fastq_directories</title>
+<path fill="none" stroke="black" d="M1519.2,-522.4C1521.76,-486 1528.24,-399.92 1537,-328.03 1543.34,-275.99 1553.22,-215.62 1559.1,-181.11"/>
+<polygon fill="black" stroke="black" points="1562.62,-181.31 1560.86,-170.86 1555.72,-180.13 1562.62,-181.31"/>
+</g>
+<!-- bcl_convert_step&#45;&gt;bclconvert_qc_step -->
+<g id="edge2" class="edge">
+<title>bcl_convert_step&#45;&gt;bclconvert_qc_step</title>
+<path fill="none" stroke="black" d="M1595.1,-524.4C1772.13,-488.5 2206.27,-400.48 2385.56,-364.13"/>
+<polygon fill="black" stroke="black" points="2386.34,-367.55 2395.45,-362.13 2384.95,-360.69 2386.34,-367.55"/>
+</g>
+<!-- flatten_fastq_list_rows_array -->
+<g id="node22" class="node">
+<title>flatten_fastq_list_rows_array</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="1545.5,-328.53 1545.5,-365.53 1836.5,-365.53 1836.5,-328.53 1545.5,-328.53"/>
+<text text-anchor="middle" x="1691" y="-343.33" font-family="Times,serif" font-size="14.00">flatten&#45;array&#45;fastq&#45;list&#45;schema v(1.0.0)</text>
+</g>
+<!-- bcl_convert_step&#45;&gt;flatten_fastq_list_rows_array -->
+<g id="edge3" class="edge">
+<title>bcl_convert_step&#45;&gt;flatten_fastq_list_rows_array</title>
+<path fill="none" stroke="black" d="M1533.97,-522.31C1564.73,-488.16 1632.34,-413.13 1667.98,-373.58"/>
+<polygon fill="black" stroke="black" points="1670.98,-375.48 1675.07,-365.7 1665.78,-370.79 1670.98,-375.48"/>
 </g>
 <!-- bclconvert_qc_step&#45;&gt;bclconvert_multiqc_out -->
 <g id="edge9" class="edge">
 <title>bclconvert_qc_step&#45;&gt;bclconvert_multiqc_out</title>
-<path fill="none" stroke="black" d="M2426.07,-328.39C2347.87,-292.96 2171.94,-213.26 2086.86,-174.71"/>
-<polygon fill="black" stroke="black" points="2088.24,-171.5 2077.69,-170.56 2085.35,-177.87 2088.24,-171.5"/>
+<path fill="none" stroke="black" d="M2436.03,-328.39C2378.37,-293.28 2249.3,-214.71 2185.37,-175.78"/>
+<polygon fill="black" stroke="black" points="2187.15,-172.77 2176.79,-170.56 2183.51,-178.75 2187.15,-172.77"/>
 </g>
 <!-- flatten_fastq_list_rows_array&#45;&gt;fastq_list_rows -->
 <g id="edge12" class="edge">
 <title>flatten_fastq_list_rows_array&#45;&gt;fastq_list_rows</title>
-<path fill="none" stroke="black" d="M1878.89,-328.22C1876.8,-294.54 1872.24,-221.29 1869.74,-180.99"/>
-<polygon fill="black" stroke="black" points="1873.22,-180.56 1869.1,-170.8 1866.23,-180.99 1873.22,-180.56"/>
+<path fill="none" stroke="black" d="M1692.94,-328.22C1696.6,-294.54 1704.57,-221.29 1708.96,-180.99"/>
+<polygon fill="black" stroke="black" points="1712.46,-181.12 1710.07,-170.8 1705.51,-180.36 1712.46,-181.12"/>
+</g>
+<!-- samplesheet_split_by_settings_step&#45;&gt;split_sheets -->
+<g id="edge7" class="edge">
+<title>samplesheet_split_by_settings_step&#45;&gt;split_sheets</title>
+<path fill="none" stroke="black" d="M1863.5,-911.36C1860.63,-810.3 1846.32,-305.54 1842.79,-180.89"/>
+<polygon fill="black" stroke="black" points="1846.28,-180.56 1842.5,-170.67 1839.28,-180.76 1846.28,-180.56"/>
+</g>
+<!-- samplesheet_split_by_settings_step&#45;&gt;split_sheets_dir -->
+<g id="edge8" class="edge">
+<title>samplesheet_split_by_settings_step&#45;&gt;split_sheets_dir</title>
+<path fill="none" stroke="black" d="M1866.53,-911.36C1880.98,-810.3 1953.18,-305.54 1971.01,-180.89"/>
+<polygon fill="black" stroke="black" points="1974.53,-181.06 1972.48,-170.67 1967.6,-180.07 1974.53,-181.06"/>
+</g>
+<!-- samplesheet_split_by_settings_step&#45;&gt;get_batch_dirs -->
+<g id="edge5" class="edge">
+<title>samplesheet_split_by_settings_step&#45;&gt;get_batch_dirs</title>
+<path fill="none" stroke="black" d="M1848.13,-911.31C1817.54,-877.16 1750.32,-802.13 1714.89,-762.58"/>
+<polygon fill="black" stroke="black" points="1717.11,-759.82 1707.83,-754.7 1711.9,-764.49 1717.11,-759.82"/>
+</g>
+<!-- samplesheet_split_by_settings_step&#45;&gt;bcl_convert_step -->
+<g id="edge6" class="edge">
+<title>samplesheet_split_by_settings_step&#45;&gt;bcl_convert_step</title>
+<path fill="none" stroke="black" d="M1791.13,-911.47C1714.87,-888.96 1598.3,-842.01 1540,-755.03 1501.94,-698.23 1507.21,-613.11 1513.2,-569.67"/>
+<polygon fill="black" stroke="black" points="1516.69,-569.98 1514.71,-559.57 1509.77,-568.94 1516.69,-569.98"/>
 </g>
 <!-- create_dummy_file_step -->
 <g id="node24" class="node">
@@ -352,8 +352,8 @@
 <!-- interop_qc_step&#45;&gt;interop_multiqc_out -->
 <g id="edge13" class="edge">
 <title>interop_qc_step&#45;&gt;interop_multiqc_out</title>
-<path fill="none" stroke="black" d="M2633.7,-911.29C2644.46,-833.94 2677.6,-521.48 2544,-328.03 2487.04,-245.56 2378.04,-197.85 2304.17,-173.65"/>
-<polygon fill="black" stroke="black" points="2305.04,-170.25 2294.44,-170.53 2302.9,-176.91 2305.04,-170.25"/>
+<path fill="none" stroke="black" d="M2632.77,-911.39C2639.5,-835.72 2657.77,-533.17 2544,-328.03 2505.32,-258.29 2427.15,-204.2 2378.72,-175.6"/>
+<polygon fill="black" stroke="black" points="2380.44,-172.55 2370.04,-170.55 2376.93,-178.6 2380.44,-172.55"/>
 </g>
 <!-- \n -->
 <g id="node26" class="node">
