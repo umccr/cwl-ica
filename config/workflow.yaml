@@ -130,6 +130,9 @@ workflows:
       - name: 2.2.1--0
         path: 2.2.1--0/umccrise-pipeline__2.2.1--0.cwl
         md5sum: 21c76209280de8f88446a1dd1064889a
+      - name: 2.3.0--0
+        path: 2.3.0--0/umccrise-pipeline__2.3.0--0.cwl
+        md5sum: 082270a9a994ef69e05f4d0f5085b2c9
     categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline

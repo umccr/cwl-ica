@@ -760,6 +760,11 @@ projects:
             ica_workflow_version_name: 2.2.1--0
             modification_time: 2023-02-01T23:56:03UTC
             run_instances: []
+          - name: 2.3.0--0
+            path: 2.3.0--0/umccrise-pipeline__2.3.0--0.cwl
+            ica_workflow_version_name: 2.3.0--0
+            modification_time: 2023-03-20T00:05:15UTC
+            run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
         ica_workflow_name: tso500-ctdna-with-post-processing-pipeline_dev-wf
