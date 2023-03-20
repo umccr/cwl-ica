@@ -327,6 +327,11 @@ projects:
             ica_workflow_version_name: 2.2.1--0
             modification_time: 2023-01-26T23:48:51UTC
             run_instances: []
+          - name: 2.3.0--0
+            path: umccrise__2.3.0--0.cwl
+            ica_workflow_version_name: 2.3.0--0
+            modification_time: 2023-03-19T23:59:15UTC
+            run_instances: []
       - name: dragen-somatic
         path: dragen-somatic
         ica_workflow_name: dragen-somatic_dev-wf
