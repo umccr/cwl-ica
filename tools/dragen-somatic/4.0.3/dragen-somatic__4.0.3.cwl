@@ -53,7 +53,7 @@ requirements:
 
           # Fail on non-zero exit of subshell
           set -euo pipefail
-
+      
           # Confirm not both fastq_list and fastq_list_rows are defined
           if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -gt "1" ]]; then
             echo "Please set no more than one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
@@ -82,12 +82,98 @@ requirements:
             --directory "$(get_ref_mount())" \\
             --extract \\
             --file "$(inputs.reference_tar.path)"
+          
+          # Check if both bam inputs are set
+          if [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(is_not_null(inputs.tumor_bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" ]]; then
+            echo "More than one bam input is set, need to run enable map align first beforehand then run variant calling in a separate step" 1>&2
+            
+            # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
+            enable_sort_parameter=""
+            enable_duplicate_marking_parameter=""
+            enable_map_align_output_parameter=""
+            dedup_min_qual_parameter=""
+          
+            # Pop arguments
+            # Get args from command line
+            # But capture them again since we need them when we actually run dragen
+            existing_args_array=()
+            while [ $# -gt 0 ]; do
+              case "$1" in
+                --enable-sort=*)
+                  enable_sort_parameter="$1"
+                  ;;
+                --enable-duplicate-marking=*)
+                  enable_duplicate_marking_parameter="\${1}"
+                  ;;
+                --enable-map-align=*)
+                  :  # Just popping from array, we set this by default in these steps but dont want it in final dragen call
+                  ;;
+                --enable-map-align-output=*)
+                  enable_map_align_output_parameter="\${1}"
+                  ;;
+                --dedup-min-qual=*)
+                  dedup_min_qual_parameter="\${1}"
+                  ;;
+                --bam-input=*)
+                  :  # Just popping from array as we set the new location elsewhere
+                  ;;
+                --tumor-bam-input=*)
+                  :  # Just popping from array as we set the new location elsewhere
+                  ;;
+                *)
+                  existing_args_array+=("\${1}")
+              esac
+              shift 1
+            done
+          
+            # Then run dragen map-align and place the files in the output directories
+            # Tumor Then Normal
+            echo "Aligning tumor" 1>&2
+            eval /opt/edico/bin/dragen \\
+              --enable-map-align=true \\
+              "\${enable_sort_parameter}" \\
+              "\${enable_duplicate_marking_parameter}" \\
+              "\${enable_map_align_output_parameter}" \\
+              "\${dedup_min_qual_parameter}" \\
+              "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
+              "--output-directory=$(inputs.output_directory)" \\
+              "--output-file-prefix=$(inputs.output_file_prefix)" \\
+              "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--tumor-bam-input=$(inputs.tumor_bam_input.path)"
+
+            echo "Aligning normal" 1>&2
+            eval /opt/edico/bin/dragen \\
+              --enable-map-align=true \\
+              "\${enable_sort_parameter}" \\
+              "\${enable_duplicate_marking_parameter}" \\
+              "\${enable_map_align_output_parameter}" \\
+              "\${dedup_min_qual_parameter}" \\
+              "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
+              "--output-directory=$(inputs.output_directory)" \\
+              "--output-file-prefix=$(inputs.output_file_prefix)" \\
+              "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--bam-input=$(inputs.bam_input.path)"
+            
+          
+            # Pop back in existing arguments into \${@}
+            for existing_arg in "\${existing_args_array[@]}"; do
+               set -- "\${@}" "\${existing_arg}"
+            done
+          
+            # Update bam input and tumor bam input parameters
+            set -- "\${@}" "--bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
+            set -- "\${@}" "--tumor-bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam"
+            
+            # Explicity set enable map align to false
+            set -- "\${@}" "--enable-map-align=false"
+          fi
 
           # Run dragen command and import options from cli
+          echo "Running dragen variant calling" 1>&2
           $(get_dragen_eval_line())
 
           # Check if fastq_list or fastq_list_rows is set
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" ]] || [[ "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
             # Check if --enable-map-align-output is set
             if [[ ! "$(get_bool_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
               echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
