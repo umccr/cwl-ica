@@ -146,15 +146,19 @@ function get_normal_name_from_fastq_list_csv(fastq_list_csv) {
 }
 exports.get_normal_name_from_fastq_list_csv = get_normal_name_from_fastq_list_csv;
 function get_normal_output_prefix(inputs) {
+    var _a;
     /*
     Get the normal RGSM value and then add _normal to it
     */
     var normal_name = null;
+    var normal_re_replacement = /_normal$/;
     /*
     Check if bam_input is set
     */
     if (inputs.bam_input !== null && inputs.bam_input !== undefined) {
-        return "".concat(inputs.bam_input.nameroot, "_normal");
+        /* Remove _normal from nameroot if it already exists */
+        /* We dont want _normal_normal as a suffix */
+        return "".concat((_a = inputs.bam_input.nameroot) === null || _a === void 0 ? void 0 : _a.replace(normal_re_replacement, ""), "_normal");
     }
     /*
     Check if fastq list file is set
