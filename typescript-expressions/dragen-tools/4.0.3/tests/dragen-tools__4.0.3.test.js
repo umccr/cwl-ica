@@ -12,6 +12,11 @@ var NORMAL_BAM_INPUT_FILE = {
     basename: "MY_SAMPLE_ID.bam",
     nameroot: "MY_SAMPLE_ID"
 };
+var NORMAL_BAM_INPUT_FILE_WITH_NORMAL_SUFFIX = {
+    class_: cwl_ts_auto_1.File_class.FILE,
+    basename: "MY_SAMPLE_ID_normal.bam",
+    nameroot: "MY_SAMPLE_ID_normal"
+};
 var FASTQ_LIST_CSV_FILE_PATH = "tests/data/fastq_list.csv";
 var FASTQ_LIST_REORDERED_CSV_FILE_PATH = "tests/data/fastq_list.reordered.csv";
 var TUMOR_FASTQ_LIST_CSV_FILE_PATH = "tests/data/tumor_fastq_list.csv";
@@ -157,6 +162,11 @@ describe('Test the get normal name function suite', function () {
         "fastq_list": null,
         "bam_input": NORMAL_BAM_INPUT_FILE
     };
+    var bam_with_normal_as_input = {
+        "fastq_list_rows": null,
+        "fastq_list": null,
+        "bam_input": NORMAL_BAM_INPUT_FILE_WITH_NORMAL_SUFFIX
+    };
     /*
     Testing from file
     */
@@ -183,6 +193,12 @@ describe('Test the get normal name function suite', function () {
     */
     test("Test the get_normal_output prefix function with bam input as non null", function () {
         expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(bam_input_as_input)).toEqual(expected_rgsm_value + "_normal");
+    });
+    /*
+    Test bam input with normal suffix (should be the same as above)
+    */
+    test("Test the get_normal_output prefix function with bam input as non null", function () {
+        expect((0, dragen_tools__4_0_3_1.get_normal_output_prefix)(bam_with_normal_as_input)).toEqual(expected_rgsm_value + "_normal");
     });
 });
 // Test the fastq list csv builders
