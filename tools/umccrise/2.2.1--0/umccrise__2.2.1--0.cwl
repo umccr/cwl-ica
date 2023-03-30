@@ -15,6 +15,12 @@ s:author:
     s:email: peter.diakumis@umccr.org
     s:identifier: https://orcid.org/0000-0002-7502-7545
 
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
+
 # ID/Docs
 id: umccrise--2.2.1--0
 label: umccrise v(2.2.1--0)
@@ -86,7 +92,7 @@ requirements:
         }
       - var get_somatic_input_dir = function(){
           /*
-          Get the inputs directory in /scratch space for the dragen somatic input 
+          Get the inputs directory in /scratch space for the dragen somatic input
           */
           return get_scratch_input_dir() + "/" + "somatic" + "/" + inputs.dragen_somatic_directory.basename;
         }
