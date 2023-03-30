@@ -228,7 +228,7 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
-        md5sum: 6a83d5dcced287e20c6a2a70a0fd24d1
+        md5sum: dc5f4db489cb1c4b8d3dd2f1c8454fe2
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
         md5sum: 17ff59071859dd5aae1eddf03d52e758
