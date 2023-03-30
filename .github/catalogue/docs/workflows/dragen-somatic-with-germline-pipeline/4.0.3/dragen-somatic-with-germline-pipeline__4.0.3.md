@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 4.0.3 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--4.0.3  
-> md5sum: f6dbd9615abab018e53e93f4582255dd
+> md5sum: dc5f4db489cb1c4b8d3dd2f1c8454fe2
 
 ### dragen-somatic-with-germline-pipeline v(4.0.3) documentation
   
@@ -49,6 +49,19 @@ v4.0.3
 
 
 ## dragen-somatic-with-germline-pipeline v(4.0.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal BAM file for the variant calling stage
+
 
 ### cnv enable self normalization
 
@@ -787,6 +800,19 @@ Specify the minimum VAF threshold for a variant. Variants that do not meet the t
 The default value is 0.05.
 
 
+### tumor bam input
+
+
+
+  
+> ID: tumor_bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a tumor BAM file for the variant calling stage
+
+
 ### tumor fastq list
 
 
@@ -1105,7 +1131,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7fb06ab05cf0>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f1a603b0880>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 

@@ -72,6 +72,23 @@ inputs:
         * Read1File
         * Read2File (optional)
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
+  tumor_bam_input:
+    label: tumor bam input
+    doc: |
+      Input a tumor BAM file for the variant calling stage
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   # Add reference tar
   reference_tar:
     label: reference tar
@@ -729,10 +746,15 @@ steps:
       Runs the dragen germline workflow on the FPGA.
       Takes in either a fastq list as a file or a fastq_list_rows schema object
     in:
+      # Option 1
       fastq_list_rows:
         source: fastq_list_rows
+      # Option 2
       fastq_list:
         source: fastq_list
+      # Option 3
+      bam_input:
+        source: bam_input
       reference_tar:
         source: reference_tar
       output_file_prefix:
@@ -856,6 +878,11 @@ steps:
         source: fastq_list_rows
       tumor_fastq_list_rows:
         source: tumor_fastq_list_rows
+      # Option 3
+      bam_input:
+        source: bam_input
+      tumor_bam_input:
+        source: tumor_bam_input
       reference_tar:
         source: reference_tar
       # Mandatory parameters

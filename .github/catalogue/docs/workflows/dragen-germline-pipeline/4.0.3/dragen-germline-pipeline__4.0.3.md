@@ -19,7 +19,7 @@ dragen-germline-pipeline 4.0.3 workflow
 
   
 > ID: dragen-germline-pipeline--4.0.3  
-> md5sum: cfceca9d0a5ce11f45de9cae139c53e5
+> md5sum: 2bb937b8307e99ddbd56cec106fea528
 
 ### dragen-germline-pipeline v(4.0.3) documentation
   
@@ -48,6 +48,19 @@ Documentation for dragen-germline-pipeline v4.0.3
 
 
 ## dragen-germline-pipeline v(4.0.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal BAM file for the variant calling stage
+
 
 ### cnv enable self normalization
 
