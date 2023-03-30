@@ -126,10 +126,10 @@ workflows:
         md5sum: 23e0df54d3a6ddaa46a9712add1218a9
       - name: 2.2.0--0
         path: 2.2.0--0/umccrise-pipeline__2.2.0--0.cwl
-        md5sum: 3f9bb9bf72fbd9cc3534649a43c8b88b
+        md5sum: e100db1a3f320994e318a8d8e07412f9
       - name: 2.2.1--0
         path: 2.2.1--0/umccrise-pipeline__2.2.1--0.cwl
-        md5sum: 21c76209280de8f88446a1dd1064889a
+        md5sum: d9dfc8efd650e4c52c074ed7855bd5aa
     categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline
