@@ -78,11 +78,17 @@ inputs:
     doc: |
       Input a normal BAM file for the variant calling stage
     type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   tumor_bam_input:
     label: tumor bam input
     doc: |
       Input a tumor BAM file for the variant calling stage
     type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   # Add reference tar
   reference_tar:
     label: reference tar

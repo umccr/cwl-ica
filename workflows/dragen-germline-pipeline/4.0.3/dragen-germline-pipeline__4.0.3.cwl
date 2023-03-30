@@ -53,6 +53,9 @@ inputs:
     doc: |
       Input a normal BAM file for the variant calling stage
     type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
