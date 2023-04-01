@@ -3,8 +3,8 @@ class: CommandLineTool
 
 # Extensions
 $namespaces:
-    s: https://schema.org/
-    ilmn-tes: https://platform.illumina.com/rdf/ica/
+  s: https://schema.org/
+  ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -14,6 +14,12 @@ s:author:
     s:name: Peter Diakumis
     s:email: peter.diakumis@umccr.org
     s:identifier: https://orcid.org/0000-0002-7502-7545
+
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
 id: umccrise--2.2.0--0
@@ -84,6 +90,18 @@ requirements:
           */
           return get_scratch_mount() + "/" + "inputs";
         }
+      - var get_somatic_input_dir = function(){
+          /*
+          Get the inputs directory in /scratch space for the dragen somatic input
+          */
+          return get_scratch_input_dir() + "/" + "somatic" + "/" + inputs.dragen_somatic_directory.basename;
+        }
+      - var get_germline_input_dir = function(){
+          /*
+          Get the inputs directory in /scratch space for the dragen somatic input
+          */
+          return get_scratch_input_dir() + "/" + "germline" + "/" + inputs.dragen_germline_directory.basename;
+        }
       - var get_genomes_dir_name = function(){
           /*
           Return the stripped basename of the genomes tarball
@@ -133,16 +151,16 @@ requirements:
             --file "$(inputs.genomes_tar.path)"
 
           # Create input directories
-          mkdir -p "$(get_scratch_input_dir())/$(inputs.dragen_somatic_directory.basename)/"
-          mkdir -p "$(get_scratch_input_dir())/$(inputs.dragen_germline_directory.basename)/"
+          mkdir -p "$(get_somatic_input_dir())"
+          mkdir -p "$(get_germline_input_dir())"
 
           # Put inputs into scratch space
           echo "\$(date): Placing inputs into scratch space" 1>&2
-          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_scratch_input_dir())/$(inputs.dragen_somatic_directory.basename)/"
-          cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_scratch_input_dir())/$(inputs.dragen_germline_directory.basename)/"
+          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_somatic_input_dir())"/"
+          cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_germline_input_dir())/"
 
           # Run umccrise
-          echo "\$(date): Running UMCCrise" 1>&2
+          echo "\$(date): Running UMCCRise" 1>&2
           $(get_eval_umccrise_line())
 
           # Copy over working directory
@@ -175,7 +193,7 @@ inputs:
       prefix: "--dragen_somatic_dir"
       valueFrom: |
         ${
-          return get_scratch_input_dir() + "/" + self.basename;
+          return get_somatic_input_dir();
         }
   dragen_germline_directory:
     label: dragen germline directory
@@ -186,7 +204,7 @@ inputs:
       prefix: "--dragen_germline_dir"
       valueFrom: |
         ${
-          return get_scratch_input_dir() + "/" + self.basename;
+          return get_germline_input_dir();
         }
   genomes_tar:
     label: genomes tar
@@ -208,14 +226,14 @@ inputs:
     label: dragen tumor id
     doc: |
       The name of the dragen tumor sample
-    type: string
+    type: string?
     inputBinding:
       prefix: "--dragen_tumor_id"
   dragen_normal_id:
     label: dragen normal id
     doc: |
       The name of the dragen normal sample
-    type: string
+    type: string?
     inputBinding:
       prefix: "--dragen_normal_id"
   # Output names

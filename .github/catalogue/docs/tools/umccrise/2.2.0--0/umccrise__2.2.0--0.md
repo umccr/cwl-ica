@@ -17,7 +17,7 @@ umccrise 2.2.0--0 tool
 
   
 > ID: umccrise--2.2.0--0  
-> md5sum: 6d0a765b8a2bf6639955d3e6d07be31f
+> md5sum: fa47b203d08df618f3b78cb3d540a645
 
 ### umccrise v(2.2.0--0) documentation
   
@@ -34,6 +34,7 @@ Documentation for umccrise v2.2.0--0
 
 ### Used By
   
+- [umccrise-pipeline 2.2.0--0](../../../workflows/umccrise-pipeline/2.2.0--0/umccrise-pipeline__2.2.0--0.md)  
 - [umccrise-with-dragen-germline-pipeline 2.2.0--3.9.3](../../../workflows/umccrise-with-dragen-germline-pipeline/2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.md)  
 
   
@@ -61,7 +62,7 @@ The dragen germline directory
   
 > ID: dragen_normal_id
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 The name of the dragen normal sample
@@ -87,7 +88,7 @@ The dragen somatic directory
   
 > ID: dragen_tumor_id
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 The name of the dragen tumor sample
@@ -191,7 +192,7 @@ The output directory containing the umccrise data
 
   
 **workflow name:** umccrise_prod-wf  
-**wfl version name:** 2.2.0--0--052b3fa  
+**wfl version name:** 2.2.0--0--b64c6f3  
 
   
 
