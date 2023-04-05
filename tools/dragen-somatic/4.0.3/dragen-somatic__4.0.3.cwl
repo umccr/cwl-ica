@@ -179,6 +179,11 @@ requirements:
               echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
               echo "Exiting" 1>&2
               exit
+            # Check if --enable-map-align is not set AND using inputs.bam_input
+            elif [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "false" ]]; then
+              echo "--enable-map-align-output set to true, but using --bam-input AND --enable-map-align set to false so no bam is output, hence no need to move the normal bam file" 1>&2
+              echo "Exiting" 1>&2
+              exit
             fi
 
             # Ensure that we have a normal RGSM value, otherwise exit.
@@ -192,7 +197,7 @@ requirements:
             new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
 
             # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-            if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
+            if [[ ( "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ) &&  ]]; then
               # Move normal bam, normal bam index and normal bam md5sum
               (
                 cd "$(inputs.output_directory)"
