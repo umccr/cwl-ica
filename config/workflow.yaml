@@ -159,10 +159,10 @@ workflows:
         md5sum: be349a39b3da4cf2facfed2b70ce90ec
       - name: 2.2.0--3.9.3
         path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
-        md5sum: fee63a2d495c801b6ba1b88e5fc32173
+        md5sum: 6520f297089f46c1f4c44ecf1b8dd1fc
       - name: 2.2.1--3.9.3
         path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
-        md5sum: 9080034ffc1a02990e4eaffb45f556d6
+        md5sum: 83634d8aa468e9a7636c63c9e48ddd34
     categories: []
   - name: ghif-qc
     path: ghif-qc
