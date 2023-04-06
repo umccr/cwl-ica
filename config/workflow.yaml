@@ -61,7 +61,7 @@ workflows:
         md5sum: b40e0e4027e623a8e218effbc64f014f
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
-        md5sum: 59ca2c9e41197b482298e01f9e9933b9
+        md5sum: 725433a899058c1d6ba0dd5e3009775e
     categories:
       - dragen
       - variant-calling
@@ -228,7 +228,7 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
-        md5sum: 61433c83b0631eaeb0618bacef3e0732
+        md5sum: bd4f69dd7feaf5976ddf2a552ca164c4
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
         md5sum: 17ff59071859dd5aae1eddf03d52e758
