@@ -252,14 +252,14 @@ inputs:
     label: skip stage
     doc: |
       Runs all default stages excluding the one selected
-    type: string
+    type: string?
     inputBinding:
       prefix: "--skip-stage"
   dry_run:
     label: dry run
     doc: |
       Prints rules and commands to be run without actually executing them
-    type: string
+    type: boolean?
     inputBinding:
       prefix: "--dryrun"
 
