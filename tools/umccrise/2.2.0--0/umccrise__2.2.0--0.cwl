@@ -248,6 +248,20 @@ inputs:
     doc: |
       Number of threads to use
     type: int?
+  skip_stage:
+    label: skip stage
+    doc: |
+      Runs all default stages excluding the one selected
+    type: string
+    inputBinding:
+      prefix: "--skip-stage"
+  dry_run:
+    label: dry run
+    doc: |
+      Prints rules and commands to be run without actually executing them
+    type: string
+    inputBinding:
+      prefix: "--dryrun"
 
 outputs:
   output_directory:
