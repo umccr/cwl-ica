@@ -156,7 +156,7 @@ requirements:
 
           # Put inputs into scratch space
           echo "\$(date): Placing inputs into scratch space" 1>&2
-          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_somatic_input_dir())"/"
+          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_somatic_input_dir())/"
           cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_germline_input_dir())/"
 
           # Run umccrise

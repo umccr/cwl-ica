@@ -202,6 +202,12 @@ requirements:
               )
             fi
           fi
+          
+          # If --enable-sv has been selected, we need to remove the empty genomeDepth directory 
+          # https://github.com/umccr-illumina/ica_v2/issues/131
+          if [[ "$(is_not_null(inputs.enable_sv))" == "true" && "$(get_bool_value_as_str(inputs.enable_sv))" == "true" && -d "$(inputs.output_directory)/sv/" ]]; then
+            find "$(inputs.output_directory)/sv/" -type d -empty -delete
+          fi
       - |
         ${
           return generate_somatic_mount_points(inputs);
