@@ -197,7 +197,7 @@ requirements:
             new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
 
             # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-            if [[ ( "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ) &&  ]]; then
+            if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
               # Move normal bam, normal bam index and normal bam md5sum
               (
                 cd "$(inputs.output_directory)"
