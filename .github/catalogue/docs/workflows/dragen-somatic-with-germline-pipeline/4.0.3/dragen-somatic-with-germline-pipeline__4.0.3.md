@@ -1131,7 +1131,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7fc71f76e560>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7fe09f027370>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 
@@ -1601,6 +1601,7 @@ Bam file of the tumor sample
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -1611,6 +1612,16 @@ Bam file of the tumor sample
   
 **workflow name:** dragen-somatic-with-germline-pipeline_dev-wf  
 **wfl version name:** 4.0.3  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.5830565f0858423cb49de2a1534d65c5  
+
+  
+**workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
+**wfl version name:** 4.0.3--46e6a70  
 
   
 
