@@ -179,6 +179,11 @@ requirements:
               echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
               echo "Exiting" 1>&2
               exit
+            # Check if --enable-map-align is not set AND using inputs.bam_input
+            elif [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "false" ]]; then
+              echo "--enable-map-align-output set to true, but using --bam-input AND --enable-map-align set to false so no bam is output, hence no need to move the normal bam file" 1>&2
+              echo "Exiting" 1>&2
+              exit
             fi
 
             # Ensure that we have a normal RGSM value, otherwise exit.
