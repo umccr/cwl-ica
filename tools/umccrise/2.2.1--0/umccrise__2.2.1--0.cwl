@@ -42,90 +42,8 @@ hints:
 requirements:
   InlineJavascriptRequirement:
     expressionLib:
-      - var get_num_threads = function(){
-          /*
-          Use all cores unless 'threads' is set
-          */
-          if (inputs.threads !== null){
-            return inputs.threads;
-          } else {
-            return runtime.cores;
-          }
-        }
-      - var get_scratch_mount = function() {
-          /*
-          Get the scratch mount directory
-          */
-          return "/scratch";
-        }
-      - var get_name_root_from_tarball = function(tar_file) {
-          /*
-          Get the name of the reference folder
-          */
-          var tar_ball_regex = /(\S+)\.tar\.gz/g;
-          return tar_ball_regex.exec(tar_file)[1];
-        }
-      - var get_genomes_parent_dir = function(){
-          /*
-          Get the genomes directory
-          */
-          return get_scratch_mount() + "/" + "genome_dir";
-        }
-      - var get_scratch_working_parent_dir = function(){
-          /*
-          Get the parent directory for the working directory
-          By just on the off chance someone happens to stupidly set the output as 'genome'
-          */
-          return get_scratch_mount() + "/" + "working_dir";
-        }
-      - var get_scratch_working_dir = function(){
-          /*
-          Get the scratch working directory
-          */
-          return get_scratch_working_parent_dir() + "/" + inputs.output_directory_name;
-        }
-      - var get_scratch_input_dir = function(){
-          /*
-          Get the inputs directory in /scratch space
-          */
-          return get_scratch_mount() + "/" + "inputs";
-        }
-      - var get_somatic_input_dir = function(){
-          /*
-          Get the inputs directory in /scratch space for the dragen somatic input
-          */
-          return get_scratch_input_dir() + "/" + "somatic" + "/" + inputs.dragen_somatic_directory.basename;
-        }
-      - var get_germline_input_dir = function(){
-          /*
-          Get the inputs directory in /scratch space for the dragen somatic input
-          */
-          return get_scratch_input_dir() + "/" + "germline" + "/" + inputs.dragen_germline_directory.basename;
-        }
-      - var get_genomes_dir_name = function(){
-          /*
-          Return the stripped basename of the genomes tarball
-          */
-          return get_name_root_from_tarball(inputs.genomes_tar.basename);
-        }
-      - var get_genomes_dir_path = function(){
-          /*
-          Get the genomes dir path
-          */
-          return get_genomes_parent_dir() + "/" + get_genomes_dir_name();
-        }
-      - var get_run_script_entryname = function(){
-          /*
-          Get the run script entry name
-          */
-          return "scripts/run-umccrise.sh";
-        }
-      - var get_eval_umccrise_line = function(){
-          /*
-          Get the line eval umccrise...
-          */
-          return "eval \"umccrise\" '\"\$@\"'\n"
-        }
+      - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs
+      - $include: ../../../typescript-expressions/umccrise/2.0.0/umccrise__2.0.0.cwljs
   InitialWorkDirRequirement:
     listing:
       - entryname: "$(get_run_script_entryname())"
@@ -134,8 +52,17 @@ requirements:
 
           # Set to fail
           set -euo pipefail
+          
+          # Create a cleanup function for the trap command 
+          cleanup(){
+            if [[ "$(get_bool_value_as_str(inputs.debug))" == "true" ]]; then
+              echo "\$(date): UMCCRise failed but debug set to true, copying over workspace into output directory" 1>&2
+              cp -r "$(get_scratch_working_dir(inputs.output_directory_name))/." "$(inputs.output_directory_name)/"
+            fi
+            exit 1
+          }
 
-          # Create parent dir for genomes tmp dir
+          # Create parent dir for working tmp dir
           echo "\$(date): Creating parent dir for workspace in scratch" 1>&2
           mkdir -p "$(get_scratch_working_parent_dir())"
 
@@ -151,21 +78,26 @@ requirements:
             --file "$(inputs.genomes_tar.path)"
 
           # Create input directories
-          mkdir -p "$(get_somatic_input_dir())"
-          mkdir -p "$(get_germline_input_dir())"
+          mkdir -p "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))"
+          mkdir -p "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))"
 
           # Put inputs into scratch space
           echo "\$(date): Placing inputs into scratch space" 1>&2
-          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_somatic_input_dir())/"
-          cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_germline_input_dir())/"
+          cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/"
+          cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/"
 
-          # Run umccrise
+          # Run umccrise copies over inputs if umccrise failed but debug set to true
+          trap 'cleanup' EXIT
+          
           echo "\$(date): Running UMCCRise" 1>&2
           $(get_eval_umccrise_line())
+          
+          # Exit trap, exit cleanly
+          trap - EXIT
 
           # Copy over working directory
           echo "\$(date): UMCCRise complete, copying over outputs into output directory" 1>&2
-          cp -r "$(get_scratch_working_dir())/." "$(inputs.output_directory_name)/"
+          cp -r "$(get_scratch_working_dir(inputs.output_directory_name))/." "$(inputs.output_directory_name)/"
 
           echo "\$(date): Workflow complete!" 1>&2
 
@@ -176,11 +108,6 @@ arguments:
   # Before all other arguments
   - position: -1
     valueFrom: "$(get_run_script_entryname())"
-  # Wherever
-  - prefix: "--threads"
-    valueFrom: "$(get_num_threads())"
-  - prefix: "-o"
-    valueFrom: "$(get_scratch_working_dir())"
 
 inputs:
   # Input folders and files
@@ -193,7 +120,7 @@ inputs:
       prefix: "--dragen_somatic_dir"
       valueFrom: |
         ${
-          return get_somatic_input_dir();
+          return get_somatic_input_dir(self.basename);
         }
   dragen_germline_directory:
     label: dragen germline directory
@@ -204,7 +131,7 @@ inputs:
       prefix: "--dragen_germline_dir"
       valueFrom: |
         ${
-          return get_germline_input_dir();
+          return get_germline_input_dir(self.basename);
         }
   genomes_tar:
     label: genomes tar
@@ -213,7 +140,7 @@ inputs:
     type: File
     inputBinding:
       prefix: "--genomes-dir"
-      valueFrom: "$(get_genomes_dir_path())"
+      valueFrom: "$(get_genomes_dir_path(self.basename))"
   # Input IDs
   subject_identifier:
     label: subject identifier
@@ -242,12 +169,24 @@ inputs:
     doc: |
       The name of the output directory
     type: string
+    inputBinding:
+      prefix: "-o"
+      valueFrom: |
+        ${
+         return get_scratch_working_dir(self);
+        }
   # Optional inputs
   threads:
     label: threads
     doc: |
       Number of threads to use
     type: int?
+    inputBinding:
+      prefix: "--threads"
+      valueFrom: |
+        ${
+          return get_num_threads(self, runtime.cores);
+        }
   skip_stage:
     label: skip stage
     doc: |
@@ -279,6 +218,27 @@ inputs:
           prefix: "--stage"
     inputBinding:
       position: 100
+  # Optional exclude stages
+  exclude_stages:
+    label: Exclude stages
+    doc: |
+      Stages to exclude
+    type:
+      - "null"
+      - type: array
+        items: string
+        inputBinding:
+          prefix: "--skip-stage"
+    inputBinding:
+        position: 100
+
+  # Debugger
+  debug:
+    label: debug
+    doc: |
+      Copy workspace to output directory if workflow fails
+    type: boolean?
+
 
 outputs:
   output_directory:
