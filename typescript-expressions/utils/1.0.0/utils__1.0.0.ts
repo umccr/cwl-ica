@@ -41,11 +41,14 @@ export function get_attribute_from_optional_input(input_object: any, attribute: 
     }
 }
 
-export function get_optional_attribute_from_object(input_object: object, attribute: string){
+
+export function get_optional_attribute_from_object(input_object: {[key: string]: any}, attribute: string){
+
     /*
     Get attribute from object, if attribute is not defined return null
+    Assume the input object is an object of key value pairs where we know the key is of type string
+    https://stackoverflow.com/questions/56833469/typescript-error-ts7053-element-implicitly-has-an-any-type
     */
-
     if (input_object.hasOwnProperty(attribute)){
         return input_object[attribute]
     } else {
