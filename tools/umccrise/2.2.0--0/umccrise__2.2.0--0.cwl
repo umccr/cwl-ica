@@ -251,10 +251,15 @@ inputs:
   skip_stage:
     label: skip stage
     doc: |
-      Runs all default stages excluding the one selected
-    type: string?
+      Runs all default stage(s) excluding the one selected
+    type:
+      - "null"
+      - type: array
+        items: string
+        inputBinding:
+          prefix: "--skip-stage"
     inputBinding:
-      prefix: "--skip-stage"
+      position: 99
   dry_run:
     label: dry run
     doc: |
@@ -262,6 +267,18 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--dryrun"
+  include_stage:
+    label: include stage
+    doc: |
+      Optionally, specify stage(s) to run
+    type:
+      - "null"
+      - type: array
+        items: string
+        inputBinding:
+          prefix: "--stage"
+    inputBinding:
+      position: 100
 
 outputs:
   output_directory:
