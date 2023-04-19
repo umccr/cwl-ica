@@ -19,7 +19,7 @@ umccrise-pipeline 2.2.1--0 workflow
 
   
 > ID: umccrise-pipeline--2.2.1--0  
-> md5sum: 6d937fbf1d7d7b92142f073ffb64e952
+> md5sum: 4e8ea1e2f5fd22e9cf24b6797b8403ad
 
 ### umccrise-pipeline v(2.2.1--0) documentation
   
@@ -45,6 +45,19 @@ Documentation for umccrise-pipeline v2.2.1--0
 
 
 ## umccrise-pipeline v(2.2.1--0) Inputs
+
+### debug
+
+
+
+  
+> ID: debug
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Copy workspace to output directory if workflow fails
+
 
 ### dragen germline directory
 
@@ -98,6 +111,19 @@ The dragen somatic directory
 The name of the dragen tumor sample
 
 
+### dry run
+
+
+
+  
+> ID: dry_run
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Prints rules and commands to be run without actually executing them
+
+
 ### genomes tar
 
 
@@ -111,6 +137,19 @@ The name of the dragen tumor sample
 The reference umccrise tarball
 
 
+### include stage
+
+
+
+  
+> ID: include_stage
+  
+**Optional:** `True`  
+**Type:** `.[]`  
+**Docs:**  
+Optionally, specify stage(s) to run
+
+
 ### output directory name
 
 
@@ -122,6 +161,19 @@ The reference umccrise tarball
 **Type:** `string`  
 **Docs:**  
 The name of the output directory
+
+
+### skip stage
+
+
+
+  
+> ID: skip_stage
+  
+**Optional:** `True`  
+**Type:** `.[]`  
+**Docs:**  
+Runs all default stage(s) excluding the one selected
 
 
 ### subject identifier

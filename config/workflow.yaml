@@ -126,10 +126,10 @@ workflows:
         md5sum: 23e0df54d3a6ddaa46a9712add1218a9
       - name: 2.2.0--0
         path: 2.2.0--0/umccrise-pipeline__2.2.0--0.cwl
-        md5sum: 1f7b2f874e09a10ec19d4019c3ee05af
+        md5sum: ecec3014c68e7b7bbdd6f90a68de3aca
       - name: 2.2.1--0
         path: 2.2.1--0/umccrise-pipeline__2.2.1--0.cwl
-        md5sum: 6d937fbf1d7d7b92142f073ffb64e952
+        md5sum: 4e8ea1e2f5fd22e9cf24b6797b8403ad
     categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline
@@ -159,10 +159,10 @@ workflows:
         md5sum: be349a39b3da4cf2facfed2b70ce90ec
       - name: 2.2.0--3.9.3
         path: 2.2.0--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.0--3.9.3.cwl
-        md5sum: d4e050058f25bfd360711669a945dc00
+        md5sum: d10c6665d41f6cb00e8ce17d19b27702
       - name: 2.2.1--3.9.3
         path: 2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.cwl
-        md5sum: f63c3b8a82fbe4ad00f73505f4f6172c
+        md5sum: 7827dc228644dad9039dc1fe32ed16ed
     categories: []
   - name: ghif-qc
     path: ghif-qc

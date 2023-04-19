@@ -71,6 +71,29 @@ inputs:
     doc: |
       Number of threads to use
     type: int?
+  # Stage selection
+  skip_stage:
+    label: skip stage
+    doc: |
+      Runs all default stage(s) excluding the one selected
+    type: string[]?
+  include_stage:
+    label: include stage
+    doc: |
+      Optionally, specify stage(s) to run
+    type: string[]?
+  # Debugger options
+  debug:
+    label: debug
+    doc: |
+      Copy workspace to output directory if workflow fails
+    type: boolean?
+  dry_run:
+    label: dry run
+    doc: |
+      Prints rules and commands to be run without actually executing them
+    type: boolean?
+
 
 steps:
   run_umccrise_step:
@@ -94,6 +117,14 @@ steps:
         source: output_directory_name
       threads:
         source: threads
+      skip_stage:
+        source: skip_stage
+      include_stage:
+        source: include_stage
+      debug:
+        source: debug
+      dry_run:
+        source: dry_run
     out:
       - id: output_directory
     run: ../../../tools/umccrise/2.2.1--0/umccrise__2.2.1--0.cwl
