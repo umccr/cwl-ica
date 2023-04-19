@@ -17,7 +17,7 @@ umccrise 2.2.0--0 tool
 
   
 > ID: umccrise--2.2.0--0  
-> md5sum: fda0b2ff4b4764a24b6a8a3c5d6af0b5
+> md5sum: 83bac199606265b235365a41da2f6e60
 
 ### umccrise v(2.2.0--0) documentation
   
@@ -41,6 +41,19 @@ Documentation for umccrise v2.2.0--0
 
 
 ## umccrise v(2.2.0--0) Inputs
+
+### debug
+
+
+
+  
+> ID: debug
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Copy workspace to output directory if workflow fails
+
 
 ### dragen germline directory
 
@@ -94,6 +107,19 @@ The dragen somatic directory
 The name of the dragen tumor sample
 
 
+### dry run
+
+
+
+  
+> ID: dry_run
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Prints rules and commands to be run without actually executing them
+
+
 ### genomes tar
 
 
@@ -107,6 +133,19 @@ The name of the dragen tumor sample
 The reference umccrise tarball
 
 
+### include stage
+
+
+
+  
+> ID: include_stage
+  
+**Optional:** `True`  
+**Type:** `.[]`  
+**Docs:**  
+Optionally, specify stage(s) to run
+
+
 ### output directory name
 
 
@@ -118,6 +157,19 @@ The reference umccrise tarball
 **Type:** `string`  
 **Docs:**  
 The name of the output directory
+
+
+### skip stage
+
+
+
+  
+> ID: skip_stage
+  
+**Optional:** `True`  
+**Type:** `.[]`  
+**Docs:**  
+Runs all default stage(s) excluding the one selected
 
 
 ### subject identifier
@@ -192,7 +244,7 @@ The output directory containing the umccrise data
 
   
 **workflow name:** umccrise_prod-wf  
-**wfl version name:** 2.2.0--0--c8eb584  
+**wfl version name:** 2.2.0--0--bbd731e  
 
   
 
