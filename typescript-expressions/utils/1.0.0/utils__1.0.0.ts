@@ -84,7 +84,7 @@ export function get_optional_attribute_from_multi_type_input_object(object: any,
         // Get attribute from optional input
         return get_attribute_from_optional_input(object, attribute)
     } else {
-        // Object is likely actually an str
+        // Object is likely actually a str
         return object
     }
 }

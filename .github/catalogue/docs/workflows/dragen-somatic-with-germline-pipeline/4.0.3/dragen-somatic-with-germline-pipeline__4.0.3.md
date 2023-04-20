@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 4.0.3 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--4.0.3  
-> md5sum: bd4f69dd7feaf5976ddf2a552ca164c4
+> md5sum: 7dce3964bea44cbab41bf5499b70b48f
 
 ### dragen-somatic-with-germline-pipeline v(4.0.3) documentation
   
@@ -239,6 +239,20 @@ Enable HLA typing by setting --enable-hla flag to true
 **Docs:**  
 Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
+
+
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
 
 
 ### enable map align output
@@ -1131,7 +1145,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f44963b6560>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f9110a7db70>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 
@@ -1601,6 +1615,7 @@ Bam file of the tumor sample
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -1611,6 +1626,16 @@ Bam file of the tumor sample
   
 **workflow name:** dragen-somatic-with-germline-pipeline_dev-wf  
 **wfl version name:** 4.0.3  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.5830565f0858423cb49de2a1534d65c5  
+
+  
+**workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
+**wfl version name:** 4.0.3--82a4082  
 
   
 
