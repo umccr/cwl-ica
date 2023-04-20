@@ -19,7 +19,7 @@ dragen-germline-pipeline 4.0.3 workflow
 
   
 > ID: dragen-germline-pipeline--4.0.3  
-> md5sum: 7da318dabd17264d2e992515ab1131b3
+> md5sum: 379ff9b1e8d520289871f36a26aae2e1
 
 ### dragen-germline-pipeline v(4.0.3) documentation
   
@@ -143,6 +143,20 @@ Mark identical alignments as duplicates
 **Type:** `boolean`  
 **Docs:**  
 Enable HLA typing by setting --enable-hla flag to true
+
+
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
 
 
 ### enable map align output
