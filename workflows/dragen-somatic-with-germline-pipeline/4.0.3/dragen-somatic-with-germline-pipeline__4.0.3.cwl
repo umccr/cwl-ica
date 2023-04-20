@@ -127,6 +127,11 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input parameter
+    type: boolean?
   enable_map_align:
     label: enable map align
     doc: |
@@ -767,6 +772,8 @@ steps:
         source: output_file_prefix_germline
       output_directory:
         source: output_directory_germline
+      enable_sort:
+        source: enable_sort
       enable_map_align:
         source: enable_map_align
       enable_map_align_output:
@@ -905,6 +912,8 @@ steps:
       # --enable-map-align-output to keep bams
       # --enable-duplicate-marking to mark duplicate reads at the same time
       # --enable-sv to enable the structural variant calling step.
+      enable_sort:
+        source: enable_sort
       enable_map_align:
         source: enable_map_align
       enable_map_align_output:
