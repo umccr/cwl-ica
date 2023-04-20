@@ -49,16 +49,6 @@ inputs:
     doc: |
       The subject ID (used to name output files)
     type: string
-  dragen_tumor_id:
-    label: dragen tumor id
-    doc: |
-      The name of the dragen tumor sample
-    type: string
-  dragen_normal_id:
-    label: dragen normal id
-    doc: |
-      The name of the dragen normal sample
-    type: string
   # Output names
   output_directory_name:
     label: output directory name
@@ -71,6 +61,16 @@ inputs:
     doc: |
       Number of threads to use
     type: int?
+  dragen_tumor_id:
+    label: dragen tumor id
+    doc: |
+      The name of the dragen tumor sample
+    type: string?
+  dragen_normal_id:
+    label: dragen normal id
+    doc: |
+      The name of the dragen normal sample
+    type: string?
   # Stage selection
   skip_stage:
     label: skip stage
