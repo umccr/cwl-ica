@@ -19,7 +19,7 @@ umccrise-pipeline 2.2.0--0 workflow
 
   
 > ID: umccrise-pipeline--2.2.0--0  
-> md5sum: ecec3014c68e7b7bbdd6f90a68de3aca
+> md5sum: 21406cf23c2e19960c3ac0f903ed8a56
 
 ### umccrise-pipeline v(2.2.0--0) documentation
   
@@ -79,7 +79,7 @@ The dragen germline directory
   
 > ID: dragen_normal_id
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 The name of the dragen normal sample
@@ -105,7 +105,7 @@ The dragen somatic directory
   
 > ID: dragen_tumor_id
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 The name of the dragen tumor sample
