@@ -62,7 +62,7 @@
 <text text-anchor="middle" x="671" y="-669.44" font-family="Times,serif" font-size="14.00">illumina&#45;interop v(1.2.0)</text>
 </g>
 <!-- bclconvert_run_input_directory&#45;&gt;interop_qc_step -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>bclconvert_run_input_directory&#45;&gt;interop_qc_step</title>
 <path fill="none" stroke="black" d="M671,-906.56C671,-863.71 671,-753.59 671,-701.82"/>
 <polygon fill="black" stroke="black" points="674.5,-701.7 671,-691.7 667.5,-701.7 674.5,-701.7"/>
@@ -74,7 +74,7 @@
 <text text-anchor="middle" x="296" y="-669.44" font-family="Times,serif" font-size="14.00">bclconvert&#45;scatter v(4.0.3)</text>
 </g>
 <!-- bclconvert_run_input_directory&#45;&gt;run_bclconvert_step -->
-<g id="edge12" class="edge">
+<g id="edge13" class="edge">
 <title>bclconvert_run_input_directory&#45;&gt;run_bclconvert_step</title>
 <path fill="none" stroke="black" d="M644.63,-906.56C578.47,-862.46 405.41,-747.08 330.92,-697.42"/>
 <polygon fill="black" stroke="black" points="332.6,-694.34 322.34,-691.7 328.72,-700.16 332.6,-694.34"/>
@@ -140,31 +140,31 @@
 <polygon fill="black" stroke="black" points="531.75,-218.39 531.07,-207.82 525.01,-216.51 531.75,-218.39"/>
 </g>
 <!-- interop_qc_step&#45;&gt;bclconvert_qc_step -->
-<g id="edge8" class="edge">
+<g id="edge4" class="edge">
 <title>interop_qc_step&#45;&gt;bclconvert_qc_step</title>
 <path fill="none" stroke="black" d="M656.15,-654.5C620.83,-612.54 531.74,-506.69 490.53,-457.72"/>
 <polygon fill="black" stroke="black" points="492.99,-455.21 483.88,-449.82 487.64,-459.72 492.99,-455.21"/>
 </g>
 <!-- run_bclconvert_step&#45;&gt;fastq_directories -->
-<g id="edge5" class="edge">
+<g id="edge6" class="edge">
 <title>run_bclconvert_step&#45;&gt;fastq_directories</title>
 <path fill="none" stroke="black" d="M293.09,-654.42C281.19,-581.78 236.08,-306.57 221.54,-217.87"/>
 <polygon fill="black" stroke="black" points="224.96,-217.08 219.89,-207.78 218.05,-218.21 224.96,-217.08"/>
 </g>
 <!-- run_bclconvert_step&#45;&gt;fastq_list_rows -->
-<g id="edge6" class="edge">
+<g id="edge7" class="edge">
 <title>run_bclconvert_step&#45;&gt;fastq_list_rows</title>
 <path fill="none" stroke="black" d="M298.54,-654.42C308.94,-581.78 348.33,-306.57 361.03,-217.87"/>
 <polygon fill="black" stroke="black" points="364.52,-218.17 362.48,-207.78 357.59,-217.18 364.52,-218.17"/>
 </g>
 <!-- run_bclconvert_step&#45;&gt;samplesheets -->
-<g id="edge7" class="edge">
+<g id="edge8" class="edge">
 <title>run_bclconvert_step&#45;&gt;samplesheets</title>
 <path fill="none" stroke="black" d="M287.8,-654.42C254.09,-581.56 126.09,-304.89 85.46,-217.07"/>
 <polygon fill="black" stroke="black" points="88.53,-215.38 81.16,-207.78 82.18,-218.32 88.53,-215.38"/>
 </g>
 <!-- run_bclconvert_step&#45;&gt;bclconvert_qc_step -->
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 <title>run_bclconvert_step&#45;&gt;bclconvert_qc_step</title>
 <path fill="none" stroke="black" d="M308.72,-654.5C338.9,-612.63 414.95,-507.13 450.34,-458.03"/>
 <polygon fill="black" stroke="black" points="453.25,-459.98 456.26,-449.82 447.57,-455.88 453.25,-459.98"/>
