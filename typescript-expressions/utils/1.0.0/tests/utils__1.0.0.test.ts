@@ -9,7 +9,7 @@ import {
     is_not_null,
     get_optional_attribute_from_object,
     get_optional_attribute_from_multi_type_input_object,
-    boolean_to_int
+    boolean_to_int, get_source_a_or_b, get_first_non_null_input
 } from "../utils__1.0.0";
 
 import {
@@ -107,6 +107,32 @@ describe('Test boolean_to_int utils', function() {
     })
     test('We expect boolean_to_int("false") to be 0', () => {
         expect(boolean_to_int("false")).toEqual(0)
+    })
+})
+
+// get_source_a_or_b Test
+describe('Test get_source_a_or_b utils', function() {
+    test('We expect get_source_a_or_b("foo", "bar) to be "foo"', () => {
+        expect(get_source_a_or_b("foo", "bar")).toEqual("foo")
+    })
+    test('We expect get_source_a_or_b(null, "bar") to be "bar', () => {
+        expect(get_source_a_or_b(null, "bar")).toEqual("bar")
+    })
+    test('We expect get_source_a_or_b("foo", null) to be "foo"', () => {
+        expect(get_source_a_or_b("foo", null)).toEqual("foo")
+    })
+})
+
+// get first non null input element Test
+describe('Test get_first_non_null_input utils', function() {
+    test('We expect get_first_non_null_input(["foo", "bar"]) to be "foo"', () => {
+        expect(get_first_non_null_input(["foo", "bar"])).toEqual("foo")
+    })
+    test('We expect get_first_non_null_input([null, "bar"]) to be "bar', () => {
+        expect(get_first_non_null_input([null, "bar"])).toEqual("bar")
+    })
+    test('We expect get_first_non_null_input(["foo", null]) to be "foo"', () => {
+        expect(get_first_non_null_input(["foo", null])).toEqual("foo")
     })
 })
 
