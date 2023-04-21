@@ -1,4 +1,4 @@
-# Test started at 2023-03-10T15:28:07+11:00
+# Test started at 2023-04-19T09:04:32+10:00
 
 PASS tests/utils__1.0.0.test.js
 PASS tests/utils__1.0.0.test.ts
@@ -13,7 +13,7 @@ Lines        : 100% ( 26/26 )
 Test Suites: 2 passed, 2 total
 Tests:       38 passed, 38 total
 Snapshots:   0 total
-Time:        3.8 s
+Time:        3.209 s
 Ran all test suites.
-# Test completed at 2023-03-10T15:28:12+11:00
+# Test completed at 2023-04-19T09:04:37+10:00
 
