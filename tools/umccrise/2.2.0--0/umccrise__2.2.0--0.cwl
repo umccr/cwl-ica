@@ -86,6 +86,13 @@ requirements:
           cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/"
           cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/"
 
+          # Check if a bam file is in the inputs dragen germline directory path
+          if [[ "\$(find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" -name '*.bam' | wc -l)" == "0" ]]; then
+            # No bam file in the germline directory, copy normal bam over from the tumor directory
+            find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" -name '*.bam' -not -name '*_tumor.bam' -exec ln "{}" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" \\;
+            find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" -name '*.bam.bai' -not -name '*_tumor.bam.bai' -exec ln "{}" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" \\;
+          fi
+
           # Run umccrise copies over inputs if umccrise failed but debug set to true
           trap 'cleanup' EXIT
           
