@@ -891,12 +891,12 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-04-21T02:22:06UTC
+            modification_time: 2023-04-21T04:07:35UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-04-20T07:23:59UTC
+            modification_time: 2023-04-21T04:08:46UTC
             run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc

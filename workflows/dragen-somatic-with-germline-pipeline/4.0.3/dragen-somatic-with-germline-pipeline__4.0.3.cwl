@@ -22,7 +22,9 @@ doc: |
     v4.0.3
 
 requirements:
-  InlineJavascriptRequirement: {}
+  InlineJavascriptRequirement:
+    expressionLib:
+      - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs
   ScatterFeatureRequirement: {}
   MultipleInputFeatureRequirement: {}
   StepInputExpressionRequirement: {}
@@ -121,19 +123,46 @@ inputs:
     type: string
 
   # Optional operation modes
-  # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  # For the following inputs we also allow splitting options between somatic and germline outputs
+  # --enable-sort
+  # --enable-map-align
+  # --enable-map-align-output
+  # --enable-duplicate-marking
+  # --dedup-min-qual
   enable_sort:
     label: enable sort
     doc: |
       True by default, only set this to false if using --bam-input parameter
     type: boolean?
+  enable_sort_germline:
+    label: enable sort germline
+    doc: |
+      True by default, only set this to false if using --bam-input parameter
+    type: boolean?
+  enable_sort_somatic:
+    label: enable sort somatic
+    doc: |
+      True by default, only set this to false if using --bam-input parameter
+    type: boolean?
   enable_map_align:
     label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input
+    type: boolean?
+  enable_map_align_germline:
+    label: enable map align germline
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input
+    type: boolean?
+  enable_map_align_somatic:
+    label: enable map align somatic
     doc: |
       Enabled by default since --enable-variant-caller option is set to true.
       Set this value to false if using bam_input
@@ -146,8 +175,36 @@ inputs:
       running map/align. Default is false if
       running the variant caller.
     type: boolean?
+  enable_map_align_output_germline:
+    label: enable map align output germline
+    doc: |
+      Enables saving the output from the
+      map/align stage. Default is true when only
+      running map/align. Default is false if
+      running the variant caller.
+    type: boolean?
+  enable_map_align_output_somatic:
+    label: enable map align output somatic
+    doc: |
+      Enables saving the output from the
+      map/align stage. Default is true when only
+      running map/align. Default is false if
+      running the variant caller.
+    type: boolean?
   enable_duplicate_marking:
     label: enable duplicate marking
+    doc: |
+      Enable the flagging of duplicate output
+      alignment records.
+    type: boolean?
+  enable_duplicate_marking_germline:
+    label: enable duplicate marking germline
+    doc: |
+      Enable the flagging of duplicate output
+      alignment records.
+    type: boolean?
+  enable_duplicate_marking_somatic:
+    label: enable duplicate marking somatic
     doc: |
       Enable the flagging of duplicate output
       alignment records.
@@ -162,6 +219,18 @@ inputs:
   # Deduplication options
   dedup_min_qual:
     label: deduplicate minimum quality
+    doc: |
+      Specifies the Phred quality score below which a base should be excluded from the quality score
+      calculation used for choosing among duplicate reads.
+    type: int?
+  dedup_min_qual_germline:
+    label: deduplicate minimum quality germline
+    doc: |
+      Specifies the Phred quality score below which a base should be excluded from the quality score
+      calculation used for choosing among duplicate reads.
+    type: int?
+  dedup_min_qual_somatic:
+    label: deduplicate minimum quality somatic
     doc: |
       Specifies the Phred quality score below which a base should be excluded from the quality score
       calculation used for choosing among duplicate reads.
@@ -773,15 +842,35 @@ steps:
       output_directory:
         source: output_directory_germline
       enable_sort:
-        source: enable_sort
+        source: [ enable_sort_germline, enable_sort]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_map_align:
-        source: enable_map_align
+        source: [ enable_map_align_germline, enable_map_align ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_map_align_output:
-        source: enable_map_align_output
+        source: [ enable_map_align_output_germline, enable_map_align_output ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_duplicate_marking:
-        source: enable_duplicate_marking
+        source: [ enable_duplicate_marking_germline, enable_duplicate_marking ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       dedup_min_qual:
-        source: dedup_min_qual
+        source: [ dedup_min_qual_germline, dedup_min_qual ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       vc_target_bed:
         source: vc_target_bed
       vc_target_bed_padding:
@@ -913,13 +1002,35 @@ steps:
       # --enable-duplicate-marking to mark duplicate reads at the same time
       # --enable-sv to enable the structural variant calling step.
       enable_sort:
-        source: enable_sort
+        source: [ enable_sort_somatic, enable_sort ]
+        valueFrom: |
+          ${
+              return get_first_non_null_input(self);
+          }
       enable_map_align:
-        source: enable_map_align
+        source: [ enable_map_align_somatic, enable_map_align ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_map_align_output:
-        source: enable_map_align_output
+        source: [ enable_map_align_output_somatic, enable_map_align_output ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_duplicate_marking:
-        source: enable_duplicate_marking
+        source: [ enable_duplicate_marking_somatic, enable_duplicate_marking ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
+      dedup_min_qual:
+        source: [ dedup_min_qual_somatic, dedup_min_qual ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_sv:
         source: enable_sv
       # Structural Variant Caller Options
