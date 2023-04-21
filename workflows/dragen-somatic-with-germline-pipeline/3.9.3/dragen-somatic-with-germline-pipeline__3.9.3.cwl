@@ -1140,6 +1140,20 @@ steps:
     out:
       - id: output_directory
     run: ../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl
+  get_normal_bam_out:
+    label: get normal bam out
+    doc: |
+      Get the normal bam value from one of the two available options
+      From the germline step (preferred)
+      From the somatic step (backup option)
+    in:
+      input_bams:
+        source:
+          - run_dragen_germline_step/dragen_bam_out
+          - run_dragen_somatic_step/normal_bam_out
+    out:
+      - id: output_bam_file
+    run: ../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.cwl
 
 outputs:
   # Will also include mounted-files.txt
@@ -1173,7 +1187,7 @@ outputs:
     doc: |
       Bam file of the normal sample
     type: File?
-    outputSource: run_dragen_germline_step/dragen_bam_out
+    outputSource: get_normal_bam_out/output_bam_file
   somatic_snv_vcf_out:
     label: somatic snv vcf
     doc: |
