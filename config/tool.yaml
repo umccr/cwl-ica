@@ -86,7 +86,7 @@ tools:
         md5sum: 1ff5be4c69d15c0724d64b6914531b03
       - name: 4.0.3
         path: 4.0.3/dragen-germline__4.0.3.cwl
-        md5sum: f757581b464820623cf01b07918211e0
+        md5sum: 6f8c23769d71b4badef18e2a9d1213c5
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -162,7 +162,7 @@ tools:
         md5sum: b74703c108b8ac76211b7806801eaf97
       - name: 4.0.3
         path: 4.0.3/dragen-somatic__4.0.3.cwl
-        md5sum: 55f7a10771c04a1298a61600fa9ff844
+        md5sum: 9a52a3206723b857cc0b3e895f970c84
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -178,7 +178,7 @@ tools:
         md5sum: 27653026f2025f9a080eb7e988652c07
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome__4.0.3.cwl
-        md5sum: afd2428fc43f389d16589c08309c2e9f
+        md5sum: f6fbc6672b46abff57c6fafdedb6046e
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
@@ -229,7 +229,7 @@ tools:
         md5sum: a4b41f4b5bd8ff81aa0d6c972b5e187f
       - name: 4.0.3
         path: 4.0.3/dragen-alignment__4.0.3.cwl
-        md5sum: bef4d6a27ef181f396acf05fd9288232
+        md5sum: e82c7cbae4379275044f4528a4e75245
     categories: []
   - name: custom-create-directory
     path: custom-create-directory
@@ -359,10 +359,10 @@ tools:
         md5sum: 6f20fd7668e6f9408a5efe966cc16ce7
       - name: 2.2.0--0
         path: 2.2.0--0/umccrise__2.2.0--0.cwl
-        md5sum: 83bac199606265b235365a41da2f6e60
+        md5sum: 4191d407e80312645cf4761ddc0ad2bd
       - name: 2.2.1--0
         path: 2.2.1--0/umccrise__2.2.1--0.cwl
-        md5sum: 654fe572015616a12a9e1a749d070715
+        md5sum: cf1c74110c24f0d099d68b8a9e9d2e03
     categories: []
   - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -457,7 +457,7 @@ tools:
     versions:
       - name: 4.0.3
         path: 4.0.3/bcl-convert__4.0.3.cwl
-        md5sum: 71741da4918f77876f20a1dcc1304ebe
+        md5sum: a4b84e32aa0735f2b93625fa8a536271
     categories: []
   - name: star
     path: star
