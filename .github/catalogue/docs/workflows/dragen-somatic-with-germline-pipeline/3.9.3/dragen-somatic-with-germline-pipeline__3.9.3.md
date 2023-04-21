@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--3.9.3  
-> md5sum: 17ff59071859dd5aae1eddf03d52e758
+> md5sum: 01a6e85d8c8b109b5abe34bf27b92ef6
 
 ### dragen-somatic-with-germline-pipeline v(3.9.3) documentation
   
@@ -227,6 +227,19 @@ running the variant caller.
 **Type:** `boolean`  
 **Docs:**  
 Set this option for running RNA samples through T/N workflow
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameter
 
 
 ### enable sv
@@ -1445,7 +1458,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
-**wfl version name:** 3.9.3--6eacfb8  
+**wfl version name:** 3.9.3--b544e98  
 
   
 
