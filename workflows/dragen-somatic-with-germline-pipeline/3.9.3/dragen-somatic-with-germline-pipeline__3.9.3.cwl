@@ -199,6 +199,18 @@ inputs:
       Enable/disable structural variant
       caller. Default is false.
     type: boolean?
+  enable_sv_germline:
+    label: enable sv germline
+    doc: |
+      Enable/disable structural variant
+      caller. Default is false.
+    type: boolean?
+  enable_sv_somatic:
+    label: enable sv somatic
+    doc: |
+      Enable/disable structural variant
+      caller. Default is false.
+    type: boolean?
 
   # Deduplication options
   dedup_min_qual:
@@ -794,7 +806,11 @@ steps:
       vc_forcegt_vcf:
         source: vc_forcegt_vcf
       enable_sv:
-        source: enable_sv
+        source: [ enable_sv_germline, enable_sv ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       # Structural Variant Caller Options
       sv_call_regions_bed:
         source: sv_call_regions_bed
@@ -913,7 +929,11 @@ steps:
             return get_first_non_null_input(self);
           }
       enable_sv:
-        source: enable_sv
+        source: [ enable_sv_somatic, enable_sv ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       # Structural Variant Caller Options
       # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/StructuralVariantCalling.htm
       sv_call_regions_bed:
