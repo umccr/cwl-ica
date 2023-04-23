@@ -88,33 +88,27 @@ requirements:
 
           # Check if a bam file is in the inputs dragen germline directory path
           if [[ "\$(find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" -name '*.bam' | wc -l)" == "0" ]]; then
-            if ! type jq 1>/dev/null 2>&1; then
-              echo "\$(date): jq not installed, downloading version 1.6 from GitHub" 1>&2
-              jq_bin="\$(mktemp)"
-              wget \\
-                --quiet \\
-                --output-document "\${jq_bin}" \\
-                "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64" 
-              chmod +x "\${jq_bin}"
-              hash -p "\${jq_bin}" jq
-            fi
-            # No bam file in the germline directory, copy normal bam over from the tumor directory
+            echo "\$(date): No bam file in the germline directory, copying normal bam over from the tumor directory" 1>&2
             normal_bam_somatic_src="\$( \\
-              find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" -name '*_normal.bam' \\
+              find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" \\
+                -maxdepth 1 \\
+                -name '*_normal.bam' \\
             )"
+            if [[ -z "\${germline_replay_json_file-}" ]]; then
+              echo "\$(date): Could not get normal bam file from dragen somatic directory" 1>&2
+              exit 1
+            fi
+            germline_replay_json_file="\$( \\
+              find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" \\
+                -maxdepth 1 \\
+                -name '*-replay.json' \\
+            )"
+            if [[ -z "\${germline_replay_json_file-}" ]]; then
+              echo "\$(date): Could not get replay json file. Could not determine germline basename" 1>&2
+              exit 1
+            fi
             germline_basename="\$( \\
-              find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" -name '*-replay.json' -exec cat {} \\; | \\
-              jq --raw-output \\
-                '
-                  .dragen_config | 
-                  map(
-                    select(
-                      .name == "output-file-prefix"
-                    ) | 
-                    .value
-                  ) | 
-                  .[]
-                ' \\
+              basename "\${germline_replay_json_file%-replay.json}" \\
             )"
             ln "\${normal_bam_somatic_src}" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\$(basename "\${germline_basename}.bam")"
             ln "\${normal_bam_somatic_src}.bai" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\$(basename "\${germline_basename}.bam.bai")"
