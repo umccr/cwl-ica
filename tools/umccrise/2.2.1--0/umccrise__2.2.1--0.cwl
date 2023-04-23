@@ -88,9 +88,36 @@ requirements:
 
           # Check if a bam file is in the inputs dragen germline directory path
           if [[ "\$(find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" -name '*.bam' | wc -l)" == "0" ]]; then
+            if ! type jq 1>/dev/null 2>&1; then
+              echo "\$(date): jq not installed, downloading version 1.6 from GitHub" 1>&2
+              jq_bin="\$(mktemp)"
+              wget \\
+                --quiet \\
+                --output-document "\${jq_bin}" \\
+                "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64" 
+              chmod +x "\${jq_bin}"
+              hash -p "\${jq_bin}" jq
+            fi
             # No bam file in the germline directory, copy normal bam over from the tumor directory
-            find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" -name '*.bam' -not -name '*_tumor.bam' -exec ln "{}" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" \\;
-            find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" -name '*.bam.bai' -not -name '*_tumor.bam.bai' -exec ln "{}" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" \\;
+            normal_bam_somatic_src="\$( \\
+              find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" -name '*_normal.bam' \\
+            )"
+            germline_basename="\$( \\
+              find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" -name '*-replay.json' -exec cat {} \\; | \\
+              jq --raw-output \\
+                '
+                  .dragen_config | 
+                  map(
+                    select(
+                      .name == "output-file-prefix"
+                    ) | 
+                    .value
+                  ) | 
+                  .[]
+                ' \\
+            )"
+            ln "\${normal_bam_somatic_src}" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\$(basename "\${germline_basename}.bam")"
+            ln "\${normal_bam_somatic_src}.bai" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\$(basename "\${germline_basename}.bam.bai")"
           fi
 
           # Run umccrise copies over inputs if umccrise failed but debug set to true
