@@ -19,7 +19,7 @@ umccrise-pipeline 2.2.1--0 workflow
 
   
 > ID: umccrise-pipeline--2.2.1--0  
-> md5sum: b686099313c72f06182c88f65970154b
+> md5sum: a6ef5a994f709b3027b0edc348500f5f
 
 ### umccrise-pipeline v(2.2.1--0) documentation
   

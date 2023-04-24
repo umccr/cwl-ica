@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--3.9.3  
-> md5sum: 01a6e85d8c8b109b5abe34bf27b92ef6
+> md5sum: 93c7f802b10cd5538630e114cd621d29
 
 ### dragen-somatic-with-germline-pipeline v(3.9.3) documentation
   
@@ -41,6 +41,7 @@ v3.9.3
 ### Uses
   
 - [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
+- [get-first-non-null-bam-file 1.0.0 :construction:](../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.md)  
 - [dragen-germline 3.9.3](../../../tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
 - [multiqc 1.14.0](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 - [dragen-somatic 3.9.3](../../../tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
@@ -146,6 +147,48 @@ To enable the dbSNP database search, set the --dbsnp option to the full path to 
 VCF or .vcf.gz file, which must be sorted in reference order.
 
 
+### deduplicate minimum quality
+
+
+
+  
+> ID: dedup_min_qual
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specifies the Phred quality score below which a base should be excluded from the quality score
+calculation used for choosing among duplicate reads.
+
+
+### deduplicate minimum quality germline
+
+
+
+  
+> ID: dedup_min_qual_germline
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specifies the Phred quality score below which a base should be excluded from the quality score
+calculation used for choosing among duplicate reads.
+
+
+### deduplicate minimum quality somatic
+
+
+
+  
+> ID: dedup_min_qual_somatic
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specifies the Phred quality score below which a base should be excluded from the quality score
+calculation used for choosing among duplicate reads.
+
+
 ### enable cnv calling
 
 
@@ -165,6 +208,34 @@ Enable CNV processing in the DRAGEN Host Software.
 
   
 > ID: enable_duplicate_marking
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable the flagging of duplicate output
+alignment records.
+
+
+### enable duplicate marking germline
+
+
+
+  
+> ID: enable_duplicate_marking_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable the flagging of duplicate output
+alignment records.
+
+
+### enable duplicate marking somatic
+
+
+
+  
+> ID: enable_duplicate_marking_somatic
   
 **Optional:** `True`  
 **Type:** `boolean`  
@@ -200,6 +271,34 @@ Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
+
+
+### enable map align germline
+
+
+
+  
+> ID: enable_map_align_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
+
+
 ### enable map align output
 
 
@@ -214,6 +313,52 @@ Enables saving the output from the
 map/align stage. Default is true when only
 running map/align. Default is false if
 running the variant caller.
+
+
+### enable map align output germline
+
+
+
+  
+> ID: enable_map_align_output_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enables saving the output from the
+map/align stage. Default is true when only
+running map/align. Default is false if
+running the variant caller.
+
+
+### enable map align output somatic
+
+
+
+  
+> ID: enable_map_align_output_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enables saving the output from the
+map/align stage. Default is true when only
+running map/align. Default is false if
+running the variant caller.
+
+
+### enable map align somatic
+
+
+
+  
+> ID: enable_map_align_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
 
 
 ### enable rna
@@ -242,12 +387,66 @@ Set this option for running RNA samples through T/N workflow
 True by default, only set this to false if using --bam-input parameter
 
 
+### enable sort germline
+
+
+
+  
+> ID: enable_sort_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameter
+
+
+### enable sort somatic
+
+
+
+  
+> ID: enable_sort_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameter
+
+
 ### enable sv
 
 
 
   
 > ID: enable_sv
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable/disable structural variant
+caller. Default is false.
+
+
+### enable sv germline
+
+
+
+  
+> ID: enable_sv_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable/disable structural variant
+caller. Default is false.
+
+
+### enable sv somatic
+
+
+
+  
+> ID: enable_sv_somatic
   
 **Optional:** `True`  
 **Type:** `boolean`  
@@ -1241,6 +1440,25 @@ Intermediate step for letting multiqc-interop be placed in stream mode
 [CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
 
 
+### get normal bam out
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--3.9.3/get_normal_bam_out
+  
+**Step Type:** expression  
+**Docs:**
+  
+Get the normal bam value from one of the two available options
+From the germline step (preferred)
+From the somatic step (backup option)
+
+#### Links
+  
+[CWL File Path](../../../../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.md)  
+
+
 ### run dragen germline step
 
 
@@ -1458,7 +1676,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
-**wfl version name:** 3.9.3--b544e98  
+**wfl version name:** 3.9.3--ae21995  
 
   
 
