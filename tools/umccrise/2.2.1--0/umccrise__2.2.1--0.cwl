@@ -94,7 +94,7 @@ requirements:
                 -maxdepth 1 \\
                 -name '*_normal.bam' \\
             )"
-            if [[ -z "\${germline_replay_json_file-}" ]]; then
+            if [[ -z "\${normal_bam_somatic_src-}" ]]; then
               echo "\$(date): Could not get normal bam file from dragen somatic directory" 1>&2
               exit 1
             fi
