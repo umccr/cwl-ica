@@ -86,6 +86,34 @@ requirements:
           cp -r "$(inputs.dragen_somatic_directory.path)/." "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/"
           cp -r "$(inputs.dragen_germline_directory.path)/." "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/"
 
+          # Check if a bam file is in the inputs dragen germline directory path
+          if [[ "\$(find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" -name '*.bam' | wc -l)" == "0" ]]; then
+            echo "\$(date): No bam file in the germline directory, copying normal bam over from the tumor directory" 1>&2
+            normal_bam_somatic_src="\$( \\
+              find "$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/" \\
+                -maxdepth 1 \\
+                -name '*_normal.bam' \\
+            )"
+            if [[ -z "\${normal_bam_somatic_src-}" ]]; then
+              echo "\$(date): Could not get normal bam file from dragen somatic directory" 1>&2
+              exit 1
+            fi
+            germline_replay_json_file="\$( \\
+              find "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/" \\
+                -maxdepth 1 \\
+                -name '*-replay.json' \\
+            )"
+            if [[ -z "\${germline_replay_json_file-}" ]]; then
+              echo "\$(date): Could not get replay json file. Could not determine germline basename" 1>&2
+              exit 1
+            fi
+            germline_basename="\$( \\
+              basename "\${germline_replay_json_file%-replay.json}" \\
+            )"
+            ln "\${normal_bam_somatic_src}" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\$(basename "\${germline_basename}.bam")"
+            ln "\${normal_bam_somatic_src}.bai" "$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\$(basename "\${germline_basename}.bam.bai")"
+          fi
+
           # Run umccrise copies over inputs if umccrise failed but debug set to true
           trap 'cleanup' EXIT
           
