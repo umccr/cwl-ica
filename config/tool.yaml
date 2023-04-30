@@ -188,7 +188,7 @@ tools:
         md5sum: 214d1ea4873d8c9517bb3ebc1d7d359d
       - name: 2.3.0
         path: 2.3.0/arriba-fusion-calling__2.3.0.cwl
-        md5sum: c0907e46308cb57ee6eed801b5b641d8
+        md5sum: ca3cb2feefed07a547d34bc4db858c48
     categories: []
   - name: arriba-drawing
     path: arriba-drawing

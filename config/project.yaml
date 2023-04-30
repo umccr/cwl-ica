@@ -471,7 +471,7 @@ projects:
           - name: 2.3.0
             path: 2.3.0/arriba-fusion-calling__2.3.0.cwl
             ica_workflow_version_name: 2.3.0
-            modification_time: 2023-01-30T00:41:53UTC
+            modification_time: 2023-04-25T00:53:35UTC
             run_instances: []
       - name: bamtofastq
         path: bamtofastq
