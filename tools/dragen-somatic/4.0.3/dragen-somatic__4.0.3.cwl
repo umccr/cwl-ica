@@ -139,7 +139,7 @@ requirements:
               "--output-directory=$(inputs.output_directory)" \\
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
-              "--tumor-bam-input=$(inputs.tumor_bam_input.path)"
+              "--tumor-bam-input=$(get_attribute_from_optional_input(inputs.tumor_bam_input, "path"))"
 
             echo "Aligning normal" 1>&2
             eval /opt/edico/bin/dragen \\
@@ -152,7 +152,7 @@ requirements:
               "--output-directory=$(inputs.output_directory)" \\
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
-              "--bam-input=$(inputs.bam_input.path)"
+              "--bam-input=$(get_attribute_from_optional_input(inputs.bam_input, "path"))"
             
           
             # Pop back in existing arguments into \${@}

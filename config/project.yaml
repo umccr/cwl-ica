@@ -347,7 +347,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-04-24T06:50:25UTC
+            modification_time: 2023-05-02T01:39:55UTC
             run_instances: []
       - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
         path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -640,7 +640,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-04-24T07:11:15UTC
+            modification_time: 2023-05-02T02:04:59UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -891,7 +891,7 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2023-04-21T22:20:44UTC
+            modification_time: 2023-05-01T08:40:17UTC
             run_instances: []
           - name: 3.9.3
             path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
@@ -1556,6 +1556,11 @@ projects:
             path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3--ae21995
             modification_time: 2023-04-24T07:12:22UTC
+            run_instances: []
+          - name: 4.0.3
+            path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3--fa8ef7c
+            modification_time: 2023-05-02T02:05:45UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
@@ -2966,6 +2971,11 @@ projects:
             path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3--ae21995
             modification_time: 2023-04-24T07:13:01UTC
+            run_instances: []
+          - name: 4.0.3
+            path: 4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3--fa8ef7c
+            modification_time: 2023-05-02T02:06:09UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
