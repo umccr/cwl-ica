@@ -81,10 +81,6 @@ arguments:
   # Script path
   - valueFrom: "$(get_script_path())"
     position: -1
-  # Set fastq list
-  - prefix: "--fastq-list="
-    separate: False
-    valueFrom: "$(get_fastq_list_csv_path())"
   # Set intermediate directory
   - prefix: "--intermediate-results-dir="
     separate: False
@@ -103,12 +99,33 @@ inputs:
       CSV file that contains a list of FASTQ files
       to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
+    inputBinding:
+      loadContents: true
+      prefix: "--fastq-list="
+      separate: False
+      valueFrom: "$(get_fastq_list_csv_path())"
   # Option 2:
   fastq_list_rows:
     label: fastq list rows
     doc: |
       Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+    inputBinding:
+      prefix: "--fastq-list="
+      separate: False
+      valueFrom: "$(get_fastq_list_csv_path())"
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--bam-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -136,6 +153,16 @@ inputs:
       prefix: "--output-directory="
       separate: False
   # Alignment options
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align="
+      separate: False
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -143,6 +170,15 @@ inputs:
     type: boolean
     inputBinding:
       prefix: "--enable-map-align-output="
+      separate: False
+      valueFrom: "$(self.toString())"
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input parameters
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-sort="
       separate: False
       valueFrom: "$(self.toString())"
   enable_duplicate_marking:
