@@ -55,6 +55,9 @@ inputs:
     doc: |
       Input a BAM file for WTS analysis
     type: File?
+    secondaryFiles:
+      - pattern: ".bam"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -78,6 +81,12 @@ inputs:
       The directory where all output files are placed
     type: string
   # Alignment options
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -88,6 +97,11 @@ inputs:
     doc: |
       Mark identical alignments as duplicates
     type: boolean
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+    type: boolean?
   # Quantification options
   enable_rna_quantification:
     label: enable rna quantification
@@ -206,10 +220,14 @@ steps:
         source: output_file_prefix
       output_directory:
         source: output_directory
+      enable_map_align:
+        source: enable_map_align
       enable_map_align_output:
         source: enable_map_align_output
       enable_duplicate_marking:
         source: enable_duplicate_marking
+      enable_sort:
+        source: enable_sort
       annotation_file:
         source: annotation_file
       enable_rna_quantification:
