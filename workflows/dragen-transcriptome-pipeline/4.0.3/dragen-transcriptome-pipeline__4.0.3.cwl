@@ -29,12 +29,14 @@ requirements:
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
 
 inputs:
+  # Option 1
   fastq_list:
     label: fastq list
     doc: |
       CSV file that contains a list of FASTQ files
       to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
+  # Option 2
   fastq_list_rows:
     label: Row of fastq lists
     doc: |
@@ -47,6 +49,12 @@ inputs:
         * Read1File
         * Read2File (optional)
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a BAM file for WTS analysis
+    type: File?
   reference_tar:
     label: reference tar
     doc: |
@@ -183,10 +191,15 @@ steps:
       All other options avaiable at the top of the workflow
     in:
       # Input fastq files to dragen
+      # Option 1
       fastq_list:
         source: fastq_list
+      # Option 2
       fastq_list_rows:
         source: fastq_list_rows
+      # Option 3
+      bam_input:
+        source: bam_input
       reference_tar:
         source: reference_tar
       output_file_prefix:
