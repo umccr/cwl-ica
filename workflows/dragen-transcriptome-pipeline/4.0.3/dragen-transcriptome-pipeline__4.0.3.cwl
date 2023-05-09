@@ -56,7 +56,7 @@ inputs:
       Input a BAM file for WTS analysis
     type: File?
     secondaryFiles:
-      - pattern: ".bam"
+      - pattern: ".bai"
         required: true
   reference_tar:
     label: reference tar
@@ -100,7 +100,7 @@ inputs:
   enable_sort:
     label: enable sort
     doc: |
-      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+      True by default, only set this to false if using --bam-input as input parameter
     type: boolean?
   # Quantification options
   enable_rna_quantification:

@@ -118,7 +118,7 @@ inputs:
   bam_input:
     label: bam input
     doc: |
-      Input a normal BAM file for the variant calling stage
+      Input a BAM file for the Dragen RNA options
     type: File?
     inputBinding:
       prefix: "--bam-input="
@@ -157,7 +157,7 @@ inputs:
     label: enable map align
     doc: |
       Enabled by default.
-      Set this value to false if using bam_input AND tumor_bam_input
+      Set this value to false if using bam_input
     type: boolean?
     inputBinding:
       prefix: "--enable-map-align="
