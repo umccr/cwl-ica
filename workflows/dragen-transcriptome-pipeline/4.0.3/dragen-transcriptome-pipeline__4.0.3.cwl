@@ -29,12 +29,14 @@ requirements:
         - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
 
 inputs:
+  # Option 1
   fastq_list:
     label: fastq list
     doc: |
       CSV file that contains a list of FASTQ files
       to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
+  # Option 2
   fastq_list_rows:
     label: Row of fastq lists
     doc: |
@@ -47,6 +49,15 @@ inputs:
         * Read1File
         * Read2File (optional)
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a BAM file for WTS analysis
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -70,6 +81,12 @@ inputs:
       The directory where all output files are placed
     type: string
   # Alignment options
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -80,6 +97,11 @@ inputs:
     doc: |
       Mark identical alignments as duplicates
     type: boolean
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input as input parameter
+    type: boolean?
   # Quantification options
   enable_rna_quantification:
     label: enable rna quantification
@@ -183,20 +205,29 @@ steps:
       All other options avaiable at the top of the workflow
     in:
       # Input fastq files to dragen
+      # Option 1
       fastq_list:
         source: fastq_list
+      # Option 2
       fastq_list_rows:
         source: fastq_list_rows
+      # Option 3
+      bam_input:
+        source: bam_input
       reference_tar:
         source: reference_tar
       output_file_prefix:
         source: output_file_prefix
       output_directory:
         source: output_directory
+      enable_map_align:
+        source: enable_map_align
       enable_map_align_output:
         source: enable_map_align_output
       enable_duplicate_marking:
         source: enable_duplicate_marking
+      enable_sort:
+        source: enable_sort
       annotation_file:
         source: annotation_file
       enable_rna_quantification:
