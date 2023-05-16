@@ -49,16 +49,6 @@ inputs:
     doc: |
       The subject ID (used to name output files)
     type: string
-  dragen_tumor_id:
-    label: dragen tumor id
-    doc: |
-      The name of the dragen tumor sample
-    type: string
-  dragen_normal_id:
-    label: dragen normal id
-    doc: |
-      The name of the dragen normal sample
-    type: string
   # Output names
   output_directory_name:
     label: output directory name
@@ -71,6 +61,38 @@ inputs:
     doc: |
       Number of threads to use
     type: int?
+  dragen_tumor_id:
+    label: dragen tumor id
+    doc: |
+      The name of the dragen tumor sample
+    type: string?
+  dragen_normal_id:
+    label: dragen normal id
+    doc: |
+      The name of the dragen normal sample
+    type: string?
+  # Stage selection
+  skip_stage:
+    label: skip stage
+    doc: |
+      Runs all default stage(s) excluding the one selected
+    type: string[]?
+  include_stage:
+    label: include stage
+    doc: |
+      Optionally, specify stage(s) to run
+    type: string[]?
+  # Debugger options
+  debug:
+    label: debug
+    doc: |
+      Copy workspace to output directory if workflow fails
+    type: boolean?
+  dry_run:
+    label: dry run
+    doc: |
+      Prints rules and commands to be run without actually executing them
+    type: boolean?
 
 steps:
   run_umccrise_step:
@@ -94,6 +116,14 @@ steps:
         source: output_directory_name
       threads:
         source: threads
+      skip_stage:
+        source: skip_stage
+      include_stage:
+        source: include_stage
+      debug:
+        source: debug
+      dry_run:
+        source: dry_run
     out:
       - id: output_directory
     run: ../../../tools/umccrise/2.2.0--0/umccrise__2.2.0--0.cwl

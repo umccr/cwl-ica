@@ -180,12 +180,15 @@ export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow
     Get the normal RGSM value and then add _normal to it
     */
     let normal_name: string | null = null
+    let normal_re_replacement = /_normal$/
 
     /*
     Check if bam_input is set
     */
     if (inputs.bam_input !== null && inputs.bam_input !== undefined){
-        return <string>`${inputs.bam_input.nameroot}_normal`
+        /* Remove _normal from nameroot if it already exists */
+        /* We dont want _normal_normal as a suffix */
+        return <string>`${inputs.bam_input.nameroot?.replace(normal_re_replacement, "")}_normal`
     }
 
     /*

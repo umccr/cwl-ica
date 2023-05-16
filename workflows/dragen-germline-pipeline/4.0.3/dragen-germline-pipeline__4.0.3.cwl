@@ -47,6 +47,15 @@ inputs:
     doc: |
       Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -71,6 +80,12 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_map_align:
+      label: enable map align
+      doc: |
+        Enabled by default since --enable-variant-caller option is set to true.
+        Set this value to false if using bam_input
+      type: boolean?
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -415,6 +430,8 @@ steps:
         source: fastq_list_rows
       fastq_list:
         source: fastq_list
+      bam_input:
+        source: bam_input
       reference_tar:
         source: reference_tar
       output_file_prefix:

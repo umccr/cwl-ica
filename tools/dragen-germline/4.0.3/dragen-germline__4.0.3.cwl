@@ -72,9 +72,9 @@ requirements:
             --extract \\
             --file "$(inputs.reference_tar.path)"
           
-          # Confirm not both fastq_list and fastq_list_rows are defined
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" && "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
-            echo "Cannot set both CWL inputs fastq_list AND fastq_list_rows" 1>&2
+          # Confirm either of fastq_list, fastq_list_rows or bam_input is defined
+          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -ne "1" ]]; then
+            echo "Please set one and only one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
             exit 1
           fi
           
@@ -84,18 +84,13 @@ requirements:
         ${
           return generate_germline_mount_points(inputs);
         }
-
-
+  
 baseCommand: [ "bash" ]
 
 arguments:
   # Script path
   - valueFrom: "$(get_script_path())"
     position: -1
-  # Set fastq list
-  - prefix: "--fastq-list="
-    separate: False
-    valueFrom: "$(get_fastq_list_csv_path())"
   # Parameters that are always true
   - prefix: "--enable-variant-caller="
     separate: False
@@ -118,12 +113,33 @@ inputs:
       Read1File and Read2File may be presigned urls or use this in conjunction with
       the fastq_list_mount_paths inputs.
     type: File?
+    inputBinding:
+      loadContents: true
+      prefix: "--fastq-list="
+      separate: False
+      valueFrom: "$(get_fastq_list_csv_path())"
   # Option 2:
   fastq_list_rows:
     label: fastq list rows
     doc: |
       Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+    inputBinding:
+      prefix: "--fastq-list="
+      separate: False
+      valueFrom: "$(get_fastq_list_csv_path())"
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--bam-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -133,7 +149,6 @@ inputs:
       prefix: "--ref-dir="
       separate: False
       valueFrom: "$(get_ref_path(self))"
-
   # Output naming options
   output_file_prefix:
     label: output file prefix
@@ -151,13 +166,31 @@ inputs:
     inputBinding:
       prefix: "--output-directory="
       separate: False
-
   # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input parameter
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-sort="
+      separate: False
+      valueFrom: "$(self.toString())"
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align="
+      separate: False
+      valueFrom: "$(self.toString())" 
   enable_map_align_output:
     label: enable map align output
     doc: |
@@ -631,7 +664,6 @@ inputs:
     inputBinding:
       prefix: "--hla-min-reads="
       separate: False
-
   # Miscellaneous options
   lic_instance_id_location:
     label: license instance id location

@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.0.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.0.3  
-> md5sum: 15e0d5df3625ed1db6e00cd4ee270540
+> md5sum: f256ba20becf2af33466de3ae659fab6
 
 ### dragen-transcriptome-pipeline v(4.0.3) documentation
   
@@ -77,6 +77,19 @@ uniquely-mapped-reads(default) or proportional.
 **Type:** `File`  
 **Docs:**  
 Path to annotation transcript file.
+
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for WTS analysis
 
 
 ### blacklist
@@ -145,6 +158,20 @@ Coordinates of the Giemsa staining bands.
 Mark identical alignments as duplicates
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default.
+Set this value to false if using bam_input AND tumor_bam_input
+
+
 ### enable map align output
 
 
@@ -182,6 +209,19 @@ Optional - Enable the DRAGEN Gene Fusion module - defaults to true
 **Type:** `boolean`  
 **Docs:**  
 Optional - Enable the quantification module - defaults to true
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input as input parameter
 
 
 ### fastq list

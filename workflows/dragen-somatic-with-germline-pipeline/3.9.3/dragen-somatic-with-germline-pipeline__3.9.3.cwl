@@ -22,7 +22,9 @@ doc: |
     v3.9.3
 
 requirements:
-  InlineJavascriptRequirement: {}
+  InlineJavascriptRequirement:
+    expressionLib:
+      - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs
   ScatterFeatureRequirement: {}
   MultipleInputFeatureRequirement: {}
   StepInputExpressionRequirement: {}
@@ -110,8 +112,63 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  # For the following inputs we also allow splitting options between somatic and germline outputs
+  # --enable-sort
+  # --enable-map-align
+  # --enable-map-align-output
+  # --enable-duplicate-marking
+  # --dedup-min-qual
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input parameter
+    type: boolean?
+  enable_sort_germline:
+    label: enable sort germline
+    doc: |
+      True by default, only set this to false if using --bam-input parameter
+    type: boolean?
+  enable_sort_somatic:
+    label: enable sort somatic
+    doc: |
+      True by default, only set this to false if using --bam-input parameter
+    type: boolean?
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input
+    type: boolean?
+  enable_map_align_germline:
+    label: enable map align germline
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input
+    type: boolean?
+  enable_map_align_somatic:
+    label: enable map align somatic
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input
+    type: boolean?
   enable_map_align_output:
     label: enable map align output
+    doc: |
+      Enables saving the output from the
+      map/align stage. Default is true when only
+      running map/align. Default is false if
+      running the variant caller.
+    type: boolean?
+  enable_map_align_output_germline:
+    label: enable map align output germline
+    doc: |
+      Enables saving the output from the
+      map/align stage. Default is true when only
+      running map/align. Default is false if
+      running the variant caller.
+    type: boolean?
+  enable_map_align_output_somatic:
+    label: enable map align output somatic
     doc: |
       Enables saving the output from the
       map/align stage. Default is true when only
@@ -124,12 +181,56 @@ inputs:
       Enable the flagging of duplicate output
       alignment records.
     type: boolean?
+  enable_duplicate_marking_germline:
+    label: enable duplicate marking germline
+    doc: |
+      Enable the flagging of duplicate output
+      alignment records.
+    type: boolean?
+  enable_duplicate_marking_somatic:
+    label: enable duplicate marking somatic
+    doc: |
+      Enable the flagging of duplicate output
+      alignment records.
+    type: boolean?
   enable_sv:
     label: enable sv
     doc: |
       Enable/disable structural variant
       caller. Default is false.
     type: boolean?
+  enable_sv_germline:
+    label: enable sv germline
+    doc: |
+      Enable/disable structural variant
+      caller. Default is false.
+    type: boolean?
+  enable_sv_somatic:
+    label: enable sv somatic
+    doc: |
+      Enable/disable structural variant
+      caller. Default is false.
+    type: boolean?
+
+  # Deduplication options
+  dedup_min_qual:
+    label: deduplicate minimum quality
+    doc: |
+      Specifies the Phred quality score below which a base should be excluded from the quality score
+      calculation used for choosing among duplicate reads.
+    type: int?
+  dedup_min_qual_germline:
+    label: deduplicate minimum quality germline
+    doc: |
+      Specifies the Phred quality score below which a base should be excluded from the quality score
+      calculation used for choosing among duplicate reads.
+    type: int?
+  dedup_min_qual_somatic:
+    label: deduplicate minimum quality somatic
+    doc: |
+      Specifies the Phred quality score below which a base should be excluded from the quality score
+      calculation used for choosing among duplicate reads.
+    type: int?
 
   # Structural Variant Caller Options
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/StructuralVariantCalling.htm
@@ -642,10 +743,36 @@ steps:
         source: output_file_prefix_germline
       output_directory:
         source: output_directory_germline
+      enable_sort:
+        source: [ enable_sort_germline, enable_sort ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
+      enable_map_align:
+        source: [ enable_map_align_germline, enable_map_align ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_map_align_output:
-        source: enable_map_align_output
+        source: [ enable_map_align_output_germline, enable_map_align_output ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_duplicate_marking:
-        source: enable_duplicate_marking
+        source: [ enable_duplicate_marking_germline, enable_duplicate_marking ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
+      dedup_min_qual:
+        source: [ dedup_min_qual_germline, dedup_min_qual ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       vc_target_bed:
         source: vc_target_bed
       vc_target_bed_padding:
@@ -679,7 +806,11 @@ steps:
       vc_forcegt_vcf:
         source: vc_forcegt_vcf
       enable_sv:
-        source: enable_sv
+        source: [ enable_sv_germline, enable_sv ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       # Structural Variant Caller Options
       sv_call_regions_bed:
         source: sv_call_regions_bed
@@ -767,12 +898,42 @@ steps:
       # --enable-map-align-output to keep bams
       # --enable-duplicate-marking to mark duplicate reads at the same time
       # --enable-sv to enable the structural variant calling step.
+      enable_sort:
+        source: [ enable_sort_somatic, enable_sort ]
+        valueFrom: |
+          ${
+              return get_first_non_null_input(self);
+          }
+      enable_map_align:
+        source: [ enable_map_align_somatic, enable_map_align ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_map_align_output:
-        source: enable_map_align_output
+        source: [ enable_map_align_output_somatic, enable_map_align_output ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_duplicate_marking:
-        source: enable_duplicate_marking
+        source: [ enable_duplicate_marking_somatic, enable_duplicate_marking ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
+      dedup_min_qual:
+        source: [ dedup_min_qual_somatic, dedup_min_qual ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       enable_sv:
-        source: enable_sv
+        source: [ enable_sv_somatic, enable_sv ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       # Structural Variant Caller Options
       # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/StructuralVariantCalling.htm
       sv_call_regions_bed:
@@ -979,6 +1140,20 @@ steps:
     out:
       - id: output_directory
     run: ../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl
+  get_normal_bam_out:
+    label: get normal bam out
+    doc: |
+      Get the normal bam value from one of the two available options
+      From the germline step (preferred)
+      From the somatic step (backup option)
+    in:
+      input_bams:
+        source:
+          - run_dragen_germline_step/dragen_bam_out
+          - run_dragen_somatic_step/normal_bam_out
+    out:
+      - id: output_bam_file
+    run: ../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.cwl
 
 outputs:
   # Will also include mounted-files.txt
@@ -1012,7 +1187,7 @@ outputs:
     doc: |
       Bam file of the normal sample
     type: File?
-    outputSource: run_dragen_germline_step/dragen_bam_out
+    outputSource: get_normal_bam_out/output_bam_file
   somatic_snv_vcf_out:
     label: somatic snv vcf
     doc: |

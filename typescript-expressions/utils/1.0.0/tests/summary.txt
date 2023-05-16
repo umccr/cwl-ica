@@ -1,19 +1,19 @@
-# Test started at 2023-03-10T15:28:07+11:00
+# Test started at 2023-04-21T14:06:16+10:00
 
 PASS tests/utils__1.0.0.test.js
 PASS tests/utils__1.0.0.test.ts
 
 =============================== Coverage summary ===============================
-Statements   : 100% ( 26/26 )
-Branches     : 100% ( 22/22 )
-Functions    : 100% ( 6/6 )
-Lines        : 100% ( 26/26 )
+Statements   : 95% ( 38/40 )
+Branches     : 96.42% ( 27/28 )
+Functions    : 100% ( 8/8 )
+Lines        : 94.73% ( 36/38 )
 ================================================================================
 
 Test Suites: 2 passed, 2 total
-Tests:       38 passed, 38 total
+Tests:       50 passed, 50 total
 Snapshots:   0 total
-Time:        3.8 s
+Time:        3.126 s
 Ran all test suites.
-# Test completed at 2023-03-10T15:28:12+11:00
+# Test completed at 2023-04-21T14:06:20+10:00
 

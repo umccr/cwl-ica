@@ -90,3 +90,27 @@ describe('Test boolean_to_int utils', function () {
         expect((0, utils__1_0_0_1.boolean_to_int)("false")).toEqual(0);
     });
 });
+// get_source_a_or_b Test
+describe('Test get_source_a_or_b utils', function () {
+    test('We expect get_source_a_or_b("foo", "bar) to be "foo"', function () {
+        expect((0, utils__1_0_0_1.get_source_a_or_b)("foo", "bar")).toEqual("foo");
+    });
+    test('We expect get_source_a_or_b(null, "bar") to be "bar', function () {
+        expect((0, utils__1_0_0_1.get_source_a_or_b)(null, "bar")).toEqual("bar");
+    });
+    test('We expect get_source_a_or_b("foo", null) to be "foo"', function () {
+        expect((0, utils__1_0_0_1.get_source_a_or_b)("foo", null)).toEqual("foo");
+    });
+});
+// get first non null input element Test
+describe('Test get_first_non_null_input utils', function () {
+    test('We expect get_first_non_null_input(["foo", "bar"]) to be "foo"', function () {
+        expect((0, utils__1_0_0_1.get_first_non_null_input)(["foo", "bar"])).toEqual("foo");
+    });
+    test('We expect get_first_non_null_input([null, "bar"]) to be "bar', function () {
+        expect((0, utils__1_0_0_1.get_first_non_null_input)([null, "bar"])).toEqual("bar");
+    });
+    test('We expect get_first_non_null_input(["foo", null]) to be "foo"', function () {
+        expect((0, utils__1_0_0_1.get_first_non_null_input)(["foo", null])).toEqual("foo");
+    });
+});
