@@ -108,14 +108,12 @@ inputs:
     type: boolean?
     doc: |
       Optional - Enable the quantification module - defaults to true
-    default: false
   # Fusion calling options
   enable_rna_gene_fusion:
     label: enable rna gene fusion
     type: boolean?
     doc: |
       Optional - Enable the DRAGEN Gene Fusion module - defaults to true
-    default: false
   # qualimap inputs
   java_mem:
     label: java mem
