@@ -1944,8 +1944,8 @@ projects:
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
-            ica_workflow_version_name: 4.0.3--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 4.0.3--b4707b4
+            modification_time: 2023-05-18T07:34:55UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
