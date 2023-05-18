@@ -14,15 +14,13 @@ s:author:
     s:email: sehrish.kanwal@umccr.org
 
 # ID/Docs
-id: dragen-transcriptome-pipeline--4.0.3
-label: dragen-transcriptome-pipeline v(4.0.3)
+id: dragen-wts-qc-pipeline--4.0.3
+label: dragen-wts-qc-pipeline v(4.0.3)
 doc: |
-    Documentation for dragen-transcriptome-pipeline v4.0.3
+    Documentation for dragen-wts-qc-pipeline v4.0.3
 
 requirements:
-    InlineJavascriptRequirement:
-      expressionLib:
-      - $include: ../../../typescript-expressions/multiqc-tools/1.0.0/multiqc-tools__1.0.0.cwljs
+    InlineJavascriptRequirement: {}
     ScatterFeatureRequirement: {}
     MultipleInputFeatureRequirement: {}
     StepInputExpressionRequirement: {}
@@ -116,51 +114,13 @@ inputs:
     type: boolean?
     doc: |
       Optional - Enable the DRAGEN Gene Fusion module - defaults to true
-  # Arriba fusion calling options
-  contigs:
-    label: contigs
-    type: string?
-    doc: |
-      Optional - List of interesting contigs
-      If not specified, defaults to 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,X,Y
-  blacklist:
-    label: blacklist
-    type: File
-    doc: |
-      File with blacklist range
-  reference_fasta:
-    label: reference Fasta
-    type: File
-    doc: |
-      FastA file with genome sequence
-    secondaryFiles:
-      - pattern: ".fai"
-        required: true
-  # Arriba drawing options
-  cytobands:
-    label: cytobands
-    type: File
-    doc: |
-      Coordinates of the Giemsa staining bands.
-  protein_domains:
-    label: protein domains
-    type: File
-    doc: |
-      GFF3 file containing the genomic coordinates of protein domains.
   # qualimap inputs
   java_mem:
     label: java mem
-    type: string
-    doc: |
-      Set desired Java heap memory size
-    default: "20G"
-  tmp_dir:
-    label: tmp dir
     type: string?
     doc: |
-      Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-      This can be avoided by sorting the bam file by name before running Qualimap.
-    default: "/scratch"
+      Set desired Java heap memory size
+    default: "96G"
   algorithm:
     label: algorithm
     type: string?
@@ -168,24 +128,13 @@ inputs:
       Counting algorithm:
       uniquely-mapped-reads(default) or proportional.
     default: "proportional"
-  # multiQC input
-  qc_reference_samples:
-    label: qc reference samples
-    type: Directory[]
-    doc: |
-      Reference samples for multiQC report
-  cl_config:
-    label: cl config
-    doc: |
-      command line config to supply additional config values on the command line.
-    type: string?
-  # Collect outputs
-  output_directory_name_arriba:
-    label: output directory name arriba
+  tmp_dir:
+    label: tmp dir
     type: string?
     doc: |
-      Name of the directory to collect arriba outputs in.
-    default: "arriba"
+      Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
+      This can be avoided by sorting the bam file by name before running Qualimap.
+    default: "/scratch"
   # Location of license
   lic_instance_id_location:
     label: license instance id location
@@ -242,75 +191,20 @@ steps:
       - id: dragen_transcriptome_directory
       - id: dragen_bam_out
     run: ../../../tools/dragen-transcriptome/4.0.3/dragen-transcriptome__4.0.3.cwl
-  # Step-2: Call Arriba fusion calling step
-  arriba_fusion_step:
-    label: arriba fusion step
-    doc: |
-      Runs Arriba fusion calling on the bam file produced by Dragen.
-    in: 
-      bam_file:
-        source: run_dragen_transcriptome_step/dragen_bam_out
-      annotation:
-        source: annotation_file
-      reference: 
-        source: reference_fasta
-      contigs:
-        source: contigs
-      blacklist: 
-        source: blacklist
-    out:
-      - id: fusions
-      - id: discarded_fusions
-    run: ../../../tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.cwl
-  # Step-3: Call Arriba drawing script
-  arriba_drawing_step:
-    label: arriba drawing step
-    doc: |
-      Run Arriba drawing script for fusions predicted by previous step.
-    in:
-      annotation:
-        source: annotation_file
-      fusions: 
-        source: arriba_fusion_step/fusions
-      bam_file:
-        source: run_dragen_transcriptome_step/dragen_bam_out
-      cytobands:
-        source: cytobands
-      protein_domains:
-        source: protein_domains
-    out: 
-      - id: output_pdf
-    run: ../../../tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.cwl
-  # Step-4: Create Arriba output directory
-  create_arriba_output_directory:
-    label: create arriba output directory
-    doc: |
-      Create an output directory to contain the arriba files
-    in:
-      input_files:
-        source:
-          - arriba_fusion_step/fusions
-          - arriba_fusion_step/discarded_fusions
-          - arriba_drawing_step/output_pdf
-      output_directory_name:
-        source: output_directory_name_arriba
-    out:
-      - output_directory
-    run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
-  # Step-5: Run qualimap
+  # Step-2: Run qualimap
   run_qualimap_step:
     label: run qualimap step
     doc: |
       Run qualimap step to generate additional QC metrics
     in: 
-      java_mem:
-        source: java_mem
       tmp_dir:
         source: tmp_dir
+      java_mem:
+        source: java_mem
       algorithm:
         source: algorithm
       out_dir:
-        source: output_file_prefix
+        source: output_directory
         valueFrom: "$(self)_qualimap"
       gtf:
         source: annotation_file
@@ -319,51 +213,6 @@ steps:
     out:
       - id: qualimap_qc
     run: ../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl
-  # Step-6: Create dummy file for the qc step
-  create_dummy_file_step:
-    label: Create dummy file
-    doc: |
-      Intermediate step for letting multiqc-interop be placed in stream mode
-    in: { }
-    out:
-      - id: dummy_file_output
-    run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
-  # Step-7: Create multiQC report
-  dragen_qc_step:
-    label: dragen qc step
-    doc: |
-      The dragen qc step - this takes in an array of dirs
-    in:
-      input_directories:
-        source:
-          - run_dragen_transcriptome_step/dragen_transcriptome_directory
-          - run_qualimap_step/qualimap_qc         
-          - qc_reference_samples
-        linkMerge: merge_flattened
-      output_directory_name:
-        source: output_file_prefix
-        valueFrom: "$(self)_dragen_transcriptome_multiqc"
-      output_filename:
-        source: output_file_prefix
-        valueFrom: "$(self)_dragen_transcriptome_multiqc.html"
-      title:
-        source: output_file_prefix
-        valueFrom: "UMCCR MultiQC Dragen Transcriptome Report for $(self)"
-      dummy_file:
-        source: create_dummy_file_step/dummy_file_output
-      cl_config:
-        source:
-          - cl_config
-          - output_file_prefix
-        valueFrom: |
-          ${
-            return add_sample_to_sample_name_replace_in_multiqc_cl_config(self[0], self[1] + "_qualimap", self[1]);
-          }
-    out:
-      - id: output_directory
-      - id: output_file
-    run: ../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl
-
 outputs:
   # The dragen output directory
   dragen_transcriptome_output_directory:
@@ -372,20 +221,6 @@ outputs:
       The output directory containing all transcriptome output files
     type: Directory
     outputSource: run_dragen_transcriptome_step/dragen_transcriptome_directory
-  # The arriba output directory
-  arriba_output_directory:
-    label: arriba output directory
-    doc: |
-      The directory containing output files from arriba
-    type: Directory
-    outputSource: create_arriba_output_directory/output_directory
-  # The multiqc output directory
-  multiqc_output_directory:
-    label: multiqc output directory
-    doc: |
-      The output directory for multiqc
-    type: Directory
-    outputSource: dragen_qc_step/output_directory
   # The qualimap output directory
   qualimap_output_directory:
     label: dragen transcriptome output directory

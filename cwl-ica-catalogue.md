@@ -836,6 +836,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.9.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/4.0.3/dragen-wts-qc-pipeline__4.0.3.md)  
 
 
 ### tabix-workflow
