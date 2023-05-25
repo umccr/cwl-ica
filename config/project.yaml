@@ -425,6 +425,11 @@ projects:
             ica_workflow_version_name: 0.4.5
             modification_time: 2023-03-13T22:48:36UTC
             run_instances: []
+          - name: 0.4.7
+            path: 0.4.7/rnasum__0.4.7.cwl
+            ica_workflow_version_name: 0.4.7
+            modification_time: 2023-05-25T00:21:25UTC
+            run_instances: []
       - name: samtools-stats
         path: samtools-stats
         ica_workflow_name: samtools-stats_dev-wf
