@@ -1168,8 +1168,8 @@ projects:
             run_instances: []
           - name: 0.4.7
             path: 0.4.7/rnasum__0.4.7.cwl
-            ica_workflow_version_name: 0.4.7--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 0.4.7--0758c9e
+            modification_time: 2023-05-26T05:25:05UTC
             run_instances: []
       - name: umccrise
         path: umccrise
