@@ -483,6 +483,11 @@ projects:
             ica_workflow_version_name: 2.3.0
             modification_time: 2023-01-30T00:41:53UTC
             run_instances: []
+          - name: 2.4.0
+            path: 2.4.0/arriba-fusion-calling__2.4.0.cwl
+            ica_workflow_version_name: 2.4.0
+            modification_time: 2023-06-07T05:29:39UTC
+            run_instances: []
       - name: bamtofastq
         path: bamtofastq
         ica_workflow_name: bamtofastq_dev-wf
