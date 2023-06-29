@@ -41,7 +41,7 @@ function get_attribute_from_bclconvert_run_configuration(bclconvert_run_configur
     ];
     /*
     Given a BclconvertRunConfiguration object and an attribute name, return the attribute of the object
-    Best option for collecting all of the keys was stackoverflow.com/questions/43909566/get-keys-of-a-typescript-interface-as-array-of-strings
+    Best option for collecting all the keys was stackoverflow.com/questions/43909566/get-keys-of-a-typescript-interface-as-array-of-strings
     Bit of WET typing but best option I can see
     */
     // Confirm this is a genuine property of the interface
@@ -101,7 +101,6 @@ function get_resource_hints_for_bclconvert_run(inputs, resource_name) {
         "ramMin",
         "dockerPull"
     ];
-    // Set resource requirements by run time
     var resource_requirements_by_run_type = {
         "validation": {
             "ilmn-tes-resources-tier": "standard",
@@ -131,15 +130,20 @@ function get_resource_hints_for_bclconvert_run(inputs, resource_name) {
     if (available_resource_requirements.indexOf(resource_name) === -1) {
         throw new Error("Resource name parameter must be one of ".concat(available_resource_requirements.join(", "), " but got '").concat(resource_name, "'"));
     }
+    var run_type = null;
+    // We now check what were actually running, is it a validation run, an fpga run or a CPU run required
+    // We only need to run on FGPA if were making output ora format
+    // Otherwise we can convert on CPU
     if (inputs.bcl_validate_sample_sheet_only) {
-        return resource_requirements_by_run_type["validation"][resource_name];
+        run_type = "validation";
     }
     else if (inputs.fastq_compression_format === "dragen" || inputs.fastq_compression_format === "dragen-interleaved") {
-        return resource_requirements_by_run_type["convert_fpga"][resource_name];
+        run_type = "convert_fpga";
     }
     else {
-        return resource_requirements_by_run_type["convert_cpu"][resource_name];
+        run_type = "convert_cpu";
     }
+    return resource_requirements_by_run_type[run_type][resource_name];
 }
 exports.get_resource_hints_for_bclconvert_run = get_resource_hints_for_bclconvert_run;
 function add_run_info_to_bclconvert_run_configuration(bclconvert_run_configuration, run_info) {
