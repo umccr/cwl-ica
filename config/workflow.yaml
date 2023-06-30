@@ -206,7 +206,7 @@ workflows:
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
-        md5sum: 4e9fe3ad94d1beed0e2f4609d212cc4a
+        md5sum: 36f91129a13739745a5f5c2374e72bc8
     categories: []
   - name: bclconvert
     path: bclconvert

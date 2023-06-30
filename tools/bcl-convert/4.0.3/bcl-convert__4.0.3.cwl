@@ -25,13 +25,13 @@ doc: |
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources/tier: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-type"))
-    ilmn-tes:resources/type: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-tier"))
+    ilmn-tes:resources/tier: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-tier"))
+    ilmn-tes:resources/type: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-type"))
     ilmn-tes:resources/size: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-size"))
     coresMin: $(get_resource_hints_for_bclconvert_run(inputs, "coresMin"))
     ramMin: $(get_resource_hints_for_bclconvert_run(inputs, "ramMin"))
   DockerRequirement:
-    dockerPull: 'ghcr.io/umccr/bcl-convert:4.0.3'
+    dockerPull: $(get_resource_hints_for_bclconvert_run(inputs, "dockerPull")   # ghcr.io/umccr/bcl-convert:4.0.3'
 
 requirements:
   NetworkAccess:
