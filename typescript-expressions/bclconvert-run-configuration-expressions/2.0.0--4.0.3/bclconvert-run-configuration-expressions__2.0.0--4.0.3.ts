@@ -5,6 +5,7 @@
 import {BclconvertRunConfiguration} from "../../../schemas/bclconvert-run-configuration/2.0.0--4.0.3/bclconvert-run-configuration__2.0.0--4.0.3";
 import {FileProperties as IFile} from "cwl-ts-auto";
 import {Samplesheet} from "../../../schemas/samplesheet/2.0.0--4.0.3/samplesheet__2.0.0--4.0.3";
+import {DirectoryProperties as IDirectory} from "cwl-ts-auto/dist/DirectoryProperties";
 
 // Backward compatibility with --target es5
 declare global {
@@ -22,7 +23,7 @@ declare global {
 }
 
 // Functions
-export function get_attribute_from_bclconvert_run_configuration(bclconvert_run_configuration: BclconvertRunConfiguration, attribute: string): any {
+export function get_attribute_from_bclconvert_run_configuration(bclconvert_run_configuration: BclconvertRunConfiguration, attribute: keyof BclconvertRunConfiguration): any {
     const bclconvert_run_configuration_keys: Array<string> = [
         "bcl_conversion_threads",
         "bcl_num_compression_threads",
@@ -50,7 +51,7 @@ export function get_attribute_from_bclconvert_run_configuration(bclconvert_run_c
     ];
     /*
     Given a BclconvertRunConfiguration object and an attribute name, return the attribute of the object
-    Best option for collecting all of the keys was stackoverflow.com/questions/43909566/get-keys-of-a-typescript-interface-as-array-of-strings
+    Best option for collecting all the keys was stackoverflow.com/questions/43909566/get-keys-of-a-typescript-interface-as-array-of-strings
     Bit of WET typing but best option I can see
     */
 
@@ -102,8 +103,12 @@ export function create_bcl_configuration_object_for_samplesheet_validation(bclco
     }
 }
 
+interface BCLConvertInputsRelatedToResourceUsage {
+    bcl_validate_sample_sheet_only: boolean
+    fastq_compression_format: string
+}
 
-export function get_resource_hints_for_bclconvert_run(inputs, resource_name: string): string | number {
+export function get_resource_hints_for_bclconvert_run(inputs: any, resource_name: string): string | number {
     /*
     Collect resource requirements for bclconvert run based on bclconvert run configuration
     */
@@ -118,8 +123,22 @@ export function get_resource_hints_for_bclconvert_run(inputs, resource_name: str
         "dockerPull"
     ];
 
-    // Set resource requirements by run time
-    const resource_requirements_by_run_type = {
+    type AvailableResourceRequirements = {
+        "ilmn-tes-resources-tier": string
+        "ilmn-tes-resources-type": string
+        "ilmn-tes-resources-size": string
+        "coresMin": number
+        "ramMin": number
+        "dockerPull": string
+    }
+
+    type ResourceRequirementsByRunType = {
+        "validation": AvailableResourceRequirements
+        "convert_cpu": AvailableResourceRequirements
+        "convert_fpga": AvailableResourceRequirements
+    }
+
+    const resource_requirements_by_run_type: ResourceRequirementsByRunType = {
         "validation": {
             "ilmn-tes-resources-tier": "standard",
             "ilmn-tes-resources-type": "standard",
@@ -150,13 +169,19 @@ export function get_resource_hints_for_bclconvert_run(inputs, resource_name: str
         throw new Error(`Resource name parameter must be one of ${available_resource_requirements.join(", ")} but got '${resource_name}'`)
     }
 
+    let run_type: keyof ResourceRequirementsByRunType | null = null
+
+    // We now check what were actually running, is it a validation run, an fpga run or a CPU run required
+    // We only need to run on FGPA if were making output ora format
+    // Otherwise we can convert on CPU
     if (inputs.bcl_validate_sample_sheet_only){
-        return resource_requirements_by_run_type["validation"][resource_name]
+        run_type = "validation"
     } else if (inputs.fastq_compression_format === "dragen" || inputs.fastq_compression_format === "dragen-interleaved") {
-        return resource_requirements_by_run_type["convert_fpga"][resource_name]
+        run_type = "convert_fpga"
     } else {
-        return resource_requirements_by_run_type["convert_cpu"][resource_name]
+        run_type = "convert_cpu"
     }
+    return resource_requirements_by_run_type[<keyof ResourceRequirementsByRunType>run_type][<keyof AvailableResourceRequirements> resource_name]
 }
 
 export function add_run_info_to_bclconvert_run_configuration(bclconvert_run_configuration: BclconvertRunConfiguration, run_info: IFile): BclconvertRunConfiguration {
