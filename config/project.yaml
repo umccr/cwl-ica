@@ -222,6 +222,11 @@ projects:
             ica_workflow_version_name: 2.3.0
             modification_time: 2023-01-30T00:41:27UTC
             run_instances: []
+          - name: 2.4.0
+            path: 2.4.0/arriba-drawing__2.4.0.cwl
+            ica_workflow_version_name: 2.4.0
+            modification_time: 2023-07-10T00:01:35UTC
+            run_instances: []
       - name: custom-create-directory
         path: custom-create-directory
         ica_workflow_name: custom-create-directory_dev-wf
