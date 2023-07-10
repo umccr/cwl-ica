@@ -222,6 +222,11 @@ projects:
             ica_workflow_version_name: 2.3.0
             modification_time: 2023-01-30T00:41:27UTC
             run_instances: []
+          - name: 2.4.0
+            path: 2.4.0/arriba-drawing__2.4.0.cwl
+            ica_workflow_version_name: 2.4.0
+            modification_time: 2023-07-10T00:16:15UTC
+            run_instances: []
       - name: custom-create-directory
         path: custom-create-directory
         ica_workflow_name: custom-create-directory_dev-wf
@@ -482,6 +487,11 @@ projects:
             path: 2.3.0/arriba-fusion-calling__2.3.0.cwl
             ica_workflow_version_name: 2.3.0
             modification_time: 2023-01-30T00:41:53UTC
+            run_instances: []
+          - name: 2.4.0
+            path: 2.4.0/arriba-fusion-calling__2.4.0.cwl
+            ica_workflow_version_name: 2.4.0
+            modification_time: 2023-06-07T05:29:39UTC
             run_instances: []
       - name: bamtofastq
         path: bamtofastq
@@ -768,7 +778,7 @@ projects:
           - name: 2.3.0--0
             path: 2.3.0--0/umccrise-pipeline__2.3.0--0.cwl
             ica_workflow_version_name: 2.3.0--0
-            modification_time: 2023-05-16T06:00:05UTC
+            modification_time: 2023-07-10T03:20:16UTC
             run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
