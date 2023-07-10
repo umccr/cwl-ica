@@ -469,7 +469,7 @@ tools:
     versions:
       - name: 4.0.3
         path: 4.0.3/bcl-convert__4.0.3.cwl
-        md5sum: 3875764caf5c7201bd70f37aa4c947c4
+        md5sum: 59460b736ef981eabc9efcb88b5ae506
     categories: []
   - name: star
     path: star

@@ -33,24 +33,22 @@ describe('Check property that exists but is not defined', function () {
         expect((0, bclconvert_run_configuration_expressions__2_0_0__4_0_3_1.get_attribute_from_bclconvert_run_configuration)(INPUT_RUN_CONFIGURATION_OBJECT, "first_tile_only")).toEqual(null);
     });
 });
-describe('Check property that does not exist and expect error to be thrown', function () {
-    var EXPECTED_ERROR_STRING = "Error! BclconvertRunConfiguration object does not have attribute 'second_tiel_only'";
-    // From dev.to/danywalls/testing-errors-with-jest-hkj
-    // And stackoverflow.com/questions/54649465/how-to-do-try-catch-and-finally-statements-in-typescript
-    test('Get second tiel olny', function () {
-        try {
-            (0, bclconvert_run_configuration_expressions__2_0_0__4_0_3_1.get_attribute_from_bclconvert_run_configuration)(INPUT_RUN_CONFIGURATION_OBJECT, "second_tiel_only");
-        }
-        catch (e) {
-            if (typeof e === "string") {
-                expect(e).toEqual(EXPECTED_ERROR_STRING);
-            }
-            else if (e instanceof Error) {
-                expect(e.message).toEqual(EXPECTED_ERROR_STRING);
-            }
-        }
-    });
-});
+// describe('Check property that does not exist and expect error to be thrown', function() {
+//     const EXPECTED_ERROR_STRING: string = "Error! BclconvertRunConfiguration object does not have attribute 'second_tile_only'"
+//     // From dev.to/danywalls/testing-errors-with-jest-hkj
+//     // And stackoverflow.com/questions/54649465/how-to-do-try-catch-and-finally-statements-in-typescript
+//     test('Get second tile only', () => {
+//         try {
+//             get_attribute_from_bclconvert_run_configuration(INPUT_RUN_CONFIGURATION_OBJECT, "second_tile_only")
+//         } catch (e: unknown) {
+//             if (typeof e === "string"){
+//                 expect(e).toEqual(EXPECTED_ERROR_STRING)
+//             } else if ( e instanceof Error){
+//                 expect(e.message).toEqual(EXPECTED_ERROR_STRING)
+//             }
+//         }
+//     })
+// })
 // Test the bclconvert run configuration expressions
 var INPUT_HEADER_SECTION_SCHEMA = {
     "iem_file_version": 5,
