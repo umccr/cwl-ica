@@ -225,7 +225,7 @@ projects:
           - name: 2.4.0
             path: 2.4.0/arriba-drawing__2.4.0.cwl
             ica_workflow_version_name: 2.4.0
-            modification_time: 2023-07-10T00:01:35UTC
+            modification_time: 2023-07-10T00:16:15UTC
             run_instances: []
       - name: custom-create-directory
         path: custom-create-directory
@@ -778,7 +778,7 @@ projects:
           - name: 2.3.0--0
             path: 2.3.0--0/umccrise-pipeline__2.3.0--0.cwl
             ica_workflow_version_name: 2.3.0--0
-            modification_time: 2023-05-16T06:00:05UTC
+            modification_time: 2023-07-10T03:20:16UTC
             run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
