@@ -264,7 +264,7 @@ tools:
         md5sum: 65b027ce63467c919e93c180ac5a9cb1
       - name: 4.0.3
         path: 4.0.3/dragen-build-reference-tarball__4.0.3.cwl
-        md5sum: c362207965cfc0bdaaeef51c6148b01f
+        md5sum: 47d7c5bb95f4e45f9215b92a830f5f98
     categories: []
   - name: bgzip
     path: bgzip
