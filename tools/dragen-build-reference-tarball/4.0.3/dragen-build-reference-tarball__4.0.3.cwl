@@ -56,6 +56,7 @@ requirements:
             --create \\
             --remove-files \\
             --file "$(inputs.output_stem).tar.gz" \\
+            --gzip \\
             "$(inputs.output_stem)"
 
 baseCommand: [ "bash", "build_reference_from_bin.sh" ]
