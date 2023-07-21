@@ -193,6 +193,9 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-wts-qc-pipeline__4.0.3.cwl
         md5sum: f9ed6277b7fef8dc77c5e6c382880408
+      - name: 4.2.4
+        path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
+        md5sum: 835f0b395a7422e9bdd2f93ed7402612
     categories: []
   - name: tabix-workflow
     path: tabix-workflow

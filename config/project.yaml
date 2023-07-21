@@ -878,6 +878,11 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-05-17T04:22:10UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-07-21T03:18:12UTC
+            run_instances: []
       - name: bclconvert-with-qc-pipeline
         path: bclconvert-with-qc-pipeline
         ica_workflow_name: bclconvert-with-qc-pipeline_dev-wf
