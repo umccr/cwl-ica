@@ -62,17 +62,6 @@ requirements:
             exit 1
           }
 
-          ## DEBUGGING MULTIQC VERSION ##
-          # Use new version for multiqc (temp fix)
-          git clone -b v1.14 https://github.com/ewels/multiqc
-          (
-            cd multiqc
-            wget "https://github.com/umccr/MultiQC/files/12092605/umccrise%2B0.014.patch"
-            git apply --ignore-space-change --ignore-whitespace "umccrise+0.014.patch"
-          )
-          export PYTHONPATH="multiqc/"
-          ## DEBUGGING MULTIQC VERSION ##
-
           # Create parent dir for working tmp dir
           echo "\$(date): Creating parent dir for workspace in scratch" 1>&2
           mkdir -p "$(get_scratch_working_parent_dir())"
