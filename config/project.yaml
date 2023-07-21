@@ -290,7 +290,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2023-07-21T01:47:02UTC
+            modification_time: 2023-07-21T02:26:45UTC
             run_instances: []
       - name: umccrise
         path: umccrise
