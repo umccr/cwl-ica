@@ -244,6 +244,9 @@ workflows:
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
         md5sum: 93c7f802b10cd5538630e114cd621d29
+      - name: 4.2.4
+        path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+        md5sum: 53e04dcbc2bbbd379c0cb8e9e4b11429
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc
