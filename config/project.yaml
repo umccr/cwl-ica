@@ -270,7 +270,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-build-reference-tarball__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2023-07-16T00:26:22UTC
+            modification_time: 2023-07-16T00:27:12UTC
             run_instances: []
       - name: dragen-transcriptome
         path: dragen-transcriptome
