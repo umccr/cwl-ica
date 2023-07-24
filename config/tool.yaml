@@ -166,6 +166,9 @@ tools:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic__4.0.3.cwl
         md5sum: f2c02e8b7a9e5de36d5d3bcc1c504f4b
+      - name: 4.2.4
+        path: 4.2.4/dragen-somatic__4.2.4.cwl
+        md5sum: f7475a2d1daf8ed08d8b610df744d0ea
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -268,6 +271,9 @@ tools:
       - name: 4.0.3
         path: 4.0.3/dragen-build-reference-tarball__4.0.3.cwl
         md5sum: 47d7c5bb95f4e45f9215b92a830f5f98
+      - name: 4.2.4
+        path: 4.2.4/dragen-build-reference-tarball__4.2.4.cwl
+        md5sum: 45cabf91cc517d28ffa8a8ccd132792e
     categories: []
   - name: bgzip
     path: bgzip
