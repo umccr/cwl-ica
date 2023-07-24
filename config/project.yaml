@@ -122,6 +122,11 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-04-24T06:49:46UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-germline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-07-21T02:09:26UTC
+            run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
         ica_workflow_name: custom-create-tso500-samplesheet_dev-wf
@@ -625,6 +630,11 @@ projects:
             path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-04-24T07:11:07UTC
+            run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-07-21T02:10:51UTC
             run_instances: []
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
