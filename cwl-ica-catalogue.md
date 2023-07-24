@@ -369,6 +369,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/tools/dragen-somatic/4.2.4/dragen-somatic__4.2.4.md)  
 
 
 ### dragen-transcriptome
@@ -732,6 +733,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-pipeline/4.0.3/dragen-somatic-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-somatic-pipeline/4.2.4/dragen-somatic-pipeline__4.2.4.md)  
 
 
 ### dragen-transcriptome-pipeline
