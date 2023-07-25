@@ -3057,6 +3057,11 @@ projects:
             ica_workflow_version_name: 4.0.3--fa8ef7c
             modification_time: 2023-05-02T02:06:09UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--0fab721
+            modification_time: 2023-07-25T12:16:49UTC
+            run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
     project_description: |
