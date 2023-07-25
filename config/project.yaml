@@ -956,7 +956,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2023-07-21T02:34:38UTC
+            modification_time: 2023-07-21T02:58:18UTC
             run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc
@@ -1634,8 +1634,8 @@ projects:
             run_instances: []
           - name: 4.2.4
             path: 4.2.4/dragen-somatic-pipeline__4.2.4.cwl
-            ica_workflow_version_name: 4.2.4--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 4.2.4--2c07654
+            modification_time: 2023-07-25T00:36:01UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion
