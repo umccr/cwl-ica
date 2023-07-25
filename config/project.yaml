@@ -953,6 +953,11 @@ projects:
             ica_workflow_version_name: 3.9.3
             modification_time: 2023-04-21T22:18:57UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-07-21T02:58:18UTC
+            run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc
         ica_workflow_name: illumina-interop-qc_dev-wf
@@ -1626,6 +1631,11 @@ projects:
             path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3--fa8ef7c
             modification_time: 2023-05-02T02:05:45UTC
+            run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-somatic-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--2c07654
+            modification_time: 2023-07-25T00:36:01UTC
             run_instances: []
       - name: bcl-conversion
         path: bcl-conversion

@@ -888,6 +888,7 @@ UMCCR CWL-ICA Catalogue
   
 - [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md)  
 
 
 ### illumina-interop-qc
