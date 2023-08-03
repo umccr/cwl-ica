@@ -747,6 +747,11 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-04-24T07:11:29UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-08-03T02:01:22UTC
+            run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
         ica_workflow_name: dragen-wgs-qc-pipeline_dev-wf

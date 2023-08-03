@@ -99,6 +99,9 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-alignment-pipeline__4.0.3.cwl
         md5sum: 191c9e0900e31d74a4434b130b7a2a92
+      - name: 4.2.4
+        path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
+        md5sum: 70d1298f0fb8e43173f2c80f1a932282
     categories:
       - alignment
       - dragen
