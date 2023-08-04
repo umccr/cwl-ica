@@ -32,7 +32,7 @@ hints:
         ramMin: 120000
     DockerRequirement:
         #dockerPull: ubuntu:latest
-        dockerPull: "239164580033.dkr.ecr.us-east-1.amazonaws.com/acadia-500-liquid-workflow-aws:ruo-1.2.0.1"
+        dockerPull: "239164580033.dkr.ecr.us-east-1.amazonaws.com/tso500-liquid-ica-wrapper:1.2.0.1"
 
 requirements:
   InlineJavascriptRequirement:
