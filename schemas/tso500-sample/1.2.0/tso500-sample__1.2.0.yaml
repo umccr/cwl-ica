@@ -1,0 +1,39 @@
+type: record
+name: tso500-sample
+
+fields:
+  sample_id:
+    label: sample id
+    doc: |
+      The id of the tso500 sample - this must match the Sample_ID column in the samplesheet.
+      This is used to recreate the fastq files.
+    type: string
+  sample_name:
+    label: sample name
+    doc: |
+      This must match the rgsm value in the fastq list rows.
+      It does not need to match the Sample_Name column in the sample sheet
+    type: string
+  sample_type:
+    label: sample type
+    doc: |
+      The 'type' of the sample
+    type:
+      - type: enum
+        symbols:
+          - DNA
+          - RNA
+  pair_id:
+    label: pair id
+    doc: |
+      The 'pair id' of the sample.
+      If a sample has a complementary DNA or RNA sample, the pair ids of the two samples should have the same
+      unique pair id.
+    type: string
+  fastq_list_rows:
+    label: fastq list rows
+    doc: |
+      The 'fastq list rows' of the sample
+    type:
+      type: array
+      items: { "$import": "../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml" }
