@@ -26,6 +26,9 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-germline-pipeline__4.0.3.cwl
         md5sum: 1315950ccd1a89a0ff2777e807be5205
+      - name: 4.2.4
+        path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
+        md5sum: c3232c01009e3da19cac168d57b1fb19
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -41,6 +44,9 @@ workflows:
       - name: 1.1.0--120
         path: 1.1.0--120/tso500-ctdna__1.1.0--120.cwl
         md5sum: 67a0cef1ccf614f8c6b18411dfa085fc
+      - name: 1.2.0--1
+        path: 1.2.0--1/tso500-ctdna__1.2.0--1.cwl
+        md5sum: 224370fbb40d005be39fde262c9ab8a8
     categories:
       - tso500
   - name: bcl-conversion
@@ -62,6 +68,9 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-somatic-pipeline__4.0.3.cwl
         md5sum: e4aafa3571670924bbdbe4dd40b2d40a
+      - name: 4.2.4
+        path: 4.2.4/dragen-somatic-pipeline__4.2.4.cwl
+        md5sum: df3b4ec99d073f70709fff05e2c8b85a
     categories:
       - dragen
       - variant-calling
@@ -143,6 +152,9 @@ workflows:
       - name: 1.1.0--1.0.0
         path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
         md5sum: 9367ebf24b6171d0b6f79e2aa58433bc
+      - name: 1.2.0--1.0.0
+        path: 1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.cwl
+        md5sum: b42d5baaacb379677c152020e1599d00
     categories:
       - tso500
   - name: umccrise-with-dragen-germline-pipeline
@@ -244,6 +256,9 @@ workflows:
       - name: 3.9.3
         path: 3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.cwl
         md5sum: 93c7f802b10cd5538630e114cd621d29
+      - name: 4.2.4
+        path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+        md5sum: 53e04dcbc2bbbd379c0cb8e9e4b11429
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc
