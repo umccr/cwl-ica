@@ -713,6 +713,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.1.0--120](.github/catalogue/docs/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md)  
+- [1.2.0--1](.github/catalogue/docs/workflows/tso500-ctdna/1.2.0--1/tso500-ctdna__1.2.0--1.md)  
 
 
 ### bcl-conversion
@@ -809,6 +810,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.1.0--1.0.0](.github/catalogue/docs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.md)  
+- [1.2.0--1.0.0](.github/catalogue/docs/workflows/tso500-ctdna-with-post-processing-pipeline/1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.md)  
 
 
 ### umccrise-with-dragen-germline-pipeline
