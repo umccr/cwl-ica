@@ -3077,6 +3077,16 @@ projects:
             ica_workflow_version_name: 4.2.4--0fab721
             modification_time: 2023-07-25T12:16:49UTC
             run_instances: []
+      - name: dragen-alignment-pipeline
+        path: dragen-alignment-pipeline
+        ica_workflow_name: dragen-alignment-pipeline_prod-wf
+        ica_workflow_id: wfl.c07ecc424a5a41bd94abe9ef519867a0
+        versions:
+          - name: 4.2.4
+            path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21
     project_description: |
