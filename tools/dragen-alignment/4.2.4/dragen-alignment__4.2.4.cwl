@@ -221,10 +221,23 @@ inputs:
   enable_map_align:
     label: enable map align
     doc: |
-      Enable use of BAM input files for mapper/aligner.
+      Enable step of mapper/aligner.
     type: boolean?
     inputBinding:
       prefix: "--enable-map-align="
+      separate: False
+      valueFrom: "$(self.toString())"
+  enable_map_align_output:
+    label: enable map align
+    doc: |
+      Enables saving the output from the map/align stage.
+      If only running map/align, the default value is true.
+      If running the variant caller, the default value is false.
+      Therefore in the case of the dragen alignment pipeline, this will always be true.
+      For sanity purposes, we have it as an option since its default state is not intuitive
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align-output="
       separate: False
       valueFrom: "$(self.toString())"
   max_intron_bases:

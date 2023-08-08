@@ -125,6 +125,15 @@ inputs:
     doc: |
       Enable use of BAM input files for mapper/aligner.
     type: boolean?
+  enable_map_align_output:
+    label: enable map align
+    doc: |
+      Enables saving the output from the map/align stage.
+      If only running map/align, the default value is true.
+      If running the variant caller, the default value is false.
+      Therefore in the case of the dragen alignment pipeline, this will always be true.
+      For sanity purposes, we have it as an option since its default state is not intuitive
+    type: boolean?
   max_intron_bases:
     label: max intron bases
     doc: |
@@ -422,6 +431,8 @@ steps:
         source: edit_seed_num
       enable_map_align:
         source: enable_map_align
+      enable_map_align_output:
+        source: enable_map_align_output
       max_intron_bases:
         source: max_intron_bases
       min_intron_bases:
