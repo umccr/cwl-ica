@@ -61,7 +61,7 @@ inputs:
     doc: |
       Path to ref data tarball
     type: File
-  # RNA option
+  # RNA options
   enable_rna:
     label: enable rna
     doc: |
@@ -72,6 +72,16 @@ inputs:
     doc: |
       Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
     type: boolean?
+  enable_rna_quantification:
+    label: enable rna quantification
+    doc: |
+      If set to true, enables RNA quantification. Requires --enable-rna to be set to true.
+    type: boolean?
+  annotation_file:
+    label: annotation file
+    doc: |
+      Use to supply a gene annotation file. Required for quantification and gene-fusion.
+    type: File?
   # Output naming options
   output_file_prefix:
     label: output file prefix
@@ -415,6 +425,10 @@ steps:
         source: enable_rna
       enable_rrna_filter:
         source: enable_rrna_filter
+      enable_rna_quantification:
+        source: enable_rna_quantification
+      annotation_file:
+        source: annotation_file
       output_file_prefix:
         source: output_file_prefix
       output_directory:

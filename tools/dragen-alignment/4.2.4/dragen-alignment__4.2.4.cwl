@@ -148,6 +148,23 @@ inputs:
       prefix: "--rrna-filter-enable="
       separate: False
       valueFrom: "$(self.toString())"
+  enable_rna_quantification:
+    label: enable rna quantification
+    doc: |
+      If set to true, enables RNA quantification. Requires --enable-rna to be set to true.
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-rna-quantification="
+      separate: False
+      valueFrom: "$(self.toString())"
+  annotation_file:
+    label: annotation file
+    doc: |
+      Use to supply a gene annotation file. Required for quantification and gene-fusion.
+    type: File?
+    inputBinding:
+      prefix: "--annotation-file="
+      separate: False
   # Output naming options
   output_file_prefix:
     label: output file prefix

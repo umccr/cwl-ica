@@ -104,7 +104,7 @@ workflows:
         md5sum: 191c9e0900e31d74a4434b130b7a2a92
       - name: 4.2.4
         path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
-        md5sum: 2d7091aeb4cf72de767838944ef8bc99
+        md5sum: be68308a3aaadcb274f890eabdd208bf
     categories:
       - alignment
       - dragen
