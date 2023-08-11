@@ -735,7 +735,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2023-07-22T05:53:40UTC
+            modification_time: 2023-08-11T00:01:17UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
