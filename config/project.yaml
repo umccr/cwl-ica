@@ -921,7 +921,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2023-07-21T03:18:12UTC
+            modification_time: 2023-07-21T03:23:12UTC
             run_instances: []
       - name: bclconvert-with-qc-pipeline
         path: bclconvert-with-qc-pipeline
@@ -2029,8 +2029,8 @@ projects:
             run_instances: []
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
-            ica_workflow_version_name: 4.2.4--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 4.2.4--8401785
+            modification_time: 2023-08-12T11:59:39UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
