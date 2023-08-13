@@ -297,6 +297,11 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-05-08T06:01:23UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-transcriptome__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-07-21T02:26:45UTC
+            run_instances: []
       - name: umccrise
         path: umccrise
         ica_workflow_name: umccrise_dev-wf
@@ -727,6 +732,11 @@ projects:
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-05-17T04:13:35UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-08-11T00:01:17UTC
+            run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_dev-wf
@@ -907,6 +917,11 @@ projects:
             path: 4.0.3/dragen-wts-qc-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
             modification_time: 2023-05-17T04:22:10UTC
+            run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4
+            modification_time: 2023-07-21T03:23:12UTC
             run_instances: []
       - name: bclconvert-with-qc-pipeline
         path: bclconvert-with-qc-pipeline
@@ -2011,6 +2026,11 @@ projects:
             path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3--b4707b4
             modification_time: 2023-05-18T07:34:55UTC
+            run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--8401785
+            modification_time: 2023-08-12T11:59:39UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline

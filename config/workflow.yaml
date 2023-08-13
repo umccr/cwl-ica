@@ -89,6 +89,9 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
         md5sum: 9acc01de6f96acb7b04c18037de7d84c
+      - name: 4.2.4
+        path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
+        md5sum: 24d36d87ba4e5652fb3ebd2b645815bf
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -208,6 +211,9 @@ workflows:
       - name: 4.0.3
         path: 4.0.3/dragen-wts-qc-pipeline__4.0.3.cwl
         md5sum: f9ed6277b7fef8dc77c5e6c382880408
+      - name: 4.2.4
+        path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
+        md5sum: 835f0b395a7422e9bdd2f93ed7402612
     categories: []
   - name: tabix-workflow
     path: tabix-workflow

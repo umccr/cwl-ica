@@ -381,6 +381,7 @@ UMCCR CWL-ICA Catalogue
 - [3.8.4](.github/catalogue/docs/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/tools/dragen-transcriptome/4.0.3/dragen-transcriptome__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/tools/dragen-transcriptome/4.2.4/dragen-transcriptome__4.2.4.md)  
 
 
 ### arriba-fusion-calling
@@ -749,6 +750,7 @@ UMCCR CWL-ICA Catalogue
 - [3.8.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md)  
 
 
 ### dragen-alignment-pipeline
@@ -850,6 +852,7 @@ UMCCR CWL-ICA Catalogue
   
 - [3.9.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/4.0.3/dragen-wts-qc-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/4.2.4/dragen-wts-qc-pipeline__4.2.4.md)  
 
 
 ### tabix-workflow
