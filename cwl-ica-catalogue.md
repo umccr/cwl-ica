@@ -568,6 +568,7 @@ UMCCR CWL-ICA Catalogue
 - [0.4.4](.github/catalogue/docs/tools/rnasum/0.4.4/rnasum__0.4.4.md)  
 - [0.4.5](.github/catalogue/docs/tools/rnasum/0.4.5/rnasum__0.4.5.md)  
 - [0.4.7](.github/catalogue/docs/tools/rnasum/0.4.7/rnasum__0.4.7.md)  
+- [0.4.8](.github/catalogue/docs/tools/rnasum/0.4.8/rnasum__0.4.8.md)  
 
 
 ### samtools-stats

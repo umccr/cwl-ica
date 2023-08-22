@@ -458,7 +458,7 @@ projects:
           - name: 0.4.8
             path: 0.4.8/rnasum__0.4.8.cwl
             ica_workflow_version_name: 0.4.8
-            modification_time: 2023-08-22T04:18:11UTC
+            modification_time: 2023-08-22T04:19:04UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
@@ -516,7 +516,7 @@ projects:
           - name: 2.4.0
             path: 2.4.0/arriba-fusion-calling__2.4.0.cwl
             ica_workflow_version_name: 2.4.0
-            modification_time: 2023-06-07T05:29:39UTC
+            modification_time: 2023-08-16T01:17:49UTC
             run_instances: []
       - name: bamtofastq
         path: bamtofastq
