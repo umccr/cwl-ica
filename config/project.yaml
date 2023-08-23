@@ -1241,6 +1241,11 @@ projects:
             ica_workflow_version_name: 0.4.7--0758c9e
             modification_time: 2023-05-26T05:25:05UTC
             run_instances: []
+          - name: 0.4.8
+            path: 0.4.8/rnasum__0.4.8.cwl
+            ica_workflow_version_name: 0.4.8--ba05ec9
+            modification_time: 2023-08-23T01:47:38UTC
+            run_instances: []
       - name: umccrise
         path: umccrise
         ica_workflow_name: umccrise_prod-wf
