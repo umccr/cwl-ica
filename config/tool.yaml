@@ -439,6 +439,9 @@ tools:
       - name: 0.4.8
         path: 0.4.8/rnasum__0.4.8.cwl
         md5sum: 553a2b6d1d59d45c3ca13428862a1d22
+      - name: 0.4.9
+        path: 0.4.9/rnasum__0.4.9.cwl
+        md5sum: 8b05e1c40c2ff0befb56df0b31560c04
     categories: []
   - name: samtools-stats
     path: samtools-stats
