@@ -463,7 +463,7 @@ projects:
           - name: 0.4.9
             path: 0.4.9/rnasum__0.4.9.cwl
             ica_workflow_version_name: 0.4.9
-            modification_time: 2023-08-29T03:21:51UTC
+            modification_time: 2023-08-29T03:28:13UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
@@ -1253,8 +1253,8 @@ projects:
             run_instances: []
           - name: 0.4.9
             path: 0.4.9/rnasum__0.4.9.cwl
-            ica_workflow_version_name: 0.4.9--__GIT_COMMIT_ID__
-            modification_time:
+            ica_workflow_version_name: 0.4.9--3694eb2
+            modification_time: 2023-08-31T01:47:13UTC
             run_instances: []
       - name: umccrise
         path: umccrise
