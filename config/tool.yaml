@@ -390,6 +390,9 @@ tools:
       - name: 2.3.0--0
         path: 2.3.0--0/umccrise__2.3.0--0.cwl
         md5sum: ab13fdc5b457f671f1891b8451721466
+      - name: 2.3.1--1
+        path: 2.3.1--1/umccrise__2.3.1--1.cwl
+        md5sum: 6cbf94c19b9e73fbdf33ee3300980d70
     categories: []
   - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar

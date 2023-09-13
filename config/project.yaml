@@ -352,6 +352,11 @@ projects:
             ica_workflow_version_name: 2.3.0--0
             modification_time: 2023-05-15T04:27:57UTC
             run_instances: []
+          - name: 2.3.1--1
+            path: 2.3.1--1/umccrise__2.3.1--1.cwl
+            ica_workflow_version_name: 2.3.1--1
+            modification_time: 2023-09-13T13:24:08UTC
+            run_instances: []
       - name: dragen-somatic
         path: dragen-somatic
         ica_workflow_name: dragen-somatic_dev-wf
@@ -1375,6 +1380,11 @@ projects:
             path: 2.3.0--0/umccrise__2.3.0--0.cwl
             ica_workflow_version_name: 2.3.0--0--2990cf1
             modification_time: 2023-05-16T05:37:43UTC
+            run_instances: []
+          - name: 2.3.1--1
+            path: 2.3.1--1/umccrise__2.3.1--1.cwl
+            ica_workflow_version_name: 2.3.1--1--__GIT_COMMIT_ID__
+            modification_time:
             run_instances: []
     workflows:
       - name: tso500-ctdna
