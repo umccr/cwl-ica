@@ -534,6 +534,7 @@ UMCCR CWL-ICA Catalogue
 - [2.2.0--0](.github/catalogue/docs/tools/umccrise/2.2.0--0/umccrise__2.2.0--0.md)  
 - [2.2.1--0](.github/catalogue/docs/tools/umccrise/2.2.1--0/umccrise__2.2.1--0.md)  
 - [2.3.0--0](.github/catalogue/docs/tools/umccrise/2.3.0--0/umccrise__2.3.0--0.md)  
+- [2.3.1--1](.github/catalogue/docs/tools/umccrise/2.3.1--1/umccrise__2.3.1--1.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
