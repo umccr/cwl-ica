@@ -290,7 +290,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2023-02-21T23:53:06UTC
+            modification_time: 2023-09-25T04:09:33UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome__4.0.3.cwl
@@ -300,7 +300,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2023-07-21T02:26:45UTC
+            modification_time: 2023-09-25T04:11:38UTC
             run_instances: []
       - name: umccrise
         path: umccrise

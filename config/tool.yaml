@@ -181,13 +181,13 @@ tools:
         md5sum: 9d0253e14d26a8e35f19d96cd3a55f8a
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome__3.9.3.cwl
-        md5sum: 27653026f2025f9a080eb7e988652c07
+        md5sum: 5412937fc0d7f5c4c4148a414fa4f384
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome__4.0.3.cwl
         md5sum: 0062f8a909ff6eb95eee955e250bab46
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome__4.2.4.cwl
-        md5sum: 2956591cbb984066444054b73692fb06
+        md5sum: 260c6a515600a86ff94f5d84083af82c
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
