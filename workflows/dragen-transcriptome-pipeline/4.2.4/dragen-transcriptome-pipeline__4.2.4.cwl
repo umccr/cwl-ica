@@ -152,6 +152,26 @@ inputs:
     type: int?
     doc: |
       Specify the minimum number of adapter bases required for trimming
+  trim_r1_5prime:
+    label: trim r1 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 1 (default: 0).
+  trim_r1_3prime:
+    label: trim r1 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 1 (default: 0).
+  trim_r2_5prime:
+    label: trim r2 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 0).
+  trim_r2_3prime:
+    label: trim r2 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 2 (default: 0).
   # Fusion calling options
   enable_rna_gene_fusion:
     label: enable rna gene fusion
@@ -288,8 +308,16 @@ steps:
         source: trim_adapter_read2
       trim_adapter_r1_5prime:
         source: trim_adapter_r1_5prime
-      trim_dapter_r2_5prime:
+      trim_adapter_r2_5prime:
         source: trim_dapter_r2_5prime
+      trim_r1_5prime:
+        source: trim_r1_5prime
+      trim_r1_3prime:
+        source: trim_r1_3prime
+      trim_r2_5prime:
+        source: trim_r2_5prime
+      trim_r2_3prime:
+        source: trim_r2_3prime
       trim_adapter_stringency:
         source: trim_adapter_stringency
       lic_instance_id_location:

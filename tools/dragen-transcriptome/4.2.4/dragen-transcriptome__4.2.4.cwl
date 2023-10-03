@@ -279,7 +279,7 @@ inputs:
       NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
     inputBinding:
       prefix:  --trim-adapter-r1-5prime
-  trim_dapter_r2_5prime:
+  trim_adapter_r2_5prime:
     label: trim adapter r2 5prime
     type: File?
     doc: |
@@ -294,6 +294,34 @@ inputs:
       Specify the minimum number of adapter bases required for trimming
     inputBinding:
       prefix:  --trim-adapter-stringency
+  trim_r1_5prime:
+    label: trim r1 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 1 (default: 0).
+    inputBinding:
+      prefix: --trim-min-r1-5prime
+  trim_r1_3prime:
+    label: trim r1 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 1 (default: 0).
+    inputBinding:
+      prefix: --trim-min-r1-3prime
+  trim_r2_5prime:
+    label: trim r2 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 0).
+    inputBinding:
+      prefix: --trim-min-r2-5prime
+  trim_r2_3prime:
+    label: trim r2 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 2 (default: 0).
+    inputBinding:
+      prefix: --trim-min-r2-3prime
   lic_instance_id_location:
     label: license instance id location
     doc: |
