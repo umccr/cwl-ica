@@ -1,0 +1,166 @@
+# List of tenants that datasets / bunches / bundles can be attached to
+tenants:
+  - tenant_name: umccr-test
+
+# List of projects a bundle can be attached to
+projects:
+  - project_name: umccr-test-project1
+    project_id: b96445ea-809a-4b03-9ac6-c701694b9120
+    tenant_name: umccr-test
+  - project_name: umccr-test-byob-1
+    project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
+    tenant_name: umccr-test
+  - project_name: umccr-test-byob-2
+    project_id: e22b9fcb-33ee-4dc9-9015-f1034dfd6a85
+    tenant_name: umccr-test
+
+# List of datasets
+datasets:
+  - dataset_tenant_name: umccr-test
+    dataset_name: wgs_validation_fastq__cups_pair_8
+    dataset_description: |
+      Fastq data from SBJ03864 (Tumor PRJ180660, Normal PRJ180661) 
+
+      More information on this sample can be found at https://github.com/umccr/validation_data
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2023-10-04T06:45:57Z'
+    dataset_id_hash: fca2fb140731ea7900d2c5c96061a280
+    data:
+      - data_id: fil.797f7409f94e400cc2b008dbc44487b1
+        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
+        owning_project_name: umccr-test-byob-1
+        data_uri: icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R1.fastq.gz
+        creation_time: '2023-10-04T00:58:22Z'
+        modification_time: '2023-10-04T00:58:22Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 34360870174
+        object_e_tag: 138476caefce92d67b720d904949ccf3-6554
+      - data_id: fil.bba86d004b114610c2b108dbc44487b1
+        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
+        owning_project_name: umccr-test-byob-1
+        data_uri: icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R2.fastq.gz
+        creation_time: '2023-10-04T00:58:31Z'
+        modification_time: '2023-10-04T00:58:31Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 35661224822
+        object_e_tag: 637423542b3ef45d0aef7b5c83c3fe38-6802
+      - data_id: fil.83144282a83a458cc2c508dbc44487b1
+        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
+        owning_project_name: umccr-test-byob-1
+        data_uri: icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R1.fastq.gz
+        creation_time: '2023-10-04T01:03:49Z'
+        modification_time: '2023-10-04T01:03:49Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 100413086424
+        object_e_tag: d797258505a1bf0db2b5bb5801e81338-10000
+      - data_id: fil.8047322518354ef5e20d08dbc444884e
+        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
+        owning_project_name: umccr-test-byob-1
+        data_uri: icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R2.fastq.gz
+        creation_time: '2023-10-04T01:03:53Z'
+        modification_time: '2023-10-04T01:03:53Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 102794669165
+        object_e_tag: 70826025f479165c0a23b91f43ecc778-10000
+  - dataset_tenant_name: umccr-test
+    dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+    dataset_description: |
+      A tarred version of the v9 r3 hash table for dragen 4.2.4
+      This reference is a custom reference by UMCCR. It was built using the following parameters with the dragen version 4.2.4
+      /opt/edico/bin/dragen \
+      --build-hash-table true \
+      --enable-cnv true \
+      --ht-build-hla-hashtable true \
+      --ht-build-rna-hashtable true \
+      --ht-mask-bed /opt/edico/fasta_mask/hg38_alt_mask.bed \
+      --ht-reference /data/cwl-stage-dir/stgfde7c711-e25f-42ce-b700-bbdaf23bcd2c/hg38.fa
+
+      Where hg38.fa was downloaded from s3.amazonaws.com/stratus-documentation-us-east-1-public/dragen/reference/Homo_sapiens/hg38.fa
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2023-10-04T06:46:59Z'
+    dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
+    data:
+      - data_id: fil.c3099363a81e4e11c25f08dbc44487b1
+        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
+        owning_project_name: umccr-test-byob-1
+        data_uri: icav2://umccr-test-byob-1/reference_data/dragen_hash_tables/v9-r3/hg38-alt_masked-cnv-hla-rna/hg38-alt_masked.cnv.hla.rna-9-r3.0-1.tar.gz
+        creation_time: '2023-10-04T00:32:40Z'
+        modification_time: '2023-10-04T00:32:40Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 7605659132
+        object_e_tag: ccf2a6cf9088236707ef06908b9fc772-1451
+
+# List of bunches / bunch versions that are precursors to bundles
+bunches:
+  - bunch_name: dragen_somatic_with_germline_pipeline_production__4_2_4
+    bunch_description: |
+      Contains the UMCCR dragen-somatic-with-germline pipeline and the appropriate reference data for dragen version 4.2.4
+
+      The reference data is the dragen hash table for hg38.
+      Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+    tenant_name: umccr-test
+    pipeline_path: workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+    pipeline_project_name: umccr-test-project1
+    bunch_region_id: None
+    bunch_region_city_name: None
+    projects:
+      - umccr-test-project1
+      - umccr-test-project2
+    categories:
+      - dragen
+      - somatic
+      - production
+    bunch_versions:
+      - version: v9_r3__4_2_4
+        version_description: |
+          v9r3 is the hash table build.
+        version_creation_date: '2023-10-04T06:47:12Z'
+        datasets:
+          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+            dataset_creation_time: '2023-10-04T06:46:59Z'
+            dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
+  - bunch_name: dragen_somatic_with_germline_pipeline_validation__4_2_4
+    bunch_description: |
+      Contains the UMCCR dragen-somatic-with-germline pipeline, validation data and the appropriate reference data for dragen version 4.2.4
+
+      The reference data is the dragen hash table for hg38.
+      Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+
+      The validation data the cups pair 8
+    tenant_name: umccr-test
+    pipeline_path: workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+    pipeline_project_name: umccr-test-project1
+    bunch_region_id: None
+    bunch_region_city_name: None
+    projects:
+      - umccr-test-project1
+    categories:
+      - dragen
+      - somatic
+      - validation
+    bunch_versions:
+      - version: v9_r3__4_2_4
+        version_description: |
+          v9r3 is the hash table build.
+        version_creation_date: '2023-10-04T06:47:24Z'
+        datasets:
+          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+            dataset_creation_time: '2023-10-04T06:46:59Z'
+            dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
+          - dataset_name: wgs_validation_fastq__cups_pair_8
+            dataset_creation_time: '2023-10-04T06:45:57Z'
+            dataset_id_hash: fca2fb140731ea7900d2c5c96061a280
