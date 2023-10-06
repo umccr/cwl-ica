@@ -125,10 +125,10 @@ bunches:
       - somatic
       - production
     bunch_versions:
-      - version: v9_r3__4_2_4
+      - version: v9_r3
         version_description: |
           v9r3 is the hash table build.
-        version_creation_date: '2023-10-06T00:05:08Z'
+        version_creation_date: '2023-10-06T00:28:23Z'
         datasets:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2023-10-04T06:46:59Z'
@@ -139,8 +139,6 @@ bunches:
 
       The reference data is the dragen hash table for hg38.
       Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
-
-      The validation data the cups pair 8
     tenant_name: umccr-test
     pipeline_path: workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
     pipeline_project_name: umccr-test-project1
@@ -153,10 +151,12 @@ bunches:
       - somatic
       - validation
     bunch_versions:
-      - version: v9_r3__4_2_4
+      - version: v9_r3__w_cups_pair_8
         version_description: |
           v9r3 is the hash table build.
-        version_creation_date: '2023-10-06T00:05:41Z'
+
+          The validation data the cups pair 8
+        version_creation_date: '2023-10-06T00:28:42Z'
         datasets:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2023-10-04T06:46:59Z'
