@@ -22,3 +22,14 @@ workflows:
     tags:
     - dragen-somatic-with-germline-pipeline/4.2.4
     - dragen-somatic-with-germline-pipeline/4.2.4__12345
+- name: dragen-somatic-with-germline-pipeline__4.2.4
+  subclass: CWL
+  primaryDescriptorPath: .dockstore/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.packed.cwl.json
+  readMePath: https://github.com/umccr/cwl-ica/blob/main/.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md
+  authors:
+  - name: Alexis Lucattini
+    email: Alexis.Lucattini@umccr.org
+  filters:
+    tags:
+    - dragen-somatic-with-germline-pipeline/4.2.4
+    - dragen-somatic-with-germline-pipeline/4.2.4__12345
