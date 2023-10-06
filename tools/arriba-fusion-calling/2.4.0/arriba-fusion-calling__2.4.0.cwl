@@ -27,8 +27,8 @@ hints:
     ilmn-tes:resources/tier: standard
     ilmn-tes:resources/type: standard
     ilmn-tes:resources/size: xxlarge
-    coresMin: 4
-    ramMin: 14000
+    coresMin: 8
+    ramMin: 28000
   DockerRequirement:
     dockerPull: public.ecr.aws/biocontainers/arriba:2.4.0--ha04fe3b_0
 
