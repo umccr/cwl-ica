@@ -17,7 +17,7 @@ arriba-drawing 2.4.0 tool
 
   
 > ID: arriba-drawing--2.4.0  
-> md5sum: 56c047a45dea2577cbc1ed10e3cc8b8b
+> md5sum: a6f910dca66006f8fa94fcdaa46d5ce9
 
 ### arriba-drawing v(2.4.0) documentation
   
@@ -30,6 +30,11 @@ Documentation for arriba-drawing v2.4.0
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/arriba-drawing/2.4.0/arriba-drawing__2.4.0.cwl)  
+
+
+### Used By
+  
+- [dragen-transcriptome-pipeline 4.2.4](../../../workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md)  
 
   
 
