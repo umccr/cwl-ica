@@ -119,7 +119,7 @@ bunches:
     bunch_region_city_name: Sydney
     projects:
       - umccr-test-project1
-      - umccr-test-project2
+      - umccr-test-byob-2
     categories:
       - dragen
       - somatic
