@@ -17,7 +17,7 @@ arriba-fusion-calling 2.4.0 tool
 
   
 > ID: arriba-fusion-calling--2.4.0  
-> md5sum: 32f9e29714ebb2a15c9aff3302500ead
+> md5sum: b1ea2e45b02b11dbfe2d14eb92352d45
 
 ### arriba-fusion-calling v(2.4.0) documentation
   
@@ -30,6 +30,11 @@ Documentation for arriba-fusion-calling v2.4.0
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/arriba-fusion-calling/2.4.0/arriba-fusion-calling__2.4.0.cwl)  
+
+
+### Used By
+  
+- [dragen-transcriptome-pipeline 4.2.4](../../../workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md)  
 
   
 
