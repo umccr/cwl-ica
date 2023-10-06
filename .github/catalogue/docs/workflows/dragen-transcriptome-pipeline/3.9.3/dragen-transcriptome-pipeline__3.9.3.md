@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 77e0f99b2dfb47c694fc590151c89c7c
+> md5sum: 15679da42643148b2d3e8097f57be8ff
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -313,6 +313,21 @@ GFF3 file containing the genomic coordinates of protein domains.
 Reference samples for multiQC report
 
 
+### read trimming
+
+
+
+  
+> ID: read_trimmers
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+To enable trimming filters in hard-trimming mode, set to a comma-separated list of the trimmer tools 
+you would like to use. To disable trimming, set to none. During mapping, artifacts are removed from all reads.
+Read trimming is disabled by default.
+
+
 ### reference Fasta
 
 
@@ -339,6 +354,21 @@ FastA file with genome sequence
 Path to ref data tarball
 
 
+### soft read trimming
+
+
+
+  
+> ID: soft_read_trimmers
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+To enable trimming filters in soft-trimming mode, set to a comma-separated list of the trimmer tools 
+you would like to use. To disable soft trimming, set to none. During mapping, reads are aligned as if trimmed,
+and bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.
+
+
 ### tmp dir
 
 
@@ -351,6 +381,73 @@ Path to ref data tarball
 **Docs:**  
 Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
 This can be avoided by sorting the bam file by name before running Qualimap.
+
+
+### trim adapter r1 5prime
+
+
+
+  
+> ID: trim_adapter_r1_5prime
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1. 
+NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+
+
+### trim adapter read1
+
+
+
+  
+> ID: trim_adapter_read1
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.
+
+
+### trim adapter read2
+
+
+
+  
+> ID: trim_adapter_read2
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.
+
+
+### trim adapter stringency
+
+
+
+  
+> ID: trim_adapter_stringency
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of adapter bases required for trimming
+
+
+### trim adapter r2 5prime
+
+
+
+  
+> ID: trim_dapter_r2_5prime
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
+NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
 
   
 
@@ -1041,7 +1138,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--6eacfb8  
+**wfl version name:** 3.9.3--40c2db6  
 
   
 
