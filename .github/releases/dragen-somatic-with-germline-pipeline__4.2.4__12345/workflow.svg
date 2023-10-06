@@ -38,13 +38,13 @@
 <polygon fill="black" stroke="black" points="9990.6,-2067.57 9999.1,-2061.25 9988.52,-2060.89 9990.6,-2067.57"/>
 </g>
 <!-- run_dragen_qc_step -->
-<g id="node5" class="node">
+<g id="node4" class="node">
 <title>run_dragen_qc_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="312,-2025.24 312,-2061.24 451,-2061.24 451,-2025.24 312,-2025.24"/>
 <text text-anchor="middle" x="381.5" y="-2039.54" font-family="Times,serif" font-size="14.00">multiqc v(1.14.0)</text>
 </g>
 <!-- run_dragen_germline_step&#45;&gt;run_dragen_qc_step -->
-<g id="edge4" class="edge">
+<g id="edge3" class="edge">
 <title>run_dragen_germline_step&#45;&gt;run_dragen_qc_step</title>
 <path fill="none" stroke="black" d="M6314.68,-3168.23C5620.41,-3036.7 1118.25,-2183.81 461.4,-2059.38"/>
 <polygon fill="black" stroke="black" points="461.58,-2055.85 451.1,-2057.43 460.27,-2062.73 461.58,-2055.85"/>
@@ -98,7 +98,7 @@
 <polygon fill="black" stroke="black" points="10075.69,-2067.1 10066.79,-2061.35 10070.16,-2071.4 10075.69,-2067.1"/>
 </g>
 <!-- run_dragen_somatic_step&#45;&gt;run_dragen_qc_step -->
-<g id="edge5" class="edge">
+<g id="edge4" class="edge">
 <title>run_dragen_somatic_step&#45;&gt;run_dragen_qc_step</title>
 <path fill="none" stroke="black" d="M10846.22,-3175.16C9860.4,-3068.62 1374.86,-2151.59 461.15,-2052.85"/>
 <polygon fill="black" stroke="black" points="461.38,-2049.35 451.07,-2051.76 460.63,-2056.31 461.38,-2049.35"/>
@@ -163,18 +163,6 @@
 <path fill="none" stroke="black" d="M10939.1,-3168.17C10934.58,-2973.38 10892.8,-1172.7 10887.13,-928.59"/>
 <polygon fill="black" stroke="black" points="10890.63,-928.36 10886.9,-918.45 10883.63,-928.52 10890.63,-928.36"/>
 </g>
-<!-- create_dummy_file_step -->
-<g id="node4" class="node">
-<title>create_dummy_file_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="0,-3168.24 0,-3204.24 261,-3204.24 261,-3168.24 0,-3168.24"/>
-<text text-anchor="middle" x="130.5" y="-3182.54" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
-</g>
-<!-- create_dummy_file_step&#45;&gt;run_dragen_qc_step -->
-<g id="edge3" class="edge">
-<title>create_dummy_file_step&#45;&gt;run_dragen_qc_step</title>
-<path fill="none" stroke="black" d="M134.24,-3168.23C162.38,-3040.32 340.6,-2230.15 375.56,-2071.26"/>
-<polygon fill="black" stroke="black" points="379.01,-2071.87 377.74,-2061.35 372.17,-2070.37 379.01,-2071.87"/>
-</g>
 <!-- multiqc_output_directory -->
 <g id="node124" class="node">
 <title>multiqc_output_directory</title>
@@ -186,6 +174,18 @@
 <title>run_dragen_qc_step&#45;&gt;multiqc_output_directory</title>
 <path fill="none" stroke="black" d="M451.16,-2033.43C1231.58,-1934.7 8325.27,-1037.27 9291.65,-915.01"/>
 <polygon fill="black" stroke="black" points="9292.24,-918.46 9301.72,-913.74 9291.36,-911.52 9292.24,-918.46"/>
+</g>
+<!-- create_dummy_file_step -->
+<g id="node5" class="node">
+<title>create_dummy_file_step</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="0,-3168.24 0,-3204.24 261,-3204.24 261,-3168.24 0,-3168.24"/>
+<text text-anchor="middle" x="130.5" y="-3182.54" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
+</g>
+<!-- create_dummy_file_step&#45;&gt;run_dragen_qc_step -->
+<g id="edge5" class="edge">
+<title>create_dummy_file_step&#45;&gt;run_dragen_qc_step</title>
+<path fill="none" stroke="black" d="M134.24,-3168.23C162.38,-3040.32 340.6,-2230.15 375.56,-2071.26"/>
+<polygon fill="black" stroke="black" points="379.01,-2071.87 377.74,-2061.35 372.17,-2070.37 379.01,-2071.87"/>
 </g>
 <!-- bam_input -->
 <g id="node6" class="node">
