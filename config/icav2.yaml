@@ -115,8 +115,8 @@ bunches:
     tenant_name: umccr-test
     pipeline_path: workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
     pipeline_project_name: umccr-test-project1
-    bunch_region_id: None
-    bunch_region_city_name: None
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
     projects:
       - umccr-test-project1
       - umccr-test-project2
@@ -128,7 +128,7 @@ bunches:
       - version: v9_r3__4_2_4
         version_description: |
           v9r3 is the hash table build.
-        version_creation_date: '2023-10-04T06:47:12Z'
+        version_creation_date: '2023-10-06T00:05:08Z'
         datasets:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2023-10-04T06:46:59Z'
@@ -144,8 +144,8 @@ bunches:
     tenant_name: umccr-test
     pipeline_path: workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
     pipeline_project_name: umccr-test-project1
-    bunch_region_id: None
-    bunch_region_city_name: None
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
     projects:
       - umccr-test-project1
     categories:
@@ -156,7 +156,7 @@ bunches:
       - version: v9_r3__4_2_4
         version_description: |
           v9r3 is the hash table build.
-        version_creation_date: '2023-10-04T06:47:24Z'
+        version_creation_date: '2023-10-06T00:05:41Z'
         datasets:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2023-10-04T06:46:59Z'
