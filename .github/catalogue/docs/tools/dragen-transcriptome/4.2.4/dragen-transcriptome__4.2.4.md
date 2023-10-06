@@ -17,7 +17,7 @@ dragen-transcriptome 4.2.4 tool
 
   
 > ID: dragen-transcriptome--4.2.4  
-> md5sum: 2956591cbb984066444054b73692fb06
+> md5sum: 5b9f8e994ff8b8fc8eeca1e92c4c64db
 
 ### dragen-transcriptome v(4.2.4) documentation
   
@@ -228,6 +228,21 @@ The directory where all output files are placed.
 The prefix given to all output files.
 
 
+### read trimming
+
+
+
+  
+> ID: read_trimmers
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+To enable trimming filters in hard-trimming mode, set to a comma-separated list of the trimmer tools 
+you would like to use. To disable trimming, set to none. During mapping, artifacts are removed from all reads.
+Read trimming is disabled by default.
+
+
 ### reference tar
 
 
@@ -252,6 +267,140 @@ Path to ref data tarball.
 **Type:** `string`  
 **Docs:**  
 Specify the name of the rRNA sequences to use for filtering.
+
+
+### soft read trimming
+
+
+
+  
+> ID: soft_read_trimmers
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+To enable trimming filters in soft-trimming mode, set to a comma-separated list of the trimmer tools 
+you would like to use. To disable soft trimming, set to none. During mapping, reads are aligned as if trimmed,
+and bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.
+
+
+### trim adapter r1 5prime
+
+
+
+  
+> ID: trim_adapter_r1_5prime
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1. 
+NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+
+
+### trim adapter r2 5prime
+
+
+
+  
+> ID: trim_adapter_r2_5prime
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
+NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+
+
+### trim adapter read1
+
+
+
+  
+> ID: trim_adapter_read1
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.
+
+
+### trim adapter read2
+
+
+
+  
+> ID: trim_adapter_read2
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.
+
+
+### trim adapter stringency
+
+
+
+  
+> ID: trim_adapter_stringency
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of adapter bases required for trimming
+
+
+### trim r1 3prime
+
+
+
+  
+> ID: trim_r1_3prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 3' end of Read 1 (default: 0).
+
+
+### trim r1 5prime
+
+
+
+  
+> ID: trim_r1_5prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 5' end of Read 1 (default: 0).
+
+
+### trim r2 3prime
+
+
+
+  
+> ID: trim_r2_3prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 3' end of Read 2 (default: 0).
+
+
+### trim r2 5prime
+
+
+
+  
+> ID: trim_r2_5prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 0).
 
   
 

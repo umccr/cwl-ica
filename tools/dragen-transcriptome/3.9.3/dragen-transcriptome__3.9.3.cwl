@@ -263,19 +263,41 @@ inputs:
       CSV file that contains a list of FASTQ files
       to process. read_1 and read_2 components in the CSV file must be presigned urls.
     type: File?
+    inputBinding:
+      loadContents: true
+      prefix: "--fastq-list="
+      separate: False
+      valueFrom: "$(get_fastq_list_csv_path())"
   # Option 2:
   fastq_list_rows:
     label: fastq list rows
     doc: |
       Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects
     type: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row[]?
+    inputBinding:
+      prefix: "--fastq-list="
+      separate: False
+      valueFrom: "$(get_fastq_list_csv_path())"
+# Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a BAM file for the Dragen RNA options
+    type: File?
+    inputBinding:
+      prefix: "--bam-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
       Path to ref data tarball.
     type: File
     inputBinding:
-      prefix: "--ref-dir"
+      prefix: "--ref-dir="
+      separate: False
       valueFrom: "$(get_ref_path(self))"
   # Output naming options
   output_file_prefix:
@@ -284,22 +306,44 @@ inputs:
       The prefix given to all output files.
     type: string
     inputBinding:
-      prefix: "--output-file-prefix"
+      prefix: "--output-file-prefix="
+      separate: False
   output_directory:
     label: output directory
     doc: |
       The directory where all output files are placed.
     type: string
     inputBinding:
-      prefix: "--output-directory"
+      prefix: "--output-directory="
+      separate: False
   # Alignment options
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default.
+      Set this value to false if using bam_input
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align="
+      separate: False
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |
       Do you wish to have the output bam files present
     type: boolean
     inputBinding:
-      prefix: "--enable-map-align-output"
+      prefix: "--enable-map-align-output="
+      separate: False
+      valueFrom: "$(self.toString())"
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input parameters
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-sort="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_duplicate_marking:
     label: enable duplicate marking
@@ -307,7 +351,8 @@ inputs:
       Mark identical alignments as duplicates
     type: boolean
     inputBinding:
-      prefix: "--enable-duplicate-marking"
+      prefix: "--enable-duplicate-marking="
+      separate: False
       valueFrom: "$(self.toString())"
   # Transcript annotation file
   annotation_file:
@@ -316,7 +361,8 @@ inputs:
       Path to annotation transcript file.
     type: File
     inputBinding:
-      prefix: "--annotation-file"
+      prefix: "--annotation-file="
+      separate: False
   # Optional operation modes
   enable_rna_quantification:
     label: enable rna quantification
@@ -325,7 +371,8 @@ inputs:
     doc: |
       Enable the quantification module. The default value is true.
     inputBinding:
-      prefix: "--enable-rna-quantification"
+      prefix: "--enable-rna-quantification="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_rna_gene_fusion:
     label: enable rna gene fusion
@@ -334,7 +381,8 @@ inputs:
     doc: |
       Enable the DRAGEN Gene Fusion module. The default value is true.
     inputBinding:
-      prefix: "--enable-rna-gene-fusion"
+      prefix: "--enable-rna-gene-fusion="
+      separate: False
       valueFrom: "$(self.toString())"
   enable_rrna_filter:
     label: enable rrna filtering
@@ -343,7 +391,8 @@ inputs:
     doc: |
       Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
     inputBinding:
-      prefix: "--rrna-filter-enable"
+      prefix: "--rrna-filter-enable="
+      separate: False
       valueFrom: "$(self.toString())"
   rrna_filter_contig:
     label: name of the rRNA sequences to use for filtering
@@ -352,7 +401,102 @@ inputs:
     doc: |
       Specify the name of the rRNA sequences to use for filtering.
     inputBinding:
-      prefix: "--rrna-filter-contig"
+      prefix: "--rrna-filter-contig="
+      separate: False
+  read_trimmers:
+    label: read trimming
+    type: string?
+    doc: |
+      To enable trimming filters in hard-trimming mode, set to a comma-separated list of the trimmer tools 
+      you would like to use. To disable trimming, set to none. During mapping, artifacts are removed from all reads.
+      Read trimming is disabled by default.
+    inputBinding:
+      prefix: "--read-trimmers="
+      separate: False
+  soft_read_trimmers:
+    label: soft read trimming
+    type: string?
+    doc: |
+      To enable trimming filters in soft-trimming mode, set to a comma-separated list of the trimmer tools 
+      you would like to use. To disable soft trimming, set to none. During mapping, reads are aligned as if trimmed,
+      and bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.
+    inputBinding:
+      prefix: "--soft-read-trimmers="
+      separate: False
+  trim_adapter_read1:
+    label: trim adapter read1
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.
+    inputBinding:
+      prefix:  "--trim-adapter-read1="
+      separate: False
+  trim_adapter_read2:
+    label: trim adapter read2
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.
+    inputBinding:
+      prefix:  "--trim_adapter_read2="
+      separate: False
+  trim_adapter_r1_5prime:
+    label: trim adapter r1 5prime
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1. 
+      NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+    inputBinding:
+      prefix:  "--trim-adapter-r1-5prime="
+      separate: False
+  trim_adapter_r2_5prime:
+    label: trim adapter r2 5prime
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
+      NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+    inputBinding:
+      prefix:  "--trim-adapter-r2-5prime="
+      separate: False
+  trim_adapter_stringency:
+    label: trim adapter stringency
+    type: int?
+    doc: |
+      Specify the minimum number of adapter bases required for trimming
+    inputBinding:
+      prefix:  "--trim-adapter-stringency="
+      separate: False
+  trim_r1_5prime:
+    label: trim r1 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 1 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r1-5prime="
+      separate: False
+  trim_r1_3prime:
+    label: trim r1 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 1 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r1-3prime="
+      separate: False
+  trim_r2_5prime:
+    label: trim r2 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r2-5prime="
+      separate: False
+  trim_r2_3prime:
+    label: trim r2 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 2 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r2-3prime="
+      separate: False
   lic_instance_id_location:
     label: license instance id location
     doc: |
@@ -364,7 +508,8 @@ inputs:
       - string?
     default: "/opt/instance-identity"
     inputBinding:
-      prefix: "--lic-instance-id-location"
+      prefix: "--lic-instance-id-location="
+      separate: False
 
 outputs:
   # Will also include mounted-files.txt

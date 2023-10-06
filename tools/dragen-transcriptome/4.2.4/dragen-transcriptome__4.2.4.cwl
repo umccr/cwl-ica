@@ -239,6 +239,100 @@ inputs:
     inputBinding:
       prefix: "--rrna-filter-contig="
       separate: False
+  read_trimmers:
+    label: read trimming
+    type: string?
+    doc: |
+      To enable trimming filters in hard-trimming mode, set to a comma-separated list of the trimmer tools 
+      you would like to use. To disable trimming, set to none. During mapping, artifacts are removed from all reads.
+      Read trimming is disabled by default.
+    inputBinding:
+      prefix: "--read-trimmers="
+      separate: False
+  soft_read_trimmers:
+    label: soft read trimming
+    type: string?
+    doc: |
+      To enable trimming filters in soft-trimming mode, set to a comma-separated list of the trimmer tools 
+      you would like to use. To disable soft trimming, set to none. During mapping, reads are aligned as if trimmed,
+      and bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.
+    inputBinding:
+      prefix: "--soft-read-trimmers="
+      separate: False
+  trim_adapter_read1:
+    label: trim adapter read1
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.
+    inputBinding:
+      prefix:  "--trim-adapter-read1="
+      separate: False
+  trim_adapter_read2:
+    label: trim adapter read2
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.
+    inputBinding:
+      prefix:  "--trim_adapter_read2="
+      separate: False
+  trim_adapter_r1_5prime:
+    label: trim adapter r1 5prime
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1. 
+      NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+    inputBinding:
+      prefix:  "--trim-adapter-r1-5prime="
+      separate: False
+  trim_adapter_r2_5prime:
+    label: trim adapter r2 5prime
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
+      NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+    inputBinding:
+      prefix:  "--trim-adapter-r2-5prime="
+      separate: False
+  trim_adapter_stringency:
+    label: trim adapter stringency
+    type: int?
+    doc: |
+      Specify the minimum number of adapter bases required for trimming
+    inputBinding:
+      prefix:  "--trim-adapter-stringency="
+      separate: False
+  trim_r1_5prime:
+    label: trim r1 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 1 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r1-5prime="
+      separate: False
+  trim_r1_3prime:
+    label: trim r1 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 1 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r1-3prime="
+      separate: False
+  trim_r2_5prime:
+    label: trim r2 5prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r2-5prime="
+      separate: False
+  trim_r2_3prime:
+    label: trim r2 3prime
+    type: int?
+    doc: |
+      Specify the minimum number of bases to trim from the 3' end of Read 2 (default: 0).
+    inputBinding:
+      prefix: "--trim-min-r2-3prime="
+      separate: False
   lic_instance_id_location:
     label: license instance id location
     doc: |
