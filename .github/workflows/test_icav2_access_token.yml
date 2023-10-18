@@ -4,25 +4,39 @@ on:
   workflow_dispatch:
 
 jobs:
-  get_token:
-    name: get-token
+  get_umccr_test_access_token:
+    name: Get ICAv2 Access Token (umccr-test)
+    uses: ./.github/workflows/get_tenant_icav2_access_token.yml
+    with:
+      role_to_assume_arn: arn:aws:iam::843407916570:role/icav2-credentials-umccr-t-icav2credentialsumccrtes-1GHEG1YPILEH6
+      secret_arn: arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:ICAv2Jwticav2-credentials-umccr-test-pipelines-YLmtd4
+    secrets:
+      symmetrical_encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+  test_token:
+    name: test-token
     runs-on: ubuntu-latest
+    needs: get_umccr_test_access_token
     defaults:
       run:
         shell: bash -l {0}
     steps:
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - name: Checkout code
+        id: git_checkout
+        uses: actions/checkout@v3
+      # Decrypt token
+      - id: decrypt_access_token
+        name: Decrypt Access Token
+        uses: ./.github/actions/decrypt_token
         with:
-          role-to-assume: arn:aws:iam::843407916570:role/icav2-credentials-umccr-t-icav2credentialsumccrtes-1GHEG1YPILEH6
-          aws-region: ap-southeast-2
-      - name: Retrieve Secret
-        uses: aws-actions/aws-secretsmanager-get-secrets@v1
-        with:
-          secret-ids: |
-            ICAV2_ACCESS_TOKEN, arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:ICAv2Jwticav2-credentials-umccr-test-pipelines-YLmtd4
-      - name: list projects
+          encrypted_token: ${{ needs.get_umccr_test_access_token.outputs.icav2_access_token_encrypted }}
+          decryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+      - name: Test ICAv2AccessToken
+        env:
+          ICAV2_ACCESS_TOKEN: ${{ steps.decrypt_access_token.outputs.decrypted_token }}
         run: |
+          echo ${{ needs.get_umccr_test_access_token.outputs.icav2_access_token }}
+          echo ${{ needs.get_umccr_test_access_token.secrets.icav2_access_token }}
+          echo ${{ needs.get_umccr_test_access_token.outputs.test }}
           curl --fail --silent --location --show-error \
             --request "GET" \
             --header "Accept: application/vnd.illumina.v3+json" \

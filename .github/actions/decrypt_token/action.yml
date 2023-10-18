@@ -1,0 +1,31 @@
+name: decrypt token
+description: Decrypt access token
+inputs:
+  encrypted_token:  # id of input
+    description: Token to decrypt
+    required: true
+  decryption_key:
+    description: Key to decrypt token
+    required: true
+
+outputs:
+  decrypted_token:
+    description: "Decrypted access token"
+    value: ${{ steps.decrypt_token.outputs.decrypted_token }}
+runs:
+  using: "composite"
+  steps:
+    - id: decrypt_token
+      shell: bash
+      run: |
+        decrypted_token="$( \
+        base64 --decode <<< "${{ inputs.encrypted_token }}" | \
+        gpg \
+          --decrypt --quiet --batch \
+          --passphrase "${{ inputs.decryption_key }}" \
+          --output - 
+        )"
+        
+        echo "decrypted_token=${decrypted_token}" >> "${GITHUB_OUTPUT}"
+        echo "::add-mask::$decrypted_token"
+      
