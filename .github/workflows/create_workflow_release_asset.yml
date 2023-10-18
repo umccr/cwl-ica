@@ -65,7 +65,7 @@ jobs:
       - name: get date
         id: get_date
         run: |
-          echo "date_str=$(date +%s)" >> "${GITHUB_OUTPUT}"
+          echo "date_str=$(date +%Y%m%d%H%M%S)" >> "${GITHUB_OUTPUT}"
       # Get workflow path
       - name: get workflow path
         id: get_workflow_path
