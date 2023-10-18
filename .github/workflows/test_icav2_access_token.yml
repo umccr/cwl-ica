@@ -1,0 +1,30 @@
+name: test-icav2-token
+
+on:
+  workflow_dispatch:
+
+jobs:
+  get_token:
+    name: get-token
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::843407916570:role/icav2-credentials-umccr-t-icav2credentialsumccrtes-1GHEG1YPILEH6
+          aws-region: ap-southeast-2
+      - name: Retrieve Secret
+        uses: aws-actions/aws-secretsmanager-get-secrets@v1
+        with:
+          secret-ids: |
+            ICAV2_ACCESS_TOKEN, arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:ICAv2Jwticav2-credentials-umccr-test-pipelines-YLmtd4
+      - name: list projects
+        run: |
+          curl --fail --silent --location --show-error \
+            --request "GET" \
+            --header "Accept: application/vnd.illumina.v3+json" \
+            --header "Authorization: Bearer ${ICAV2_ACCESS_TOKEN}" \
+            "https://ica.illumina.com/ica/rest/api/projects?includeHiddenProjects=false"
