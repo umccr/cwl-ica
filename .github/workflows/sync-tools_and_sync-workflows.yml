@@ -11,6 +11,7 @@ on:
       # Workflow change
       - "**/*.cwl"
       # GH change
+      - ".github/actions/get_ica_access_token.yml"
       - ".github/workflows/sync-tools_and_sync-workflows.yml"
       - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Also for changes in the catalogue script
@@ -104,71 +105,32 @@ jobs:
         id: get_git_commit_id
         run: echo "git_commit_id=$(git log --format="%H" -n1 | cut -c1-7)" >> "${GITHUB_OUTPUT}"
       # Get development workflows access token
-      - name: get development workflows project id access token
-        id: get_development_workflows_project_id_access_token
-        run: |
-          development_workflows_project_id="0df0356d-3637-48a5-80d1-a924642a6556"
-          development_workflows_access_token="$( \
-            AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
-            AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
-            AWS_REGION="${{ secrets.AWS_REGION }}" \
-              aws secretsmanager get-secret-value \
-                --output json \
-                --secret-id IcaSecretsWorkflow  | \
-              jq --raw-output \
-                --arg project_id "${development_workflows_project_id}" \
-                '
-                  .SecretString | 
-                  fromjson | 
-                  .[$project_id]
-                ' \
-          )"
-          echo "::add-mask::${development_workflows_access_token}"
-          echo "ica_access_token=${development_workflows_access_token}" >> "${GITHUB_OUTPUT}"
+      - id: get_development_workflows_project_id_access_token
+        name: get development workflows project access token
+        uses: ./.github/actions/get_ica_access_token
+        with:
+          project_id: "0df0356d-3637-48a5-80d1-a924642a6556"
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}
+          aws_region: ${{ secrets.AWS_REGION }}
       # Get collab illumina dev workflows access token
-      - name: get collab illumina dev workflows project id access token
-        id: get_collab_illumina_dev_workflows_project_id_access_token
-        run: |
-          collab_illumina_dev_workflows_project_id="dddd6c29-24d3-49f4-91c0-7e818b3c0a21"
-          collab_illumina_dev_access_token="$( \
-            AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}" \
-            AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}" \
-            AWS_REGION="${{ secrets.AWS_REGION }}" \
-              aws secretsmanager get-secret-value \
-                --output json \
-                --secret-id IcaSecretsWorkflow  | \
-              jq --raw-output \
-                --arg project_id "${collab_illumina_dev_workflows_project_id}" \
-                '
-                  .SecretString | 
-                  fromjson | 
-                  .[$project_id]
-                ' \
-          )" 
-          echo "::add-mask::${collab_illumina_dev_access_token}"
-          echo "ica_access_token=${collab_illumina_dev_access_token}" >> "${GITHUB_OUTPUT}"
+      - id: get_collab_illumina_dev_workflows_project_id_access_token
+        name: get collab illumina dev workflows project access token
+        uses: ./.github/actions/get_ica_access_token
+        with:
+          project_id: "dddd6c29-24d3-49f4-91c0-7e818b3c0a21"
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}
+          aws_region: ${{ secrets.AWS_REGION }}
       # Get production workflows access token
-      - name: get production workflows project id access token
-        id: get_production_workflows_project_id_access_token
-        run: |
-          production_workflows_project_id="fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
-          production_workflows_access_token="$( \
-            AWS_ACCESS_KEY_ID="${{ secrets.AWS_ACCESS_KEY_ID_PROD_ICA_SECRETS_WORKFLOW }}" \
-            AWS_SECRET_ACCESS_KEY="${{ secrets.AWS_SECRET_ACCESS_KEY_PROD_ICA_SECRETS_WORKFLOW }}" \
-            AWS_REGION="${{ secrets.AWS_REGION }}" \
-              aws secretsmanager get-secret-value \
-                --output json \
-                --secret-id IcaSecretsWorkflow | \
-              jq --raw-output \
-                --arg project_id "${production_workflows_project_id}" \
-                '
-                  .SecretString | 
-                  fromjson | 
-                  .[$project_id]
-                ' \
-          )"
-          echo "::add-mask::${production_workflows_access_token}"
-          echo "ica_access_token=${production_workflows_access_token}" >> "${GITHUB_OUTPUT}"
+      - id: get_production_workflows_project_id_access_token
+        name: get production workflows project access token
+        uses: ./.github/actions/get_ica_access_token
+        with:
+          project_id: "fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD_ICA_SECRETS_WORKFLOW }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD_ICA_SECRETS_WORKFLOW }}
+          aws_region: ${{ secrets.AWS_REGION }}
       # Create secrets json
       - name: create secrets json
         id: create_secrets_json
