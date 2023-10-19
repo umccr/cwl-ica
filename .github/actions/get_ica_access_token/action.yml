@@ -1,0 +1,49 @@
+name: get ICA access token
+description: get ica access token
+
+inputs:
+  project_id:  # id of input
+    description: The ID of the project
+    required: true
+  aws_access_key_id:
+    description: The AWS_ACCESS_KEY_ID env var
+    required: true
+  aws_secret_access_key:
+    description: The AWS_SECRET_ACCESS_KEY env var
+    required: true
+  aws_region:
+    description: The AWS_REGION env var
+    required: true
+
+outputs:
+  ica_access_token:
+    description: "Encrypted access token"
+    value: ${{ steps.get_ica_access_token.outputs.ica_access_token }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: get_ica_access_token
+      shell: bash
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
+        AWS_REGION: ${{ inputs.aws_region }}
+      run: |
+        ica_access_token="$( \
+          aws secretsmanager get-secret-value \
+            --output json \
+            --secret-id IcaSecretsWorkflow | \
+          jq --raw-output \
+            --arg project_id "${{ inputs.project_id }}" \
+            '
+              .SecretString |
+              fromjson |
+              .[$project_id]
+            ' \
+        )"
+        echo "ica_access_token=${ica_access_token}" >> "${GITHUB_OUTPUT}"
+        echo "::add-mask::$ica_access_token"
+
+
+      

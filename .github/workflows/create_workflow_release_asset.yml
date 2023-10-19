@@ -97,18 +97,35 @@ jobs:
       workflow_path: ${{ steps.get_workflow_path.outputs.workflow_path }}
       create_release: ${{ steps.has_regex_match.outputs.create_release }}
       is_prerelease: ${{ steps.has_regex_match.outputs.is_prerelease }}
+  get_umccr_test_icav2_access_token:
+    name: Get ICAv2 Access Token (umccr-test)
+    uses: ./.github/workflows/get_tenant_icav2_access_token.yml
+    with:
+      role_to_assume_arn: arn:aws:iam::843407916570:role/icav2-credentials-umccr-t-icav2credentialsumccrtes-1GHEG1YPILEH6
+      secret_arn: arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:ICAv2Jwticav2-credentials-umccr-test-pipelines-YLmtd4
+    secrets:
+      symmetrical_encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
   create_release_asset:
     name: create release asset
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash -l {0}
-    needs: release_asset_precheck
+    needs:
+      - release_asset_precheck
+      - get_umccr_test_icav2_access_token
     steps:
       # Checkout code
       - name: Checkout code
         id: git_checkout
         uses: actions/checkout@v3
+      # Decrypt tokens
+      - id: decrypt_umccr_test_icav2_access_token
+        name: Decrypt Access Token
+        uses: ./.github/actions/decrypt_token
+        with:
+          encrypted_token: ${{ needs.get_umccr_test_icav2_access_token.outputs.icav2_access_token_encrypted }}
+          decryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
       # Create release asset
       - name: create release asset
         id: create_release_asset
@@ -125,6 +142,7 @@ jobs:
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
             --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \
             --env GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
+            --env ICAV2_ACCESS_TOKEN_UMCCR_TEST="${{ steps.decrypt_umccr_test_icav2_access_token.outputs.decrypted_token }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/create_workflow_release_asset.sh" \
                 --workflow-path "${{ needs.release_asset_precheck.outputs.workflow_path }}" \
