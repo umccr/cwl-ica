@@ -53,7 +53,7 @@ if [[ ! -v GITHUB_TAG ]]; then
 fi
 
 # Set home directory
-if [[ ! -v HOME ]]; then
+if [[ -z "${HOME-}" ]]; then
   HOME="$(mktemp -d)"
   export HOME
 fi

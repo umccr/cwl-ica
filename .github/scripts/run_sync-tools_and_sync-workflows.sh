@@ -47,7 +47,7 @@ for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
 done
 
 # Set home directory
-if [[ ! -v HOME ]]; then
+if [[ -z "${HOME-}" ]]; then
   HOME="$(mktemp -d)"
   export HOME
 fi
