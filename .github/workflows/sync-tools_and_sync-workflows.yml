@@ -6,21 +6,7 @@ on:
     types:
       - "submitted"
     branches:
-     - main
-    paths:
-      # Workflow change
-      - "**/*.cwl"
-      # GH change
-      - ".github/actions/get_ica_access_token.yml"
-      - ".github/workflows/sync-tools_and_sync-workflows.yml"
-      - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
-      # Also for changes in the catalogue script
-      - ".github/create_catalogue.sh"
-      # Config files (say a merge conflict is resolved)
-      - "config/project.yaml"
-      - "config.tool.yaml"
-      - "config/workflow.yaml"
-      - "config/run.yaml"
+      - main
 
 jobs:
   sync_tools_and_workflows_and_create_catalogue:
@@ -104,6 +90,26 @@ jobs:
       - name: Get git commit ID
         id: get_git_commit_id
         run: echo "git_commit_id=$(git log --format="%H" -n1 | cut -c1-7)" >> "${GITHUB_OUTPUT}"
+      # Check that the paths were interested in are actually of any significants
+      - id: check_file_changes
+        name: Check that this PR is relevant to workflows
+        uses: tj-actions/changed-files@v39
+        with:
+          files_yaml: |
+            workflows:
+              - "**/*.cwl"
+            gh_action_changes:
+              - ".github/actions/get_ica_access_token.yml"
+              - ".github/workflows/sync-tools_and_sync-workflows.yml"
+              - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
+            catalog_changes:
+              - ".github/create_catalogue.sh"
+            configuration_changes:
+              # Config files (say a merge conflict is resolved)
+              - "config/project.yaml"
+              - "config/tool.yaml"
+              - "config/workflow.yaml"
+              - "config/run.yaml"
       # Get development workflows access token
       - id: get_development_workflows_project_id_access_token
         name: get development workflows project access token
@@ -159,6 +165,7 @@ jobs:
           echo "secrets_json=${secrets_json}" >> "${GITHUB_OUTPUT}"
       # Sync tools and workflows
       - name: sync-tools and sync-workflows
+        if: steps.check_file_changes.outputs.any_changed == 'true'
         run: |
           docker run \
             --rm \
@@ -173,6 +180,7 @@ jobs:
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Create Catalogue
       - name: create catalogue
+        if: steps.check_file_changes.outputs.any_changed == 'true'
         run: |
           docker run \
             --rm \
