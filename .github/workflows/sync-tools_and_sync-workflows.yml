@@ -98,13 +98,13 @@ jobs:
           files_yaml: |
             workflows:
               - "**/*.cwl"
-            gh_action_changes:
+            gh_actions:
               - ".github/actions/get_ica_access_token.yml"
               - ".github/workflows/sync-tools_and_sync-workflows.yml"
               - ".github/scripts/run_sync-tools_and_sync-workflows.sh"
-            catalog_changes:
+            catalogs:
               - ".github/create_catalogue.sh"
-            configuration_changes:
+            configurations:
               # Config files (say a merge conflict is resolved)
               - "config/project.yaml"
               - "config/tool.yaml"
@@ -165,7 +165,9 @@ jobs:
           echo "secrets_json=${secrets_json}" >> "${GITHUB_OUTPUT}"
       # Sync tools and workflows
       - name: sync-tools and sync-workflows
-        if: steps.check_file_changes.outputs.any_changed == 'true'
+        if: |
+          steps.check_file_changes.outputs.workflows_any_changed == 'true' || 
+          steps.check_file_changes.outputs.configurations_any_changed == 'true'
         run: |
           docker run \
             --rm \
@@ -180,7 +182,10 @@ jobs:
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
       # Create Catalogue
       - name: create catalogue
-        if: steps.check_file_changes.outputs.any_changed == 'true'
+        if: |
+          steps.check_file_changes.outputs.workflows_any_changed == 'true' || 
+          steps.check_file_changes.outputs.configurations_any_changed == 'true' || 
+          steps.check_file_changes.outputs.catalogs_any_changed == 'true'
         run: |
           docker run \
             --rm \
