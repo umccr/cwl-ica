@@ -72,8 +72,15 @@ if [[ ! -v GITHUB_SERVER_URL ]]; then
   exit 1
 fi
 
+# Set home directory
+if [[ ! -v HOME ]]; then
+  HOME="$(mktemp -d)"
+  export HOME
+fi
+
 # Set conda env path
-export CONDA_ENVS_PATH="$(mktemp -d)"
+CONDA_ENVS_PATH="$(mktemp -d)"
+export CONDA_ENVS_PATH
 
 # Softlink envs into this environment
 ENVS_LIST=( "cwl-ica" "cwltool-icav1" )

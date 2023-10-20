@@ -46,8 +46,15 @@ for project in $(echo "${SECRETS_JSON}" | jq -r 'keys[]'); do
     export "${project_token_env_var_name}"="${project_token}"
 done
 
+# Set home directory
+if [[ ! -v HOME ]]; then
+  HOME="$(mktemp -d)"
+  export HOME
+fi
+
 # Set conda env path
-export CONDA_ENVS_PATH="$(mktemp -d)"
+CONDA_ENVS_PATH="$(mktemp -d)"
+export CONDA_ENVS_PATH
 
 # Softlink envs into this environment
 ENVS_LIST=( "cwl-ica" "cwltool-icav1" )
