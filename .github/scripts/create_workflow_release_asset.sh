@@ -70,6 +70,8 @@ for env_name in "${ENVS_LIST[@]}"; do
     "${CONDA_ENVS_PATH}/${env_name}"
 done
 
+# Set ICAV2 CLI PLUGINS
+export ICAV2_CLI_PLUGINS_HOME="/home/cwl_ica_user/.icav2-cli-plugins"
 
 # Get args
 
