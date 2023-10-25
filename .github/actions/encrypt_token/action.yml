@@ -23,7 +23,7 @@ runs:
         encrypted_token="$( \
           gpg --symmetric --batch \
             --passphrase "${{ inputs.encryption_key }}" \
-            --output - <<< "${{ inputs.decrypted_token }}}" | \
+            --output - <<< "${{ inputs.decrypted_token }}" | \
           base64 --wrap 0 \
         )" 
         echo "encrypted_token=${encrypted_token}" >> "${GITHUB_OUTPUT}"

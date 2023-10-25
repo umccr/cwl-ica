@@ -73,7 +73,7 @@ if [[ ! -v GITHUB_SERVER_URL ]]; then
 fi
 
 # Set home directory
-if [[ -z "${HOME-}" ]]; then
+if [[ -z "${HOME-}" || "${HOME-}" == "/" ]]; then
   HOME="$(mktemp -d)"
   export HOME
 fi
