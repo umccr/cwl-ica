@@ -93,6 +93,7 @@ jobs:
           echo "git_tag=${{ steps.get_tag.outputs.tag }},${{ steps.get_tag.outputs.tag }}__${{ steps.get_date.outputs.date_str }}" >> "${GITHUB_OUTPUT}"
       # Set up complete
     outputs:
+      original_tag: ${{ steps.get_tag.outputs.tag }}
       git_tag: ${{ steps.set_git_tag.outputs.git_tag }}
       workflow_path: ${{ steps.get_workflow_path.outputs.workflow_path }}
       create_release: ${{ steps.has_regex_match.outputs.create_release }}
@@ -147,3 +148,28 @@ jobs:
               bash ".github/scripts/create_workflow_release_asset.sh" \
                 --workflow-path "${{ needs.release_asset_precheck.outputs.workflow_path }}" \
                 --is-prerelease "${{ needs.release_asset_precheck.outputs.is_prerelease }}"
+  add_dockstore_tags:
+    name: add dockstore tags
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    needs:
+      - release_asset_precheck
+      - create_release_asset
+    steps:
+      # Checkout code
+      - name: Checkout code
+        id: git_checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ needs.release_asset_precheck.outputs.original_tag }}
+      # Add dockstore tags
+      - name: add dockstore tags
+        id: add_dockstore_tags
+        run: |
+          for tag in $(tr ',' '\n' <<< "${{ needs.release_asset_precheck.outputs.git_tag }}"); do
+            git tag "dockstore/${tag}"
+            git push origin "dockstore/${tag}"
+          done
+
