@@ -180,7 +180,7 @@ jobs:
           git config --global user.name "${{ needs.release_asset_precheck.outputs.user_name }}"
           git config --global user.email "${{ needs.release_asset_precheck.outputs.user_email }}"
           for tag in $(tr ',' '\n' <<< "${{ needs.release_asset_precheck.outputs.git_tag }}"); do
-            git tag "dockstore/${tag}"
+            git tag -a -m "Tag to trigger dockstore ingestion" "dockstore/${tag}"
             git push origin "dockstore/${tag}"
           done
 
