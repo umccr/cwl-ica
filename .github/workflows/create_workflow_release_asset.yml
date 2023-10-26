@@ -168,6 +168,8 @@ jobs:
       - name: add dockstore tags
         id: add_dockstore_tags
         run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
           for tag in $(tr ',' '\n' <<< "${{ needs.release_asset_precheck.outputs.git_tag }}"); do
             git tag "dockstore/${tag}"
             git push origin "dockstore/${tag}"
