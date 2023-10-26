@@ -47,6 +47,12 @@ jobs:
         with:
           text: ${{ steps.get_tag.outputs.tag }}
           regex: '^[A-Za-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+(?:--\S+)?(-rc)?$'
+      # Get email and username
+      - name: Get User Configurations
+        id: get_user_configurations
+        run: |
+          echo "user_name=${{ github.actor }}" >> "${GITHUB_OUTPUT}"
+          echo "user_email=${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com" >> "${GITHUB_OUTPUT}"
       # Has regex match
       - name: has regex match
         id: has_regex_match
@@ -95,6 +101,8 @@ jobs:
     outputs:
       original_tag: ${{ steps.get_tag.outputs.tag }}
       git_tag: ${{ steps.set_git_tag.outputs.git_tag }}
+      user_name: ${{ steps.get_user_configurations.outputs.user_name }}
+      user_email: ${{ steps.get_user_configurations.outputs.user_email }}
       workflow_path: ${{ steps.get_workflow_path.outputs.workflow_path }}
       create_release: ${{ steps.has_regex_match.outputs.create_release }}
       is_prerelease: ${{ steps.has_regex_match.outputs.is_prerelease }}
@@ -168,8 +176,9 @@ jobs:
       - name: add dockstore tags
         id: add_dockstore_tags
         run: |
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
+          # Cannot use GitHub Actions user for the user name and email for dockstore tags
+          git config --global user.name "${{ needs.release_asset_precheck.outputs.user_name }}"
+          git config --global user.email "${{ needs.release_asset_precheck.outputs.user_email }}"
           for tag in $(tr ',' '\n' <<< "${{ needs.release_asset_precheck.outputs.git_tag }}"); do
             git tag "dockstore/${tag}"
             git push origin "dockstore/${tag}"
