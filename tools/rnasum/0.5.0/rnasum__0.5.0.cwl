@@ -36,7 +36,7 @@ requirements:
           /*
           ICA is inconsistent with cwl when it comes to handling @
           */
-            return "eval Rscript ./RNAseq_report.R '\"\$@\"' \n";
+            return "eval rnasum.R --batch_rm --filter --log --save_tables --pcgr_splice_vars '\"\$@\"' \n";
         }
   InitialWorkDirRequirement:
     listing:
@@ -46,9 +46,6 @@ requirements:
 
           # Fail on non-zero exit code
           set -euo pipefail
-
-          # Copy files into current working directory
-          cd /rmd_files/
 
           # Run rnasum with input parameters
           $(get_eval_line())
@@ -79,21 +76,14 @@ inputs:
       Location of the results from Dragen RNA-seq pipeline
     type: Directory?
     inputBinding:
-      prefix: "--dragen_rnaseq"
-  bcbio_transcriptome_directory:
-    label: bcbio transcriptome directory
-    doc: |
-      Location of the results from bcbio RNA-seq pipeline
-    type: Directory?
-    inputBinding:
-      prefix: "--bcbio_rnaseq"
+      prefix: "--dragen_wts_dir"
   arriba_directory:
     label: arriba directory
     doc: |
       Location of the arriba outputs directory
     type: Directory?
     inputBinding:
-      prefix: "--arriba_rnaseq"
+      prefix: "--arriba_dir"
   umccrise_directory:
     label: umccrise directory
     doc: |
@@ -101,20 +91,21 @@ inputs:
     type: Directory?
     inputBinding:
       prefix: "--umccrise"
-  ref_data_directory:
-    label: reference data directory
-    doc: |
-      Location of the reference and annotation files
-    type: Directory
-    inputBinding:
-      prefix: "--ref_data_dir"
   report_directory:
     label: report dir
     doc: |
-      Desired location for the report
+      Desired location for the outputs
     type: string
     inputBinding:
       prefix: "--report_dir"
+      valueFrom: $(runtime.outdir + "/" + self)
+  html_directory:
+    label: html dir
+    doc: |
+      Desired location for the html report
+    type: string
+    inputBinding:
+      prefix: "--html_dir"
       valueFrom: $(runtime.outdir + "/" + self)
   # Additional inputs
   sample_name:
@@ -126,6 +117,7 @@ inputs:
       prefix: "--sample_name"
   transform:
     label: transform
+    default: "CPM"
     doc: |
       Transformation method to be used when converting read counts
     type: string?
@@ -133,34 +125,15 @@ inputs:
       prefix: "--transform"
   norm:
     label: norm
+    default: "TMM"
     doc: |
       Normalisation method
     type: string?
     inputBinding:
       prefix: "--norm"
-  batch_rm:
-    label: batch rm
-    doc: |
-      Remove batch-associated effects between datasets
-    type: boolean?
-    inputBinding:
-      prefix: "--batch_rm"
-  filter:
-    label: filter
-    doc: |
-      Filtering out low expressed genes
-    type: boolean?
-    inputBinding:
-      prefix: "--filter"
-  log:
-    label: log
-    doc: |
-      Log (base 2) transform data before normalisation
-    type: boolean?
-    inputBinding:
-      prefix: "--log"
   scaling:
     label: scaling
+    default: "gene-wise"
     doc: |
       Apply "gene-wise" (default) or "group-wise" data scaling
     type: string?
@@ -182,6 +155,7 @@ inputs:
       prefix: "--immunogram"
   pcgr_tier:
     label: pcgr tier
+    default: 4
     doc: |
       Tier threshold for reporting variants reported in PCGR.
     type: int?
@@ -196,6 +170,7 @@ inputs:
       prefix: "--pcgr_splice_vars"
   cn_loss:
     label: cn loss
+    default: 5
     doc: |
       CN threshold value to classify genes within lost regions.
     type: int?
@@ -203,6 +178,7 @@ inputs:
       prefix: "--cn_loss"
   cn_gain:
     label: cn gain
+    default: 95
     doc: |
       CN threshold value to classify genes within gained regions.
     type: int?
@@ -254,6 +230,7 @@ inputs:
       prefix: "--project"
   top_genes:
     label: top genes
+    default: 5
     doc: |
       The number of top ranked genes to be presented.
     type: int?
@@ -275,6 +252,7 @@ inputs:
       prefix: "--grch_version"
   dataset:
     label: dataset
+    default: "PANCAN"
     doc: |
       Reference dataset selection from https://github.com/umccr/RNAsum/blob/master/TCGA_projects_summary.md
     type: string
@@ -301,7 +279,7 @@ outputs:
       The HTML report output of RNAsum
     type: File
     outputBinding:
-      glob: "$(inputs.report_directory)/$(inputs.sample_name).RNAseq_report.html"
+      glob: "$(inputs.html_directory)/$(inputs.sample_name).RNAseq_report.html"
 
 successCodes:
   - 0
