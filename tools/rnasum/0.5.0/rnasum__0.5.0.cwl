@@ -60,7 +60,7 @@ hints:
     coresMin: 8
     ramMin: 32000
   DockerRequirement:
-    dockerPull: "ghcr.io/umccr/rnasum:0.5.0"
+    dockerPull: "ghcr.io/umccr/rnasum:0.5.0.9000"
 
 baseCommand: ["bash"]
 
@@ -98,14 +98,6 @@ inputs:
     type: string
     inputBinding:
       prefix: "--report_dir"
-      valueFrom: $(runtime.outdir + "/" + self)
-  html_directory:
-    label: html dir
-    doc: |
-      Desired location for the html report
-    type: string
-    inputBinding:
-      prefix: "--html_dir"
       valueFrom: $(runtime.outdir + "/" + self)
   # Additional inputs
   sample_name:
@@ -279,7 +271,7 @@ outputs:
       The HTML report output of RNAsum
     type: File
     outputBinding:
-      glob: "$(inputs.html_directory)/$(inputs.sample_name).RNAseq_report.html"
+      glob: "$(inputs.report_directory)/$(inputs.sample_name).RNAseq_report.html"
 
 successCodes:
   - 0
