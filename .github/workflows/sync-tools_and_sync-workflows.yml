@@ -167,6 +167,13 @@ jobs:
           # Otherwise we're just in a detached head state
           ref: ${{ needs.setup.outputs.branch_name }}
 
+      # Add masks to encrypted tokens
+      - name: Add masks to encrypted tokens
+        run: |
+          echo "::add-mask::${{ needs.get_umccr_development_workflows_ica_access_token.outputs.ica_access_token_encrypted }}"
+          echo "::add-mask::${{ needs.get_umccr_collab_illumina_dev_workflows_ica_access_token.outputs.ica_access_token_encrypted }}"
+          echo "::add-mask::${{ needs.get_umccr_production_workflows_ica_access_token.outputs.ica_access_token_encrypted }}"
+
       # Decrypt tokens
       - id: decrypt_development_workflows_project_id_access_token
         name: Decrypt Development Access Token
@@ -238,6 +245,7 @@ jobs:
               ' \
           )" 
           echo "::add-mask::${secrets_json}"
+          
           echo "secrets_json=${secrets_json}" >> "${GITHUB_OUTPUT}"
 
       # Sync tools and workflows
