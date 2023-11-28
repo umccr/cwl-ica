@@ -221,6 +221,7 @@ jobs:
               - "config/tool.yaml"
               - "config/workflow.yaml"
               - "config/run.yaml"
+          base_sha: "main"
 
       # Create secrets json
       - name: create secrets json
