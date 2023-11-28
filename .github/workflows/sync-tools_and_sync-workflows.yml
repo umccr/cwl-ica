@@ -8,8 +8,12 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
 jobs:
-  sync_tools_and_workflows_and_create_catalogue:
+  setup:
     # First check
     # 1a. It's a PR that's in an approved state
     # AND
@@ -24,7 +28,7 @@ jobs:
           ! startsWith( github.event.pull_request.title, 'Add in images for release' ) 
         ) ||
         github.event_name == 'workflow_dispatch'
-    name: sync-tools and sync-workflows and create-catalogue
+    name: setup-sync-tools
     concurrency: git_commits
     runs-on: ubuntu-latest
     defaults:
@@ -71,6 +75,7 @@ jobs:
               < "${GITHUB_EVENT_PATH}" \
           )"
           
+          # Could not get reference commit id
           if [[ "${ref}" == "null" ]]; then
             echo "Error! Could not get reference commit id"
             cat "${GITHUB_EVENT_PATH}"
@@ -79,17 +84,116 @@ jobs:
           
           # Set output
           echo "branch_name=${ref%refs/heads/}" >> "${GITHUB_OUTPUT}"
+
       # Standard checkout step
       - name: Checkout code
         id: git_checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Otherwise we're just in a detached head state
           ref: ${{ steps.get_branch_name.outputs.branch_name }}
+
       # Get git commit ID
       - name: Get git commit ID
         id: get_git_commit_id
         run: echo "git_commit_id=$(git log --format="%H" -n1 | cut -c1-7)" >> "${GITHUB_OUTPUT}"
+
+    # Get outputs
+    outputs:
+      git_commit_id: ${{ steps.get_git_commit_id.outputs.git_commit_id }}
+      branch_name: ${{ steps.get_branch_name.outputs.branch_name }}
+
+  # Get access tokens
+  get_umccr_development_workflows_ica_access_token:
+    name: Get ICA Access Token (umccr-development)
+    uses: ./.github/workflows/get_ica_access_token.yml
+    needs:
+      - setup
+    with:
+      project_id: "0df0356d-3637-48a5-80d1-a924642a6556"  # development_workflows
+      role_to_assume_arn: arn:aws:iam::843407916570:role/ica-credentials-dev-stack-IcaSecretsicacredentialsd-9oauPhOTTfHb
+      secret_arn: arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:IcaSecretsWorkflow-yUaicA
+      aws_region: ${{ vars.AWS_REGION }}
+      branch_name: ${{ needs.setup.outputs.branch_name }}
+    secrets:
+      symmetrical_encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+  get_umccr_collab_illumina_dev_workflows_ica_access_token:
+    name: Get ICA Access Token (umccr-collab-illumina-dev)
+    uses: ./.github/workflows/get_ica_access_token.yml
+    needs:
+      - setup
+    with:
+      # Uses same secret as dev
+      project_id: "dddd6c29-24d3-49f4-91c0-7e818b3c0a21"  # collab-illumina-dev_workflows
+      role_to_assume_arn: arn:aws:iam::843407916570:role/ica-credentials-dev-stack-IcaSecretsicacredentialsd-9oauPhOTTfHb
+      secret_arn: arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:IcaSecretsWorkflow-yUaicA
+      aws_region: ${{ vars.AWS_REGION }}
+      branch_name: ${{ needs.setup.outputs.branch_name }}
+    secrets:
+      symmetrical_encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+  get_umccr_production_workflows_ica_access_token:
+    name: Get ICA Access Token (umccr-production)
+    uses: ./.github/workflows/get_ica_access_token.yml
+    needs:
+      - setup
+    with:
+      project_id: "fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"  # production_workflows
+      role_to_assume_arn: arn:aws:iam::472057503814:role/ica-credentials-prod-stac-IcaSecretsicacredentialsp-pFZQUb2Bvys7
+      secret_arn: arn:aws:secretsmanager:ap-southeast-2:472057503814:secret:IcaSecretsWorkflow-zq2Abw
+      aws_region: ${{ vars.AWS_REGION }}
+      branch_name: ${{ needs.setup.outputs.branch_name }}
+    secrets:
+      symmetrical_encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+
+  # Now sync
+  sync_tools_and_workflows_and_create_catalogue:
+    name: sync tools and workflows and create catalogue
+    concurrency: git_commits
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    needs:
+      - setup
+      - get_umccr_development_workflows_ica_access_token
+      - get_umccr_collab_illumina_dev_workflows_ica_access_token
+      - get_umccr_production_workflows_ica_access_token
+    steps:
+      # Standard checkout step
+      - name: Checkout code
+        id: git_checkout
+        uses: actions/checkout@v4
+        with:
+          # Otherwise we're just in a detached head state
+          ref: ${{ needs.setup.outputs.branch_name }}
+
+      # Add masks to encrypted tokens
+      - name: Add masks to encrypted tokens
+        run: |
+          echo "::add-mask::${{ needs.get_umccr_development_workflows_ica_access_token.outputs.ica_access_token_encrypted }}"
+          echo "::add-mask::${{ needs.get_umccr_collab_illumina_dev_workflows_ica_access_token.outputs.ica_access_token_encrypted }}"
+          echo "::add-mask::${{ needs.get_umccr_production_workflows_ica_access_token.outputs.ica_access_token_encrypted }}"
+
+      # Decrypt tokens
+      - id: decrypt_development_workflows_project_id_access_token
+        name: Decrypt Development Access Token
+        uses: ./.github/actions/decrypt_token
+        with:
+          encrypted_token: ${{ needs.get_umccr_development_workflows_ica_access_token.outputs.ica_access_token_encrypted }}
+          decryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+      - id: decrypt_collab_illumina_dev_workflows_project_id_access_token
+        name: Decrypt Collab Illumina Dev Access Token
+        uses: ./.github/actions/decrypt_token
+        with:
+          encrypted_token: ${{ needs.get_umccr_collab_illumina_dev_workflows_ica_access_token.outputs.ica_access_token_encrypted }}
+          decryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+      - id: decrypt_production_workflows_project_id_access_token
+        name: Decrypt Production Access Token
+        uses: ./.github/actions/decrypt_token
+        with:
+          encrypted_token: ${{ needs.get_umccr_production_workflows_ica_access_token.outputs.ica_access_token_encrypted }}
+          decryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+
       # Check that the paths were interested in are actually of any significants
       - id: check_file_changes
         name: Check that this PR is relevant to workflows
@@ -97,7 +201,12 @@ jobs:
         with:
           files_yaml: |
             workflows:
+              # Workflows, Expressions, CommandLineTools
               - "**/*.cwl"
+              # Schemas
+              - "schemas/**/*.yaml"
+              # TypeScript Expressions
+              - "**/*.cwljs"
             gh_actions:
               - ".github/actions/get_ica_access_token.yml"
               - ".github/workflows/sync-tools_and_sync-workflows.yml"
@@ -110,42 +219,16 @@ jobs:
               - "config/tool.yaml"
               - "config/workflow.yaml"
               - "config/run.yaml"
-      # Get development workflows access token
-      - id: get_development_workflows_project_id_access_token
-        name: get development workflows project access token
-        uses: ./.github/actions/get_ica_access_token
-        with:
-          project_id: "0df0356d-3637-48a5-80d1-a924642a6556"
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}
-          aws_region: ${{ secrets.AWS_REGION }}
-      # Get collab illumina dev workflows access token
-      - id: get_collab_illumina_dev_workflows_project_id_access_token
-        name: get collab illumina dev workflows project access token
-        uses: ./.github/actions/get_ica_access_token
-        with:
-          project_id: "dddd6c29-24d3-49f4-91c0-7e818b3c0a21"
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_DEV_ICA_SECRETS_WORKFLOW }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV_ICA_SECRETS_WORKFLOW }}
-          aws_region: ${{ secrets.AWS_REGION }}
-      # Get production workflows access token
-      - id: get_production_workflows_project_id_access_token
-        name: get production workflows project access token
-        uses: ./.github/actions/get_ica_access_token
-        with:
-          project_id: "fdd48e11-cdcc-46a9-b5ac-dee3a4c5f19d"
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD_ICA_SECRETS_WORKFLOW }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY_PROD_ICA_SECRETS_WORKFLOW }}
-          aws_region: ${{ secrets.AWS_REGION }}
+
       # Create secrets json
       - name: create secrets json
         id: create_secrets_json
         run: |
           secrets_json="$( \
             jq --null-input --raw-output \
-              --arg development_workflows_access_token "${{ steps.get_development_workflows_project_id_access_token.outputs.ica_access_token }}" \
-              --arg collab_illumina_dev_workflows_access_token "${{ steps.get_collab_illumina_dev_workflows_project_id_access_token.outputs.ica_access_token }}" \
-              --arg production_workflows_access_token "${{ steps.get_production_workflows_project_id_access_token.outputs.ica_access_token }}" \
+              --arg development_workflows_access_token "${{ steps.decrypt_development_workflows_project_id_access_token.outputs.decrypted_token }}" \
+              --arg collab_illumina_dev_workflows_access_token "${{ steps.decrypt_collab_illumina_dev_workflows_project_id_access_token.outputs.decrypted_token }}" \
+              --arg production_workflows_access_token "${{ steps.decrypt_production_workflows_project_id_access_token.outputs.decrypted_token }}" \
               '
                 {
                   "development_workflows": {
@@ -162,7 +245,9 @@ jobs:
               ' \
           )" 
           echo "::add-mask::${secrets_json}"
+          
           echo "secrets_json=${secrets_json}" >> "${GITHUB_OUTPUT}"
+
       # Sync tools and workflows
       - name: sync-tools and sync-workflows
         if: |
@@ -175,11 +260,12 @@ jobs:
             --volume "$PWD:$PWD" \
             --workdir "$PWD" \
             --env USER="$(id -u)" \
-            --env GIT_COMMIT_ID="${{ steps.get_git_commit_id.outputs.git_commit_id }}" \
+            --env GIT_COMMIT_ID="${{ needs.setup.outputs.git_commit_id }}" \
             --env SECRETS_JSON="${{ steps.create_secrets_json.outputs.secrets_json }}" \
-            --env ICA_BASE_URL="${{ secrets.ICA_BASE_URL }}" \
+            --env ICA_BASE_URL="${{ vars.ICA_BASE_URL }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/run_sync-tools_and_sync-workflows.sh"
+
       # Create Catalogue
       - name: create catalogue
         if: |
@@ -197,6 +283,7 @@ jobs:
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/create_catalogue.sh"
+
       # Commit config files
       - id: commit_config_and_catalogue
         name: Commit catalogue files
@@ -204,23 +291,22 @@ jobs:
         with:
           add: "[ 'config/', 'cwl-ica-catalogue.md', '.github/catalogue/' ]"
           default_author: github_actions
-          #author_name: "auto-catalogue-updater"
           message: "Updating cwl ica config and catalogue files - (Autogenerated github actions commit)"
-          # Don't push, we push manually in the next step
-          push: false
+          push: false  # Don't push, we push manually in the next step
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Push config files
       - name: Push code
         id: git_push
         if: ${{ steps.commit_config_and_catalogue.outputs.committed == 'true' }}
         run: |
-          CURRENT_BRANCH="${{ steps.get_branch_name.outputs.branch_name }}"
+          # Get current branch
+          CURRENT_BRANCH="${{ needs.setup.outputs.branch_name }}"
 
           # Pull first (might have had another action complete a commit)
           git pull --rebase origin "${CURRENT_BRANCH}"
 
           # Then push
-          # Pretend to push
           git push origin "${CURRENT_BRANCH}"
 
