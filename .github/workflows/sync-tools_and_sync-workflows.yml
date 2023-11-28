@@ -164,6 +164,8 @@ jobs:
         id: git_checkout
         uses: actions/checkout@v4
         with:
+          # For changed files we need to look back in time a little
+          fetch-depth: 0
           # Otherwise we're just in a detached head state
           ref: ${{ needs.setup.outputs.branch_name }}
 
