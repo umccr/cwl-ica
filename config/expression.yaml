@@ -76,10 +76,12 @@ expressions:
     path: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
     versions:
       - name: 1.2.1--0
-        path: 1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.cwl
+        path: 
+            1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.cwl
         md5sum: 257bd0a46e5cba8597ba9d1d21b8f553
       - name: 1.2.2--0
-        path: 1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.cwl
+        path: 
+            1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.cwl
         md5sum: 8ec5082ca21d37152c5216a69168f33e
     categories: []
   - name: get-custom-output-dir-entry-for-tso500-with-post-processing
