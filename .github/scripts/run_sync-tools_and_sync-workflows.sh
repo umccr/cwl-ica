@@ -53,16 +53,18 @@ if [[ -z "${HOME-}" || "${HOME-}" == "/" ]]; then
 fi
 
 # Set conda env path
-CONDA_ENVS_PATH="$(mktemp -d)"
+NEW_CONDA_HOME="$(mktemp -d)"
+CONDA_ENVS_PATH="${NEW_CONDA_HOME}/envs"
 export CONDA_ENVS_PATH
 
 # Softlink envs into this environment
-ENVS_LIST=( "cwl-ica" "cwltool-icav1" )
-for env_name in "${ENVS_LIST[@]}"; do
-  ln -s \
-    /home/cwl_ica_user/.conda/envs/${env_name} \
-    "${CONDA_ENVS_PATH}/${env_name}"
-done
+echo "Rsyncing unwritable envs to new conda envs temp directory" 1>&2
+echo "This will take a couple of minutes" 1>&2
+rsync --archive \
+  "/home/cwl_ica_user/.conda/" \
+  "${NEW_CONDA_HOME}/"
+
+sed -i "s%/home/cwl_ica_user/%${NEW_CONDA_HOME}%" "${NEW_CONDA_HOME}/environments.txt"
 
 # Now run the github-schema-sync-command
 echo "Syncing all schemas" 1>&2
