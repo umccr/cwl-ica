@@ -34,6 +34,7 @@ hints:
         ilmn-tes:resources/tier: standard
         ilmn-tes:resources/type: standardHiMem
         ilmn-tes:resources/size: medium
+        tmpdirMin: $( 10 ** 12 )  # 1 Tb of /scratch space
         coresMin: 16
         ramMin: 128000
     DockerRequirement:

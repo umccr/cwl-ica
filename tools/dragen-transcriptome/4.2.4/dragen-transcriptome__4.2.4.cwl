@@ -30,6 +30,7 @@ hints:
     ilmn-tes:resources/size: medium
     coresMin: 16
     ramMin: 240000
+    tmpdirMin: $( 10 ** 12 )  # 1 Tb of /scratch space
   DockerRequirement:
     dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4"
 
