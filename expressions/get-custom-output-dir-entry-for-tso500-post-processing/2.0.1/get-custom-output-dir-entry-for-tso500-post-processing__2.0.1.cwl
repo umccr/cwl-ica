@@ -123,6 +123,11 @@ inputs:
     doc: |
       Compressed dragen metrics file
     type: File
+  cnv_caller_bin_counts_compressed_json_file:
+    label: cnv caller counts compressed json file
+    doc: |
+      Compressed bin counts file
+    type: File
   fusion_csv:
     label: fusion csv
     doc: |
@@ -207,6 +212,7 @@ expression: >-
               get_custom_output_dir_entry_from_file_list([
                                                            inputs.coverage_qc_file,
                                                            inputs.dragen_metrics_compressed_json_file,
+                                                           inputs.cnv_caller_bin_counts_compressed_json_file,
                                                            inputs.fusion_csv
                                                          ],
                                                          null,

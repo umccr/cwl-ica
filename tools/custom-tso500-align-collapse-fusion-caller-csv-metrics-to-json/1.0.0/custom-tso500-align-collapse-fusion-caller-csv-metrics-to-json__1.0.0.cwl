@@ -36,7 +36,7 @@ hints:
         ilmn-tes:resources/type: standard
         ilmn-tes:resources/size: small
         coresMin: 1
-        ramMin: 3
+        ramMin: 4000
     DockerRequirement:
         dockerPull: ghcr.io/umccr/alpine-pandas:1.2.2
 
@@ -46,7 +46,7 @@ requirements:
     listing:
       - entryname: align_collapse_fusion_caller_csv_metrics_to_json.py
         entry: |
-          #!/usr/bin/ev python3
+          #!/usr/bin/env python3
 
           # Imports
           import pandas as pd

@@ -515,3 +515,10 @@ tools:
         path: 1.2.0/illumina-interop__1.2.0.cwl
         md5sum: cfe5334a2e43b6ac9ad7b763f93e33d9
     categories: []
+  - name: custom-tso500-cnv-caller-bin-counts-to-json
+    path: custom-tso500-cnv-caller-bin-counts-to-json
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/custom-tso500-cnv-caller-bin-counts-to-json__1.0.0.cwl
+        md5sum: afaf45f340c857b9f92bba7d4638b4ca
+    categories: []
