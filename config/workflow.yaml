@@ -157,7 +157,7 @@ workflows:
         md5sum: 9367ebf24b6171d0b6f79e2aa58433bc
       - name: 1.2.0--1.0.0
         path: 1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.cwl
-        md5sum: b42d5baaacb379677c152020e1599d00
+        md5sum: 0e520d1a5dfc68f3e06a38dc81f9ac61
     categories:
       - tso500
   - name: umccrise-with-dragen-germline-pipeline

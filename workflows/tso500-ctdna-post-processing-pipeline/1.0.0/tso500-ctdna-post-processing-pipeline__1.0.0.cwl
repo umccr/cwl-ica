@@ -485,7 +485,7 @@ steps:
       ResourceRequirement:
         ilmn-tes:resources/tier: standard
         ilmn-tes:resources/type: standard
-        ilmn-tes:resources/size: medium
+        ilmn-tes:resources/size: small
         coresMin: 1
         ramMin: 4000
     in:
@@ -511,7 +511,7 @@ steps:
       ResourceRequirement:
         ilmn-tes:resources/tier: standard
         ilmn-tes:resources/type: standard
-        ilmn-tes:resources/size: medium
+        ilmn-tes:resources/size: small
         coresMin: 1
         ramMin: 4000
     in:
@@ -619,7 +619,7 @@ steps:
       ResourceRequirement:
         ilmn-tes:resources/tier: standard
         ilmn-tes:resources/type: standard
-        ilmn-tes:resources/size: medium
+        ilmn-tes:resources/size: small
         coresMin: 1
         ramMin: 4000
     in:
@@ -634,6 +634,59 @@ steps:
     out:
       - id: output_compressed_tar_file
     run: ../../../tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.cwl
+
+  # Add csvs to tarball
+  get_decompressed_metrics_csvs_files_as_tarball_step:
+    label: gather csvs as tarball
+    doc: |
+      Gather the csv files into a tar ball.
+    # gzip needs drastically less than usual given how small these files are!
+    requirements:
+      ResourceRequirement:
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
+        coresMin: 1
+        ramMin: 4000
+    in:
+      dir_name:
+        source: tso500_outputs_by_sample
+        valueFrom: |
+          ${
+            return self.sample_id;
+          }
+      file_list:
+        source: get_align_collapse_fusion_caller_metrics_csv_files_intermediate_step/output_files
+    out:
+      - id: output_compressed_tar_file
+    run: ../../../tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.cwl
+
+  # Add bin counts to tarball
+  get_cnv_bin_count_csvs_as_tarball_step:
+    label: gather csvs as tarball
+    doc: |
+      Gather the csv files into a tar ball.
+    # gzip needs drastically less than usual given how small these files are!
+    requirements:
+      ResourceRequirement:
+        ilmn-tes:resources/tier: standard
+        ilmn-tes:resources/type: standard
+        ilmn-tes:resources/size: small
+        coresMin: 1
+        ramMin: 4000
+    in:
+      dir_name:
+        source: tso500_outputs_by_sample
+        valueFrom: |
+          ${
+            return self.sample_id;
+          }
+      file_list:
+        source: get_cnv_caller_bin_count_tsv_files_intermediate_step/output_files
+    out:
+      - id: output_compressed_tar_file
+    run: ../../../tools/custom-tar-file-list/1.0.0/custom-tar-file-list__1.0.0.cwl
+
   ########################################
   # End Metrics csvs into compressed jsons
   ########################################
@@ -652,7 +705,7 @@ steps:
       ResourceRequirement:
         ilmn-tes:resources/tier: standard
         ilmn-tes:resources/type: standard
-        ilmn-tes:resources/size: medium
+        ilmn-tes:resources/size: small
         coresMin: 1
         ramMin: 4000
     in:
@@ -685,7 +738,7 @@ steps:
       ResourceRequirement:
         ilmn-tes:resources/tier: standard
         ilmn-tes:resources/type: standard
-        ilmn-tes:resources/size: medium
+        ilmn-tes:resources/size: small
         coresMin: 1
         ramMin: 4000
     in:
@@ -761,6 +814,10 @@ steps:
         source: get_fusion_csv_intermediate_step/output_file
       vcf_tarball:
         source: gather_compressed_vcf_files_into_tar_step/output_compressed_tar_file
+      decompressed_metrics_tarball:
+        source: get_decompressed_metrics_csvs_files_as_tarball_step/output_compressed_tar_file
+      cnv_caller_bin_counts_decompressed_tarball:
+        source: get_cnv_bin_count_csvs_as_tarball_step/output_compressed_tar_file
       compressed_metrics_tarball:
         source: gather_compressed_metric_json_files_into_tar_step/output_compressed_tar_file
       compressed_reporting_tarball:
