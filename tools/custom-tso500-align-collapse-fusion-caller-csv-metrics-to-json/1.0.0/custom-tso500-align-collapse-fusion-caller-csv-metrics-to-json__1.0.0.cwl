@@ -51,17 +51,17 @@ requirements:
           # Imports
           import pandas as pd
           import json
-          import csv
           import re
           import argparse
           import gzip
-          from typing import List
+          from typing import List, Dict
           from argparse import Namespace
           from pathlib import Path
           from itertools import chain
 
           # Globals
           METRICS_COLUMNS = ['metrics_name', 'place_holder', 'descriptive_name', 'value', 'percent']
+
 
           def get_args() -> Namespace:
               """
@@ -95,7 +95,7 @@ requirements:
                       return value
 
 
-          def get_series_as_dict(row: pd.Series) -> dict:
+          def get_series_as_dict(row: pd.Series) -> Dict:
               """
               From the pandas series row,
               collect the descriptive name,
@@ -118,18 +118,17 @@ requirements:
               return metrics_data
 
 
-          def make_metric_dict(csv_file: Path) -> dict:
+          def get_metric_df(file_path: Path) -> pd.DataFrame:
               """
-              Add in metrics dictionary
+              Get the metric file as a dataframe
               Since all lines do not necessarily conform to having the same number of columns,
               we cannot use the read_csv tool and instead assign each line as a pandas series, line by line!
-              :param csv_file:
+              :param file_path:
               :return:
               """
-
               # Read csv file
               pd_series_list = []
-              with open(csv_file, 'r') as csv_h:
+              with open(file_path, 'r') as csv_h:
                   # Read in each line as a list of pandas series
                   for line in csv_h.readlines():
                       # Skip commentary lines
@@ -138,17 +137,38 @@ requirements:
 
                       # Append line to series
                       pd_series_list.append(pd.Series({metric_col: line_element_value
-                                            for metric_col, line_element_value in zip(METRICS_COLUMNS, line.strip().split(","))}))
+                                                       for metric_col, line_element_value in
+                                                       zip(METRICS_COLUMNS, line.strip().split(","))}))
 
-              metrics_df = pd.DataFrame(pd_series_list)
+              return pd.DataFrame(pd_series_list)
 
+
+          def make_metric_dict(file_path: Path) -> Dict:
+              """
+              Add in metrics dictionary
+              Since all lines do not necessarily conform to having the same number of columns,
+              we cannot use the read_csv tool and instead assign each line as a pandas series, line by line!
+              :param csv_file:
+              :return:
+              """
+              # Get metrics df
+              if file_path.name.endswith(".fastqc_metrics.csv"):
+                  metrics_df = pd.read_csv(file_path, header=None, names=METRICS_COLUMNS)
+                  metrics_df['descriptive_name'] = metrics_df.apply(
+                      lambda x: x.place_holder + " " + x.descriptive_name,
+                      axis='columns'
+                  )
+              else:
+                  metrics_df = get_metric_df(file_path)
+
+              # Collect metrics as dict
               metrics_as_dict = {}
 
               # Rename metrics name column
               metrics_df["metrics_name"] = metrics_df["metrics_name"].apply(lambda x: re.sub(" |/", "", x.title()))
 
               # Group by metrics_name column
-              for metrics_name, metrics_name_df in metrics_df.groupby(["metrics_name"]):
+              for metrics_name, metrics_name_df in metrics_df.groupby("metrics_name"):
                   # Iterate through the metrics
                   this_metrics_list = []
 
@@ -160,7 +180,88 @@ requirements:
 
               return metrics_as_dict
 
-          def make_metrics_dict(file_path_list: List[Path]) -> dict:
+
+          def make_wgs_overall_mean_cov(file_path) -> Dict:
+              """
+              This file only has one line in it
+              Average alignment coverage over wgs, 9.82
+              :param file_path:
+              :return:
+              """
+              # Average alignment coverage over wgs, 9.82
+              with open(file_path, 'r') as contig_h:
+                  key, value = contig_h.read().rstrip().split(",")
+
+              return {
+                  key: value
+              }
+
+
+          def make_wgs_contig_mean_cov_dict(file_path) -> Dict:
+              """
+              # Indexed not like othe rfiles
+              chr1,2474321537,10.9833
+              chr2,1911660869,8.02529
+              :param file_path:
+              :return:
+              """
+              mean_cov_json = pd.read_csv(
+                  file_path,
+                  header=None,
+                  names=["contig", "bases_cov", "mean_cov"]
+              ).to_json(
+                  orient="records"
+              )
+
+              return json.loads(mean_cov_json)
+
+
+          def make_wgs_fine_hist_dict(file_path: Path) -> Dict:
+              """
+              Csv looks like the following
+              Depth,Overall
+              0,2056333599
+              1,228370278
+              2,431359784
+              :param file_path:
+              :return:
+              """
+              hist_json = pd.read_csv(
+                  file_path,
+                  header=0,
+              ).to_json(
+                  orient="records"
+              )
+
+              return json.loads(hist_json)
+
+
+          def make_wgs_hist_dict(file_path: Path) -> Dict:
+              """
+              Csv looks like the following
+              PCT of bases in wgs with coverage [100x:inf), 0.18
+              PCT of bases in wgs with coverage [50x:100x), 0.04
+              PCT of bases in wgs with coverage [20x:50x), 0.11
+              PCT of bases in wgs with coverage [15x:20x), 0.06
+              PCT of bases in wgs with coverage [10x:15x), 0.15
+              PCT of bases in wgs with coverage [3x:10x), 5.81
+              PCT of bases in wgs with coverage [1x:3x), 22.75
+              PCT of bases in wgs with coverage [0x:1x), 70.91
+              :param file_path:
+              :return:
+              """
+              hist_json = pd.read_csv(
+                  file_path,
+                  header=None,
+                  names=["descriptive_name", "value"]
+              ).to_json(
+                  orient="records"
+              )
+
+              return json.loads(hist_json)
+
+
+          def make_metrics_dict(file_path_list: List[Path]) -> Dict:
               """
               Read in each metrics file and output dict
               :param file_path_list:
@@ -169,16 +270,28 @@ requirements:
               # make the metrics dictonary
               metrics_dict = {}
               for file_path in file_path_list:
-                  metrics_dict.update(make_metric_dict(file_path))
+                  if file_path.name.endswith(".wgs_overall_mean_cov.csv"):
+                      metrics_dict["wgs_overall_mean_cov"] = make_wgs_overall_mean_cov(file_path)
+                  elif file_path.name.endswith(".wgs_contig_mean_cov.csv"):
+                      metrics_dict["wgs_contig_mean_cov"] = make_wgs_contig_mean_cov_dict(file_path)
+                  elif file_path.name.endswith(".wgs_fine_hist.csv"):
+                      metrics_dict["wgs_fine_hist"] = make_wgs_fine_hist_dict(file_path)
+                  elif file_path.name.endswith(".wgs_hist.csv"):
+                      metrics_dict["wgs_fine_hist"] = make_wgs_hist_dict(file_path)
+                  else:
+                      metrics_dict.update(make_metric_dict(file_path))
               return metrics_dict
+
 
           def main():
               # Get args
               args = get_args()
 
               # Get the list of file paths
-              metrics_file_list: List[Path] = [Path(metrics_file) for
-                                               metrics_file in chain(*args.csv_metrics_file)]
+              metrics_file_list: List[Path] = [
+                  Path(metrics_file)
+                  for metrics_file in chain(*args.csv_metrics_file)
+              ]
 
               # Get the output prefix
               output_prefix = args.output_prefix
@@ -196,7 +309,6 @@ requirements:
 
           if __name__ == "__main__":
               main()
-
 
 baseCommand: [ "python3", "align_collapse_fusion_caller_csv_metrics_to_json.py" ]
 

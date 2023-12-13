@@ -853,7 +853,7 @@ projects:
           - name: 1.2.0--1.0.0
             path: 1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.cwl
             ica_workflow_version_name: 1.2.0--1.0.0
-            modification_time: 2023-12-12T07:40:48UTC
+            modification_time: 2023-12-13T00:04:10UTC
             run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
