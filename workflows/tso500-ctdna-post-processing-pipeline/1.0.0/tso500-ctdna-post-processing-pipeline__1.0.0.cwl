@@ -816,7 +816,7 @@ steps:
         source: gather_compressed_vcf_files_into_tar_step/output_compressed_tar_file
       decompressed_metrics_tarball:
         source: get_decompressed_metrics_csvs_files_as_tarball_step/output_compressed_tar_file
-      cnv_caller_bin_counts_decompressed_tarball:
+      decompressed_cnv_caller_bin_counts_tarball:
         source: get_cnv_bin_count_csvs_as_tarball_step/output_compressed_tar_file
       compressed_metrics_tarball:
         source: gather_compressed_metric_json_files_into_tar_step/output_compressed_tar_file

@@ -144,7 +144,7 @@ inputs:
     doc: |
       The tarball of vcf files
     type: File
-  cnv_caller_bin_counts_decompressed_tarball:
+  decompressed_cnv_caller_bin_counts_tarball:
     label: cnv caller bin counts tarball
     doc: |
       The tarball of vcf files
@@ -254,7 +254,7 @@ expression: >-
           "top_dir"
         ),
         get_custom_output_dir_entry_from_tarball(
-          inputs.cnv_caller_bin_counts_decompressed_tarball, 
+          inputs.decompressed_cnv_caller_bin_counts_tarball, 
           null, 
           null, 
           "top_dir"
