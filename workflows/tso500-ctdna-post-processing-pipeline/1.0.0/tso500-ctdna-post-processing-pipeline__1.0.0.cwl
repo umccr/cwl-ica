@@ -131,6 +131,7 @@ steps:
         valueFrom: |
           ${
             return [
+                     self.sample_id + ".fragment_length_hist.csv",
                      self.sample_id + ".fastqc_metrics.csv",
                      self.sample_id + ".mapping_metrics.csv",
                      self.sample_id + ".sv_metrics.csv",

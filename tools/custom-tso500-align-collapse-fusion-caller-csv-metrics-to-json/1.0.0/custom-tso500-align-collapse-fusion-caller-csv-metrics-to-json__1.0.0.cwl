@@ -179,8 +179,30 @@ requirements:
                   metrics_as_dict[metrics_name] = this_metrics_list
 
               return metrics_as_dict
+          
+          def make_fragment_length_hist(file_path) -> Dict:
+              """
+              #Sample: PRJ210166_L2101400
+              FragmentLength,Count
+              32,1
+              33,0
+              34,0
+              35,0
+              36,3
+              37,2
+              38,3
+              39,2
+              """
+              hist_json = pd.read_csv(
+                  file_path,
+                  header=0,
+                  comment='#'
+              ).to_json(
+                  orient="records"
+              )
 
-
+              return json.loads(hist_json)
+          
           def make_wgs_overall_mean_cov(file_path) -> Dict:
               """
               This file only has one line in it
@@ -270,14 +292,16 @@ requirements:
               # make the metrics dictonary
               metrics_dict = {}
               for file_path in file_path_list:
-                  if file_path.name.endswith(".wgs_overall_mean_cov.csv"):
-                      metrics_dict["wgs_overall_mean_cov"] = make_wgs_overall_mean_cov(file_path)
-                  elif file_path.name.endswith(".wgs_contig_mean_cov.csv"):
-                      metrics_dict["wgs_contig_mean_cov"] = make_wgs_contig_mean_cov_dict(file_path)
+                  if file_path.name.endswith(".fragment_length_hist.csv"):
+                      metrics_dict["FragmentLengthHist"] = make_fragment_length_hist(file_path)
                   elif file_path.name.endswith(".wgs_fine_hist.csv"):
-                      metrics_dict["wgs_fine_hist"] = make_wgs_fine_hist_dict(file_path)
+                      metrics_dict["WgsFineHist"] = make_wgs_fine_hist_dict(file_path)
+                  elif file_path.name.endswith(".wgs_contig_mean_cov.csv"):
+                      metrics_dict["WgsContigMeanCov"] = make_wgs_contig_mean_cov_dict(file_path)
                   elif file_path.name.endswith(".wgs_hist.csv"):
-                      metrics_dict["wgs_fine_hist"] = make_wgs_hist_dict(file_path)
+                      metrics_dict["WgsHist"] = make_wgs_hist_dict(file_path)
+                  elif file_path.name.endswith(".wgs_overall_mean_cov.csv"):
+                      metrics_dict["WgsOverallMeanCov"] = make_wgs_overall_mean_cov(file_path)
                   else:
                       metrics_dict.update(make_metric_dict(file_path))
               return metrics_dict
