@@ -317,7 +317,7 @@ tools:
     versions:
       - name: 1.0.0
         path: 1.0.0/custom-tso500-align-collapse-fusion-caller-csv-metrics-to-json__1.0.0.cwl
-        md5sum: 297ddad0078154f9c3b4cd725f3f3cec
+        md5sum: 344d97b7d49e168c10b982a73726bfb7
     categories: []
   - name: custom-tsv-to-json
     path: custom-tsv-to-json

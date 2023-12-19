@@ -174,6 +174,7 @@ UMCCR CWL-ICA Catalogue
 - [bcl-convert](#bcl-convert)  
 - [star](#star)  
 - [illumina-interop](#illumina-interop)  
+- [custom-tso500-cnv-caller-bin-counts-to-json](#custom-tso500-cnv-caller-bin-counts-to-json)  
 
 
 ### samtools-merge
@@ -636,6 +637,13 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.2.0](.github/catalogue/docs/tools/illumina-interop/1.2.0/illumina-interop__1.2.0.md)  
+
+
+### custom-tso500-cnv-caller-bin-counts-to-json
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tso500-cnv-caller-bin-counts-to-json/1.0.0/custom-tso500-cnv-caller-bin-counts-to-json__1.0.0.md)  
 
 
 ## Workflows

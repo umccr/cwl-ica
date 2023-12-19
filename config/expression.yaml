@@ -63,7 +63,7 @@ expressions:
         md5sum: e855f43c0ce730dc46b4d3342778c70c
       - name: 2.0.1
         path: 2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.cwl
-        md5sum: 3a90aba2ecfeaa0f4dbe608c718e4837
+        md5sum: 86dc48bd0cc4ad424a6b14fc1da38ceb
     categories: []
   - name: get-bam-file-from-directory
     path: get-bam-file-from-directory

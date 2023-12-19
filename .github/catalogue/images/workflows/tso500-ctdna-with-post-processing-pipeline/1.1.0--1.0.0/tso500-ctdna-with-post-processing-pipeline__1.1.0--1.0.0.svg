@@ -26,7 +26,7 @@
 <text text-anchor="middle" x="73" y="-609.01" font-family="Times,serif" font-size="14.00">resources_dir</text>
 </g>
 <!-- run_tso_ctdna_workflow_step -->
-<g id="node17" class="node">
+<g id="node15" class="node">
 <title>run_tso_ctdna_workflow_step</title>
 <polygon fill="#f3cea1" stroke="black" points="540.5,-501.21 540.5,-538.21 745.5,-538.21 745.5,-501.21 540.5,-501.21"/>
 <text text-anchor="middle" x="643" y="-516.01" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna v(1.1.0&#45;&#45;120)</text>
@@ -206,55 +206,55 @@
 <polygon fill="black" stroke="black" points="885.52,-186.41 893.37,-179.29 882.8,-179.96 885.52,-186.41"/>
 </g>
 <!-- get_sample_output_directory&#45;&gt;output_results_dir_by_sample -->
-<g id="edge10" class="edge">
+<g id="edge9" class="edge">
 <title>get_sample_output_directory&#45;&gt;output_results_dir_by_sample</title>
 <path fill="none" stroke="black" d="M935,-141.91C935,-129.74 935,-113.37 935,-99.5"/>
 <polygon fill="black" stroke="black" points="938.5,-99.5 935,-89.5 931.5,-99.5 938.5,-99.5"/>
 </g>
-<!-- run_tso_ctdna_post_processing_workflow_step -->
-<g id="node15" class="node">
-<title>run_tso_ctdna_post_processing_workflow_step</title>
-<polygon fill="#f3cea1" stroke="black" points="161.5,-411.21 161.5,-448.21 508.5,-448.21 508.5,-411.21 161.5,-411.21"/>
-<text text-anchor="middle" x="335" y="-426.01" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna&#45;post&#45;processing&#45;pipeline v(1.0.0)</text>
-</g>
-<!-- run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
-<g id="edge4" class="edge">
-<title>run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
-<path fill="none" stroke="black" d="M396.79,-411.12C447.52,-396.67 519.43,-376.19 572.61,-361.04"/>
-<polygon fill="black" stroke="black" points="573.66,-364.38 582.32,-358.28 571.74,-357.65 573.66,-364.38"/>
-</g>
-<!-- get_intermediate_samplesheet_from_validation_step -->
-<g id="node16" class="node">
-<title>get_intermediate_samplesheet_from_validation_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="526.5,-411.21 526.5,-448.21 759.5,-448.21 759.5,-411.21 526.5,-411.21"/>
-<text text-anchor="middle" x="643" y="-426.01" font-family="Times,serif" font-size="14.00">get&#45;file&#45;from&#45;directory v(1.0.0)</text>
-</g>
-<!-- get_intermediate_samplesheet_from_validation_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
-<g id="edge5" class="edge">
-<title>get_intermediate_samplesheet_from_validation_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
-<path fill="none" stroke="black" d="M643.2,-410.91C643.34,-398.74 643.53,-382.37 643.68,-368.5"/>
-<polygon fill="black" stroke="black" points="647.18,-368.53 643.8,-358.5 640.18,-368.45 647.18,-368.53"/>
-</g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
-<g id="edge6" class="edge">
+<g id="edge4" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
 <path fill="none" stroke="black" d="M701.95,-501.11C727.26,-490.31 754.34,-473.62 769,-448.71 777.56,-434.16 777.54,-425.28 769,-410.71 756.18,-388.84 733.74,-373.28 711.38,-362.48"/>
 <polygon fill="black" stroke="black" points="712.72,-359.25 702.17,-358.29 709.82,-365.62 712.72,-359.25"/>
 </g>
+<!-- run_tso_ctdna_post_processing_workflow_step -->
+<g id="node16" class="node">
+<title>run_tso_ctdna_post_processing_workflow_step</title>
+<polygon fill="#f3cea1" stroke="black" points="161.5,-411.21 161.5,-448.21 508.5,-448.21 508.5,-411.21 161.5,-411.21"/>
+<text text-anchor="middle" x="335" y="-426.01" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna&#45;post&#45;processing&#45;pipeline v(1.0.0)</text>
+</g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;run_tso_ctdna_post_processing_workflow_step -->
-<g id="edge7" class="edge">
+<g id="edge5" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;run_tso_ctdna_post_processing_workflow_step</title>
 <path fill="none" stroke="black" d="M581.41,-501.12C530.84,-486.67 459.17,-466.19 406.15,-451.04"/>
 <polygon fill="black" stroke="black" points="407.06,-447.66 396.48,-448.28 405.14,-454.39 407.06,-447.66"/>
 </g>
+<!-- get_intermediate_samplesheet_from_validation_step -->
+<g id="node17" class="node">
+<title>get_intermediate_samplesheet_from_validation_step</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="526.5,-411.21 526.5,-448.21 759.5,-448.21 759.5,-411.21 526.5,-411.21"/>
+<text text-anchor="middle" x="643" y="-426.01" font-family="Times,serif" font-size="14.00">get&#45;file&#45;from&#45;directory v(1.0.0)</text>
+</g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;get_intermediate_samplesheet_from_validation_step -->
-<g id="edge8" class="edge">
+<g id="edge6" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;get_intermediate_samplesheet_from_validation_step</title>
 <path fill="none" stroke="black" d="M643,-500.91C643,-488.74 643,-472.37 643,-458.5"/>
 <polygon fill="black" stroke="black" points="646.5,-458.5 643,-448.5 639.5,-458.5 646.5,-458.5"/>
 </g>
+<!-- run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
+<g id="edge7" class="edge">
+<title>run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
+<path fill="none" stroke="black" d="M396.79,-411.12C447.52,-396.67 519.43,-376.19 572.61,-361.04"/>
+<polygon fill="black" stroke="black" points="573.66,-364.38 582.32,-358.28 571.74,-357.65 573.66,-364.38"/>
+</g>
+<!-- get_intermediate_samplesheet_from_validation_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
+<g id="edge8" class="edge">
+<title>get_intermediate_samplesheet_from_validation_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
+<path fill="none" stroke="black" d="M643.2,-410.91C643.34,-398.74 643.53,-382.37 643.68,-368.5"/>
+<polygon fill="black" stroke="black" points="647.18,-368.53 643.8,-358.5 640.18,-368.45 647.18,-368.53"/>
+</g>
 <!-- get_sample_ids_from_tso500_sample_object&#45;&gt;get_sample_output_directory -->
-<g id="edge9" class="edge">
+<g id="edge10" class="edge">
 <title>get_sample_ids_from_tso500_sample_object&#45;&gt;get_sample_output_directory</title>
 <path fill="none" stroke="black" d="M1106.07,-501.01C1076.81,-442.96 983.62,-258.13 948.53,-188.55"/>
 <polygon fill="black" stroke="black" points="951.61,-186.88 943.98,-179.52 945.36,-190.03 951.61,-186.88"/>
