@@ -808,7 +808,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2023-03-14T23:59:10UTC
+            modification_time: 2023-12-18T23:07:04UTC
             run_instances: []
       - name: umccrise-pipeline
         path: umccrise-pipeline
@@ -849,12 +849,12 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2023-03-14T23:59:15UTC
+            modification_time: 2023-12-19T23:30:18UTC
             run_instances: []
           - name: 1.2.0--1.0.0
             path: 1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.cwl
             ica_workflow_version_name: 1.2.0--1.0.0
-            modification_time: 2023-08-04T08:29:58UTC
+            modification_time: 2023-12-19T01:13:59UTC
             run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
@@ -2400,6 +2400,16 @@ projects:
             ica_workflow_version_name: 1.2.0--1.0.0--3473aed
             modification_time: 2023-10-13T00:26:31UTC
             run_instances: []
+          - name: 1.1.0--1.0.0
+            path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
+            ica_workflow_version_name: 1.1.0--1.0.0--e2eeccc
+            modification_time: 2023-12-19T23:30:54UTC
+            run_instances: []
+          - name: 1.2.0--1.0.0
+            path: 1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.cwl
+            ica_workflow_version_name: 1.2.0--1.0.0--e2eeccc
+            modification_time: 2023-12-19T23:30:58UTC
+            run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
         ica_workflow_name: umccrise-with-dragen-germline-pipeline_prod-wf
@@ -3242,7 +3252,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2023-03-15T00:00:41UTC
+            modification_time: 2023-12-19T23:31:13UTC
             run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
@@ -3252,7 +3262,7 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2023-03-15T00:00:44UTC
+            modification_time: 2023-12-19T23:31:16UTC
             run_instances:
               - wfr.d92a2d28bbfe46fe878f6513fdb06723
               - wfr.c419c549d0c349538ba811f65c8ed684

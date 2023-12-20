@@ -16,7 +16,7 @@ get-custom-output-dir-entry-for-tso500-post-processing 2.0.1 expression
 
   
 > ID: get-custom-output-dir-entry-for-tso500-post-processing--2.0.1  
-> md5sum: 3a90aba2ecfeaa0f4dbe608c718e4837
+> md5sum: 86dc48bd0cc4ad424a6b14fc1da38ceb
 
 ### get-custom-output-dir-entry-for-tso500-post-processing v(2.0.1) documentation
   
@@ -55,6 +55,19 @@ We collect the following outputs from this directory -
 * The evidence bam file
 * The raw bam file
 * The clean-stitched bam file
+
+
+### cnv caller counts compressed json file
+
+
+
+  
+> ID: cnv_caller_bin_counts_compressed_json_file
+  
+**Optional:** `False`  
+**Type:** `File`  
+**Docs:**  
+Compressed bin counts file
 
 
 ### combined variant output dir
@@ -116,6 +129,32 @@ The tarball of compressed reporting files
 **Type:** `File`  
 **Docs:**  
 The output from the make coverage qc step
+
+
+### cnv caller bin counts tarball
+
+
+
+  
+> ID: decompressed_cnv_caller_bin_counts_tarball
+  
+**Optional:** `False`  
+**Type:** `File`  
+**Docs:**  
+The tarball of vcf files
+
+
+### decompressed metrics tarball
+
+
+
+  
+> ID: decompressed_metrics_tarball
+  
+**Optional:** `False`  
+**Type:** `File`  
+**Docs:**  
+The tarball of vcf files
 
 
 ### dragen metrics compressed json file
