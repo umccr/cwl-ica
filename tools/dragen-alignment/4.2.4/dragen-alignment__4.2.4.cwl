@@ -77,7 +77,7 @@ requirements:
           fi
 
           # Run dragen command and import options from cli
-          $(get_dragen_eval_line())
+          "$(get_dragen_bin_path())" "\${@}"
       - |
         ${
           return generate_germline_mount_points(inputs);

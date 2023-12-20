@@ -62,10 +62,15 @@ requirements:
 
           # Now run multiqc
           echo "Running multiqc" 1>&2
-          eval multiqc --module interop '"\${@}"' interop_summary.csv interop_index-summary.csv
+          multiqc "\${@}" interop_summary.csv interop_index-summary.csv
 
 
 baseCommand: ["bash", "run_multiqc_interop.sh"]
+
+arguments:
+  - position: -1
+    prefix: "--module"
+    valueFrom: "interop"
 
 inputs:
   # Required inputs

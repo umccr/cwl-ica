@@ -77,7 +77,7 @@ requirements:
           # Run dragen command inside scratch dir
           ( \\
             cd "$(get_scratch_dir(inputs.ht_reference.nameroot))" && \\
-            eval "$(get_dragen_path())" '"\${\@}"' \\
+            "$(get_dragen_bin_path())" "\${@}" \\
           )
           # tar up output directory
           tar \\

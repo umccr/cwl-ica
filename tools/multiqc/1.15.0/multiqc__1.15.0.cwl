@@ -65,7 +65,7 @@ requirements:
           done
 
           # Run multiqc
-          eval multiqc '"\${@}"'
+          multiqc "\${@}"
 
           # Unlink input directories - otherwise ICA tries to upload them onto gds (and fails)
           for input_dir_basename in "\${input_dir_basename_array[@]}"; do

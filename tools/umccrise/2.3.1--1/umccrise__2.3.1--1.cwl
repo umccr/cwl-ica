@@ -118,7 +118,7 @@ requirements:
           trap 'cleanup' EXIT
 
           echo "\$(date): Running UMCCRise" 1>&2
-          $(get_eval_umccrise_line())
+          umccrise "\${@}"
 
           # Exit trap, exit cleanly
           trap - EXIT

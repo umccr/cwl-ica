@@ -59,7 +59,7 @@ requirements:
           set -euo pipefail
 
           # Run the sambamba sort command
-          eval sambamba merge '"\${@}"'
+          sambamba merge "\${@}"
 
           # Index the output file
           sambamba index "$(inputs.output_filename)"
