@@ -204,7 +204,7 @@ jobs:
       # Check that the paths were interested in are actually of any significants
       - id: check_file_changes
         name: Check that this PR is relevant to workflows
-        uses: tj-actions/changed-files@v40
+        uses: tj-actions/changed-files@v41
         with:
           files_yaml: |
             workflows:
