@@ -620,13 +620,13 @@
 <polygon fill="black" stroke="black" points="1196.15,-222.75 1202.96,-214.64 1192.58,-216.74 1196.15,-222.75"/>
 </g>
 <!-- run_qualimap_step&#45;&gt;qualimap_output_directory -->
-<g id="edge14" class="edge">
+<g id="edge13" class="edge">
 <title>run_qualimap_step&#45;&gt;qualimap_output_directory</title>
 <path fill="none" stroke="black" d="M708.61,-929.29C810.3,-829.33 1309.96,-338.19 1428.32,-221.84"/>
 <polygon fill="black" stroke="black" points="1430.88,-224.23 1435.56,-214.72 1425.98,-219.24 1430.88,-224.23"/>
 </g>
 <!-- run_qualimap_step&#45;&gt;dragen_qc_step -->
-<g id="edge13" class="edge">
+<g id="edge12" class="edge">
 <title>run_qualimap_step&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M669.55,-929.58C617.41,-886.02 481.78,-772.69 421.78,-722.55"/>
 <polygon fill="black" stroke="black" points="423.75,-719.64 413.83,-715.91 419.26,-725.01 423.75,-719.64"/>
@@ -644,7 +644,7 @@
 <text text-anchor="middle" x="130.5" y="-944.39" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </g>
 <!-- create_dummy_file_step&#45;&gt;dragen_qc_step -->
-<g id="edge12" class="edge">
+<g id="edge14" class="edge">
 <title>create_dummy_file_step&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M148.92,-929.58C194.66,-886.11 313.52,-773.15 366.43,-722.86"/>
 <polygon fill="black" stroke="black" points="368.91,-725.34 373.75,-715.91 364.09,-720.27 368.91,-725.34"/>
