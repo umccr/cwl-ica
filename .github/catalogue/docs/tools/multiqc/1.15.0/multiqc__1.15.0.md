@@ -17,7 +17,7 @@ multiqc 1.15.0 tool
 
   
 > ID: multiqc--1.15.0  
-> md5sum: 0e4c60f1912b58ed00b0928c0419d223
+> md5sum: de06d6c9531a8536b20dcdcad6a9c495
 
 ### multiqc v(1.15.0) documentation
   
@@ -33,6 +33,12 @@ Use patch that includes https://github.com/ewels/MultiQC/pull/1969
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/multiqc/1.15.0/multiqc__1.15.0.cwl)  
+
+
+### Used By
+  
+- [dragen-transcriptome-pipeline 4.2.4](../../../workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md)  
+- [dragen-alignment-pipeline 4.2.4](../../../workflows/dragen-alignment-pipeline/4.2.4/dragen-alignment-pipeline__4.2.4.md)  
 
   
 

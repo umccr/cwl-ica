@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 15679da42643148b2d3e8097f57be8ff
+> md5sum: 424f59a63351dd9491c2b5a2cedc9760
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -692,7 +692,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.784
 
 # Run the launch script
 bash wfr.784173de5b4342b797f04259ebd04df6.launch.sh
-                                    
+                
 ```  
 
 
@@ -837,7 +837,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.f75
 
 # Run the launch script
 bash wfr.f75bddad9d4740d3873fce5ceb782bc7.launch.sh
-                                    
+                
 ```  
 
 
@@ -982,7 +982,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.491
 
 # Run the launch script
 bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
-                                    
+                
 ```  
 
 
@@ -1138,7 +1138,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--40c2db6  
+**wfl version name:** 3.9.3--ad23456  
 
   
 

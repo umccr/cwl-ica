@@ -19,7 +19,7 @@ tabix-workflow 0.2.6 workflow
 
   
 > ID: tabix-workflow--0.2.6  
-> md5sum: fa196f985abbd96da13b855e1c15b626
+> md5sum: d94e999c0d3aed7c43e2bc28d38ad281
 
 ### tabix-workflow v(0.2.6) documentation
   
@@ -95,6 +95,25 @@ Run tabix workflow
 **Docs:**  
 The indexed vcf file
   
+
+  
+
+
+## ICA
+
+### ToC
+  
+- [development_workflows](#project-development_workflows)  
+
+
+### Project: development_workflows
+
+
+> wfl id: wfl.c8c496a4988d4e6590027d46e05e0509  
+
+  
+**workflow name:** tabix-workflow_dev-wf  
+**wfl version name:** 0.2.6  
 
   
 

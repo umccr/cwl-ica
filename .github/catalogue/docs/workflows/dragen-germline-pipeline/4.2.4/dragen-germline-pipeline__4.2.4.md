@@ -19,7 +19,7 @@ dragen-germline-pipeline 4.2.4 workflow
 
   
 > ID: dragen-germline-pipeline--4.2.4  
-> md5sum: c3232c01009e3da19cac168d57b1fb19
+> md5sum: affa1697d35e976b884ac277a951d9c5
 
 ### dragen-germline-pipeline v(4.2.4) documentation
   

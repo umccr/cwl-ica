@@ -49,7 +49,7 @@ requirements:
             export JAVA_OPTS=-Djava.io.tmpdir="$(inputs.tmp_dir)"
           fi
           # Run qualimap
-          eval qualimap rnaseq --paired '"\${@}"'
+          qualimap rnaseq --paired "\${@}"
 
 baseCommand: [ "bash", "run_qualimap.sh" ]
 

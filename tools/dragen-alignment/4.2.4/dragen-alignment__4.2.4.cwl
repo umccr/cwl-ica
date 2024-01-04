@@ -35,6 +35,11 @@ hints:
       ilmn-tes:resources/size: medium
       coresMin: 16
       ramMin: 240000
+      tmpdirMin: |
+        ${
+          /* 1 Tb * /
+          return 2 ** 20; 
+        }
     DockerRequirement:
         dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
 
@@ -77,7 +82,7 @@ requirements:
           fi
 
           # Run dragen command and import options from cli
-          $(get_dragen_eval_line())
+          "$(get_dragen_bin_path())" "\${@}"
       - |
         ${
           return generate_germline_mount_points(inputs);

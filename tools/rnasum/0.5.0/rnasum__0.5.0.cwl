@@ -23,32 +23,7 @@ doc: |
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 requirements:
-  InlineJavascriptRequirement:
-    expressionLib:
-      - var get_script_path = function(){
-          /*
-          Abstract script path, can then be referenced in baseCommand attribute too
-          Makes things more readable.
-          */
-          return "run_rnasum.sh";
-        }
-      - var get_eval_line = function(){
-          /*
-          ICA is inconsistent with cwl when it comes to handling @
-          */
-            return "eval rnasum.R --batch_rm --filter --log --save_tables --pcgr_splice_vars '\"\$@\"' \n";
-        }
-  InitialWorkDirRequirement:
-    listing:
-      - entryname: $(get_script_path())
-        entry: |
-          #!/usr/bin/bash
-
-          # Fail on non-zero exit code
-          set -euo pipefail
-
-          # Run rnasum with input parameters
-          $(get_eval_line())
+  InlineJavascriptRequirement: {}
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
@@ -62,11 +37,19 @@ hints:
   DockerRequirement:
     dockerPull: "ghcr.io/umccr/rnasum:0.5.0.9000"
 
-baseCommand: ["bash"]
+baseCommand: [ "rnasum.R" ]
 
 arguments:
+  - position: -5
+    valueFrom: "--batch_rm"
+  - position: -4
+    valueFrom: "--filter"
+  - position: -3
+    valueFrom: "--log"
+  - position: -2
+    valueFrom: "--save_tables"
   - position: -1
-    valueFrom: "$(get_script_path())"
+    valueFrom: "--pcgr_splice_vars"
 
 inputs:
   # Input folders

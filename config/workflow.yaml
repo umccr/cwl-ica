@@ -4,7 +4,7 @@ workflows:
     versions:
       - name: 1.3.5
         path: 1.3.5/optitype-pipeline__1.3.5.cwl
-        md5sum: 02cfb7e7d588d129cba6531c5913e2e0
+        md5sum: 599ecf266e39316551942ab20c928aaa
     categories:
       - hla
   - name: get-hla-regions-bed
@@ -12,7 +12,7 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/get-hla-regions-bed__1.0.0.cwl
-        md5sum: 843d173bb0781e81e06a3e4935cb8f32
+        md5sum: f48f0941cc0ea979d93300826366d623
     categories: []
   - name: dragen-germline-pipeline
     path: dragen-germline-pipeline
@@ -28,7 +28,7 @@ workflows:
         md5sum: 1315950ccd1a89a0ff2777e807be5205
       - name: 4.2.4
         path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
-        md5sum: c3232c01009e3da19cac168d57b1fb19
+        md5sum: affa1697d35e976b884ac277a951d9c5
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -36,7 +36,7 @@ workflows:
     versions:
       - name: 3.7.5--1.3.5
         path: 3.7.5--1.3.5/dragen-qc-hla-pipeline__3.7.5--1.3.5.cwl
-        md5sum: 93ee5ed9097b2cb2eea6f6beb25c5981
+        md5sum: 710548486e823f3629ed303c7330c0e1
     categories: []
   - name: tso500-ctdna
     path: tso500-ctdna
@@ -54,7 +54,7 @@ workflows:
     versions:
       - name: 3.7.5
         path: 3.7.5/bcl-conversion__3.7.5.cwl
-        md5sum: 6e338b92ae3ef8267361a7c066998464
+        md5sum: cbcdb0c10087e2e15c54cb4540b49489
     categories: []
   - name: dragen-somatic-pipeline
     path: dragen-somatic-pipeline
@@ -70,7 +70,7 @@ workflows:
         md5sum: e4aafa3571670924bbdbe4dd40b2d40a
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-pipeline__4.2.4.cwl
-        md5sum: df3b4ec99d073f70709fff05e2c8b85a
+        md5sum: 2c8ad6dd8ec694396b6ce2c78195c58c
     categories:
       - dragen
       - variant-calling
@@ -85,13 +85,13 @@ workflows:
         md5sum: a9f114ec0ddf31225eea520fab8d2ce6
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
-        md5sum: 15679da42643148b2d3e8097f57be8ff
+        md5sum: 424f59a63351dd9491c2b5a2cedc9760
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
-        md5sum: 9acc01de6f96acb7b04c18037de7d84c
+        md5sum: 92141db0926af11797562d4f6593bf29
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
-        md5sum: de43a687dd2b7e8e528e5d2e20ca6e4a
+        md5sum: 95c7798c0be56e0346fc987f11dbe8ce
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -107,7 +107,7 @@ workflows:
         md5sum: 191c9e0900e31d74a4434b130b7a2a92
       - name: 4.2.4
         path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
-        md5sum: 2d355151845c7970eb57cb6cf7ff7c09
+        md5sum: b754eaf9902e818d4d6875efb1860e03
     categories:
       - alignment
       - dragen
@@ -127,7 +127,7 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
-        md5sum: 3eeaa9eae048bd997248918262312a3b
+        md5sum: d803ffeac06063788339328e636ef86f
     categories:
       - tso500
   - name: umccrise-pipeline
@@ -154,10 +154,10 @@ workflows:
     versions:
       - name: 1.1.0--1.0.0
         path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
-        md5sum: 79982e1849b90b1f730577114548af1f
+        md5sum: 8fc4eeb6c77f9aae54f0fb486610464a
       - name: 1.2.0--1.0.0
         path: 1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.cwl
-        md5sum: 12bdb231e3f2379b3a9efef30a4dff33
+        md5sum: f9c2320454524a6de20edab4ea670a46
     categories:
       - tso500
   - name: umccrise-with-dragen-germline-pipeline
@@ -190,65 +190,65 @@ workflows:
     versions:
       - name: 1.0.0
         path: 1.0.0/ghif-qc__1.0.0.cwl
-        md5sum: acd0b40eaeb30c2a037b4cd24c449a08
+        md5sum: cb89d96e3558e6036705977da2768481
       - name: 1.0.1
         path: 1.0.1/ghif-qc__1.0.1.cwl
-        md5sum: 8121a6989c635bde160972c900358fa1
+        md5sum: 668690d9884820aa464f98ee21e27490
     categories: []
   - name: dragen-pon-qc
     path: dragen-pon-qc
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-pon-qc__3.9.3.cwl
-        md5sum: 5e48bccdcc464895dd013be4b276b46c
+        md5sum: 2b468c01ff68edee13118504be8b0ac7
     categories: []
   - name: dragen-wts-qc-pipeline
     path: dragen-wts-qc-pipeline
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
-        md5sum: 2141ade682d25c63d19fb9aa79cddec2
+        md5sum: fcf40fcd437293895408b59eaf4943ab
       - name: 4.0.3
         path: 4.0.3/dragen-wts-qc-pipeline__4.0.3.cwl
-        md5sum: f9ed6277b7fef8dc77c5e6c382880408
+        md5sum: f3e9d9a4405ba45aeb51ed42cc27047f
       - name: 4.2.4
         path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
-        md5sum: bad155fa7c21d605c150cc51f749fbb8
+        md5sum: d8e7a96b1d3b1a3db5b21d62284ac30c
     categories: []
   - name: tabix-workflow
     path: tabix-workflow
     versions:
       - name: 0.2.6
         path: 0.2.6/tabix-workflow__0.2.6.cwl
-        md5sum: fa196f985abbd96da13b855e1c15b626
+        md5sum: d94e999c0d3aed7c43e2bc28d38ad281
     categories: []
   - name: bclconvert-with-qc-pipeline
     path: bclconvert-with-qc-pipeline
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-with-qc-pipeline__4.0.3.cwl
-        md5sum: 4e9fe3ad94d1beed0e2f4609d212cc4a
+        md5sum: 20ffa599b19928aaf0cf03aaa77a5fbd
     categories: []
   - name: bclconvert
     path: bclconvert
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert__4.0.3.cwl
-        md5sum: 1f154095e5fa1e1d428973999c8acf98
+        md5sum: 0512a80d9af5de59feb06ab26b2b7ee4
     categories: []
   - name: bclconvert-scatter
     path: bclconvert-scatter
     versions:
       - name: 4.0.3
         path: 4.0.3/bclconvert-scatter__4.0.3.cwl
-        md5sum: 5f05dd4b9e98c11fce6c065ef1cb5bfe
+        md5sum: c1464b241b4e7c6e1d863020e8a45bbb
     categories: []
   - name: validate-bclconvert-samplesheet
     path: validate-bclconvert-samplesheet
     versions:
       - name: 4.0.3
         path: 4.0.3/validate-bclconvert-samplesheet__4.0.3.cwl
-        md5sum: 5f30b8027191edabf94aeefe57a659e5
+        md5sum: a82898ddda90f33a14b1251ee129dd63
     categories: []
   - name: dragen-somatic-with-germline-pipeline
     path: dragen-somatic-with-germline-pipeline
@@ -261,7 +261,7 @@ workflows:
         md5sum: 93c7f802b10cd5538630e114cd621d29
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-        md5sum: 53e04dcbc2bbbd379c0cb8e9e4b11429
+        md5sum: b697804aa58104f9d2ca5feb17fabb67
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc

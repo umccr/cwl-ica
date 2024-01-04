@@ -17,7 +17,7 @@ sambamba-view-and-index 0.8.0 tool
 
   
 > ID: sambamba-view-and-index--0.8.0  
-> md5sum: b862319e1ac077b174d6c9e765ba17d7
+> md5sum: 5c296194fedd7690f3dcba3ad62a7a54
 
 ### sambamba-view-and-index v(0.8.0) documentation
   

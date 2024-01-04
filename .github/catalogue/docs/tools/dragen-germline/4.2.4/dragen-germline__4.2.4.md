@@ -17,7 +17,7 @@ dragen-germline 4.2.4 tool
 
   
 > ID: dragen-germline--4.2.4  
-> md5sum: b5798a6592d4ae390fb5938a2fbc252d
+> md5sum: 35fc10d5fe344ca945f3d1590053f32a
 
 ### dragen-germline v(4.2.4) documentation
   
@@ -35,6 +35,7 @@ Documentation for dragen-germline v4.2.4
 ### Used By
   
 - [dragen-germline-pipeline 4.2.4](../../../workflows/dragen-germline-pipeline/4.2.4/dragen-germline-pipeline__4.2.4.md)  
+- [dragen-somatic-with-germline-pipeline 4.2.4](../../../workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md)  
 
   
 

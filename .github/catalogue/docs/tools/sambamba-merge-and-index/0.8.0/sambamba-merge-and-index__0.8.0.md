@@ -17,7 +17,7 @@ sambamba-merge-and-index 0.8.0 tool
 
   
 > ID: sambamba-merge-and-index--0.8.0  
-> md5sum: bdbb49c0eb0209d4ce168f8901b53766
+> md5sum: da35dcfb42be73b99590719291735534
 
 ### sambamba-merge-and-index v(0.8.0) documentation
   

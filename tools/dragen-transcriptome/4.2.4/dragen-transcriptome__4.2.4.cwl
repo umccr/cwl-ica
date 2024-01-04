@@ -22,7 +22,6 @@ doc: |
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
-# ILMN Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
@@ -30,6 +29,11 @@ hints:
     ilmn-tes:resources/size: medium
     coresMin: 16
     ramMin: 240000
+    tmpdirMin: |
+      ${
+        /* 1 Tb * /
+        return 2 ** 20; 
+      }
   DockerRequirement:
     dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4"
 
@@ -69,7 +73,7 @@ requirements:
             --file "$(inputs.reference_tar.path)"
 
           # Run dragen command and import options from cli
-          $(get_dragen_eval_line())
+          "$(get_dragen_bin_path())" "\${@}"
       - |
         ${
             return generate_transcriptome_mount_points(inputs);

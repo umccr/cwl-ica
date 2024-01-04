@@ -36,6 +36,11 @@ hints:
         ilmn-tes:resources/size: medium
         coresMin: 16
         ramMin: 128000
+        tmpdirMin: |
+          ${
+            /* 1 Tb * /
+            return 2 ** 20; 
+          }
     DockerRequirement:
         dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:2.3.1-dbedb31757
 
@@ -118,7 +123,7 @@ requirements:
           trap 'cleanup' EXIT
 
           echo "\$(date): Running UMCCRise" 1>&2
-          $(get_eval_umccrise_line())
+          umccrise "\${@}"
 
           # Exit trap, exit cleanly
           trap - EXIT

@@ -17,7 +17,7 @@ dragen-somatic 4.2.4 tool
 
   
 > ID: dragen-somatic--4.2.4  
-> md5sum: f7475a2d1daf8ed08d8b610df744d0ea
+> md5sum: ff2a7e2517ed76daa828ad78b9e0dd98
 
 ### dragen-somatic v(4.2.4) documentation
   
@@ -38,6 +38,7 @@ More information on the documentation can be found [here](https://support-docs.i
 ### Used By
   
 - [dragen-somatic-pipeline 4.2.4](../../../workflows/dragen-somatic-pipeline/4.2.4/dragen-somatic-pipeline__4.2.4.md)  
+- [dragen-somatic-with-germline-pipeline 4.2.4](../../../workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md)  
 
   
 
@@ -1196,7 +1197,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7f851b8688e0>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7f56f4e35e10>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).

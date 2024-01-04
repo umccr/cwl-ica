@@ -17,7 +17,7 @@ qualimap 2.2.2 tool
 
   
 > ID: qualimap--2.2.2  
-> md5sum: 60018cd5a8c036ebaa3cbc3f61443c28
+> md5sum: e805ab13703a9f171487cd6b1a602bf2
 
 ### qualimap v(2.2.2) documentation
   
@@ -36,7 +36,10 @@ It perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.e
   
 - [dragen-transcriptome-pipeline 3.9.3](../../../workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
 - [dragen-transcriptome-pipeline 4.0.3](../../../workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
+- [dragen-transcriptome-pipeline 4.2.4](../../../workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md)  
 - [dragen-wts-qc-pipeline 3.9.3](../../../workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
+- [dragen-wts-qc-pipeline 4.0.3](../../../workflows/dragen-wts-qc-pipeline/4.0.3/dragen-wts-qc-pipeline__4.0.3.md)  
+- [dragen-wts-qc-pipeline 4.2.4](../../../workflows/dragen-wts-qc-pipeline/4.2.4/dragen-wts-qc-pipeline__4.2.4.md)  
 
   
 
