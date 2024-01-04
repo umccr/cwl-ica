@@ -19,7 +19,7 @@ dragen-pon-qc 3.9.3 workflow
 
   
 > ID: dragen-pon-qc--3.9.3  
-> md5sum: 5e48bccdcc464895dd013be4b276b46c
+> md5sum: 2b468c01ff68edee13118504be8b0ac7
 
 ### dragen-pon-qc v(3.9.3) documentation
   
@@ -1631,7 +1631,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.e0c
 
 # Run the launch script
 bash wfr.e0cccb29cf44482182507bd33579270c.launch.sh
-                                    
+                
 ```  
 
 
@@ -1842,7 +1842,7 @@ bash wfr.e0cccb29cf44482182507bd33579270c.launch.sh
 
   
 **workflow name:** dragen-pon-qc_prod-wf  
-**wfl version name:** 3.9.3--e4acc1a  
+**wfl version name:** 3.9.3--ad23456  
 
   
 

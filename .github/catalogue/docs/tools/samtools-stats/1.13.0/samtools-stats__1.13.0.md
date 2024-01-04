@@ -17,7 +17,7 @@ samtools-stats 1.13.0 tool
 
   
 > ID: samtools-stats--1.13.0  
-> md5sum: 4557a8ee15e51ae13045bc80f5acc54b
+> md5sum: 3ee6148187c579dbee2a0731b7380bdd
 
 ### samtools-stats v(1.13.0) documentation
   
@@ -376,7 +376,7 @@ cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.32ff48e
 
 # Run the launch script
 bash wfr.32ff48e48bce4d4e8d70efe6fbf92040.launch.sh
-                                    
+                
 ```  
 
 
