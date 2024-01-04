@@ -134,6 +134,7 @@ requirements:
             # Then run dragen map-align and place the files in the output directories
             # Tumor Then Normal
             echo "Aligning tumor" 1>&2
+            # Eval prefix required here as some parameters are empty
             eval /opt/edico/bin/dragen \\
               --enable-map-align=true \\
               "\${enable_sort_parameter}" \\
@@ -147,6 +148,7 @@ requirements:
               "--tumor-bam-input=$(get_attribute_from_optional_input(inputs.tumor_bam_input, "path"))"
 
             echo "Aligning normal" 1>&2
+            # Eval prefix required here as some parameters are empty
             eval /opt/edico/bin/dragen \\
               --enable-map-align=true \\
               "\${enable_sort_parameter}" \\
@@ -175,7 +177,7 @@ requirements:
 
           # Run dragen command and import options from cli
           echo "Running dragen variant calling" 1>&2
-          $(get_dragen_eval_line())
+          "$(get_dragen_bin_path())" "\${@}"
 
           # Check if fastq_list or fastq_list_rows is set
           if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then

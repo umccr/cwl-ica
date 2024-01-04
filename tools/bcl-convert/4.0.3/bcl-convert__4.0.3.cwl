@@ -89,6 +89,7 @@ requirements:
             fi
             
             # Run bclconvert through dragen
+            # eval required since some parameters may not exist
             eval /opt/edico/bin/dragen \\
               -v \\
               --logging-to-output-dir="true" \\
@@ -99,7 +100,7 @@ requirements:
               '"\${@}"'
           else
             # Run through standard bclconvert executable
-            eval bcl-convert '"\${@}"'
+            bcl-convert "\${@}"
           fi
           
           # Delete undetermined indices if set

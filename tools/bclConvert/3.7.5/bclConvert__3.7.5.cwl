@@ -47,7 +47,7 @@ requirements:
           set -euo pipefail
 
           # Run bcl-convert with input parameters
-          eval bcl-convert '"\${@}"'
+          bcl-convert "\${@}"
 
           # Delete undetermined indices
           if [[ "$(inputs.delete_undetermined_indices)" == "true" ]]; then

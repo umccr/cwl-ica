@@ -82,7 +82,7 @@ requirements:
           set -euo pipefail
 
           # Run the sambamba sort command
-          eval sambamba sort '"\${@}"'
+          sambamba sort "\${@}"
 
           # Index the output file (if coordinate sorted only)
           if [[ "$(boolean_to_string(inputs.sort_by_name))" == "false" ]]; then

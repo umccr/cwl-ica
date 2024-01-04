@@ -48,7 +48,7 @@ requirements:
           cp "$(inputs.uncompressed_file.path)" "$(inputs.uncompressed_file.basename)"
 
           # Run gzip
-          eval gzip '"\${@}"'
+          gzip "\${@}"
 
 
 baseCommand: [ "bash", "run_gzip.sh" ]

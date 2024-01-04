@@ -17,7 +17,7 @@ dragen-transcriptome 4.2.4 tool
 
   
 > ID: dragen-transcriptome--4.2.4  
-> md5sum: d38391cb05c9734f00f3a5a41238acad
+> md5sum: 31299be5ddda61ccd9a299cff7538b6c
 
 ### dragen-transcriptome v(4.2.4) documentation
   

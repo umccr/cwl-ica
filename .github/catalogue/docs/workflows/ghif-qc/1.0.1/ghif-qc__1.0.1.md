@@ -19,7 +19,7 @@ ghif-qc 1.0.1 workflow
 
   
 > ID: ghif-qc--1.0.1  
-> md5sum: 8121a6989c635bde160972c900358fa1
+> md5sum: 668690d9884820aa464f98ee21e27490
 
 ### ghif-qc v(1.0.1) documentation
   
@@ -587,7 +587,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.f6a
 
 # Run the launch script
 bash wfr.f6adb13c92e340f89317c337674b18a6.launch.sh
-                                    
+                
 ```  
 
 
@@ -704,7 +704,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.101
 
 # Run the launch script
 bash wfr.10176db758d94e56833422dfd60d0f90.launch.sh
-                                    
+                
 ```  
 
 

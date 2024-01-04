@@ -52,7 +52,7 @@ requirements:
           set -euo pipefail
 
           # Run bedops command, write to output file
-          eval bedops '"\${@}"' 1> "$(inputs.output_filename)"
+          bedops "\${@}" 1> "$(inputs.output_filename)"
 
 baseCommand: [ "bash", "run-bedops.sh" ]
 
