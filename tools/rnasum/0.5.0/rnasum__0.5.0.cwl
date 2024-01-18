@@ -35,7 +35,7 @@ hints:
     coresMin: 8
     ramMin: 32000
   DockerRequirement:
-    dockerPull: "ghcr.io/umccr/rnasum:0.5.0.9000"
+    dockerPull: "ghcr.io/umccr/rnasum:0.5.0.9001"
 
 baseCommand: [ "rnasum.R" ]
 
