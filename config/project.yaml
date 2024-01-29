@@ -1012,7 +1012,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-01-04T01:21:06UTC
+            modification_time: 2024-01-29T04:01:33UTC
             run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc
