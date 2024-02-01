@@ -314,6 +314,28 @@ steps:
     out:
       - id: output_file
     run: ../../../expressions/parse-file/1.0.0/parse-file__1.0.0.cwl
+
+  get_complex_phased_variant_vcf_step:
+    label: get complex phased variant vcf step
+    doc: |
+      Get the vcf file <SampleName>.Complex.vcf from the PhasedVariants Step
+    in:
+      input_dir:
+        source: tso500_outputs_by_sample
+        valueFrom: |
+          ${
+            return self.phased_variants_dir;
+          }
+      file_basename:
+        source: tso500_outputs_by_sample
+        valueFrom: |
+          ${
+            return self.sample_id + ".Complex.vcf";
+          }
+    out:
+      - id: output_file
+    run: ../../../expressions/get-file-from-directory/1.0.0/get-file-from-directory__1.0.0.cwl
+
   ##############################
   # End of expression steps
   ##############################
@@ -711,7 +733,10 @@ steps:
         ramMin: 4000
     in:
       uncompressed_vcf_file:
-        source: get_vcf_files_intermediate_step/output_files
+        source:
+          - get_vcf_files_intermediate_step/output_files
+          - get_complex_phased_variant_vcf_step/output_file
+        linkMerge: merge_flattened
     out:
       - id: compressed_output_vcf_file
     run: ../../../tools/bgzip/1.12.0/bgzip__1.12.0.cwl
@@ -728,7 +753,7 @@ steps:
       - id: vcf_file_indexed
     run: ../../../tools/tabix/0.2.6/tabix__0.2.6.cwl
 
-  # Gather all of the vcf files
+  # Gather all the vcf files
   gather_compressed_vcf_files_into_tar_step:
     label: gather compressed vcf files into tar step
     doc: |
