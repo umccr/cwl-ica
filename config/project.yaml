@@ -2485,6 +2485,16 @@ projects:
             ica_workflow_version_name: 1.2.0--1.0.0--ad23456
             modification_time: 2024-01-04T01:21:42UTC
             run_instances: []
+          - name: 1.1.0--1.0.0
+            path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
+            ica_workflow_version_name: 1.1.0--1.0.0--6753613
+            modification_time:
+            run_instances: []
+          - name: 1.2.0--1.0.0
+            path: 1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.cwl
+            ica_workflow_version_name: 1.2.0--1.0.0--6753613
+            modification_time:
+            run_instances: []
       - name: umccrise-with-dragen-germline-pipeline
         path: umccrise-with-dragen-germline-pipeline
         ica_workflow_name: umccrise-with-dragen-germline-pipeline_prod-wf
@@ -3352,7 +3362,7 @@ projects:
           - name: 1.0.0
             path: 1.0.0/tso500-ctdna-post-processing-pipeline__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
-            modification_time: 2024-01-04T01:22:06UTC
+            modification_time: 2024-02-01T05:46:46UTC
             run_instances: []
       - name: tso500-ctdna-with-post-processing-pipeline
         path: tso500-ctdna-with-post-processing-pipeline
@@ -3362,7 +3372,7 @@ projects:
           - name: 1.1.0--1.0.0
             path: 1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.cwl
             ica_workflow_version_name: 1.1.0--1.0.0
-            modification_time: 2024-01-04T01:22:09UTC
+            modification_time: 2024-02-01T05:46:49UTC
             run_instances:
               - wfr.d92a2d28bbfe46fe878f6513fdb06723
               - wfr.c419c549d0c349538ba811f65c8ed684
