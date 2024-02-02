@@ -89,7 +89,7 @@ tools:
         md5sum: 1880b4cd0ced94bdae9c7e8dbe549b9a
       - name: 4.2.4
         path: 4.2.4/dragen-germline__4.2.4.cwl
-        md5sum: 35fc10d5fe344ca945f3d1590053f32a
+        md5sum: ed53922fca2cfce834a1c13323fc2c78
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -168,7 +168,7 @@ tools:
         md5sum: f2c02e8b7a9e5de36d5d3bcc1c504f4b
       - name: 4.2.4
         path: 4.2.4/dragen-somatic__4.2.4.cwl
-        md5sum: ff2a7e2517ed76daa828ad78b9e0dd98
+        md5sum: 0aa84ec9cf89f499cd8a819a7cbce343
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -187,7 +187,7 @@ tools:
         md5sum: 0062f8a909ff6eb95eee955e250bab46
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome__4.2.4.cwl
-        md5sum: 31299be5ddda61ccd9a299cff7538b6c
+        md5sum: afc456611760dd82d21b83b84e497e67
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
@@ -250,7 +250,7 @@ tools:
         md5sum: 901922621d7e1fec9ffd7d03e1dc6d76
       - name: 4.2.4
         path: 4.2.4/dragen-alignment__4.2.4.cwl
-        md5sum: 6e4dfeb60831c58b29901424ac97e2a3
+        md5sum: 29924cbbf20699ccdb457928912fa097
     categories: []
   - name: custom-create-directory
     path: custom-create-directory
@@ -282,7 +282,7 @@ tools:
         md5sum: 47d7c5bb95f4e45f9215b92a830f5f98
       - name: 4.2.4
         path: 4.2.4/dragen-build-reference-tarball__4.2.4.cwl
-        md5sum: d8c6917d373ee13c0942b92f6bfc49e7
+        md5sum: b51d43d298306cbb990df527edecfe27
     categories: []
   - name: bgzip
     path: bgzip
@@ -392,7 +392,7 @@ tools:
         md5sum: ab13fdc5b457f671f1891b8451721466
       - name: 2.3.1--1
         path: 2.3.1--1/umccrise__2.3.1--1.cwl
-        md5sum: cccafca7219cdf3dc87931c4deac7fcb
+        md5sum: cd48262285f077951319d942a3a89b58
     categories: []
   - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
