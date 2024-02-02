@@ -38,7 +38,7 @@ hints:
         ramMin: 128000
         tmpdirMin: |
           ${
-            /* 1 Tb * /
+            /* 1 Tb */
             return 2 ** 20; 
           }
     DockerRequirement:
