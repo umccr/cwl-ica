@@ -418,6 +418,7 @@ UMCCR CWL-ICA Catalogue
 - [1.12.0](.github/catalogue/docs/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [1.14.0](.github/catalogue/docs/tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 - [1.15.0](.github/catalogue/docs/tools/multiqc/1.15.0/multiqc__1.15.0.md)  
+- [1.19.0](.github/catalogue/docs/tools/multiqc/1.19.0/multiqc__1.19.0.md)  
 
 
 ### dragen-alignment
@@ -675,6 +676,7 @@ UMCCR CWL-ICA Catalogue
 - [dragen-somatic-with-germline-pipeline](#dragen-somatic-with-germline-pipeline)  
 - [illumina-interop-qc](#illumina-interop-qc)  
 - [rnasum-pipeline](#rnasum-pipeline)  
+- [bclconvert-interop-qc](#bclconvert-interop-qc)  
 
 
 ### optitype-pipeline
@@ -923,4 +925,11 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [0.4.5](.github/catalogue/docs/workflows/rnasum-pipeline/0.4.5/rnasum-pipeline__0.4.5.md)  
+
+
+### bclconvert-interop-qc
+
+#### Versions
+  
+- [1.3.1--1.19](.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.md)  
 
