@@ -36,4 +36,4 @@ fields:
       The 'fastq list rows' of the sample
     type:
       type: array
-      items: { "$import": "../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml" }
+      items: { "$import": "../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml#fastq-list-row" }
