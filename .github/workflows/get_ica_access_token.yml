@@ -48,7 +48,7 @@ jobs:
 
       # Retrieve JSON secret (must parse out as json)
       - name: Retrieve Secret
-        uses: aws-actions/aws-secretsmanager-get-secrets@v1
+        uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
             ${{ inputs.secret_arn }}
