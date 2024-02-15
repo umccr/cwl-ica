@@ -38,7 +38,7 @@ jobs:
           role-to-assume: ${{ inputs.role_to_assume_arn }}
           aws-region: ap-southeast-2
       - name: Retrieve Secret
-        uses: aws-actions/aws-secretsmanager-get-secrets@v1
+        uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
             ICAV2_ACCESS_TOKEN, ${{ inputs.secret_arn }}
