@@ -97,12 +97,13 @@ jobs:
       workflow_path: ${{ steps.get_workflow_path.outputs.workflow_path }}
       create_release: ${{ steps.has_regex_match.outputs.create_release }}
       is_prerelease: ${{ steps.has_regex_match.outputs.is_prerelease }}
-  get_umccr_test_icav2_access_token:
-    name: Get ICAv2 Access Token (umccr-test)
+  get_umccr_prod_icav2_access_token:
+    # Note this currently gets the access token for the 'trial' project
+    name: Get ICAv2 Access Token (umccr-prod)
     uses: ./.github/workflows/get_tenant_icav2_access_token.yml
     with:
-      role_to_assume_arn: arn:aws:iam::843407916570:role/icav2-credentials-umccr-t-icav2credentialsumccrtes-1GHEG1YPILEH6
-      secret_arn: arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:ICAv2Jwticav2-credentials-umccr-test-pipelines-YLmtd4
+      role_to_assume_arn: arn:aws:iam::843407916570:role/icav2-credentials-umccr-p-ghserviceusertrialB89571F-Tflh151dMorc
+      secret_arn: arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:ICAv2Jwticav2-credentials-umccr-service-user-trial-zjptwA
     secrets:
       symmetrical_encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
   create_release_asset:
@@ -113,7 +114,7 @@ jobs:
         shell: bash -l {0}
     needs:
       - release_asset_precheck
-      - get_umccr_test_icav2_access_token
+      - get_umccr_prod_icav2_access_token
     steps:
       # Checkout code
       - name: Checkout code
@@ -124,7 +125,7 @@ jobs:
         name: Decrypt Access Token
         uses: ./.github/actions/decrypt_token
         with:
-          encrypted_token: ${{ needs.get_umccr_test_icav2_access_token.outputs.icav2_access_token_encrypted }}
+          encrypted_token: ${{ needs.get_umccr_prod_icav2_access_token.outputs.icav2_access_token_encrypted }}
           decryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
       # Create release asset
       - name: create release asset

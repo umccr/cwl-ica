@@ -1,6 +1,8 @@
 # List of tenants that datasets / bunches / bundles can be attached to
 tenants:
   - tenant_name: umccr-test
+  - tenant_name: umccr-prod
+
 
 # List of projects a bundle can be attached to
 projects:
@@ -19,6 +21,12 @@ projects:
   - project_name: production-test
     project_id: 6c7b3d61-15df-45e7-9b9b-2996544e4866
     tenant_name: umccr-test
+  - project_name: pipelines-trial
+    project_id: 0ad6a751-c854-4b77-833b-705132a22801
+    tenant_name: umccr-prod
+  - project_name: trial
+    project_id: 7595e8f2-32d3-4c76-a324-c6a85dae87b5
+    tenant_name: umccr-prod
 
 
 # List of datasets
@@ -118,6 +126,7 @@ datasets:
         file_size_in_bytes: 102794669165
         object_e_tag: 70826025f479165c0a23b91f43ecc778-10000
 
+
 # List of bunches / bunch versions that are precursors to bundles
 bunches:
   - bunch_name: dragen_somatic_with_germline_pipeline_validation__4_2_4
@@ -180,6 +189,24 @@ bunches:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2023-10-19T22:27:41Z'
             dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
+  - bunch_name: bclconvert-interop-qc__1_3_1
+    bunch_description: BCLConvert Interop QC Pipeline Bunch
+    tenant_name: umccr-prod
+    pipeline_path:
+      /media/UMCCR/GitHub/cwl-ica/workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.cwl
+    pipeline_project_name: pipelines-trial
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - trial
+    categories:
+      - qc
+    bunch_versions:
+      - version: 1.3.1__1.19
+        version_description: Interop QC v1.3.1 with Multiqc Version 1.19
+        version_creation_date: '2024-03-11T07:29:19Z'
+        datasets: []
+
 
 # List of generated bundles
 bundles:
