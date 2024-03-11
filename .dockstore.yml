@@ -26,3 +26,16 @@ workflows:
       tags:
         - bclconvert-interop-qc/1.3.1--1.19
         - bclconvert-interop-qc/1.3.1--1.19__20240311075804
+  - name: bclconvert-interop-qc_1_3_1-1_19
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - bclconvert-interop-qc/1.3.1--1.19
+        - bclconvert-interop-qc/1.3.1--1.19__20240311075804
