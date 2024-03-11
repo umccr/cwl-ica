@@ -24,7 +24,7 @@ jobs:
       # Checkout code
       - name: Checkout code
         id: git_checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       # Set to fail
       - name: Update bash settings
         id: update_bash_settings
@@ -119,9 +119,9 @@ jobs:
       # Checkout code
       - name: Checkout code
         id: git_checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       # Decrypt tokens
-      - id: decrypt_umccr_test_icav2_access_token
+      - id: decrypt_umccr_prod_icav2_access_token
         name: Decrypt Access Token
         uses: ./.github/actions/decrypt_token
         with:
@@ -143,7 +143,9 @@ jobs:
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
             --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \
             --env GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
-            --env ICAV2_ACCESS_TOKEN_UMCCR_TEST="${{ steps.decrypt_umccr_test_icav2_access_token.outputs.decrypted_token }}" \
+            --env _GIT_AUTHOR_NAME="${{ github.actor }}" \
+            --env _GIT_AUTHOR_EMAIL="${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com" \
+            --env ICAV2_ACCESS_TOKEN_UMCCR_PROD="${{ steps.decrypt_umccr_prod_icav2_access_token.outputs.decrypted_token }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/create_workflow_release_asset.sh" \
                 --workflow-path "${{ needs.release_asset_precheck.outputs.workflow_path }}" \
