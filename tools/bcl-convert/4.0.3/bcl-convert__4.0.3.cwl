@@ -25,11 +25,11 @@ doc: |
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: standardHiCpu
-    ilmn-tes:resources/size: large
-    coresMin: 72
-    ramMin: 64000
+    ilmn-tes:resources/tier: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-type"))
+    ilmn-tes:resources/type: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-tier"))
+    ilmn-tes:resources/size: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-size"))
+    coresMin: $(get_resource_hints_for_bclconvert_run(inputs, "coresMin"))
+    ramMin: $(get_resource_hints_for_bclconvert_run(inputs, "ramMin"))
   DockerRequirement:
     dockerPull: 'ghcr.io/umccr/bcl-convert:4.0.3'
 
@@ -42,14 +42,6 @@ requirements:
       - $include: ../../../typescript-expressions/samplesheet-builder/2.0.0--4.0.3/samplesheet-builder__2.0.0--4.0.3.cwljs
       - $include: ../../../typescript-expressions/bclconvert-run-configuration-expressions/2.0.0--4.0.3/bclconvert-run-configuration-expressions__2.0.0--4.0.3.cwljs
       - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs
-  # ResourceRequirement:
-  #   https://platform.illumina.com/rdf/ica/resources:tier: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-type"))
-  #   https://platform.illumina.com/rdf/ica/resources:size: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-tier"))
-  #   https://platform.illumina.com/rdf/ica/resources:type: $(get_resource_hints_for_bclconvert_run(inputs, "ilmn-tes-resources-size"))
-  #   coresMin: $(get_resource_hints_for_bclconvert_run(inputs, "coresMin"))
-  #   ramMin: $(get_resource_hints_for_bclconvert_run(inputs, "ramMin"))
-  # DockerRequirement:
-  #   dockerPull: $(get_resource_hints_for_bclconvert_run(inputs, "dockerPull"))
   SchemaDefRequirement:
     types:
       - $import: ../../../schemas/samplesheet/2.0.0--4.0.3/samplesheet__2.0.0--4.0.3.yaml
@@ -97,6 +89,7 @@ requirements:
             fi
             
             # Run bclconvert through dragen
+            # eval required since some parameters may not exist
             eval /opt/edico/bin/dragen \\
               -v \\
               --logging-to-output-dir="true" \\
@@ -107,7 +100,7 @@ requirements:
               '"\${@}"'
           else
             # Run through standard bclconvert executable
-            eval bcl-convert '"\${@}"'
+            bcl-convert "\${@}"
           fi
           
           # Delete undetermined indices if set

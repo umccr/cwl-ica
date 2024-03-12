@@ -26,7 +26,7 @@ hints:
     ResourceRequirement:
         ilmn-tes:resources/tier: standard
         ilmn-tes:resources/type: standard
-        ilmn-tes:resources/size: large
+        ilmn-tes:resources/size: xxlarge
         coresMin: 8
         ramMin: 32000
     DockerRequirement:
@@ -49,7 +49,7 @@ requirements:
             export JAVA_OPTS=-Djava.io.tmpdir="$(inputs.tmp_dir)"
           fi
           # Run qualimap
-          eval qualimap rnaseq --paired --java-mem-size="$(inputs.java_mem)" '"\${@}"'
+          qualimap rnaseq --paired "\${@}"
 
 baseCommand: [ "bash", "run_qualimap.sh" ]
 
@@ -65,6 +65,9 @@ inputs:
     doc: |
       Set desired Java heap memory size
     type: string
+    inputBinding:
+      prefix: "--java-mem-size="
+      separate: false
   out_dir:
     label: out dir
     doc: |

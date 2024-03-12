@@ -52,12 +52,6 @@ requirements:
           */
           return "scripts/run-bamtofastq.sh";
         }
-      - var get_eval_line = function(){
-          /*
-          Get the line eval bam2fastq...
-          */
-          return "eval \"bamtofastq\" '\"\$@\"'\n"
-        }
   InitialWorkDirRequirement:
     listing:
       - entryname: $(get_script_path())
@@ -68,7 +62,7 @@ requirements:
           set -euo pipefail
 
           mkdir -p "$(inputs.output_dir)"
-          $(get_eval_line())
+          bamtofastq "\${@}"
 
 baseCommand: ["bash"]
 

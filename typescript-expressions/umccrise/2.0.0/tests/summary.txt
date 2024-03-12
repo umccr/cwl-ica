@@ -1,0 +1,19 @@
+# Test started at 2023-04-06T11:33:12+10:00
+
+PASS tests/umccrise__2.0.0.test.js
+PASS tests/umccrise__2.0.0.test.ts
+
+=============================== Coverage summary ===============================
+Statements   : 91.17% ( 31/34 )
+Branches     : 75% ( 3/4 )
+Functions    : 84.61% ( 11/13 )
+Lines        : 91.17% ( 31/34 )
+================================================================================
+
+Test Suites: 2 passed, 2 total
+Tests:       26 passed, 26 total
+Snapshots:   0 total
+Time:        4.903 s
+Ran all test suites.
+# Test completed at 2023-04-06T11:33:19+10:00
+

@@ -19,7 +19,7 @@ dragen-germline-pipeline 4.0.3 workflow
 
   
 > ID: dragen-germline-pipeline--4.0.3  
-> md5sum: 60261decc17d5920501d7f0cfce325ad
+> md5sum: 1315950ccd1a89a0ff2777e807be5205
 
 ### dragen-germline-pipeline v(4.0.3) documentation
   
@@ -48,6 +48,19 @@ Documentation for dragen-germline-pipeline v4.0.3
 
 
 ## dragen-germline-pipeline v(4.0.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal BAM file for the variant calling stage
+
 
 ### cnv enable self normalization
 
@@ -130,6 +143,20 @@ Mark identical alignments as duplicates
 **Type:** `boolean`  
 **Docs:**  
 Enable HLA typing by setting --enable-hla flag to true
+
+
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
 
 
 ### enable map align output

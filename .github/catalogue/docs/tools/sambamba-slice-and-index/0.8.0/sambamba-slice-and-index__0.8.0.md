@@ -17,7 +17,7 @@ sambamba-slice-and-index 0.8.0 tool
 
   
 > ID: sambamba-slice-and-index--0.8.0  
-> md5sum: 015649100684f75c18d24f39cb75d519
+> md5sum: fe66a15cbedb5aabe3fc11f1da606c58
 
 ### sambamba-slice-and-index v(0.8.0) documentation
   

@@ -58,7 +58,7 @@ requirements:
           set -euo pipefail
 
           # Run sambamba view
-          eval sambamba view '"\${@}"'
+          sambamba view "\${@}"
 
           # If --output-format is a bam file (and actually exists) then index it
           if [[ "$(inputs.output_format)" == "bam" ]] && [[ -s "$(inputs.output_filename)" ]]; then

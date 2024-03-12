@@ -17,7 +17,7 @@ bgzip 1.12.0 tool
 
   
 > ID: bgzip--1.12.0  
-> md5sum: 516158d71c8336bf8b1d2f1966ce282e
+> md5sum: 768fe28323b19ce8a7450bab7740e2c9
 
 ### bgzip v(1.12.0) documentation
   
@@ -123,6 +123,25 @@ The input uncompressed vcf file
 **Docs:**  
 The bgzipped (and indexed?) vcf file
   
+
+  
+
+
+## ICA
+
+### ToC
+  
+- [development_workflows](#project-development_workflows)  
+
+
+### Project: development_workflows
+
+
+> wfl id: wfl.e34e65be833d41e18c7e4ed63172b4ce  
+
+  
+**workflow name:** bgzip_dev-wf  
+**wfl version name:** 1.12.0  
 
   
 

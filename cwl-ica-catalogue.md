@@ -174,6 +174,7 @@ UMCCR CWL-ICA Catalogue
 - [bcl-convert](#bcl-convert)  
 - [star](#star)  
 - [illumina-interop](#illumina-interop)  
+- [custom-tso500-cnv-caller-bin-counts-to-json](#custom-tso500-cnv-caller-bin-counts-to-json)  
 
 
 ### samtools-merge
@@ -283,6 +284,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/tools/dragen-germline/3.7.5/dragen-germline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-germline/3.9.3/dragen-germline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/tools/dragen-germline/4.0.3/dragen-germline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/tools/dragen-germline/4.2.4/dragen-germline__4.2.4.md)  
 
 
 ### custom-create-tso500-samplesheet
@@ -369,6 +371,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/tools/dragen-somatic/3.7.5/dragen-somatic__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-somatic/3.9.3/dragen-somatic__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/tools/dragen-somatic/4.2.4/dragen-somatic__4.2.4.md)  
 
 
 ### dragen-transcriptome
@@ -379,6 +382,7 @@ UMCCR CWL-ICA Catalogue
 - [3.8.4](.github/catalogue/docs/tools/dragen-transcriptome/3.8.4/dragen-transcriptome__3.8.4.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-transcriptome/3.9.3/dragen-transcriptome__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/tools/dragen-transcriptome/4.0.3/dragen-transcriptome__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/tools/dragen-transcriptome/4.2.4/dragen-transcriptome__4.2.4.md)  
 
 
 ### arriba-fusion-calling
@@ -387,6 +391,7 @@ UMCCR CWL-ICA Catalogue
   
 - [2.0.0](.github/catalogue/docs/tools/arriba-fusion-calling/2.0.0/arriba-fusion-calling__2.0.0.md)  
 - [2.3.0](.github/catalogue/docs/tools/arriba-fusion-calling/2.3.0/arriba-fusion-calling__2.3.0.md)  
+- [2.4.0](.github/catalogue/docs/tools/arriba-fusion-calling/2.4.0/arriba-fusion-calling__2.4.0.md)  
 
 
 ### arriba-drawing
@@ -395,6 +400,7 @@ UMCCR CWL-ICA Catalogue
   
 - [2.0.0](.github/catalogue/docs/tools/arriba-drawing/2.0.0/arriba-drawing__2.0.0.md)  
 - [2.3.0](.github/catalogue/docs/tools/arriba-drawing/2.3.0/arriba-drawing__2.3.0.md)  
+- [2.4.0](.github/catalogue/docs/tools/arriba-drawing/2.4.0/arriba-drawing__2.4.0.md)  
 
 
 ### multiqc
@@ -411,6 +417,8 @@ UMCCR CWL-ICA Catalogue
 - [1.11.0](.github/catalogue/docs/tools/multiqc/1.11.0/multiqc__1.11.0.md)  
 - [1.12.0](.github/catalogue/docs/tools/multiqc/1.12.0/multiqc__1.12.0.md)  
 - [1.14.0](.github/catalogue/docs/tools/multiqc/1.14.0/multiqc__1.14.0.md)  
+- [1.15.0](.github/catalogue/docs/tools/multiqc/1.15.0/multiqc__1.15.0.md)  
+- [1.19.0](.github/catalogue/docs/tools/multiqc/1.19.0/multiqc__1.19.0.md)  
 
 
 ### dragen-alignment
@@ -420,6 +428,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/tools/dragen-alignment/3.7.5/dragen-alignment__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/tools/dragen-alignment/3.9.3/dragen-alignment__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/tools/dragen-alignment/4.0.3/dragen-alignment__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/tools/dragen-alignment/4.2.4/dragen-alignment__4.2.4.md)  
 
 
 ### custom-create-directory
@@ -439,6 +448,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.7.5/dragen-build-reference-tarball__3.7.5.md)  
 - [3.8.4](.github/catalogue/docs/tools/dragen-build-reference-tarball/3.8.4/dragen-build-reference-tarball__3.8.4.md)  
 - [4.0.3](.github/catalogue/docs/tools/dragen-build-reference-tarball/4.0.3/dragen-build-reference-tarball__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/tools/dragen-build-reference-tarball/4.2.4/dragen-build-reference-tarball__4.2.4.md)  
 
 
 ### bgzip
@@ -525,6 +535,8 @@ UMCCR CWL-ICA Catalogue
 - [2.1.1--0](.github/catalogue/docs/tools/umccrise/2.1.1--0/umccrise__2.1.1--0.md)  
 - [2.2.0--0](.github/catalogue/docs/tools/umccrise/2.2.0--0/umccrise__2.2.0--0.md)  
 - [2.2.1--0](.github/catalogue/docs/tools/umccrise/2.2.1--0/umccrise__2.2.1--0.md)  
+- [2.3.0--0](.github/catalogue/docs/tools/umccrise/2.3.0--0/umccrise__2.3.0--0.md)  
+- [2.3.1--1](.github/catalogue/docs/tools/umccrise/2.3.1--1/umccrise__2.3.1--1.md)  
 
 
 ### custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -558,6 +570,10 @@ UMCCR CWL-ICA Catalogue
 - [0.4.3](.github/catalogue/docs/tools/rnasum/0.4.3/rnasum__0.4.3.md)  
 - [0.4.4](.github/catalogue/docs/tools/rnasum/0.4.4/rnasum__0.4.4.md)  
 - [0.4.5](.github/catalogue/docs/tools/rnasum/0.4.5/rnasum__0.4.5.md)  
+- [0.4.7](.github/catalogue/docs/tools/rnasum/0.4.7/rnasum__0.4.7.md)  
+- [0.4.8](.github/catalogue/docs/tools/rnasum/0.4.8/rnasum__0.4.8.md)  
+- [0.4.9](.github/catalogue/docs/tools/rnasum/0.4.9/rnasum__0.4.9.md)  
+- [0.5.0](.github/catalogue/docs/tools/rnasum/0.5.0/rnasum__0.5.0.md)  
 
 
 ### samtools-stats
@@ -624,6 +640,13 @@ UMCCR CWL-ICA Catalogue
 - [1.2.0](.github/catalogue/docs/tools/illumina-interop/1.2.0/illumina-interop__1.2.0.md)  
 
 
+### custom-tso500-cnv-caller-bin-counts-to-json
+
+#### Versions
+  
+- [1.0.0](.github/catalogue/docs/tools/custom-tso500-cnv-caller-bin-counts-to-json/1.0.0/custom-tso500-cnv-caller-bin-counts-to-json__1.0.0.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -653,6 +676,7 @@ UMCCR CWL-ICA Catalogue
 - [dragen-somatic-with-germline-pipeline](#dragen-somatic-with-germline-pipeline)  
 - [illumina-interop-qc](#illumina-interop-qc)  
 - [rnasum-pipeline](#rnasum-pipeline)  
+- [bclconvert-interop-qc](#bclconvert-interop-qc)  
 
 
 ### optitype-pipeline
@@ -686,6 +710,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.7.5/dragen-germline-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/4.0.3/dragen-germline-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-germline-pipeline/4.2.4/dragen-germline-pipeline__4.2.4.md)  
 
 
 ### dragen-qc-hla-pipeline
@@ -705,6 +730,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.1.0--120](.github/catalogue/docs/workflows/tso500-ctdna/1.1.0--120/tso500-ctdna__1.1.0--120.md)  
+- [1.2.0--1](.github/catalogue/docs/workflows/tso500-ctdna/1.2.0--1/tso500-ctdna__1.2.0--1.md)  
 
 
 ### bcl-conversion
@@ -727,6 +753,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.7.5/dragen-somatic-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-somatic-pipeline/3.9.3/dragen-somatic-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-pipeline/4.0.3/dragen-somatic-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-somatic-pipeline/4.2.4/dragen-somatic-pipeline__4.2.4.md)  
 
 
 ### dragen-transcriptome-pipeline
@@ -737,6 +764,7 @@ UMCCR CWL-ICA Catalogue
 - [3.8.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.8.4/dragen-transcriptome-pipeline__3.8.4.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md)  
 
 
 ### dragen-alignment-pipeline
@@ -752,6 +780,7 @@ UMCCR CWL-ICA Catalogue
 - [3.7.5](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.7.5/dragen-alignment-pipeline__3.7.5.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.2.4/dragen-alignment-pipeline__4.2.4.md)  
 
 
 ### dragen-wgs-qc-pipeline
@@ -787,6 +816,7 @@ UMCCR CWL-ICA Catalogue
 - [1.2.2--0](.github/catalogue/docs/workflows/umccrise-pipeline/1.2.2--0/umccrise-pipeline__1.2.2--0.md)  
 - [2.2.0--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.2.0--0/umccrise-pipeline__2.2.0--0.md)  
 - [2.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.2.1--0/umccrise-pipeline__2.2.1--0.md)  
+- [2.3.0--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.3.0--0/umccrise-pipeline__2.3.0--0.md)  
 
 
 ### tso500-ctdna-with-post-processing-pipeline
@@ -799,6 +829,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.1.0--1.0.0](.github/catalogue/docs/workflows/tso500-ctdna-with-post-processing-pipeline/1.1.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.1.0--1.0.0.md)  
+- [1.2.0--1.0.0](.github/catalogue/docs/workflows/tso500-ctdna-with-post-processing-pipeline/1.2.0--1.0.0/tso500-ctdna-with-post-processing-pipeline__1.2.0--1.0.0.md)  
 
 
 ### umccrise-with-dragen-germline-pipeline
@@ -834,6 +865,8 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [3.9.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/3.9.3/dragen-wts-qc-pipeline__3.9.3.md)  
+- [4.0.3](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/4.0.3/dragen-wts-qc-pipeline__4.0.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/4.2.4/dragen-wts-qc-pipeline__4.2.4.md)  
 
 
 ### tabix-workflow
@@ -876,6 +909,8 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
+- [3.9.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.md)  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md)  
 
 
 ### illumina-interop-qc
@@ -890,4 +925,11 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [0.4.5](.github/catalogue/docs/workflows/rnasum-pipeline/0.4.5/rnasum-pipeline__0.4.5.md)  
+
+
+### bclconvert-interop-qc
+
+#### Versions
+  
+- [1.3.1--1.19](.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.md)  
 

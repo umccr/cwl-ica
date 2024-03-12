@@ -25,7 +25,7 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/flatten-array-fastq-list__1.0.0.cwl
-        md5sum: 9ab47e6cf8399450acdf8d00493db458
+        md5sum: 281a98ea2191d72635e891f5a044983a
     categories: []
   - name: parse-int-array
     path: parse-int-array
@@ -53,7 +53,7 @@ expressions:
     versions:
       - name: 1.0.0
         path: 1.0.0/get-compressed-vcf-file-from-directory__1.0.0.cwl
-        md5sum: 9bf177a6424362a27ea4a4d1d1392de0
+        md5sum: 3a1abadef3ef578b7084e4d83fe19396
     categories: []
   - name: get-custom-output-dir-entry-for-tso500-post-processing
     path: get-custom-output-dir-entry-for-tso500-post-processing
@@ -63,7 +63,7 @@ expressions:
         md5sum: e855f43c0ce730dc46b4d3342778c70c
       - name: 2.0.1
         path: 2.0.1/get-custom-output-dir-entry-for-tso500-post-processing__2.0.1.cwl
-        md5sum: 3a90aba2ecfeaa0f4dbe608c718e4837
+        md5sum: 86dc48bd0cc4ad424a6b14fc1da38ceb
     categories: []
   - name: get-bam-file-from-directory
     path: get-bam-file-from-directory
@@ -76,10 +76,12 @@ expressions:
     path: create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema
     versions:
       - name: 1.2.1--0
-        path: 1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.cwl
+        path: 
+            1.2.1--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.1--0.cwl
         md5sum: 257bd0a46e5cba8597ba9d1d21b8f553
       - name: 1.2.2--0
-        path: 1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.cwl
+        path: 
+            1.2.2--0/create-predefined-mount-paths-and-umccrise-row-from-umccrise-schema__1.2.2--0.cwl
         md5sum: 8ec5082ca21d37152c5216a69168f33e
     categories: []
   - name: get-custom-output-dir-entry-for-tso500-with-post-processing

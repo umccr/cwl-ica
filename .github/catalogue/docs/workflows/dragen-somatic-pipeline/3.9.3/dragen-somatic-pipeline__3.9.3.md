@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: bf93f4862c24e9cd88e2d542aeb0a986
+> md5sum: b40e0e4027e623a8e218effbc64f014f
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -53,6 +53,19 @@ More information on the documentation can be found [here](https://support-docs.i
 
 
 ## dragen-somatic-pipeline v(3.9.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the variant calling stage
+
 
 ### cnv normal b allele vcf
 
@@ -204,6 +217,20 @@ Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input AND tumor_bam_input
+
+
 ### enable map align output
 
 
@@ -231,6 +258,19 @@ running the variant caller.
 **Type:** `boolean`  
 **Docs:**  
 Set this option for running RNA samples through T/N workflow
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
 
 
 ### enable sv
@@ -692,6 +732,19 @@ from the TMB calculation. The default value is 10.
 **Docs:**  
 Specify the minimum VAF threshold for a variant. Variants that do not meet the threshold are filtered out.
 The default value is 0.05.
+
+
+### tumor bam input
+
+
+
+  
+> ID: tumor_bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the variant calling stage
 
 
 ### tumor fastq list
@@ -2221,7 +2274,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--3b07571  
+**wfl version name:** 3.9.3--6eacfb8  
 
   
 

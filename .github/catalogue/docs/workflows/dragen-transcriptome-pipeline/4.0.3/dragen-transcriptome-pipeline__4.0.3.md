@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.0.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.0.3  
-> md5sum: 1b251be68c64dc599d2bcd1af937e18f
+> md5sum: 92141db0926af11797562d4f6593bf29
 
 ### dragen-transcriptome-pipeline v(4.0.3) documentation
   
@@ -77,6 +77,19 @@ uniquely-mapped-reads(default) or proportional.
 **Type:** `File`  
 **Docs:**  
 Path to annotation transcript file.
+
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for WTS analysis
 
 
 ### blacklist
@@ -145,6 +158,20 @@ Coordinates of the Giemsa staining bands.
 Mark identical alignments as duplicates
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default.
+Set this value to false if using bam_input AND tumor_bam_input
+
+
 ### enable map align output
 
 
@@ -182,6 +209,19 @@ Optional - Enable the DRAGEN Gene Fusion module - defaults to true
 **Type:** `boolean`  
 **Docs:**  
 Optional - Enable the quantification module - defaults to true
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input as input parameter
 
 
 ### fastq list
@@ -545,6 +585,7 @@ The output directory containing all transcriptome output files
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -555,6 +596,16 @@ The output directory containing all transcriptome output files
   
 **workflow name:** dragen-transcriptome-pipeline_dev-wf  
 **wfl version name:** 4.0.3  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.7e5ba7470b5549a6b4bf6d95daaa1214  
+
+  
+**workflow name:** dragen-transcriptome-pipeline_prod-wf  
+**wfl version name:** 4.0.3--ad23456  
 
   
 

@@ -19,7 +19,7 @@ bclconvert 4.0.3 workflow
 
   
 > ID: bclconvert--4.0.3  
-> md5sum: 4a8e2e842cb57b4a1c9159d545075192
+> md5sum: 0512a80d9af5de59feb06ab26b2b7ee4
 
 ### bclconvert v(4.0.3) documentation
   

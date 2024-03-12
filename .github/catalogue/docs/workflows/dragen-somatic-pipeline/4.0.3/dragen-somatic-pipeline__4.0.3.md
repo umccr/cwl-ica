@@ -19,7 +19,7 @@ dragen-somatic-pipeline 4.0.3 workflow
 
   
 > ID: dragen-somatic-pipeline--4.0.3  
-> md5sum: 9b6e727965b6c5de356f71b155c505d8
+> md5sum: e4aafa3571670924bbdbe4dd40b2d40a
 
 ### dragen-somatic-pipeline v(4.0.3) documentation
   
@@ -49,6 +49,19 @@ Documentation for dragen-somatic-pipeline v4.0.3
 
 
 ## dragen-somatic-pipeline v(4.0.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the variant calling stage
+
 
 ### cnv enable self normalization
 
@@ -228,6 +241,20 @@ Set to true to enable HRD scoring to quantify genomic instability.
 Requires somatic CNV calls.
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input AND tumor_bam_input
+
+
 ### enable map align output
 
 
@@ -255,6 +282,19 @@ running the variant caller.
 **Type:** `boolean`  
 **Docs:**  
 Set this option for running RNA samples through T/N workflow
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
 
 
 ### enable sv
@@ -754,6 +794,19 @@ Specify the minimum VAF threshold for a variant. Variants that do not meet the t
 The default value is 0.05.
 
 
+### tumor bam input
+
+
+
+  
+> ID: tumor_bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the variant calling stage
+
+
 ### tumor fastq list
 
 
@@ -1065,7 +1118,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f08321f6170>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7efd0a21c3d0>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 
@@ -1466,6 +1519,7 @@ Bam file of the tumor sample
 ### ToC
   
 - [development_workflows](#project-development_workflows)  
+- [production_workflows](#project-production_workflows)  
 
 
 ### Project: development_workflows
@@ -1476,6 +1530,16 @@ Bam file of the tumor sample
   
 **workflow name:** dragen-somatic-pipeline_dev-wf  
 **wfl version name:** 4.0.3  
+
+
+### Project: production_workflows
+
+
+> wfl id: wfl.aa0ccece4e004839aa7374d1d6530633  
+
+  
+**workflow name:** dragen-somatic-pipeline_prod-wf  
+**wfl version name:** 4.0.3--fa8ef7c  
 
   
 

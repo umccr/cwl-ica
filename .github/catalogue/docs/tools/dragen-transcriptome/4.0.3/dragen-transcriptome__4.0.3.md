@@ -17,7 +17,7 @@ dragen-transcriptome 4.0.3 tool
 
   
 > ID: dragen-transcriptome--4.0.3  
-> md5sum: 144d8b67af507e4f6b6756f8bfe899b1
+> md5sum: 0062f8a909ff6eb95eee955e250bab46
 
 ### dragen-transcriptome v(4.0.3) documentation
   
@@ -54,6 +54,19 @@ Documentation for dragen-transcriptome v4.0.3
 Path to annotation transcript file.
 
 
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the Dragen RNA options
+
+
 ### enable duplicate marking
 
 
@@ -65,6 +78,20 @@ Path to annotation transcript file.
 **Type:** `boolean`  
 **Docs:**  
 Mark identical alignments as duplicates
+
+
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default.
+Set this value to false if using bam_input
 
 
 ### enable map align output
@@ -117,6 +144,19 @@ Enable the quantification module. The default value is true.
 **Type:** `boolean`  
 **Docs:**  
 Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameters
 
 
 ### fastq list

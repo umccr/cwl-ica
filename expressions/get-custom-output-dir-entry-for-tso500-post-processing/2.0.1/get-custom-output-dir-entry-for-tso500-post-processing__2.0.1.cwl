@@ -123,6 +123,11 @@ inputs:
     doc: |
       Compressed dragen metrics file
     type: File
+  cnv_caller_bin_counts_compressed_json_file:
+    label: cnv caller counts compressed json file
+    doc: |
+      Compressed bin counts file
+    type: File
   fusion_csv:
     label: fusion csv
     doc: |
@@ -131,6 +136,16 @@ inputs:
   # Type 3 inputs
   vcf_tarball:
     label: vcf tarball
+    doc: |
+      The tarball of vcf files
+    type: File
+  decompressed_metrics_tarball:
+    label: decompressed metrics tarball
+    doc: |
+      The tarball of vcf files
+    type: File
+  decompressed_cnv_caller_bin_counts_tarball:
+    label: cnv caller bin counts tarball
     doc: |
       The tarball of vcf files
     type: File
@@ -163,57 +178,99 @@ outputs:
 expression: >-
   ${
     return {
-            "tso500_output_dir_entry_list": [
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.multiqc_dir, 
-                                                                           null, 
-                                                                           inputs.multiqc_dir.basename, 
-                                                                           "sub_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.align_collapse_fusion_caller_dir,
-                                                                           [
-                                                                             inputs.sample_id + ".bam",
-                                                                             inputs.sample_id + ".bam.bai",
-                                                                             inputs.sample_id + ".bam.md5sum",
-                                                                             "evidence." + inputs.sample_id + ".bam",
-                                                                             "evidence." + inputs.sample_id + ".bam.bai"
-                                                                           ],
-                                                                           null,
-                                                                           "top_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.combined_variant_output_dir,
-                                                                           [
-                                                                             inputs.sample_id + "_CombinedVariantOutput.tsv"
-                                                                           ],
-                                                                           null,
-                                                                           "top_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.merged_annotation_dir,
-                                                                           [
-                                                                             inputs.sample_id + "_MergedSmallVariantsAnnotated.json.gz",
-                                                                             inputs.sample_id + "_MergedSmallVariantsAnnotated.json.gz.jsi"
-                                                                           ],
-                                                                           null,
-                                                                           "top_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.tmb_dir,
-                                                                           [
-                                                                             inputs.sample_id + "_TMB_Trace.tsv"
-                                                                           ],
-                                                                           null,
-                                                                           "top_dir"),
-              get_custom_output_dir_entry_from_directory_and_file_str_list(inputs.variant_caller_dir,
-                                                                           [
-                                                                             inputs.sample_id + ".cleaned.stitched.bam",
-                                                                             inputs.sample_id + ".cleaned.stitched.bam.bai"
-                                                                           ],
-                                                                           null,
-                                                                           "top_dir"),
-              get_custom_output_dir_entry_from_file_list([
-                                                           inputs.coverage_qc_file,
-                                                           inputs.dragen_metrics_compressed_json_file,
-                                                           inputs.fusion_csv
-                                                         ],
-                                                         null,
-                                                         "top_dir"),
-              get_custom_output_dir_entry_from_tarball(inputs.vcf_tarball, null, null, "top_dir"),
-              get_custom_output_dir_entry_from_tarball(inputs.compressed_metrics_tarball, null, null, "top_dir"),
-              get_custom_output_dir_entry_from_tarball(inputs.compressed_reporting_tarball, null, null, "top_dir")
-           ]
+      "tso500_output_dir_entry_list": [
+        get_custom_output_dir_entry_from_directory_and_file_str_list(
+          inputs.multiqc_dir, 
+          null, 
+          inputs.multiqc_dir.basename, 
+          "sub_dir"
+        ),
+        get_custom_output_dir_entry_from_directory_and_file_str_list(
+          inputs.align_collapse_fusion_caller_dir,
+          [
+            inputs.sample_id + ".bam",
+            inputs.sample_id + ".bam.bai",
+            inputs.sample_id + ".bam.md5sum",
+            "evidence." + inputs.sample_id + ".bam",
+            "evidence." + inputs.sample_id + ".bam.bai"
+          ],
+          null,
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_directory_and_file_str_list(
+          inputs.combined_variant_output_dir,
+          [
+            inputs.sample_id + "_CombinedVariantOutput.tsv"
+          ],
+          null,
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_directory_and_file_str_list(
+          inputs.merged_annotation_dir,
+          [
+            inputs.sample_id + "_MergedSmallVariantsAnnotated.json.gz",
+            inputs.sample_id + "_MergedSmallVariantsAnnotated.json.gz.jsi"
+          ],
+          null,
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_directory_and_file_str_list(
+          inputs.tmb_dir,
+          [
+            inputs.sample_id + "_TMB_Trace.tsv"
+          ],
+          null,
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_directory_and_file_str_list(
+          inputs.variant_caller_dir,
+          [
+            inputs.sample_id + ".cleaned.stitched.bam",
+            inputs.sample_id + ".cleaned.stitched.bam.bai"
+          ],
+          null,
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_file_list(
+          [
+            inputs.coverage_qc_file,
+            inputs.dragen_metrics_compressed_json_file,
+            inputs.cnv_caller_bin_counts_compressed_json_file,
+            inputs.fusion_csv
+          ],
+          null,
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_tarball(
+          inputs.vcf_tarball,
+          null,
+          null,
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_tarball(
+          inputs.decompressed_metrics_tarball, 
+          null, 
+          null, 
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_tarball(
+          inputs.decompressed_cnv_caller_bin_counts_tarball, 
+          null, 
+          null, 
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_tarball(
+          inputs.compressed_metrics_tarball, 
+          null, 
+          null, 
+          "top_dir"
+        ),
+        get_custom_output_dir_entry_from_tarball(
+          inputs.compressed_reporting_tarball, 
+          null, 
+          null, 
+          "top_dir"
+        )
+     ]
     };
   }

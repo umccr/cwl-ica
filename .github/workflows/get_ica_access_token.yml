@@ -1,0 +1,105 @@
+name: get-encrypted-ica-access-token
+
+on:
+  workflow_call:
+    inputs:
+      role_to_assume_arn:
+        required: true
+        type: string
+      secret_arn:
+        required: true
+        type: string
+      project_id:
+        required: true
+        type: string
+      aws_region:
+        required: true
+        type: string
+      branch_name:
+        required: true
+        type: string
+    secrets:
+      symmetrical_encryption_key:
+        required: true
+
+    outputs:
+      ica_access_token_encrypted:
+        description: the ica project access token (encrypted with the symmetrical encryption key)
+        value: ${{ jobs.get_token.outputs.ica_access_token_encrypted }}
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+jobs:
+  get_token:
+    name: get-token
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      # Configure creds
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ inputs.role_to_assume_arn }}
+          aws-region: ${{ inputs.AWS_REGION }}
+
+      # Retrieve JSON secret (must parse out as json)
+      - name: Retrieve Secret
+        uses: aws-actions/aws-secretsmanager-get-secrets@v2
+        with:
+          secret-ids: |
+            ${{ inputs.secret_arn }}
+          parse-json-secrets: true
+
+      # Get env var for secret
+      # SECRET will be set as env var 'ICASECRETSWORKFLOW_PROJECT_ID'
+      - id: get_env_var_for_secret
+        name: Get Env var for secret
+        run: |
+          project_id="${{ inputs.project_id }}"
+          project_id_sanitised="${project_id//-/_}"
+          project_id_sanitised_upper="${project_id_sanitised^^}"
+          
+          # If the project id starts with a number, then an additional underscore is added to the variable name
+          if [[ "${project_id_sanitised_upper}" =~ ^[0-9].* ]]; then 
+            echo "secret_env_var=ICASECRETSWORKFLOW__${project_id_sanitised_upper}" >> "${GITHUB_OUTPUT}" 
+          else
+            echo "secret_env_var=ICASECRETSWORKFLOW_${project_id_sanitised_upper}" >> "${GITHUB_OUTPUT}"
+          fi
+
+      # Set as ICA_ACCESS_TOKEN instead and add mask
+      - id: collect_ica_access_token_from_env_var
+        name: Collect ICA Access Token from Env Var
+        run: |          
+          # Assign access token to secret 
+          ica_access_token="${{ env[ format('{0}', steps.get_env_var_for_secret.outputs.secret_env_var)] }}"
+                    
+          # Add to outputs 
+          echo "ica_access_token=${ica_access_token}" >> "${GITHUB_OUTPUT}"
+          
+          # Add mask
+          echo "::add-mask::${ica_access_token}"
+
+      # Checkout branch
+      - name: Checkout code
+        id: git_checkout
+        uses: actions/checkout@v4
+        with:
+          # Otherwise we're just in a detached head state
+          ref: ${{ inputs.branch_name }}
+
+      # Encrypt token
+      - id: encrypt_access_token
+        name: Encrypt Access Token
+        uses: ./.github/actions/encrypt_token
+        with:
+          decrypted_token: ${{ steps.collect_ica_access_token_from_env_var.outputs.ica_access_token }}
+          encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
+
+    # Outputs
+    # Just the encrypted token
+    outputs:
+      ica_access_token_encrypted: ${{ steps.encrypt_access_token.outputs.encrypted_token }}

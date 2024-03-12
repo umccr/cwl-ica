@@ -17,7 +17,7 @@ umccrise 2.2.1--0 tool
 
   
 > ID: umccrise--2.2.1--0  
-> md5sum: bf117cdda26ddb7e9f08f724820233d9
+> md5sum: 99ea4abf0c0920c7a0535924920553be
 
 ### umccrise v(2.2.1--0) documentation
   
@@ -34,12 +34,26 @@ Documentation for umccrise v2.2.1--0
 
 ### Used By
   
+- [umccrise-pipeline 2.2.1--0](../../../workflows/umccrise-pipeline/2.2.1--0/umccrise-pipeline__2.2.1--0.md)  
 - [umccrise-with-dragen-germline-pipeline 2.2.1--3.9.3](../../../workflows/umccrise-with-dragen-germline-pipeline/2.2.1--3.9.3/umccrise-with-dragen-germline-pipeline__2.2.1--3.9.3.md)  
 
   
 
 
 ## umccrise v(2.2.1--0) Inputs
+
+### debug
+
+
+
+  
+> ID: debug
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Copy workspace to output directory if workflow fails
+
 
 ### dragen germline directory
 
@@ -61,7 +75,7 @@ The dragen germline directory
   
 > ID: dragen_normal_id
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 The name of the dragen normal sample
@@ -87,10 +101,36 @@ The dragen somatic directory
   
 > ID: dragen_tumor_id
   
-**Optional:** `False`  
+**Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
 The name of the dragen tumor sample
+
+
+### dry run
+
+
+
+  
+> ID: dry_run
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Prints rules and commands to be run without actually executing them
+
+
+### Exclude stages
+
+
+
+  
+> ID: exclude_stages
+  
+**Optional:** `True`  
+**Type:** `.[]`  
+**Docs:**  
+Stages to exclude
 
 
 ### genomes tar
@@ -106,6 +146,19 @@ The name of the dragen tumor sample
 The reference umccrise tarball
 
 
+### include stage
+
+
+
+  
+> ID: include_stage
+  
+**Optional:** `True`  
+**Type:** `.[]`  
+**Docs:**  
+Optionally, specify stage(s) to run
+
+
 ### output directory name
 
 
@@ -117,6 +170,19 @@ The reference umccrise tarball
 **Type:** `string`  
 **Docs:**  
 The name of the output directory
+
+
+### skip stage
+
+
+
+  
+> ID: skip_stage
+  
+**Optional:** `True`  
+**Type:** `.[]`  
+**Docs:**  
+Runs all default stage(s) excluding the one selected
 
 
 ### subject identifier
@@ -191,7 +257,7 @@ The output directory containing the umccrise data
 
   
 **workflow name:** umccrise_prod-wf  
-**wfl version name:** 2.2.1--0--052b3fa  
+**wfl version name:** 2.2.1--0--3fc7b5e  
 
   
 

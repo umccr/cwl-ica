@@ -4,7 +4,7 @@ schemas:
     versions:
       - name: 1.0.0
         path: 1.0.0/fastq-list-row__1.0.0.yaml
-        md5sum: d2fd880cd942955394f66dc249b6bfe2
+        md5sum: ee64f93cacb7e31545ba1770ee7cebaa
     categories: []
   - name: contig
     path: contig

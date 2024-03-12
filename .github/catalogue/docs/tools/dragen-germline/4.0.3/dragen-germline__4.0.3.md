@@ -17,7 +17,7 @@ dragen-germline 4.0.3 tool
 
   
 > ID: dragen-germline--4.0.3  
-> md5sum: 69b0cc54f27474ad351b17396fdc0672
+> md5sum: 1880b4cd0ced94bdae9c7e8dbe549b9a
 
 ### dragen-germline v(4.0.3) documentation
   
@@ -41,6 +41,19 @@ Documentation for dragen-germline v4.0.3
 
 
 ## dragen-germline v(4.0.3) Inputs
+
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal BAM file for the variant calling stage
+
 
 ### cnv enable self normalization
 
@@ -125,6 +138,20 @@ Mark identical alignments as duplicates
 Enable HLA typing by setting --enable-hla flag to true
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
+
+
 ### enable map align output
 
 
@@ -136,6 +163,19 @@ Enable HLA typing by setting --enable-hla flag to true
 **Type:** `boolean`  
 **Docs:**  
 Do you wish to have the output bam files present
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameter
 
 
 ### enable sv

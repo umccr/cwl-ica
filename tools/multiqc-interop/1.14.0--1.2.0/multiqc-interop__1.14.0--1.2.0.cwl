@@ -4,7 +4,7 @@ class: CommandLineTool
 # Extensions
 $namespaces:
     s: https://schema.org/
-    ilmn-tes: http://platform.illumina.com/rdf/ica/
+    ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
@@ -62,10 +62,15 @@ requirements:
 
           # Now run multiqc
           echo "Running multiqc" 1>&2
-          eval multiqc --module interop '"\${@}"' interop_summary.csv interop_index-summary.csv
+          multiqc "\${@}" interop_summary.csv interop_index-summary.csv
 
 
 baseCommand: ["bash", "run_multiqc_interop.sh"]
+
+arguments:
+  - position: -1
+    prefix: "--module"
+    valueFrom: "interop"
 
 inputs:
   # Required inputs

@@ -51,10 +51,15 @@ requirements:
           cp "$(inputs.vcf_file.path)" "$(inputs.vcf_file.basename)"
 
           # Run tabix
-          tabix -p vcf "$(inputs.vcf_file.basename)"
+          tabix "\${@}"
 
 
 baseCommand: ["bash", "create_index.sh"]
+
+arguments:
+  - position: -1
+    prefix: "-p"
+    valueFrom: "vcf"
 
 inputs:
   vcf_file:
@@ -62,6 +67,11 @@ inputs:
     doc: |
       The input vcf file to be indexed
     type: File
+    inputBinding:
+      valueFrom: |
+        ${
+          return self.basename
+        }
 
 outputs:
   vcf_file_indexed:

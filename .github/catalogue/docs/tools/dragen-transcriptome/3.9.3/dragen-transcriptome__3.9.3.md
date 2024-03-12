@@ -17,7 +17,7 @@ dragen-transcriptome 3.9.3 tool
 
   
 > ID: dragen-transcriptome--3.9.3  
-> md5sum: fe9247d00dcd817a922167fc2eb8c3c6
+> md5sum: a542a746fdfce87f9f96dbe162e57337
 
 ### dragen-transcriptome v(3.9.3) documentation
   
@@ -55,6 +55,19 @@ Documentation for dragen-transcriptome v3.9.3
 Path to annotation transcript file.
 
 
+### bam input
+
+
+
+  
+> ID: bam_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a BAM file for the Dragen RNA options
+
+
 ### enable duplicate marking
 
 
@@ -66,6 +79,20 @@ Path to annotation transcript file.
 **Type:** `boolean`  
 **Docs:**  
 Mark identical alignments as duplicates
+
+
+### enable map align
+
+
+
+  
+> ID: enable_map_align
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default.
+Set this value to false if using bam_input
 
 
 ### enable map align output
@@ -118,6 +145,19 @@ Enable the quantification module. The default value is true.
 **Type:** `boolean`  
 **Docs:**  
 Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.
+
+
+### enable sort
+
+
+
+  
+> ID: enable_sort
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameters
 
 
 ### fastq list
@@ -188,6 +228,21 @@ The directory where all output files are placed.
 The prefix given to all output files.
 
 
+### read trimming
+
+
+
+  
+> ID: read_trimmers
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+To enable trimming filters in hard-trimming mode, set to a comma-separated list of the trimmer tools 
+you would like to use. To disable trimming, set to none. During mapping, artifacts are removed from all reads.
+Read trimming is disabled by default.
+
+
 ### reference tar
 
 
@@ -212,6 +267,140 @@ Path to ref data tarball.
 **Type:** `string`  
 **Docs:**  
 Specify the name of the rRNA sequences to use for filtering.
+
+
+### soft read trimming
+
+
+
+  
+> ID: soft_read_trimmers
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+To enable trimming filters in soft-trimming mode, set to a comma-separated list of the trimmer tools 
+you would like to use. To disable soft trimming, set to none. During mapping, reads are aligned as if trimmed,
+and bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.
+
+
+### trim adapter r1 5prime
+
+
+
+  
+> ID: trim_adapter_r1_5prime
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1. 
+NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+
+
+### trim adapter r2 5prime
+
+
+
+  
+> ID: trim_adapter_r2_5prime
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
+NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+
+
+### trim adapter read1
+
+
+
+  
+> ID: trim_adapter_read1
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.
+
+
+### trim adapter read2
+
+
+
+  
+> ID: trim_adapter_read2
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.
+
+
+### trim adapter stringency
+
+
+
+  
+> ID: trim_adapter_stringency
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of adapter bases required for trimming
+
+
+### trim r1 3prime
+
+
+
+  
+> ID: trim_r1_3prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 3' end of Read 1 (default: 0).
+
+
+### trim r1 5prime
+
+
+
+  
+> ID: trim_r1_5prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 5' end of Read 1 (default: 0).
+
+
+### trim r2 3prime
+
+
+
+  
+> ID: trim_r2_3prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 3' end of Read 2 (default: 0).
+
+
+### trim r2 5prime
+
+
+
+  
+> ID: trim_r2_5prime
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 0).
 
   
 

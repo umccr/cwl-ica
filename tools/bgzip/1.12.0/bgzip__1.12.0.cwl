@@ -60,7 +60,7 @@ requirements:
           cp "$(inputs.uncompressed_vcf_file.path)" "$(inputs.uncompressed_vcf_file.basename)"
 
           # Perform bgzip
-          eval bgzip '"\${@}"'
+          bgzip "\${@}"
 
 baseCommand: [ "bash", "run_bgzip.sh" ]
 

@@ -52,6 +52,12 @@ if [[ ! -v GITHUB_TAG ]]; then
   exit 1
 fi
 
+# Set home directory
+if [[ -z "${HOME-}" || "${HOME-}" == "/" ]]; then
+  HOME="$(mktemp -d)"
+  export HOME
+fi
+
 # Set conda envs
 CONDA_ENVS_PATH="$(mktemp -d)"
 export CONDA_ENVS_PATH
@@ -64,6 +70,8 @@ for env_name in "${ENVS_LIST[@]}"; do
     "${CONDA_ENVS_PATH}/${env_name}"
 done
 
+# Set ICAV2 CLI PLUGINS
+export ICAV2_CLI_PLUGINS_HOME="/home/cwl_ica_user/.icav2-cli-plugins"
 
 # Get args
 

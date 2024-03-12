@@ -16,7 +16,7 @@ get-compressed-vcf-file-from-directory 1.0.0 expression
 
   
 > ID: get-compresed-vcf-file-from-directory--1.0.0  
-> md5sum: 9bf177a6424362a27ea4a4d1d1392de0
+> md5sum: 3a1abadef3ef578b7084e4d83fe19396
 
 ### get-compresed-vcf-file-from-directory v(1.0.0) documentation
   

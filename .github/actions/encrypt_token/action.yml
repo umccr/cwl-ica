@@ -1,0 +1,29 @@
+name: encrypt token
+description: Encrypt access token
+
+inputs:
+  decrypted_token:  # id of input
+    description: Token to encrypt
+    required: true
+  encryption_key:
+    description: Key to encrypt token
+    required: true
+
+outputs:
+  encrypted_token:
+    description: "Encrypted access token"
+    value: ${{ steps.encrypt_token.outputs.encrypted_token }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: encrypt_token
+      shell: bash
+      run: |
+        encrypted_token="$( \
+          gpg --symmetric --batch \
+            --passphrase "${{ inputs.encryption_key }}" \
+            --output - <<< "${{ inputs.decrypted_token }}" | \
+          base64 --wrap 0 \
+        )" 
+        echo "encrypted_token=${encrypted_token}" >> "${GITHUB_OUTPUT}"

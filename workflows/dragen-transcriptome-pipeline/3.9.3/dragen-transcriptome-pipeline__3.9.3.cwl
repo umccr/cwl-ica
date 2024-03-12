@@ -22,7 +22,9 @@ doc: |
   More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v39/Content/SW/DRAGEN/TPipelineIntro_fDG.htm)
 
 requirements:
-    InlineJavascriptRequirement: {}
+    InlineJavascriptRequirement:
+      expressionLib:
+      - $include: ../../../typescript-expressions/multiqc-tools/1.0.0/multiqc-tools__1.0.0.cwljs
     ScatterFeatureRequirement: {}
     MultipleInputFeatureRequirement: {}
     StepInputExpressionRequirement: {}
@@ -88,6 +90,48 @@ inputs:
     type: boolean?
     doc: |
       Optional - Enable the quantification module - defaults to true
+  # Read trimming options
+  read_trimmers:
+    label: read trimming
+    type: string?
+    doc: |
+      To enable trimming filters in hard-trimming mode, set to a comma-separated list of the trimmer tools 
+      you would like to use. To disable trimming, set to none. During mapping, artifacts are removed from all reads.
+      Read trimming is disabled by default.
+  soft_read_trimmers:
+    label: soft read trimming
+    type: string?
+    doc: |
+      To enable trimming filters in soft-trimming mode, set to a comma-separated list of the trimmer tools 
+      you would like to use. To disable soft trimming, set to none. During mapping, reads are aligned as if trimmed,
+      and bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.
+  trim_adapter_read1:
+    label: trim adapter read1
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.
+  trim_adapter_read2:
+    label: trim adapter read2
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.
+  trim_adapter_r1_5prime:
+    label: trim adapter r1 5prime
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1. 
+      NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+  trim_dapter_r2_5prime:
+    label: trim adapter r2 5prime
+    type: File?
+    doc: |
+      Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
+      NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+  trim_adapter_stringency:
+    label: trim adapter stringency
+    type: int?
+    doc: |
+      Specify the minimum number of adapter bases required for trimming
   # Fusion calling options
   enable_rna_gene_fusion:
     label: enable rna gene fusion
@@ -131,7 +175,7 @@ inputs:
     type: string
     doc: |
       Set desired Java heap memory size
-    default: "96G"
+    default: "20G"
   tmp_dir:
     label: tmp dir
     type: string?
@@ -205,6 +249,20 @@ steps:
         source: enable_rna_quantification
       enable_rna_gene_fusion:
         source: enable_rna_gene_fusion
+      read_trimmers:
+        source: read_trimmers
+      soft_read_trimmers:
+        source: soft_read_trimmers
+      trim_adapter_read1:
+        source: trim_adapter_read1
+      trim_adapter_read2:
+        source: trim_adapter_read2
+      trim_adapter_r1_5prime:
+        source: trim_adapter_r1_5prime
+      trim_dapter_r2_5prime:
+        source: trim_dapter_r2_5prime
+      trim_adapter_stringency:
+        source: trim_adapter_stringency
       lic_instance_id_location:
         source: lic_instance_id_location
     out:
@@ -321,7 +379,13 @@ steps:
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
       cl_config:
-        source: cl_config
+        source:
+          - cl_config
+          - output_file_prefix
+        valueFrom: |
+          ${
+            return add_sample_to_sample_name_replace_in_multiqc_cl_config(self[0], self[1] + "_qualimap", self[1]);
+          }
     out:
       - id: output_directory
       - id: output_file

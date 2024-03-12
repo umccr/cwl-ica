@@ -25,7 +25,8 @@ doc: |
   More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/SomaticMode.htm).
 
 
-# ILMN Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
+# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
     ResourceRequirement:
         ilmn-tes:resources/tier: standard
@@ -52,19 +53,16 @@ requirements:
 
           # Fail on non-zero exit of subshell
           set -euo pipefail
-
+      
           # Confirm not both fastq_list and fastq_list_rows are defined
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" && "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
-            echo "Cannot set both CWL inputs fastq_list AND fastq_list_rows for normal sample" 1>&2
+          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -gt "1" ]]; then
+            echo "Please set no more than one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
             exit 1
           fi
 
           # Ensure that at least one of tumor_fastq_list and tumor_fastq_list_rows are defined but not both defined (XOR)
-          if [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "One of inputs tumor_fastq_list OR inputs.tumor_fastq_list_rows must be defined" 1>&2
-              exit 1
-          elif [[ "$(is_not_null(inputs.tumor_fastq_list))" == "false" && "$(is_not_null(inputs.tumor_fastq_list_rows))" == "false" ]]; then
-              echo "Cannot set both CWL inputs tumor_fastq_list AND tumor_fastq_list_rows for tumor sample" 1>&2
+          if [[ "$(boolean_to_int(is_not_null(inputs.tumor_fastq_list)) + boolean_to_int(is_not_null(inputs.tumor_fastq_list_rows)) + boolean_to_int(is_not_null(inputs.tumor_bam_input)))" -ne "1" ]]; then
+              echo "One and only one of inputs tumor_fastq_list, inputs.tumor_fastq_list_rows, inputs.tumor_bam_input must be defined" 1>&2
               exit 1
           fi
 
@@ -84,21 +82,112 @@ requirements:
             --directory "$(get_ref_mount())" \\
             --extract \\
             --file "$(inputs.reference_tar.path)"
+          
+          # Check if both bam inputs are set
+          if [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(is_not_null(inputs.tumor_bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" ]]; then
+            echo "More than one bam input is set, need to run enable map align first beforehand then run variant calling in a separate step" 1>&2
+            
+            # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
+            enable_sort_parameter=""
+            enable_duplicate_marking_parameter=""
+            enable_map_align_output_parameter=""
+            dedup_min_qual_parameter=""
+          
+            # Pop arguments
+            # Get args from command line
+            # But capture them again since we need them when we actually run dragen
+            existing_args_array=()
+            while [ $# -gt 0 ]; do
+              case "$1" in
+                --enable-sort=*)
+                  enable_sort_parameter="$1"
+                  ;;
+                --enable-duplicate-marking=*)
+                  enable_duplicate_marking_parameter="\${1}"
+                  ;;
+                --enable-map-align=*)
+                  :  # Just popping from array, we set this by default in these steps but dont want it in final dragen call
+                  ;;
+                --enable-map-align-output=*)
+                  enable_map_align_output_parameter="\${1}"
+                  ;;
+                --dedup-min-qual=*)
+                  dedup_min_qual_parameter="\${1}"
+                  ;;
+                --bam-input=*)
+                  :  # Just popping from array as we set the new location elsewhere
+                  ;;
+                --tumor-bam-input=*)
+                  :  # Just popping from array as we set the new location elsewhere
+                  ;;
+                *)
+                  existing_args_array+=("\${1}")
+              esac
+              shift 1
+            done
+          
+            # Then run dragen map-align and place the files in the output directories
+            # Tumor Then Normal
+            echo "Aligning tumor" 1>&2
+            eval /opt/edico/bin/dragen \\
+              --enable-map-align=true \\
+              "\${enable_sort_parameter}" \\
+              "\${enable_duplicate_marking_parameter}" \\
+              "\${enable_map_align_output_parameter}" \\
+              "\${dedup_min_qual_parameter}" \\
+              "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
+              "--output-directory=$(inputs.output_directory)" \\
+              "--output-file-prefix=$(inputs.output_file_prefix)" \\
+              "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--tumor-bam-input=$(get_attribute_from_optional_input(inputs.tumor_bam_input, "path"))"
+
+            echo "Aligning normal" 1>&2
+            eval /opt/edico/bin/dragen \\
+              --enable-map-align=true \\
+              "\${enable_sort_parameter}" \\
+              "\${enable_duplicate_marking_parameter}" \\
+              "\${enable_map_align_output_parameter}" \\
+              "\${dedup_min_qual_parameter}" \\
+              "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
+              "--output-directory=$(inputs.output_directory)" \\
+              "--output-file-prefix=$(inputs.output_file_prefix)" \\
+              "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--bam-input=$(get_attribute_from_optional_input(inputs.bam_input, "path"))"
+            
+          
+            # Pop back in existing arguments into \${@}
+            for existing_arg in "\${existing_args_array[@]}"; do
+               set -- "\${@}" "\${existing_arg}"
+            done
+          
+            # Update bam input and tumor bam input parameters
+            set -- "\${@}" "--bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
+            set -- "\${@}" "--tumor-bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam"
+            
+            # Explicity set enable map align to false
+            set -- "\${@}" "--enable-map-align=false"
+          fi
 
           # Run dragen command and import options from cli
+          echo "Running dragen variant calling" 1>&2
           $(get_dragen_eval_line())
 
           # Check if fastq_list or fastq_list_rows is set
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" ]] || [[ "$(is_not_null(inputs.fastq_list_rows))" == "true" ]]; then
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
             # Check if --enable-map-align-output is set
             if [[ ! "$(get_bool_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
               echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
               echo "Exiting" 1>&2
               exit
+            # Check if --enable-map-align is not set AND using inputs.bam_input
+            elif [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "false" ]]; then
+              echo "--enable-map-align-output set to true, but using --bam-input AND --enable-map-align set to false so no bam is output, hence no need to move the normal bam file" 1>&2
+              echo "Exiting" 1>&2
+              exit
             fi
 
             # Ensure that we have a normal RGSM value, otherwise exit.
-            if [[ -z "$(get_bool_value_as_str(get_normal_name_from_fastq_list_csv()))" ]]; then
+            if [[ "$(is_not_null(get_normal_output_prefix(inputs)))" == "false" ]]; then
               echo "Could not get the normal bam file prefix" 1>&2
               echo "Exiting" 1>&2
               exit
@@ -108,7 +197,7 @@ requirements:
             new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
 
             # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-            if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]] ; then
+            if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
               # Move normal bam, normal bam index and normal bam md5sum
               (
                 cd "$(inputs.output_directory)"
@@ -117,6 +206,12 @@ requirements:
                 mv "$(inputs.output_file_prefix).bam.md5sum" "\${new_normal_file_name_prefix}.bam.md5sum"
               )
             fi
+          fi
+          
+          # If --enable-sv has been selected, we need to remove the empty genomeDepth directory 
+          # https://github.com/umccr-illumina/ica_v2/issues/131
+          if [[ "$(is_not_null(inputs.enable_sv))" == "true" && "$(get_bool_value_as_str(inputs.enable_sv))" == "true" && -d "$(inputs.output_directory)/sv/" ]]; then
+            find "$(inputs.output_directory)/sv/" -type d -empty -delete
           fi
       - |
         ${
@@ -181,6 +276,29 @@ inputs:
       prefix: "--tumor-fastq-list="
       separate: False
       valueFrom: "$(get_tumor_fastq_list_csv_path())"
+  # Option 3
+  bam_input:
+    label: bam input
+    doc: |
+      Input a normal BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--bam-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
+  tumor_bam_input:
+    label: tumor bam input
+    doc: |
+      Input a tumor BAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--tumor-bam-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".bai"
+        required: true
   reference_tar:
     label: reference tar
     doc: |
@@ -216,6 +334,25 @@ inputs:
   # --enable-map-align-output to keep bams
   # --enable-duplicate-marking to mark duplicate reads at the same time
   # --enable-sv to enable the structural variant calling step.
+  enable_sort:
+    label: enable sort
+    doc: |
+      True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-sort="
+      separate: False
+      valueFrom: "$(self.toString())"
+  enable_map_align:
+    label: enable map align
+    doc: |
+      Enabled by default since --enable-variant-caller option is set to true.
+      Set this value to false if using bam_input AND tumor_bam_input
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-map-align="
+      separate: False
+      valueFrom: "$(self.toString())"
   enable_map_align_output:
     label: enable map align output
     doc: |

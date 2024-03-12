@@ -46,7 +46,7 @@ requirements:
           set -euo pipefail
 
           # Run the sambamba slice command
-          eval sambamba slice '"\${@}"'
+          sambamba slice "\${@}"
 
           # Index the output file
           sambamba index "$(inputs.output_filename)"
