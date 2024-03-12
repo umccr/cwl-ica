@@ -2,8 +2,10 @@ version: 1.2
 workflows:
   - name: dragen-somatic-with-germline-pipeline__4_2_4
     subclass: CWL
-    primaryDescriptorPath: /.dockstore/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.packed.cwl.json
-    readMePath: /.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md
+    primaryDescriptorPath: 
+      /.dockstore/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md
     authors:
       - name: Alexis Lucattini
         email: Alexis.Lucattini@umccr.org
@@ -11,3 +13,17 @@ workflows:
       tags:
         - dragen-somatic-with-germline-pipeline/4.2.4
         - dragen-somatic-with-germline-pipeline/4.2.4__20231025003000
+  - name: bclconvert-interop-qc_1_3_1-1_19
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - bclconvert-interop-qc/1.3.1--1.19
+        - bclconvert-interop-qc/1.3.1--1.19__20240311075804
+        - bclconvert-interop-qc/1.3.1--1.19__202403122095003
