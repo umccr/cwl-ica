@@ -47,6 +47,12 @@ jobs:
         with:
           text: ${{ steps.get_tag.outputs.tag }}
           regex: '^[A-Za-z0-9-_]+/[0-9]+\.[0-9]+\.[0-9]+(?:--\S+)?(-rc)?$'
+      # Get email and username
+      - name: Get User Configurations
+        id: get_user_configurations
+        run: |
+          echo "user_name=${{ github.actor }}" >> "${GITHUB_OUTPUT}"
+          echo "user_email=${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com" >> "${GITHUB_OUTPUT}"
       # Has regex match
       - name: has regex match
         id: has_regex_match
@@ -92,8 +98,13 @@ jobs:
         run: |
           echo "git_tag=${{ steps.get_tag.outputs.tag }},${{ steps.get_tag.outputs.tag }}__${{ steps.get_date.outputs.date_str }}" >> "${GITHUB_OUTPUT}"
       # Set up complete
+
+    # Set outputs
     outputs:
+      original_tag: ${{ steps.get_tag.outputs.tag }}
       git_tag: ${{ steps.set_git_tag.outputs.git_tag }}
+      user_name: ${{ steps.get_user_configurations.outputs.user_name }}
+      user_email: ${{ steps.get_user_configurations.outputs.user_email }}
       workflow_path: ${{ steps.get_workflow_path.outputs.workflow_path }}
       create_release: ${{ steps.has_regex_match.outputs.create_release }}
       is_prerelease: ${{ steps.has_regex_match.outputs.is_prerelease }}
@@ -143,8 +154,8 @@ jobs:
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
             --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \
             --env GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}" \
-            --env _GIT_AUTHOR_NAME="${{ github.actor }}" \
-            --env _GIT_AUTHOR_EMAIL="${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com" \
+            --env _GIT_AUTHOR_NAME="${{ needs.release_asset_precheck.outputs.user_name }}" \
+            --env _GIT_AUTHOR_EMAIL="${{ needs.release_asset_precheck.outputs.user_email }}" \
             --env ICAV2_ACCESS_TOKEN_UMCCR_PROD="${{ steps.decrypt_umccr_prod_icav2_access_token.outputs.decrypted_token }}" \
             ghcr.io/umccr/cwl-ica-cli:latest \
               bash ".github/scripts/create_workflow_release_asset.sh" \

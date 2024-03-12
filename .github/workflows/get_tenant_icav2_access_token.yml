@@ -14,7 +14,7 @@ on:
         required: true
     outputs:
       icav2_access_token_encrypted:
-        description: the tenant access token (encrypted with the symmetical encryption key)
+        description: the tenant access token (encrypted with the symmetrical encryption key)
         value: ${{ jobs.get_token.outputs.icav2_access_token_encrypted }}
 
 permissions:
