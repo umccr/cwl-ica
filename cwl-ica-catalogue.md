@@ -419,6 +419,7 @@ UMCCR CWL-ICA Catalogue
 - [1.14.0](.github/catalogue/docs/tools/multiqc/1.14.0/multiqc__1.14.0.md)  
 - [1.15.0](.github/catalogue/docs/tools/multiqc/1.15.0/multiqc__1.15.0.md)  
 - [1.19.0](.github/catalogue/docs/tools/multiqc/1.19.0/multiqc__1.19.0.md)  
+- [1.21.0](.github/catalogue/docs/tools/multiqc/1.21.0/multiqc__1.21.0.md)  
 
 
 ### dragen-alignment
@@ -932,4 +933,5 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [1.3.1--1.19](.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.md)  
+- [1.3.1--1.21](.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.md)  
 
