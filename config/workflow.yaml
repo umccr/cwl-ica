@@ -283,4 +283,7 @@ workflows:
       - name: 1.3.1--1.19
         path: 1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.cwl
         md5sum: 46af2d9553d8182ec65eaf0db5362890
+      - name: 1.3.1--1.21
+        path: 1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
+        md5sum: 0b3e09b773f9648f73d7a6339c6b1fbf
     categories: []
