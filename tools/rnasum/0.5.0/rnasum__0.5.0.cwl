@@ -74,7 +74,7 @@ inputs:
     type: File?
     inputBinding:
       prefix: "--salmon"
-  arriba_directory:
+  arriba_dir:
     label: arriba directory
     doc: |
       Location of the arriba outputs directory
@@ -171,7 +171,7 @@ inputs:
     inputBinding:
       prefix: "--pcgr_tiers_tsv"
   purple_gene_tsv:
-    label: purple genes tsv
+    label: purple gene tsv
     doc: |
       Location of the tsv output from purple
     type: File?
