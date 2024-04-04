@@ -53,13 +53,27 @@ arguments:
 
 inputs:
   # Input folders
-  dragen_transcriptome_directory:
+  dragen_wts_dir:
     label: dragen transcriptome directory
     doc: |
       Location of the results from Dragen RNA-seq pipeline
     type: Directory?
     inputBinding:
       prefix: "--dragen_wts_dir"
+  dragen_fusions:
+    label: dragen fusions
+    doc: |
+      Location of the fusion output from Dragen RNA-seq pipeline
+    type: File?
+    inputBinding:
+      prefix: "--dragen_fusions"
+  salmon:
+    label: salmom
+    doc: |
+      Location of the quantification output from salmon
+    type: File?
+    inputBinding:
+      prefix: "--salmon"
   arriba_directory:
     label: arriba directory
     doc: |
@@ -67,6 +81,20 @@ inputs:
     type: Directory?
     inputBinding:
       prefix: "--arriba_dir"
+  arriba_pdf:
+    label: arriba pdf
+    doc: |
+      Location of the pdf output from arriba
+    type: File?
+    inputBinding:
+      prefix: "--arriba_pdf"
+  arriba_tsv:
+    label: arriba tsv
+    doc: |
+      Location of the tsv output from arriba
+    type: File?
+    inputBinding:
+      prefix: "--arriba_tsv"
   umccrise_directory:
     label: umccrise directory
     doc: |
@@ -74,7 +102,14 @@ inputs:
     type: Directory?
     inputBinding:
       prefix: "--umccrise"
-  report_directory:
+  manta_tsv:
+    label: manta tsv
+    doc: |
+      Location of the tsv output from manta
+    type: File?
+    inputBinding:
+      prefix: "--manta_tsv"
+  report_dir:
     label: report dir
     doc: |
       Desired location for the outputs
@@ -128,6 +163,20 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--immunogram"
+  pcgr_tiers_tsv:
+    label: pcgr tiers tsv
+    doc: |
+      Location of the tsv output from pcgr
+    type: File?
+    inputBinding:
+      prefix: "--pcgr_tiers_tsv"
+  purple_gene_tsv:
+    label: purple genes tsv
+    doc: |
+      Location of the tsv output from purple
+    type: File?
+    inputBinding:
+      prefix: "--purple_gene_tsv"
   pcgr_tier:
     label: pcgr tier
     default: 4
