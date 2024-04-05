@@ -39,42 +39,72 @@ hints:
 
 baseCommand: [ "rnasum.R" ]
 
-arguments:
-  - position: -5
-    valueFrom: "--batch_rm"
-  - position: -4
-    valueFrom: "--filter"
-  - position: -3
-    valueFrom: "--log"
-  - position: -2
-    valueFrom: "--save_tables"
-  - position: -1
-    valueFrom: "--pcgr_splice_vars"
-
 inputs:
   # Input folders
-  dragen_transcriptome_directory:
+  dragen_wts_dir:
     label: dragen transcriptome directory
     doc: |
       Location of the results from Dragen RNA-seq pipeline
     type: Directory?
     inputBinding:
       prefix: "--dragen_wts_dir"
-  arriba_directory:
+  dragen_mapping_metrics:
+    label: dragen fusions
+    doc: |
+      Location of the mapping metrics from Dragen RNA-seq pipeline
+    type: File?
+    inputBinding:
+      prefix: "--dragen_mapping_metrics"
+  dragen_fusions:
+    label: dragen fusions
+    doc: |
+      Location of the fusion output from Dragen RNA-seq pipeline
+    type: File?
+    inputBinding:
+      prefix: "--dragen_fusions"
+  salmon:
+    label: salmom
+    doc: |
+      Location of the quantification output from salmon
+    type: File?
+    inputBinding:
+      prefix: "--salmon"
+  arriba_dir:
     label: arriba directory
     doc: |
       Location of the arriba outputs directory
     type: Directory?
     inputBinding:
       prefix: "--arriba_dir"
-  umccrise_directory:
+  arriba_pdf:
+    label: arriba pdf
+    doc: |
+      Location of the pdf output from arriba
+    type: File?
+    inputBinding:
+      prefix: "--arriba_pdf"
+  arriba_tsv:
+    label: arriba tsv
+    doc: |
+      Location of the tsv output from arriba
+    type: File?
+    inputBinding:
+      prefix: "--arriba_tsv"
+  umccrise:
     label: umccrise directory
     doc: |
       The umccrise output directory
     type: Directory?
     inputBinding:
       prefix: "--umccrise"
-  report_directory:
+  manta_tsv:
+    label: manta tsv
+    doc: |
+      Location of the tsv output from manta
+    type: File?
+    inputBinding:
+      prefix: "--manta_tsv"
+  report_dir:
     label: report dir
     doc: |
       Desired location for the outputs
@@ -128,6 +158,20 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--immunogram"
+  pcgr_tiers_tsv:
+    label: pcgr tiers tsv
+    doc: |
+      Location of the tsv output from pcgr
+    type: File?
+    inputBinding:
+      prefix: "--pcgr_tiers_tsv"
+  purple_gene_tsv:
+    label: purple gene tsv
+    doc: |
+      Location of the tsv output from purple
+    type: File?
+    inputBinding:
+      prefix: "--purple_gene_tsv"
   pcgr_tier:
     label: pcgr tier
     default: 4
@@ -136,13 +180,6 @@ inputs:
     type: int?
     inputBinding:
       prefix: "--pcgr_tier"
-  pcgr_splice_vars:
-    label: pcgr splice vars
-    doc: |
-      Include non-coding splice region variants reported in PCGR.
-    type: boolean?
-    inputBinding:
-      prefix: "--pcgr_splice_vars"
   cn_loss:
     label: cn loss
     default: 5
@@ -159,20 +196,6 @@ inputs:
     type: int?
     inputBinding:
       prefix: "--cn_gain"
-  clinical_info:
-    label: clinical info
-    doc: |
-      xslx file with clinical information.
-    type: File?
-    inputBinding:
-      prefix: "--clinical_info"
-  clinical_id:
-    label: clinical id
-    doc: |
-      ID required to match sample with the subject clinical information (specified in flag --clinical_info).
-    type: string?
-    inputBinding:
-      prefix: "--clinical_id"
   subject_id:
     label: subject id
     doc: |
@@ -211,35 +234,54 @@ inputs:
     type: int?
     inputBinding:
       prefix: "--top_genes"
-  hide_code_btn:
-    label: hide code btn
-    doc: |
-      Hide the "Code" button allowing to show/hide code chunks in the final HTML report.
-    type: boolean?
-    inputBinding:
-      prefix: "--hide_code_btn"
-  grch_version:
-    label: grch version
-    doc: |
-      Human reference genome version used for genes annotation.
-    type: int?
-    inputBinding:
-      prefix: "--grch_version"
   dataset:
-    label: dataset
+    label: dataset  
     default: "PANCAN"
     doc: |
       Reference dataset selection from https://github.com/umccr/RNAsum/blob/master/TCGA_projects_summary.md
     type: string
     inputBinding:
       prefix: "--dataset"
+  batch_rm:
+    label: batch rm
+    default: TRUE
+    doc: |
+      Remove batch-associated effects between datasets. Available options are: "TRUE" (default) and "FALSE"
+    type: boolean?
+    inputBinding:
+      prefix: "--batch_rm"
+  filter:
+    label: filter
+    default: TRUE
+    doc: |
+      Filtering out low expressed genes. Available options are: "TRUE" (default) and "FALSE"
+    type: boolean?
+    inputBinding:
+      prefix: "--filter"
+  log:
+    label: log
+    default: TRUE
+    doc: |
+      Log (base 2) transform data before normalisation. Available options are: "TRUE" (default) and "FALSE"
+    type: boolean?
+    inputBinding:
+      prefix: "--log"
   save_tables:
     label: save tables
+    default: TRUE
     doc: |
-      save tables
+      Save interactive summary tables as HTML. Available options are: "TRUE" (default) and "FALSE"
     type: boolean?
     inputBinding:
       prefix: "--save_tables"
+  pcgr_splice_vars:
+    label: PCGR splice vars
+    default: TRUE
+    doc: |
+      Include non-coding splice region variants reported in PCGR. Available options are: "TRUE" (default) and "FALSE"
+    type: boolean?
+    inputBinding:
+      prefix: "--pcgr_splice_vars"
 
 outputs:
   rnasum_output_directory:
@@ -247,14 +289,14 @@ outputs:
     doc: Output directory containing all outputs of the RNAsum run
     type: Directory
     outputBinding:
-      glob: "$(inputs.report_directory)"
+      glob: "$(inputs.report_dir)"
   rnasum_html:
     label: rnasum html
     doc: |
       The HTML report output of RNAsum
     type: File
     outputBinding:
-      glob: "$(inputs.report_directory)/$(inputs.sample_name).RNAseq_report.html"
+      glob: "$(inputs.report_dir)/$(inputs.sample_name).RNAseq_report.html"
 
 successCodes:
   - 0
