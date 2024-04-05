@@ -453,7 +453,7 @@ tools:
         md5sum: 8b05e1c40c2ff0befb56df0b31560c04
       - name: 0.5.0
         path: 0.5.0/rnasum__0.5.0.cwl
-        md5sum: 796c913d5ca9630fe96eae4dc4b93308
+        md5sum: 81ecc826d2909bc215249864b2ff3422
     categories: []
   - name: samtools-stats
     path: samtools-stats
