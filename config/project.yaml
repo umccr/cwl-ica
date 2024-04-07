@@ -1289,6 +1289,11 @@ projects:
             ica_workflow_version_name: 0.4.9--3694eb2
             modification_time: 2023-10-13T00:25:19UTC
             run_instances: []
+          - name: 0.5.0
+            path: 0.5.0/rnasum__0.5.0.cwl
+            ica_workflow_version_name: 0.5.0--__GIT_COMMIT_ID__
+            modification_time:
+            run_instances: []
       - name: umccrise
         path: umccrise
         ica_workflow_name: umccrise_prod-wf
