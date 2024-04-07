@@ -17,7 +17,7 @@ rnasum 0.5.0 tool
 
   
 > ID: rnasum--0.5.0  
-> md5sum: dc500a423a94d396bfd84155570779e7
+> md5sum: 81ecc826d2909bc215249864b2ff3422
 
 ### rnasum v(0.5.0) documentation
   
@@ -41,7 +41,7 @@ Documentation for rnasum v0.5.0
 
 
   
-> ID: arriba_directory
+> ID: arriba_dir
   
 **Optional:** `True`  
 **Type:** `Directory`  
@@ -49,30 +49,43 @@ Documentation for rnasum v0.5.0
 Location of the arriba outputs directory
 
 
-### clinical id
+### arriba pdf
 
 
 
   
-> ID: clinical_id
-  
-**Optional:** `True`  
-**Type:** `string`  
-**Docs:**  
-ID required to match sample with the subject clinical information (specified in flag --clinical_info).
-
-
-### clinical info
-
-
-
-  
-> ID: clinical_info
+> ID: arriba_pdf
   
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-xslx file with clinical information.
+Location of the pdf output from arriba
+
+
+### arriba tsv
+
+
+
+  
+> ID: arriba_tsv
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Location of the tsv output from arriba
+
+
+### batch rm
+
+
+
+  
+> ID: batch_rm
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Remove batch-associated effects between datasets. Available options are: "TRUE" (default) and "FALSE"
 
 
 ### cn gain
@@ -127,12 +140,38 @@ Reference dataset selection from https://github.com/umccr/RNAsum/blob/master/TCG
 Include dataset in the report and sample name.
 
 
+### dragen fusions
+
+
+
+  
+> ID: dragen_fusions
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Location of the fusion output from Dragen RNA-seq pipeline
+
+
+### dragen fusions
+
+
+
+  
+> ID: dragen_mapping_metrics
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Location of the mapping metrics from Dragen RNA-seq pipeline
+
+
 ### dragen transcriptome directory
 
 
 
   
-> ID: dragen_transcriptome_directory
+> ID: dragen_wts_dir
   
 **Optional:** `True`  
 **Type:** `Directory`  
@@ -153,30 +192,17 @@ Location of the results from Dragen RNA-seq pipeline
 Include drug matching section in the report.
 
 
-### grch version
+### filter
 
 
 
   
-> ID: grch_version
-  
-**Optional:** `True`  
-**Type:** `int`  
-**Docs:**  
-Human reference genome version used for genes annotation.
-
-
-### hide code btn
-
-
-
-  
-> ID: hide_code_btn
+> ID: filter
   
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Hide the "Code" button allowing to show/hide code chunks in the final HTML report.
+Filtering out low expressed genes. Available options are: "TRUE" (default) and "FALSE"
 
 
 ### immunogram
@@ -192,6 +218,32 @@ Hide the "Code" button allowing to show/hide code chunks in the final HTML repor
 Include drug matching section in the report.
 
 
+### log
+
+
+
+  
+> ID: log
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Log (base 2) transform data before normalisation. Available options are: "TRUE" (default) and "FALSE"
+
+
+### manta tsv
+
+
+
+  
+> ID: manta_tsv
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Location of the tsv output from manta
+
+
 ### norm
 
 
@@ -205,7 +257,7 @@ Include drug matching section in the report.
 Normalisation method
 
 
-### pcgr splice vars
+### PCGR splice vars
 
 
 
@@ -215,7 +267,7 @@ Normalisation method
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Include non-coding splice region variants reported in PCGR.
+Include non-coding splice region variants reported in PCGR. Available options are: "TRUE" (default) and "FALSE"
 
 
 ### pcgr tier
@@ -231,6 +283,19 @@ Include non-coding splice region variants reported in PCGR.
 Tier threshold for reporting variants reported in PCGR.
 
 
+### pcgr tiers tsv
+
+
+
+  
+> ID: pcgr_tiers_tsv
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Location of the tsv output from pcgr
+
+
 ### project
 
 
@@ -244,17 +309,43 @@ Tier threshold for reporting variants reported in PCGR.
 Project name. This information is for annotation purposes only
 
 
+### purple gene tsv
+
+
+
+  
+> ID: purple_gene_tsv
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Location of the tsv output from purple
+
+
 ### report dir
 
 
 
   
-> ID: report_directory
+> ID: report_dir
   
 **Optional:** `False`  
 **Type:** `string`  
 **Docs:**  
 Desired location for the outputs
+
+
+### salmom
+
+
+
+  
+> ID: salmon
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Location of the quantification output from salmon
 
 
 ### sample name
@@ -294,7 +385,7 @@ This information is for annotation purposes only
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-save tables
+Save interactive summary tables as HTML. Available options are: "TRUE" (default) and "FALSE"
 
 
 ### scaling
@@ -355,7 +446,7 @@ Transformation method to be used when converting read counts
 
 
   
-> ID: umccrise_directory
+> ID: umccrise
   
 **Optional:** `True`  
 **Type:** `Directory`  
