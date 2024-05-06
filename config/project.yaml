@@ -476,6 +476,11 @@ projects:
             ica_workflow_version_name: 0.5.0
             modification_time: 2024-04-05T00:48:41UTC
             run_instances: []
+          - name: 0.6.5
+            path: 0.6.5/rnasum__0.6.5.cwl
+            ica_workflow_version_name: 0.6.5
+            modification_time: 2024-05-03T07:02:00UTC
+            run_instances: []
       - name: samtools-stats
         path: samtools-stats
         ica_workflow_name: samtools-stats_dev-wf
@@ -1293,6 +1298,11 @@ projects:
             path: 0.5.0/rnasum__0.5.0.cwl
             ica_workflow_version_name: 0.5.0--304c3ac
             modification_time: 2024-04-07T23:32:05UTC
+            run_instances: []
+          - name: 0.6.5
+            path: 0.6.5/rnasum__0.6.5.cwl
+            ica_workflow_version_name: 0.6.5--6f2b117
+            modification_time: 2024-05-03T14:23:06UTC
             run_instances: []
       - name: umccrise
         path: umccrise
