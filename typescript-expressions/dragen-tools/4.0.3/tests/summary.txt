@@ -1,19 +1,19 @@
-# Test started at 2023-03-25T13:19:20+11:00
+# Test started at 2024-05-13T11:26:05+10:00
 
 PASS tests/dragen-tools__4.0.3.test.js
 PASS tests/dragen-tools__4.0.3.test.ts
 
 =============================== Coverage summary ===============================
-Statements   : 80.57% ( 112/139 )
+Statements   : 79.31% ( 115/145 )
 Branches     : 74.24% ( 49/66 )
-Functions    : 55% ( 11/20 )
-Lines        : 78.74% ( 100/127 )
+Functions    : 47.82% ( 11/23 )
+Lines        : 77.44% ( 103/133 )
 ================================================================================
 
 Test Suites: 2 passed, 2 total
 Tests:       30 passed, 30 total
 Snapshots:   0 total
-Time:        3.077 s
+Time:        3.378 s
 Ran all test suites.
-# Test completed at 2023-03-25T13:19:24+11:00
+# Test completed at 2024-05-13T11:26:10+10:00
 
