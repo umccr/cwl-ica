@@ -362,3 +362,17 @@ function generate_transcriptome_mount_points(inputs) {
     */
     return generate_germline_mount_points(inputs);
 }
+/*  Custom functions for dragen reference tarball build */
+function get_liftover_dir() {
+    /*  Hardcoded liftover directory in dragen 4.2 */
+    return "/opt/edico/liftover/";
+}
+function get_mask_dir() {
+    /*  Hardcoded mask directory in dragen 4.2 */
+    return "/opt/edico/fasta_mask/";
+}
+function get_ref_scratch_dir(reference_name) {
+    /*  We get the reference scratch directory as a combination of */
+    /*  the dragen scratch mount and the reference name */
+    return get_scratch_mount() + reference_name + "/";
+}

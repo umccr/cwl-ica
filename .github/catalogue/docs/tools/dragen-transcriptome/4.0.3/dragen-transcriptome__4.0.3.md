@@ -17,7 +17,7 @@ dragen-transcriptome 4.0.3 tool
 
   
 > ID: dragen-transcriptome--4.0.3  
-> md5sum: 0062f8a909ff6eb95eee955e250bab46
+> md5sum: ea99b8134f0c1473f3126ebf00dc3234
 
 ### dragen-transcriptome v(4.0.3) documentation
   
@@ -35,6 +35,7 @@ Documentation for dragen-transcriptome v4.0.3
 ### Used By
   
 - [dragen-transcriptome-pipeline 4.0.3](../../../workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
+- [dragen-wts-qc-pipeline 4.0.3](../../../workflows/dragen-wts-qc-pipeline/4.0.3/dragen-wts-qc-pipeline__4.0.3.md)  
 
   
 

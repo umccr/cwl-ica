@@ -38,30 +38,19 @@ hints:
   DockerRequirement:
     dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
 
+
+
 requirements:
   InlineJavascriptRequirement:
     expressionLib:
-      - var get_dragen_path = function(){
-          return "/opt/edico/bin/dragen";
-        }
-      - var get_hash_table_script_file = function(){
+      - $include: ../../../typescript-expressions/dragen-tools/4.0.3/dragen-tools__4.0.3.cwljs
+      - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs
+      - var get_hash_table_script_filename = function(){
           return "build_hash_table.sh";
-        }
-      - var get_scratch_mount = function() {
-          return "/ephemeral";
-        }
-      - var get_scratch_dir = function(reference_name) {
-          return get_scratch_mount() + "/" + reference_name
-        }
-      - var get_liftover_dir = function() {
-          return "/opt/edico/liftover/";
-        }
-      - var get_mask_dir = function() {
-          return "/opt/edico/fasta_mask/";
         }
   InitialWorkDirRequirement:
     listing:
-      - entryname: "$(get_hash_table_script_file())"
+      - entryname: "$(get_hash_table_script_filename())"
         entry: |
           #!/usr/bin/env bash
 
@@ -69,19 +58,19 @@ requirements:
           set -euo pipefail
 
           # Create staging directory
-          echo "Creating scratch directory at $(get_scratch_dir(inputs.ht_reference.nameroot))" 1>&2
-          mkdir -p "$(get_scratch_dir(inputs.ht_reference.nameroot))"
+          echo "Creating scratch directory at $(get_ref_scratch_dir(inputs.ht_reference.nameroot))" 1>&2
+          mkdir -p "$(get_ref_scratch_dir(inputs.ht_reference.nameroot))"
 
           # Create output directory
           echo "Creating output directory at $(inputs.output_directory)" 1>&2
           mkdir -p "$(inputs.output_directory)"
 
           # Change to staging directory
-          echo "Running dragen command at $(get_scratch_dir(inputs.ht_reference.nameroot))" 1>&2
+          echo "Running dragen command at $(get_ref_scratch_dir(inputs.ht_reference.nameroot))" 1>&2
 
           # Run dragen command inside scratch dir
           ( \\
-            cd "$(get_scratch_dir(inputs.ht_reference.nameroot))" && \\
+            cd "$(get_ref_scratch_dir(inputs.ht_reference.nameroot))" && \\
             "$(get_dragen_bin_path())" "\${@}" \\
           )
           # tar up output directory
@@ -96,7 +85,7 @@ baseCommand: [ "bash" ]
 
 arguments:
   - position: -1
-    valueFrom: "$(get_hash_table_script_file())"
+    valueFrom: "$(get_hash_table_script_filename())"
   - prefix: "--build-hash-table"
     valueFrom: "true"
 
