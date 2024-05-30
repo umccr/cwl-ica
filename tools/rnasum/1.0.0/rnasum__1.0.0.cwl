@@ -22,6 +22,9 @@ doc: |
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
+requirements:
+  InlineJavascriptRequirement: {}
+  
 hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
