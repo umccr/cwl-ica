@@ -51,6 +51,14 @@ requirements:
           interop_summary --csv=1 --level=4 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/interop_summary.csv"
           interop_index-summary --csv=1 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/interop_index-summary.csv"
 
+          # Generate imaging table
+          interop_imaging_table "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/imaging_table.csv"
+
+          # Generate imaging plot
+          interop_imaging_plot "$(inputs.output_dir_name)/imaging_table.csv" "$(inputs.output_dir_name)/imaging_plot.png" "$(inputs.input_run_dir.basename)"
+
+          # Compress imaging table
+          gzip "$(inputs.output_dir_name)/imaging_table.csv"
 
 baseCommand: [ "bash", "generate_interop_files.sh" ]
 
