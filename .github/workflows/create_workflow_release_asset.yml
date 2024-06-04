@@ -113,8 +113,8 @@ jobs:
     name: Get ICAv2 Access Token (umccr-prod)
     uses: ./.github/workflows/get_tenant_icav2_access_token.yml
     with:
-      role_to_assume_arn: arn:aws:iam::843407916570:role/icav2-credentials-umccr-p-ghserviceusertrialB89571F-Tflh151dMorc
-      secret_arn: arn:aws:secretsmanager:ap-southeast-2:843407916570:secret:ICAv2Jwticav2-credentials-umccr-service-user-trial-zjptwA
+      role_to_assume_arn: arn:aws:iam::472057503814:role/gh-service-icav2-pipeline-user-prod
+      secret_arn: arn:aws:secretsmanager:ap-southeast-2:472057503814:secret:ICAv2JWTKey-umccr-prod-service-pipelines-WoiHJv
     secrets:
       symmetrical_encryption_key: ${{ secrets.SYMMETRICAL_ENCRYPTION_KEY }}
   create_release_asset:
