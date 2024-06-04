@@ -17,7 +17,7 @@ dragen-build-reference-tarball 4.2.4 tool
 
   
 > ID: dragen-build-reference-tarball--4.2.4  
-> md5sum: b51d43d298306cbb990df527edecfe27
+> md5sum: e963ff1143e3727c3cfbb486a12cb980
 
 ### dragen-build-reference-tarball v(4.2.4) documentation
   
@@ -77,7 +77,7 @@ To disable this requirement, set the --ht-alt-aware-validate option to false.
 > ID: ht_alt_liftover
   
 **Optional:** `True`  
-**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fdb7e8e4fb0>]`  
+**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fdbcffcf770>]`  
 **Docs:**  
 The --ht-alt-liftover option specifies the path to the liftover file to build an ALT-aware hash table.
 This option is required when building from a reference with ALT contigs.
@@ -204,7 +204,7 @@ The default is /opt/edico/liftover/hs_decoys.fa.
 > ID: ht_mask_bed
   
 **Optional:** `True`  
-**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fdb7e8e63f0>]`  
+**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fdbcfe29b20>]`  
 **Docs:**  
 Specifies the BED file for base masking.
 

@@ -19,7 +19,7 @@ dragen-wts-qc-pipeline 4.2.4 workflow
 
   
 > ID: dragen-wts-qc-pipeline--4.2.4  
-> md5sum: 9e5858e85f9acf9cf827d511e57f3060
+> md5sum: 97d17eb242f4ffdb932c116f27c12b0c
 
 ### dragen-wts-qc-pipeline v(4.2.4) documentation
   

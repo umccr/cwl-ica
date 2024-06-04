@@ -19,7 +19,7 @@ dragen-alignment-pipeline 4.2.4 workflow
 
   
 > ID: dragen-alignment-pipeline--4.2.4  
-> md5sum: 18ba1c475ce295b8bfcec6410cac274a
+> md5sum: 0cbd38da01e898f812f17451270ab9d7
 
 ### dragen-alignment-pipeline v(4.2.4) documentation
   
@@ -980,7 +980,7 @@ The dragen multiQC output
 
   
 **workflow name:** dragen-alignment-pipeline_prod-wf  
-**wfl version name:** 4.2.4--b5fde25  
+**wfl version name:** 4.2.4--a953c9f  
 
   
 
