@@ -35,49 +35,9 @@ hints:
         dockerPull: quay.io/umccr/multiqc:1.15-dev--eb98188
 
 requirements:
-  InlineJavascriptRequirement:
-    expressionLib:
-      - var get_input_dir = function(){
-          /*
-          Just returns the name of the input directory
-          */
-          return "multiqc_input_dir";
-        }
-  InitialWorkDirRequirement:
-    listing:
-      - entryname: run_multiqc.sh
-        entry: |
-          #!/usr/bin/env bash
+  InlineJavascriptRequirement: {}
 
-          # Set up to fail
-          set -euo pipefail
-
-          # Create input dir
-          mkdir "$(get_input_dir())"
-
-          # Create an array of dirs
-          input_dir_path_array=( $(inputs.input_directories.map(function(a) {return '"' + a.path + '"';}).join(' ')) )
-          input_dir_basename_array=( $(inputs.input_directories.map(function(a) {return '"' + a.basename + '"';}).join(' ')) )
-
-          # Iterate through input direcotires
-          for input_dir_path in "\${input_dir_path_array[@]}"; do
-            ln -s "\${input_dir_path}" "$(get_input_dir())/"
-          done
-
-          # Run multiqc
-          multiqc "\${@}"
-
-          # Unlink input directories - otherwise ICA tries to upload them onto gds (and fails)
-          for input_dir_basename in "\${input_dir_basename_array[@]}"; do
-            unlink "$(get_input_dir())/\${input_dir_basename}"
-          done
-
-
-baseCommand: ["bash", "run_multiqc.sh"]
-
-arguments:
-  - position: 100
-    valueFrom: "$(get_input_dir())"
+baseCommand: ["multiqc"]
 
 inputs:
   # Required inputs
@@ -86,6 +46,8 @@ inputs:
     doc: |
       The list of directories to place in the analysis
     type: Directory[]
+    inputBinding:
+      position: 100  # Last items on the command line
   output_directory_name:
     label: output directory
     doc: |

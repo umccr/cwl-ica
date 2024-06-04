@@ -561,6 +561,7 @@ steps:
       - id: dragen_bam_out
       - id: dragen_vcf_out
     run: ../../../tools/dragen-germline/4.2.4/dragen-germline__4.2.4.cwl
+
   # Create dummy file for the qc step
   create_dummy_file_step:
     label: Create dummy file
@@ -570,6 +571,7 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+
   dragen_qc_step:
     label: dragen qc step
     doc: |
