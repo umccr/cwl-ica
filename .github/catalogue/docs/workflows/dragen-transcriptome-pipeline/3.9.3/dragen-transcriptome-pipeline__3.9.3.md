@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 3.9.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--3.9.3  
-> md5sum: 424f59a63351dd9491c2b5a2cedc9760
+> md5sum: 51c45cd889f1c49e2ffe977eda0fb2c4
 
 ### dragen-transcriptome-pipeline v(3.9.3) documentation
   
@@ -1138,7 +1138,7 @@ bash wfr.491f5fd1b5e74f6e87113d964675504e.launch.sh
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 3.9.3--ad23456  
+**wfl version name:** 3.9.3--c5a903b  
 
   
 

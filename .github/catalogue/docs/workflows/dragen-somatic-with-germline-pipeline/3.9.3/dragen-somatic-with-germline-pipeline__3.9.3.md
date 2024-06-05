@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--3.9.3  
-> md5sum: 93c7f802b10cd5538630e114cd621d29
+> md5sum: 5e4c63432d9586ac63ff02aea833dc69
 
 ### dragen-somatic-with-germline-pipeline v(3.9.3) documentation
   
@@ -1676,7 +1676,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
-**wfl version name:** 3.9.3--ae21995  
+**wfl version name:** 3.9.3--c5a903b  
 
   
 

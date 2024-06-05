@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: 8b017ba4dae2cb1137b80644b47f566e
+> md5sum: d9d79b852dbf3171614e6364a57d4ce4
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -936,7 +936,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.d05
 
 # Run the launch script
 bash wfr.d058e5f7be4b4683a9b1a59b8f67f91b.launch.sh
-                                    
+                
 ```  
 
 
@@ -1096,7 +1096,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.475
 
 # Run the launch script
 bash wfr.4759b2ccf6234141b06d5aab5b932dbb.launch.sh
-                                    
+                
 ```  
 
 

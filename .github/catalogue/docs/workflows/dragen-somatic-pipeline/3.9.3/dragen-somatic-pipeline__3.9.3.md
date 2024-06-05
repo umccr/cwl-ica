@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: b40e0e4027e623a8e218effbc64f014f
+> md5sum: 31411e06e3fb4edc5ad6213d4c85ef0c
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -1438,7 +1438,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.b19
 
 # Run the launch script
 bash wfr.b19291caab384e78b7661a85c3f82003.launch.sh
-                                    
+                
 ```  
 
 
@@ -1671,7 +1671,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.128
 
 # Run the launch script
 bash wfr.128790246e9c48f39e14d8f8ef7d868e.launch.sh
-                                    
+                
 ```  
 
 
@@ -1864,7 +1864,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.72d
 
 # Run the launch script
 bash wfr.72d2a10d54ca472a96d4023556932b8e.launch.sh
-                                    
+                
 ```  
 
 
@@ -2096,7 +2096,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.724
 
 # Run the launch script
 bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
-                                    
+                
 ```  
 
 
@@ -2274,7 +2274,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--6eacfb8  
+**wfl version name:** 3.9.3--c5a903b  
 
   
 
