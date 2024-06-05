@@ -19,7 +19,7 @@ dragen-wgs-qc-pipeline 3.9.3 workflow
 
   
 > ID: dragen-wgs-qc-pipeline--3.9.3  
-> md5sum: 8670d756cb23913d33b9cbaaec15879f
+> md5sum: 17c5b9dcc1d240327e7303bbac5a28c2
 
 ### dragen-wgs-qc-pipeline v(3.9.3) documentation
   
@@ -272,7 +272,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.8bb
 
 # Run the launch script
 bash wfr.8bb7083dc6e74a2f9c21edd65e627a2e.launch.sh
-                                    
+                
 ```  
 
 
@@ -405,7 +405,7 @@ bash wfr.8bb7083dc6e74a2f9c21edd65e627a2e.launch.sh
 
   
 **workflow name:** dragen-wgs-qc-pipeline_prod-wf  
-**wfl version name:** 3.9.3--6eacfb8  
+**wfl version name:** 3.9.3--c5a903b  
 
   
 

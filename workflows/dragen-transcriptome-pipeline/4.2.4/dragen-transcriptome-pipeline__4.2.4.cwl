@@ -326,6 +326,7 @@ steps:
       - id: dragen_transcriptome_directory
       - id: dragen_bam_out
     run: ../../../tools/dragen-transcriptome/4.2.4/dragen-transcriptome__4.2.4.cwl
+
   # Step-2: Call Arriba fusion calling step
   arriba_fusion_step:
     label: arriba fusion step
@@ -346,6 +347,7 @@ steps:
       - id: fusions
       - id: discarded_fusions
     run: ../../../tools/arriba-fusion-calling/2.4.0/arriba-fusion-calling__2.4.0.cwl
+
   # Step-3: Call Arriba drawing script
   arriba_drawing_step:
     label: arriba drawing step
@@ -365,6 +367,7 @@ steps:
     out: 
       - id: output_pdf
     run: ../../../tools/arriba-drawing/2.4.0/arriba-drawing__2.4.0.cwl
+
   # Step-4: Create Arriba output directory
   create_arriba_output_directory:
     label: create arriba output directory
@@ -381,6 +384,7 @@ steps:
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
+
   # Step-5: Run qualimap
   run_qualimap_step:
     label: run qualimap step
@@ -403,6 +407,7 @@ steps:
     out:
       - id: qualimap_qc
     run: ../../../tools/qualimap/2.2.2/qualimap__2.2.2.cwl
+
   # Step-6: Create dummy file for the qc step
   create_dummy_file_step:
     label: Create dummy file
@@ -412,6 +417,7 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+
   # Step-7: Create multiQC report
   dragen_qc_step:
     label: dragen qc step

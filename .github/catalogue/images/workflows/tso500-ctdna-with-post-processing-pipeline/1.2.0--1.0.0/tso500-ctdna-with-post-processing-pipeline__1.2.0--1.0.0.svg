@@ -26,7 +26,7 @@
 <text text-anchor="middle" x="73" y="-581.56" font-family="Times,serif" font-size="14.00">resources_dir</text>
 </g>
 <!-- run_tso_ctdna_workflow_step -->
-<g id="node16" class="node">
+<g id="node15" class="node">
 <title>run_tso_ctdna_workflow_step</title>
 <polygon fill="#f3cea1" stroke="black" points="480.5,-476.76 480.5,-513.76 667.5,-513.76 667.5,-476.76 480.5,-476.76"/>
 <text text-anchor="middle" x="574" y="-491.56" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna v(1.2.0&#45;&#45;1)</text>
@@ -211,35 +211,35 @@
 <path fill="none" stroke="black" d="M589.27,-391.45C599.46,-379.56 613,-363.76 624.3,-350.58"/>
 <polygon fill="black" stroke="black" points="627.15,-352.63 631,-342.76 621.83,-348.08 627.15,-352.63"/>
 </g>
-<!-- run_tso_ctdna_post_processing_workflow_step -->
-<g id="node15" class="node">
-<title>run_tso_ctdna_post_processing_workflow_step</title>
-<polygon fill="#f3cea1" stroke="black" points="92.5,-391.76 92.5,-428.76 439.5,-428.76 439.5,-391.76 92.5,-391.76"/>
-<text text-anchor="middle" x="266" y="-406.56" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna&#45;post&#45;processing&#45;pipeline v(1.0.0)</text>
-</g>
-<!-- run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
-<g id="edge5" class="edge">
-<title>run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
-<path fill="none" stroke="black" d="M345.2,-391.76C406.83,-378.13 492.37,-359.22 556.48,-345.05"/>
-<polygon fill="black" stroke="black" points="557.57,-348.4 566.58,-342.82 556.06,-341.56 557.57,-348.4"/>
-</g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
-<g id="edge6" class="edge">
+<g id="edge5" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
 <path fill="none" stroke="black" d="M638.44,-476.69C662.03,-466.8 686.3,-451.75 700,-429.26 716,-403 694.28,-371.49 673.8,-350.08"/>
 <polygon fill="black" stroke="black" points="676.22,-347.55 666.67,-342.96 671.27,-352.51 676.22,-347.55"/>
 </g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;get_intermediate_samplesheet_from_validation_step -->
-<g id="edge7" class="edge">
+<g id="edge6" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;get_intermediate_samplesheet_from_validation_step</title>
 <path fill="none" stroke="black" d="M574,-476.66C574,-465.77 574,-451.54 574,-439.14"/>
 <polygon fill="black" stroke="black" points="577.5,-438.84 574,-428.84 570.5,-438.84 577.5,-438.84"/>
 </g>
+<!-- run_tso_ctdna_post_processing_workflow_step -->
+<g id="node16" class="node">
+<title>run_tso_ctdna_post_processing_workflow_step</title>
+<polygon fill="#f3cea1" stroke="black" points="92.5,-391.76 92.5,-428.76 439.5,-428.76 439.5,-391.76 92.5,-391.76"/>
+<text text-anchor="middle" x="266" y="-406.56" font-family="Times,serif" font-size="14.00">tso500&#45;ctdna&#45;post&#45;processing&#45;pipeline v(1.0.0)</text>
+</g>
 <!-- run_tso_ctdna_workflow_step&#45;&gt;run_tso_ctdna_post_processing_workflow_step -->
-<g id="edge8" class="edge">
+<g id="edge7" class="edge">
 <title>run_tso_ctdna_workflow_step&#45;&gt;run_tso_ctdna_post_processing_workflow_step</title>
 <path fill="none" stroke="black" d="M509.06,-476.76C459.9,-463.51 392.29,-445.3 340.85,-431.43"/>
 <polygon fill="black" stroke="black" points="341.68,-428.03 331.12,-428.81 339.86,-434.79 341.68,-428.03"/>
+</g>
+<!-- run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline -->
+<g id="edge8" class="edge">
+<title>run_tso_ctdna_post_processing_workflow_step&#45;&gt;get_final_directory_output_for_tso500_pipeline</title>
+<path fill="none" stroke="black" d="M345.2,-391.76C406.83,-378.13 492.37,-359.22 556.48,-345.05"/>
+<polygon fill="black" stroke="black" points="557.57,-348.4 566.58,-342.82 556.06,-341.56 557.57,-348.4"/>
 </g>
 <!-- get_sample_ids_from_tso500_sample_object&#45;&gt;get_sample_output_directory -->
 <g id="edge10" class="edge">

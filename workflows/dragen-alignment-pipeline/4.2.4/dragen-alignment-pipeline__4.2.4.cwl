@@ -536,7 +536,7 @@ steps:
       - id: dragen_bam_out
     run: ../../../tools/dragen-alignment/4.2.4/dragen-alignment__4.2.4.cwl
 
-  # Create dummy file
+  # Create dummy file for the QC step
   create_dummy_file_step:
     label: Create dummy file
     doc: |

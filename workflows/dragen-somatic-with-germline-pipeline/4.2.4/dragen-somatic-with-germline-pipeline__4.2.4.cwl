@@ -1374,6 +1374,8 @@ steps:
     out:
       - id: dummy_file_output
     run: ../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl
+
+  # Run the multiqc step
   run_dragen_qc_step:
     label: dragen qc step
     doc: |
