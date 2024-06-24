@@ -820,6 +820,7 @@ UMCCR CWL-ICA Catalogue
 - [2.2.0--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.2.0--0/umccrise-pipeline__2.2.0--0.md)  
 - [2.2.1--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.2.1--0/umccrise-pipeline__2.2.1--0.md)  
 - [2.3.0--0](.github/catalogue/docs/workflows/umccrise-pipeline/2.3.0--0/umccrise-pipeline__2.3.0--0.md)  
+- [2.3.1--1](.github/catalogue/docs/workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.md)  
 
 
 ### tso500-ctdna-with-post-processing-pipeline
@@ -928,6 +929,7 @@ UMCCR CWL-ICA Catalogue
 #### Versions
   
 - [0.4.5](.github/catalogue/docs/workflows/rnasum-pipeline/0.4.5/rnasum-pipeline__0.4.5.md)  
+- [1.0.0](.github/catalogue/docs/workflows/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.md)  
 
 
 ### bclconvert-interop-qc
