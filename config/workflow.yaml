@@ -148,6 +148,9 @@ workflows:
       - name: 2.3.0--0
         path: 2.3.0--0/umccrise-pipeline__2.3.0--0.cwl
         md5sum: bdc1c713d7925990e80b6c346874895d
+      - name: 2.3.1--1
+        path: 2.3.1--1/umccrise-pipeline__2.3.1--1.cwl
+        md5sum: f7897225b40d67a91ef65b765ae2cff8
     categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline
@@ -276,6 +279,9 @@ workflows:
       - name: 0.4.5
         path: 0.4.5/rnasum-pipeline__0.4.5.cwl
         md5sum: ad6b02cc13df51a8ddbebd108215d9c8
+      - name: 1.0.0
+        path: 1.0.0/rnasum-pipeline__1.0.0.cwl
+        md5sum: 4f9161e89c88ccc5da02935d1d1d0df9
     categories: []
   - name: bclconvert-interop-qc
     path: bclconvert-interop-qc
