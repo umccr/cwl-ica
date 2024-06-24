@@ -1,40 +1,50 @@
 
-umccrise 2.3.1--1 tool
-======================
+umccrise-pipeline 2.3.1--1 workflow
+===================================
 
 ## Table of Contents
   
-- [Overview](#umccrise-v231--1-overview)  
+- [Overview](#umccrise-pipeline-v231--1-overview)  
+- [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#umccrise-v231--1-inputs)  
-- [Outputs](#umccrise-v231--1-outputs)  
+- [Inputs](#umccrise-pipeline-v231--1-inputs)  
+- [Steps](#umccrise-pipeline-v231--1-steps)  
+- [Outputs](#umccrise-pipeline-v231--1-outputs)  
 - [ICA](#ica)  
 
 
-## umccrise v(2.3.1--1) Overview
+## umccrise-pipeline v(2.3.1--1) Overview
 
 
 
   
-> ID: umccrise--2.3.1--1  
-> md5sum: d86b13c09fc8fe2a2e7cffd3aab3008c
+> ID: umccrise-pipeline--2.3.1--1  
+> md5sum: f7897225b40d67a91ef65b765ae2cff8
 
-### umccrise v(2.3.1--1) documentation
+### umccrise-pipeline v(2.3.1--1) documentation
   
-Documentation for umccrise v2.3.1--1
+Documentation for umccrise-pipeline v2.3.1--1
 
 ### Categories
   
 
 
+## Visual Workflow Overview
+  
+[![umccrise-pipeline__2.3.1--1.svg](../../../../images/workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.svg)
 ## Related Links
   
-- [CWL File Path](../../../../../../tools/umccrise/2.3.1--1/umccrise__2.3.1--1.cwl)  
+- [CWL File Path](../../../../../../workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.cwl)  
+
+
+### Uses
+  
+- [umccrise 2.3.1--1](../../../tools/umccrise/2.3.1--1/umccrise__2.3.1--1.md)  
 
   
 
 
-## umccrise v(2.3.1--1) Inputs
+## umccrise-pipeline v(2.3.1--1) Inputs
 
 ### debug
 
@@ -194,51 +204,40 @@ Number of threads to use
   
 
 
-## umccrise v(2.3.1--1) Outputs
+## umccrise-pipeline v(2.3.1--1) Steps
+
+### run umccrise step
+
+
+  
+> ID: umccrise-pipeline--2.3.1--1/run_umccrise_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Run the UMCCRise pipeline
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/umccrise/2.3.1--1/umccrise__2.3.1--1.cwl)  
+[CWL File Help Page](../../../tools/umccrise/2.3.1--1/umccrise__2.3.1--1.md)  
+
+
+## umccrise-pipeline v(2.3.1--1) Outputs
 
 ### output directory
 
 
 
   
-> ID: umccrise--2.3.1--1/output_directory  
+> ID: umccrise-pipeline--2.3.1--1/output_directory  
 
   
 **Optional:** `False`  
 **Output Type:** `Directory`  
 **Docs:**  
-The output directory containing the umccrise data
+The output directory containing the results of the umccrise pipeline
   
-
-  
-
-
-## ICA
-
-### ToC
-  
-- [development_workflows](#project-development_workflows)  
-- [production_workflows](#project-production_workflows)  
-
-
-### Project: development_workflows
-
-
-> wfl id: wfl.af61d2b172e84cbfa85eaf184226db8b  
-
-  
-**workflow name:** umccrise_dev-wf  
-**wfl version name:** 2.3.1--1  
-
-
-### Project: production_workflows
-
-
-> wfl id: wfl.714e9172f3674023b210ccc7c47db05a  
-
-  
-**workflow name:** umccrise_prod-wf  
-**wfl version name:** 2.3.1--1--9731c44  
 
   
 

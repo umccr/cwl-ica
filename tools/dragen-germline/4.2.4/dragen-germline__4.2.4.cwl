@@ -35,15 +35,16 @@ hints:
     ilmn-tes:resources/size: medium
     coresMin: 16
     ramMin: 240000
+  DockerRequirement:
+      dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
+
+requirements:
+  ResourceRequirement:
     tmpdirMin: |
       ${
         /* 1 Tb */
         return 2 ** 20; 
       }
-  DockerRequirement:
-      dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
-
-requirements:
   SchemaDefRequirement:
     types:
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
