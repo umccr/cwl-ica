@@ -19,7 +19,7 @@ bclconvert-interop-qc 1.3.1--1.21 workflow
 
   
 > ID: bclconvert-interop-qc--1.3.1--1.21  
-> md5sum: 9402d8a42ddd2e0b0f392c2f93b3c6c7
+> md5sum: ac758f18a4438440d8c1cae45eb5ffb1
 
 ### bclconvert-interop-qc v(1.3.1--1.21) documentation
   
@@ -65,6 +65,19 @@ It is assumed that the Reports directory will contain the RunInfo.xml file
 The output directory from a BCLConvert run named 'Reports'
 
 
+### Instrument Run ID
+
+
+
+  
+> ID: instrument_run_id
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+The instrument run ID
+
+
 ### Interop Directory
 
 
@@ -76,19 +89,6 @@ The output directory from a BCLConvert run named 'Reports'
 **Type:** `Directory`  
 **Docs:**  
 The interop directory
-
-
-### Run ID
-
-
-
-  
-> ID: run_id
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The run ID
 
   
 
