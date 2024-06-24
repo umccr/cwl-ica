@@ -6,32 +6,30 @@ tenants:
 
 # List of projects a bundle can be attached to
 projects:
-  - project_name: umccr-test-byob-1
-    project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
-    tenant_name: umccr-test
-  - project_name: umccr-test-byob-2
-    project_id: e22b9fcb-33ee-4dc9-9015-f1034dfd6a85
-    tenant_name: umccr-test
-  - project_name: pipelines-test
-    project_id: 2bafbf01-dd86-4916-a097-8110b512e788
-    tenant_name: umccr-test
-  - project_name: staging-test
-    project_id: 74f24a77-e639-45d9-970e-79e962516960
-    tenant_name: umccr-test
-  - project_name: production-test
-    project_id: 6c7b3d61-15df-45e7-9b9b-2996544e4866
-    tenant_name: umccr-test
-  - project_name: pipelines-trial
-    project_id: 0ad6a751-c854-4b77-833b-705132a22801
+  - project_name: reference-data
+    project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
     tenant_name: umccr-prod
-  - project_name: trial
-    project_id: 7595e8f2-32d3-4c76-a324-c6a85dae87b5
+  - project_name: validation-data
+    project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+    tenant_name: umccr-prod
+  - project_name: pipelines
+    project_id: 5844391a-69db-4b52-86b5-6a0d55c2386f
+    tenant_name: umccr-prod
+  - project_name: development
+    project_id: ea19a3f5-ec7c-4940-a474-c31cd91dbad4
+    tenant_name: umccr-prod
+  - project_name: staging
+    project_id: 157b9e78-b2e1-45a7-bfcd-691159995f7c
+    tenant_name: umccr-prod
+  - project_name: production
+    project_id: eba5c946-1677-441d-bbce-6a11baadecbb
     tenant_name: umccr-prod
 
 
-# List of datasets
 datasets:
-  - dataset_tenant_name: umccr-test
+  # REFERENCE DATA SETS
+  # Dragen Hash Tables
+  - dataset_tenant_name: umccr-prod
     dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
     dataset_description: |
       A tarred version of the v9 r3 hash table for dragen 4.2.4
@@ -48,25 +46,166 @@ datasets:
     cwl_username: Alexis Lucattini
     dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     dataset_region_city_name: Sydney
-    dataset_creation_time: '2023-10-19T22:27:41Z'
-    dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
+    dataset_creation_time: '2024-06-21T09:21:42Z'
+    dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
     data:
-      - data_id: fil.2a46a39e65084982852708dbd0602a8c
-        owning_project_id: e22b9fcb-33ee-4dc9-9015-f1034dfd6a85
-        owning_project_name: umccr-test-byob-2
+      - data_id: fil.2082d35d90fb4b9e126a08dc7a0472f4
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
         data_uri: 
-          icav2://umccr-test-byob-2/reference_data/dragen_hash_tables/v9-r3/hg38-alt_masked-cnv-hla-rna/hg38-alt_masked.cnv.hla.rna-9-r3.0-1.tar.gz
-        creation_time: '2023-10-19T05:28:35Z'
-        modification_time: '2023-10-19T05:28:35Z'
+          icav2://reference-data/dragen-hash-tables/v9-r3/hg38-alt_masked-cnv-hla-rna/hg38-alt_masked.cnv.hla.rna-9-r3.0-1.tar.gz
+        creation_time: '2024-06-04T08:12:54Z'
+        modification_time: '2024-06-21T09:10:57Z'
         creator_id:
         creator_name:
         data_type: FILE
         file_size_in_bytes: 7605659132
-        object_e_tag: ccf2a6cf9088236707ef06908b9fc772-1451
-  - dataset_tenant_name: umccr-test
+        object_e_tag: 62ad4834918977575481a2101f586133-907
+
+  # HG38 Fasta
+  - dataset_tenant_name: umccr-prod
+    dataset_name: hg38_fasta
+    dataset_description: |
+      GRCh38 Reference Data with HLA + decoy ALTs 
+
+      Where hg38.fa was downloaded from s3.amazonaws.com/stratus-documentation-us-east-1-public/dragen/reference/Homo_sapiens/hg38.fa
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T11:31:50Z'
+    dataset_id_hash: 5f129b14aca5b4a7fda902590b15abc2
+    data:
+      - data_id: fil.33b0c303aa2a44efda7008dc8578d1bb
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/genomes/hg38/hg38.fa
+        creation_time: '2024-06-21T11:11:31Z'
+        modification_time: '2024-06-21T11:11:31Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 3263683042
+        object_e_tag: d2177aeff81f666a3672ad90d3ab81dd-623
+      - data_id: fil.8ab696eccee945064fe608dc9159afed
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/genomes/hg38/hg38.fa.fai
+        creation_time: '2024-06-21T11:11:13Z'
+        modification_time: '2024-06-21T11:11:13Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 154196
+        object_e_tag: 5ccc91e56dc4a05448dd5b9507ec6bc6
+
+  # Arriba
+  - dataset_tenant_name: umccr-prod
+    dataset_name: arriba_2_4_0
+    dataset_description: |
+      Arriba v2.4.0 data, 
+      Comprising:
+        * blacklist hg38 tsv file
+        * cytoband hg38 tsv file
+        * protein domains hg38 gff3 file
+
+      All these files can be found in the release tar ball of Arriba 2.4.0 here:
+      https://github.com/suhrig/arriba/releases/download/v2.4.0/arriba_v2.4.0.tar.gz
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T11:31:26Z'
+    dataset_id_hash: 8695cf0a98c5cda5726f67d4922da67f
+    data:
+      - data_id: fil.8950646b2bcf4137dac908dc8578d1bb
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/arriba/2-4-0/blacklist_hg38_GRCh38_v2.4.0.tsv.gz
+        creation_time: '2024-06-21T11:14:07Z'
+        modification_time: '2024-06-21T11:24:47Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 54779787
+        object_e_tag: cab9470fe76396da24a364875b31f122-11
+      - data_id: fil.361af4dcff7840b5dab808dc8578d1bb
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/arriba/2-4-0/cytobands_hg38_GRCh38_v2.4.0.tsv
+        creation_time: '2024-06-21T11:14:06Z'
+        modification_time: '2024-06-21T11:24:47Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 28191
+        object_e_tag: 7bd504feefb33fcfc9be0517439a423c
+      - data_id: fil.e956bc1d6e124433503f08dc9159afed
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/arriba/2-4-0/protein_domains_hg38_GRCh38_v2.4.0.gff3
+        creation_time: '2024-06-21T11:14:07Z'
+        modification_time: '2024-06-21T11:24:48Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 21586693
+        object_e_tag: 5130f66bdf64a2b3aa186a08e62efca7-5
+
+  # RNASum
+  - dataset_tenant_name: umccr-prod
+    dataset_name: rnasum_1_0_0
+    dataset_description: |
+      A versioned directory of the rnasum reference data
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-23T10:39:55Z'
+    dataset_id_hash: b8e45195afdbb7384012421978363b08
+    data:
+      - data_id: fol.fd57cde94f254ff69f9f08dc933ed070
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/rnasum/1-0-0/
+        creation_time: '2024-06-23T10:34:59Z'
+        modification_time: '2024-06-23T10:34:59Z'
+        creator_id: 62874efc-339e-4cc2-a5ef-2248d86766d7
+        creator_name: 0c51d29a-8ffa-38e9-bf18-736330d7c65a
+        data_type: FOLDER
+        num_files: 189
+        folder_size_in_bytes: 782148195
+        object_e_tag_md5sum: ff8c518ee595340cfdd90624e5564249
+        folder_structure_md5sum: b575f6ec6667607113355288182ebb81
+
+  # UMCCRise
+  - dataset_tenant_name: umccr-prod
+    dataset_name: umccrise_202303
+    dataset_description: |
+      A versioned directory of the umccrise reference data
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-23T10:43:30Z'
+    dataset_id_hash: d240e2f94f1859bd67da74fb9d7b90d2
+    data:
+      - data_id: fil.6ebd31e5634a4466053f08dc8578d1bc
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/umccrise/202303/genomes.tar.gz
+        creation_time: '2024-06-21T12:27:06Z'
+        modification_time: '2024-06-22T20:44:36Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 49153518513
+        object_e_tag: 28d5251c2ab460af624afb414c356deb-9376
+
+
+  # WGS VALIDATION SAMPLES
+
+  # CUPS Pair 8
+  - dataset_tenant_name: umccr-prod
     dataset_name: wgs_validation_fastq__cups_pair_8
     dataset_description: |
-      Fastq data from SBJ03864 (Tumor PRJ180660, Normal PRJ180661) 
+      Fastq data from SBJ03864 (Tumor PRJ180660, Normal PRJ180661)
 
       The run name for both PRJ180660 and PRJ180661 is 181211_A00130_0084_BHFTGGDSXX.
 
@@ -74,339 +213,1353 @@ datasets:
     cwl_username: Alexis Lucattini
     dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     dataset_region_city_name: Sydney
-    dataset_creation_time: '2023-10-19T22:28:05Z'
+    dataset_creation_time: '2024-06-21T09:35:36Z'
     dataset_id_hash: fca2fb140731ea7900d2c5c96061a280
     data:
-      - data_id: fil.797f7409f94e400cc2b008dbc44487b1
-        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
-        owning_project_name: umccr-test-byob-1
+      - data_id: fil.fc89c78d9e5d49016fdf08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
         data_uri: 
-          icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R1.fastq.gz
-        creation_time: '2023-10-04T00:58:22Z'
-        modification_time: '2023-10-13T06:46:28Z'
-        creator_id:
-        creator_name:
-        data_type: FILE
-        file_size_in_bytes: 34360870174
-        object_e_tag: 138476caefce92d67b720d904949ccf3-6554
-      - data_id: fil.bba86d004b114610c2b108dbc44487b1
-        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
-        owning_project_name: umccr-test-byob-1
-        data_uri: 
-          icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R2.fastq.gz
-        creation_time: '2023-10-04T00:58:31Z'
-        modification_time: '2023-10-13T06:46:38Z'
-        creator_id:
-        creator_name:
-        data_type: FILE
-        file_size_in_bytes: 35661224822
-        object_e_tag: 637423542b3ef45d0aef7b5c83c3fe38-6802
-      - data_id: fil.83144282a83a458cc2c508dbc44487b1
-        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
-        owning_project_name: umccr-test-byob-1
-        data_uri: 
-          icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R1.fastq.gz
-        creation_time: '2023-10-04T01:03:49Z'
-        modification_time: '2023-10-13T06:46:50Z'
+          icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R1.fastq.gz
+        creation_time: '2024-06-06T22:55:21Z'
+        modification_time: '2024-06-21T08:27:27Z'
         creator_id:
         creator_name:
         data_type: FILE
         file_size_in_bytes: 100413086424
         object_e_tag: d797258505a1bf0db2b5bb5801e81338-10000
-      - data_id: fil.8047322518354ef5e20d08dbc444884e
-        owning_project_id: eb511e09-1b6a-4ebd-9da4-bbdecbfb934d
-        owning_project_name: umccr-test-byob-1
+      - data_id: fil.1f3dff24328544ed6fe808dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
         data_uri: 
-          icav2://umccr-test-byob-1/validation_data/WGS/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R2.fastq.gz
-        creation_time: '2023-10-04T01:03:53Z'
-        modification_time: '2023-10-13T06:46:59Z'
+          icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R2.fastq.gz
+        creation_time: '2024-06-06T22:57:26Z'
+        modification_time: '2024-06-21T08:27:43Z'
         creator_id:
         creator_name:
         data_type: FILE
         file_size_in_bytes: 102794669165
         object_e_tag: 70826025f479165c0a23b91f43ecc778-10000
+      - data_id: fil.820d738a6b4147446f6108dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R1.fastq.gz
+        creation_time: '2024-06-06T22:37:40Z'
+        modification_time: '2024-06-21T08:27:48Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 34360870174
+        object_e_tag: 138476caefce92d67b720d904949ccf3-6554
+      - data_id: fil.bdbd68814e784f826f6c08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R2.fastq.gz
+        creation_time: '2024-06-06T22:39:37Z'
+        modification_time: '2024-06-21T08:27:49Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 35661224822
+        object_e_tag: 637423542b3ef45d0aef7b5c83c3fe38-6802
+
+  # 2016_249_17_MH_P033
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wgs_validation_fastq__2016_249_17_MH_P033
+    dataset_description: |
+      Fastq data from SBJ00471 (Tumor CCR170115/L1800128, Normal CCR170105/L1800127)
+
+      The run name for both CCR170115 and CCR170105 is 181102_A00130_0081_AHFFWLDSXX.
+
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:37:03Z'
+    dataset_id_hash: ab2e2265f84e64ff9687b6e8a3f5c5d4
+    data:
+      - data_id: fil.844c8e5a9af44b3e6fb308dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170115b_MH17T002P033_R1.fastq.gz
+        creation_time: '2024-06-06T22:44:58Z'
+        modification_time: '2024-06-21T08:26:13Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 116961757311
+        object_e_tag: 497814b7df5aa5d8fc3d901708d4d6f4-10000
+      - data_id: fil.b25812a50e6146d86fb508dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170115b_MH17T002P033_R2.fastq.gz
+        creation_time: '2024-06-06T22:47:58Z'
+        modification_time: '2024-06-21T08:26:30Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 126261197391
+        object_e_tag: 375f9b09c0951783bae64c563cc6fe8b-10000
+      - data_id: fil.1d6efec072b7499f297a08dc8578d21e
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170105_MH17B001P033_R1.fastq.gz
+        creation_time: '2024-06-06T22:23:08Z'
+        modification_time: '2024-06-21T08:25:45Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 49767424911
+        object_e_tag: 91b8393ed06562e260074a2bf167aa76-9493
+      - data_id: fil.8202bfaf8b3c44d86f0a08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170105_MH17B001P033_R2.fastq.gz
+        creation_time: '2024-06-06T22:25:00Z'
+        modification_time: '2024-06-21T08:25:57Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 53637743501
+        object_e_tag: 848e5f6512aedffdad7c440418dcc63c-10000
+
+  # 2016_249_18_WH_P025
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wgs_validation_fastq__2016_249_18_WH_P025
+    dataset_description: |
+      Fastq data from SBJ00031 (Tumor CCR180149/L1800038, Normal CCR180135/L1800036)
+
+      The run name for both CCR180149 and CCR180135 is 180920_A00130_0075_AHC7NCDSXX
+
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:37:36Z'
+    dataset_id_hash: 48b0a8616df58b94ec6f358037850f1e
+    data:
+      - data_id: fil.2a4ed15a76b044da6f0c08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180149_VPT-WH025-E_R1.fastq.gz
+        creation_time: '2024-06-06T22:26:44Z'
+        modification_time: '2024-06-21T08:26:44Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 60201654845
+        object_e_tag: de96fbe43839f695df627750cd17a27b-10000
+      - data_id: fil.01366fbbb2f641106f1008dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180149_VPT-WH025-E_R2.fastq.gz
+        creation_time: '2024-06-06T22:29:03Z'
+        modification_time: '2024-06-21T08:26:47Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 66835390408
+        object_e_tag: 31ab9109f1ac5b7147144d3be7e70e0f-10000
+      - data_id: fil.84571fa14bcb4ebe6ec108dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180135_WH18B002P025_R1.fastq.gz
+        creation_time: '2024-06-06T22:17:50Z'
+        modification_time: '2024-06-21T08:26:30Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 31257849531
+        object_e_tag: 39d7af3d9c8e2f0b39581db904a44393-5962
+      - data_id: fil.03003c8566404e0d295108dc8578d21e
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180135_WH18B002P025_R2.fastq.gz
+        creation_time: '2024-06-06T22:18:55Z'
+        modification_time: '2024-06-21T08:26:34Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 34939025942
+        object_e_tag: 908a44e679573d573ab0e9d4e6a05c1a-6665
+
+  # B_ALL_Case_10
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wgs_validation_fastq__B_ALL_Case_10
+    dataset_description: |
+      Fastq data from SBJ00040 (Tumor MDX190025/L1900373, Normal MDX190026/L1900374)
+
+      The run name for both MDX190025 and MDX190026 is 190418_A00130_0101_BHKJT3DSXX
+
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:38:04Z'
+    dataset_id_hash: 3938ab2e04aae0156897f3fee3676ac2
+    data:
+      - data_id: fil.4b888dbf5d0b494b29b108dc8578d21e
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190025_B_ALL_Case_10T_R1.fastq.gz
+        creation_time: '2024-06-06T22:31:04Z'
+        modification_time: '2024-06-21T08:26:58Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 72908560214
+        object_e_tag: e8178ab306d565fb36c3750c18f252e5-10000
+      - data_id: fil.ef151fe0eed643dc29b208dc8578d21e
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190025_B_ALL_Case_10T_R2.fastq.gz
+        creation_time: '2024-06-06T22:31:09Z'
+        modification_time: '2024-06-21T08:27:09Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 73388771714
+        object_e_tag: cd4cf18fe09df1d74a9a2a25c7dfe3ff-10000
+      - data_id: fil.3ce7d237182749bf6f0f08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190026_B_ALL_Case_10G_R1.fastq.gz
+        creation_time: '2024-06-06T22:28:18Z'
+        modification_time: '2024-06-21T08:27:13Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 32536855396
+        object_e_tag: 1c8094ae55025e97a30327141c91cccf-6206
+      - data_id: fil.5b8d57e3e521471f299808dc8578d21e
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190026_B_ALL_Case_10G_R2.fastq.gz
+        creation_time: '2024-06-06T22:29:19Z'
+        modification_time: '2024-06-21T08:27:23Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 32796565400
+        object_e_tag: 47e0e0f72c36b65969d38a399af8004e-6256
+
+  # Diploid_Never_Responder
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wgs_validation_fastq_Diploid_Never_Responder
+    dataset_description: |
+      Fastq data from SBJ03827 (Tumor PRJ170218/LPRJ170218, Normal PRJ170198/LPRJ170198)
+
+      The run name for both PRJ170218 and PRJ170198 is 171220_A00130_0036_BH32JNDSXX
+
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:38:33Z'
+    dataset_id_hash: 45c8ce2f0995873364f760ca797c5c6a
+    data:
+      - data_id: fil.d5738aa4a53c46356fb208dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170198_Missing_R1.fastq.gz
+        creation_time: '2024-06-06T22:43:55Z'
+        modification_time: '2024-06-21T08:27:54Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 47030736911
+        object_e_tag: 53992056db4e63719879ff1c052c54e6-8971
+      - data_id: fil.34f231309a4d45b96fb408dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170198_Missing_R2.fastq.gz
+        creation_time: '2024-06-06T22:45:06Z'
+        modification_time: '2024-06-21T08:27:59Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 49746221494
+        object_e_tag: eb01ec32930a01c1f2940a8e2a182a1e-9489
+      - data_id: fil.3359a5a0bfa1479f6fec08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170218_Missing_R1.fastq.gz
+        creation_time: '2024-06-06T22:59:09Z'
+        modification_time: '2024-06-21T08:28:08Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 88790851273
+        object_e_tag: 711ce08fe6d015bb6246d9bbdac55680-10000
+      - data_id: fil.12993a6849144556701108dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170218_Missing_R2.fastq.gz
+        creation_time: '2024-06-06T23:00:44Z'
+        modification_time: '2024-06-21T08:28:27Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 93160737192
+        object_e_tag: 09cc35e3de73ea32aacd86f331e31076-10000
+
+  # SBJ00303
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wgs_validation_fastq_SBJ00303
+    dataset_description: |
+      Fastq data from SBJ00303 (Tumor PRJ200200/L2000150, Normal PRJ200201/L2000151)
+
+      The run name for both PRJ200200 and PRJ200201 is 200317_A00130_0133_BH2KCKDSXY
+
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:39:42Z'
+    dataset_id_hash: ebfe847356803cb27a8009deedf30944
+    data:
+      - data_id: fil.c1010f3b659a4317707208dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200200_L2000150_R1.fastq.gz
+        creation_time: '2024-06-06T23:17:54Z'
+        modification_time: '2024-06-21T08:29:45Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 70342374012
+        object_e_tag: 6665d4664caf8530d9c062015831ee4c-10000
+      - data_id: fil.2f862dcab5bb422d707308dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200200_L2000150_R2.fastq.gz
+        creation_time: '2024-06-06T23:19:17Z'
+        modification_time: '2024-06-21T08:29:54Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 74534640630
+        object_e_tag: d0c4ddab1c82e9ebaa66706da52e5400-10000
+      - data_id: fil.a84ca36c0f6b49f5704a08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200201_L2000151_R1.fastq.gz
+        creation_time: '2024-06-06T23:11:04Z'
+        modification_time: '2024-06-21T08:29:59Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 35809826943
+        object_e_tag: 42e970c0fd10306ee57dabaaaf672f27-6831
+      - data_id: fil.7bc585d90a9e45ee704b08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200201_L2000151_R2.fastq.gz
+        creation_time: '2024-06-06T23:12:59Z'
+        modification_time: '2024-06-21T08:30:08Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 38234019008
+        object_e_tag: 5f13bf8e090535a4f0c721a0d5a57306-7293
+
+  # SEQC50
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wgs_validation_fastq_SEQC50
+    dataset_description: |
+      Fastq data from SRR7890936 (Tumor SEQC50-II_T, Normal SEQC50-II_N)
+
+      More information on this sample can be found at https://github.com/umccr/validation_data or through the SRA browser at
+      https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=run_browser&page_size=10&acc=SRR7890936&display=metadata
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:40:14Z'
+    dataset_id_hash: 2e5fbe564ac04069f3fc2cd254465dd8
+    data:
+      - data_id: fil.1dfd6a013088441771f108dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SEQC50/fastq/SEQC-II_Normal_R1.fastq.gz
+        creation_time: '2024-06-07T00:16:23Z'
+        modification_time: '2024-06-21T08:34:46Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 47473606379
+        object_e_tag: 6bc4bea0dec7fbdfce7451fc4a52cb4b-9055
+      - data_id: fil.e5a701e223534a3871f208dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SEQC50/fastq/SEQC-II_Normal_R2.fastq.gz
+        creation_time: '2024-06-07T00:16:26Z'
+        modification_time: '2024-06-21T08:34:53Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 53908011748
+        object_e_tag: e0f644521094964885c22db8ed9eec8e-10000
+      - data_id: fil.614a2ba2838b4032722908dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SEQC50/fastq/SEQC-II_Tumor_50pc_R1.fastq.gz
+        creation_time: '2024-06-07T00:27:18Z'
+        modification_time: '2024-06-21T08:35:04Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 85996458907
+        object_e_tag: cfd002970716077122d0d0a13f04b732-10000
+      - data_id: fil.9cae8faaf6d54e1d763c08dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SEQC50/fastq/SEQC-II_Tumor_50pc_R2.fastq.gz
+        creation_time: '2024-06-07T00:29:11Z'
+        modification_time: '2024-06-21T08:35:10Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 100408646272
+        object_e_tag: 150e1111e1b383ac932d38559afd140a-10000
+
+  # SFRC01073
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wgs_validation_fastq_SFRC01073
+    dataset_description: |
+      Fastq data from SBJ00204 (Tumor PRJ180598/L1800083, Normal PRJ180599/L1800084)
+
+      The run name for both PRJ180598 and PRJ180599 is 181015_A00130_0078_BHF7T5DSXX
+
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:40:51Z'
+    dataset_id_hash: deac29472b118a9b51889a661e804cd8
+    data:
+      - data_id: fil.736453496b8d4262766108dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SFRC01073/fastq/PRJ180598_SFRC01073-S2T_R1.fastq.gz
+        creation_time: '2024-06-07T00:34:26Z'
+        modification_time: '2024-06-21T08:35:22Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 95240099057
+        object_e_tag: df79cd20f4f306c4de12d147db7f60c2-10000
+      - data_id: fil.b57ab0c1ec0b4c81766008dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SFRC01073/fastq/PRJ180598_SFRC01073-S2T_R2.fastq.gz
+        creation_time: '2024-06-07T00:32:41Z'
+        modification_time: '2024-06-21T08:35:38Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 97400751141
+        object_e_tag: 0c182309c42d8505971721cad758a708-10000
+      - data_id: fil.5bd5ed8c97d2453471f008dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SFRC01073/fastq/PRJ180599_SFRC01073-S2N_R1.fastq.gz
+        creation_time: '2024-06-07T00:16:24Z'
+        modification_time: '2024-06-21T08:35:45Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 40281587383
+        object_e_tag: 484cb7a9f205460bceb899723d09bcc4-7684
+      - data_id: fil.9f96daa8e276454c75e408dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: icav2://validation-data/wgs/SFRC01073/fastq/PRJ180599_SFRC01073-S2N_R2.fastq.gz
+        creation_time: '2024-06-07T00:16:58Z'
+        modification_time: '2024-06-21T08:35:49Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 41191776085
+        object_e_tag: 7634ae35a06b10c417c5b0f5eb14ff38-7857
+
+
+  # WTS VALIDATION SAMPLES
+
+  # SBJ00480
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_validation_fastq__SBJ00480
+    dataset_description: |
+      Fastq data from SBJ00480. 
+      SampleName: PTC_NebRNA210629_HCC1395, 
+      LibraryID: L2100706
+      This sample was sequenced on run 210701_A01052_0054_BH7KH7DSX2.
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:41:15Z'
+    dataset_id_hash: c8b8bdc7e384aaa470b12992ce196693
+    data:
+      - data_id: fil.00db7f575e3c4741766608dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R1_001.fastq.gz
+        creation_time: '2024-06-07T00:36:34Z'
+        modification_time: '2024-06-21T08:26:27Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 895724607
+        object_e_tag: dd54e628944e22bceba2fcba90233072-171
+      - data_id: fil.848678f252004cae726508dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R2_001.fastq.gz
+        creation_time: '2024-06-07T00:36:52Z'
+        modification_time: '2024-06-21T08:26:28Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 894148133
+        object_e_tag: 07b065154570f4754828759d6b92ee82-171
+
+  # SBJ00028
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_validation_fastq__SBJ00028
+    dataset_description: |
+      Fastq data from SBJ00028. 
+      SampleName: PRJ190190 
+      LibraryID: L1900423
+      This sample was sequenced on run 190503_A00130_0102_AHJHHKDMXX.
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:42:31Z'
+    dataset_id_hash: fa76e6ca3a0fb0be2bf41840a7aeeb01
+    data:
+      - data_id: fil.e47895b2674b40cf727508dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00028_PRJ190190_L1900423/fastq/L1900423_S7_R1_001.fastq.gz
+        creation_time: '2024-06-07T00:37:57Z'
+        modification_time: '2024-06-21T08:26:29Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 3413133188
+        object_e_tag: 3d96f76eafd4de6fa60d893bf5c7aae4-652
+      - data_id: fil.f7b97fcf876b4409727608dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00028_PRJ190190_L1900423/fastq/L1900423_S7_R2_001.fastq.gz
+        creation_time: '2024-06-07T00:39:04Z'
+        modification_time: '2024-06-21T08:26:31Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 3480301798
+        object_e_tag: ddf6198c6f074c9381cacab75e4f7fc4-664
+
+  # SBJ00061
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_validation_fastq__SBJ00061
+    dataset_description: |
+      Fastq data from SBJ00061. 
+      SampleName: MDX190049 
+      LibraryID: L1900440
+      This sample was sequenced on run 190510_A00130_0104_AHKJTKDSXX.
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:42:54Z'
+    dataset_id_hash: 63ee438354c347b05218b9bddc53d936
+    data:
+      - data_id: fil.ad6640db600e44e1727a08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00061_MDX190049_L1900440/fastq/L1900440_S21_R1_001.fastq.gz
+        creation_time: '2024-06-07T00:39:27Z'
+        modification_time: '2024-06-21T08:26:32Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 4281614073
+        object_e_tag: d0e7c84699ac5fa988181994bc1a5a89-817
+      - data_id: fil.6e3e68b7fc8b48ef76a908dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00061_MDX190049_L1900440/fastq/L1900440_S21_R2_001.fastq.gz
+        creation_time: '2024-06-07T00:39:46Z'
+        modification_time: '2024-06-21T08:26:33Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 4332592588
+        object_e_tag: 5b6e6c1031f7b4c3035531f23fd7a172-827
+
+  # SBJ00188
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_validation_fastq__SBJ00188
+    dataset_description: |
+      Fastq data from SBJ00188. 
+      SampleName: MDX190169 
+      LibraryID: L1900877
+      This sample was sequenced on run 191101_A00130_0121_BHLVCVDSXX.
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:43:11Z'
+    dataset_id_hash: 401d12d90e00db19918e5c9ce13a3da0
+    data:
+      - data_id: fil.25ae81b4f33146b2769708dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00188_MDX190169_L1900877/fastq/L1900877_S12_R1_001.fastq.gz
+        creation_time: '2024-06-07T00:39:38Z'
+        modification_time: '2024-06-21T08:26:34Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 1696174385
+        object_e_tag: d5152b2f8207e067e1a282caa0340e2b-324
+      - data_id: fil.dc806da29f02402076aa08dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00188_MDX190169_L1900877/fastq/L1900877_S12_R2_001.fastq.gz
+        creation_time: '2024-06-07T00:39:52Z'
+        modification_time: '2024-06-21T08:26:34Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 1677753766
+        object_e_tag: c382f4a57bbbb7c8c48d9926a9b6e083-321
+
+  # SBJ00199
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_validation_fastq__SBJ00199
+    dataset_description: |
+      Fastq data from SBJ00199.
+      SampleName: MDX190193
+      LibraryID: L1900920
+      This sample was sequenced on run 191121_A00130_0123_BHMCNMDSXX
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:49:27Z'
+    dataset_id_hash: b95ac04c7e3c03a8b1868a4571d23d5f
+    data:
+      - data_id: fil.8ed5724bce234ff276ad08dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00199_MDX190193_L1900920/fastq/L1900920_S15_R1_001.fastq.gz
+        creation_time: '2024-06-07T00:40:25Z'
+        modification_time: '2024-06-21T08:26:35Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 3084198453
+        object_e_tag: f301948f778850720069056437944039-589
+      - data_id: fil.2c3073bee29c47ea76ae08dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00199_MDX190193_L1900920/fastq/L1900920_S15_R2_001.fastq.gz
+        creation_time: '2024-06-07T00:40:38Z'
+        modification_time: '2024-06-21T08:26:37Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 3115745017
+        object_e_tag: cfd2599ca50032bfc64f4f45b72c3303-595
+
+  # SBJ00236
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_validation_fastq__SBJ00236
+    dataset_description: |
+      Fastq data from SBJ00236. 
+      SampleName: MDX190219 
+      LibraryID: L1901023
+      This sample was sequenced on run 191213_A00130_0126_AHKVT5DMXX
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:49:54Z'
+    dataset_id_hash: f084081c52ddda14328294d7bb7f13f4
+    data:
+      - data_id: fil.a191c268b58b414972ae08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00236_MDX190219_L1901023/fastq/L1901023_S8_R1_001.fastq.gz
+        creation_time: '2024-06-07T00:41:17Z'
+        modification_time: '2024-06-21T08:26:38Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 4636194211
+        object_e_tag: b5c7fdf74f5e2223625db0509536f591-885
+      - data_id: fil.f4d61a69d418416a76af08dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00236_MDX190219_L1901023/fastq/L1901023_S8_R2_001.fastq.gz
+        creation_time: '2024-06-07T00:41:23Z'
+        modification_time: '2024-06-21T08:26:39Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 4672109093
+        object_e_tag: 771fd2f430579005d7ce38e3f3404225-892
+
+  # SBJ00238
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_validation_fastq__SBJ00238
+    dataset_description: |
+      Fastq data from SBJ00238. 
+      SampleName: MDX190231 
+      LibraryID: L1901028
+      This sample was sequenced on run 191220_A00130_0127_BHMCNVDSXX
+      More information on this sample can be found at https://github.com/umccr/validation_data.
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T09:50:29Z'
+    dataset_id_hash: ba04ff08acbfbd1c17f1aadc0e8b3cf5
+    data:
+      - data_id: fil.554ab8b39c49488a76b208dc8682e79a
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00238_MDX190231_L1901028/fastq/L1901028_S3_R1_001.fastq.gz
+        creation_time: '2024-06-07T00:41:58Z'
+        modification_time: '2024-06-21T08:26:40Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 5342880830
+        object_e_tag: 459348146ac93763c69175847754ca99-1020
+      - data_id: fil.728b7d6332dd4d2e72af08dc8578d1b7
+        owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
+        owning_project_name: validation-data
+        data_uri: 
+          icav2://validation-data/wts/SBJ00238_MDX190231_L1901028/fastq/L1901028_S3_R2_001.fastq.gz
+        creation_time: '2024-06-07T00:42:09Z'
+        modification_time: '2024-06-21T08:26:41Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 5391024285
+        object_e_tag: c1f7f09723c62436784fe459d4464919-1029
+
+
+  # WTS QC SAMPLES
+
+  # Ref_1_Good
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_1_Good__SBJ01563
+    dataset_description: |
+      MultiQC input data from SBJ01563.
+
+      SampleName: PRJ220412
+      LibraryID: L2200121
+
+      This sample was sequenced on run 220204_A01052_0076_AH3TLLDSX3
+
+      The multiqc outputs were generated using dragen version 4.2.4 in the ICAv1 Development Context.
+
+      The workflow run ID to generate this data was wfr.4e8564656fb7482981c29e805bb7abbf
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T11:33:06Z'
+    dataset_id_hash: 8de637be95f6ded72f61103bc842da45
+    data:
+      - data_id: fol.4bfb05e08c2c46e7927908dc8578d1b7
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/dragen-wts-multiqc/2023-07-21--4-2-4/SBJ01563/
+        creation_time: '2024-06-07T07:21:37Z'
+        modification_time: '2024-06-21T09:55:59Z'
+        creator_id:
+        creator_name:
+        data_type: FOLDER
+        num_files: 70
+        folder_size_in_bytes: 7994885445
+        object_e_tag_md5sum: a160e72ba270337de0e49b18b80c13a4
+        folder_structure_md5sum: 16660dda2d969011fb76e131f8d43840
+
+  # Ref_2_Good
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_2_Good__SBJ01147
+    dataset_description: |
+      MultiQC input data from SBJ01147.
+
+      SampleName: MDX210318
+      LibraryID: L2101521
+
+      This sample was sequenced on run 211125_A00130_0185_AHWC2HDSX2
+
+      The multiqc outputs were generated using dragen version 4.2.4 in the ICAv1 Development Context.
+
+      The workflow run ID to generate this data was wfr.ef8ac532457943f7bc77902a617ba095
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T11:34:05Z'
+    dataset_id_hash: e11d32cd8efced32065a52eea33b06d1
+    data:
+      - data_id: fol.a3f65803908c4f29969508dc8682e79a
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/dragen-wts-multiqc/2023-07-21--4-2-4/SBJ01147/
+        creation_time: '2024-06-07T07:15:37Z'
+        modification_time: '2024-06-21T09:56:01Z'
+        creator_id:
+        creator_name:
+        data_type: FOLDER
+        num_files: 70
+        folder_size_in_bytes: 15141395590
+        object_e_tag_md5sum: b4c4a3ee68b891363b8bb5387eca9a6b
+        folder_structure_md5sum: 18a4c51d1afc308bfaf1e34854c28118
+
+  # Ref_3_Good
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_3_Good__SBJ01620
+    dataset_description: |
+      MultiQC input data from SBJ01620.
+
+      SampleName: PRJ220466
+      LibraryID: L2200188
+
+      This sample was sequenced on run 220311_A01052_0084_BH3TYCDSX3
+
+      The multiqc outputs were generated using dragen version 4.2.4 in the ICAv1 Development Context.
+
+      The workflow run ID to generate this data was wfr.8f430cd33b904e048c1fa8606988b504
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T11:34:29Z'
+    dataset_id_hash: 0f0fee1a6b1f7b46978643839ffc0e88
+    data:
+      - data_id: fol.841783fe78e64b7e96cd08dc8682e79a
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/dragen-wts-multiqc/2023-07-21--4-2-4/SBJ01620/
+        creation_time: '2024-06-07T07:23:38Z'
+        modification_time: '2024-06-21T09:56:23Z'
+        creator_id:
+        creator_name:
+        data_type: FOLDER
+        num_files: 70
+        folder_size_in_bytes: 7742785335
+        object_e_tag_md5sum: a56ac762d87a1a760e91f0df507eecff
+        folder_structure_md5sum: ccf13d479da330536b3bdee18439e6a7
+
+  # Ref_4_Bad
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_4_Bad__SBJ01286
+    dataset_description: |
+      MultiQC input data from SBJ01286.
+
+      SampleName: PRJ211234
+      LibraryID: L2101763
+
+      This sample was sequenced on run 220121_A00130_0197_BHWJ2HDSX2
+
+      The multiqc outputs were generated using dragen version 4.2.4 in the ICAv1 Development Context.
+
+      The workflow run ID to generate this data was wfr.fcf53ac2b5a948d3b57ae6cde6ed5f89
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T11:34:51Z'
+    dataset_id_hash: 3d9dae1be84d29848f24df81d1ab4219
+    data:
+      - data_id: fol.0dcfcd90b98d4b58925408dc8578d1b7
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/dragen-wts-multiqc/2023-07-21--4-2-4/SBJ01286/
+        creation_time: '2024-06-07T07:19:38Z'
+        modification_time: '2024-06-21T09:55:59Z'
+        creator_id:
+        creator_name:
+        data_type: FOLDER
+        num_files: 70
+        folder_size_in_bytes: 16307810485
+        object_e_tag_md5sum: e6c38150c7e5e472d6bb19c852dba969
+        folder_structure_md5sum: 6d4ec9fed79f65e98eb21ee8e7bea650
+
+  # Ref_5_Bad
+  - dataset_tenant_name: umccr-prod
+    dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_5_Bad__SBJ01673
+    dataset_description: |
+      MultiQC input data from SBJ01673.
+
+      SampleName: PRJ220790
+      LibraryID: L2200311
+
+      This sample was sequenced on run 220311_A01052_0085_AHGGTWDSX3
+
+      The multiqc outputs were generated using dragen version 4.2.4 in the ICAv1 Development Context.
+
+      The workflow run ID to generate this data was wfr.4af23f10ec42405182e819eaf3573a8f
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-06-21T11:35:25Z'
+    dataset_id_hash: 42a9396b3f5d7e919e30a0f59f2401b7
+    data:
+      - data_id: fol.7ff6b53c0f0148b7970c08dc8682e79a
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/dragen-wts-multiqc/2023-07-21--4-2-4/SBJ01673/
+        creation_time: '2024-06-07T07:25:38Z'
+        modification_time: '2024-06-21T09:55:59Z'
+        creator_id:
+        creator_name:
+        data_type: FOLDER
+        num_files: 70
+        folder_size_in_bytes: 5858132347
+        object_e_tag_md5sum: 4dde55434a5b9c2a700b0ed845cc3e9c
+        folder_structure_md5sum: cd6eef09246bd35d870f8754bdc701d0
 
 
 # List of bunches / bunch versions that are precursors to bundles
 bunches:
-  - bunch_name: dragen_somatic_with_germline_pipeline_validation__4_2_4
+  # BCLConvert Interop QC
+  - bunch_name: bclconvert_interop_qc_prod__1_3_1__1_21
+    bunch_description: BCLConvert Interop QC Pipeline Bunch
+    tenant_name: umccr-prod
+    pipeline_path: 
+      workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - qc
+    bunch_versions:
+      - version: 1.3.1__1.21
+        version_description: |
+          Interop QC v1.3.1 with MultiQC version 1.21
+        version_creation_date: 2024-06-23T23:19:52+00:00Z
+        datasets: []
+
+  # DRAGEN WGTS Alignment QC
+  # Validation Only
+  - bunch_name: dragen_alignment_pipeline_with_validation_data__4_2_4
+    bunch_description: |
+      Contains the UMCCR dragen-alignment-pipeline, validation data and the appropriate reference data for dragen version 4.2.4
+
+      The reference data is the dragen hash table for hg38.
+      Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+    tenant_name: umccr-prod
+    pipeline_path: workflows/dragen-alignment-pipeline/4.2.4/dragen-alignment-pipeline__4.2.4.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+    categories:
+      - wgs
+      - wts
+      - alignment
+      - qc
+      - validation
+      - primary-analysis
+    bunch_versions:
+      - version: v9_r3
+        version_description: |
+          This version of the bunch contains the dragen hash table for hg38
+          Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+        version_creation_date: 2024-06-23T23:21:07+00:00Z
+        datasets:
+          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+            dataset_creation_time: '2024-06-21T09:21:42Z'
+            dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+          - dataset_name: wgs_validation_fastq__cups_pair_8
+            dataset_creation_time: '2024-06-21T09:35:36Z'
+            dataset_id_hash: fca2fb140731ea7900d2c5c96061a280
+          - dataset_name: wgs_validation_fastq__2016_249_17_MH_P033
+            dataset_creation_time: '2024-06-21T09:37:03Z'
+            dataset_id_hash: ab2e2265f84e64ff9687b6e8a3f5c5d4
+          - dataset_name: wgs_validation_fastq__2016_249_18_WH_P025
+            dataset_creation_time: '2024-06-21T09:37:36Z'
+            dataset_id_hash: 48b0a8616df58b94ec6f358037850f1e
+          - dataset_name: wgs_validation_fastq__B_ALL_Case_10
+            dataset_creation_time: '2024-06-21T09:38:04Z'
+            dataset_id_hash: 3938ab2e04aae0156897f3fee3676ac2
+          - dataset_name: wgs_validation_fastq_Diploid_Never_Responder
+            dataset_creation_time: '2024-06-21T09:38:33Z'
+            dataset_id_hash: 45c8ce2f0995873364f760ca797c5c6a
+          - dataset_name: wgs_validation_fastq_SBJ00303
+            dataset_creation_time: '2024-06-21T09:39:42Z'
+            dataset_id_hash: ebfe847356803cb27a8009deedf30944
+          - dataset_name: wgs_validation_fastq_SEQC50
+            dataset_creation_time: '2024-06-21T09:40:14Z'
+            dataset_id_hash: 2e5fbe564ac04069f3fc2cd254465dd8
+          - dataset_name: wgs_validation_fastq_SFRC01073
+            dataset_creation_time: '2024-06-21T09:40:51Z'
+            dataset_id_hash: deac29472b118a9b51889a661e804cd8
+          - dataset_name: wts_validation_fastq__SBJ00480
+            dataset_creation_time: '2024-06-21T09:41:15Z'
+            dataset_id_hash: c8b8bdc7e384aaa470b12992ce196693
+          - dataset_name: wts_validation_fastq__SBJ00028
+            dataset_creation_time: '2024-06-21T09:42:31Z'
+            dataset_id_hash: fa76e6ca3a0fb0be2bf41840a7aeeb01
+          - dataset_name: wts_validation_fastq__SBJ00061
+            dataset_creation_time: '2024-06-21T09:42:54Z'
+            dataset_id_hash: 63ee438354c347b05218b9bddc53d936
+          - dataset_name: wts_validation_fastq__SBJ00188
+            dataset_creation_time: '2024-06-21T09:43:11Z'
+            dataset_id_hash: 401d12d90e00db19918e5c9ce13a3da0
+          - dataset_name: wts_validation_fastq__SBJ00199
+            dataset_creation_time: '2024-06-21T09:49:27Z'
+            dataset_id_hash: b95ac04c7e3c03a8b1868a4571d23d5f
+          - dataset_name: wts_validation_fastq__SBJ00236
+            dataset_creation_time: '2024-06-21T09:49:54Z'
+            dataset_id_hash: f084081c52ddda14328294d7bb7f13f4
+          - dataset_name: wts_validation_fastq__SBJ00238
+            dataset_creation_time: '2024-06-21T09:50:29Z'
+            dataset_id_hash: ba04ff08acbfbd1c17f1aadc0e8b3cf5
+  # Production
+  - bunch_name: dragen_alignment_pipeline_prod__4_2_4
+    bunch_description: |
+      Contains the UMCCR dragen-alignment-pipeline, and the appropriate reference data for dragen version 4.2.4
+
+      The reference data is the dragen hash table for hg38.
+      Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+    tenant_name: umccr-prod
+    pipeline_path: workflows/dragen-alignment-pipeline/4.2.4/dragen-alignment-pipeline__4.2.4.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - production
+    categories:
+      - wgs
+      - wts
+      - alignment
+      - qc
+      - production
+      - primary-analysis
+    bunch_versions:
+      - version: v9_r3
+        version_description: |
+          This version of the bunch contains the dragen hash table for hg38
+          Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+        version_creation_date: 2024-06-23T23:22:01+00:00Z
+        datasets:
+          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+            dataset_creation_time: '2024-06-21T09:21:42Z'
+            dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+
+  # DRAGEN WTS Pipeline
+  # Validation
+  - bunch_name: dragen_transcriptome_pipeline_with_validation_data__4_2_4
+    bunch_description: |
+      Contains the UMCCR dragen-transcriptome-pipeline, validation data and the appropriate reference data for dragen version 4.2.4
+
+      The reference data is the dragen hash table for hg38.
+      Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+    tenant_name: umccr-prod
+    pipeline_path: 
+      workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+    categories:
+      - wts
+      - somatic
+      - validation
+      - secondary-analysis
+    bunch_versions:
+      - version: v9_r3
+        version_description: |
+          This version of the bunch contains the dragen hash table for hg38
+          Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+        version_creation_date: 2024-06-23T23:24:23+00:00Z
+        datasets:
+          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+            dataset_creation_time: '2024-06-21T09:21:42Z'
+            dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+          - dataset_name: hg38_fasta
+            dataset_creation_time: '2024-06-21T11:31:50Z'
+            dataset_id_hash: 5f129b14aca5b4a7fda902590b15abc2
+          - dataset_name: arriba_2_4_0
+            dataset_creation_time: '2024-06-21T11:31:26Z'
+            dataset_id_hash: 8695cf0a98c5cda5726f67d4922da67f
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_1_Good__SBJ01563
+            dataset_creation_time: '2024-06-21T11:33:06Z'
+            dataset_id_hash: 8de637be95f6ded72f61103bc842da45
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_2_Good__SBJ01147
+            dataset_creation_time: '2024-06-21T11:34:05Z'
+            dataset_id_hash: e11d32cd8efced32065a52eea33b06d1
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_3_Good__SBJ01620
+            dataset_creation_time: '2024-06-21T11:34:29Z'
+            dataset_id_hash: 0f0fee1a6b1f7b46978643839ffc0e88
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_4_Bad__SBJ01286
+            dataset_creation_time: '2024-06-21T11:34:51Z'
+            dataset_id_hash: 3d9dae1be84d29848f24df81d1ab4219
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_5_Bad__SBJ01673
+            dataset_creation_time: '2024-06-21T11:35:25Z'
+            dataset_id_hash: 42a9396b3f5d7e919e30a0f59f2401b7
+          - dataset_name: wts_validation_fastq__SBJ00480
+            dataset_creation_time: '2024-06-21T09:41:15Z'
+            dataset_id_hash: c8b8bdc7e384aaa470b12992ce196693
+          - dataset_name: wts_validation_fastq__SBJ00028
+            dataset_creation_time: '2024-06-21T09:42:31Z'
+            dataset_id_hash: fa76e6ca3a0fb0be2bf41840a7aeeb01
+          - dataset_name: wts_validation_fastq__SBJ00061
+            dataset_creation_time: '2024-06-21T09:42:54Z'
+            dataset_id_hash: 63ee438354c347b05218b9bddc53d936
+          - dataset_name: wts_validation_fastq__SBJ00188
+            dataset_creation_time: '2024-06-21T09:43:11Z'
+            dataset_id_hash: 401d12d90e00db19918e5c9ce13a3da0
+          - dataset_name: wts_validation_fastq__SBJ00199
+            dataset_creation_time: '2024-06-21T09:49:27Z'
+            dataset_id_hash: b95ac04c7e3c03a8b1868a4571d23d5f
+          - dataset_name: wts_validation_fastq__SBJ00236
+            dataset_creation_time: '2024-06-21T09:49:54Z'
+            dataset_id_hash: f084081c52ddda14328294d7bb7f13f4
+          - dataset_name: wts_validation_fastq__SBJ00238
+            dataset_creation_time: '2024-06-21T09:50:29Z'
+            dataset_id_hash: ba04ff08acbfbd1c17f1aadc0e8b3cf5
+  # Production
+  - bunch_name: dragen_transcriptome_pipeline_prod__4_2_4
+    bunch_description: |
+      Contains the UMCCR dragen-transcriptome-pipeline, and the appropriate reference data for dragen version 4.2.4
+
+      The reference data is the dragen hash table for hg38.
+      Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+    tenant_name: umccr-prod
+    pipeline_path: 
+      workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+    categories:
+      - wts
+      - somatic
+      - production
+      - secondary-analysis
+    bunch_versions:
+      - version: v9_r3
+        version_description: |
+          This version of the bunch contains the dragen hash table for hg38
+          Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+        version_creation_date: 2024-06-23T23:24:58+00:00Z
+        datasets:
+          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+            dataset_creation_time: '2024-06-21T09:21:42Z'
+            dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+          - dataset_name: hg38_fasta
+            dataset_creation_time: '2024-06-21T11:31:50Z'
+            dataset_id_hash: 5f129b14aca5b4a7fda902590b15abc2
+          - dataset_name: arriba_2_4_0
+            dataset_creation_time: '2024-06-21T11:31:26Z'
+            dataset_id_hash: 8695cf0a98c5cda5726f67d4922da67f
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_1_Good__SBJ01563
+            dataset_creation_time: '2024-06-21T11:33:06Z'
+            dataset_id_hash: 8de637be95f6ded72f61103bc842da45
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_2_Good__SBJ01147
+            dataset_creation_time: '2024-06-21T11:34:05Z'
+            dataset_id_hash: e11d32cd8efced32065a52eea33b06d1
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_3_Good__SBJ01620
+            dataset_creation_time: '2024-06-21T11:34:29Z'
+            dataset_id_hash: 0f0fee1a6b1f7b46978643839ffc0e88
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_4_Bad__SBJ01286
+            dataset_creation_time: '2024-06-21T11:34:51Z'
+            dataset_id_hash: 3d9dae1be84d29848f24df81d1ab4219
+          - dataset_name: wts_multiqc__2023_07_21__4_2_4__Ref_5_Bad__SBJ01673
+            dataset_creation_time: '2024-06-21T11:35:25Z'
+            dataset_id_hash: 42a9396b3f5d7e919e30a0f59f2401b7
+
+  # Dragen Somatic with Germline Pipeline
+  # Validation
+  - bunch_name: dragen_somatic_with_germline_pipeline_with_validation_data__4_2_4
     bunch_description: |
       Contains the UMCCR dragen-somatic-with-germline pipeline, validation data and the appropriate reference data for dragen version 4.2.4
 
       The reference data is the dragen hash table for hg38.
       Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
-    tenant_name: umccr-test
-    pipeline_path: 
+    tenant_name: umccr-prod
+    pipeline_path:
       workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-    pipeline_project_name: pipelines-test
+    pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     bunch_region_city_name: Sydney
     projects:
-      - staging-test
+      - development
+      - staging
     categories:
-      - dragen
+      - wgs
       - somatic
       - validation
     bunch_versions:
-      - version: v9_r3__w_cups_pair_8
+      - version: v9_r3
         version_description: |
-          v9r3 is the hash table build.
-
-          The validation data the cups pair 8
-        version_creation_date: '2023-10-19T22:28:40Z'
+          This version of the bunch contains the dragen hash table for hg38
+          Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+        version_creation_date: 2024-06-23T23:26:34+00:00Z
         datasets:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
-            dataset_creation_time: '2023-10-19T22:27:41Z'
-            dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
+            dataset_creation_time: '2024-06-21T09:21:42Z'
+            dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
           - dataset_name: wgs_validation_fastq__cups_pair_8
-            dataset_creation_time: '2023-10-19T22:28:05Z'
+            dataset_creation_time: '2024-06-21T09:35:36Z'
             dataset_id_hash: fca2fb140731ea7900d2c5c96061a280
-  - bunch_name: dragen_somatic_with_germline_pipeline_production__4_2_4
+          - dataset_name: wgs_validation_fastq__2016_249_17_MH_P033
+            dataset_creation_time: '2024-06-21T09:37:03Z'
+            dataset_id_hash: ab2e2265f84e64ff9687b6e8a3f5c5d4
+          - dataset_name: wgs_validation_fastq__2016_249_18_WH_P025
+            dataset_creation_time: '2024-06-21T09:37:36Z'
+            dataset_id_hash: 48b0a8616df58b94ec6f358037850f1e
+          - dataset_name: wgs_validation_fastq__B_ALL_Case_10
+            dataset_creation_time: '2024-06-21T09:38:04Z'
+            dataset_id_hash: 3938ab2e04aae0156897f3fee3676ac2
+          - dataset_name: wgs_validation_fastq_Diploid_Never_Responder
+            dataset_creation_time: '2024-06-21T09:38:33Z'
+            dataset_id_hash: 45c8ce2f0995873364f760ca797c5c6a
+          - dataset_name: wgs_validation_fastq_SBJ00303
+            dataset_creation_time: '2024-06-21T09:39:42Z'
+            dataset_id_hash: ebfe847356803cb27a8009deedf30944
+          - dataset_name: wgs_validation_fastq_SEQC50
+            dataset_creation_time: '2024-06-21T09:40:14Z'
+            dataset_id_hash: 2e5fbe564ac04069f3fc2cd254465dd8
+          - dataset_name: wgs_validation_fastq_SFRC01073
+            dataset_creation_time: '2024-06-21T09:40:51Z'
+            dataset_id_hash: deac29472b118a9b51889a661e804cd8
+  # Production
+  - bunch_name: dragen_somatic_with_germline_pipeline_prod__4_2_4
     bunch_description: |
-      Contains the UMCCR dragen-somatic-with-germline pipeline and the appropriate reference data for dragen version 4.2.4
+      Contains the UMCCR dragen-somatic-with-germline pipeline, and the appropriate reference data for dragen version 4.2.4
 
       The reference data is the dragen hash table for hg38.
       Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
-    tenant_name: umccr-test
+    tenant_name: umccr-prod
     pipeline_path: 
       workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-    pipeline_project_name: pipelines-test
+    pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     bunch_region_city_name: Sydney
     projects:
-      - staging-test
-      - production-test
+      - production
     categories:
-      - dragen
+      - wgs
       - somatic
+      - production
+      - secondary-analysis
+    bunch_versions:
+      - version: v9_r3
+        version_description: |
+          This version of the bunch contains the dragen hash table for hg38
+          Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
+        version_creation_date: 2024-06-23T23:25:57+00:00Z
+        datasets:
+          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
+            dataset_creation_time: '2024-06-21T09:21:42Z'
+            dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+
+  # RNASum
+  - bunch_name: rnasum_prod__1_0_0
+    bunch_description: |
+      Contains the UMCCR rnasum pipeline for RNA-seq data analysis with reference data
+    tenant_name: umccr-prod
+    pipeline_path: workflows/rnasum/1.0.0/rnasum__1.0.0.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - wts
+      - tertiary-analysis
       - production
     bunch_versions:
       - version: v9_r3
         version_description: |
-          v9r3 is the hash table build.
-        version_creation_date: '2023-10-19T22:28:48Z'
+          This version of the bunch contains the rnasum 1.0.0 reference data
+        version_creation_date: 2024-06-23T11:20:10+00:00Z
         datasets:
-          - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
-            dataset_creation_time: '2023-10-19T22:27:41Z'
-            dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
-  - bunch_name: bclconvert-interop-qc__1_3_1
-    bunch_description: BCLConvert Interop QC Pipeline Bunch
+          - dataset_name: rnasum_1_0_0
+            dataset_creation_time: '2024-06-23T10:39:55Z'
+            dataset_id_hash: b8e45195afdbb7384012421978363b08
+
+  # UMCCRise
+  - bunch_name: umccrise_prod__2_3_1
+    bunch_description: |
+      Contains the UMCCR umccrise pipeline for RNA-seq data analysis with reference data
     tenant_name: umccr-prod
-    pipeline_path: 
-      workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.cwl
-    pipeline_project_name: pipelines-trial
+    pipeline_path: workflows/umccrise/2.3.1--1/umccrise_/2.3.1--1.cwl
+    pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     bunch_region_city_name: Sydney
     projects:
-      - trial
-    categories:
-      - qc
-    bunch_versions:
-      - version: 1.3.1__1.19
-        version_description: Interop QC v1.3.1 with Multiqc Version 1.19
-        version_creation_date: '2024-03-11T07:29:19Z'
-        datasets: []
-  - bunch_name: bclconvert-interop-qc__1_3_1__1_21
-    bunch_description: BCLConvert Interop QC Pipeline Bunch
-    tenant_name: umccr-prod
-    pipeline_path: 
-      workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
-    pipeline_project_name: pipelines-trial
-    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
-    bunch_region_city_name: Sydney
-    projects:
-      - trial
-    categories:
-      - qc
-    bunch_versions:
-      - version: 1.3.1__1.21
-        version_description: Interop QC v1.3.1 with MultiQC version 1.21
-        version_creation_date: '2024-03-13T00:22:31Z'
-        datasets: []
-
-
-# List of generated bundles
-bundles:
-  - bundle_name: dragen_somatic_with_germline_pipeline_validation__4_2_4__20231025003436
-    bundle_description: 'This bundle has been generated by the release of workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl.
-      The pipeline can be found at https://github.com/umccr/cwl-ica/releases/tag/dragen-somatic-with-germline-pipeline/4.2.4__20231025003000.  '
-    bundle_version: v9_r3__w_cups_pair_8__20231025003436
-    bundle_version_description: Bundle version description is currently redundant
-      while we cannot append versions to bundles. Regardless - the bunch version is
-      v9_r3__w_cups_pair_8
-    bundle_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
-    bundle_region_city_name: Sydney
-    tenant_name: umccr-test
-    pipeline_path: 
-      workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-    pipeline_name: dragen-somatic-with-germline-pipeline
-    pipeline_version: 4.2.4
-    pipeline_release_url: 
-      https://github.com/umccr/cwl-ica/releases/tag/dragen-somatic-with-germline-pipeline/4.2.4__20231025003000
-    pipeline_commit_id: dragen-somatic-with-germline-pipeline/4.2.4__20231025003000
-    pipeline_checksum: 53e04dcbc2bbbd379c0cb8e9e4b11429
-    pipeline_project_id: 2bafbf01-dd86-4916-a097-8110b512e788
-    bundle_creation_time: '2023-10-25T00:34:36Z'
-    bundle_release_status: draft
-    bunch_name: dragen_somatic_with_germline_pipeline_validation__4_2_4
-    bunch_version: v9_r3__w_cups_pair_8
-    bunch_datasets:
-      - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
-        dataset_creation_time: '2023-10-19T22:27:41Z'
-        dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
-      - dataset_name: wgs_validation_fastq__cups_pair_8
-        dataset_creation_time: '2023-10-19T22:28:05Z'
-        dataset_id_hash: fca2fb140731ea7900d2c5c96061a280
-    bundle_id: 719087f6-7adf-4ca7-8773-17c8648011c8
-    bundle_data_ids:
-      - fil.2a46a39e65084982852708dbd0602a8c
-      - fil.797f7409f94e400cc2b008dbc44487b1
-      - fil.bba86d004b114610c2b108dbc44487b1
-      - fil.83144282a83a458cc2c508dbc44487b1
-      - fil.8047322518354ef5e20d08dbc444884e
-    bundle_pipeline_id: f0699f42-fbc4-4625-9c4e-a0d0c079096c
-    bundle_url:
-    bundle_categories:
-      - dragen
-      - somatic
-      - validation
-    projects:
-      - staging-test
-  - bundle_name: dragen_somatic_with_germline_pipeline_production__4_2_4__20231025003512
-    bundle_description: 'This bundle has been generated by the release of workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl.
-      The pipeline can be found at https://github.com/umccr/cwl-ica/releases/tag/dragen-somatic-with-germline-pipeline/4.2.4__20231025003000.  '
-    bundle_version: v9_r3__20231025003512
-    bundle_version_description: Bundle version description is currently redundant
-      while we cannot append versions to bundles. Regardless - the bunch version is
-      v9_r3
-    bundle_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
-    bundle_region_city_name: Sydney
-    tenant_name: umccr-test
-    pipeline_path: 
-      workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-    pipeline_name: dragen-somatic-with-germline-pipeline
-    pipeline_version: 4.2.4
-    pipeline_release_url: 
-      https://github.com/umccr/cwl-ica/releases/tag/dragen-somatic-with-germline-pipeline/4.2.4__20231025003000
-    pipeline_commit_id: dragen-somatic-with-germline-pipeline/4.2.4__20231025003000
-    pipeline_checksum: 53e04dcbc2bbbd379c0cb8e9e4b11429
-    pipeline_project_id: 2bafbf01-dd86-4916-a097-8110b512e788
-    bundle_creation_time: '2023-10-25T00:35:12Z'
-    bundle_release_status: draft
-    bunch_name: dragen_somatic_with_germline_pipeline_production__4_2_4
-    bunch_version: v9_r3
-    bunch_datasets:
-      - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
-        dataset_creation_time: '2023-10-19T22:27:41Z'
-        dataset_id_hash: 5adef3c4bf242cb5666d55dd7727fdf7
-    bundle_id: ceca5fc3-dc92-425b-b218-58974a2e121b
-    bundle_data_ids:
-      - fil.2a46a39e65084982852708dbd0602a8c
-    bundle_pipeline_id: f0699f42-fbc4-4625-9c4e-a0d0c079096c
-    bundle_url:
-    bundle_categories:
-      - dragen
-      - somatic
+      - development
+      - staging
       - production
-    projects:
-      - staging-test
-      - production-test
-  - bundle_name: bclconvert-interop-qc__1_3_1__202403122095003
-    bundle_description: 'This bundle has been generated by the release of workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.cwl.
-      The pipeline can be found at https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.19__202403122095003.  '
-    bundle_version: 1.3.1__1.19__202403122095003
-    bundle_version_description: Bundle version description is currently redundant
-      while we cannot append versions to bundles. Regardless - the bunch version is
-      1.3.1__1.19
-    bundle_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
-    bundle_region_city_name: Sydney
-    tenant_name: umccr-prod
-    pipeline_path: 
-      workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.cwl
-    pipeline_name: bclconvert-interop-qc
-    pipeline_version: 1.3.1--1.19
-    pipeline_release_url: 
-      https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.19__202403122095003
-    pipeline_commit_id: bclconvert-interop-qc/1.3.1--1.19__202403122095003
-    pipeline_checksum: 46af2d9553d8182ec65eaf0db5362890
-    pipeline_project_id: 0ad6a751-c854-4b77-833b-705132a22801
-    bundle_creation_time: '2024-03-11T22:53:07Z'
-    bundle_release_status: draft
-    bunch_name: bclconvert-interop-qc__1_3_1
-    bunch_version: 1.3.1__1.19
-    bunch_datasets: []
-    bundle_id: 73dd22f5-c9af-430e-b325-770219cdcdb3
-    bundle_data_ids: []
-    bundle_pipeline_id: 3b192c0e-564c-4f45-a294-7b726ce3ff0b
-    bundle_url: 
-      https://ica.illumina.com/ica/bundles/73dd22f5-c9af-430e-b325-770219cdcdb3/bundleDetails
-    bundle_categories:
-      - qc
-    projects:
-      - trial
-  - bundle_name: bclconvert-interop-qc__1_3_1__1_21__20240313015132
-    bundle_description: 'This bundle has been generated by the release of workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl.
-      The pipeline can be found at https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.21__20240313015132.  '
-    bundle_version: 1.3.1__1.21__20240313015132
-    bundle_version_description: Bundle version description is currently redundant
-      while we cannot append versions to bundles. Regardless - the bunch version is
-      1.3.1__1.21
-    bundle_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
-    bundle_region_city_name: Sydney
-    tenant_name: umccr-prod
-    pipeline_path: 
-      workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
-    pipeline_name: bclconvert-interop-qc
-    pipeline_version: 1.3.1--1.21
-    pipeline_release_url: 
-      https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.21__20240313015132
-    pipeline_commit_id: bclconvert-interop-qc/1.3.1--1.21__20240313015132
-    pipeline_checksum: 0b3e09b773f9648f73d7a6339c6b1fbf
-    pipeline_project_id: 0ad6a751-c854-4b77-833b-705132a22801
-    bundle_creation_time: '2024-03-13T01:53:52Z'
-    bundle_release_status: draft
-    bunch_name: bclconvert-interop-qc__1_3_1__1_21
-    bunch_version: 1.3.1__1.21
-    bunch_datasets: []
-    bundle_id: 73c3cb2f-af80-403c-9219-fd1671c5a9e6
-    bundle_data_ids: []
-    bundle_pipeline_id: f606f580-d476-47a8-9679-9ddb39fcb0a8
-    bundle_url: 
-      https://ica.illumina.com/ica/bundles/73c3cb2f-af80-403c-9219-fd1671c5a9e6/bundleDetails
-    bundle_categories:
-      - qc
-    projects:
-      - trial
-  - bundle_name: bclconvert-interop-qc__1_3_1__1_21__20240410040204
-    bundle_description: 'This bundle has been generated by the release of workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl.
-      The pipeline can be found at https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.21__20240410040204.  '
-    bundle_version: 1.3.1__1.21__20240410040204
-    bundle_version_description: Bundle version description is currently redundant
-      while we cannot append versions to bundles. Regardless - the bunch version is
-      1.3.1__1.21
-    bundle_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
-    bundle_region_city_name: Sydney
-    tenant_name: umccr-prod
-    pipeline_path: 
-      workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
-    pipeline_name: bclconvert-interop-qc
-    pipeline_version: 1.3.1--1.21
-    pipeline_release_url: 
-      https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.21__20240410040204
-    pipeline_commit_id: bclconvert-interop-qc/1.3.1--1.21__20240410040204
-    pipeline_checksum: 0b3e09b773f9648f73d7a6339c6b1fbf
-    pipeline_project_id: 0ad6a751-c854-4b77-833b-705132a22801
-    bundle_creation_time: '2024-04-10T04:04:11Z'
-    bundle_release_status: draft
-    bunch_name: bclconvert-interop-qc__1_3_1__1_21
-    bunch_version: 1.3.1__1.21
-    bunch_datasets: []
-    bundle_id: 6113ac8a-53b7-4225-ba9a-5d483d95c8c6
-    bundle_data_ids: []
-    bundle_pipeline_id: 213cf8cb-27ab-4078-aa1c-2e97e0061c35
-    bundle_url: 
-      https://ica.illumina.com/ica/bundles/6113ac8a-53b7-4225-ba9a-5d483d95c8c6/bundleDetails
-    bundle_categories:
-      - qc
-    projects:
-      - trial
+    categories:
+      - wgs
+      - variant-filtering
+      - tertiary-analysis
+      - production
+    bunch_versions:
+      - version: v9_r3
+        version_description: |
+          This version of the bunch contains the umccrise 202303 reference data
+        version_creation_date: 2024-06-23T11:22:30+00:00Z
+        datasets:
+          - dataset_name: umccrise_202303
+            dataset_creation_time: '2024-06-23T10:43:30Z'
+            dataset_id_hash: d240e2f94f1859bd67da74fb9d7b90d2
+
