@@ -32,10 +32,10 @@ requirements:
 
 inputs:
   # Requires two directories
-  run_id:
-    label: Run ID
+  instrument_run_id:
+    label: Instrument Run ID
     doc: |
-      The run ID
+      The instrument run ID
     type: string
 
   bclconvert_report_directory:
@@ -75,7 +75,7 @@ steps:
     in:
       input_run_dir:
         source:
-          - run_id
+          - instrument_run_id
           - interop_directory
           - get_run_info_xml_file_from_reports_dir/output_file
         valueFrom: |
@@ -107,10 +107,10 @@ steps:
       output_directory_name:
         valueFrom: "multiqc"
       output_filename:
-        source: run_id
+        source: instrument_run_id
         valueFrom: "$(self)_multiqc_report.html"
       title:
-        source: run_id
+        source: instrument_run_id
         valueFrom: "$(self) BCLConvert MultiQC Report"
     out:
       - id: output_directory

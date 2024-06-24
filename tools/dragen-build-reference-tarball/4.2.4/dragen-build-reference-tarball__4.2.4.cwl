@@ -30,17 +30,17 @@ hints:
     ilmn-tes:resources/size: medium
     coresMin: 16
     ramMin: 240000
+  DockerRequirement:
+    dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
+
+
+requirements:
+  ResourceRequirement:
     tmpdirMin: |
       ${
         /* 1 Tb */
         return 2 ** 20; 
       }
-  DockerRequirement:
-    dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
-
-
-
-requirements:
   InlineJavascriptRequirement:
     expressionLib:
       - $include: ../../../typescript-expressions/dragen-tools/4.0.3/dragen-tools__4.0.3.cwljs

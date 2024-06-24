@@ -17,7 +17,7 @@ umccrise 2.3.1--1 tool
 
   
 > ID: umccrise--2.3.1--1  
-> md5sum: cd48262285f077951319d942a3a89b58
+> md5sum: d86b13c09fc8fe2a2e7cffd3aab3008c
 
 ### umccrise v(2.3.1--1) documentation
   
@@ -238,7 +238,7 @@ The output directory containing the umccrise data
 
   
 **workflow name:** umccrise_prod-wf  
-**wfl version name:** 2.3.1--1--b5fde25  
+**wfl version name:** 2.3.1--1--9731c44  
 
   
 

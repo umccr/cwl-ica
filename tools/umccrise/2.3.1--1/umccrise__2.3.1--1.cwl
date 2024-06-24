@@ -36,15 +36,16 @@ hints:
         ilmn-tes:resources/size: medium
         coresMin: 16
         ramMin: 128000
-        tmpdirMin: |
-          ${
-            /* 1 Tb */
-            return 2 ** 20; 
-          }
     DockerRequirement:
         dockerPull: 843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:2.3.1-dbedb31757
 
 requirements:
+  ResourceRequirement:
+    tmpdirMin: |
+      ${
+        /* 1 Tb */
+        return 2 ** 20; 
+      }
   InlineJavascriptRequirement:
     expressionLib:
       - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs

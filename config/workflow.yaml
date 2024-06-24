@@ -28,7 +28,7 @@ workflows:
         md5sum: 9d7f604cc534b52f1c91f2a0c74f6f15
       - name: 4.2.4
         path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
-        md5sum: 8808ee0b8cf3ac13780525823bfa0724
+        md5sum: 12f91338e9f442fbd224142cea5abaf2
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -70,7 +70,7 @@ workflows:
         md5sum: 14bcefd0349a15696b6798d5d0028131
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-pipeline__4.2.4.cwl
-        md5sum: 3787735c1e48be418b102de66b2583b3
+        md5sum: 4a3a31fabb3816d3224445f22cc369d1
     categories:
       - dragen
       - variant-calling
@@ -91,7 +91,7 @@ workflows:
         md5sum: 610d77d0709df98f4eedd95107d2117e
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
-        md5sum: eced587ea4c7705aefa5e4b097c92cec
+        md5sum: 7ae80f7cb086f5c300d86f82e07b8593
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -107,7 +107,7 @@ workflows:
         md5sum: 3cd468f8d748d8c968dceab2efd3a039
       - name: 4.2.4
         path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
-        md5sum: 12d3d2b2fad4de488208bd24cb90c86f
+        md5sum: 87e2a6e6000fed3dd32e2de6f0639240
     categories:
       - alignment
       - dragen
@@ -216,7 +216,7 @@ workflows:
         md5sum: 2f55ba883037c43e29de10d9f6d4f3ce
       - name: 4.2.4
         path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
-        md5sum: 97d17eb242f4ffdb932c116f27c12b0c
+        md5sum: 0f48a3ae940e76faffa475bc2867af8b
     categories: []
   - name: tabix-workflow
     path: tabix-workflow
@@ -264,7 +264,7 @@ workflows:
         md5sum: 5e4c63432d9586ac63ff02aea833dc69
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-        md5sum: 2ba209eae3962196720f23cbfe19b358
+        md5sum: e9f3151b579f5ccc1fcc2cf358377a49
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc
@@ -291,5 +291,5 @@ workflows:
         md5sum: 6e20bae050dfae264c00cdc8a2be0bbf
       - name: 1.3.1--1.21
         path: 1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
-        md5sum: 9402d8a42ddd2e0b0f392c2f93b3c6c7
+        md5sum: ac758f18a4438440d8c1cae45eb5ffb1
     categories: []
