@@ -127,4 +127,4 @@ git config user.name "${GITHUB_ACTIONS_USERNAME}"
 git config user.email "${GITHUB_ACTIONS_EMAIL}"
 
 # Launch cwl-ica github-actions-build-workflow-release-asset
-eval cwl-ica github-actions-build-workflow-release-asset '"${arg_array[@]}"'
+cwl-ica github-actions-build-workflow-release-asset "${arg_array[@]}"
