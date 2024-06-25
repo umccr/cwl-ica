@@ -150,6 +150,7 @@ jobs:
             --workdir "$PWD" \
             --env USER="ubuntu" \
             --env CWL_ICA_REPO_PATH="${PWD}" \
+            --env GITHUB_WORKSPACE="${GITHUB_WORKSPACE} \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
             --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \
