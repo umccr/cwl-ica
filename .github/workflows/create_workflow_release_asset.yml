@@ -143,16 +143,11 @@ jobs:
         id: create_release_asset
         if: needs.release_asset_precheck.outputs.create_release == 'true'
         run: |
-          id -nu
-          id -ng
           docker run \
             --rm \
             --volume "$PWD:$PWD" \
             --workdir "$PWD" \
-            --user "1000:1000" \
-            --env USER="ubuntu" \
             --env CWL_ICA_REPO_PATH="${PWD}" \
-            --env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
             --env GITHUB_TAG="${{ needs.release_asset_precheck.outputs.git_tag }}" \

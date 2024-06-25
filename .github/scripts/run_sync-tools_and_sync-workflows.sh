@@ -61,10 +61,10 @@ export CONDA_ENVS_PATH
 echo "Rsyncing unwritable envs to new conda envs temp directory" 1>&2
 echo "This will take a couple of minutes" 1>&2
 rsync --archive \
-  "/home/ubuntu/.conda/" \
+  "/home/runner/.conda/" \
   "${NEW_CONDA_HOME}/"
 
-sed -i "s%/home/ubuntu/%${NEW_CONDA_HOME}%" "${NEW_CONDA_HOME}/environments.txt"
+sed -i "s%/home/runner/%${NEW_CONDA_HOME}%" "${NEW_CONDA_HOME}/environments.txt"
 
 # Now run the github-schema-sync-command
 echo "Syncing all schemas" 1>&2
