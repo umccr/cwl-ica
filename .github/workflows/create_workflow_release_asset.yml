@@ -143,7 +143,8 @@ jobs:
         id: create_release_asset
         if: needs.release_asset_precheck.outputs.create_release == 'true'
         run: |
-          chown -R "1000:1000" "${GITHUB_WORKSPACE}"
+          id -nu
+          id -ng
           docker run \
             --rm \
             --volume "$PWD:$PWD" \
