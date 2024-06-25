@@ -145,10 +145,10 @@ jobs:
         run: |
           docker run \
             --rm \
-            --user "$(id -u):$(id -g)" \
+            --user "1000:1000" \
             --volume "$PWD:$PWD" \
             --workdir "$PWD" \
-            --env USER="$(id -u)" \
+            --env USER="ubuntu" \
             --env CWL_ICA_REPO_PATH="${PWD}" \
             --env GITHUB_SERVER_URL="${GITHUB_SERVER_URL}" \
             --env GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
