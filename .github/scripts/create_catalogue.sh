@@ -86,7 +86,7 @@ export CONDA_ENVS_PATH
 ENVS_LIST=( "cwl-ica" "cwltool-icav1" )
 for env_name in "${ENVS_LIST[@]}"; do
   ln -s \
-    /home/cwl_ica_user/.conda/envs/${env_name} \
+    /home/ubuntu/.conda/envs/${env_name} \
     "${CONDA_ENVS_PATH}/${env_name}"
 done
 
