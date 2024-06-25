@@ -66,12 +66,12 @@ export CONDA_ENVS_PATH
 ENVS_LIST=( "cwl-ica" "cwltool-icav1" )
 for env_name in "${ENVS_LIST[@]}"; do
   ln -s \
-    "/home/cwl_ica_user/.conda/envs/${env_name}" \
+    "/home/ubuntu/.conda/envs/${env_name}" \
     "${CONDA_ENVS_PATH}/${env_name}"
 done
 
 # Set ICAV2 CLI PLUGINS
-export ICAV2_CLI_PLUGINS_HOME="/home/cwl_ica_user/.icav2-cli-plugins"
+export ICAV2_CLI_PLUGINS_HOME="/home/ubuntu/.icav2-cli-plugins"
 
 # Get args
 
