@@ -143,10 +143,12 @@ jobs:
         id: create_release_asset
         if: needs.release_asset_precheck.outputs.create_release == 'true'
         run: |
+          chown -R "1000:1000" "${GITHUB_WORKSPACE}"
           docker run \
             --rm \
-            --volume "$PWD:$PWD:z" \
+            --volume "$PWD:$PWD" \
             --workdir "$PWD" \
+            --user "1000:1000" \
             --env USER="ubuntu" \
             --env CWL_ICA_REPO_PATH="${PWD}" \
             --env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" \
