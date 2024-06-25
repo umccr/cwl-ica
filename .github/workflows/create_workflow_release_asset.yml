@@ -145,8 +145,7 @@ jobs:
         run: |
           docker run \
             --rm \
-            --user "1000:1000" \
-            --volume "$PWD:$PWD" \
+            --volume "$PWD:$PWD:z" \
             --workdir "$PWD" \
             --env USER="ubuntu" \
             --env CWL_ICA_REPO_PATH="${PWD}" \

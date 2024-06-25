@@ -123,6 +123,7 @@ if [[ "${is_prerelease}" == "true" ]]; then
 fi
 
 # Add git configuration
+ls -lsrthd "${GITHUB_WORKSPACE}"
 git config --global --add safe.directory "${GITHUB_WORKSPACE}"
 git config user.name "${GITHUB_ACTIONS_USERNAME}"
 git config user.email "${GITHUB_ACTIONS_EMAIL}"
