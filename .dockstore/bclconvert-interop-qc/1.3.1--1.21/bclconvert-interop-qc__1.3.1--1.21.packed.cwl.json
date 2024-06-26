@@ -86,7 +86,7 @@
           "listing": [
             {
               "entryname": "generate_interop_files.sh",
-              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Create output directory\nmkdir \"$(inputs.output_dir_name)\"\n\n# Generate interop files\ninterop_summary --csv=1 --level=4 \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/interop_summary.csv\"\ninterop_index-summary --csv=1 \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/interop_index-summary.csv\"\n"
+              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Create output directory\nmkdir \"$(inputs.output_dir_name)\"\n\n# Generate interop files\ninterop_summary --csv=1 --level=4 \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/interop_summary.csv\"\ninterop_index-summary --csv=1 \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/interop_index-summary.csv\"\n\n# Generate imaging table\ninterop_imaging_table \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/imaging_table.csv\"\n\n# Generate imaging plot\ninterop_imaging_plot \"$(inputs.output_dir_name)/imaging_table.csv\" \"$(inputs.output_dir_name)/imaging_plot.png\" \"$(inputs.input_run_dir.basename)\"\n\n# Compress imaging table\ngzip \"$(inputs.output_dir_name)/imaging_table.csv\"\n"
             }
           ],
           "class": "InitialWorkDirRequirement"
@@ -304,16 +304,16 @@
           "id": "#main/bclconvert_report_directory"
         },
         {
+          "label": "Instrument Run ID",
+          "doc": "The instrument run ID\n",
+          "type": "string",
+          "id": "#main/instrument_run_id"
+        },
+        {
           "label": "Interop Directory",
           "doc": "The interop directory\n",
           "type": "Directory",
           "id": "#main/interop_directory"
-        },
-        {
-          "label": "Run ID",
-          "doc": "The run ID\n",
-          "type": "string",
-          "id": "#main/run_id"
         }
       ],
       "steps": [
@@ -323,7 +323,7 @@
           "in": [
             {
               "source": [
-                "#main/run_id",
+                "#main/instrument_run_id",
                 "#main/interop_directory",
                 "#main/get_run_info_xml_file_from_reports_dir/output_file"
               ],
@@ -376,12 +376,12 @@
               "id": "#main/run_multiqc_step/output_directory_name"
             },
             {
-              "source": "#main/run_id",
+              "source": "#main/instrument_run_id",
               "valueFrom": "$(self)_multiqc_report.html",
               "id": "#main/run_multiqc_step/output_filename"
             },
             {
-              "source": "#main/run_id",
+              "source": "#main/instrument_run_id",
               "valueFrom": "$(self) BCLConvert MultiQC Report",
               "id": "#main/run_multiqc_step/title"
             }
