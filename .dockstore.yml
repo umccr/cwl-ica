@@ -64,6 +64,7 @@ workflows:
       tags:
         - rnasum-pipeline/1.0.0
         - rnasum-pipeline/1.0.0__20240627054519
+        - rnasum-pipeline/1.0.0__20240627060107
   - name: umccrise-pipeline_2_3_1-1
     subclass: CWL
     primaryDescriptorPath: 
