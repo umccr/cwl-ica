@@ -39,6 +39,19 @@ workflows:
       tags:
         - dragen-transcriptome-pipeline/4.2.4
         - dragen-transcriptome-pipeline/4.2.4__20240627052945
+  - name: dragen-somatic-with-germline-pipeline_4_2_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - dragen-somatic-with-germline-pipeline/4.2.4
+        - dragen-somatic-with-germline-pipeline/4.2.4__20240627054304
   - name: rnasum-pipeline_1_0_0
     subclass: CWL
     primaryDescriptorPath: /.dockstore/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.packed.cwl.json
