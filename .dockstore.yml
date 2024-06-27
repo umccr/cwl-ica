@@ -64,3 +64,16 @@ workflows:
       tags:
         - rnasum-pipeline/1.0.0
         - rnasum-pipeline/1.0.0__20240627054519
+  - name: umccrise-pipeline_2_3_1-1
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - umccrise-pipeline/2.3.1--1
+        - umccrise-pipeline/2.3.1--1__20240627054449

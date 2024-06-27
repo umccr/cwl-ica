@@ -1,0 +1,432 @@
+{
+  "$graph": [
+    {
+      "class": "CommandLineTool",
+      "id": "#umccrise__2.3.1--1.cwl",
+      "label": "umccrise v(2.3.1--1)",
+      "doc": "Documentation for umccrise v2.3.1--1\n",
+      "hints": [
+        {
+          "dockerPull": "843407916570.dkr.ecr.ap-southeast-2.amazonaws.com/umccrise:2.3.1-dbedb31757",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 16,
+          "ramMin": 128000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "himem",
+          "https://platform.illumina.com/rdf/ica/resources:size": "medium"
+        }
+      ],
+      "requirements": [
+        {
+          "listing": [
+            {
+              "entryname": "$(get_run_script_entryname())",
+              "entry": "#!/usr/bin/env bash\n\n# Set to fail\nset -euo pipefail\n\n# Create a cleanup function for the trap command\ncleanup(){\n  if [[ \"$(get_bool_value_as_str(inputs.debug))\" == \"true\" ]]; then\n    echo \"\\$(date): UMCCRise failed but debug set to true, copying over workspace into output directory\" 1>&2\n    cp -r \"$(get_scratch_working_dir(inputs.output_directory_name))/.\" \"$(inputs.output_directory_name)/\"\n  fi\n  exit 1\n}\n\n# Create parent dir for working tmp dir\necho \"\\$(date): Creating parent dir for workspace in scratch\" 1>&2\nmkdir -p \"$(get_scratch_working_parent_dir())\"\n\n# Create parent dir for genomes tmp dir\necho \"\\$(date): Creating parent dir for genomes\" 1>&2\n# Create genomes parent directory\nmkdir -p \"$(get_genomes_parent_dir())\"\n\n# Untar umccrise genomes\necho \"\\$(date): Extracting genomes directory into scratch space\" 1>&2\ntar --directory \"$(get_genomes_parent_dir())\" \\\\\n  --extract \\\\\n  --file \"$(inputs.genomes_tar.path)\"\n\n# Create input directories\nmkdir -p \"$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))\"\nmkdir -p \"$(get_germline_input_dir(inputs.dragen_germline_directory.basename))\"\n\n# Put inputs into scratch space\necho \"\\$(date): Placing inputs into scratch space\" 1>&2\ncp -r \"$(inputs.dragen_somatic_directory.path)/.\" \"$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/\"\ncp -r \"$(inputs.dragen_germline_directory.path)/.\" \"$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\"\n\n# Check if a bam file is in the inputs dragen germline directory path\nif [[ \"\\$(find \"$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\" -name '*.bam' | wc -l)\" == \"0\" ]]; then\n  echo \"\\$(date): No bam file in the germline directory, copying normal bam over from the tumor directory\" 1>&2\n  normal_bam_somatic_src=\"\\$( \\\\\n    find \"$(get_somatic_input_dir(inputs.dragen_somatic_directory.basename))/\" \\\\\n      -maxdepth 1 \\\\\n      -name '*_normal.bam' \\\\\n  )\"\n  if [[ -z \"\\${normal_bam_somatic_src-}\" ]]; then\n    echo \"\\$(date): Could not get normal bam file from dragen somatic directory\" 1>&2\n    exit 1\n  fi\n  germline_replay_json_file=\"\\$( \\\\\n    find \"$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\" \\\\\n      -maxdepth 1 \\\\\n      -name '*-replay.json' \\\\\n  )\"\n  if [[ -z \"\\${germline_replay_json_file-}\" ]]; then\n    echo \"\\$(date): Could not get replay json file. Could not determine germline basename\" 1>&2\n    exit 1\n  fi\n  germline_basename=\"\\$( \\\\\n    basename \"\\${germline_replay_json_file%-replay.json}\" \\\\\n  )\"\n  ln \"\\${normal_bam_somatic_src}\" \"$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\\$(basename \"\\${germline_basename}.bam\")\"\n  ln \"\\${normal_bam_somatic_src}.bai\" \"$(get_germline_input_dir(inputs.dragen_germline_directory.basename))/\\$(basename \"\\${germline_basename}.bam.bai\")\"\nfi\n\n# Run umccrise copies over inputs if umccrise failed but debug set to true\ntrap 'cleanup' EXIT\n\necho \"\\$(date): Running UMCCRise\" 1>&2\numccrise \"\\${@}\"\n\n# Exit trap, exit cleanly\ntrap - EXIT\n\n# Copy over working directory\necho \"\\$(date): UMCCRise complete, copying over outputs into output directory\" 1>&2\ncp -r \"$(get_scratch_working_dir(inputs.output_directory_name))/.\" \"$(inputs.output_directory_name)/\"\n\necho \"\\$(date): Workflow complete!\" 1>&2\n"
+            }
+          ],
+          "class": "InitialWorkDirRequirement"
+        },
+        {
+          "expressionLib": [
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction is_not_null(input_obj) {\n    /*\n    Determine if input object is defined and is not null\n    */\n    return !(input_obj === null || input_obj === undefined);\n}\nfunction get_attribute_from_optional_input(input_object, attribute) {\n    /*\n    Get attribute from optional input -\n    If input is not defined, then return null\n    */\n    if (input_object === null || input_object === undefined) {\n        return null;\n    }\n    else {\n        return get_optional_attribute_from_object(input_object, attribute);\n    }\n}\nfunction get_optional_attribute_from_object(input_object, attribute) {\n    /*\n    Get attribute from object, if attribute is not defined return null\n    Assume the input object is an object of key value pairs where we know the key is of type string\n    stackoverflow.com/questions/56833469/typescript-error-ts7053-element-implicitly-has-an-any-type\n    */\n    if (input_object.hasOwnProperty(attribute)) {\n        return input_object[attribute];\n    }\n    else {\n        return null;\n    }\n}\nfunction get_bool_value_as_str(input_bool) {\n    if (is_not_null(input_bool) && input_bool) {\n        return \"true\";\n    }\n    else {\n        return \"false\";\n    }\n}\nfunction boolean_to_int(input_bool) {\n    if (is_not_null(input_bool) && String(input_bool).toLowerCase() === \"true\") {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\nfunction get_optional_attribute_from_multi_type_input_object(object, attribute) {\n    /*\n    Get attribute from optional input\n    */\n    if (object === null || object === undefined) {\n        return null;\n    }\n    else if (typeof object === \"object\") {\n        /*  Get attribute from optional input */\n        return get_attribute_from_optional_input(object, attribute);\n    }\n    else {\n        /*  Object is likely actually a str */\n        return object;\n    }\n}\nfunction get_source_a_or_b(input_a, input_b) {\n    /*\n    Get the first input parameter if it is not null\n    Otherwise return the second parameter\n    Otherwise return null\n    */\n    if (is_not_null(input_a)) {\n        return input_a;\n    }\n    else if (is_not_null(input_b)) {\n        return input_b;\n    }\n    else {\n        return null;\n    }\n}\nfunction get_first_non_null_input(inputs) {\n    /*\n    Get first element of the array that is not null\n    */\n    for (var _i = 0, inputs_1 = inputs; _i < inputs_1.length; _i++) {\n        var input_element = inputs_1[_i];\n        if (is_not_null(input_element)) {\n            return input_element;\n        }\n    }\n    return null;\n}\n",
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction get_num_threads(input_threads, runtime_cores) {\n    /*\n    Use all cores unless 'threads' is set\n    */\n    if (input_threads !== null) {\n        return input_threads;\n    }\n    else {\n        return runtime_cores;\n    }\n}\nfunction get_scratch_mount() {\n    /*\n    Get the scratch mount directory\n    */\n    return \"/scratch\";\n}\nfunction get_name_root_from_tarball(tar_file) {\n    /*\n    Get the name of the reference folder\n    */\n    var tar_ball_regex = /(\\S+)\\.tar\\.gz/g;\n    var tar_ball_expression = tar_ball_regex.exec(tar_file);\n    if (tar_ball_expression === null) {\n        throw new Error(\"Could not get nameroot from \".concat(tar_file));\n    }\n    return tar_ball_expression[1];\n}\nfunction get_genomes_parent_dir() {\n    /*\n    Get the genomes directory\n    */\n    return Array(get_scratch_mount(), \"genome_dir\").join(\"/\");\n}\nfunction get_scratch_working_parent_dir() {\n    /*\n    Get the parent directory for the working directory\n    By just on the off chance someone happens to stupidly set the output as 'genome'\n    */\n    return Array(get_scratch_mount(), \"working_dir\").join(\"/\");\n}\nfunction get_scratch_working_dir(output_directory_name) {\n    /*\n    Get the scratch working directory\n    */\n    return Array(get_scratch_working_parent_dir(), output_directory_name).join(\"/\");\n}\nfunction get_scratch_input_dir() {\n    /*\n    Get the inputs directory in /scratch space\n    */\n    return Array(get_scratch_mount(), \"inputs\").join(\"/\");\n}\nfunction get_somatic_input_dir(dragen_somatic_directory_basename) {\n    /*\n    Get the inputs directory in /scratch space for the dragen somatic input\n    */\n    return Array(get_scratch_input_dir(), \"somatic\", dragen_somatic_directory_basename).join(\"/\");\n}\nfunction get_germline_input_dir(dragen_germline_directory_basename) {\n    /*\n    Get the inputs directory in /scratch space for the dragen somatic input\n    */\n    return Array(get_scratch_input_dir(), \"germline\", dragen_germline_directory_basename).join(\"/\");\n}\nfunction get_genomes_dir_name(genomes_tar_basename) {\n    /*\n    Return the stripped basename of the genomes tarball\n    */\n    return get_name_root_from_tarball(genomes_tar_basename);\n}\nfunction get_genomes_dir_path(genomes_tar_basename) {\n    /*\n    Get the genomes dir path\n    */\n    return Array(get_genomes_parent_dir(), get_genomes_dir_name(genomes_tar_basename)).join(\"/\");\n}\nfunction get_run_script_entryname() {\n    /*\n    Get the run script entry name\n    */\n    return \"scripts/run-umccrise.sh\";\n}\nfunction get_eval_umccrise_line() {\n    /*\n    Get the line eval umccrise...\n    */\n    return \"eval \\\"umccrise\\\" '\\\"\\$@\\\"'\\n\";\n}\n"
+          ],
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "tmpdirMin": "${\n  /* 1 Tb */\n  return 2 ** 20;\n}\n",
+          "class": "ResourceRequirement"
+        }
+      ],
+      "baseCommand": [
+        "bash"
+      ],
+      "arguments": [
+        {
+          "position": -1,
+          "valueFrom": "$(get_run_script_entryname())"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "debug",
+          "doc": "Copy workspace to output directory if workflow fails\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/debug"
+        },
+        {
+          "label": "dragen germline directory",
+          "doc": "The dragen germline directory\n",
+          "type": "Directory",
+          "inputBinding": {
+            "prefix": "--dragen_germline_dir",
+            "valueFrom": "${\n  return get_germline_input_dir(self.basename);\n}\n"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/dragen_germline_directory"
+        },
+        {
+          "label": "dragen normal id",
+          "doc": "The name of the dragen normal sample\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--dragen_normal_id"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/dragen_normal_id"
+        },
+        {
+          "label": "dragen somatic directory",
+          "doc": "The dragen somatic directory\n",
+          "type": "Directory",
+          "inputBinding": {
+            "prefix": "--dragen_somatic_dir",
+            "valueFrom": "${\n  return get_somatic_input_dir(self.basename);\n}\n"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/dragen_somatic_directory"
+        },
+        {
+          "label": "dragen tumor id",
+          "doc": "The name of the dragen tumor sample\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--dragen_tumor_id"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/dragen_tumor_id"
+        },
+        {
+          "label": "dry run",
+          "doc": "Prints rules and commands to be run without actually executing them\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--dryrun"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/dry_run"
+        },
+        {
+          "label": "genomes tar",
+          "doc": "The reference umccrise tarball\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--genomes-dir",
+            "valueFrom": "$(get_genomes_dir_path(self.basename))"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/genomes_tar"
+        },
+        {
+          "label": "include stage",
+          "doc": "Optionally, specify stage(s) to run\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "string",
+              "inputBinding": {
+                "prefix": "--stage"
+              }
+            }
+          ],
+          "inputBinding": {
+            "position": 100
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/include_stage"
+        },
+        {
+          "label": "output directory name",
+          "doc": "The name of the output directory\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "-o",
+            "valueFrom": "${\n return get_scratch_working_dir(self);\n}\n"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/output_directory_name"
+        },
+        {
+          "label": "skip stage",
+          "doc": "Runs all default stage(s) excluding the one selected\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "string",
+              "inputBinding": {
+                "prefix": "--skip-stage"
+              }
+            }
+          ],
+          "inputBinding": {
+            "position": 99
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/skip_stage"
+        },
+        {
+          "label": "subject identifier",
+          "doc": "The subject ID (used to name output files)\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--dragen_subject_id"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/subject_identifier"
+        },
+        {
+          "label": "threads",
+          "doc": "Number of threads to use\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--threads",
+            "valueFrom": "${\n  return get_num_threads(self, runtime.cores);\n}\n"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/threads"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Peter Diakumis",
+        "https://schema.org/email": "peter.diakumis@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0002-7502-7545"
+      },
+      "https://schema.org/maintainer": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      },
+      "outputs": [
+        {
+          "label": "output directory",
+          "doc": "The output directory containing the umccrise data\n",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory_name)"
+          },
+          "id": "#umccrise__2.3.1--1.cwl/umccrise--2.3.1--1/output_directory"
+        }
+      ]
+    },
+    {
+      "class": "Workflow",
+      "id": "#main",
+      "label": "umccrise-pipeline v(2.3.1--1)",
+      "doc": "Documentation for umccrise-pipeline v2.3.1--1\n",
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "class": "MultipleInputFeatureRequirement"
+        },
+        {
+          "class": "ScatterFeatureRequirement"
+        },
+        {
+          "class": "StepInputExpressionRequirement"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "debug",
+          "doc": "Copy workspace to output directory if workflow fails\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/debug"
+        },
+        {
+          "label": "dragen germline directory",
+          "doc": "The dragen germline directory\n",
+          "type": "Directory",
+          "id": "#main/dragen_germline_directory"
+        },
+        {
+          "label": "dragen normal id",
+          "doc": "The name of the dragen normal sample\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "id": "#main/dragen_normal_id"
+        },
+        {
+          "label": "dragen somatic directory",
+          "doc": "The dragen somatic directory\n",
+          "type": "Directory",
+          "id": "#main/dragen_somatic_directory"
+        },
+        {
+          "label": "dragen tumor id",
+          "doc": "The name of the dragen tumor sample\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "id": "#main/dragen_tumor_id"
+        },
+        {
+          "label": "dry run",
+          "doc": "Prints rules and commands to be run without actually executing them\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/dry_run"
+        },
+        {
+          "label": "genomes tar",
+          "doc": "The reference umccrise tarball\n",
+          "type": "File",
+          "id": "#main/genomes_tar"
+        },
+        {
+          "label": "include stage",
+          "doc": "Optionally, specify stage(s) to run\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "string"
+            }
+          ],
+          "id": "#main/include_stage"
+        },
+        {
+          "label": "output directory name",
+          "doc": "The name of the output directory\n",
+          "type": "string",
+          "id": "#main/output_directory_name"
+        },
+        {
+          "label": "skip stage",
+          "doc": "Runs all default stage(s) excluding the one selected\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "string"
+            }
+          ],
+          "id": "#main/skip_stage"
+        },
+        {
+          "label": "subject identifier",
+          "doc": "The subject ID (used to name output files)\n",
+          "type": "string",
+          "id": "#main/subject_identifier"
+        },
+        {
+          "label": "threads",
+          "doc": "Number of threads to use\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/threads"
+        }
+      ],
+      "steps": [
+        {
+          "label": "run umccrise step",
+          "doc": "Run the UMCCRise pipeline\n",
+          "in": [
+            {
+              "source": "#main/debug",
+              "id": "#main/run_umccrise_step/debug"
+            },
+            {
+              "source": "#main/dragen_germline_directory",
+              "id": "#main/run_umccrise_step/dragen_germline_directory"
+            },
+            {
+              "source": "#main/dragen_normal_id",
+              "id": "#main/run_umccrise_step/dragen_normal_id"
+            },
+            {
+              "source": "#main/dragen_somatic_directory",
+              "id": "#main/run_umccrise_step/dragen_somatic_directory"
+            },
+            {
+              "source": "#main/dragen_tumor_id",
+              "id": "#main/run_umccrise_step/dragen_tumor_id"
+            },
+            {
+              "source": "#main/dry_run",
+              "id": "#main/run_umccrise_step/dry_run"
+            },
+            {
+              "source": "#main/genomes_tar",
+              "id": "#main/run_umccrise_step/genomes_tar"
+            },
+            {
+              "source": "#main/include_stage",
+              "id": "#main/run_umccrise_step/include_stage"
+            },
+            {
+              "source": "#main/output_directory_name",
+              "id": "#main/run_umccrise_step/output_directory_name"
+            },
+            {
+              "source": "#main/skip_stage",
+              "id": "#main/run_umccrise_step/skip_stage"
+            },
+            {
+              "source": "#main/subject_identifier",
+              "id": "#main/run_umccrise_step/subject_identifier"
+            },
+            {
+              "source": "#main/threads",
+              "id": "#main/run_umccrise_step/threads"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/run_umccrise_step/output_directory"
+            }
+          ],
+          "run": "#umccrise__2.3.1--1.cwl",
+          "id": "#main/run_umccrise_step"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "output directory",
+          "doc": "The output directory containing the results of the umccrise pipeline\n",
+          "type": "Directory",
+          "outputSource": "#main/run_umccrise_step/output_directory",
+          "id": "#main/output_directory"
+        }
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    }
+  ],
+  "cwlVersion": "v1.1",
+  "$schemas": [
+    "https://schema.org/version/latest/schemaorg-current-http.rdf"
+  ],
+  "$namespaces": {
+    "s": "https://schema.org/"
+  }
+}
