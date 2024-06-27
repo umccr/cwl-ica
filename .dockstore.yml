@@ -26,3 +26,16 @@ workflows:
       tags:
         - dragen-alignment-pipeline/4.2.4
         - dragen-alignment-pipeline/4.2.4__20240627051848
+  - name: dragen-transcriptome-pipeline_4_2_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md
+    authors:
+      - name: Sehrish Kanwal
+        email: sehrish.kanwal@umccr.org
+    filters:
+      tags:
+        - dragen-transcriptome-pipeline/4.2.4
+        - dragen-transcriptome-pipeline/4.2.4__20240627052945
