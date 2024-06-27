@@ -39,3 +39,15 @@ workflows:
       tags:
         - dragen-transcriptome-pipeline/4.2.4
         - dragen-transcriptome-pipeline/4.2.4__20240627052945
+  - name: rnasum-pipeline_1_0_0
+    subclass: CWL
+    primaryDescriptorPath: /.dockstore/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - rnasum-pipeline/1.0.0
+        - rnasum-pipeline/1.0.0__20240627054519
