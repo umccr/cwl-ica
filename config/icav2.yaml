@@ -1539,7 +1539,7 @@ bunches:
     bunch_description: |
       Contains the UMCCR umccrise pipeline for RNA-seq data analysis with reference data
     tenant_name: umccr-prod
-    pipeline_path: workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline/2.3.1--1.cwl
+    pipeline_path: workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.cwl
     pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     bunch_region_city_name: Sydney
