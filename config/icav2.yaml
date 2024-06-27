@@ -52,7 +52,7 @@ datasets:
       - data_id: fil.2082d35d90fb4b9e126a08dc7a0472f4
         owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
         owning_project_name: reference-data
-        data_uri:
+        data_uri: 
           icav2://reference-data/dragen-hash-tables/v9-r3/hg38-alt_masked-cnv-hla-rna/hg38-alt_masked.cnv.hla.rna-9-r3.0-1.tar.gz
         creation_time: '2024-06-04T08:12:54Z'
         modification_time: '2024-06-21T09:10:57Z'
@@ -219,7 +219,7 @@ datasets:
       - data_id: fil.fc89c78d9e5d49016fdf08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R1.fastq.gz
         creation_time: '2024-06-06T22:55:21Z'
         modification_time: '2024-06-21T08:27:27Z'
@@ -231,7 +231,7 @@ datasets:
       - data_id: fil.1f3dff24328544ed6fe808dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180660_8_DNA009529_FFPE_R2.fastq.gz
         creation_time: '2024-06-06T22:57:26Z'
         modification_time: '2024-06-21T08:27:43Z'
@@ -243,7 +243,7 @@ datasets:
       - data_id: fil.820d738a6b4147446f6108dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R1.fastq.gz
         creation_time: '2024-06-06T22:37:40Z'
         modification_time: '2024-06-21T08:27:48Z'
@@ -255,7 +255,7 @@ datasets:
       - data_id: fil.bdbd68814e784f826f6c08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/CUP-Pairs8/fastq/PRJ180661_8_DNA008678_Blood_R2.fastq.gz
         creation_time: '2024-06-06T22:39:37Z'
         modification_time: '2024-06-21T08:27:49Z'
@@ -283,7 +283,7 @@ datasets:
       - data_id: fil.844c8e5a9af44b3e6fb308dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170115b_MH17T002P033_R1.fastq.gz
         creation_time: '2024-06-06T22:44:58Z'
         modification_time: '2024-06-21T08:26:13Z'
@@ -295,7 +295,7 @@ datasets:
       - data_id: fil.b25812a50e6146d86fb508dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170115b_MH17T002P033_R2.fastq.gz
         creation_time: '2024-06-06T22:47:58Z'
         modification_time: '2024-06-21T08:26:30Z'
@@ -307,7 +307,7 @@ datasets:
       - data_id: fil.1d6efec072b7499f297a08dc8578d21e
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170105_MH17B001P033_R1.fastq.gz
         creation_time: '2024-06-06T22:23:08Z'
         modification_time: '2024-06-21T08:25:45Z'
@@ -319,7 +319,7 @@ datasets:
       - data_id: fil.8202bfaf8b3c44d86f0a08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.17.MH.P033/fastq/CCR170105_MH17B001P033_R2.fastq.gz
         creation_time: '2024-06-06T22:25:00Z'
         modification_time: '2024-06-21T08:25:57Z'
@@ -347,7 +347,7 @@ datasets:
       - data_id: fil.2a4ed15a76b044da6f0c08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180149_VPT-WH025-E_R1.fastq.gz
         creation_time: '2024-06-06T22:26:44Z'
         modification_time: '2024-06-21T08:26:44Z'
@@ -359,7 +359,7 @@ datasets:
       - data_id: fil.01366fbbb2f641106f1008dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180149_VPT-WH025-E_R2.fastq.gz
         creation_time: '2024-06-06T22:29:03Z'
         modification_time: '2024-06-21T08:26:47Z'
@@ -371,7 +371,7 @@ datasets:
       - data_id: fil.84571fa14bcb4ebe6ec108dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180135_WH18B002P025_R1.fastq.gz
         creation_time: '2024-06-06T22:17:50Z'
         modification_time: '2024-06-21T08:26:30Z'
@@ -383,7 +383,7 @@ datasets:
       - data_id: fil.03003c8566404e0d295108dc8578d21e
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/2016.249.18.WH.P025/fastq/CCR180135_WH18B002P025_R2.fastq.gz
         creation_time: '2024-06-06T22:18:55Z'
         modification_time: '2024-06-21T08:26:34Z'
@@ -411,7 +411,7 @@ datasets:
       - data_id: fil.4b888dbf5d0b494b29b108dc8578d21e
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190025_B_ALL_Case_10T_R1.fastq.gz
         creation_time: '2024-06-06T22:31:04Z'
         modification_time: '2024-06-21T08:26:58Z'
@@ -423,7 +423,7 @@ datasets:
       - data_id: fil.ef151fe0eed643dc29b208dc8578d21e
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190025_B_ALL_Case_10T_R2.fastq.gz
         creation_time: '2024-06-06T22:31:09Z'
         modification_time: '2024-06-21T08:27:09Z'
@@ -435,7 +435,7 @@ datasets:
       - data_id: fil.3ce7d237182749bf6f0f08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190026_B_ALL_Case_10G_R1.fastq.gz
         creation_time: '2024-06-06T22:28:18Z'
         modification_time: '2024-06-21T08:27:13Z'
@@ -447,7 +447,7 @@ datasets:
       - data_id: fil.5b8d57e3e521471f299808dc8578d21e
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/B_ALL_Case_10/fastq/MDX190026_B_ALL_Case_10G_R2.fastq.gz
         creation_time: '2024-06-06T22:29:19Z'
         modification_time: '2024-06-21T08:27:23Z'
@@ -475,7 +475,7 @@ datasets:
       - data_id: fil.d5738aa4a53c46356fb208dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170198_Missing_R1.fastq.gz
         creation_time: '2024-06-06T22:43:55Z'
         modification_time: '2024-06-21T08:27:54Z'
@@ -487,7 +487,7 @@ datasets:
       - data_id: fil.34f231309a4d45b96fb408dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170198_Missing_R2.fastq.gz
         creation_time: '2024-06-06T22:45:06Z'
         modification_time: '2024-06-21T08:27:59Z'
@@ -499,7 +499,7 @@ datasets:
       - data_id: fil.3359a5a0bfa1479f6fec08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170218_Missing_R1.fastq.gz
         creation_time: '2024-06-06T22:59:09Z'
         modification_time: '2024-06-21T08:28:08Z'
@@ -511,7 +511,7 @@ datasets:
       - data_id: fil.12993a6849144556701108dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/DiploidNeverResponder/fastq/DiploidNeverResponder_PRJ170218_Missing_R2.fastq.gz
         creation_time: '2024-06-06T23:00:44Z'
         modification_time: '2024-06-21T08:28:27Z'
@@ -539,7 +539,7 @@ datasets:
       - data_id: fil.c1010f3b659a4317707208dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200200_L2000150_R1.fastq.gz
         creation_time: '2024-06-06T23:17:54Z'
         modification_time: '2024-06-21T08:29:45Z'
@@ -551,7 +551,7 @@ datasets:
       - data_id: fil.2f862dcab5bb422d707308dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200200_L2000150_R2.fastq.gz
         creation_time: '2024-06-06T23:19:17Z'
         modification_time: '2024-06-21T08:29:54Z'
@@ -563,7 +563,7 @@ datasets:
       - data_id: fil.a84ca36c0f6b49f5704a08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200201_L2000151_R1.fastq.gz
         creation_time: '2024-06-06T23:11:04Z'
         modification_time: '2024-06-21T08:29:59Z'
@@ -575,7 +575,7 @@ datasets:
       - data_id: fil.7bc585d90a9e45ee704b08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wgs/SBJ00303/fastq/SBJ00303_PRJ200201_L2000151_R2.fastq.gz
         creation_time: '2024-06-06T23:12:59Z'
         modification_time: '2024-06-21T08:30:08Z'
@@ -725,7 +725,7 @@ datasets:
       - data_id: fil.00db7f575e3c4741766608dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R1_001.fastq.gz
         creation_time: '2024-06-07T00:36:34Z'
         modification_time: '2024-06-21T08:26:27Z'
@@ -737,7 +737,7 @@ datasets:
       - data_id: fil.848678f252004cae726508dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/PTC_NebRNA210629_L2100706/fastq/PTC_NebRNA210629_L2100706_S9_L001_R2_001.fastq.gz
         creation_time: '2024-06-07T00:36:52Z'
         modification_time: '2024-06-21T08:26:28Z'
@@ -765,7 +765,7 @@ datasets:
       - data_id: fil.e47895b2674b40cf727508dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00028_PRJ190190_L1900423/fastq/L1900423_S7_R1_001.fastq.gz
         creation_time: '2024-06-07T00:37:57Z'
         modification_time: '2024-06-21T08:26:29Z'
@@ -777,7 +777,7 @@ datasets:
       - data_id: fil.f7b97fcf876b4409727608dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00028_PRJ190190_L1900423/fastq/L1900423_S7_R2_001.fastq.gz
         creation_time: '2024-06-07T00:39:04Z'
         modification_time: '2024-06-21T08:26:31Z'
@@ -805,7 +805,7 @@ datasets:
       - data_id: fil.ad6640db600e44e1727a08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00061_MDX190049_L1900440/fastq/L1900440_S21_R1_001.fastq.gz
         creation_time: '2024-06-07T00:39:27Z'
         modification_time: '2024-06-21T08:26:32Z'
@@ -817,7 +817,7 @@ datasets:
       - data_id: fil.6e3e68b7fc8b48ef76a908dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00061_MDX190049_L1900440/fastq/L1900440_S21_R2_001.fastq.gz
         creation_time: '2024-06-07T00:39:46Z'
         modification_time: '2024-06-21T08:26:33Z'
@@ -845,7 +845,7 @@ datasets:
       - data_id: fil.25ae81b4f33146b2769708dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00188_MDX190169_L1900877/fastq/L1900877_S12_R1_001.fastq.gz
         creation_time: '2024-06-07T00:39:38Z'
         modification_time: '2024-06-21T08:26:34Z'
@@ -857,7 +857,7 @@ datasets:
       - data_id: fil.dc806da29f02402076aa08dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00188_MDX190169_L1900877/fastq/L1900877_S12_R2_001.fastq.gz
         creation_time: '2024-06-07T00:39:52Z'
         modification_time: '2024-06-21T08:26:34Z'
@@ -885,7 +885,7 @@ datasets:
       - data_id: fil.8ed5724bce234ff276ad08dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00199_MDX190193_L1900920/fastq/L1900920_S15_R1_001.fastq.gz
         creation_time: '2024-06-07T00:40:25Z'
         modification_time: '2024-06-21T08:26:35Z'
@@ -897,7 +897,7 @@ datasets:
       - data_id: fil.2c3073bee29c47ea76ae08dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00199_MDX190193_L1900920/fastq/L1900920_S15_R2_001.fastq.gz
         creation_time: '2024-06-07T00:40:38Z'
         modification_time: '2024-06-21T08:26:37Z'
@@ -925,7 +925,7 @@ datasets:
       - data_id: fil.a191c268b58b414972ae08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00236_MDX190219_L1901023/fastq/L1901023_S8_R1_001.fastq.gz
         creation_time: '2024-06-07T00:41:17Z'
         modification_time: '2024-06-21T08:26:38Z'
@@ -937,7 +937,7 @@ datasets:
       - data_id: fil.f4d61a69d418416a76af08dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00236_MDX190219_L1901023/fastq/L1901023_S8_R2_001.fastq.gz
         creation_time: '2024-06-07T00:41:23Z'
         modification_time: '2024-06-21T08:26:39Z'
@@ -965,7 +965,7 @@ datasets:
       - data_id: fil.554ab8b39c49488a76b208dc8682e79a
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00238_MDX190231_L1901028/fastq/L1901028_S3_R1_001.fastq.gz
         creation_time: '2024-06-07T00:41:58Z'
         modification_time: '2024-06-21T08:26:40Z'
@@ -977,7 +977,7 @@ datasets:
       - data_id: fil.728b7d6332dd4d2e72af08dc8578d1b7
         owning_project_id: 7efd0cd5-a3b8-4ba3-b0be-7966eee29340
         owning_project_name: validation-data
-        data_uri:
+        data_uri: 
           icav2://validation-data/wts/SBJ00238_MDX190231_L1901028/fastq/L1901028_S3_R2_001.fastq.gz
         creation_time: '2024-06-07T00:42:09Z'
         modification_time: '2024-06-21T08:26:41Z'
@@ -1167,7 +1167,7 @@ bunches:
   - bunch_name: bclconvert_interop_qc_prod__1_3_1__1_21
     bunch_description: BCLConvert Interop QC Pipeline Bunch
     tenant_name: umccr-prod
-    pipeline_path:
+    pipeline_path: 
       workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
     pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
@@ -1304,7 +1304,7 @@ bunches:
       The reference data is the dragen hash table for hg38.
       Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
     tenant_name: umccr-prod
-    pipeline_path:
+    pipeline_path: 
       workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
     pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
@@ -1377,7 +1377,7 @@ bunches:
       The reference data is the dragen hash table for hg38.
       Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
     tenant_name: umccr-prod
-    pipeline_path:
+    pipeline_path: 
       workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
     pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
@@ -1430,7 +1430,7 @@ bunches:
       The reference data is the dragen hash table for hg38.
       Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
     tenant_name: umccr-prod
-    pipeline_path:
+    pipeline_path: 
       workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
     pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
@@ -1484,7 +1484,7 @@ bunches:
       The reference data is the dragen hash table for hg38.
       Version for v9-r3 with alt-masked, cnv, hla, rna enabled features
     tenant_name: umccr-prod
-    pipeline_path:
+    pipeline_path: 
       workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
     pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
@@ -1564,4 +1564,39 @@ bunches:
 
 
 # List of generated bundles
-bundles: []
+bundles:
+  - bundle_name: bclconvert_interop_qc_prod__1_3_1__1_21__20240627051309
+    bundle_description: 'This bundle has been generated by the release of workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl.
+      The pipeline can be found at https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.21__20240627051309.  '
+    bundle_version: 1.3.1__1.21__20240627051309
+    bundle_version_description: Bundle version description is currently redundant
+      while we cannot append versions to bundles. Regardless - the bunch version is
+      1.3.1__1.21
+    bundle_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bundle_region_city_name: Sydney
+    tenant_name: umccr-prod
+    pipeline_path: 
+      workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
+    pipeline_name: bclconvert-interop-qc
+    pipeline_version: 1.3.1--1.21
+    pipeline_release_url: 
+      https://github.com/umccr/cwl-ica/releases/tag/bclconvert-interop-qc/1.3.1--1.21__20240627051309
+    pipeline_commit_id: bclconvert-interop-qc/1.3.1--1.21__20240627051309
+    pipeline_checksum: ac758f18a4438440d8c1cae45eb5ffb1
+    pipeline_project_id: 5844391a-69db-4b52-86b5-6a0d55c2386f
+    bundle_creation_time: '2024-06-27T05:15:08Z'
+    bundle_release_status: draft
+    bunch_name: bclconvert_interop_qc_prod__1_3_1__1_21
+    bunch_version: 1.3.1__1.21
+    bunch_datasets: []
+    bundle_id: 7f394774-6ff4-4d0a-b453-6cf64d2c7c07
+    bundle_data_ids: []
+    bundle_pipeline_id: 35cae57c-8895-4814-ae89-db4b5e9668b2
+    bundle_url: 
+      https://ica.illumina.com/ica/bundles/7f394774-6ff4-4d0a-b453-6cf64d2c7c07/bundleDetails
+    bundle_categories:
+      - qc
+    projects:
+      - development
+      - staging
+      - production
