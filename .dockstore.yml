@@ -13,6 +13,7 @@ workflows:
       tags:
         - dragen-somatic-with-germline-pipeline/4.2.4
         - dragen-somatic-with-germline-pipeline/4.2.4__20231025003000
+        - dragen-somatic-with-germline-pipeline/4.2.4__20240627035115
   - name: bclconvert-interop-qc_1_3_1-1_19
     subclass: CWL
     primaryDescriptorPath: 
