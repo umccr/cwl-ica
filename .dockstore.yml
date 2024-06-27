@@ -70,3 +70,4 @@ workflows:
       tags:
         - dragen-transcriptome-pipeline/4.2.4
         - dragen-transcriptome-pipeline/4.2.4__20240627040250
+        - dragen-transcriptome-pipeline/4.2.4__20240627041605
