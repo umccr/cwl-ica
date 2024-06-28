@@ -78,3 +78,4 @@ workflows:
       tags:
         - umccrise-pipeline/2.3.1--1
         - umccrise-pipeline/2.3.1--1__20240627054449
+        - umccrise-pipeline/2.3.1--1__20240627233816
