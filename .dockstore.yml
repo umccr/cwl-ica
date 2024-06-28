@@ -63,7 +63,6 @@ workflows:
     filters:
       tags:
         - rnasum-pipeline/1.0.0
-        - rnasum-pipeline/1.0.0__20240627054519
         - rnasum-pipeline/1.0.0__20240627060107
   - name: umccrise-pipeline_2_3_1-1
     subclass: CWL
@@ -77,5 +76,4 @@ workflows:
     filters:
       tags:
         - umccrise-pipeline/2.3.1--1
-        - umccrise-pipeline/2.3.1--1__20240627054449
         - umccrise-pipeline/2.3.1--1__20240627233816
