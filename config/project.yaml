@@ -10,8 +10,7 @@ projects:
     linked_projects:
       - dc8e6ba9-b744-437b-b070-4cf014694b3d
       - c9173925-a838-4394-9fc6-61cb93c252a1
-    tenant_id: 
-        YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
+    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: samtools-merge
         path: samtools-merge
@@ -485,6 +484,11 @@ projects:
             path: 1.0.0/rnasum__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
             modification_time: 2024-05-30T03:25:32UTC
+            run_instances: []
+          - name: 1.1.0
+            path: 1.1.0/rnasum__1.1.0.cwl
+            ica_workflow_version_name: 1.1.0
+            modification_time: 2024-07-04T22:58:58UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
@@ -1066,8 +1070,7 @@ projects:
       - 20b42a71-1ebc-4e7b-b659-313f2f4524c3
       - c9173925-a838-4394-9fc6-61cb93c252a1
       - dc8e6ba9-b744-437b-b070-4cf014694b3d
-    tenant_id: 
-        YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
+    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: dragen-build-reference-tarball
         path: dragen-build-reference-tarball
@@ -3510,8 +3513,7 @@ projects:
     production: false
     linked_projects:
       - 30f09dfb-10e3-43b4-9056-07c8623b96a3
-    tenant_id: 
-        YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
+    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
