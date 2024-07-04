@@ -10,7 +10,8 @@ projects:
     linked_projects:
       - dc8e6ba9-b744-437b-b070-4cf014694b3d
       - c9173925-a838-4394-9fc6-61cb93c252a1
-    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
+    tenant_id: 
+        YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: samtools-merge
         path: samtools-merge
@@ -300,7 +301,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-06-24T02:45:12UTC
+            modification_time: 2024-07-01T00:16:38UTC
             run_instances: []
       - name: umccrise
         path: umccrise
@@ -1070,7 +1071,8 @@ projects:
       - 20b42a71-1ebc-4e7b-b659-313f2f4524c3
       - c9173925-a838-4394-9fc6-61cb93c252a1
       - dc8e6ba9-b744-437b-b070-4cf014694b3d
-    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
+    tenant_id: 
+        YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: dragen-build-reference-tarball
         path: dragen-build-reference-tarball
@@ -3513,7 +3515,8 @@ projects:
     production: false
     linked_projects:
       - 30f09dfb-10e3-43b4-9056-07c8623b96a3
-    tenant_id: YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
+    tenant_id: 
+        YXdzLXVzLXBsYXRmb3JtOjEwMDAwNTM3OjBiYTU5YWUxLWZkYWUtNDNiYS1hM2I1LTRkMzY3YTQzYWJkNQ
     tools:
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
