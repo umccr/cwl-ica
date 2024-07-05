@@ -460,6 +460,9 @@ tools:
       - name: 1.0.0
         path: 1.0.0/rnasum__1.0.0.cwl
         md5sum: 3eaf7b2115a4753271c50400d56d6054
+      - name: 1.1.0
+        path: 1.1.0/rnasum__1.1.0.cwl
+        md5sum: 6a85a8be04606f39a7c257fdec92d0f7
     categories: []
   - name: samtools-stats
     path: samtools-stats
