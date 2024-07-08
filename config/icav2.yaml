@@ -1319,6 +1319,9 @@ bunches:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2024-06-21T09:21:42Z'
             dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+          - dataset_name: hg38_v39_gencode_annotation
+            dataset_creation_time: '2024-07-08T01:23:37Z'
+            dataset_id_hash: 7e88d10c15bfc88ee2e9527962c63984
 
   # DRAGEN WTS Pipeline
   # Validation
@@ -1427,6 +1430,9 @@ bunches:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2024-06-21T09:21:42Z'
             dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+          - dataset_name: hg38_v39_gencode_annotation
+            dataset_creation_time: '2024-07-08T01:23:37Z'
+            dataset_id_hash: 7e88d10c15bfc88ee2e9527962c63984
           - dataset_name: hg38_fasta
             dataset_creation_time: '2024-06-21T11:31:50Z'
             dataset_id_hash: 5f129b14aca5b4a7fda902590b15abc2
