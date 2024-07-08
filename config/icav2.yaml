@@ -150,6 +150,28 @@ datasets:
         file_size_in_bytes: 21586693
         object_e_tag: 5130f66bdf64a2b3aa186a08e62efca7-5
 
+  # Gencode Annotations
+  - dataset_tenant_name: umccr-prod
+    dataset_name: hg38_v39_gencode_annotation
+    dataset_description: GRCh38 Annotation GTF from Gencode v39
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-07-08T01:23:37Z'
+    dataset_id_hash: 7e88d10c15bfc88ee2e9527962c63984
+    data:
+      - data_id: fil.962f7248f6bb4d4b9b1f08dc9833b59f
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/gencode/hg38/v39/gencode.v39.annotation.gtf
+        creation_time: '2024-07-08T00:32:48Z'
+        modification_time: '2024-07-08T00:43:28Z'
+        creator_id: 62874efc-339e-4cc2-a5ef-2248d86766d7
+        creator_name: 0c51d29a-8ffa-38e9-bf18-736330d7c65a
+        data_type: FILE
+        file_size_in_bytes: 1490219739
+        object_e_tag: 08f9ca5b773c83858f74959378ff71f9-285
+
   # RNASum
   - dataset_tenant_name: umccr-prod
     dataset_name: rnasum_1_0_0
@@ -1218,6 +1240,9 @@ bunches:
           - dataset_name: dragen_hash_table_v9_r3_alt_masked_cnv_hla_rna
             dataset_creation_time: '2024-06-21T09:21:42Z'
             dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+          - dataset_name: hg38_v39_gencode_annotation
+            dataset_creation_time: '2024-07-08T01:23:37Z'
+            dataset_id_hash: 7e88d10c15bfc88ee2e9527962c63984
           - dataset_name: wgs_validation_fastq__cups_pair_8
             dataset_creation_time: '2024-06-21T09:35:36Z'
             dataset_id_hash: fca2fb140731ea7900d2c5c96061a280
@@ -1330,6 +1355,9 @@ bunches:
           - dataset_name: hg38_fasta
             dataset_creation_time: '2024-06-21T11:31:50Z'
             dataset_id_hash: 5f129b14aca5b4a7fda902590b15abc2
+          - dataset_name: hg38_v39_gencode_annotation
+            dataset_creation_time: '2024-07-08T01:23:37Z'
+            dataset_id_hash: 7e88d10c15bfc88ee2e9527962c63984
           - dataset_name: arriba_2_4_0
             dataset_creation_time: '2024-06-21T11:31:26Z'
             dataset_id_hash: 8695cf0a98c5cda5726f67d4922da67f
