@@ -301,7 +301,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-06-24T02:45:12UTC
+            modification_time: 2024-07-01T00:16:38UTC
             run_instances: []
       - name: umccrise
         path: umccrise
@@ -485,6 +485,11 @@ projects:
             path: 1.0.0/rnasum__1.0.0.cwl
             ica_workflow_version_name: 1.0.0
             modification_time: 2024-05-30T03:25:32UTC
+            run_instances: []
+          - name: 1.1.0
+            path: 1.1.0/rnasum__1.1.0.cwl
+            ica_workflow_version_name: 1.1.0
+            modification_time: 2024-07-05T01:39:15UTC
             run_instances: []
       - name: samtools-stats
         path: samtools-stats
@@ -1318,6 +1323,11 @@ projects:
             path: 1.0.0/rnasum__1.0.0.cwl
             ica_workflow_version_name: 1.0.0--92d3c7e
             modification_time: 2024-05-30T09:08:41UTC
+            run_instances: []
+          - name: 1.1.0
+            path: 1.1.0/rnasum__1.1.0.cwl
+            ica_workflow_version_name: 1.1.0--4ce529c
+            modification_time: 2024-07-05T01:42:26UTC
             run_instances: []
       - name: umccrise
         path: umccrise
