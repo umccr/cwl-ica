@@ -90,7 +90,7 @@ requirements:
             --file "$(inputs.reference_tar.path)"
           
           # Check if both bam inputs are set
-          if [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(is_not_null(inputs.tumor_bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" ]]; then
+          if [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(is_not_null(inputs.tumor_bam_input))" == "true" && ( "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" || "$(get_bool_value_as_str(inputs.enable_map_align_output))" == "true" ) ]]; then
             echo "More than one bam input is set, need to run enable map align first beforehand then run variant calling in a separate step" 1>&2
           
             # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
@@ -178,7 +178,7 @@ requirements:
           
           # Check if cram inputs are set and enable map align output is set
           # Like bam inputs, we need to run map align first before running variant calling
-          if [[ "$(is_not_null(inputs.cram_input))" == "true" && "$(is_not_null(inputs.tumor_cram_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" ]]; then
+          if [[ "$(is_not_null(inputs.cram_input))" == "true" && "$(is_not_null(inputs.tumor_cram_input))" == "true" && ( "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" || "$(get_bool_value_as_str(inputs.enable_map_align_output))" == "true" ) ]]; then
             echo "More than one cram input is set, need to run enable map align first beforehand then run variant calling in a separate step" 1>&2
           
             # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
