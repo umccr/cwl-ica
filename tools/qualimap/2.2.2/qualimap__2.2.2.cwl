@@ -18,7 +18,7 @@ s:author:
 id: qualimap--2.2.2
 label: qualimap v(2.2.2)
 doc: |
-    It perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.es/doc_html/command_line.html.
+    Qualimap perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.es/doc_html/command_line.html.
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
@@ -33,6 +33,12 @@ hints:
         dockerPull: public.ecr.aws/biocontainers/qualimap:2.2.2d--hdfd78af_2
 
 requirements:
+  ResourceRequirement:
+    tmpdirMin: |
+      ${
+        /* 1 Tb */
+        return Math.pow(2, 20); 
+      }
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement:
     listing:
@@ -44,10 +50,10 @@ requirements:
           set -euo pipefail
           
           # Set java opts
-          if [[ ! -z "$(inputs.tmp_dir)" ]]
-          then
-            export JAVA_OPTS=-Djava.io.tmpdir="$(inputs.tmp_dir)"
+          if [[ -n "$(inputs.tmp_dir)" ]]; then
+            export JAVA_OPTS="-Djava.io.tmpdir=$(inputs.tmp_dir)"
           fi
+          
           # Run qualimap
           qualimap rnaseq --paired "\${@}"
 
