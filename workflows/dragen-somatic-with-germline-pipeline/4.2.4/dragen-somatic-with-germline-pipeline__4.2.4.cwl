@@ -91,6 +91,23 @@ inputs:
     secondaryFiles:
       - pattern: ".bai"
         required: true
+  # Option 4
+  cram_input:
+    label: cram input
+    doc: |
+      Input a normal CRAM file for the variant calling stage
+    type: File?
+  tumor_cram_input:
+    label: tumor cram input
+    doc: |
+      Input a tumor CRAM file for the variant calling stage
+    type: File?
+  cram_reference:
+    label: cram reference
+    doc: |
+      Path to the reference fasta file for the CRAM input. 
+      Required only if the input is a cram file AND not the reference in the tarball
+    type: File?
   # Add reference tar
   reference_tar:
     label: reference tar
@@ -932,6 +949,11 @@ steps:
       # Option 3
       bam_input:
         source: bam_input
+      # Option 4
+      cram_input:
+        source: cram_input
+      cram_reference:
+        source: cram_reference
       reference_tar:
         source: reference_tar
       output_file_prefix:
@@ -1095,6 +1117,13 @@ steps:
         source: bam_input
       tumor_bam_input:
         source: tumor_bam_input
+      # Option 4
+      cram_input:
+        source: cram_input
+      tumor_cram_input:
+        source: tumor_cram_input
+      cram_reference:
+        source: cram_reference
       reference_tar:
         source: reference_tar
       # Mandatory parameters
@@ -1191,7 +1220,7 @@ steps:
         source: vc_target_bed_padding
       vc_target_coverage:
         source: vc_target_coverage
-      vc_target_vaf_somatic:
+      vc_target_vaf:
         source: vc_target_vaf_somatic
       vc_enable_gatk_acceleration:
         source: vc_enable_gatk_acceleration

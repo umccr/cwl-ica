@@ -56,6 +56,18 @@ inputs:
     secondaryFiles:
       - pattern: ".bai"
         required: true
+  # Option 4
+  cram_input:
+    label: cram input
+    doc: |
+      Input a normal CRAM file for the variant calling stage
+    type: File?
+  cram_reference:
+    label: cram reference
+    doc: |
+      Path to the reference fasta file for the CRAM input. 
+      Required only if the input is a cram file AND not the reference in the tarball
+    type: File?
   reference_tar:
     label: reference tar
     doc: |
@@ -454,6 +466,10 @@ steps:
         source: fastq_list
       bam_input:
         source: bam_input
+      cram_input:
+        source: cram_input
+      cram_reference:
+        source: cram_reference
       reference_tar:
         source: reference_tar
       output_file_prefix:

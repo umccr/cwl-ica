@@ -56,49 +56,49 @@ requirements:
       - entryname: $(get_script_path())
         entry: |
           #!/usr/bin/env bash
-
+          
           # Fail on non-zero exit of subshell
           set -euo pipefail
-
+          
           # Confirm not both fastq_list and fastq_list_rows are defined
           if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -gt "1" ]]; then
             echo "Please set no more than one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
             exit 1
           fi
-
+          
           # Ensure that at least one of tumor_fastq_list and tumor_fastq_list_rows are defined but not both defined (XOR)
           if [[ "$(boolean_to_int(is_not_null(inputs.tumor_fastq_list)) + boolean_to_int(is_not_null(inputs.tumor_fastq_list_rows)) + boolean_to_int(is_not_null(inputs.tumor_bam_input)))" -ne "1" ]]; then
               echo "One and only one of inputs tumor_fastq_list, inputs.tumor_fastq_list_rows, inputs.tumor_bam_input must be defined" 1>&2
               exit 1
           fi
-
+          
           # Reset dragen
           /opt/edico/bin/dragen \\
             --partial-reconfig HMM \\
             --ignore-version-check true
-
+          
           # Create directories
           mkdir --parents \\
             "$(get_ref_mount())" \\
             "$(get_intermediate_results_dir())" \\
             "$(inputs.output_directory)"
-
+          
           # untar ref data into scratch space
           tar \\
             --directory "$(get_ref_mount())" \\
             --extract \\
             --file "$(inputs.reference_tar.path)"
-
+          
           # Check if both bam inputs are set
           if [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(is_not_null(inputs.tumor_bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" ]]; then
             echo "More than one bam input is set, need to run enable map align first beforehand then run variant calling in a separate step" 1>&2
-
+          
             # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
             enable_sort_parameter=""
             enable_duplicate_marking_parameter=""
             enable_map_align_output_parameter=""
             dedup_min_qual_parameter=""
-
+          
             # Pop arguments
             # Get args from command line
             # But capture them again since we need them when we actually run dragen
@@ -131,7 +131,7 @@ requirements:
               esac
               shift 1
             done
-
+          
             # Then run dragen map-align and place the files in the output directories
             # Tumor Then Normal
             echo "Aligning tumor" 1>&2
@@ -147,7 +147,7 @@ requirements:
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
               "--tumor-bam-input=$(get_attribute_from_optional_input(inputs.tumor_bam_input, "path"))"
-
+          
             echo "Aligning normal" 1>&2
             # Eval prefix required here as some parameters are empty
             eval /opt/edico/bin/dragen \\
@@ -161,25 +161,119 @@ requirements:
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
               "--bam-input=$(get_attribute_from_optional_input(inputs.bam_input, "path"))"
-
-
+          
+          
             # Pop back in existing arguments into \${@}
             for existing_arg in "\${existing_args_array[@]}"; do
                set -- "\${@}" "\${existing_arg}"
             done
-
+          
             # Update bam input and tumor bam input parameters
             set -- "\${@}" "--bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
             set -- "\${@}" "--tumor-bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam"
-
+          
             # Explicity set enable map align to false
             set -- "\${@}" "--enable-map-align=false"
           fi
-
+          
+          # Check if cram inputs are set and enable map align output is set
+          # Like bam inputs, we need to run map align first before running variant calling
+          if [[ "$(is_not_null(inputs.cram_input))" == "true" && "$(is_not_null(inputs.tumor_cram_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" ]]; then
+            echo "More than one cram input is set, need to run enable map align first beforehand then run variant calling in a separate step" 1>&2
+          
+            # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
+            enable_sort_parameter=""
+            enable_duplicate_marking_parameter=""
+            enable_map_align_output_parameter=""
+            dedup_min_qual_parameter=""
+            cram_reference_parameter=""
+          
+            # Pop arguments
+            # Get args from command line
+            # But capture them again since we need them when we actually run dragen
+            existing_args_array=()
+            while [ $# -gt 0 ]; do
+              case "$1" in
+                --enable-sort=*)
+                  enable_sort_parameter="$1"
+                  ;;
+                --enable-duplicate-marking=*)
+                  enable_duplicate_marking_parameter="\${1}"
+                  ;;
+                --enable-map-align=*)
+                  :  # Just popping from array, we set this by default in these steps but dont want it in final dragen call
+                  ;;
+                --enable-map-align-output=*)
+                  enable_map_align_output_parameter="\${1}"
+                  ;;
+                --dedup-min-qual=*)
+                  dedup_min_qual_parameter="\${1}"
+                  ;;
+                --cram-input=*)
+                  :  # Just popping from array as we set the new location elsewhere
+                  ;;
+                --tumor-cram-input=*)
+                  :  # Just popping from array as we set the new location elsewhere
+                  ;;
+                --cram-reference=*)
+                  cram_reference_parameter="\${1}"
+                  ;;
+                *)
+                  existing_args_array+=("\${1}")
+              esac
+              shift 1
+            done
+          
+            # Then run dragen map-align and place the files in the output directories
+            # Tumor Then Normal
+            echo "Aligning tumor" 1>&2
+            # Eval prefix required here as some parameters are empty
+            eval /opt/edico/bin/dragen \\
+              --enable-map-align=true \\
+              "\${enable_sort_parameter}" \\
+              "\${enable_duplicate_marking_parameter}" \\
+              "\${enable_map_align_output_parameter}" \\
+              "\${dedup_min_qual_parameter}" \\
+              "\${cram_reference_parameter}" \\
+              "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
+              "--output-directory=$(inputs.output_directory)" \\
+              "--output-file-prefix=$(inputs.output_file_prefix)" \\
+              "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--tumor-cram-input=$(get_attribute_from_optional_input(inputs.tumor_cram_input, "path"))"
+          
+            echo "Aligning normal" 1>&2
+            # Eval prefix required here as some parameters are empty
+            eval /opt/edico/bin/dragen \\
+              --enable-map-align=true \\
+              "\${enable_sort_parameter}" \\
+              "\${enable_duplicate_marking_parameter}" \\
+              "\${enable_map_align_output_parameter}" \\
+              "\${dedup_min_qual_parameter}" \\
+              "\${cram_reference_parameter}" \\
+              "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
+              "--output-directory=$(inputs.output_directory)" \\
+              "--output-file-prefix=$(inputs.output_file_prefix)" \\
+              "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--cram-input=$(get_attribute_from_optional_input(inputs.cram_input, "path"))"
+          
+            # Pop back in existing arguments into \${@}
+            for existing_arg in "\${existing_args_array[@]}"; do
+               set -- "\${@}" "\${existing_arg}"
+            done
+          
+            # Update bam input and tumor bam input parameters
+            # Note that we output bams by default
+            set -- "\${@}" "--bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
+            set -- "\${@}" "--tumor-bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam"
+          
+            # Explicity set enable map align to false since we've already done the alignment
+            set -- "\${@}" "--enable-map-align=false"
+          fi
+          
           # Run dragen command and import options from cli
           echo "Running dragen variant calling" 1>&2
           "$(get_dragen_bin_path())" "\${@}"
-
+          
           # Check if fastq_list or fastq_list_rows is set
           if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
             # Check if --enable-map-align-output is set
@@ -193,17 +287,17 @@ requirements:
               echo "Exiting" 1>&2
               exit
             fi
-
+          
             # Ensure that we have a normal RGSM value, otherwise exit.
             if [[ "$(is_not_null(get_normal_output_prefix(inputs)))" == "false" ]]; then
               echo "Could not get the normal bam file prefix" 1>&2
               echo "Exiting" 1>&2
               exit
             fi
-
+          
             # Get new normal file name prefix from the fastq_list.csv
             new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
-
+          
             # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
             if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
               # Move normal bam, normal bam index and normal bam md5sum
@@ -215,7 +309,7 @@ requirements:
               )
             fi
           fi
-
+          
           # If --enable-sv has been selected, we need to remove the empty genomeDepth directory
           # https://github.com/umccr-illumina/ica_v2/issues/131
           if [[ "$(is_not_null(inputs.enable_sv))" == "true" && "$(get_bool_value_as_str(inputs.enable_sv))" == "true" && -d "$(inputs.output_directory)/sv/" ]]; then
@@ -243,7 +337,7 @@ inputs:
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/OptionReference.htm
   # Inputs fastq list csv or actual fastq list file with presigned urls for Read1File and Read2File columns
   # File inputs
-  # Option 1
+  # Input Option 1
   fastq_list:
     label: fastq list
     doc: |
@@ -265,7 +359,7 @@ inputs:
       prefix: "--tumor-fastq-list="
       separate: False
       valueFrom: "$(get_tumor_fastq_list_csv_path())"
-  # Option 2
+  # Input Option 2
   fastq_list_rows:
     label: fastq list rows
     doc: |
@@ -284,7 +378,7 @@ inputs:
       prefix: "--tumor-fastq-list="
       separate: False
       valueFrom: "$(get_tumor_fastq_list_csv_path())"
-  # Option 3
+  # Input Option 3
   bam_input:
     label: bam input
     doc: |
@@ -307,6 +401,43 @@ inputs:
     secondaryFiles:
       - pattern: ".bai"
         required: true
+  # Input Option 4
+  cram_input:
+    label: cram input
+    doc: |
+      Input a normal CRAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--cram-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".crai"
+        required: true
+  tumor_cram_input:
+    label: tumor cram input
+    doc: |
+      Input a tumor CRAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--tumor-cram-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".crai"
+        required: true
+  cram_reference:
+    label: cram reference
+    doc: |
+      Path to the reference fasta file for the CRAM input. 
+      Required only if the input is a cram file AND not the reference in the tarball
+    type: File?
+    inputBinding:
+      prefix: "--cram-reference="
+      separate: False
+    secondaryFiles:
+      - pattern: ".fai"
+        required: true
+
+  # Dragen reference tar ball
   reference_tar:
     label: reference tar
     doc: |
