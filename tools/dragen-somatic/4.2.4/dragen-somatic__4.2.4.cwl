@@ -146,6 +146,7 @@ requirements:
               "--output-directory=$(inputs.output_directory)" \\
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--lic-instance-id-location=$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
               "--tumor-bam-input=$(get_attribute_from_optional_input(inputs.tumor_bam_input, "path"))"
           
             echo "Aligning normal" 1>&2
@@ -160,8 +161,8 @@ requirements:
               "--output-directory=$(inputs.output_directory)" \\
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--lic-instance-id-location=$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
               "--bam-input=$(get_attribute_from_optional_input(inputs.bam_input, "path"))"
-          
           
             # Pop back in existing arguments into \${@}
             for existing_arg in "\${existing_args_array[@]}"; do
@@ -239,6 +240,7 @@ requirements:
               "--output-directory=$(inputs.output_directory)" \\
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--lic-instance-id-location=$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
               "--tumor-cram-input=$(get_attribute_from_optional_input(inputs.tumor_cram_input, "path"))"
           
             echo "Aligning normal" 1>&2
@@ -254,6 +256,7 @@ requirements:
               "--output-directory=$(inputs.output_directory)" \\
               "--output-file-prefix=$(inputs.output_file_prefix)" \\
               "--intermediate-results-dir=$(get_intermediate_results_dir())" \\
+              "--lic-instance-id-location=$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
               "--cram-input=$(get_attribute_from_optional_input(inputs.cram_input, "path"))"
           
             # Pop back in existing arguments into \${@}
