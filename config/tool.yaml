@@ -80,16 +80,16 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-germline__3.7.5.cwl
-        md5sum: c88f8998e64f1b3b94156773f02a5a59
+        md5sum: 31b962a717c5797b2ebd2427a63a15c6
       - name: 3.9.3
         path: 3.9.3/dragen-germline__3.9.3.cwl
-        md5sum: 1ff5be4c69d15c0724d64b6914531b03
+        md5sum: 0b3673ce428dc80ff680c5c202fc6797
       - name: 4.0.3
         path: 4.0.3/dragen-germline__4.0.3.cwl
-        md5sum: db8137cb8432c91ea3087562d30f538c
+        md5sum: 8ed454fee58ccdbdbfab021f6a50c0ac
       - name: 4.2.4
         path: 4.2.4/dragen-germline__4.2.4.cwl
-        md5sum: bdb22a84c493f64a691f24d646a365a5
+        md5sum: da71a3e11cb6fe7bc985c8771db9fe24
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -159,16 +159,16 @@ tools:
     versions:
       - name: 3.7.5
         path: 3.7.5/dragen-somatic__3.7.5.cwl
-        md5sum: b252e6652dc81960e65f738d5af3c22a
+        md5sum: 651da61741fcebc6cb4af24353086c2f
       - name: 3.9.3
         path: 3.9.3/dragen-somatic__3.9.3.cwl
-        md5sum: b74703c108b8ac76211b7806801eaf97
+        md5sum: 1f6e7f51278ba579c05cc9287ec81a6e
       - name: 4.0.3
         path: 4.0.3/dragen-somatic__4.0.3.cwl
-        md5sum: 9dfad49bbfed30541367ecd8b4d7b78a
+        md5sum: 15457229484a746bf90b0f52d430b45a
       - name: 4.2.4
         path: 4.2.4/dragen-somatic__4.2.4.cwl
-        md5sum: 17d3a4e0b2f485812aa95dd09a418b5c
+        md5sum: e7f86c5586145087ac18227b50d5a21b
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -412,17 +412,17 @@ tools:
     versions:
       - name: 3.8.4
         path: 3.8.4/dragen-umi__3.8.4.cwl
-        md5sum: 56a1733172d405b6ebd4f6467254bddd
+        md5sum: 96a32aae5dde90ae4610aea133019961
       - name: 3.9.3
         path: 3.9.3/dragen-umi__3.9.3.cwl
-        md5sum: 5a0ac85f43a95493dc40d8235a77cc3b
+        md5sum: bd27cd5181f10977cdd0b605339c03d1
     categories: []
   - name: bcftools-view
     path: bcftools-view
     versions:
       - name: 1.13.0
         path: 1.13.0/bcftools-view__1.13.0.cwl
-        md5sum: 0b59bea695d247eefbfea1acc45365b0
+        md5sum: 092d4d1bad1cfc5d017f71a4fe8465da
     categories: []
   - name: rnasum
     path: rnasum
@@ -521,7 +521,7 @@ tools:
     versions:
       - name: 2.7.10
         path: 2.7.10/star__2.7.10.cwl
-        md5sum: 246bcafcbefa85c0f6ce80d8cec0e043
+        md5sum: 9fa6507882448ae2d8ccd7814a50e3bc
     categories: []
   - name: illumina-interop
     path: illumina-interop

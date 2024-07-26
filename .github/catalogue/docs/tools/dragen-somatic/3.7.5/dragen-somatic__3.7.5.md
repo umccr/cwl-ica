@@ -17,7 +17,7 @@ dragen-somatic 3.7.5 tool
 
   
 > ID: dragen-somatic--3.7.5  
-> md5sum: b252e6652dc81960e65f738d5af3c22a
+> md5sum: 651da61741fcebc6cb4af24353086c2f
 
 ### dragen-somatic v(3.7.5) documentation
   
@@ -416,7 +416,7 @@ variants if the normal sample genotype is not a homozygous reference.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -455,7 +455,7 @@ Enables the multiallelic filter. The default is true.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hotspot log10 prior boost

@@ -20,7 +20,7 @@ requirements:
 id: create-single-directory-from-directories-array--1.0.0
 label: create-single-directory-from-directories-array v(1.0.0)
 doc: |
-    Takes an array of files Directories and return a single Directory object with everything in “listing”. 
+    Takes an array of files Directories and return a single Directory object with everything in "listing". 
     The runner will stage those files to the new Directory. 
 
 inputs:

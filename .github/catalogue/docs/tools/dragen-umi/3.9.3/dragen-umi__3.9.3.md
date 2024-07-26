@@ -17,7 +17,7 @@ dragen-umi 3.9.3 tool
 
   
 > ID: dragen-umi--3.9.3  
-> md5sum: 5a0ac85f43a95493dc40d8235a77cc3b
+> md5sum: bd27cd5181f10977cdd0b605339c03d1
 
 ### dragen-umi v(3.9.3) documentation
   
@@ -647,7 +647,7 @@ variants if the normal sample genotype is not a homozygous reference.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -712,7 +712,7 @@ Enables solid tumor UMI settings. The default value is false.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hotspot log10 prior boost

@@ -171,12 +171,12 @@ inputs:
   vc_enable_phasing:
     label: vc enable phasing
     doc: |
-      The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+      The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
     type: boolean?
   vc_enable_vcf_output:
     label: vc enable vcf output
     doc: |
-      The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+      The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
   # Downsampling options
   vc_max_reads_per_active_region:

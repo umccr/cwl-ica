@@ -91,7 +91,7 @@ inputs:
     doc: |
       Output compressed BCF (b), uncompressed BCF (u), compressed VCF (z), uncompressed VCF (v).
       Use the -Ou option when piping between bcftools subcommands to speed up performance by removing 
-      unnecessary compression/decompression and VCF←→BCF conversion.
+      unnecessary compression/decompression and VCF<-->BCF conversion.
     type: string?
     inputBinding:
       prefix: "--output-type"
