@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.7.5 workflow
 
   
 > ID: dragen-somatic-pipeline--3.7.5  
-> md5sum: fa6900b85cdcff25ac5fc5bf436fe1f8
+> md5sum: cb2a54cc9691293abf16b612728a9aa8
 
 ### dragen-somatic-pipeline v(3.7.5) documentation
   
@@ -409,7 +409,7 @@ variants if the normal sample genotype is not a homozygous reference.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -448,7 +448,7 @@ Enables the multiallelic filter. The default is true.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hotspot log10 prior boost
@@ -900,7 +900,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.e3c
 
 # Run the launch script
 bash wfr.e3c6b8ce7e4447cbbd321b5c96ef7670.launch.sh
-                                    
+                
 ```  
 
 
@@ -1131,7 +1131,7 @@ cwl-ica copy-workflow-submission-template --ica-workflow-run-instance-id wfr.584
 
 # Run the launch script
 bash wfr.58436856778e4f70ae7856869571470c.launch.sh
-                                    
+                
 ```  
 
 
@@ -1343,7 +1343,7 @@ bash wfr.58436856778e4f70ae7856869571470c.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.7.5--8fdabfc  
+**wfl version name:** 3.7.5--077c8f1  
 
   
 

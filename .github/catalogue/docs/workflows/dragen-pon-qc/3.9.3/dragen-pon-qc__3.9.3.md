@@ -19,7 +19,7 @@ dragen-pon-qc 3.9.3 workflow
 
   
 > ID: dragen-pon-qc--3.9.3  
-> md5sum: 2b468c01ff68edee13118504be8b0ac7
+> md5sum: 6c01913005301b1150c5ee970628debc
 
 ### dragen-pon-qc v(3.9.3) documentation
   
@@ -865,7 +865,7 @@ Set to true to have assembled contig sequences output in a VCF file. The default
 **Docs:**  
 Limit the analysis to a specified region of the genome for debugging purposes.
 This option can be specified multiple times to build a list of regions.
-The value must be in the format “chr:startPos-endPos”..
+The value must be in the format "chr:startPos-endPos"..
 
 
 ### sv use overlap pair evidence
@@ -908,7 +908,7 @@ By default, DRAGEN SV automatically selects areference-specific hotspots BED fil
 **Type:** `float`  
 **Docs:**  
 Set the Tumor-in-Normal (TiN) contamination tolerance level.
-You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
+You can enter any value between 0-1. The default maximum TiN contamination tolerance is 0.15.
 
 
 ### target regions
@@ -1179,7 +1179,7 @@ variants if the normal sample genotype is not a homozygous reference.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -1218,7 +1218,7 @@ Enables the multiallelic filter. The default is true.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hotspot log10 prior boost
@@ -1842,7 +1842,7 @@ bash wfr.e0cccb29cf44482182507bd33579270c.launch.sh
 
   
 **workflow name:** dragen-pon-qc_prod-wf  
-**wfl version name:** 3.9.3--ad23456  
+**wfl version name:** 3.9.3--077c8f1  
 
   
 

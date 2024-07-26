@@ -19,7 +19,7 @@ dragen-somatic-pipeline 3.9.3 workflow
 
   
 > ID: dragen-somatic-pipeline--3.9.3  
-> md5sum: 31411e06e3fb4edc5ad6213d4c85ef0c
+> md5sum: f223807574259a9eb78a58ff107a92fc
 
 ### dragen-somatic-pipeline v(3.9.3) documentation
   
@@ -659,7 +659,7 @@ Set to true to have assembled contig sequences output in a VCF file. The default
 **Docs:**  
 Limit the analysis to a specified region of the genome for debugging purposes.
 This option can be specified multiple times to build a list of regions.
-The value must be in the format “chr:startPos-endPos”..
+The value must be in the format "chr:startPos-endPos"..
 
 
 ### sv use overlap pair evidence
@@ -702,7 +702,7 @@ By default, DRAGEN SV automatically selects areference-specific hotspots BED fil
 **Type:** `float`  
 **Docs:**  
 Set the Tumor-in-Normal (TiN) contamination tolerance level.
-You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
+You can enter any value between 0-1. The default maximum TiN contamination tolerance is 0.15.
 
 
 ### tmb db threshold
@@ -970,7 +970,7 @@ Enables the orientation bias filter. The default value is false, which means the
 The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
 The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
 An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
-For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
+For example, C/T,G/A is not valid, because C->G and T->A are reverse compliments.
 
 
 ### vc enable phasing
@@ -983,7 +983,7 @@ For example, C/T,G/A is not valid, because C→G and T→A are reverse complimen
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -1022,7 +1022,7 @@ Enables the multiallelic filter. The default is true.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hotspot log10 prior boost
@@ -2274,7 +2274,7 @@ bash wfr.7241dd632c0f40df88236e210e257bd1.launch.sh
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 3.9.3--c5a903b  
+**wfl version name:** 3.9.3--077c8f1  
 
   
 

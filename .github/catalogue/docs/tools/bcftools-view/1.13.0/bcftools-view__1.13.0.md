@@ -17,7 +17,7 @@ bcftools-view 1.13.0 tool
 
   
 > ID: bcftools-view--1.13.0  
-> md5sum: 0b59bea695d247eefbfea1acc45365b0
+> md5sum: 092d4d1bad1cfc5d017f71a4fe8465da
 
 ### bcftools-view v(1.13.0) documentation
   
@@ -289,7 +289,7 @@ Defaults to filtered.vcf.gz
 **Docs:**  
 Output compressed BCF (b), uncompressed BCF (u), compressed VCF (z), uncompressed VCF (v).
 Use the -Ou option when piping between bcftools subcommands to speed up performance by removing 
-unnecessary compression/decompression and VCF←→BCF conversion.
+unnecessary compression/decompression and VCF<-->BCF conversion.
 
 
 ### regions

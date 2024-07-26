@@ -19,7 +19,7 @@ dragen-germline-pipeline 3.9.3 workflow
 
   
 > ID: dragen-germline-pipeline--3.9.3  
-> md5sum: d9d79b852dbf3171614e6364a57d4ce4
+> md5sum: d1d510a833686395a4aaa7137d5c8f9c
 
 ### dragen-germline-pipeline v(3.9.3) documentation
   
@@ -521,7 +521,7 @@ Set to true to have assembled contig sequences output in a VCF file. The default
 **Docs:**  
 Limit the analysis to a specified region of the genome for debugging purposes.
 This option can be specified multiple times to build a list of regions.
-The value must be in the format “chr:startPos-endPos”..
+The value must be in the format "chr:startPos-endPos"..
 
 
 ### sv use overlap pair evidence
@@ -549,7 +549,7 @@ By default, DRAGEN uses autodetect on the fraction of overlapping read pairs if 
 **Type:** `float`  
 **Docs:**  
 Set the Tumor-in-Normal (TiN) contamination tolerance level.
-You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
+You can enter any value between 0-1. The default maximum TiN contamination tolerance is 0.15.
 
 
 ### vc decoy contigs
@@ -617,7 +617,7 @@ If is set to true, the variant caller runs in GATK mode
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -643,7 +643,7 @@ Enable or disable the ROH caller by setting this option to true or false. Enable
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hard fitler
@@ -657,7 +657,7 @@ The –vc-enable-vcf-output option enables VCF file output during a gVCF run. Th
 **Type:** `string`  
 **Docs:**  
 DRAGEN provides post-VCF variant filtering based on annotations present in the VCF records.
-However, due to the nature of DRAGEN’s algorithms, which incorporate the hypothesis of correlated errors
+However, due to the nature of DRAGEN's algorithms, which incorporate the hypothesis of correlated errors
 from within the core of variant caller, the pipeline has improved capabilities in distinguishing
 the true variants from noise, and therefore the dependency on post-VCF filtering is substantially reduced.
 For this reason, the default post-VCF filtering in DRAGEN is very simple

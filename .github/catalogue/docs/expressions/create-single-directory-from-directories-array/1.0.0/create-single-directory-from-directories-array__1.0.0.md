@@ -16,11 +16,11 @@ create-single-directory-from-directories-array 1.0.0 expression
 
   
 > ID: create-single-directory-from-directories-array--1.0.0  
-> md5sum: 7cbc5b4f75bed9a70d869462d3ddecd4
+> md5sum: 69ab7a051b01016079432205133fa846
 
 ### create-single-directory-from-directories-array v(1.0.0) documentation
   
-Takes an array of files Directories and return a single Directory object with everything in “listing”. 
+Takes an array of files Directories and return a single Directory object with everything in "listing". 
 The runner will stage those files to the new Directory. 
 
 ### Categories
@@ -44,7 +44,7 @@ The runner will stage those files to the new Directory.
 > ID: input_directories
   
 **Optional:** `False`  
-**Type:** `Directory[]`  
+**Type:** `.[]`  
 **Docs:**  
 The input directories
 

@@ -17,7 +17,7 @@ star 2.7.10 tool
 
   
 > ID: star--2.7.10  
-> md5sum: 246bcafcbefa85c0f6ce80d8cec0e043
+> md5sum: 9fa6507882448ae2d8ccd7814a50e3bc
 
 ### star v(2.7.10) documentation
   
@@ -153,7 +153,7 @@ Type of chimeric output.
 > ID: forward_reads
   
 **Optional:** `False`  
-**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputArraySchema object at 0x7fb5fe4403d0>]`  
+**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputArraySchema object at 0x7f67292ef3b0>]`  
 **Docs:**  
 Name(s) (with path) of the files containing the sequences to be mapped.
 
@@ -182,7 +182,7 @@ Specifies path to the directory where the genome indices are stored.
 **Type:** `[ LoadAndKeep | LoadAndRemove | LoadAndExit | Remove | NoSharedMemory  ]`  
 **Docs:**  
 ode of shared memory usage for the genome files. Only used with
-–runMode alignReads.
+-runMode alignReads.
 
 
 ### GTF
@@ -405,7 +405,7 @@ This command should generate FASTA or FASTQ text and send it to stdout.
 > ID: reverse_reads
   
 **Optional:** `True`  
-**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputArraySchema object at 0x7fb5fe391510>]`  
+**Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandInputArraySchema object at 0x7f67288814c0>]`  
 **Docs:**  
 If paired-end reads (like Illumina), both 1 and 2 must be provided.
 
@@ -449,7 +449,7 @@ alignments
 **Type:** `boolean`  
 **Docs:**  
 Sorted by coordinate. This option will allocate extra memory for sorting 
-which can be specified by –limitBAMsortRAM.
+which can be specified by -limitBAMsortRAM.
 
 
 ### Unsorted
@@ -478,7 +478,7 @@ Standard unsorted.
 
   
 **Optional:** `False`  
-**Output Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandOutputArraySchema object at 0x7fb5fe391150>]`  
+**Output Type:** `['File', <cwl_utils.parser.cwl_v1_1.CommandOutputArraySchema object at 0x7f67288819a0>]`  
 **Docs:**  
 Output alignment file.
   

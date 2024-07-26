@@ -17,7 +17,7 @@ dragen-somatic 3.9.3 tool
 
   
 > ID: dragen-somatic--3.9.3  
-> md5sum: b74703c108b8ac76211b7806801eaf97
+> md5sum: 1f6e7f51278ba579c05cc9287ec81a6e
 
 ### dragen-somatic v(3.9.3) documentation
   
@@ -644,7 +644,7 @@ Set to true to have assembled contig sequences output in a VCF file. The default
 **Docs:**  
 Limit the analysis to a specified region of the genome for debugging purposes.
 This option can be specified multiple times to build a list of regions.
-The value must be in the format “chr:startPos-endPos”..
+The value must be in the format "chr:startPos-endPos"..
 
 
 ### sv use overlap pair evidence
@@ -687,7 +687,7 @@ By default, DRAGEN SV automatically selects areference-specific hotspots BED fil
 **Type:** `float`  
 **Docs:**  
 Set the Tumor-in-Normal (TiN) contamination tolerance level.
-You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
+You can enter any value between 0-1. The default maximum TiN contamination tolerance is 0.15.
 
 
 ### tmb db threshold
@@ -948,7 +948,7 @@ Enables the orientation bias filter. The default value is false, which means the
 The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
 The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
 An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
-For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
+For example, C/T,G/A is not valid, because C->G and T->A are reverse compliments.
 
 
 ### vc enable phasing
@@ -961,7 +961,7 @@ For example, C/T,G/A is not valid, because C→G and T→A are reverse complimen
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -1000,7 +1000,7 @@ Enables the multiallelic filter. The default is true.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hotspot log10 prior boost
@@ -1345,7 +1345,7 @@ cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.63351b7
 
 # Run the launch script
 bash wfr.63351b7bd8f9431db0a58c27d5538f0e.launch.sh
-                                    
+                
 ```  
 
 
@@ -1569,7 +1569,7 @@ cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.4aef0ef
 
 # Run the launch script
 bash wfr.4aef0ef9d4154f7a9a3a8138c12dbd6f.launch.sh
-                                    
+                
 ```  
 
 
