@@ -60,15 +60,15 @@ requirements:
           # Fail on non-zero exit of subshell
           set -euo pipefail
           
-          # Confirm not both fastq_list and fastq_list_rows are defined
-          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -gt "1" ]]; then
-            echo "Please set no more than one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
+          # Confirm not more than one of fastq_list, fastq_list_rows, bam_input and cram_input are defined
+          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)) + boolean_to_int(is_not_null(inputs.cram_input)))" -gt "1" ]]; then
+            echo "Please set no more than one of fastq_list, fastq_list_rows, bam_input or cram_input for normal sample" 1>&2
             exit 1
           fi
           
-          # Ensure that at least one of tumor_fastq_list and tumor_fastq_list_rows are defined but not both defined (XOR)
-          if [[ "$(boolean_to_int(is_not_null(inputs.tumor_fastq_list)) + boolean_to_int(is_not_null(inputs.tumor_fastq_list_rows)) + boolean_to_int(is_not_null(inputs.tumor_bam_input)))" -ne "1" ]]; then
-              echo "One and only one of inputs tumor_fastq_list, inputs.tumor_fastq_list_rows, inputs.tumor_bam_input must be defined" 1>&2
+          # Ensure that at least one (and only one) of tumor_fastq_list, tumor_fastq_list_rows, tumor_bam_input and tumor_cram_input are defined but not both defined (XOR)
+          if [[ "$(boolean_to_int(is_not_null(inputs.tumor_fastq_list)) + boolean_to_int(is_not_null(inputs.tumor_fastq_list_rows)) + boolean_to_int(is_not_null(inputs.tumor_bam_input)) + boolean_to_int(is_not_null(inputs.tumor_cram_input)))" -ne "1" ]]; then
+              echo "One and only one of inputs tumor_fastq_list, tumor_fastq_list_rows, tumor_bam_input, tumor_cram_input must be defined" 1>&2
               exit 1
           fi
           
