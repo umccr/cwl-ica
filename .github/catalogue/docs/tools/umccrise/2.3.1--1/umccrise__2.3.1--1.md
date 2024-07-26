@@ -17,7 +17,7 @@ umccrise 2.3.1--1 tool
 
   
 > ID: umccrise--2.3.1--1  
-> md5sum: d86b13c09fc8fe2a2e7cffd3aab3008c
+> md5sum: 91769fc2525cfd44a43929876af1d1c1
 
 ### umccrise v(2.3.1--1) documentation
   
@@ -30,6 +30,11 @@ Documentation for umccrise v2.3.1--1
 ## Related Links
   
 - [CWL File Path](../../../../../../tools/umccrise/2.3.1--1/umccrise__2.3.1--1.cwl)  
+
+
+### Used By
+  
+- [umccrise-pipeline 2.3.1--1](../../../workflows/umccrise-pipeline/2.3.1--1/umccrise-pipeline__2.3.1--1.md)  
 
   
 
@@ -238,7 +243,7 @@ The output directory containing the umccrise data
 
   
 **workflow name:** umccrise_prod-wf  
-**wfl version name:** 2.3.1--1--9731c44  
+**wfl version name:** 2.3.1--1--5de3cb1  
 
   
 

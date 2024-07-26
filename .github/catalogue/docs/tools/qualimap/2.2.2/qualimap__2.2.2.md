@@ -17,11 +17,11 @@ qualimap 2.2.2 tool
 
   
 > ID: qualimap--2.2.2  
-> md5sum: e805ab13703a9f171487cd6b1a602bf2
+> md5sum: 1e528c444c9762553c3587ddadd3ecb8
 
 ### qualimap v(2.2.2) documentation
   
-It perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.es/doc_html/command_line.html.
+Qualimap perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.es/doc_html/command_line.html.
 
 ### Categories
   
