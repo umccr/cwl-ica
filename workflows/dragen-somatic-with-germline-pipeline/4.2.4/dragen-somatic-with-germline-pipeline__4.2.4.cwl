@@ -285,7 +285,7 @@ inputs:
     doc: |
       Limit the analysis to a specified region of the genome for debugging purposes.
       This option can be specified multiple times to build a list of regions.
-      The value must be in the format “chr:startPos-endPos”..
+      The value must be in the format "chr:startPos-endPos"..
     type: string?
   sv_exome:
     label: sv exome
@@ -341,7 +341,7 @@ inputs:
     label: sv tin contam tolerance
     doc: |
       Set the Tumor-in-Normal (TiN) contamination tolerance level.
-      You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
+      You can enter any value between 0-1. The default maximum TiN contamination tolerance is 0.15.
     type: float?
 
   # Variant calling options
@@ -431,12 +431,12 @@ inputs:
   vc_enable_phasing:
     label: vc enable phasing
     doc: |
-      The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+      The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
     type: boolean?
   vc_enable_vcf_output:
     label: vc enable vcf output
     doc: |
-      The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+      The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
   # Downsampling options
   vc_max_reads_per_active_region:
@@ -545,14 +545,14 @@ inputs:
       The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option.
       The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
       An artifact (or an artifact and its reverse compliment) cannot be listed twice.
-      For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
+      For example, C/T,G/A is not valid, because C->G and T->A are reverse compliments.
   # Post somatic calling filtering options
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/PostSomaticFilters.htm
   vc_hard_filter:
     label: vc hard filter
     doc: |
       DRAGEN provides post-VCF variant filtering based on annotations present in the VCF records.
-      However, due to the nature of DRAGEN’s algorithms, which incorporate the hypothesis of correlated errors
+      However, due to the nature of DRAGEN's algorithms, which incorporate the hypothesis of correlated errors
       from within the core of variant caller, the pipeline has improved capabilities in distinguishing
       the true variants from noise, and therefore the dependency on post-VCF filtering is substantially reduced.
       For this reason, the default post-VCF filtering in DRAGEN is very simple
