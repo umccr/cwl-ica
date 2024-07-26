@@ -40,11 +40,12 @@ hints:
 
 requirements:
   ResourceRequirement:
-    tmpdirMin: |
-      ${
-        /* 1 Tb */
-        return Math.pow(2, 20); 
-      }
+    # tmpdirMin: |
+    #   ${
+    #     /* 1 Tb */
+    #     return Math.pow(2, 20);
+    #   }
+    tmpdirMin: 1048576  # 1 TB
   SchemaDefRequirement:
     types:
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
