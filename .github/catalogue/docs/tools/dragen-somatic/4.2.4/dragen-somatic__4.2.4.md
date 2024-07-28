@@ -17,7 +17,7 @@ dragen-somatic 4.2.4 tool
 
   
 > ID: dragen-somatic--4.2.4  
-> md5sum: 17d3a4e0b2f485812aa95dd09a418b5c
+> md5sum: 5957370692599a41dc5d4797c75801ad
 
 ### dragen-somatic v(4.2.4) documentation
   
@@ -751,7 +751,7 @@ Set to true to have assembled contig sequences output in a VCF file. The default
 **Docs:**  
 Limit the analysis to a specified region of the genome for debugging purposes.
 This option can be specified multiple times to build a list of regions.
-The value must be in the format “chr:startPos-endPos”..
+The value must be in the format "chr:startPos-endPos"..
 
 
 ### sv use overlap pair evidence
@@ -794,7 +794,7 @@ By default, DRAGEN SV automatically selects areference-specific hotspots BED fil
 **Type:** `float`  
 **Docs:**  
 Set the Tumor-in-Normal (TiN) contamination tolerance level.
-You can enter any value between 0–1. The default maximum TiN contamination tolerance is 0.15.
+You can enter any value between 0-1. The default maximum TiN contamination tolerance is 0.15.
 
 
 ### tmb db threshold
@@ -1147,7 +1147,7 @@ Enables the orientation bias filter. The default value is false, which means the
 The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option.
 The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
 An artifact (or an artifact and its reverse compliment) cannot be listed twice.
-For example, C/T,G/A is not valid, because C→G and T→A are reverse compliments.
+For example, C/T,G/A is not valid, because C->G and T->A are reverse compliments.
 
 
 ### vc enable phasing
@@ -1160,7 +1160,7 @@ For example, C/T,G/A is not valid, because C→G and T→A are reverse complimen
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -1197,7 +1197,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fb711a6f710>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fe993495280>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).
@@ -1216,7 +1216,7 @@ NTD error estimation can also capture the biases in a trinucleotide context.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hard filter
@@ -1230,7 +1230,7 @@ The –vc-enable-vcf-output option enables VCF file output during a gVCF run. Th
 **Type:** `string`  
 **Docs:**  
 DRAGEN provides post-VCF variant filtering based on annotations present in the VCF records.
-However, due to the nature of DRAGEN’s algorithms, which incorporate the hypothesis of correlated errors
+However, due to the nature of DRAGEN's algorithms, which incorporate the hypothesis of correlated errors
 from within the core of variant caller, the pipeline has improved capabilities in distinguishing
 the true variants from noise, and therefore the dependency on post-VCF filtering is substantially reduced.
 For this reason, the default post-VCF filtering in DRAGEN is very simple

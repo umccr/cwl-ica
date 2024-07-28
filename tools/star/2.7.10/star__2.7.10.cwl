@@ -141,7 +141,7 @@ inputs:
     label: Sorted by coordinate
     doc: |
       Sorted by coordinate. This option will allocate extra memory for sorting 
-      which can be specified by –limitBAMsortRAM.
+      which can be specified by -limitBAMsortRAM.
     type: boolean?
     inputBinding:
       prefix: "SortedByCoordinate"
@@ -331,7 +331,7 @@ inputs:
     label: Genome load
     doc: |
       ode of shared memory usage for the genome files. Only used with
-      –runMode alignReads.
+      -runMode alignReads.
     type:
      - "null"
      - type: enum

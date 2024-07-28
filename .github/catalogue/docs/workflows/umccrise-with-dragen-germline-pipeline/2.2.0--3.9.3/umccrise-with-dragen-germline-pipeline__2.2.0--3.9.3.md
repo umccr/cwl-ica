@@ -19,7 +19,7 @@ umccrise-with-dragen-germline-pipeline 2.2.0--3.9.3 workflow
 
   
 > ID: umccrise-with-dragen-germline-pipeline--2.2.0--3.9.3  
-> md5sum: c3287ddafea95547668b460ddfd81785
+> md5sum: ab85639d3b722762b9fb637b2113d371
 
 ### umccrise-with-dragen-germline-pipeline v(2.2.0--3.9.3) documentation
   
@@ -300,7 +300,7 @@ The output directory containing all umccrise output files
 
   
 **workflow name:** umccrise-with-dragen-germline-pipeline_prod-wf  
-**wfl version name:** 2.2.0--3.9.3--c5a903b  
+**wfl version name:** 2.2.0--3.9.3--077c8f1  
 
   
 

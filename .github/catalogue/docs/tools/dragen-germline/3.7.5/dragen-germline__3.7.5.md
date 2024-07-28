@@ -17,7 +17,7 @@ dragen-germline 3.7.5 tool
 
   
 > ID: dragen-germline--3.7.5  
-> md5sum: c88f8998e64f1b3b94156773f02a5a59
+> md5sum: 31b962a717c5797b2ebd2427a63a15c6
 
 ### dragen-germline v(3.7.5) documentation
   
@@ -258,7 +258,7 @@ If is set to true, the variant caller runs in GATK mode
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -284,7 +284,7 @@ Enable or disable the ROH caller by setting this option to true or false. Enable
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc forcegt vcf
@@ -319,7 +319,7 @@ The V1, V2, and V2+ modes are not supported.
 **Type:** `string`  
 **Docs:**  
 DRAGEN provides post-VCF variant filtering based on annotations present in the VCF records.
-However, due to the nature of DRAGEN’s algorithms, which incorporate the hypothesis of correlated errors
+However, due to the nature of DRAGEN's algorithms, which incorporate the hypothesis of correlated errors
 from within the core of variant caller, the pipeline has improved capabilities in distinguishing
 the true variants from noise, and therefore the dependency on post-VCF filtering is substantially reduced.
 For this reason, the default post-VCF filtering in DRAGEN is very simple

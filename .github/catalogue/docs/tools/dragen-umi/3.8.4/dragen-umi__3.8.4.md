@@ -17,7 +17,7 @@ dragen-umi 3.8.4 tool
 
   
 > ID: dragen-umi--3.8.4  
-> md5sum: 56a1733172d405b6ebd4f6467254bddd
+> md5sum: 96a32aae5dde90ae4610aea133019961
 
 ### dragen-umi v(3.8.4) documentation
   
@@ -752,7 +752,7 @@ variants if the normal sample genotype is not a homozygous reference.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-phasing option enables variants to be phased when possible. The default value is true.
+The -vc-enable-phasing option enables variants to be phased when possible. The default value is true.
 
 
 ### vc enable roh
@@ -817,7 +817,7 @@ Enables solid tumor UMI settings. The default value is false.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-The –vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
 
 
 ### vc hotspot log10 prior boost
@@ -1084,7 +1084,7 @@ cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.affca1f
 
 # Run the launch script
 bash wfr.affca1fb24e34cbca115844c3f9f6c57.launch.sh
-                                    
+                
 ```  
 
 
@@ -1192,7 +1192,7 @@ cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.96ea5cf
 
 # Run the launch script
 bash wfr.96ea5cf11b2843c9b9b7a88070b48e3e.launch.sh
-                                    
+                
 ```  
 
 
@@ -1298,7 +1298,7 @@ cwl-ica copy-tool-submission-template --ica-workflow-run-instance-id wfr.d068fc0
 
 # Run the launch script
 bash wfr.d068fc090a204a08823974db7b255f88.launch.sh
-                                    
+                
 ```  
 
 
