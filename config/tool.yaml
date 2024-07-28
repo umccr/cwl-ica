@@ -89,7 +89,7 @@ tools:
         md5sum: 8ed454fee58ccdbdbfab021f6a50c0ac
       - name: 4.2.4
         path: 4.2.4/dragen-germline__4.2.4.cwl
-        md5sum: 837ff71a9226ac7aab992feb9037e25f
+        md5sum: 3fa54147b96b800951aba81cf5ff8b21
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -168,7 +168,7 @@ tools:
         md5sum: 15457229484a746bf90b0f52d430b45a
       - name: 4.2.4
         path: 4.2.4/dragen-somatic__4.2.4.cwl
-        md5sum: 38649dc8c6e710e6c473be7297053f6c
+        md5sum: 5957370692599a41dc5d4797c75801ad
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -187,7 +187,7 @@ tools:
         md5sum: ea99b8134f0c1473f3126ebf00dc3234
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome__4.2.4.cwl
-        md5sum: 85a6ebe7aa9d5c106add136652069343
+        md5sum: a26ed39ae501f0d2e3cf47bc7ef572e5
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
@@ -256,7 +256,7 @@ tools:
         md5sum: a9bc2608c0cae3368786164fd2236e04
       - name: 4.2.4
         path: 4.2.4/dragen-alignment__4.2.4.cwl
-        md5sum: 348da018fd8bc221a0b8e81555d9ebab
+        md5sum: d3fc671f4e119bffe9180099dfb14592
     categories: []
   - name: custom-create-directory
     path: custom-create-directory
@@ -288,7 +288,7 @@ tools:
         md5sum: 47d7c5bb95f4e45f9215b92a830f5f98
       - name: 4.2.4
         path: 4.2.4/dragen-build-reference-tarball__4.2.4.cwl
-        md5sum: e6d01ba6751eb55fd344e75b2c1bb225
+        md5sum: 0b3903400d0c950f1a54892297dae8bf
     categories: []
   - name: bgzip
     path: bgzip
@@ -398,7 +398,7 @@ tools:
         md5sum: ab13fdc5b457f671f1891b8451721466
       - name: 2.3.1--1
         path: 2.3.1--1/umccrise__2.3.1--1.cwl
-        md5sum: 91769fc2525cfd44a43929876af1d1c1
+        md5sum: e03f957f7fa25f920117212429791576
     categories: []
   - name: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
     path: custom-create-umccr-dragen-refdata-tarball-from-illumina-tar
@@ -500,7 +500,7 @@ tools:
     versions:
       - name: 2.2.2
         path: 2.2.2/qualimap__2.2.2.cwl
-        md5sum: 1e528c444c9762553c3587ddadd3ecb8
+        md5sum: a102e993fed3fe5efd3833b9f2221df9
     categories: []
   - name: map_resource_requirements
     path: map_resource_requirements

@@ -28,7 +28,7 @@ workflows:
         md5sum: cee1d4f029aca771ad65b893f7797835
       - name: 4.2.4
         path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
-        md5sum: 09c820a1c86169875e5c122c544aef03
+        md5sum: a5ff402ddc2d85f4dc887a6c03e3077c
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -70,7 +70,7 @@ workflows:
         md5sum: ccdd3f11d7a4da6522384c80c1a2b88a
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-pipeline__4.2.4.cwl
-        md5sum: bdee95266f0c6a59a92ef0aadc33d722
+        md5sum: f3b9cd8448171bf65a5fcb334e9d36c5
     categories:
       - dragen
       - variant-calling
@@ -85,13 +85,13 @@ workflows:
         md5sum: a9f114ec0ddf31225eea520fab8d2ce6
       - name: 3.9.3
         path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
-        md5sum: 88760b002056f626a3a0b9ff332d7f6e
+        md5sum: 3b64c5f5939b734bce46a82483d01525
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
-        md5sum: 705870ae0977c7fd14e7b98ea27d4cb5
+        md5sum: fa5de2fced8c2216f9d988b6cc4b3583
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
-        md5sum: 5ee00b834fed8222208a4d6baf4ad89b
+        md5sum: 196781711bbeb102ec56336b0b485e8c
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -107,7 +107,7 @@ workflows:
         md5sum: 3cd468f8d748d8c968dceab2efd3a039
       - name: 4.2.4
         path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
-        md5sum: 50752f25f8a7305edd3a29c4a935870e
+        md5sum: 18d4302a641bafd00c6c4d407761b42d
     categories:
       - alignment
       - dragen
@@ -150,7 +150,7 @@ workflows:
         md5sum: bdc1c713d7925990e80b6c346874895d
       - name: 2.3.1--1
         path: 2.3.1--1/umccrise-pipeline__2.3.1--1.cwl
-        md5sum: ba2ca49c6340460f6e339c3f48baffaf
+        md5sum: 77e1edba739c60731fae83fe13752366
     categories: []
   - name: tso500-ctdna-with-post-processing-pipeline
     path: tso500-ctdna-with-post-processing-pipeline
@@ -210,13 +210,13 @@ workflows:
     versions:
       - name: 3.9.3
         path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
-        md5sum: 5c145cfb7fd25cc9374c285ea748ee0b
+        md5sum: 96a7ab0527e74ed86c34a76a832f5377
       - name: 4.0.3
         path: 4.0.3/dragen-wts-qc-pipeline__4.0.3.cwl
-        md5sum: 66c84cb863eeb7ecc13ae10c57dbd589
+        md5sum: 0596be738c5cb0f3f30e7f5918c67348
       - name: 4.2.4
         path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
-        md5sum: a926bc8feb53767247a5f3a1a1381a04
+        md5sum: ded9d791fd2a6d56cfea13336dbb08c2
     categories: []
   - name: tabix-workflow
     path: tabix-workflow
@@ -264,7 +264,7 @@ workflows:
         md5sum: 3a8a5cd85f5cae60b751c859b46c45b1
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-        md5sum: 3e4d22901fa7359a0b39225e2c4f2bed
+        md5sum: b6567482769a8183fd0b35cda544b11f
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc

@@ -17,7 +17,7 @@ qualimap 2.2.2 tool
 
   
 > ID: qualimap--2.2.2  
-> md5sum: 1e528c444c9762553c3587ddadd3ecb8
+> md5sum: a102e993fed3fe5efd3833b9f2221df9
 
 ### qualimap v(2.2.2) documentation
   
