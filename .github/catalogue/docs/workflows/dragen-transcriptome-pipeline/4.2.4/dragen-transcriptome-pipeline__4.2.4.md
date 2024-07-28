@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.2.4 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.2.4  
-> md5sum: 7ae80f7cb086f5c300d86f82e07b8593
+> md5sum: 196781711bbeb102ec56336b0b485e8c
 
 ### dragen-transcriptome-pipeline v(4.2.4) documentation
   
@@ -754,7 +754,7 @@ The output directory containing all transcriptome output files
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 4.2.4--9731c44  
+**wfl version name:** 4.2.4--d7f9749  
 
   
 

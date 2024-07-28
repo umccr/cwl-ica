@@ -39,7 +39,7 @@ requirements:
     tmpdirMin: |
       ${
         /* 1 Tb */
-        return 2 ** 20; 
+        return Math.pow(2, 20); 
       }
   InlineJavascriptRequirement:
     expressionLib:
