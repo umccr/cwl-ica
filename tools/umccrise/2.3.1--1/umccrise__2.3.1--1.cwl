@@ -41,12 +41,11 @@ hints:
 
 requirements:
   ResourceRequirement:
-    # tmpdirMin: |
-    #   ${
-    #     /* 1 Tb */
-    #     return Math.pow(2, 20);
-    #   }
-    tmpdirMin: 1048576  # 1 TB
+    tmpdirMin: |
+      ${
+        /* 1 Tb */
+        return Math.pow(2, 20); 
+      }
   InlineJavascriptRequirement:
     expressionLib:
       - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs

@@ -36,12 +36,11 @@ hints:
 
 requirements:
   ResourceRequirement:
-    # tmpdirMin: |
-    #   ${
-    #     /* 1 Tb */
-    #     return Math.pow(2, 20);
-    #   }
-    tmpdirMin: 1048576  # 1 TB
+    tmpdirMin: |
+      ${
+        /* 1 Tb */
+        return Math.pow(2, 20); 
+      }
   InlineJavascriptRequirement:
     expressionLib:
       - $include: ../../../typescript-expressions/dragen-tools/4.0.3/dragen-tools__4.0.3.cwljs

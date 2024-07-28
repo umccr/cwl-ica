@@ -34,12 +34,11 @@ hints:
 
 requirements:
   ResourceRequirement:
-    # tmpdirMin: |
-    #   ${
-    #     /* 1 Tb */
-    #     return Math.pow(2, 20);
-    #   }
-    tmpdirMin: 1048576  # 1 TB
+    tmpdirMin: |
+      ${
+        /* 1 Tb */
+        return Math.pow(2, 20); 
+      }
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement:
     listing:
