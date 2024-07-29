@@ -277,42 +277,57 @@ requirements:
           echo "Running dragen variant calling" 1>&2
           "$(get_dragen_bin_path())" "\${@}"
           
-          # Check if fastq_list or fastq_list_rows is set
-          if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
-            # Check if --enable-map-align-output is set
-            if [[ ! "$(get_bool_value_as_str(inputs.enable_map_align_output))" == "true" ]]; then
-              echo "--enable-map-align-output not set, no need to move normal bam file" 1>&2
-              echo "Exiting" 1>&2
-              exit
-            # Check if --enable-map-align is not set AND using inputs.bam_input
-            elif [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(get_bool_value_as_str(inputs.enable_map_align))" == "false" ]]; then
-              echo "--enable-map-align-output set to true, but using --bam-input AND --enable-map-align set to false so no bam is output, hence no need to move the normal bam file" 1>&2
-              echo "Exiting" 1>&2
-              exit
-            fi
+          # Check if a normal input is set
+          if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" || "$(is_not_null(inputs.cram_input))" == "true" ]]; then
+            # --enable-map-align-output is set to false
+            if [[ "$(get_bool_value_as_str(inputs.enable_map_align_output))" == "false" ]]; then
+              # No bams output if -enable-map-align-output is false and --enable-map-align is also false
+              # if --enable-map-align-output is false and --enable-map-align is false, no bam output
+              if [[ "$(get_bool_value_as_str(inputs.enable_map_align))" == "false" ]]; then
+                echo "--enable-map-align-output and --enable-map-align set to false, no bam output" 1>&2
+  
+              # Bams output if --enable-map-align-output is false but --enable-map-align is true
+              # And one of tumor_bam_input or tumor_cram_input is set 
+              # And one of bam_input or cram_input is set
+              # Then bam is generated even when --enable-map-align-output is explicitly set to false
+              # Since we needed to align the tumor and normal prior to running the variant calling step
+              # So when --enable-map-align-output is false under these conditions, we should delete the normal bam file rather than move it
+              elif [[ "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" && ( "$(is_not_null(inputs.tumor_bam_input))" == "true" || "$(is_not_null(inputs.tumor_cram_input))" == "true" ) && ( "$(is_not_null(inputs.bam_input))" == "true" || "$(is_not_null(inputs.cram_input))" == "true" ) ]]; then
+                echo "--enable-map-align is set to true but --enable-map-align-output is set to false, but we ignored --enable-map-align-output=false because one both tumor and normal inputs were set to true and thus needed to be aligned separately, deleting tumor and normal bam files" 1>&2
+                rm -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" "$(inputs.output_directory)/$(inputs.output_file_prefix).bam.bai" "$(inputs.output_directory)/$(inputs.output_file_prefix).bam.md5sum"
+                rm -f "$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam" "$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam.bai" "$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam.md5sum"  
+              fi
+              
+              # No action required otherwise --enable-map-align-output is false
           
-            # Ensure that we have a normal RGSM value, otherwise exit.
-            if [[ "$(is_not_null(get_normal_output_prefix(inputs)))" == "false" ]]; then
-              echo "Could not get the normal bam file prefix" 1>&2
-              echo "Exiting" 1>&2
-              exit
-            fi
-          
-            # Get new normal file name prefix from the fastq_list.csv
-            new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
-          
-            # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-            if [[ "$(is_not_null(inputs.fastq_list))" == "true" || "$(is_not_null(inputs.fastq_list_rows))" == "true" || "$(is_not_null(inputs.bam_input))" == "true" ]]; then
-              # Move normal bam, normal bam index and normal bam md5sum
-              (
-                cd "$(inputs.output_directory)"
-                mv "$(inputs.output_file_prefix).bam" "\${new_normal_file_name_prefix}.bam"
-                mv "$(inputs.output_file_prefix).bam.bai" "\${new_normal_file_name_prefix}.bam.bai"
-                mv "$(inputs.output_file_prefix).bam.md5sum" "\${new_normal_file_name_prefix}.bam.md5sum"
-              )
+            # --enable-map-align-output is true 
+            # Move normal bam file to new normal bam file name prefix
+            else
+              # Ensure that we have a normal RGSM value, otherwise exit.
+              if [[ "$(is_not_null(get_normal_output_prefix(inputs)))" == "false" ]]; then
+                echo "Could not get the normal bam file prefix" 1>&2
+                echo "Exiting" 1>&2
+                exit
+              fi
+            
+              # Get new normal file name prefix from the fastq_list.csv
+              new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
+            
+              # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
+              if [[ -f "$(inputs.output_file_prefix).bam" && ! -f "\${new_normal_file_name_prefix}.bam" ]]; then
+                # Move normal bam, normal bam index and normal bam md5sum
+                (
+                  cd "$(inputs.output_directory)"
+                  mv "$(inputs.output_file_prefix).bam" "\${new_normal_file_name_prefix}.bam"
+                  mv "$(inputs.output_file_prefix).bam.bai" "\${new_normal_file_name_prefix}.bam.bai"
+                  mv "$(inputs.output_file_prefix).bam.md5sum" "\${new_normal_file_name_prefix}.bam.md5sum"
+                )
+              else
+                echo "Error! Expected to move file from $(inputs.output_file_prefix).bam to \${new_normal_file_name_prefix}.bam but either $(inputs.output_file_prefix).bam does not exist or \${new_normal_file_name_prefix}.bam already exists" 1>&2
+              fi
             fi
           fi
-          
+                    
           # If --enable-sv has been selected, we need to remove the empty genomeDepth directory
           # https://github.com/umccr-illumina/ica_v2/issues/131
           if [[ "$(is_not_null(inputs.enable_sv))" == "true" && "$(get_bool_value_as_str(inputs.enable_sv))" == "true" && -d "$(inputs.output_directory)/sv/" ]]; then

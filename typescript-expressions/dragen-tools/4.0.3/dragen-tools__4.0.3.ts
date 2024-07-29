@@ -175,7 +175,7 @@ export function get_normal_name_from_fastq_list_csv(fastq_list_csv: IFile | null
     return contents_by_line[1].split(",")[rgsm_index]
 }
 
-export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow[] | null;  fastq_list: IFile | null; bam_input: IFile | null }): string {
+export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow[] | null;  fastq_list: IFile | null; bam_input: IFile | null; cram_input: IFile | null }): string {
     /*
     Get the normal RGSM value and then add _normal to it
     */
@@ -189,6 +189,15 @@ export function get_normal_output_prefix(inputs: { fastq_list_rows: FastqListRow
         /* Remove _normal from nameroot if it already exists */
         /* We dont want _normal_normal as a suffix */
         return <string>`${inputs.bam_input.nameroot?.replace(normal_re_replacement, "")}_normal`
+    }
+
+    /*
+    Check if cram_input is set
+    */
+    if (inputs.cram_input !== null && inputs.cram_input !== undefined){
+        /* Remove _normal from nameroot if it already exists */
+        /* We dont want _normal_normal as a suffix */
+        return <string>`${inputs.cram_input.nameroot?.replace(normal_re_replacement, "")}_normal`
     }
 
     /*
