@@ -176,13 +176,6 @@ inputs:
     doc: |
       Set desired Java heap memory size
     default: "20G"
-  tmp_dir:
-    label: tmp dir
-    type: string?
-    doc: |
-      Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-      This can be avoided by sorting the bam file by name before running Qualimap.
-    default: "/scratch"
   algorithm:
     label: algorithm
     type: string?
@@ -332,8 +325,6 @@ steps:
     in: 
       java_mem:
         source: java_mem
-      tmp_dir:
-        source: tmp_dir
       algorithm:
         source: algorithm
       out_dir:

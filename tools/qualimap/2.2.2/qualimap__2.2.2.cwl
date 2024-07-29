@@ -50,9 +50,8 @@ requirements:
           set -euo pipefail
           
           # Set java opts
-          if [[ -n "$(inputs.tmp_dir)" ]]; then
-            export JAVA_OPTS="-Djava.io.tmpdir=$(inputs.tmp_dir)"
-          fi
+          # Note :- means if TMPDIR is set to "" or undefined use /tmp
+          export JAVA_OPTS="-Djava.io.tmpdir=\${TMPDIR:-/tmp}"
           
           # Run qualimap
           qualimap rnaseq --paired "\${@}"
@@ -60,12 +59,6 @@ requirements:
 baseCommand: [ "bash", "run_qualimap.sh" ]
 
 inputs:
-  tmp_dir:
-    label: tmp dir
-    doc: |
-      Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-      This can be avoided by sorting the bam file by name before running Qualimap.
-    type: string?
   java_mem:
     label: java mem
     doc: |

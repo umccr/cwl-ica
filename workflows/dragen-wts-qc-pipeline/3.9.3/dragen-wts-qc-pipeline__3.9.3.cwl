@@ -111,13 +111,6 @@ inputs:
       Counting algorithm:
       uniquely-mapped-reads(default) or proportional.
     default: "proportional"
-  tmp_dir:
-    label: tmp dir
-    type: string?
-    doc: |
-      Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-      This can be avoided by sorting the bam file by name before running Qualimap.
-    default: "/scratch"
   # Location of license
   lic_instance_id_location:
     label: license instance id location
@@ -170,9 +163,7 @@ steps:
     label: run qualimap step
     doc: |
       Run qualimap step to generate additional QC metrics
-    in: 
-      tmp_dir:
-        source: tmp_dir
+    in:
       java_mem:
         source: java_mem
       algorithm:
