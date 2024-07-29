@@ -17,7 +17,7 @@ dragen-somatic 4.2.4 tool
 
   
 > ID: dragen-somatic--4.2.4  
-> md5sum: 5957370692599a41dc5d4797c75801ad
+> md5sum: 8e078ad120852de8f980c60bfa1344fb
 
 ### dragen-somatic v(4.2.4) documentation
   
@@ -187,6 +187,33 @@ to specify the germline heterozygous sites.
 **Docs:**  
 Use the variant allele frequencies (VAFs) from the somatic SNVs to help select
 the tumor model for the sample.
+
+
+### cram input
+
+
+
+  
+> ID: cram_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal CRAM file for the variant calling stage
+
+
+### cram reference
+
+
+
+  
+> ID: cram_reference
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to the reference fasta file for the CRAM input. 
+Required only if the input is a cram file AND not the reference in the tarball
 
 
 ### dbsnp annotation
@@ -839,6 +866,19 @@ The default value is 0.05.
 Input a tumor BAM file for the variant calling stage
 
 
+### tumor cram input
+
+
+
+  
+> ID: tumor_cram_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a tumor CRAM file for the variant calling stage
+
+
 ### tumor fastq list
 
 
@@ -1197,7 +1237,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fe993495280>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7f04661df350>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).

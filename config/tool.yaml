@@ -89,7 +89,7 @@ tools:
         md5sum: 8ed454fee58ccdbdbfab021f6a50c0ac
       - name: 4.2.4
         path: 4.2.4/dragen-germline__4.2.4.cwl
-        md5sum: 3fa54147b96b800951aba81cf5ff8b21
+        md5sum: 7609cff299641c8d4a02ada0c5b5f851
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -168,7 +168,7 @@ tools:
         md5sum: 15457229484a746bf90b0f52d430b45a
       - name: 4.2.4
         path: 4.2.4/dragen-somatic__4.2.4.cwl
-        md5sum: 5957370692599a41dc5d4797c75801ad
+        md5sum: 8e078ad120852de8f980c60bfa1344fb
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome

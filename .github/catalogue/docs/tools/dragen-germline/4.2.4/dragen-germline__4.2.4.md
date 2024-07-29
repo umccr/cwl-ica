@@ -17,7 +17,7 @@ dragen-germline 4.2.4 tool
 
   
 > ID: dragen-germline--4.2.4  
-> md5sum: 3fa54147b96b800951aba81cf5ff8b21
+> md5sum: 7609cff299641c8d4a02ada0c5b5f851
 
 ### dragen-germline v(4.2.4) documentation
   
@@ -67,6 +67,33 @@ Input a normal BAM file for the variant calling stage
 **Docs:**  
 Enable CNV self normalization.
 Self Normalization requires that the DRAGEN hash table be generated with the enable-cnv=true option.
+
+
+### cram input
+
+
+
+  
+> ID: cram_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal CRAM file for the variant calling stage
+
+
+### cram reference
+
+
+
+  
+> ID: cram_reference
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to the reference fasta file for the CRAM input. 
+Required only if the input is a cram file AND not the reference in the tarball
 
 
 ### dbsnp annotation
