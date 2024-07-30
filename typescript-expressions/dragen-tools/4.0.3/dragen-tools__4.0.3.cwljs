@@ -130,7 +130,7 @@ function get_normal_name_from_fastq_list_csv(fastq_list_csv) {
     return contents_by_line[1].split(",")[rgsm_index];
 }
 function get_normal_output_prefix(inputs) {
-    var _a;
+    var _a, _b;
     /*
     Get the normal RGSM value and then add _normal to it
     */
@@ -143,6 +143,14 @@ function get_normal_output_prefix(inputs) {
         /* Remove _normal from nameroot if it already exists */
         /* We dont want _normal_normal as a suffix */
         return "".concat((_a = inputs.bam_input.nameroot) === null || _a === void 0 ? void 0 :_a.replace(normal_re_replacement, ""), "_normal");
+    }
+    /*
+    Check if cram_input is set
+    */
+    if (inputs.cram_input !== null && inputs.cram_input !== undefined) {
+        /* Remove _normal from nameroot if it already exists */
+        /* We dont want _normal_normal as a suffix */
+        return "".concat((_b = inputs.cram_input.nameroot) === null || _b === void 0 ? void 0 :_b.replace(normal_re_replacement, ""), "_normal");
     }
     /*
     Check if fastq list file is set

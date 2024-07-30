@@ -78,8 +78,8 @@ requirements:
             --extract \\
             --file "$(inputs.reference_tar.path)"
 
-          # Confirm either of fastq_list, fastq_list_rows or bam_input is defined
-          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)))" -ne "1" ]]; then
+          # Confirm either of fastq_list, fastq_list_rows, bam_input or cram_input is defined
+          if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)) + boolean_to_int(is_not_null(inputs.cram_input)))" -ne "1" ]]; then
             echo "Please set one and only one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
             exit 1
           fi
@@ -145,6 +145,30 @@ inputs:
       separate: False
     secondaryFiles:
       - pattern: ".bai"
+        required: true
+  # Option 4
+  cram_input:
+    label: cram input
+    doc: |
+      Input a normal CRAM file for the variant calling stage
+    type: File?
+    inputBinding:
+      prefix: "--cram-input="
+      separate: False
+    secondaryFiles:
+      - pattern: ".crai"
+        required: true
+  cram_reference:
+    label: cram reference
+    doc: |
+      Path to the reference fasta file for the CRAM input. 
+      Required only if the input is a cram file AND not the reference in the tarball
+    type: File?
+    inputBinding:
+      prefix: "--cram-reference="
+      separate: False
+    secondaryFiles:
+      - pattern: ".fai"
         required: true
   reference_tar:
     label: reference tar

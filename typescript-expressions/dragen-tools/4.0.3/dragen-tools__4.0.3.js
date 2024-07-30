@@ -1,6 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.get_ref_scratch_dir = exports.get_mask_dir = exports.get_liftover_dir = exports.generate_transcriptome_mount_points = exports.generate_somatic_mount_points = exports.generate_germline_mount_points = exports.generate_fastq_list_csv = exports.get_fastq_list_row_as_csv_row = exports.build_fastq_list_csv_header = exports.get_normal_output_prefix = exports.get_normal_name_from_fastq_list_csv = exports.get_normal_name_from_fastq_list_rows = exports.get_tumor_fastq_list_csv_path = exports.get_fastq_list_csv_path = exports.get_dragen_eval_line = exports.get_dragen_bin_path = exports.get_ref_mount = exports.get_ref_path = exports.get_name_root_from_tarball = exports.get_intermediate_results_dir = exports.get_scratch_mount = exports.get_script_path = void 0;
+exports.get_script_path = get_script_path;
+exports.get_scratch_mount = get_scratch_mount;
+exports.get_intermediate_results_dir = get_intermediate_results_dir;
+exports.get_name_root_from_tarball = get_name_root_from_tarball;
+exports.get_ref_path = get_ref_path;
+exports.get_ref_mount = get_ref_mount;
+exports.get_dragen_bin_path = get_dragen_bin_path;
+exports.get_dragen_eval_line = get_dragen_eval_line;
+exports.get_fastq_list_csv_path = get_fastq_list_csv_path;
+exports.get_tumor_fastq_list_csv_path = get_tumor_fastq_list_csv_path;
+exports.get_normal_name_from_fastq_list_rows = get_normal_name_from_fastq_list_rows;
+exports.get_normal_name_from_fastq_list_csv = get_normal_name_from_fastq_list_csv;
+exports.get_normal_output_prefix = get_normal_output_prefix;
+exports.build_fastq_list_csv_header = build_fastq_list_csv_header;
+exports.get_fastq_list_row_as_csv_row = get_fastq_list_row_as_csv_row;
+exports.generate_fastq_list_csv = generate_fastq_list_csv;
+exports.generate_germline_mount_points = generate_germline_mount_points;
+exports.generate_somatic_mount_points = generate_somatic_mount_points;
+exports.generate_transcriptome_mount_points = generate_transcriptome_mount_points;
+exports.get_liftover_dir = get_liftover_dir;
+exports.get_mask_dir = get_mask_dir;
+exports.get_ref_scratch_dir = get_ref_scratch_dir;
 // Author: Alexis Lucattini
 // For assistance on generation of typescript expressions
 // In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
@@ -14,21 +35,18 @@ function get_script_path() {
     */
     return "run-dragen-script.sh";
 }
-exports.get_script_path = get_script_path;
 function get_scratch_mount() {
     /*
     Return the path of the scratch directory space
     */
     return "/ephemeral/";
 }
-exports.get_scratch_mount = get_scratch_mount;
 function get_intermediate_results_dir() {
     /*
     Get intermediate results directory as /scratch for dragen runs
     */
     return get_scratch_mount() + "intermediate-results/";
 }
-exports.get_intermediate_results_dir = get_intermediate_results_dir;
 function get_name_root_from_tarball(basename) {
     var tar_ball_regex = /(\S+)\.tar\.gz/g;
     var tar_ball_expression = tar_ball_regex.exec(basename);
@@ -37,49 +55,42 @@ function get_name_root_from_tarball(basename) {
     }
     return tar_ball_expression[1];
 }
-exports.get_name_root_from_tarball = get_name_root_from_tarball;
 function get_ref_path(reference_input_obj) {
     /*
     Get the reference path
     */
     return get_ref_mount() + get_name_root_from_tarball(reference_input_obj.basename) + "/";
 }
-exports.get_ref_path = get_ref_path;
 function get_ref_mount() {
     /*
     Get the reference mount point
     */
     return get_scratch_mount() + "ref/";
 }
-exports.get_ref_mount = get_ref_mount;
 function get_dragen_bin_path() {
     /*
     Get dragen bin path
     */
     return "/opt/edico/bin/dragen";
 }
-exports.get_dragen_bin_path = get_dragen_bin_path;
 function get_dragen_eval_line() {
     /*
     Return string
     */
     return "eval \"" + get_dragen_bin_path() + "\" '\"\$@\"' \n";
 }
-exports.get_dragen_eval_line = get_dragen_eval_line;
 function get_fastq_list_csv_path() {
     /*
     The fastq list path must be placed in working directory
     */
     return "fastq_list.csv";
 }
-exports.get_fastq_list_csv_path = get_fastq_list_csv_path;
 function get_tumor_fastq_list_csv_path() {
     /*
     The tumor fastq list path must be placed in working directory
     */
     return "tumor_fastq_list.csv";
 }
-exports.get_tumor_fastq_list_csv_path = get_tumor_fastq_list_csv_path;
 function get_normal_name_from_fastq_list_rows(fastq_list_rows) {
     /*
     Get the normal sample name from the fastq list rows object
@@ -95,7 +106,6 @@ function get_normal_name_from_fastq_list_rows(fastq_list_rows) {
     */
     return fastq_list_rows[0].rgsm;
 }
-exports.get_normal_name_from_fastq_list_rows = get_normal_name_from_fastq_list_rows;
 function get_normal_name_from_fastq_list_csv(fastq_list_csv) {
     /*
     Get the normal name from the fastq list csv...
@@ -144,9 +154,8 @@ function get_normal_name_from_fastq_list_csv(fastq_list_csv) {
     */
     return contents_by_line[1].split(",")[rgsm_index];
 }
-exports.get_normal_name_from_fastq_list_csv = get_normal_name_from_fastq_list_csv;
 function get_normal_output_prefix(inputs) {
-    var _a;
+    var _a, _b;
     /*
     Get the normal RGSM value and then add _normal to it
     */
@@ -159,6 +168,14 @@ function get_normal_output_prefix(inputs) {
         /* Remove _normal from nameroot if it already exists */
         /* We dont want _normal_normal as a suffix */
         return "".concat((_a = inputs.bam_input.nameroot) === null || _a === void 0 ? void 0 : _a.replace(normal_re_replacement, ""), "_normal");
+    }
+    /*
+    Check if cram_input is set
+    */
+    if (inputs.cram_input !== null && inputs.cram_input !== undefined) {
+        /* Remove _normal from nameroot if it already exists */
+        /* We dont want _normal_normal as a suffix */
+        return "".concat((_b = inputs.cram_input.nameroot) === null || _b === void 0 ? void 0 : _b.replace(normal_re_replacement, ""), "_normal");
     }
     /*
     Check if fastq list file is set
@@ -175,7 +192,6 @@ function get_normal_output_prefix(inputs) {
     normal_name = get_normal_name_from_fastq_list_rows(inputs.fastq_list_rows);
     return "".concat(normal_name, "_normal");
 }
-exports.get_normal_output_prefix = get_normal_output_prefix;
 function build_fastq_list_csv_header(header_names) {
     /*
     Convert lowercase labels to uppercase values
@@ -211,7 +227,6 @@ function build_fastq_list_csv_header(header_names) {
     */
     return modified_header_names.join(",") + "\n";
 }
-exports.build_fastq_list_csv_header = build_fastq_list_csv_header;
 function get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {
     var fastq_list_row_values_array = [];
     // This for loop is here to ensure were assigning values in the same order as the header
@@ -276,7 +291,6 @@ function get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {
     */
     return fastq_list_row_values_array.join(",") + "\n";
 }
-exports.get_fastq_list_row_as_csv_row = get_fastq_list_row_as_csv_row;
 function generate_fastq_list_csv(fastq_list_rows) {
     /*
     Fastq list rows generation
@@ -317,7 +331,6 @@ function generate_fastq_list_csv(fastq_list_rows) {
     }
     return fastq_csv_file;
 }
-exports.generate_fastq_list_csv = generate_fastq_list_csv;
 function generate_germline_mount_points(inputs) {
     /*
     Create and add in the fastq list csv for the input fastqs
@@ -341,7 +354,6 @@ function generate_germline_mount_points(inputs) {
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
     return e;
 }
-exports.generate_germline_mount_points = generate_germline_mount_points;
 function generate_somatic_mount_points(inputs) {
     /*
     Create and add in the fastq list csv for the input fastqs
@@ -377,28 +389,23 @@ function generate_somatic_mount_points(inputs) {
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
     return e;
 }
-exports.generate_somatic_mount_points = generate_somatic_mount_points;
 function generate_transcriptome_mount_points(inputs) {
     /*
     Calls another function that generates mount points
     */
     return generate_germline_mount_points(inputs);
 }
-exports.generate_transcriptome_mount_points = generate_transcriptome_mount_points;
 // Custom functions for dragen reference tarball build
 function get_liftover_dir() {
     // Hardcoded liftover directory in dragen 4.2
     return "/opt/edico/liftover/";
 }
-exports.get_liftover_dir = get_liftover_dir;
 function get_mask_dir() {
     // Hardcoded mask directory in dragen 4.2
     return "/opt/edico/fasta_mask/";
 }
-exports.get_mask_dir = get_mask_dir;
 function get_ref_scratch_dir(reference_name) {
     // We get the reference scratch directory as a combination of
     // the dragen scratch mount and the reference name
     return get_scratch_mount() + reference_name + "/";
 }
-exports.get_ref_scratch_dir = get_ref_scratch_dir;

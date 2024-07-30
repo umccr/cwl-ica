@@ -150,22 +150,26 @@ describe('Test the get normal name function suite', function () {
     var fastq_list_as_input = {
         "fastq_list_rows": null,
         "fastq_list": FASTQ_LIST_CSV_FILE,
-        "bam_input": null
+        "bam_input": null,
+        "cram_input": null
     };
     var fastq_list_rows_as_input = {
         "fastq_list_rows": FASTQ_LIST_ROWS,
         "fastq_list": null,
         "bam_input": null,
+        "cram_input": null
     };
     var bam_input_as_input = {
         "fastq_list_rows": null,
         "fastq_list": null,
-        "bam_input": NORMAL_BAM_INPUT_FILE
+        "bam_input": NORMAL_BAM_INPUT_FILE,
+        "cram_input": null
     };
     var bam_with_normal_as_input = {
         "fastq_list_rows": null,
         "fastq_list": null,
-        "bam_input": NORMAL_BAM_INPUT_FILE_WITH_NORMAL_SUFFIX
+        "bam_input": NORMAL_BAM_INPUT_FILE_WITH_NORMAL_SUFFIX,
+        "cram_input": null
     };
     /*
     Testing from file

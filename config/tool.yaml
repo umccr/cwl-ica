@@ -86,10 +86,10 @@ tools:
         md5sum: 0b3673ce428dc80ff680c5c202fc6797
       - name: 4.0.3
         path: 4.0.3/dragen-germline__4.0.3.cwl
-        md5sum: 8ed454fee58ccdbdbfab021f6a50c0ac
+        md5sum: 67514199fe04028674d0f14335b9976e
       - name: 4.2.4
         path: 4.2.4/dragen-germline__4.2.4.cwl
-        md5sum: 3fa54147b96b800951aba81cf5ff8b21
+        md5sum: 4d86da19030815adb8c710114c55dd10
     categories: []
   - name: custom-create-tso500-samplesheet
     path: custom-create-tso500-samplesheet
@@ -165,10 +165,10 @@ tools:
         md5sum: 1f6e7f51278ba579c05cc9287ec81a6e
       - name: 4.0.3
         path: 4.0.3/dragen-somatic__4.0.3.cwl
-        md5sum: 15457229484a746bf90b0f52d430b45a
+        md5sum: 948b14030e02bd7570ac515dcd34d66c
       - name: 4.2.4
         path: 4.2.4/dragen-somatic__4.2.4.cwl
-        md5sum: 5957370692599a41dc5d4797c75801ad
+        md5sum: a06f5dcd94fee5479551db290c53c23e
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -184,10 +184,10 @@ tools:
         md5sum: a542a746fdfce87f9f96dbe162e57337
       - name: 4.0.3
         path: 4.0.3/dragen-transcriptome__4.0.3.cwl
-        md5sum: ea99b8134f0c1473f3126ebf00dc3234
+        md5sum: 65c1cbfd42d8b649341e52103172ffeb
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome__4.2.4.cwl
-        md5sum: a26ed39ae501f0d2e3cf47bc7ef572e5
+        md5sum: e2ef67c08c547f7c87c5e85c77ead695
     categories: []
   - name: arriba-fusion-calling
     path: arriba-fusion-calling
@@ -253,10 +253,10 @@ tools:
         md5sum: a4b41f4b5bd8ff81aa0d6c972b5e187f
       - name: 4.0.3
         path: 4.0.3/dragen-alignment__4.0.3.cwl
-        md5sum: a9bc2608c0cae3368786164fd2236e04
+        md5sum: 592e9b61f374d2ecec8ace87987b93c9
       - name: 4.2.4
         path: 4.2.4/dragen-alignment__4.2.4.cwl
-        md5sum: d3fc671f4e119bffe9180099dfb14592
+        md5sum: 0848331acb188584296aca3dcd3b7606
     categories: []
   - name: custom-create-directory
     path: custom-create-directory
@@ -288,7 +288,7 @@ tools:
         md5sum: 47d7c5bb95f4e45f9215b92a830f5f98
       - name: 4.2.4
         path: 4.2.4/dragen-build-reference-tarball__4.2.4.cwl
-        md5sum: 0b3903400d0c950f1a54892297dae8bf
+        md5sum: 2f722e161625f2a9f02881ea32d55b17
     categories: []
   - name: bgzip
     path: bgzip
