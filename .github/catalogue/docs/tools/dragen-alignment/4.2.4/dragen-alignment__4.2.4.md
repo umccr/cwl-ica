@@ -17,7 +17,7 @@ dragen-alignment 4.2.4 tool
 
   
 > ID: dragen-alignment--4.2.4  
-> md5sum: d3fc671f4e119bffe9180099dfb14592
+> md5sum: 0848331acb188584296aca3dcd3b7606
 
 ### dragen-alignment v(4.2.4) documentation
   
