@@ -96,7 +96,6 @@ requirements:
             # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
             enable_sort_parameter=""
             enable_duplicate_marking_parameter=""
-            enable_map_align_output_parameter=""
             dedup_min_qual_parameter=""
           
             # Pop arguments
@@ -115,7 +114,7 @@ requirements:
                   :  # Just popping from array, we set this by default in these steps but dont want it in final dragen call
                   ;;
                 --enable-map-align-output=*)
-                  enable_map_align_output_parameter="\${1}"
+                  :  # Just popping from array, we set this by default in these steps but dont want it in final dragen call
                   ;;
                 --dedup-min-qual=*)
                   dedup_min_qual_parameter="\${1}"
@@ -138,9 +137,9 @@ requirements:
             # Eval prefix required here as some parameters are empty
             eval /opt/edico/bin/dragen \\
               --enable-map-align=true \\
+              --enable-map-align-output=true \\
               "\${enable_sort_parameter}" \\
               "\${enable_duplicate_marking_parameter}" \\
-              "\${enable_map_align_output_parameter}" \\
               "\${dedup_min_qual_parameter}" \\
               "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
               "--output-directory=$(inputs.output_directory)" \\
@@ -153,9 +152,9 @@ requirements:
             # Eval prefix required here as some parameters are empty
             eval /opt/edico/bin/dragen \\
               --enable-map-align=true \\
+              --enable-map-align-output=true \\
               "\${enable_sort_parameter}" \\
               "\${enable_duplicate_marking_parameter}" \\
-              "\${enable_map_align_output_parameter}" \\
               "\${dedup_min_qual_parameter}" \\
               "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
               "--output-directory=$(inputs.output_directory)" \\
@@ -174,6 +173,7 @@ requirements:
             set -- "\${@}" "--tumor-bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam"
           
             # Explicity set enable map align to false
+            # Setting --enable-map-align to false, sets --enable-map-align-output to false as well
             set -- "\${@}" "--enable-map-align=false"
           fi
           
@@ -185,7 +185,6 @@ requirements:
             # Collect options relating to map alignment (these options will be popped from the args list and not used in the variant calling step)
             enable_sort_parameter=""
             enable_duplicate_marking_parameter=""
-            enable_map_align_output_parameter=""
             dedup_min_qual_parameter=""
             cram_reference_parameter=""
           
@@ -205,7 +204,7 @@ requirements:
                   :  # Just popping from array, we set this by default in these steps but dont want it in final dragen call
                   ;;
                 --enable-map-align-output=*)
-                  enable_map_align_output_parameter="\${1}"
+                  :  # Just popping from array, we set this by default in these steps but dont want it in final dragen call
                   ;;
                 --dedup-min-qual=*)
                   dedup_min_qual_parameter="\${1}"
@@ -231,9 +230,9 @@ requirements:
             # Eval prefix required here as some parameters are empty
             eval /opt/edico/bin/dragen \\
               --enable-map-align=true \\
+              --enable-map-align-output=true \\
               "\${enable_sort_parameter}" \\
               "\${enable_duplicate_marking_parameter}" \\
-              "\${enable_map_align_output_parameter}" \\
               "\${dedup_min_qual_parameter}" \\
               "\${cram_reference_parameter}" \\
               "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
@@ -247,9 +246,9 @@ requirements:
             # Eval prefix required here as some parameters are empty
             eval /opt/edico/bin/dragen \\
               --enable-map-align=true \\
+              --enable-map-align-output=true \\
               "\${enable_sort_parameter}" \\
               "\${enable_duplicate_marking_parameter}" \\
-              "\${enable_map_align_output_parameter}" \\
               "\${dedup_min_qual_parameter}" \\
               "\${cram_reference_parameter}" \\
               "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
@@ -269,7 +268,8 @@ requirements:
             set -- "\${@}" "--bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
             set -- "\${@}" "--tumor-bam-input=$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam"
           
-            # Explicity set enable map align to false since we've already done the alignment
+            # Explicity set enable map align to false since we have already done the alignment
+            # Setting --enable-map-align to false, sets --enable-map-align-output to false as well
             set -- "\${@}" "--enable-map-align=false"
           fi
           
@@ -314,7 +314,7 @@ requirements:
               new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
             
               # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
-              if [[ -f "$(inputs.output_file_prefix).bam" && ! -f "\${new_normal_file_name_prefix}.bam" ]]; then
+              if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]]; then
                 # Move normal bam, normal bam index and normal bam md5sum
                 (
                   cd "$(inputs.output_directory)"
