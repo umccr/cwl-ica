@@ -197,6 +197,9 @@ inputs:
 outputs:
   # Generate output directory
   output_directory:
+    label: output directory
+    doc: |
+      The output directory containing the instrument run with compressed ORA files
     type: Directory
     outputBinding:
       glob: $(inputs.output_directory_name)
