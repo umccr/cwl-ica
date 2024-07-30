@@ -115,3 +115,36 @@ export function get_first_non_null_input(inputs: any[]): any | null {
     }
     return null
 }
+
+
+export function get_attribute_list_from_object_list(obj_list: object[], attribute: string): any[] {
+    /*
+    Get attribute from list of objects
+    If an object is null, it is not included in the return list
+    */
+    return obj_list.filter(x => x !== null).map(x => get_optional_attribute_from_object(x, attribute))
+}
+
+export function get_str_list_as_bash_array(input_list: string[] | null, item_wrap: string | null): null | string {
+    /*
+    Convert a list of strings to a bash array, if the list is not defined return null
+    */
+    if (input_list === null){
+        return null
+    }
+
+    if (item_wrap === null){
+        return `( ${input_list.map(x => `'${item_wrap}${x}${item_wrap}'`).join(' ')} )`
+    }
+
+    return `( ${input_list.map(x => `'${x}'`).join(' ')} )`
+}
+
+
+export function get_object_attribute_list_as_bash_array(obj_list: any[], attribute: string): string {
+    /*
+    Get attribute from list of objects and convert to a bash array
+    Do not include null values in the array
+    */
+    return get_str_list_as_bash_array(get_attribute_list_from_object_list(obj_list, attribute).filter(x => x !== null))
+}

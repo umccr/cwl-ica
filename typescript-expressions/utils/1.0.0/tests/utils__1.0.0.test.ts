@@ -2,20 +2,19 @@
 // For assistance on generation of typescript expression tests
 // In CWL, visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
 // Imports
-
+import 'jest';
 import {
-    get_bool_value_as_str,
+    boolean_to_int,
     get_attribute_from_optional_input,
-    is_not_null,
-    get_optional_attribute_from_object,
+    get_bool_value_as_str,
+    get_first_non_null_input, get_object_attribute_list_as_bash_array,
     get_optional_attribute_from_multi_type_input_object,
-    boolean_to_int, get_source_a_or_b, get_first_non_null_input
+    get_optional_attribute_from_object,
+    get_source_a_or_b,
+    is_not_null
 } from "../utils__1.0.0";
 
-import {
-    FileProperties as IFile,
-    File_class
-} from "cwl-ts-auto"
+import {File_class, FileProperties as IFile} from "cwl-ts-auto"
 
 const FALSE = false
 const TRUE = true
@@ -26,6 +25,11 @@ const NOT_NULL = "This string is not null"
 const NOT_NULL_FILE: IFile = {
     class_: File_class.FILE,
     location: "/path/to/bar"
+}
+
+const NOT_NULL_FILE2: IFile = {
+    class_: File_class.FILE,
+    location: "far"
 }
 
 // Test get value as str
@@ -137,3 +141,12 @@ describe('Test get_first_non_null_input utils', function() {
 })
 
 
+// get_object_attribute_list_as_bash_array element Test
+describe('Test get_object_attribute_list_as_bash_array utils', function(){
+    test('We expect get_object_attribute_list_as_bash_array', () => {
+        expect(get_object_attribute_list_as_bash_array([NOT_NULL_FILE, NOT_NULL_FILE2], "location")).toEqual("( '/path/to/bar' 'far' )")
+    })
+    test('We expect get_object_attribute_list_as_bash_array', () => {
+        expect(get_object_attribute_list_as_bash_array([NOT_NULL_FILE, NOT_NULL_FILE2, NULL], "location")).toEqual("( '/path/to/bar' 'far' )")
+    })
+})
