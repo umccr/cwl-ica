@@ -537,3 +537,10 @@ tools:
         path: 1.0.0/custom-tso500-cnv-caller-bin-counts-to-json__1.0.0.cwl
         md5sum: afaf45f340c857b9f92bba7d4638b4ca
     categories: []
+  - name: dragen-instrument-run-fastq-to-ora
+    path: dragen-instrument-run-fastq-to-ora
+    versions:
+      - name: 4.2.4
+        path: 4.2.4/dragen-instrument-run-fastq-to-ora__4.2.4.cwl
+        md5sum: 121cc3a5e590cf523169e54dd7336ca0
+    categories: []

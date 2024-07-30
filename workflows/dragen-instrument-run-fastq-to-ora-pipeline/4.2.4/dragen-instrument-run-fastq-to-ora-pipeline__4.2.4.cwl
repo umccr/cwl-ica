@@ -64,7 +64,7 @@ steps:
       instrument_run_directory:
         source: instrument_run_directory
       output_directory_name:
-        source: output_directory_name
+        source: instrument_run_directory
         valueFrom: |
           ${
             return self.basename;
@@ -80,9 +80,9 @@ steps:
 outputs:
   # Generate output directory
   output_directory:
+    label: output directory
+    doc: |
+      The output directory of the instrument run with fastqs converted to oras
     type: Directory
     outputSource: run_dragen_instrument_run_fastq_to_ora_step/output_directory
 
-
-successCodes:
-  - 0
