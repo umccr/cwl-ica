@@ -94,3 +94,29 @@ function get_first_non_null_input(inputs) {
     }
     return null;
 }
+function get_attribute_list_from_object_list(obj_list, attribute) {
+    /*
+    Get attribute from list of objects
+    If an object is null, it is not included in the return list
+    */
+    return obj_list.filter(function (x) { return x !== null; }).map(function (x) { return get_optional_attribute_from_object(x, attribute); });
+}
+function get_str_list_as_bash_array(input_list, item_wrap) {
+    /*
+    Convert a list of strings to a bash array, if the list is not defined return null
+    */
+    if (input_list === null) {
+        return null;
+    }
+    if (item_wrap === null) {
+        return "( ".concat(input_list.map(function (x) { return "'".concat(item_wrap).concat(x).concat(item_wrap, "'"); }).join(' '), " )");
+    }
+    return "( ".concat(input_list.map(function (x) { return "'".concat(x, "'"); }).join(' '), " )");
+}
+function get_object_attribute_list_as_bash_array(obj_list, attribute) {
+    /*
+    Get attribute from list of objects and convert to a bash array
+    Do not include null values in the array
+    */
+    return get_str_list_as_bash_array(get_attribute_list_from_object_list(obj_list, attribute).filter(function (x) { return x !== null; }));
+}

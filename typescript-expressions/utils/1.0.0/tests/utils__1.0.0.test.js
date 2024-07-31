@@ -1,9 +1,10 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // Author: Alexis Lucattini
 // For assistance on generation of typescript expression tests
 // In CWL, visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
 // Imports
-Object.defineProperty(exports, "__esModule", { value: true });
+require("jest");
 var utils__1_0_0_1 = require("../utils__1.0.0");
 var cwl_ts_auto_1 = require("cwl-ts-auto");
 var FALSE = false;
@@ -14,6 +15,10 @@ var NOT_NULL = "This string is not null";
 var NOT_NULL_FILE = {
     class_: cwl_ts_auto_1.File_class.FILE,
     location: "/path/to/bar"
+};
+var NOT_NULL_FILE2 = {
+    class_: cwl_ts_auto_1.File_class.FILE,
+    location: "far"
 };
 // Test get value as str
 describe('Test get_bool_value_as_str', function () {
@@ -112,5 +117,14 @@ describe('Test get_first_non_null_input utils', function () {
     });
     test('We expect get_first_non_null_input(["foo", null]) to be "foo"', function () {
         expect((0, utils__1_0_0_1.get_first_non_null_input)(["foo", null])).toEqual("foo");
+    });
+});
+// get_object_attribute_list_as_bash_array element Test
+describe('Test get_object_attribute_list_as_bash_array utils', function () {
+    test('We expect get_object_attribute_list_as_bash_array', function () {
+        expect((0, utils__1_0_0_1.get_object_attribute_list_as_bash_array)([NOT_NULL_FILE, NOT_NULL_FILE2], "location")).toEqual("( '/path/to/bar' 'far' )");
+    });
+    test('We expect get_object_attribute_list_as_bash_array', function () {
+        expect((0, utils__1_0_0_1.get_object_attribute_list_as_bash_array)([NOT_NULL_FILE, NOT_NULL_FILE2, NULL], "location")).toEqual("( '/path/to/bar' 'far' )");
     });
 });

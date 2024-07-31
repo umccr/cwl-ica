@@ -4,7 +4,17 @@
 // In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
 // Imports
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.get_first_non_null_input = exports.get_source_a_or_b = exports.get_optional_attribute_from_multi_type_input_object = exports.boolean_to_int = exports.get_bool_value_as_str = exports.get_optional_attribute_from_object = exports.get_attribute_from_optional_input = exports.is_not_null = void 0;
+exports.is_not_null = is_not_null;
+exports.get_attribute_from_optional_input = get_attribute_from_optional_input;
+exports.get_optional_attribute_from_object = get_optional_attribute_from_object;
+exports.get_bool_value_as_str = get_bool_value_as_str;
+exports.boolean_to_int = boolean_to_int;
+exports.get_optional_attribute_from_multi_type_input_object = get_optional_attribute_from_multi_type_input_object;
+exports.get_source_a_or_b = get_source_a_or_b;
+exports.get_first_non_null_input = get_first_non_null_input;
+exports.get_attribute_list_from_object_list = get_attribute_list_from_object_list;
+exports.get_str_list_as_bash_array = get_str_list_as_bash_array;
+exports.get_object_attribute_list_as_bash_array = get_object_attribute_list_as_bash_array;
 // Functions
 function is_not_null(input_obj) {
     /*
@@ -12,7 +22,6 @@ function is_not_null(input_obj) {
     */
     return !(input_obj === null || input_obj === undefined);
 }
-exports.is_not_null = is_not_null;
 function get_attribute_from_optional_input(input_object, attribute) {
     /*
     Get attribute from optional input -
@@ -25,7 +34,6 @@ function get_attribute_from_optional_input(input_object, attribute) {
         return get_optional_attribute_from_object(input_object, attribute);
     }
 }
-exports.get_attribute_from_optional_input = get_attribute_from_optional_input;
 function get_optional_attribute_from_object(input_object, attribute) {
     /*
     Get attribute from object, if attribute is not defined return null
@@ -39,7 +47,6 @@ function get_optional_attribute_from_object(input_object, attribute) {
         return null;
     }
 }
-exports.get_optional_attribute_from_object = get_optional_attribute_from_object;
 function get_bool_value_as_str(input_bool) {
     if (is_not_null(input_bool) && input_bool) {
         return "true";
@@ -48,7 +55,6 @@ function get_bool_value_as_str(input_bool) {
         return "false";
     }
 }
-exports.get_bool_value_as_str = get_bool_value_as_str;
 function boolean_to_int(input_bool) {
     if (is_not_null(input_bool) && String(input_bool).toLowerCase() === "true") {
         return 1;
@@ -57,7 +63,6 @@ function boolean_to_int(input_bool) {
         return 0;
     }
 }
-exports.boolean_to_int = boolean_to_int;
 function get_optional_attribute_from_multi_type_input_object(object, attribute) {
     /*
     Get attribute from optional input
@@ -74,7 +79,6 @@ function get_optional_attribute_from_multi_type_input_object(object, attribute) 
         return object;
     }
 }
-exports.get_optional_attribute_from_multi_type_input_object = get_optional_attribute_from_multi_type_input_object;
 function get_source_a_or_b(input_a, input_b) {
     /*
     Get the first input parameter if it is not null
@@ -91,7 +95,6 @@ function get_source_a_or_b(input_a, input_b) {
         return null;
     }
 }
-exports.get_source_a_or_b = get_source_a_or_b;
 function get_first_non_null_input(inputs) {
     /*
     Get first element of the array that is not null
@@ -104,4 +107,29 @@ function get_first_non_null_input(inputs) {
     }
     return null;
 }
-exports.get_first_non_null_input = get_first_non_null_input;
+function get_attribute_list_from_object_list(obj_list, attribute) {
+    /*
+    Get attribute from list of objects
+    If an object is null, it is not included in the return list
+    */
+    return obj_list.filter(function (x) { return x !== null; }).map(function (x) { return get_optional_attribute_from_object(x, attribute); });
+}
+function get_str_list_as_bash_array(input_list, item_wrap) {
+    /*
+    Convert a list of strings to a bash array, if the list is not defined return null
+    */
+    if (input_list === null) {
+        return null;
+    }
+    if (item_wrap === null) {
+        return "( ".concat(input_list.map(function (x) { return "'".concat(item_wrap).concat(x).concat(item_wrap, "'"); }).join(' '), " )");
+    }
+    return "( ".concat(input_list.map(function (x) { return "'".concat(x, "'"); }).join(' '), " )");
+}
+function get_object_attribute_list_as_bash_array(obj_list, attribute) {
+    /*
+    Get attribute from list of objects and convert to a bash array
+    Do not include null values in the array
+    */
+    return get_str_list_as_bash_array(get_attribute_list_from_object_list(obj_list, attribute).filter(function (x) { return x !== null; }));
+}

@@ -175,6 +175,7 @@ UMCCR CWL-ICA Catalogue
 - [star](#star)  
 - [illumina-interop](#illumina-interop)  
 - [custom-tso500-cnv-caller-bin-counts-to-json](#custom-tso500-cnv-caller-bin-counts-to-json)  
+- [dragen-instrument-run-fastq-to-ora](#dragen-instrument-run-fastq-to-ora)  
 
 
 ### samtools-merge
@@ -651,6 +652,13 @@ UMCCR CWL-ICA Catalogue
 - [1.0.0](.github/catalogue/docs/tools/custom-tso500-cnv-caller-bin-counts-to-json/1.0.0/custom-tso500-cnv-caller-bin-counts-to-json__1.0.0.md)  
 
 
+### dragen-instrument-run-fastq-to-ora
+
+#### Versions
+  
+- [4.2.4](.github/catalogue/docs/tools/dragen-instrument-run-fastq-to-ora/4.2.4/dragen-instrument-run-fastq-to-ora__4.2.4.md)  
+
+
 ## Workflows
 
 ### Workflows ToC
@@ -681,6 +689,7 @@ UMCCR CWL-ICA Catalogue
 - [illumina-interop-qc](#illumina-interop-qc)  
 - [rnasum-pipeline](#rnasum-pipeline)  
 - [bclconvert-interop-qc](#bclconvert-interop-qc)  
+- [dragen-instrument-run-fastq-to-ora-pipeline](#dragen-instrument-run-fastq-to-ora-pipeline)  
 
 
 ### optitype-pipeline
@@ -939,4 +948,11 @@ UMCCR CWL-ICA Catalogue
   
 - [1.3.1--1.19](.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.19/bclconvert-interop-qc__1.3.1--1.19.md)  
 - [1.3.1--1.21](.github/catalogue/docs/workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.md)  
+
+
+### dragen-instrument-run-fastq-to-ora-pipeline
+
+#### Versions
+  
+- [4.2.4](.github/catalogue/docs/workflows/dragen-instrument-run-fastq-to-ora-pipeline/4.2.4/dragen-instrument-run-fastq-to-ora-pipeline__4.2.4.md)  
 
