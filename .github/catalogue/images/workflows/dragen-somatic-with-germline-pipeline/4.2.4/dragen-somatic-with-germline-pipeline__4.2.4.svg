@@ -1898,7 +1898,7 @@
 <polygon fill="black" stroke="black" points="10041.5,-938.21 10038,-928.21 10034.5,-938.21 10041.5,-938.21"/>
 </g>
 <!-- run_dragen_qc_step&#45;&gt;multiqc_output_directory -->
-<g id="edge13" class="edge">
+<g id="edge14" class="edge">
 <title>run_dragen_qc_step&#45;&gt;multiqc_output_directory</title>
 <path fill="none" stroke="black" d="M545.76,-2059.38C1321.15,-1958.59 8317.31,-1049.12 9275.45,-924.56"/>
 <polygon fill="black" stroke="black" points="9275.97,-928.02 9285.43,-923.26 9275.07,-921.08 9275.97,-928.02"/>
@@ -1952,7 +1952,7 @@
 <text text-anchor="middle" x="299" y="-3226.75" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </g>
 <!-- create_dummy_file_step&#45;&gt;run_dragen_qc_step -->
-<g id="edge14" class="edge">
+<g id="edge13" class="edge">
 <title>create_dummy_file_step&#45;&gt;run_dragen_qc_step</title>
 <path fill="none" stroke="black" d="M301.71,-3211.71C321.76,-3080.44 446.95,-2260.65 471.74,-2098.35"/>
 <polygon fill="black" stroke="black" points="475.24,-2098.64 473.29,-2088.22 468.32,-2097.58 475.24,-2098.64"/>

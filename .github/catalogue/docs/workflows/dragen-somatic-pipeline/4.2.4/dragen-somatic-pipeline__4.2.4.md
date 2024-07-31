@@ -19,7 +19,7 @@ dragen-somatic-pipeline 4.2.4 workflow
 
   
 > ID: dragen-somatic-pipeline--4.2.4  
-> md5sum: 5022aeab14bceb9052f2fe0547aa107f
+> md5sum: 6c7445d9a17ae6ffe6f411312383e87e
 
 ### dragen-somatic-pipeline v(4.2.4) documentation
   
@@ -1202,7 +1202,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7fb1644d0e60>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f097379ae10>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).
@@ -1660,7 +1660,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-pipeline_prod-wf  
-**wfl version name:** 4.2.4--54e9fac  
+**wfl version name:** 4.2.4--81f95bd  
 
   
 
