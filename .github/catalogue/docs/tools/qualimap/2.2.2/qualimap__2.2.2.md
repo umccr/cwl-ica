@@ -17,7 +17,7 @@ qualimap 2.2.2 tool
 
   
 > ID: qualimap--2.2.2  
-> md5sum: a102e993fed3fe5efd3833b9f2221df9
+> md5sum: f1abbae5449aa241845532350d577b55
 
 ### qualimap v(2.2.2) documentation
   
@@ -127,20 +127,6 @@ Output folder for HTML report and raw data.
 Sequencing library protocol:
 strand-specific-forward, strand-specific-reverse or 
 non-strand-specific (default).
-
-
-### tmp dir
-
-
-
-  
-> ID: tmp_dir
-  
-**Optional:** `True`  
-**Type:** `string`  
-**Docs:**  
-Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-This can be avoided by sorting the bam file by name before running Qualimap.
 
   
 

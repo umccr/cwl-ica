@@ -577,7 +577,7 @@ projects:
           - name: 2.2.2
             path: 2.2.2/qualimap__2.2.2.cwl
             ica_workflow_version_name: 2.2.2
-            modification_time: 2024-07-28T05:40:35UTC
+            modification_time: 2024-07-31T02:10:31UTC
             run_instances: []
       - name: map_resource_requirements
         path: map_resource_requirements
@@ -768,7 +768,7 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2024-07-28T05:55:56UTC
+            modification_time: 2024-07-31T02:26:02UTC
             run_instances:
               - wfr.784173de5b4342b797f04259ebd04df6
               - wfr.f75bddad9d4740d3873fce5ceb782bc7
@@ -776,12 +776,12 @@ projects:
           - name: 4.0.3
             path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2024-07-30T09:26:29UTC
+            modification_time: 2024-07-31T02:26:04UTC
             run_instances: []
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-07-30T09:26:33UTC
+            modification_time: 2024-07-31T02:26:07UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
@@ -957,17 +957,17 @@ projects:
           - name: 3.9.3
             path: 3.9.3/dragen-wts-qc-pipeline__3.9.3.cwl
             ica_workflow_version_name: 3.9.3
-            modification_time: 2024-07-28T05:56:36UTC
+            modification_time: 2024-07-31T02:26:38UTC
             run_instances: []
           - name: 4.0.3
             path: 4.0.3/dragen-wts-qc-pipeline__4.0.3.cwl
             ica_workflow_version_name: 4.0.3
-            modification_time: 2024-07-30T09:27:16UTC
+            modification_time: 2024-07-31T02:26:40UTC
             run_instances: []
           - name: 4.2.4
             path: 4.2.4/dragen-wts-qc-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-07-30T09:27:19UTC
+            modification_time: 2024-07-31T02:26:42UTC
             run_instances: []
       - name: bclconvert-with-qc-pipeline
         path: bclconvert-with-qc-pipeline
@@ -2409,6 +2409,21 @@ projects:
             path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4--81f95bd
             modification_time: 2024-07-30T23:30:46UTC
+            run_instances: []
+          - name: 3.9.3
+            path: 3.9.3/dragen-transcriptome-pipeline__3.9.3.cwl
+            ica_workflow_version_name: 3.9.3--0ac1f6a
+            modification_time: 2024-07-31T02:27:09UTC
+            run_instances: []
+          - name: 4.0.3
+            path: 4.0.3/dragen-transcriptome-pipeline__4.0.3.cwl
+            ica_workflow_version_name: 4.0.3--0ac1f6a
+            modification_time: 2024-07-31T02:27:13UTC
+            run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--0ac1f6a
+            modification_time: 2024-07-31T02:27:17UTC
             run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
