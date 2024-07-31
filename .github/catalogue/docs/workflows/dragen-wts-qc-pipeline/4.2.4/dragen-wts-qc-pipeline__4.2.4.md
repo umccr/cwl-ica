@@ -19,7 +19,7 @@ dragen-wts-qc-pipeline 4.2.4 workflow
 
   
 > ID: dragen-wts-qc-pipeline--4.2.4  
-> md5sum: a82294d17eb4fd0cea53d7d48ffdd8a6
+> md5sum: d4939a3d60c5347d0be5149f325e262f
 
 ### dragen-wts-qc-pipeline v(4.2.4) documentation
   
@@ -265,20 +265,6 @@ The prefix given to all output files
 **Type:** `File`  
 **Docs:**  
 Path to ref data tarball
-
-
-### tmp dir
-
-
-
-  
-> ID: tmp_dir
-  
-**Optional:** `True`  
-**Type:** `string`  
-**Docs:**  
-Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-This can be avoided by sorting the bam file by name before running Qualimap.
 
   
 

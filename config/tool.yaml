@@ -500,7 +500,7 @@ tools:
     versions:
       - name: 2.2.2
         path: 2.2.2/qualimap__2.2.2.cwl
-        md5sum: a102e993fed3fe5efd3833b9f2221df9
+        md5sum: f1abbae5449aa241845532350d577b55
     categories: []
   - name: map_resource_requirements
     path: map_resource_requirements

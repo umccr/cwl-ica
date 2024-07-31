@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.2.4 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.2.4  
-> md5sum: b44e61f6be9e017e154a19eefcb4e42d
+> md5sum: b63aaf8d3b9fc4800cdd1fbd26a55772
 
 ### dragen-transcriptome-pipeline v(4.2.4) documentation
   
@@ -407,20 +407,6 @@ you would like to use. To disable soft trimming, set to none. During mapping, re
 and bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.
 
 
-### tmp dir
-
-
-
-  
-> ID: tmp_dir
-  
-**Optional:** `True`  
-**Type:** `string`  
-**Docs:**  
-Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-This can be avoided by sorting the bam file by name before running Qualimap.
-
-
 ### trim adapter r1 5prime
 
 
@@ -754,7 +740,7 @@ The output directory containing all transcriptome output files
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 4.2.4--81f95bd  
+**wfl version name:** 4.2.4--0ac1f6a  
 
   
 

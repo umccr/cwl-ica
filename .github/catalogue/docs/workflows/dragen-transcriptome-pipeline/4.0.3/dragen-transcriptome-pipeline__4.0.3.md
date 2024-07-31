@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.0.3 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.0.3  
-> md5sum: 4e946045ad3fc9fef3c4953e1d47d558
+> md5sum: d67c5240620328cde6e35aae5d106a72
 
 ### dragen-transcriptome-pipeline v(4.0.3) documentation
   
@@ -376,20 +376,6 @@ FastA file with genome sequence
 **Docs:**  
 Path to ref data tarball
 
-
-### tmp dir
-
-
-
-  
-> ID: tmp_dir
-  
-**Optional:** `True`  
-**Type:** `string`  
-**Docs:**  
-Qualimap creates temporary bam files when sorting by name, which takes up space in the system tmp dir (usually /tmp). 
-This can be avoided by sorting the bam file by name before running Qualimap.
-
   
 
 
@@ -605,7 +591,7 @@ The output directory containing all transcriptome output files
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 4.0.3--81f95bd  
+**wfl version name:** 4.0.3--0ac1f6a  
 
   
 
