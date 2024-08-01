@@ -27,6 +27,7 @@ workflows:
         - dragen-alignment-pipeline/4.2.4
         - dragen-alignment-pipeline/4.2.4__20240627051848
         - dragen-alignment-pipeline/4.2.4__20240708034912
+        - dragen-alignment-pipeline/4.2.4__20240801063352
   - name: dragen-transcriptome-pipeline_4_2_4
     subclass: CWL
     primaryDescriptorPath: 
@@ -55,6 +56,7 @@ workflows:
       tags:
         - dragen-somatic-with-germline-pipeline/4.2.4
         - dragen-somatic-with-germline-pipeline/4.2.4__20240627054304
+        - dragen-somatic-with-germline-pipeline/4.2.4__20240801063441
   - name: rnasum-pipeline_1_0_0
     subclass: CWL
     primaryDescriptorPath: /.dockstore/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.packed.cwl.json
