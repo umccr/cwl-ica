@@ -25,44 +25,44 @@
 <polygon fill="#94ddf4" stroke="black" points="854,-1054.41 854,-1091.41 976,-1091.41 976,-1054.41 854,-1054.41"/>
 <text text-anchor="middle" x="915" y="-1069.21" font-family="Times,serif" font-size="14.00">annotation_file</text>
 </g>
-<!-- arriba_fusion_step -->
-<g id="node29" class="node">
-<title>arriba_fusion_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="662.5,-678.41 662.5,-715.41 881.5,-715.41 881.5,-678.41 662.5,-678.41"/>
-<text text-anchor="middle" x="772" y="-693.21" font-family="Times,serif" font-size="14.00">arriba&#45;fusion&#45;calling v(2.3.0)</text>
-</g>
-<!-- annotation_file&#45;&gt;arriba_fusion_step -->
-<g id="edge15" class="edge">
-<title>annotation_file&#45;&gt;arriba_fusion_step</title>
-<path fill="none" stroke="black" d="M908.29,-1054.37C885.41,-994.51 810.25,-797.94 782.45,-725.25"/>
-<polygon fill="black" stroke="black" points="785.7,-723.93 778.86,-715.84 779.16,-726.43 785.7,-723.93"/>
-</g>
-<!-- arriba_drawing_step -->
-<g id="node30" class="node">
-<title>arriba_drawing_step</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="553,-494.41 553,-531.41 735,-531.41 735,-494.41 553,-494.41"/>
-<text text-anchor="middle" x="644" y="-509.21" font-family="Times,serif" font-size="14.00">arriba&#45;drawing v(2.3.0)</text>
-</g>
-<!-- annotation_file&#45;&gt;arriba_drawing_step -->
-<g id="edge16" class="edge">
-<title>annotation_file&#45;&gt;arriba_drawing_step</title>
-<path fill="none" stroke="black" d="M919.1,-1054.24C931.64,-995.81 964.39,-805.27 891,-677.91 849.68,-606.19 762.82,-559.86 703.93,-535.32"/>
-<polygon fill="black" stroke="black" points="704.95,-531.96 694.36,-531.43 702.3,-538.44 704.95,-531.96"/>
-</g>
 <!-- run_dragen_transcriptome_step -->
-<g id="node32" class="node">
+<g id="node29" class="node">
 <title>run_dragen_transcriptome_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="1767,-862.41 1767,-899.41 1999,-899.41 1999,-862.41 1767,-862.41"/>
 <text text-anchor="middle" x="1883" y="-877.21" font-family="Times,serif" font-size="14.00">dragen&#45;transcriptome v(4.0.3)</text>
 </g>
 <!-- annotation_file&#45;&gt;run_dragen_transcriptome_step -->
-<g id="edge17" class="edge">
+<g id="edge15" class="edge">
 <title>annotation_file&#45;&gt;run_dragen_transcriptome_step</title>
 <path fill="none" stroke="black" d="M934.98,-1054.19C948.25,-1043.42 966.56,-1030.34 985,-1022.91 1245.77,-917.77 1578.53,-890.68 1756.76,-883.93"/>
 <polygon fill="black" stroke="black" points="1757.1,-887.42 1766.97,-883.56 1756.85,-880.42 1757.1,-887.42"/>
 </g>
+<!-- arriba_drawing_step -->
+<g id="node30" class="node">
+<title>arriba_drawing_step</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="558,-494.41 558,-531.41 740,-531.41 740,-494.41 558,-494.41"/>
+<text text-anchor="middle" x="649" y="-509.21" font-family="Times,serif" font-size="14.00">arriba&#45;drawing v(2.3.0)</text>
+</g>
+<!-- annotation_file&#45;&gt;arriba_drawing_step -->
+<g id="edge16" class="edge">
+<title>annotation_file&#45;&gt;arriba_drawing_step</title>
+<path fill="none" stroke="black" d="M919.38,-1054.27C932.86,-995.93 968.53,-805.64 896,-677.91 855.19,-606.04 768.41,-559.81 709.38,-535.33"/>
+<polygon fill="black" stroke="black" points="710.37,-531.95 699.79,-531.44 707.74,-538.44 710.37,-531.95"/>
+</g>
+<!-- arriba_fusion_step -->
+<g id="node31" class="node">
+<title>arriba_fusion_step</title>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="667.5,-678.41 667.5,-715.41 886.5,-715.41 886.5,-678.41 667.5,-678.41"/>
+<text text-anchor="middle" x="777" y="-693.21" font-family="Times,serif" font-size="14.00">arriba&#45;fusion&#45;calling v(2.3.0)</text>
+</g>
+<!-- annotation_file&#45;&gt;arriba_fusion_step -->
+<g id="edge17" class="edge">
+<title>annotation_file&#45;&gt;arriba_fusion_step</title>
+<path fill="none" stroke="black" d="M908.53,-1054.37C886.44,-994.51 813.91,-797.94 787.09,-725.25"/>
+<polygon fill="black" stroke="black" points="790.36,-724.01 783.62,-715.84 783.8,-726.43 790.36,-724.01"/>
+</g>
 <!-- run_qualimap_step -->
-<g id="node33" class="node">
+<g id="node32" class="node">
 <title>run_qualimap_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="2943,-678.41 2943,-715.41 3085,-715.41 3085,-678.41 2943,-678.41"/>
 <text text-anchor="middle" x="3014" y="-693.21" font-family="Times,serif" font-size="14.00">qualimap v(2.2.2)</text>
@@ -82,8 +82,8 @@
 <!-- cytobands&#45;&gt;arriba_drawing_step -->
 <g id="edge19" class="edge">
 <title>cytobands&#45;&gt;arriba_drawing_step</title>
-<path fill="none" stroke="black" d="M469.68,-1054.28C495.69,-973.67 603.4,-639.76 635.15,-541.33"/>
-<polygon fill="black" stroke="black" points="638.58,-542.12 638.31,-531.53 631.91,-539.97 638.58,-542.12"/>
+<path fill="none" stroke="black" d="M469.84,-1054.28C496.6,-973.59 607.5,-639.08 640.01,-541.03"/>
+<polygon fill="black" stroke="black" points="643.33,-542.12 643.16,-531.53 636.69,-539.92 643.33,-542.12"/>
 </g>
 <!-- protein_domains -->
 <g id="node3" class="node">
@@ -94,44 +94,44 @@
 <!-- protein_domains&#45;&gt;arriba_drawing_step -->
 <g id="edge20" class="edge">
 <title>protein_domains&#45;&gt;arriba_drawing_step</title>
-<path fill="none" stroke="black" d="M343.79,-1054.28C388.71,-973.43 575.21,-637.73 629.26,-540.44"/>
-<polygon fill="black" stroke="black" points="632.41,-541.97 634.21,-531.53 626.29,-538.57 632.41,-541.97"/>
+<path fill="none" stroke="black" d="M343.95,-1054.28C389.59,-973.43 579.1,-637.73 634.02,-540.44"/>
+<polygon fill="black" stroke="black" points="637.18,-541.96 639.05,-531.53 631.09,-538.52 637.18,-541.96"/>
 </g>
 <!-- blacklist -->
 <g id="node4" class="node">
 <title>blacklist</title>
-<polygon fill="#94ddf4" stroke="black" points="526.5,-1054.41 526.5,-1091.41 603.5,-1091.41 603.5,-1054.41 526.5,-1054.41"/>
-<text text-anchor="middle" x="565" y="-1069.21" font-family="Times,serif" font-size="14.00">blacklist</text>
+<polygon fill="#94ddf4" stroke="black" points="758.5,-1054.41 758.5,-1091.41 835.5,-1091.41 835.5,-1054.41 758.5,-1054.41"/>
+<text text-anchor="middle" x="797" y="-1069.21" font-family="Times,serif" font-size="14.00">blacklist</text>
 </g>
 <!-- blacklist&#45;&gt;arriba_fusion_step -->
 <g id="edge21" class="edge">
 <title>blacklist&#45;&gt;arriba_fusion_step</title>
-<path fill="none" stroke="black" d="M574.71,-1054.37C607.91,-994.39 717.08,-797.13 757.11,-724.8"/>
-<polygon fill="black" stroke="black" points="760.29,-726.28 762.07,-715.84 754.17,-722.89 760.29,-726.28"/>
+<path fill="none" stroke="black" d="M796.06,-1054.37C792.87,-994.75 782.44,-799.54 778.51,-726.15"/>
+<polygon fill="black" stroke="black" points="781.99,-725.64 777.96,-715.84 775,-726.01 781.99,-725.64"/>
 </g>
 <!-- contigs -->
 <g id="node5" class="node">
 <title>contigs</title>
-<polygon fill="#94ddf4" stroke="black" points="622,-1054.41 622,-1091.41 690,-1091.41 690,-1054.41 622,-1054.41"/>
-<text text-anchor="middle" x="656" y="-1069.21" font-family="Times,serif" font-size="14.00">contigs</text>
+<polygon fill="#94ddf4" stroke="black" points="672,-1054.41 672,-1091.41 740,-1091.41 740,-1054.41 672,-1054.41"/>
+<text text-anchor="middle" x="706" y="-1069.21" font-family="Times,serif" font-size="14.00">contigs</text>
 </g>
 <!-- contigs&#45;&gt;arriba_fusion_step -->
 <g id="edge22" class="edge">
 <title>contigs&#45;&gt;arriba_fusion_step</title>
-<path fill="none" stroke="black" d="M661.44,-1054.37C679.97,-994.63 740.72,-798.74 763.38,-725.7"/>
-<polygon fill="black" stroke="black" points="766.82,-726.43 766.44,-715.84 760.13,-724.35 766.82,-726.43"/>
+<path fill="none" stroke="black" d="M709.33,-1054.37C720.67,-994.63 757.86,-798.74 771.72,-725.7"/>
+<polygon fill="black" stroke="black" points="775.17,-726.32 773.6,-715.84 768.29,-725.01 775.17,-726.32"/>
 </g>
 <!-- reference_fasta -->
 <g id="node6" class="node">
 <title>reference_fasta</title>
-<polygon fill="#94ddf4" stroke="black" points="708.5,-1054.41 708.5,-1091.41 835.5,-1091.41 835.5,-1054.41 708.5,-1054.41"/>
-<text text-anchor="middle" x="772" y="-1069.21" font-family="Times,serif" font-size="14.00">reference_fasta</text>
+<polygon fill="#94ddf4" stroke="black" points="526.5,-1054.41 526.5,-1091.41 653.5,-1091.41 653.5,-1054.41 526.5,-1054.41"/>
+<text text-anchor="middle" x="590" y="-1069.21" font-family="Times,serif" font-size="14.00">reference_fasta</text>
 </g>
 <!-- reference_fasta&#45;&gt;arriba_fusion_step -->
 <g id="edge23" class="edge">
 <title>reference_fasta&#45;&gt;arriba_fusion_step</title>
-<path fill="none" stroke="black" d="M772,-1054.37C772,-994.75 772,-799.54 772,-726.15"/>
-<polygon fill="black" stroke="black" points="775.5,-725.84 772,-715.84 768.5,-725.84 775.5,-725.84"/>
+<path fill="none" stroke="black" d="M598.77,-1054.37C628.76,-994.39 727.39,-797.13 763.55,-724.8"/>
+<polygon fill="black" stroke="black" points="766.69,-726.35 768.03,-715.84 760.43,-723.22 766.69,-726.35"/>
 </g>
 <!-- output_directory_name_arriba -->
 <g id="node7" class="node">
@@ -140,16 +140,16 @@
 <text text-anchor="middle" x="132" y="-1069.21" font-family="Times,serif" font-size="14.00">output_directory_name_arriba</text>
 </g>
 <!-- create_arriba_output_directory -->
-<g id="node31" class="node">
+<g id="node34" class="node">
 <title>create_arriba_output_directory</title>
-<polygon fill="lightgoldenrodyellow" stroke="black" points="648.5,-310.41 648.5,-347.41 895.5,-347.41 895.5,-310.41 648.5,-310.41"/>
-<text text-anchor="middle" x="772" y="-325.21" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;directory v(1.0.0)</text>
+<polygon fill="lightgoldenrodyellow" stroke="black" points="653.5,-310.41 653.5,-347.41 900.5,-347.41 900.5,-310.41 653.5,-310.41"/>
+<text text-anchor="middle" x="777" y="-325.21" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;directory v(1.0.0)</text>
 </g>
 <!-- output_directory_name_arriba&#45;&gt;create_arriba_output_directory -->
 <g id="edge24" class="edge">
 <title>output_directory_name_arriba&#45;&gt;create_arriba_output_directory</title>
-<path fill="none" stroke="black" d="M141.66,-1054.29C182.9,-980.06 350.97,-687.77 544,-493.91 602.66,-434.99 684.33,-381.8 732.33,-352.85"/>
-<polygon fill="black" stroke="black" points="734.39,-355.69 741.18,-347.56 730.8,-349.69 734.39,-355.69"/>
+<path fill="none" stroke="black" d="M141.83,-1054.3C183.78,-980.13 354.62,-688.01 549,-493.91 607.83,-435.16 689.44,-381.91 737.39,-352.9"/>
+<polygon fill="black" stroke="black" points="739.45,-355.75 746.22,-347.6 735.85,-349.75 739.45,-355.75"/>
 </g>
 <!-- cl_config -->
 <g id="node8" class="node">
@@ -158,7 +158,7 @@
 <text text-anchor="middle" x="3220" y="-1069.21" font-family="Times,serif" font-size="14.00">cl_config</text>
 </g>
 <!-- dragen_qc_step -->
-<g id="node34" class="node">
+<g id="node33" class="node">
 <title>dragen_qc_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="3253.5,-494.41 3253.5,-531.41 3392.5,-531.41 3392.5,-494.41 3253.5,-494.41"/>
 <text text-anchor="middle" x="3323" y="-509.21" font-family="Times,serif" font-size="14.00">multiqc v(1.14.0)</text>
@@ -415,65 +415,59 @@
 <polygon fill="#94ddf4" stroke="black" points="2424.5,-125.41 2424.5,-162.41 2633.5,-162.41 2633.5,-125.41 2424.5,-125.41"/>
 <text text-anchor="middle" x="2529" y="-140.21" font-family="Times,serif" font-size="14.00">qualimap_output_directory</text>
 </g>
-<!-- arriba_fusion_step&#45;&gt;arriba_drawing_step -->
-<g id="edge1" class="edge">
-<title>arriba_fusion_step&#45;&gt;arriba_drawing_step</title>
-<path fill="none" stroke="black" d="M759.49,-678.12C736.78,-645.83 688.67,-577.42 662.27,-539.89"/>
-<polygon fill="black" stroke="black" points="664.98,-537.66 656.37,-531.49 659.26,-541.69 664.98,-537.66"/>
-</g>
-<!-- arriba_fusion_step&#45;&gt;create_arriba_output_directory -->
-<g id="edge2" class="edge">
-<title>arriba_fusion_step&#45;&gt;create_arriba_output_directory</title>
-<path fill="none" stroke="black" d="M768.89,-678.25C764.28,-619.44 764.05,-429.84 768.2,-357.92"/>
-<polygon fill="black" stroke="black" points="771.7,-358.02 768.87,-347.81 764.71,-357.56 771.7,-358.02"/>
-</g>
-<!-- arriba_fusion_step&#45;&gt;create_arriba_output_directory -->
-<g id="edge3" class="edge">
-<title>arriba_fusion_step&#45;&gt;create_arriba_output_directory</title>
-<path fill="none" stroke="black" d="M775.11,-678.25C779.72,-619.44 779.95,-429.84 775.8,-357.92"/>
-<polygon fill="black" stroke="black" points="779.29,-357.56 775.13,-347.81 772.3,-358.02 779.29,-357.56"/>
-</g>
-<!-- arriba_drawing_step&#45;&gt;create_arriba_output_directory -->
-<g id="edge4" class="edge">
-<title>arriba_drawing_step&#45;&gt;create_arriba_output_directory</title>
-<path fill="none" stroke="black" d="M656.51,-494.12C679.22,-461.83 727.33,-393.42 753.73,-355.89"/>
-<polygon fill="black" stroke="black" points="756.74,-357.69 759.63,-347.49 751.02,-353.66 756.74,-357.69"/>
-</g>
-<!-- create_arriba_output_directory&#45;&gt;arriba_output_directory -->
-<g id="edge10" class="edge">
-<title>create_arriba_output_directory&#45;&gt;arriba_output_directory</title>
-<path fill="none" stroke="black" d="M888.89,-310.4C1126.86,-274.76 1664.15,-194.3 1890.44,-160.41"/>
-<polygon fill="black" stroke="black" points="1891.28,-163.83 1900.65,-158.89 1890.24,-156.91 1891.28,-163.83"/>
-</g>
 <!-- run_dragen_transcriptome_step&#45;&gt;dragen_transcriptome_output_directory -->
-<g id="edge9" class="edge">
+<g id="edge5" class="edge">
 <title>run_dragen_transcriptome_step&#45;&gt;dragen_transcriptome_output_directory</title>
 <path fill="none" stroke="black" d="M1892.04,-862.1C1941.81,-764.01 2182.53,-289.67 2242.47,-171.57"/>
 <polygon fill="black" stroke="black" points="2245.68,-172.98 2247.08,-162.48 2239.44,-169.81 2245.68,-172.98"/>
 </g>
-<!-- run_dragen_transcriptome_step&#45;&gt;arriba_fusion_step -->
-<g id="edge5" class="edge">
-<title>run_dragen_transcriptome_step&#45;&gt;arriba_fusion_step</title>
-<path fill="none" stroke="black" d="M1775.97,-862.37C1566.92,-828.13 1105.86,-752.6 889.04,-717.08"/>
-<polygon fill="black" stroke="black" points="889.33,-713.58 878.9,-715.42 888.2,-720.49 889.33,-713.58"/>
-</g>
 <!-- run_dragen_transcriptome_step&#45;&gt;arriba_drawing_step -->
-<g id="edge6" class="edge">
+<g id="edge1" class="edge">
 <title>run_dragen_transcriptome_step&#45;&gt;arriba_drawing_step</title>
-<path fill="none" stroke="black" d="M1823.66,-862.38C1617.69,-801.53 934.22,-599.64 713.43,-534.42"/>
-<polygon fill="black" stroke="black" points="714.17,-530.98 703.59,-531.51 712.18,-537.7 714.17,-530.98"/>
+<path fill="none" stroke="black" d="M1823.9,-862.38C1618.76,-801.53 938.05,-599.64 718.15,-534.42"/>
+<polygon fill="black" stroke="black" points="718.93,-531 708.34,-531.51 716.94,-537.71 718.93,-531"/>
+</g>
+<!-- run_dragen_transcriptome_step&#45;&gt;arriba_fusion_step -->
+<g id="edge2" class="edge">
+<title>run_dragen_transcriptome_step&#45;&gt;arriba_fusion_step</title>
+<path fill="none" stroke="black" d="M1776.45,-862.37C1568.34,-828.13 1109.36,-752.6 893.51,-717.08"/>
+<polygon fill="black" stroke="black" points="893.85,-713.59 883.42,-715.42 892.72,-720.5 893.85,-713.59"/>
 </g>
 <!-- run_dragen_transcriptome_step&#45;&gt;run_qualimap_step -->
-<g id="edge7" class="edge">
+<g id="edge3" class="edge">
 <title>run_dragen_transcriptome_step&#45;&gt;run_qualimap_step</title>
 <path fill="none" stroke="black" d="M1991.96,-862.37C2217.93,-826.01 2733.12,-743.11 2932.81,-710.97"/>
 <polygon fill="black" stroke="black" points="2933.62,-714.39 2942.94,-709.34 2932.51,-707.47 2933.62,-714.39"/>
 </g>
 <!-- run_dragen_transcriptome_step&#45;&gt;dragen_qc_step -->
-<g id="edge8" class="edge">
+<g id="edge4" class="edge">
 <title>run_dragen_transcriptome_step&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M1951.97,-862.38C2191.83,-801.41 2988.85,-598.84 3243.82,-534.03"/>
 <polygon fill="black" stroke="black" points="3244.92,-537.36 3253.75,-531.51 3243.19,-530.58 3244.92,-537.36"/>
+</g>
+<!-- arriba_drawing_step&#45;&gt;create_arriba_output_directory -->
+<g id="edge6" class="edge">
+<title>arriba_drawing_step&#45;&gt;create_arriba_output_directory</title>
+<path fill="none" stroke="black" d="M661.51,-494.12C684.22,-461.83 732.33,-393.42 758.73,-355.89"/>
+<polygon fill="black" stroke="black" points="761.74,-357.69 764.63,-347.49 756.02,-353.66 761.74,-357.69"/>
+</g>
+<!-- arriba_fusion_step&#45;&gt;arriba_drawing_step -->
+<g id="edge7" class="edge">
+<title>arriba_fusion_step&#45;&gt;arriba_drawing_step</title>
+<path fill="none" stroke="black" d="M764.49,-678.12C741.78,-645.83 693.67,-577.42 667.27,-539.89"/>
+<polygon fill="black" stroke="black" points="669.98,-537.66 661.37,-531.49 664.26,-541.69 669.98,-537.66"/>
+</g>
+<!-- arriba_fusion_step&#45;&gt;create_arriba_output_directory -->
+<g id="edge8" class="edge">
+<title>arriba_fusion_step&#45;&gt;create_arriba_output_directory</title>
+<path fill="none" stroke="black" d="M773.89,-678.25C769.28,-619.44 769.05,-429.84 773.2,-357.92"/>
+<polygon fill="black" stroke="black" points="776.7,-358.02 773.87,-347.81 769.71,-357.56 776.7,-358.02"/>
+</g>
+<!-- arriba_fusion_step&#45;&gt;create_arriba_output_directory -->
+<g id="edge9" class="edge">
+<title>arriba_fusion_step&#45;&gt;create_arriba_output_directory</title>
+<path fill="none" stroke="black" d="M780.11,-678.25C784.72,-619.44 784.95,-429.84 780.8,-357.92"/>
+<polygon fill="black" stroke="black" points="784.29,-357.56 780.13,-347.81 777.3,-358.02 784.29,-357.56"/>
 </g>
 <!-- run_qualimap_step&#45;&gt;qualimap_output_directory -->
 <g id="edge12" class="edge">
@@ -492,6 +486,12 @@
 <title>dragen_qc_step&#45;&gt;multiqc_output_directory</title>
 <path fill="none" stroke="black" d="M3295.36,-494.2C3200.99,-433.76 2891.52,-235.55 2785.78,-167.83"/>
 <polygon fill="black" stroke="black" points="2787.67,-164.88 2777.36,-162.43 2783.89,-170.77 2787.67,-164.88"/>
+</g>
+<!-- create_arriba_output_directory&#45;&gt;arriba_output_directory -->
+<g id="edge10" class="edge">
+<title>create_arriba_output_directory&#45;&gt;arriba_output_directory</title>
+<path fill="none" stroke="black" d="M893.42,-310.4C1130.26,-274.79 1664.84,-194.4 1890.44,-160.48"/>
+<polygon fill="black" stroke="black" points="1891.26,-163.89 1900.63,-158.95 1890.22,-156.97 1891.26,-163.89"/>
 </g>
 <!-- create_dummy_file_step -->
 <g id="node35" class="node">
