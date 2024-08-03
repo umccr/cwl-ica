@@ -50,8 +50,13 @@ requirements:
           set -euo pipefail
           
           # Set java opts
+          # Use /scratch if the directory is available
           # Note :- means if TMPDIR is set to "" or undefined use /tmp
-          export JAVA_OPTS="-Djava.io.tmpdir=\${TMPDIR:-/tmp}"
+          if [[ -d "/scratch" ]]; then
+            export JAVA_OPTS="-Djava.io.tmpdir=/scratch"
+          else
+            export JAVA_OPTS="-Djava.io.tmpdir=\${TMPDIR:-/tmp}"
+          fi
           
           # Run qualimap
           qualimap rnaseq --paired "\${@}"

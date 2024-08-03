@@ -168,7 +168,7 @@ tools:
         md5sum: 8a976bbc29b602eca4a36fcde5a51e6d
       - name: 4.2.4
         path: 4.2.4/dragen-somatic__4.2.4.cwl
-        md5sum: 833e6305bad43d281aec9ef3909e8e74
+        md5sum: 56c5a9a13a722e8593c4448039cba61d
     categories: []
   - name: dragen-transcriptome
     path: dragen-transcriptome
@@ -500,7 +500,7 @@ tools:
     versions:
       - name: 2.2.2
         path: 2.2.2/qualimap__2.2.2.cwl
-        md5sum: f1abbae5449aa241845532350d577b55
+        md5sum: c6eae8729c871bc8bf5f3ae0ee64e0e4
     categories: []
   - name: map_resource_requirements
     path: map_resource_requirements
