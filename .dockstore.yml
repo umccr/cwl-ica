@@ -28,6 +28,7 @@ workflows:
         - dragen-alignment-pipeline/4.2.4__20240627051848
         - dragen-alignment-pipeline/4.2.4__20240708034912
         - dragen-alignment-pipeline/4.2.4__20240801063352
+        - dragen-alignment-pipeline/4.2.4__20240803074610
   - name: dragen-transcriptome-pipeline_4_2_4
     subclass: CWL
     primaryDescriptorPath: 
