@@ -41,8 +41,8 @@ requirements:
   ResourceRequirement:
     tmpdirMin: |
       ${
-        /* 1 Tb */
-        return Math.pow(2, 20); 
+        /* 2 Tb */
+        return Math.pow(2, 21); 
       }
   SchemaDefRequirement:
     types:
