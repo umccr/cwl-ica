@@ -3,7 +3,7 @@
 // In CWL, visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
 
 // Imports
-import {File_class, FileProperties as IFile} from "cwl-ts-auto";
+import {File_class, FileProperties as IFile, DirentProperties as IDirectory, Directory_class} from "cwl-ts-auto";
 
 import {readFileSync} from "fs";
 
@@ -11,7 +11,7 @@ import {FastqListRow} from "../../../../schemas/fastq-list-row/1.0.0/fastq-list-
 
 import {
     build_fastq_list_csv_header,
-    generate_fastq_list_csv,
+    generate_fastq_list_csv, generate_ora_mount_points,
     generate_somatic_mount_points,
     get_fastq_list_csv_path,
     get_fastq_list_row_as_csv_row,
@@ -35,9 +35,11 @@ const NORMAL_BAM_INPUT_FILE_WITH_NORMAL_SUFFIX: IFile = {
 }
 
 const FASTQ_LIST_CSV_FILE_PATH = "tests/data/fastq_list.csv"
-
 const FASTQ_LIST_REORDERED_CSV_FILE_PATH = "tests/data/fastq_list.reordered.csv";
 const TUMOR_FASTQ_LIST_CSV_FILE_PATH = "tests/data/tumor_fastq_list.csv";
+const ORA_FASTQ_LIST_CSV_FILE_PATH = "tests/data/fastq_list.ora.csv"
+const MV_ORA_FILE_PATH = "tests/data/mv-ora.sh"
+
 const FASTQ_LIST_CSV_FILE: IFile = {
     class_: File_class.FILE,
     basename: "fastq_list.csv",
@@ -145,6 +147,48 @@ const MOUNT_POINTS_FASTQ_LIST_CSV_INPUT = {
     tumor_fastq_list_rows: null,
     fastq_list: FASTQ_LIST_CSV_FILE,
     tumor_fastq_list: TUMOR_CSV_FILE
+};
+const ORA_RUN_DIRECTORY: IDirectory = {
+    class_: Directory_class.DIRECTORY,
+    location: "data",
+    path: "data",
+    basename: "data",
+    listing: [
+        {
+            class_: File_class.FILE,
+            basename: "MY_SAMPLE_ID_L002_R1_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L002_R1_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L002_R1_001.fastq.gz"
+        },
+        {
+            class_: File_class.FILE,
+            basename: "MY_SAMPLE_ID_L002_R2_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L002_R2_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L002_R2_001.fastq.gz"
+        },
+        {
+            class_: File_class.FILE,
+            basename: "MY_SAMPLE_ID_L004_R1_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L004_R1_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L004_R1_001.fastq.gz"
+        },
+        {
+            class_: File_class.FILE,
+            basename: "MY_SAMPLE_ID_L004_R2_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L004_R2_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L004_R2_001.fastq.gz"
+        },
+    ]
+};
+const EXPECTED_ORA_FASTQ_LIST_CSV_OUTPUT: IFile = {
+    class_: File_class.FILE,
+    basename: "fastq_list.csv",
+    contents: readFileSync(ORA_FASTQ_LIST_CSV_FILE_PATH, "utf8")
+};
+const EXPECTED_ORA_MV_SH_OUTPUT: IFile = {
+    class_: File_class.FILE,
+    basename: "mv-ora-output-files.sh",
+    contents: readFileSync(MV_ORA_FILE_PATH, "utf8")
 };
 
 describe('Test Simple Functions', function () {
@@ -275,6 +319,24 @@ describe('Test generate mount points', function () {
         expect(fastq_list_row_mount_points).toMatchObject(expected_mount_points_object);
     });
     test("Test the generate mount points of the tumor and normal fastq list csv", function () {
+        expect(fastq_list_csv_mount_points).toMatchObject(expected_mount_points_object);
+    });
+});
+
+
+describe('Test ora mount points', function () {
+    const expected_mount_points_object = [
+        {
+            "entryname": "fastq_list.csv",
+            "entry": EXPECTED_ORA_FASTQ_LIST_CSV_OUTPUT
+        },
+        {
+            "entryname": "mv-ora-output-files.sh",
+            "entry": EXPECTED_ORA_MV_SH_OUTPUT
+        }
+    ];
+    const fastq_list_csv_mount_points = generate_ora_mount_points(ORA_RUN_DIRECTORY, "output-directory-path");
+    test("Test the generate mount points of the tumor and normal fastq list rows", function () {
         expect(fastq_list_csv_mount_points).toMatchObject(expected_mount_points_object);
     });
 });

@@ -34,6 +34,14 @@ hints:
         dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
 
 requirements:
+  ResourceRequirement:
+    tmpdirMin: |
+      ${
+        /* 2 Tb */
+        return Math.pow(2, 21); 
+      }
+  LoadListingRequirement:
+    loadListing: deep_listing
   InlineJavascriptRequirement:
     expressionLib:
       - $include: ../../../typescript-expressions/dragen-tools/4.0.3/dragen-tools__4.0.3.cwljs
@@ -47,9 +55,16 @@ requirements:
           # Bash settings
           set -euo pipefail
           
+          # Create directories
+          mkdir --parents \\
+            "$(get_ref_mount())" \\
+            "$(get_ora_intermediate_output_dir())" \\
+            "$(get_intermediate_results_dir())" \\
+            "$(inputs.output_directory_name)"
+          
           # Decompress ora reference tar ball
           echo "\$(date -Iseconds): Decompressing the ORA reference tar ball" 1>&2
-          echo tar \\
+          tar \\
             --directory "$(get_ref_mount())" \\
             --extract \\
             --file "$(inputs.ora_reference.path)"
@@ -57,124 +72,68 @@ requirements:
           # Initialise the dragen box 
           # Ora compress the fastq files  
           echo "\$(date -Iseconds): Initialising Dragen" 1>&2
-          echo /opt/edico/bin/dragen \\
+          /opt/edico/bin/dragen \\
             --partial-reconfig HMM \\
             --ignore-version-check true
           
-          # Step 0: Create the output directory
-          echo "\$(date -Iseconds): Creating the output directory at $(inputs.output_directory_name)" 1>&2
-          mkdir -p "$(inputs.output_directory_name)"
+          echo "\$(date -Iseconds): Ora compressing the fastq files" 1>&2
+          /opt/edico/bin/dragen "\${@}"
           
-          # Step 1: Transfer Interop Reports, and Logs directories
-          echo "\$(date -Iseconds): Transferring InterOp Reports, and Logs directories to $(inputs.output_directory_name)" 1>&2
-          for dir in InterOp Reports Logs; do
-            # Check if the directory exists, skip otherwise
-            if [[ ! -d "$(inputs.instrument_run_directory.path)/\${dir}" ]]; then
-              echo "\$(date -Iseconds): Directory $(inputs.instrument_run_directory.path)/\${dir} does not exist, skipping" 1>&2
-              continue
-            fi
-            # Copy over the directory
-            echo "\$(date -Iseconds): Copying $(inputs.instrument_run_directory.path)/\${dir} to $(inputs.output_directory_name)/\${dir}" 1>&2
-            cp -r "$(inputs.instrument_run_directory.path)/\${dir}/." "$(inputs.output_directory_name)/\${dir}/"
-          done
+          echo "\$(date -Iseconds): Compression complete - moving outputs" 1>&2
           
-          # Step 2: Transfer the fastq files
-          while IFS= read -r -d '' dir; do
-            # Collect the sample id
-            sample_id="\$(basename "\${dir}")"
-            
-            # Collect the lane id
-            lane_dirname="\$(basename "\$(dirname "\${dir}")")"  # Lane_1
-            lane_id="\${lane_dirname##*_}"  # 1
-            
-            # Check if the sample id is in the list of samples to process
-            if [[ "$(is_not_null(inputs.sample_id_list))" == "true" ]]; then
-              SAMPLE_ID_LIST_ARRAY=$(get_str_list_as_bash_array(inputs.sample_id_list, "__"))
-              if [[ ! " \${SAMPLE_ID_LIST_ARRAY[*]} " =~ __\${sample_id}__ ]]; then
-                echo "\$(date -Iseconds): Sample \${sample_id} not in the list of samples to process, skipping" 1>&2
-                continue  
-              fi
-            # Check if this is one of the Undetermined folders
-            elif [[ "\${sample_id}" == "Undetermined" ]]; then
-              continue
-            fi
+          echo "\$(date -Iseconds): Showing outputs" 1>&2
+          find "$(get_ora_intermediate_output_dir())" 1>&2
           
-            # Log statement
-            echo "\$(date -Iseconds): Processing sample \${sample_id} in lane \${lane_id}" 1>&2
+          # Moving the non-fastq files to the output directory
+          echo "\$(date -Iseconds): Moving non-fastq files to the output directory" 1>&2
+          rsync --archive \\
+            --include="*/" \\
+            --exclude="*.fastq.gz" \\
+            "$(inputs.instrument_run_directory.path)/" \\
+            "$(inputs.output_directory_name)/"
           
-            # Create the output directory
-            sample_output_dir="$(inputs.output_directory_name)/Samples/\${lane_dirname}/\${sample_id}"
-            echo "\$(date -Iseconds): Creating the output directory at \${sample_output_dir}" 1>&2
-            mkdir -p "\${sample_output_dir}"
-            
-            # Create a trap to delete the fastq list csv if the script is interrupted
-            trap 'rm -f fastq_list.csv' EXIT
-            
-            # Generate the fastq list csv for this sample
-            echo "\$(date -Iseconds): Generating the fastq list csv for sample \${sample_id} in lane \${lane_id}, based off the fastq list csv in '$(inputs.instrument_run_directory.path)/Reports/fastq_list.csv'" 1>&2
+          # Remove the streaming log none file (as it is not compatible with downstream cwl services)
+          rm -f "$(get_ora_intermediate_output_dir())/streaming_log_none(1000).csv"
           
-            # Get rgid and lane
-            rgids_and_lane_cols="\$( \\
-              grep "\${sample_id},UnknownLibrary,\${lane_id}" < "$(inputs.instrument_run_directory.path)/Reports/fastq_list.csv" | \
-              cut -d',' -f1-4
-            )"
-            
-            # Confirm that the fastq list csv entry exists
-            if [[ -z "\${rgids_and_lane_cols}" ]]; then
-              echo "\$(date -Iseconds): No fastq list csv entry found for sample \${sample_id} in lane \${lane_id}, skipping" 1>&2
-              continue
-            fi
-          
-            # Get the read1 and read2 files
-            read_1_file="\$(
-              find "\${dir}" -type f -name "*_R1_001.fastq.gz" -printf "%p\\n"
-            )"
-            read_2_file="\$(
-              find "\${dir}" -type f -name "*_R2_001.fastq.gz" -printf "%p\\n"
-            )"
-            
-            # Generate the fastq list csv for this sample
-            {
-              echo "RGID,RGSM,RGLB,Lane,Read1File,Read2File"
-              echo "\${rgids_and_lane_cols},\${read_1_file},\${read_2_file}"
-            } > fastq_list.csv
-            
-            # Run the dragen ora step
-            echo "\$(date -Iseconds): Running Dragen ORA for sample \${sample_id} in lane \${lane_id}" 1>&2
-            echo /opt/edico/bin/dragen \\
-              --enable-map-align false \\
-              --fastq-list fastq_list.csv \\
-              --enable-ora true \\
-              --ora-reference "$(get_ref_path(inputs.ora_reference))" \\
-              --output-directory "\${sample_output_dir}" \\
-              --fastq-list-all-samples true
-              
-            # Delete the fastq list csv for this sample
-            rm fastq_list.csv
-          
-            # Exit cleanly
-            trap - EXIT
-          
-          done < <(find "$(inputs.instrument_run_directory.path)/Samples/" -mindepth 2 -maxdepth 2 -type d -print0)
-          
+          # Move the ora files from the scratch space to the output directory 
+          # To where their equivalent fastq files would have been moved to 
+          echo "\$(date -Iseconds): Moving fastq ora files from the scratch space to the output directory" 1>&2
+          bash "$(get_ora_mv_files_script_path())"
+          echo "\$(date -Iseconds): ORA Tool complete" 1>&2
+      - |
+        ${
+          return generate_ora_mount_points(inputs.instrument_run_directory, inputs.output_directory_name);
+        }
 
 baseCommand: ["bash", "run-dragen-instrument-run-fastq-to-ora.sh"]
+
+arguments:
+  - prefix: --enable-map-align=
+    separate: False
+    valueFrom: "false"
+  - prefix: --fastq-list=
+    separate: False
+    valueFrom: fastq_list.csv
+  - prefix: --enable-ora=
+    separate: False
+    valueFrom: "true"
+  - prefix: --intermediate-results-dir=
+    separate: False
+    valueFrom: "$(get_intermediate_results_dir())"
+  - prefix: --output-directory=
+    separate: False
+    valueFrom: "$(get_ora_intermediate_output_dir())"
+  - prefix: --fastq-list-all-samples=
+    separate: False
+    valueFrom: "true"
 
 inputs:
   # Mandatory inputs
   instrument_run_directory:
     label: instrument run directory
     doc: |
-      The directory containing the instrument run. Expected to be in the BCLConvert 4.2.7 output format, with the following structure:
-        Reports/
-        InterOp/
-        Logs/
-        Samples/
-        Samples/Lane_1/
-        Samples/Lane_1/Sample_ID/
-        Samples/Lane_1/Sample_ID/Sample_ID_S1_L001_R1_001.fastq.gz
-        Samples/Lane_1/Sample_ID/Sample_ID_S1_L001_R2_001.fastq.gz
-        etc...
+      The directory containing the fastq files.  
+      The fastq files are compressed using the ORA algorithm.
     type: Directory
   output_directory_name:
     label: output directory name
@@ -186,6 +145,10 @@ inputs:
     doc: |
       The reference to use for the ORA compression
     type: File
+    inputBinding:
+      prefix: --ora-reference=
+      separate: False
+      valueFrom: "$(get_ref_path(self))"
   # Optional inputs
   sample_id_list:
     label: sample id list
@@ -193,6 +156,42 @@ inputs:
       Optional list of samples to process.  
       Samples NOT in this list are NOT compressed AND NOT transferred to the final output directory!
     type: string[]?
+  # CPU
+  ora_parallel_files:
+    label: ora parallel files
+    doc: |
+      The number of files to compress in parallel
+      ORA threads per file is set to 8 by default, 
+      so this value should represent 16 / number of cores available
+    default: 2
+    type: int?
+    inputBinding:
+      prefix: --ora-parallel-files=
+      separate: False
+  ora_threads_per_file:
+    label: ora threads per file
+    doc: |
+      The number of threads to use per file. If using an FPGA medium instance in the 
+      run_dragen_instrument_run_fastq_to_ora_step this should be set to 4 since there are only 16 cores available
+    default: 8
+    type: int?
+    inputBinding:
+      prefix: --ora-threads-per-file=
+      separate: False
+  # Miscellaneous options
+  lic_instance_id_location:
+    label: license instance id location
+    doc: |
+      You may wish to place your own in.
+      Optional value, default set to /opt/instance-identity
+      which is a path inside the dragen container
+    type:
+      - File?
+      - string?
+    default: "/opt/instance-identity"
+    inputBinding:
+      prefix: --lic-instance-id-location=
+      separate: False
 
 outputs:
   # Generate output directory
