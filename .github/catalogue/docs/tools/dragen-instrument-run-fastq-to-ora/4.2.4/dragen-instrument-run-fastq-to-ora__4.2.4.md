@@ -17,7 +17,7 @@ dragen-instrument-run-fastq-to-ora 4.2.4 tool
 
   
 > ID: dragen-instrument-run-fastq-to-ora--4.2.4  
-> md5sum: 22a735c0ef3f851322c8ce20ba2870c1
+> md5sum: d1ffdfc1b6c24e9c740911dad47d8f71
 
 ### dragen-instrument-run-fastq-to-ora v(4.2.4) documentation
   
@@ -51,16 +51,38 @@ Documentation for dragen-instrument-run-fastq-to-ora v4.2.4
 **Optional:** `False`  
 **Type:** `Directory`  
 **Docs:**  
-The directory containing the instrument run. Expected to be in the BCLConvert 4.2.7 output format, with the following structure:
-  Reports/
-  InterOp/
-  Logs/
-  Samples/
-  Samples/Lane_1/
-  Samples/Lane_1/Sample_ID/
-  Samples/Lane_1/Sample_ID/Sample_ID_S1_L001_R1_001.fastq.gz
-  Samples/Lane_1/Sample_ID/Sample_ID_S1_L001_R2_001.fastq.gz
-  etc...
+The directory containing the fastq files.  
+The fastq files are compressed using the ORA algorithm.
+
+
+### license instance id location
+
+
+
+  
+> ID: lic_instance_id_location
+  
+**Optional:** `True`  
+**Type:** `['File', 'string']`  
+**Docs:**  
+You may wish to place your own in.
+Optional value, default set to /opt/instance-identity
+which is a path inside the dragen container
+
+
+### ora parallel files
+
+
+
+  
+> ID: ora_parallel_files
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+The number of files to compress in parallel
+ORA threads per file is set to 8 by default, 
+so this value should represent 16 / number of cores available
 
 
 ### ora reference
@@ -74,6 +96,20 @@ The directory containing the instrument run. Expected to be in the BCLConvert 4.
 **Type:** `File`  
 **Docs:**  
 The reference to use for the ORA compression
+
+
+### ora threads per file
+
+
+
+  
+> ID: ora_threads_per_file
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+The number of threads to use per file. If using an FPGA medium instance in the 
+run_dragen_instrument_run_fastq_to_ora_step this should be set to 4 since there are only 16 cores available
 
 
 ### output directory name
