@@ -3,8 +3,9 @@
 // In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
 // Imports
 import {
-    File_class,
+    File_class, Directory_class,
     FileProperties as IFile,
+    DirectoryProperties as IDirectory,
     DirentProperties as IDirent,
 } from "cwl-ts-auto"
 import {FastqListRow} from "../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0"
@@ -96,6 +97,13 @@ export function get_tumor_fastq_list_csv_path(): string {
     The tumor fastq list path must be placed in working directory
     */
     return "tumor_fastq_list.csv"
+}
+
+export function get_ora_mv_files_script_path(): string {
+    /*
+    Get the ora mv files script path
+    */
+    return "mv-ora-output-files.sh"
 }
 
 export function get_normal_name_from_fastq_list_rows(fastq_list_rows: Array<FastqListRow> | null): string | null {
@@ -464,4 +472,203 @@ export function get_ref_scratch_dir(reference_name: string) {
     // We get the reference scratch directory as a combination of
     // the dragen scratch mount and the reference name
     return get_scratch_mount() + reference_name + "/";
+}
+
+
+export function get_ora_intermediate_output_dir() {
+    return get_scratch_mount() + "ora-outputs/";
+}
+
+export function generate_ora_mv_files_script(fastq_list_rows: FastqListRow[], input_directory: IDirectory, output_directory: string): IFile {
+    /*
+    Generate the shell script with a list of mv commands to move the output files from the scratch space to their
+    original location in the working directory
+    */
+    let ora_mv_files_script = "#!/usr/bin/env bash\n\n"
+
+    ora_mv_files_script += `set -euo pipefail\n\n`
+    ora_mv_files_script += `# Move the output files from the scratch space to the working directory\n`
+
+    for (let fastq_list_row of fastq_list_rows){
+        // Confirm read 1 is a file type
+        if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === File_class.FILE){
+            ora_mv_files_script += `mkdir -p "\$(dirname "${fastq_list_row.read_1.path.replace(input_directory.path, output_directory).replace(".gz", ".ora")}")"\n`
+            ora_mv_files_script += `mv "${get_ora_intermediate_output_dir()}${fastq_list_row.read_1.basename.replace(".gz", ".ora")}" "${fastq_list_row.read_1.path.replace(input_directory.path, output_directory).replace(".gz", ".ora")}"\n`
+        }
+        // Confirm read 2 is a file type
+        if (fastq_list_row.read_2 !== null && "class_" in fastq_list_row.read_2 && fastq_list_row.read_2.class_ === File_class.FILE){
+            ora_mv_files_script += `mv "${get_ora_intermediate_output_dir()}${fastq_list_row.read_2.basename.replace(".gz", ".ora")}" "${fastq_list_row.read_2.path.replace(input_directory.path, output_directory).replace(".gz", ".ora")}"\n`
+        }
+    }
+
+    ora_mv_files_script += `# Transfer all other files\n`
+    ora_mv_files_script += `mv "${get_ora_intermediate_output_dir()}" "${output_directory}/ora-compression-logs/"\n`
+
+    return {
+        class_: File_class.FILE,
+        basename: get_ora_mv_files_script_path(),
+        contents: ora_mv_files_script
+    }
+}
+
+
+export function find_fastq_files_in_directory_recursively_with_regex(input_dir: IDirectory): ({read1obj: IFile, read2obj?: IFile})[] {
+    /*
+    Initialise the output file object
+    */
+    const read_1_file_list: IFile[] = []
+    const read_2_file_list: IFile[] = []
+    const output_file_objs: ({read1obj: IFile, read2obj?: IFile})[] = []
+
+    const fastq_file_regex = /\.fastq\.gz$/
+    const r1_fastq_file_regex = /_R1_001\.fastq\.gz$/
+    const r2_fastq_file_regex = /_R2_001\.fastq\.gz$/
+
+    /*
+    Check input_dir is a directory and has a listing
+    */
+    if (input_dir.class_ === undefined || input_dir.class_ !== Directory_class.DIRECTORY){
+        throw new Error("Could not confirm that the first argument was a directory")
+    }
+    if (input_dir.listing === undefined || input_dir.listing === null){
+        throw new Error(`Could not collect listing from directory "${input_dir.basename}"`)
+    }
+
+    /*
+    Collect listing as a variable
+    */
+    const input_listing: (IDirectory | IFile)[] = input_dir.listing
+
+    /*
+    Iterate through the file listing
+    */
+    for (const listing_item of input_listing) {
+        if (listing_item.class_ === File_class.FILE && fastq_file_regex.test(<string>listing_item.basename)){
+            /*
+            Got the file of interest and the file basename matches the file regex
+            */
+            /*
+            Check if the file is read 1 or read 2
+            */
+            if (r1_fastq_file_regex.test(<string>listing_item.basename)){
+                read_1_file_list.push(<IFile>listing_item)
+            }
+            if (r2_fastq_file_regex.test(<string>listing_item.basename)){
+                read_2_file_list.push(<IFile>listing_item)
+            }
+        }
+        if (listing_item.class_ === Directory_class.DIRECTORY){
+            const subdirectory_list = <IDirectory>listing_item
+            try {
+                // Consider that the file might not be in this subdirectory and that is okay
+                output_file_objs.push(...find_fastq_files_in_directory_recursively_with_regex(subdirectory_list))
+            } catch (error){
+                // Dont need to report an error though, just continue
+            }
+        }
+    }
+
+    // Iterate over all the read 1 files and try to find a matching read 2 file
+    for (const read_1_file of read_1_file_list){
+        let read_2_file: IFile | undefined = undefined
+        for (const read_2_file_candidate of read_2_file_list){
+            if (read_1_file.basename?.replace("R1_001.fastq.gz", "R2_001.fastq.gz") === read_2_file_candidate.basename){
+                read_2_file = read_2_file_candidate
+                break
+            }
+        }
+        output_file_objs.push({read1obj: read_1_file, read2obj: read_2_file})
+    }
+
+    // Return the output file object
+    return output_file_objs
+}
+
+
+export function get_rgsm_value_from_fastq_file_name(fastq_file_name: string): string {
+    // Get the RGID value from the fastq file name
+    const rgid_regex = /(.+?)(?:_S\d+)?(?:_L00\d)?_R[12]_001\.fastq\.gz$/
+    const rgid_expression = rgid_regex.exec(fastq_file_name)
+    if (rgid_expression === null){
+        throw new Error(`Could not get rgid from ${fastq_file_name}`)
+    }
+    return rgid_expression[1]
+}
+
+export function get_lane_value_from_fastq_file_name(fastq_file_name: string): number {
+    // Get the lane value from the fastq file name
+    const lane_regex = /(?:.+?)(?:_S\d+)?_L00(\d)_R[12]_001\.fastq\.gz$/
+    const lane_expression = lane_regex.exec(fastq_file_name)
+    if (lane_expression === null){
+        return 1
+    } else {
+        console.log(lane_expression)
+        return parseInt(lane_expression[1])
+    }
+}
+
+export function generate_ora_mount_points(input_run: IDirectory, output_directory_path: string, sample_id_list?: string): Array<IDirent> {
+    /*
+    Three main parts
+
+    1. Collect the fastq files
+    2. For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary to make a fastq list row
+    3. Generate the fastq list csv file
+    */
+
+    // Collect the fastq files
+    const fastq_files_pairs: ({read1obj: IFile, read2obj?: IFile})[] = find_fastq_files_in_directory_recursively_with_regex(input_run)
+
+    // For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary
+    const fastq_list_rows: FastqListRow[] = []
+    for (const fastq_files_pair of fastq_files_pairs){
+        const rgsm_value = get_rgsm_value_from_fastq_file_name(<string>fastq_files_pair.read1obj.basename)
+        // Skip fastq list pair if sample_id_list is defined and the rgsm_value is not in the list
+        if (sample_id_list !== undefined && sample_id_list !== null && sample_id_list !== "" && sample_id_list.indexOf(rgsm_value) === -1){
+            continue
+        }
+        // Remove undetermined files from the list of fastqs to process (they are often empty)
+        if (rgsm_value === "Undetermined") {
+            continue
+        }
+        // Check if we have the size attribute and if so check if it is greater than 0
+        if (fastq_files_pair.read1obj.size !== null && fastq_files_pair.read1obj.size !== undefined && fastq_files_pair.read1obj.size == 0){
+            continue
+        }
+        // Repeat the condition for read 2 although also ensure that read 2 is also actually defined
+        if (fastq_files_pair.read2obj !== undefined && fastq_files_pair.read2obj !== null){
+            if (fastq_files_pair.read2obj.size !== null && fastq_files_pair.read2obj.size !== undefined && fastq_files_pair.read2obj.size == 0){
+                continue
+            }
+        }
+        const lane_value = get_lane_value_from_fastq_file_name(<string>fastq_files_pair.read1obj.basename)
+        const fastq_list_row: FastqListRow = {
+            rgid: lane_value.toString() + '.' + rgsm_value,
+            rgsm: rgsm_value,
+            rglb: "UnknownLibrary",
+            lane: lane_value,
+            read_1: fastq_files_pair.read1obj,
+            read_2: <IFile>fastq_files_pair.read2obj
+        }
+        fastq_list_rows.push(fastq_list_row)
+    }
+
+    // Initialise dirent
+    const e = [];
+
+    // Generate the fastq list csv file
+    e.push({
+        "entryname": get_fastq_list_csv_path(),
+        "entry": generate_fastq_list_csv(fastq_list_rows)
+    });
+
+    // Generate the script to then move the files from the scratch space to the working directory
+    e.push({
+        "entryname": get_ora_mv_files_script_path(),
+        "entry": generate_ora_mv_files_script(fastq_list_rows, input_run, output_directory_path)
+    })
+
+    // Return the dirent
+    // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
+    return e;
 }

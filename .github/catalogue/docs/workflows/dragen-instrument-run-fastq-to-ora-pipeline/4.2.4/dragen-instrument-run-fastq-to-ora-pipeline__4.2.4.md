@@ -4,24 +4,24 @@ dragen-instrument-run-fastq-to-ora-pipeline 4.2.4 workflow
 
 ## Table of Contents
   
-- [Overview](#dragen-instrument-run-fastq-to-ora-v424-overview)  
+- [Overview](#dragen-instrument-run-fastq-to-ora-v424-pipeline-overview)  
 - [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-instrument-run-fastq-to-ora-v424-inputs)  
-- [Steps](#dragen-instrument-run-fastq-to-ora-v424-steps)  
-- [Outputs](#dragen-instrument-run-fastq-to-ora-v424-outputs)  
+- [Inputs](#dragen-instrument-run-fastq-to-ora-v424-pipeline-inputs)  
+- [Steps](#dragen-instrument-run-fastq-to-ora-v424-pipeline-steps)  
+- [Outputs](#dragen-instrument-run-fastq-to-ora-v424-pipeline-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-instrument-run-fastq-to-ora v(4.2.4) Overview
+## dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline Overview
 
 
 
   
-> ID: dragen-instrument-run-fastq-to-ora--4.2.4  
-> md5sum: 9d3fba4b82426f5c8b653ed2a957a2cc
+> ID: dragen-instrument-run-fastq-to-ora-pipeline--4.2.4  
+> md5sum: 0cd9b9e27eb0ba79fb5ebd7914dd4b24
 
-### dragen-instrument-run-fastq-to-ora v(4.2.4) documentation
+### dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline documentation
   
 This tool can be used for archiving purposes by first compressing fastqs prior to transfer to a long-term storage location.
 
@@ -44,7 +44,7 @@ This tool can be used for archiving purposes by first compressing fastqs prior t
   
 
 
-## dragen-instrument-run-fastq-to-ora v(4.2.4) Inputs
+## dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline Inputs
 
 ### instrument run directory
 
@@ -68,6 +68,20 @@ The directory containing the instrument run. Expected to be in the BCLConvert 4.
   etc...
 
 
+### ora parallel files
+
+
+
+  
+> ID: ora_parallel_files
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+The number of files to compress in parallel. If using an FPGA medium instance in the 
+run_dragen_instrument_run_fastq_to_ora_step this should be set to 16 / ora_threads_per_file.
+
+
 ### ora reference
 
 
@@ -79,6 +93,20 @@ The directory containing the instrument run. Expected to be in the BCLConvert 4.
 **Type:** `File`  
 **Docs:**  
 The reference tar to use for the ORA compression
+
+
+### ora threads per file
+
+
+
+  
+> ID: ora_threads_per_file
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+The number of threads to use per file. If using an FPGA medium instance in the 
+run_dragen_instrument_run_fastq_to_ora_step this should be set to 4 since there are only 16 cores available
 
 
 ### sample id list
@@ -97,13 +125,13 @@ Samples NOT in this list are NOT compressed AND NOT transferred to the final out
   
 
 
-## dragen-instrument-run-fastq-to-ora v(4.2.4) Steps
+## dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline Steps
 
 ### Run Dragen Instrument Run Fastq to ORA
 
 
   
-> ID: dragen-instrument-run-fastq-to-ora--4.2.4/run_dragen_instrument_run_fastq_to_ora_step
+> ID: dragen-instrument-run-fastq-to-ora-pipeline--4.2.4/run_dragen_instrument_run_fastq_to_ora_step
   
 **Step Type:** tool  
 **Docs:**
@@ -116,14 +144,14 @@ Run the dragen instrument run fastq to ora tool
 [CWL File Help Page](../../../tools/dragen-instrument-run-fastq-to-ora/4.2.4/dragen-instrument-run-fastq-to-ora__4.2.4.md)  
 
 
-## dragen-instrument-run-fastq-to-ora v(4.2.4) Outputs
+## dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline Outputs
 
 ### output directory
 
 
 
   
-> ID: dragen-instrument-run-fastq-to-ora--4.2.4/output_directory  
+> ID: dragen-instrument-run-fastq-to-ora-pipeline--4.2.4/output_directory  
 
   
 **Optional:** `False`  

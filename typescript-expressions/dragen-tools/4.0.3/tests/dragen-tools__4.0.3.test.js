@@ -20,6 +20,8 @@ var NORMAL_BAM_INPUT_FILE_WITH_NORMAL_SUFFIX = {
 var FASTQ_LIST_CSV_FILE_PATH = "tests/data/fastq_list.csv";
 var FASTQ_LIST_REORDERED_CSV_FILE_PATH = "tests/data/fastq_list.reordered.csv";
 var TUMOR_FASTQ_LIST_CSV_FILE_PATH = "tests/data/tumor_fastq_list.csv";
+var ORA_FASTQ_LIST_CSV_FILE_PATH = "tests/data/fastq_list.ora.csv";
+var MV_ORA_FILE_PATH = "tests/data/mv-ora.sh";
 var FASTQ_LIST_CSV_FILE = {
     class_: cwl_ts_auto_1.File_class.FILE,
     basename: "fastq_list.csv",
@@ -127,6 +129,48 @@ var MOUNT_POINTS_FASTQ_LIST_CSV_INPUT = {
     tumor_fastq_list_rows: null,
     fastq_list: FASTQ_LIST_CSV_FILE,
     tumor_fastq_list: TUMOR_CSV_FILE
+};
+var ORA_RUN_DIRECTORY = {
+    class_: cwl_ts_auto_1.Directory_class.DIRECTORY,
+    location: "data",
+    path: "data",
+    basename: "data",
+    listing: [
+        {
+            class_: cwl_ts_auto_1.File_class.FILE,
+            basename: "MY_SAMPLE_ID_L002_R1_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L002_R1_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L002_R1_001.fastq.gz"
+        },
+        {
+            class_: cwl_ts_auto_1.File_class.FILE,
+            basename: "MY_SAMPLE_ID_L002_R2_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L002_R2_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L002_R2_001.fastq.gz"
+        },
+        {
+            class_: cwl_ts_auto_1.File_class.FILE,
+            basename: "MY_SAMPLE_ID_L004_R1_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L004_R1_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L004_R1_001.fastq.gz"
+        },
+        {
+            class_: cwl_ts_auto_1.File_class.FILE,
+            basename: "MY_SAMPLE_ID_L004_R2_001.fastq.gz",
+            path: "data/MY_SAMPLE_ID_L004_R2_001.fastq.gz",
+            location: "data/MY_SAMPLE_ID_L004_R2_001.fastq.gz"
+        },
+    ]
+};
+var EXPECTED_ORA_FASTQ_LIST_CSV_OUTPUT = {
+    class_: cwl_ts_auto_1.File_class.FILE,
+    basename: "fastq_list.csv",
+    contents: (0, fs_1.readFileSync)(ORA_FASTQ_LIST_CSV_FILE_PATH, "utf8")
+};
+var EXPECTED_ORA_MV_SH_OUTPUT = {
+    class_: cwl_ts_auto_1.File_class.FILE,
+    basename: "mv-ora-output-files.sh",
+    contents: (0, fs_1.readFileSync)(MV_ORA_FILE_PATH, "utf8")
 };
 describe('Test Simple Functions', function () {
     // Simple expected outputs
@@ -251,6 +295,22 @@ describe('Test generate mount points', function () {
         expect(fastq_list_row_mount_points).toMatchObject(expected_mount_points_object);
     });
     test("Test the generate mount points of the tumor and normal fastq list csv", function () {
+        expect(fastq_list_csv_mount_points).toMatchObject(expected_mount_points_object);
+    });
+});
+describe('Test ora mount points', function () {
+    var expected_mount_points_object = [
+        {
+            "entryname": "fastq_list.csv",
+            "entry": EXPECTED_ORA_FASTQ_LIST_CSV_OUTPUT
+        },
+        {
+            "entryname": "mv-ora-output-files.sh",
+            "entry": EXPECTED_ORA_MV_SH_OUTPUT
+        }
+    ];
+    var fastq_list_csv_mount_points = (0, dragen_tools__4_0_3_1.generate_ora_mount_points)(ORA_RUN_DIRECTORY, "output-directory-path");
+    test("Test the generate mount points of the tumor and normal fastq list rows", function () {
         expect(fastq_list_csv_mount_points).toMatchObject(expected_mount_points_object);
     });
 });

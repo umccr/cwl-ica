@@ -16,10 +16,14 @@ s:author:
     s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-instrument-run-fastq-to-ora--4.2.4
-label: dragen-instrument-run-fastq-to-ora v(4.2.4)
+id: dragen-instrument-run-fastq-to-ora-pipeline--4.2.4
+label: dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline
 doc: |
     This tool can be used for archiving purposes by first compressing fastqs prior to transfer to a long-term storage location.
+
+hints:
+  ResourceRequirement:
+    ilmn-tes:resources/storage: Large  # One of Small, Medium, Large, XLarge, 2XLarge, 3XLarge
 
 requirements:
   StepInputExpressionRequirement: {}
@@ -53,6 +57,21 @@ inputs:
       Optional list of samples to process.  
       Samples NOT in this list are NOT compressed AND NOT transferred to the final output directory!
     type: string[]?
+  # CPU Configurations
+  ora_parallel_files:
+    label: ora parallel files
+    doc: |
+      The number of files to compress in parallel. If using an FPGA medium instance in the 
+      run_dragen_instrument_run_fastq_to_ora_step this should be set to 16 / ora_threads_per_file.
+    type: int?
+    default: 2
+  ora_threads_per_file:
+    label: ora threads per file
+    doc: |
+      The number of threads to use per file. If using an FPGA medium instance in the 
+      run_dragen_instrument_run_fastq_to_ora_step this should be set to 4 since there are only 16 cores available
+    type: int?
+    default: 8
 
 steps:
   # Run Dragen Instrument Run Fastq to ORA
@@ -73,6 +92,10 @@ steps:
         source: ora_reference
       sample_id_list:
         source: sample_id_list
+      ora_parallel_files:
+        source: ora_parallel_files
+      ora_threads_per_file:
+        source: ora_threads_per_file
     out:
       - id: output_directory
     run: ../../../tools/dragen-instrument-run-fastq-to-ora/4.2.4/dragen-instrument-run-fastq-to-ora__4.2.4.cwl
