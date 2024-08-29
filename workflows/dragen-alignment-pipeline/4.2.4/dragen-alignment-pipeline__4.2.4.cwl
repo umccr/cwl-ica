@@ -83,15 +83,10 @@ inputs:
       Use to supply a gene annotation file. Required for quantification and gene-fusion.
     type: File?
   # Output naming options
-  output_file_prefix:
-    label: output file prefix
+  output_prefix:
+    label: output prefix
     doc: |
       The prefix given to all output files
-    type: string
-  output_directory:
-    label: output directory
-    doc: |
-      The directory where all output files are placed
     type: string
   ### Start mapper options ###
   ann_sj_max_indel:
@@ -430,9 +425,10 @@ steps:
       annotation_file:
         source: annotation_file
       output_file_prefix:
-        source: output_file_prefix
+        source: output_prefix
       output_directory:
-        source: output_directory
+        source: output_prefix
+        valueFrom: "$(self)_dragen_alignment"
       ann_sj_max_indel:
         source: ann_sj_max_indel
       edit_chain_limit:
@@ -559,13 +555,13 @@ steps:
             return [self];
           }
       output_directory_name:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "$(self)_dragen_alignment_multiqc"
       output_filename:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "$(self)_dragen_alignment_multiqc.html"
       title:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "UMCCR MultiQC Dragen Alignment Report for $(self)"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output

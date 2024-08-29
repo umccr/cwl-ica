@@ -75,15 +75,10 @@ inputs:
     type: File
 
   # Output naming options
-  output_file_prefix:
-    label: output file prefix
+  output_prefix:
+    label: output prefix
     doc: |
       The prefix given to all output files
-    type: string
-  output_directory:
-    label: output directory
-    doc: |
-      The directory where all output files are placed
     type: string
 
   # Optional operation modes
@@ -473,9 +468,10 @@ steps:
       reference_tar:
         source: reference_tar
       output_file_prefix:
-        source: output_file_prefix
+        source: output_prefix
       output_directory:
         source: output_directory
+        valueFrom: "$(self)_dragen_germline"
       enable_map_align_output:
         source: enable_map_align_output
       enable_duplicate_marking:
@@ -600,13 +596,13 @@ steps:
             return [self];
           }
       output_directory_name:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "$(self)_dragen_germline_multiqc"
       output_filename:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "$(self)_dragen_germline_multiqc.html"
       title:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "UMCCR MultiQC Dragen Germline Report for $(self)"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
