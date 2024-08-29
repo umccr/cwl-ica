@@ -11,6 +11,9 @@ exports.get_dragen_eval_line = get_dragen_eval_line;
 exports.get_fastq_list_csv_path = get_fastq_list_csv_path;
 exports.get_tumor_fastq_list_csv_path = get_tumor_fastq_list_csv_path;
 exports.get_ora_mv_files_script_path = get_ora_mv_files_script_path;
+exports.get_new_fastq_list_csv_script_path = get_new_fastq_list_csv_script_path;
+exports.get_fastq_gz_md5sum_files_script_path = get_fastq_gz_md5sum_files_script_path;
+exports.get_fastq_ora_md5sum_files_script_path = get_fastq_ora_md5sum_files_script_path;
 exports.get_normal_name_from_fastq_list_rows = get_normal_name_from_fastq_list_rows;
 exports.get_normal_name_from_fastq_list_csv = get_normal_name_from_fastq_list_csv;
 exports.get_normal_output_prefix = get_normal_output_prefix;
@@ -25,6 +28,9 @@ exports.get_mask_dir = get_mask_dir;
 exports.get_ref_scratch_dir = get_ref_scratch_dir;
 exports.get_ora_intermediate_output_dir = get_ora_intermediate_output_dir;
 exports.generate_ora_mv_files_script = generate_ora_mv_files_script;
+exports.generate_fastq_gz_md5sum_files_script = generate_fastq_gz_md5sum_files_script;
+exports.generate_fastq_ora_md5sum_files_script = generate_fastq_ora_md5sum_files_script;
+exports.generate_new_fastq_list_csv_script = generate_new_fastq_list_csv_script;
 exports.find_fastq_files_in_directory_recursively_with_regex = find_fastq_files_in_directory_recursively_with_regex;
 exports.get_rgsm_value_from_fastq_file_name = get_rgsm_value_from_fastq_file_name;
 exports.get_lane_value_from_fastq_file_name = get_lane_value_from_fastq_file_name;
@@ -103,6 +109,24 @@ function get_ora_mv_files_script_path() {
     Get the ora mv files script path
     */
     return "mv-ora-output-files.sh";
+}
+function get_new_fastq_list_csv_script_path() {
+    /*
+    Get the new fastq list csv script path
+    */
+    return "generate-new-fastq-list-csv.sh";
+}
+function get_fastq_gz_md5sum_files_script_path() {
+    /*
+    Get the script path to generating the md5sum for each fastq gzip file
+    */
+    return "generate-md5sum-for-fastq-gz-files.sh";
+}
+function get_fastq_ora_md5sum_files_script_path() {
+    /*
+    Get the script path for generating the md5sum for each fastq ora file
+    */
+    return "generate-md5sum-for-fastq-ora-files.sh";
 }
 function get_normal_name_from_fastq_list_rows(fastq_list_rows) {
     /*
@@ -427,8 +451,8 @@ function get_ora_intermediate_output_dir() {
 }
 function generate_ora_mv_files_script(fastq_list_rows, input_directory, output_directory) {
     /*
-    Generate the shell script with a list of mv commands to move the output files from the scratch space to their
-    original location in the working directory
+    Generate the shell script with a list of echo commands to write a new fastq list csv to stdout, however
+    the fastq list csv contains the ora files as outputs instead
     */
     var ora_mv_files_script = "#!/usr/bin/env bash\n\n";
     ora_mv_files_script += "set -euo pipefail\n\n";
@@ -451,6 +475,95 @@ function generate_ora_mv_files_script(fastq_list_rows, input_directory, output_d
         class_: cwl_ts_auto_1.File_class.FILE,
         basename: get_ora_mv_files_script_path(),
         contents: ora_mv_files_script
+    };
+}
+function generate_fastq_gz_md5sum_files_script(fastq_list_rows, input_directory) {
+    /*
+    Generate the fastq gzip md5sum files script command, results are printed to stdout
+    */
+    var get_md5sum_fastq_gz_script = "#!/usr/bin/env bash\n\n";
+    get_md5sum_fastq_gz_script += "set -euo pipefail\n\n";
+    get_md5sum_fastq_gz_script += "# Generate md5sums for the input fastq gz files\n";
+    get_md5sum_fastq_gz_script += "# Change directory to the input directory to get relative outputs\n";
+    get_md5sum_fastq_gz_script += "cd \"".concat(input_directory.path, "\"\n");
+    for (var _i = 0, fastq_list_rows_4 = fastq_list_rows; _i < fastq_list_rows_4.length; _i++) {
+        var fastq_list_row = fastq_list_rows_4[_i];
+        // Confirm read 1 is a file type
+        if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === cwl_ts_auto_1.File_class.FILE) {
+            get_md5sum_fastq_gz_script += "md5sum \"".concat(fastq_list_row.read_1.path.replace(input_directory.path + "/", ''), "\"\n");
+        }
+        // Confirm read 2 is a file type
+        if (fastq_list_row.read_2 !== null && "class_" in fastq_list_row.read_2 && fastq_list_row.read_2.class_ === cwl_ts_auto_1.File_class.FILE) {
+            get_md5sum_fastq_gz_script += "md5sum \"".concat(fastq_list_row.read_2.path.replace(input_directory.path + "/", ''), "\"\n");
+        }
+    }
+    get_md5sum_fastq_gz_script += "# Md5sum script complete\n";
+    return {
+        class_: cwl_ts_auto_1.File_class.FILE,
+        basename: get_fastq_gz_md5sum_files_script_path(),
+        contents: get_md5sum_fastq_gz_script
+    };
+}
+function generate_fastq_ora_md5sum_files_script(fastq_list_rows, input_directory, output_directory) {
+    /*
+    Generate the fastq ora md5sum files script command, results are printed to stdout
+    */
+    var get_md5sum_fastq_ora_script = "#!/usr/bin/env bash\n\n";
+    get_md5sum_fastq_ora_script += "set -euo pipefail\n\n";
+    get_md5sum_fastq_ora_script += "# Generate md5sums for the output fastq ora files\n";
+    get_md5sum_fastq_ora_script += "# Change directory to the output directory to get relative md5sum\n";
+    get_md5sum_fastq_ora_script += "cd \"".concat(output_directory, "\"\n");
+    for (var _i = 0, fastq_list_rows_5 = fastq_list_rows; _i < fastq_list_rows_5.length; _i++) {
+        var fastq_list_row = fastq_list_rows_5[_i];
+        // Confirm read 1 is a file type
+        if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === cwl_ts_auto_1.File_class.FILE) {
+            get_md5sum_fastq_ora_script += "md5sum \"".concat(fastq_list_row.read_1.path.replace(input_directory.path + "/", '').replace(".gz", ".ora"), "\"\n");
+        }
+        // Confirm read 2 is a file type
+        if (fastq_list_row.read_2 !== null && "class_" in fastq_list_row.read_2 && fastq_list_row.read_2.class_ === cwl_ts_auto_1.File_class.FILE) {
+            get_md5sum_fastq_ora_script += "md5sum \"".concat(fastq_list_row.read_2.path.replace(input_directory.path + "/", '').replace(".gz", ".ora"), "\"\n");
+        }
+    }
+    get_md5sum_fastq_ora_script += "# Md5sum script complete\n";
+    return {
+        class_: cwl_ts_auto_1.File_class.FILE,
+        basename: get_fastq_ora_md5sum_files_script_path(),
+        contents: get_md5sum_fastq_ora_script
+    };
+}
+function generate_new_fastq_list_csv_script(fastq_list_rows, input_directory) {
+    /*
+    Generate the shell script with a list of mv commands to move the output files from the scratch space to their
+    original location in the working directory
+    */
+    var new_fastq_list_csv_script = "#!/usr/bin/env bash\n\n";
+    new_fastq_list_csv_script += "set -euo pipefail\n\n";
+    new_fastq_list_csv_script += "# Generate a new fastq list csv script\n";
+    new_fastq_list_csv_script += "# Initialise header\n";
+    new_fastq_list_csv_script += "echo \"RGID,RGLB,RGSM,Read1File,Read2File\"\n";
+    for (var _i = 0, fastq_list_rows_6 = fastq_list_rows; _i < fastq_list_rows_6.length; _i++) {
+        var fastq_list_row = fastq_list_rows_6[_i];
+        // Initialise echo line
+        var echo_line = "echo \"".concat(fastq_list_row.rgid, ",").concat(fastq_list_row.rglb, ",").concat(fastq_list_row.rgsm, ",");
+        // Confirm read 1 is a file type
+        if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === cwl_ts_auto_1.File_class.FILE) {
+            echo_line += "".concat(fastq_list_row.read_1.path.replace(input_directory.path + "/", '').replace(".gz", ".ora"), ",");
+        }
+        else {
+            echo_line += ',';
+        }
+        // Confirm read 2 is a file type
+        if (fastq_list_row.read_2 !== null && "class_" in fastq_list_row.read_2 && fastq_list_row.read_2.class_ === cwl_ts_auto_1.File_class.FILE) {
+            echo_line += "".concat(fastq_list_row.read_2.path.replace(input_directory.path + "/", '').replace(".gz", ".ora"));
+        }
+        // Finish off echo line
+        echo_line += "\"\n";
+        new_fastq_list_csv_script += echo_line;
+    }
+    return {
+        class_: cwl_ts_auto_1.File_class.FILE,
+        basename: get_new_fastq_list_csv_script_path(),
+        contents: new_fastq_list_csv_script
     };
 }
 function find_fastq_files_in_directory_recursively_with_regex(input_dir) {
@@ -571,7 +684,7 @@ function generate_ora_mount_points(input_run, output_directory_path, sample_id_l
         if (fastq_files_pair.read1obj.size !== null && fastq_files_pair.read1obj.size !== undefined && fastq_files_pair.read1obj.size == 0) {
             continue;
         }
-        // Repeat the condition for read 2 although also ensure that read 2 is actually defined
+        // Repeat the condition for read 2 although also ensure that read 2 is also actually defined
         if (fastq_files_pair.read2obj !== undefined && fastq_files_pair.read2obj !== null) {
             if (fastq_files_pair.read2obj.size !== null && fastq_files_pair.read2obj.size !== undefined && fastq_files_pair.read2obj.size == 0) {
                 continue;
@@ -599,6 +712,21 @@ function generate_ora_mount_points(input_run, output_directory_path, sample_id_l
     e.push({
         "entryname": get_ora_mv_files_script_path(),
         "entry": generate_ora_mv_files_script(fastq_list_rows, input_run, output_directory_path)
+    });
+    // Generate the script to generate the new output fastq list csv
+    e.push({
+        "entryname": get_new_fastq_list_csv_script_path(),
+        "entry": generate_new_fastq_list_csv_script(fastq_list_rows, input_run)
+    });
+    // Generate the script to generate the md5sums of the input gzipped fastq files
+    e.push({
+        "entryname": get_fastq_gz_md5sum_files_script_path(),
+        "entry": generate_fastq_gz_md5sum_files_script(fastq_list_rows, input_run)
+    });
+    // Generate the script to generate the md5sums of the output ora fastq files
+    e.push({
+        "entryname": get_fastq_ora_md5sum_files_script_path(),
+        "entry": generate_fastq_ora_md5sum_files_script(fastq_list_rows, input_run, output_directory_path)
     });
     // Return the dirent
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'

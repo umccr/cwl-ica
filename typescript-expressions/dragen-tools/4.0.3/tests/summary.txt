@@ -1,4 +1,4 @@
-# Test started at 2024-08-17T21:51:02+10:00
+# Test started at 2024-08-29T17:05:15+10:00
 
 PASS tests/dragen-tools__4.0.3.test.js
   ● Console
@@ -12,7 +12,7 @@ PASS tests/dragen-tools__4.0.3.test.js
         groups: undefined
       ]
 
-      at log (dragen-tools__4.0.3.js:543:17)
+      at log (dragen-tools__4.0.3.js:656:17)
 
     console.log
       [
@@ -23,27 +23,27 @@ PASS tests/dragen-tools__4.0.3.test.js
         groups: undefined
       ]
 
-      at log (dragen-tools__4.0.3.js:543:17)
+      at log (dragen-tools__4.0.3.js:656:17)
 
 FAIL tests/dragen-tools__4.0.3.test.ts
   ● Test suite failed to run
 
-    [96mtests/dragen-tools__4.0.3.test.ts[0m:[93m152[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'class_' does not exist in type 'DirentProperties'.
+    [96mtests/dragen-tools__4.0.3.test.ts[0m:[93m155[0m:[93m5[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'class_' does not exist in type 'DirentProperties'.
 
-    [7m152[0m     class_: Directory_class.DIRECTORY,
+    [7m155[0m     class_: Directory_class.DIRECTORY,
     [7m   [0m [91m    ~~~~~~[0m
 
 
 =============================== Coverage summary ===============================
-Statements   : 83.47% ( 202/242 )
-Branches     : 69.17% ( 92/133 )
-Functions    : 63.33% ( 19/30 )
-Lines        : 81.81% ( 180/220 )
+Statements   : 86.42% ( 261/302 )
+Branches     : 70.62% ( 113/160 )
+Functions    : 69.44% ( 25/36 )
+Lines        : 85.03% ( 233/274 )
 ================================================================================
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       16 passed, 16 total
 Snapshots:   0 total
-Time:        1.989 s
+Time:        1.954 s
 Ran all test suites.
-# Test completed at 2024-08-17T21:51:06+10:00
+# Test completed at 2024-08-29T17:05:19+10:00
 
