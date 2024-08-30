@@ -726,7 +726,7 @@ function generate_ora_mount_points(input_run, output_directory_path, sample_id_l
     // Generate the script to generate the md5sums of the output ora fastq files
     e.push({
         "entryname": get_fastq_ora_md5sum_files_script_path(),
-        "entry": generate_fastq_ora_md5sum_files_script(fastq_list_rows, input_run, output_directory_path)
+        "entry": generate_fastq_ora_md5sum_files_script(fastq_list_rows, input_run, get_ora_intermediate_output_dir())
     });
     // Return the dirent
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'

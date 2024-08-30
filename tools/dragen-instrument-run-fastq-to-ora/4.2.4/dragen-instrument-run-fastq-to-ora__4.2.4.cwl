@@ -78,27 +78,27 @@ requirements:
           
           (
             echo "\$(date -Iseconds): Collecting md5sums of gzipped fastq files" 1>&2 && \\
-            bash "$(get_fastq_gz_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.md5" \\
+            bash "$(get_fastq_gz_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.md5" && \\
+            echo "\$(date -Iseconds): Md5sum complete" 1>&2 \\
           ) & \\
           (
             echo "\$(date -Iseconds): Ora compressing the fastq files" 1>&2 && \\
             /opt/edico/bin/dragen "\${@}" && \\
-            bash "$(get_fastq_ora_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_ora.md5"
+            echo "\$(date -Iseconds): Compression complete" 1>&2 && \\
+            echo "\$(date -Iseconds): Generating md5sums for ora outputs" 1>&2 \\
+            bash "$(get_fastq_ora_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_ora.md5" && \\
+            echo "\$(date -Iseconds): Generating md5sums for ora outputs complete" 1>&2
+          ) & \\
+          (
+            echo "\$(date -Iseconds): Moving non-fastq files to the output directory" 1>&2 && \\
+            rsync --archive \\
+              --include="*/" \\
+              --exclude="*.fastq.gz" \\
+              "$(inputs.instrument_run_directory.path)/" \\
+              "$(inputs.output_directory_name)/" && \\
+            echo "\$(date -Iseconds): Moving non-fastq files to the output directory complete" 1>&2 \\
           ) & \\
           wait
-          
-          echo "\$(date -Iseconds): Compression complete - moving outputs" 1>&2
-          
-          echo "\$(date -Iseconds): Showing outputs" 1>&2
-          find "$(get_ora_intermediate_output_dir())" 1>&2
-          
-          # Moving the non-fastq files to the output directory
-          echo "\$(date -Iseconds): Moving non-fastq files to the output directory" 1>&2
-          rsync --archive \\
-            --include="*/" \\
-            --exclude="*.fastq.gz" \\
-            "$(inputs.instrument_run_directory.path)/" \\
-            "$(inputs.output_directory_name)/"
           
           # Remove the streaming log none file (as it is not compatible with downstream cwl services)
           rm -f "$(get_ora_intermediate_output_dir())/streaming_log_none(1000).csv"
@@ -112,26 +112,36 @@ requirements:
           # Generate new fastq list csv 
           # With fastq.ora suffixes for read 1 and read 2
           # And place in output directory
-          bash "$(get_new_fastq_list_csv_script_path())" >> "$(inputs.output_directory_name)/fastq_list.csv"
+          echo "\$(date -Iseconds): Generating fastq list csv for ora outputs" 1>&2
+          bash "$(get_new_fastq_list_csv_script_path())" >> "$(inputs.output_directory_name)/fastq_list_ora.csv"
+          echo "\$(date -Iseconds): Generating fastq list csv for ora outputs complete" 1>&2
           
           # if inputs.ora_print_file_info is true
-          if [[ "$(get_bool_value_as_str(inputs.print_file_info))" == "true" ]]; then
+          if [[ "$(get_bool_value_as_str(inputs.ora_print_file_info))" == "true" ]]; then
+            echo "\$(date -Iseconds): Generating ora file info file, --ora-print-file-info set to true" 1>&2
             /opt/edico/bin/dragen \\
               --enable-map-align false \\
               --fastq-list "$(inputs.output_directory_name)/fastq_list.csv" \\
               --enable-ora=true \\
               --ora-reference "$(get_ref_path(inputs.ora_reference))" \\
               --ora-print-file-info=true >> "$(inputs.output_directory_name)/ora-file-info.txt"
+            echo "\$(date -Iseconds): Generating ora file info file complete" 1>&2
+          else
+            echo "\$(date -Iseconds): Skipping ora file info step --ora-print-file-info set to false" 1>&2  
           fi
           
           # If inputs.ora_check_file_integrity is true
           if [[ "$(get_bool_value_as_str(inputs.ora_check_file_integrity))" == "true" ]]; then
+            echo "\$(date -Iseconds): Checking ora file integrity, --ora-check-file-integrity set to true" 1>&2
             /opt/edico/bin/dragen \\
               --enable-map-align false \\
               --fastq-list "$(inputs.output_directory_name)/fastq_list.csv" \\
               --enable-ora=true \\
               --ora-reference "$(get_ref_path(inputs.ora_reference))" \\
               --ora-check-file-integrity=true >> "$(inputs.output_directory_name)/ora-file-integrity.txt"
+            echo "\$(date -Iseconds): Checking ora file integrity complete" 1>&2
+          else
+            echo "\$(date -Iseconds): Skipping ora file integrity check step --ora-check-file-integrity set to false" 1>&2
           fi
 
       - |

@@ -1,4 +1,4 @@
-# Test started at 2024-08-29T17:05:15+10:00
+# Test started at 2024-08-30T09:40:30+10:00
 
 PASS tests/dragen-tools__4.0.3.test.js
   ● Console
@@ -43,7 +43,7 @@ Lines        : 85.03% ( 233/274 )
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       16 passed, 16 total
 Snapshots:   0 total
-Time:        1.954 s
+Time:        1.687 s
 Ran all test suites.
-# Test completed at 2024-08-29T17:05:19+10:00
+# Test completed at 2024-08-30T09:40:33+10:00
 
