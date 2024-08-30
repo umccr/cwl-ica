@@ -470,7 +470,7 @@ steps:
       output_file_prefix:
         source: output_prefix
       output_directory:
-        source: output_directory
+        source: output_prefix
         valueFrom: "$(self)_dragen_germline"
       enable_map_align_output:
         source: enable_map_align_output
