@@ -1,0 +1,954 @@
+{
+  "$graph": [
+    {
+      "class": "CommandLineTool",
+      "id": "#dragen-transcriptome__4.2.4.cwl",
+      "label": "dragen-transcriptome v(4.2.4)",
+      "doc": "Documentation for dragen-transcriptome v4.2.4\n",
+      "hints": [
+        {
+          "dockerPull": "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 16,
+          "ramMin": 240000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "fpga",
+          "https://platform.illumina.com/rdf/ica/resources:size": "medium"
+        }
+      ],
+      "requirements": [
+        {
+          "listing": [
+            {
+              "entryname": "$(get_script_path())",
+              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Initialise dragen\n/opt/edico/bin/dragen \\\\\n  --partial-reconfig DNA-MAPPER \\\\\n  --ignore-version-check true\n\n# Create directories\nmkdir --parents \\\\\n  \"$(get_ref_mount())\" \\\\\n  \"$(get_intermediate_results_dir())\" \\\\\n  \"$(inputs.output_directory)\"\n\n# untar ref data into scratch space\ntar \\\\\n  --directory \"$(get_ref_mount())\" \\\\\n  --extract \\\\\n  --file \"$(inputs.reference_tar.path)\"\n\n# Run dragen command and import options from cli\n\"$(get_dragen_bin_path())\" \"\\${@}\"\n"
+            },
+            "${\n    return generate_transcriptome_mount_points(inputs);\n}\n"
+          ],
+          "class": "InitialWorkDirRequirement"
+        },
+        {
+          "expressionLib": [
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction get_script_path() {\n    /*\n    Abstract script path, can then be referenced in baseCommand attribute too\n    Makes things more readable.\n    */\n    return \"run-dragen-script.sh\";\n}\nfunction get_scratch_mount() {\n    /*\n    Return the path of the scratch directory space\n    */\n    return \"/scratch/\";\n}\nfunction get_intermediate_results_dir() {\n    /*\n    Get intermediate results directory as /scratch for dragen runs\n    */\n    return get_scratch_mount() + \"intermediate-results/\";\n}\nfunction get_name_root_from_tarball(basename) {\n    var tar_ball_regex = /(\\S+)\\.tar\\.gz/g;\n    var tar_ball_expression = tar_ball_regex.exec(basename);\n    if (tar_ball_expression === null) {\n        throw new Error(\"Could not get nameroot from \".concat(basename));\n    }\n    return tar_ball_expression[1];\n}\nfunction get_ref_path(reference_input_obj) {\n    /*\n    Get the reference path\n    */\n    return get_ref_mount() + get_name_root_from_tarball(reference_input_obj.basename) + \"/\";\n}\nfunction get_ref_mount() {\n    /*\n    Get the reference mount point\n    */\n    return get_scratch_mount() + \"ref/\";\n}\nfunction get_dragen_bin_path() {\n    /*\n    Get dragen bin path\n    */\n    return \"/opt/edico/bin/dragen\";\n}\nfunction get_dragen_eval_line() {\n    /*\n    Return string\n    */\n    return \"eval \\\"\" + get_dragen_bin_path() + \"\\\" '\\\"\\$@\\\"' \\n\";\n}\nfunction get_fastq_list_csv_path() {\n    /*\n    The fastq list path must be placed in working directory\n    */\n    return \"fastq_list.csv\";\n}\nfunction get_tumor_fastq_list_csv_path() {\n    /*\n    The tumor fastq list path must be placed in working directory\n    */\n    return \"tumor_fastq_list.csv\";\n}\nfunction get_ora_mv_files_script_path() {\n    /*\n    Get the ora mv files script path\n    */\n    return \"mv-ora-output-files.sh\";\n}\nfunction get_normal_name_from_fastq_list_rows(fastq_list_rows) {\n    /*\n    Get the normal sample name from the fastq list rows object\n    */\n    /*\n    Check fastq list rows is defined\n    */\n    if (fastq_list_rows === undefined || fastq_list_rows === null) {\n        return null;\n    }\n    /*\n    Get RGSM value and return\n    */\n    return fastq_list_rows[0].rgsm;\n}\nfunction get_normal_name_from_fastq_list_csv(fastq_list_csv) {\n    /*\n    Get the normal name from the fastq list csv...\n    */\n    /*\n    Check file is defined\n    */\n    if (fastq_list_csv === undefined || fastq_list_csv === null) {\n        return null;\n    }\n    /*\n    Check contents are defined\n    */\n    if (fastq_list_csv.contents === null || fastq_list_csv.contents === undefined) {\n        return null;\n    }\n    /*\n    Confirm fastq list csv is of type File\n    */\n    if (fastq_list_csv.class !== \"File\") {\n        throw new Error(\"Could not confirm input fastq_list_csv is of type File\");\n    }\n    /*\n    Split contents by line\n    */\n    var contents_by_line = [];\n    fastq_list_csv.contents.split(\"\\n\").forEach(function (line_content) {\n        var stripped_line_content = line_content.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\n        if (stripped_line_content !== \"\") {\n            contents_by_line.push(stripped_line_content);\n        }\n    });\n    var column_names = contents_by_line[0].split(\",\");\n    /*\n    Get RGSM index value (which column is RGSM at?)\n    */\n    var rgsm_index = column_names.indexOf(\"RGSM\");\n    /*\n    RGSM is not in index. Return null\n    */\n    if (rgsm_index === -1) {\n        return null;\n    }\n    /*\n    Get RGSM value of first row and return\n    */\n    return contents_by_line[1].split(\",\")[rgsm_index];\n}\nfunction get_normal_output_prefix(inputs) {\n    var _a, _b;\n    /*\n    Get the normal RGSM value and then add _normal to it\n    */\n    var normal_name = null;\n    var normal_re_replacement = /_normal$/;\n    /*\n    Check if bam_input is set\n    */\n    if (inputs.bam_input !== null && inputs.bam_input !== undefined) {\n        /* Remove _normal from nameroot if it already exists */\n        /* We dont want _normal_normal as a suffix */\n        return \"\".concat((_a = inputs.bam_input.nameroot) === null || _a === void 0 ? void 0 :_a.replace(normal_re_replacement, \"\"), \"_normal\");\n    }\n    /*\n    Check if cram_input is set\n    */\n    if (inputs.cram_input !== null && inputs.cram_input !== undefined) {\n        /* Remove _normal from nameroot if it already exists */\n        /* We dont want _normal_normal as a suffix */\n        return \"\".concat((_b = inputs.cram_input.nameroot) === null || _b === void 0 ? void 0 :_b.replace(normal_re_replacement, \"\"), \"_normal\");\n    }\n    /*\n    Check if fastq list file is set\n    */\n    if (inputs.fastq_list !== null && inputs.fastq_list !== undefined) {\n        normal_name = get_normal_name_from_fastq_list_csv(inputs.fastq_list);\n        if (normal_name !== null) {\n            return \"\".concat(normal_name, \"_normal\");\n        }\n    }\n    /*\n    Otherwise collect and return from schema object\n    */\n    normal_name = get_normal_name_from_fastq_list_rows(inputs.fastq_list_rows);\n    return \"\".concat(normal_name, \"_normal\");\n}\nfunction build_fastq_list_csv_header(header_names) {\n    /*\n    Convert lowercase labels to uppercase values\n    i.e\n    [ \"rgid\", \"rglb\", \"rgsm\", \"lane\", \"read_1\", \"read_2\" ]\n    to\n    \"RGID,RGLB,RGSM,Lane,Read1File,Read2File\"\n    */\n    var modified_header_names = [];\n    for (var _i = 0, header_names_1 = header_names; _i < header_names_1.length; _i++) {\n        var header_name = header_names_1[_i];\n        if (header_name.indexOf(\"rg\") === 0) {\n            /*\n            rgid -> RGID\n            */\n            modified_header_names.push(header_name.toUpperCase());\n        }\n        else if (header_name.indexOf(\"read\") === 0) {\n            /*\n            read_1 -> Read1File\n            */\n            modified_header_names.push(\"Read\" + header_name.charAt(header_name.length - 1) + \"File\");\n        }\n        else {\n            /*\n            lane to Lane\n            */\n            modified_header_names.push(header_name[0].toUpperCase() + header_name.substr(1));\n        }\n    }\n    /*\n    Convert array to comma separated strings\n    */\n    return modified_header_names.join(\",\") + \"\\n\";\n}\nfunction get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {\n    var fastq_list_row_values_array = [];\n    /*  This for loop is here to ensure were assigning values in the same order as the header */\n    for (var _i = 0, row_order_1 = row_order; _i < row_order_1.length; _i++) {\n        var item_index = row_order_1[_i];\n        var found_item = false;\n        /*  Find matching attribute in this row */\n        for (var _a = 0, _b = Object.getOwnPropertyNames(fastq_list_row); _a < _b.length; _a++) {\n            var fastq_list_row_field_name = _b[_a];\n            var fastq_list_row_field_value = fastq_list_row[fastq_list_row_field_name];\n            if (fastq_list_row_field_value === null) {\n                /*\n                Item not found, add an empty attribute for this cell in the csv\n                */\n                continue;\n            }\n            /*  The header value matches the name in the item */\n            if (fastq_list_row_field_name === item_index) {\n                /*\n                If the field value has a class attribute then it's either read_1 or read_2\n                */\n                if (fastq_list_row_field_value.hasOwnProperty(\"class\")) {\n                    var fastq_list_row_field_value_file = fastq_list_row_field_value;\n                    /*\n                    Assert that this is actually of class file\n                    */\n                    if (fastq_list_row_field_value_file.class !== \"File\") {\n                        continue;\n                    }\n                    if (fastq_list_row_field_value_file.path !== null && fastq_list_row_field_value_file.path !== undefined) {\n                        /*\n                        Push the path attribute to the fastq list csv row if it is not null\n                        */\n                        fastq_list_row_values_array.push(fastq_list_row_field_value_file.path);\n                    }\n                    else {\n                        /*\n                        Otherwise push the location attribute\n                        */\n                        fastq_list_row_values_array.push(fastq_list_row_field_value_file.location);\n                    }\n                }\n                else {\n                    /*\n                    Push the string attribute to the fastq list csv row\n                    */\n                    fastq_list_row_values_array.push(fastq_list_row_field_value.toString());\n                }\n                found_item = true;\n                break;\n            }\n        }\n        if (!found_item) {\n            /*\n            Push blank cell if no item found\n            */\n            fastq_list_row_values_array.push(\"\");\n        }\n    }\n    /*\n    Convert to string and return as string\n    */\n    return fastq_list_row_values_array.join(\",\") + \"\\n\";\n}\nfunction generate_fastq_list_csv(fastq_list_rows) {\n    /*\n    Fastq list rows generation\n    */\n    var fastq_csv_file = {\n        class:\"File\",\n        basename:get_fastq_list_csv_path()\n    };\n    /*\n    Set the row order\n    */\n    var row_order = [];\n    /*\n    Set the array order\n    Make sure we iterate through all rows of the array\n    */\n    for (var _i = 0, fastq_list_rows_1 = fastq_list_rows; _i < fastq_list_rows_1.length; _i++) {\n        var fastq_list_row = fastq_list_rows_1[_i];\n        for (var _a = 0, _b = Object.getOwnPropertyNames(fastq_list_row); _a < _b.length; _a++) {\n            var fastq_list_row_field_name = _b[_a];\n            if (row_order.indexOf(fastq_list_row_field_name) === -1) {\n                row_order.push(fastq_list_row_field_name);\n            }\n        }\n    }\n    /*\n    Make header\n    */\n    fastq_csv_file.contents = build_fastq_list_csv_header(row_order);\n    /*\n    For each fastq list row,\n    collect the values of each attribute but in the order of the header\n    */\n    for (var _c = 0, fastq_list_rows_2 = fastq_list_rows; _c < fastq_list_rows_2.length; _c++) {\n        var fastq_list_row = fastq_list_rows_2[_c];\n        /*  Add csv row to file contents */\n        fastq_csv_file.contents += get_fastq_list_row_as_csv_row(fastq_list_row, row_order);\n    }\n    return fastq_csv_file;\n}\nfunction generate_germline_mount_points(inputs) {\n    /*\n    Create and add in the fastq list csv for the input fastqs\n    */\n    var e = [];\n    if (inputs.fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.fastq_list_rows)\n        });\n    }\n    if (inputs.fastq_list !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":inputs.fastq_list\n        });\n    }\n    /*\n    Return file paths\n    */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\nfunction generate_somatic_mount_points(inputs) {\n    /*\n    Create and add in the fastq list csv for the input fastqs\n    */\n    var e = [];\n    if (inputs.fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.fastq_list_rows)\n        });\n    }\n    if (inputs.tumor_fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_tumor_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.tumor_fastq_list_rows)\n        });\n    }\n    if (inputs.fastq_list !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":inputs.fastq_list\n        });\n    }\n    if (inputs.tumor_fastq_list !== null) {\n        e.push({\n            \"entryname\":get_tumor_fastq_list_csv_path(),\n            \"entry\":inputs.tumor_fastq_list\n        });\n    }\n    /*\n    Return file paths\n    */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\nfunction generate_transcriptome_mount_points(inputs) {\n    /*\n    Calls another function that generates mount points\n    */\n    return generate_germline_mount_points(inputs);\n}\n/*  Custom functions for dragen reference tarball build */\nfunction get_liftover_dir() {\n    /*  Hardcoded liftover directory in dragen 4.2 */\n    return \"/opt/edico/liftover/\";\n}\nfunction get_mask_dir() {\n    /*  Hardcoded mask directory in dragen 4.2 */\n    return \"/opt/edico/fasta_mask/\";\n}\nfunction get_ref_scratch_dir(reference_name) {\n    /*  We get the reference scratch directory as a combination of */\n    /*  the dragen scratch mount and the reference name */\n    return get_scratch_mount() + reference_name + \"/\";\n}\nfunction get_ora_intermediate_output_dir() {\n    return get_scratch_mount() + \"ora-outputs/\";\n}\nfunction generate_ora_mv_files_script(fastq_list_rows, input_directory, output_directory) {\n    /*\n    Generate the shell script with a list of mv commands to move the output files from the scratch space to their\n    original location in the working directory\n    */\n    var ora_mv_files_script = \"#!/usr/bin/env bash\\n\\n\";\n    ora_mv_files_script += \"set -euo pipefail\\n\\n\";\n    ora_mv_files_script += \"# Move the output files from the scratch space to the working directory\\n\";\n    for (var _i = 0, fastq_list_rows_3 = fastq_list_rows; _i < fastq_list_rows_3.length; _i++) {\n        var fastq_list_row = fastq_list_rows_3[_i];\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            ora_mv_files_script += \"mkdir -p \\\"$(dirname \\\"\".concat(fastq_list_row.read_1.path.replace(input_directory.path, output_directory).replace(\".gz\", \".ora\"), \"\\\")\\\"\\n\");\n            ora_mv_files_script += \"mv \\\"\".concat(get_ora_intermediate_output_dir()).concat(fastq_list_row.read_1.basename.replace(\".gz\", \".ora\"), \"\\\" \\\"\").concat(fastq_list_row.read_1.path.replace(input_directory.path, output_directory).replace(\".gz\", \".ora\"), \"\\\"\\n\");\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            ora_mv_files_script += \"mv \\\"\".concat(get_ora_intermediate_output_dir()).concat(fastq_list_row.read_2.basename.replace(\".gz\", \".ora\"), \"\\\" \\\"\").concat(fastq_list_row.read_2.path.replace(input_directory.path, output_directory).replace(\".gz\", \".ora\"), \"\\\"\\n\");\n        }\n    }\n    ora_mv_files_script += \"# Transfer all other files\\n\";\n    ora_mv_files_script += \"mv \\\"\".concat(get_ora_intermediate_output_dir(), \"\\\" \\\"\").concat(output_directory, \"/ora-compression-logs/\\\"\\n\");\n    return {\n        class:\"File\",\n        basename:get_ora_mv_files_script_path(),\n        contents:ora_mv_files_script\n    };\n}\nfunction find_fastq_files_in_directory_recursively_with_regex(input_dir) {\n    var _a;\n    /*\n    Initialise the output file object\n    */\n    var read_1_file_list = [];\n    var read_2_file_list = [];\n    var output_file_objs = [];\n    var fastq_file_regex = /\\.fastq\\.gz$/;\n    var r1_fastq_file_regex = /_R1_001\\.fastq\\.gz$/;\n    var r2_fastq_file_regex = /_R2_001\\.fastq\\.gz$/;\n    /*\n    Check input_dir is a directory and has a listing\n    */\n    if (input_dir.class === undefined || input_dir.class !== \"Directory\") {\n        throw new Error(\"Could not confirm that the first argument was a directory\");\n    }\n    if (input_dir.listing === undefined || input_dir.listing === null) {\n        throw new Error(\"Could not collect listing from directory \\\"\".concat(input_dir.basename, \"\\\"\"));\n    }\n    /*\n    Collect listing as a variable\n    */\n    var input_listing = input_dir.listing;\n    /*\n    Iterate through the file listing\n    */\n    for (var _i = 0, input_listing_1 = input_listing; _i < input_listing_1.length; _i++) {\n        var listing_item = input_listing_1[_i];\n        if (listing_item.class === \"File\" && fastq_file_regex.test(listing_item.basename)) {\n            /*\n            Got the file of interest and the file basename matches the file regex\n            */\n            /*\n            Check if the file is read 1 or read 2\n            */\n            if (r1_fastq_file_regex.test(listing_item.basename)) {\n                read_1_file_list.push(listing_item);\n            }\n            if (r2_fastq_file_regex.test(listing_item.basename)) {\n                read_2_file_list.push(listing_item);\n            }\n        }\n        if (listing_item.class === \"Directory\") {\n            var subdirectory_list = listing_item;\n            try {\n                /*  Consider that the file might not be in this subdirectory and that is okay */\n                output_file_objs.push.apply(output_file_objs, find_fastq_files_in_directory_recursively_with_regex(subdirectory_list));\n            }\n            catch (error) {\n                /*  Dont need to report an error though, just continue */\n            }\n        }\n    }\n    /*  Iterate over all the read 1 files and try to find a matching read 2 file */\n    for (var _b = 0, read_1_file_list_1 = read_1_file_list; _b < read_1_file_list_1.length; _b++) {\n        var read_1_file = read_1_file_list_1[_b];\n        var read_2_file = undefined;\n        for (var _c = 0, read_2_file_list_1 = read_2_file_list; _c < read_2_file_list_1.length; _c++) {\n            var read_2_file_candidate = read_2_file_list_1[_c];\n            if (((_a = read_1_file.basename) === null || _a === void 0 ? void 0 :_a.replace(\"R1_001.fastq.gz\", \"R2_001.fastq.gz\")) === read_2_file_candidate.basename) {\n                read_2_file = read_2_file_candidate;\n                break;\n            }\n        }\n        output_file_objs.push({ read1obj:read_1_file, read2obj:read_2_file });\n    }\n    /*  Return the output file object */\n    return output_file_objs;\n}\nfunction get_rgsm_value_from_fastq_file_name(fastq_file_name) {\n    /*  Get the RGID value from the fastq file name */\n    var rgid_regex = /(.+?)(?:_S\\d+)?(?:_L00\\d)?_R[12]_001\\.fastq\\.gz$/;\n    var rgid_expression = rgid_regex.exec(fastq_file_name);\n    if (rgid_expression === null) {\n        throw new Error(\"Could not get rgid from \".concat(fastq_file_name));\n    }\n    return rgid_expression[1];\n}\nfunction get_lane_value_from_fastq_file_name(fastq_file_name) {\n    /*  Get the lane value from the fastq file name */\n    var lane_regex = /(?:.+?)(?:_S\\d+)?_L00(\\d)_R[12]_001\\.fastq\\.gz$/;\n    var lane_expression = lane_regex.exec(fastq_file_name);\n    if (lane_expression === null) {\n        return 1;\n    }\n    else {\n        console.log(lane_expression);\n        return parseInt(lane_expression[1]);\n    }\n}\nfunction generate_ora_mount_points(input_run, output_directory_path, sample_id_list) {\n    /*\n    Three main parts\n\n    1. Collect the fastq files\n    2. For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary to make a fastq list row\n    3. Generate the fastq list csv file\n    */\n    /*  Collect the fastq files */\n    var fastq_files_pairs = find_fastq_files_in_directory_recursively_with_regex(input_run);\n    /*  For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary */\n    var fastq_list_rows = [];\n    for (var _i = 0, fastq_files_pairs_1 = fastq_files_pairs; _i < fastq_files_pairs_1.length; _i++) {\n        var fastq_files_pair = fastq_files_pairs_1[_i];\n        var rgsm_value = get_rgsm_value_from_fastq_file_name(fastq_files_pair.read1obj.basename);\n        /*  Skip fastq list pair if sample_id_list is defined and the rgsm_value is not in the list */\n        if (sample_id_list !== undefined && sample_id_list !== null && sample_id_list !== \"\" && sample_id_list.indexOf(rgsm_value) === -1) {\n            continue;\n        }\n        /*  Remove undetermined files from the list of fastqs to process (they are often empty) */\n        if (rgsm_value === \"Undetermined\") {\n            continue;\n        }\n        /*  Check if we have the size attribute and if so check if it is greater than 0 */\n        if (fastq_files_pair.read1obj.size !== null && fastq_files_pair.read1obj.size !== undefined && fastq_files_pair.read1obj.size == 0) {\n            continue;\n        }\n        /*  Repeat the condition for read 2 although also ensure that read 2 is actually defined */\n        if (fastq_files_pair.read2obj !== undefined && fastq_files_pair.read2obj !== null) {\n            if (fastq_files_pair.read2obj.size !== null && fastq_files_pair.read2obj.size !== undefined && fastq_files_pair.read2obj.size == 0) {\n                continue;\n            }\n        }\n        var lane_value = get_lane_value_from_fastq_file_name(fastq_files_pair.read1obj.basename);\n        var fastq_list_row = {\n            rgid:lane_value.toString() + '.' + rgsm_value,\n            rgsm:rgsm_value,\n            rglb:\"UnknownLibrary\",\n            lane:lane_value,\n            read_1:fastq_files_pair.read1obj,\n            read_2:fastq_files_pair.read2obj\n        };\n        fastq_list_rows.push(fastq_list_row);\n    }\n    /*  Initialise dirent */\n    var e = [];\n    /*  Generate the fastq list csv file */\n    e.push({\n        \"entryname\":get_fastq_list_csv_path(),\n        \"entry\":generate_fastq_list_csv(fastq_list_rows)\n    });\n    /*  Generate the script to then move the files from the scratch space to the working directory */\n    e.push({\n        \"entryname\":get_ora_mv_files_script_path(),\n        \"entry\":generate_ora_mv_files_script(fastq_list_rows, input_run, output_directory_path)\n    });\n    /*  Return the dirent */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\n",
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction is_not_null(input_obj) {\n    /*\n    Determine if input object is defined and is not null\n    */\n    return !(input_obj === null || input_obj === undefined);\n}\nfunction get_attribute_from_optional_input(input_object, attribute) {\n    /*\n    Get attribute from optional input -\n    If input is not defined, then return null\n    */\n    if (input_object === null || input_object === undefined) {\n        return null;\n    }\n    else {\n        return get_optional_attribute_from_object(input_object, attribute);\n    }\n}\nfunction get_optional_attribute_from_object(input_object, attribute) {\n    /*\n    Get attribute from object, if attribute is not defined return null\n    Assume the input object is an object of key value pairs where we know the key is of type string\n    stackoverflow.com/questions/56833469/typescript-error-ts7053-element-implicitly-has-an-any-type\n    */\n    if (input_object.hasOwnProperty(attribute)) {\n        return input_object[attribute];\n    }\n    else {\n        return null;\n    }\n}\nfunction get_bool_value_as_str(input_bool) {\n    if (is_not_null(input_bool) && input_bool) {\n        return \"true\";\n    }\n    else {\n        return \"false\";\n    }\n}\nfunction boolean_to_int(input_bool) {\n    if (is_not_null(input_bool) && String(input_bool).toLowerCase() === \"true\") {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\nfunction get_optional_attribute_from_multi_type_input_object(object, attribute) {\n    /*\n    Get attribute from optional input\n    */\n    if (object === null || object === undefined) {\n        return null;\n    }\n    else if (typeof object === \"object\") {\n        /*  Get attribute from optional input */\n        return get_attribute_from_optional_input(object, attribute);\n    }\n    else {\n        /*  Object is likely actually a str */\n        return object;\n    }\n}\nfunction get_source_a_or_b(input_a, input_b) {\n    /*\n    Get the first input parameter if it is not null\n    Otherwise return the second parameter\n    Otherwise return null\n    */\n    if (is_not_null(input_a)) {\n        return input_a;\n    }\n    else if (is_not_null(input_b)) {\n        return input_b;\n    }\n    else {\n        return null;\n    }\n}\nfunction get_first_non_null_input(inputs) {\n    /*\n    Get first element of the array that is not null\n    */\n    for (var _i = 0, inputs_1 = inputs; _i < inputs_1.length; _i++) {\n        var input_element = inputs_1[_i];\n        if (is_not_null(input_element)) {\n            return input_element;\n        }\n    }\n    return null;\n}\nfunction get_attribute_list_from_object_list(obj_list, attribute) {\n    /*\n    Get attribute from list of objects\n    If an object is null, it is not included in the return list\n    */\n    return obj_list.filter(function (x) { return x !== null; }).map(function (x) { return get_optional_attribute_from_object(x, attribute); });\n}\nfunction get_str_list_as_bash_array(input_list, item_wrap) {\n    /*\n    Convert a list of strings to a bash array, if the list is not defined return null\n    */\n    if (input_list === null) {\n        return null;\n    }\n    if (item_wrap === null) {\n        return \"( \".concat(input_list.map(function (x) { return \"'\".concat(item_wrap).concat(x).concat(item_wrap, \"'\"); }).join(' '), \" )\");\n    }\n    return \"( \".concat(input_list.map(function (x) { return \"'\".concat(x, \"'\"); }).join(' '), \" )\");\n}\nfunction get_object_attribute_list_as_bash_array(obj_list, attribute) {\n    /*\n    Get attribute from list of objects and convert to a bash array\n    Do not include null values in the array\n    */\n    return get_str_list_as_bash_array(get_attribute_list_from_object_list(obj_list, attribute).filter(function (x) { return x !== null; }));\n}\n"
+          ],
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "tmpdirMin": "${\n  /* 1 Tb */\n  return Math.pow(2, 20);\n}\n",
+          "class": "ResourceRequirement"
+        },
+        {
+          "types": [
+            {
+              "type": "record",
+              "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row",
+              "fields": [
+                {
+                  "label": "lane",
+                  "doc": "The lane that the sample was run on\n",
+                  "type": "int",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/lane"
+                },
+                {
+                  "label": "read 1",
+                  "doc": "The path to R1 of a sample\n",
+                  "type": [
+                    "File",
+                    "string"
+                  ],
+                  "streamable": true,
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/read_1"
+                },
+                {
+                  "label": "read 2",
+                  "doc": "The path to R2 of a sample\n",
+                  "type": [
+                    "null",
+                    "File",
+                    "string"
+                  ],
+                  "streamable": true,
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/read_2"
+                },
+                {
+                  "label": "rgid",
+                  "doc": "The read-group id of the sample.\nOften an index\n",
+                  "type": "string",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/rgid"
+                },
+                {
+                  "label": "rglb",
+                  "doc": "The read-group library of the sample.\n",
+                  "type": "string",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/rglb"
+                },
+                {
+                  "label": "rgsm",
+                  "doc": "The read-group sample name\n",
+                  "type": "string",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/rgsm"
+                }
+              ]
+            }
+          ],
+          "class": "SchemaDefRequirement"
+        }
+      ],
+      "baseCommand": [
+        "bash"
+      ],
+      "arguments": [
+        {
+          "valueFrom": "$(get_script_path())",
+          "position": -1
+        },
+        {
+          "prefix": "--intermediate-results-dir=",
+          "separate": false,
+          "valueFrom": "$(get_intermediate_results_dir())"
+        },
+        {
+          "prefix": "--enable-rna=",
+          "separate": false,
+          "valueFrom": "true"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "annotation file",
+          "doc": "Path to annotation transcript file.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--annotation-file=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/annotation_file"
+        },
+        {
+          "label": "bam input",
+          "doc": "Input a BAM file for the Dragen RNA options\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "inputBinding": {
+            "prefix": "--bam-input=",
+            "separate": false
+          },
+          "secondaryFiles": [
+            {
+              "pattern": ".bai",
+              "required": true
+            }
+          ],
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/bam_input"
+        },
+        {
+          "label": "enable duplicate marking",
+          "doc": "Mark identical alignments as duplicates\n",
+          "type": "boolean",
+          "inputBinding": {
+            "prefix": "--enable-duplicate-marking=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/enable_duplicate_marking"
+        },
+        {
+          "label": "enable map align",
+          "doc": "Enabled by default.\nSet this value to false if using bam_input\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-map-align=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/enable_map_align"
+        },
+        {
+          "label": "enable map align output",
+          "doc": "Do you wish to have the output bam files present\n",
+          "type": "boolean",
+          "inputBinding": {
+            "prefix": "--enable-map-align-output=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/enable_map_align_output"
+        },
+        {
+          "label": "enable rna gene fusion",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "default": true,
+          "doc": "Enable the DRAGEN Gene Fusion module. The default value is true.\n",
+          "inputBinding": {
+            "prefix": "--enable-rna-gene-fusion=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/enable_rna_gene_fusion"
+        },
+        {
+          "label": "enable rna quantification",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "default": true,
+          "doc": "Enable the quantification module. The default value is true.\n",
+          "inputBinding": {
+            "prefix": "--enable-rna-quantification=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/enable_rna_quantification"
+        },
+        {
+          "label": "enable rrna filtering",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "default": true,
+          "doc": "Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.\n",
+          "inputBinding": {
+            "prefix": "--rrna-filter-enable=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/enable_rrna_filter"
+        },
+        {
+          "label": "enable sort",
+          "doc": "True by default, only set this to false if using --bam-input parameters\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-sort=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/enable_sort"
+        },
+        {
+          "label": "fastq list",
+          "doc": "CSV file that contains a list of FASTQ files\nto process. read_1 and read_2 components in the CSV file must be presigned urls.\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "inputBinding": {
+            "loadContents": true,
+            "prefix": "--fastq-list=",
+            "separate": false,
+            "valueFrom": "$(get_fastq_list_csv_path())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/fastq_list"
+        },
+        {
+          "label": "fastq list rows",
+          "doc": "Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "#fastq-list-row__1.0.0.yaml/fastq-list-row"
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--fastq-list=",
+            "separate": false,
+            "valueFrom": "$(get_fastq_list_csv_path())"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/fastq_list_rows"
+        },
+        {
+          "label": "license instance id location",
+          "doc": "You may wish to place your own in.\nOptional value, default set to /opt/instance-identity\nwhich is a path inside the dragen container\n",
+          "type": [
+            "null",
+            "File",
+            "string"
+          ],
+          "default": "/opt/instance-identity",
+          "inputBinding": {
+            "prefix": "--lic-instance-id-location=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/lic_instance_id_location"
+        },
+        {
+          "label": "output directory",
+          "doc": "The directory where all output files are placed.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--output-directory=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/output_directory"
+        },
+        {
+          "label": "output file prefix",
+          "doc": "The prefix given to all output files.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--output-file-prefix=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/output_file_prefix"
+        },
+        {
+          "label": "read trimming",
+          "type": [
+            "null",
+            "string"
+          ],
+          "doc": "To enable trimming filters in hard-trimming mode, set to a comma-separated list of the trimmer tools\nyou would like to use. To disable trimming, set to none. During mapping, artifacts are removed from all reads.\nRead trimming is disabled by default.\n",
+          "inputBinding": {
+            "prefix": "--read-trimmers=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/read_trimmers"
+        },
+        {
+          "label": "reference tar",
+          "doc": "Path to ref data tarball.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--ref-dir=",
+            "separate": false,
+            "valueFrom": "$(get_ref_path(self))"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/reference_tar"
+        },
+        {
+          "label": "name of the rRNA sequences to use for filtering",
+          "type": [
+            "null",
+            "string"
+          ],
+          "doc": "Specify the name of the rRNA sequences to use for filtering.\n",
+          "inputBinding": {
+            "prefix": "--rrna-filter-contig=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/rrna_filter_contig"
+        },
+        {
+          "label": "soft read trimming",
+          "type": [
+            "null",
+            "string"
+          ],
+          "doc": "To enable trimming filters in soft-trimming mode, set to a comma-separated list of the trimmer tools\nyou would like to use. To disable soft trimming, set to none. During mapping, reads are aligned as if trimmed,\nand bases are not removed from the reads. Soft-trimming is enabled for the polyg filter by default.\n",
+          "inputBinding": {
+            "prefix": "--soft-read-trimmers=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/soft_read_trimmers"
+        },
+        {
+          "label": "trim adapter r1 5prime",
+          "type": [
+            "null",
+            "File"
+          ],
+          "doc": "Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1.\nNB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.\n",
+          "inputBinding": {
+            "prefix": "--trim-adapter-r1-5prime=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_adapter_r1_5prime"
+        },
+        {
+          "label": "trim adapter r2 5prime",
+          "type": [
+            "null",
+            "File"
+          ],
+          "doc": "Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.\nNB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.\n",
+          "inputBinding": {
+            "prefix": "--trim-adapter-r2-5prime=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_adapter_r2_5prime"
+        },
+        {
+          "label": "trim adapter read1",
+          "type": [
+            "null",
+            "File"
+          ],
+          "doc": "Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.\n",
+          "inputBinding": {
+            "prefix": "--trim-adapter-read1=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_adapter_read1"
+        },
+        {
+          "label": "trim adapter read2",
+          "type": [
+            "null",
+            "File"
+          ],
+          "doc": "Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.\n",
+          "inputBinding": {
+            "prefix": "--trim_adapter_read2=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_adapter_read2"
+        },
+        {
+          "label": "trim adapter stringency",
+          "type": [
+            "null",
+            "int"
+          ],
+          "doc": "Specify the minimum number of adapter bases required for trimming\n",
+          "inputBinding": {
+            "prefix": "--trim-adapter-stringency=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_adapter_stringency"
+        },
+        {
+          "label": "trim r1 3prime",
+          "type": [
+            "null",
+            "int"
+          ],
+          "doc": "Specify the minimum number of bases to trim from the 3' end of Read 1 (default: 0).\n",
+          "inputBinding": {
+            "prefix": "--trim-min-r1-3prime=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_r1_3prime"
+        },
+        {
+          "label": "trim r1 5prime",
+          "type": [
+            "null",
+            "int"
+          ],
+          "doc": "Specify the minimum number of bases to trim from the 5' end of Read 1 (default: 0).\n",
+          "inputBinding": {
+            "prefix": "--trim-min-r1-5prime=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_r1_5prime"
+        },
+        {
+          "label": "trim r2 3prime",
+          "type": [
+            "null",
+            "int"
+          ],
+          "doc": "Specify the minimum number of bases to trim from the 3' end of Read 2 (default: 0).\n",
+          "inputBinding": {
+            "prefix": "--trim-min-r2-3prime=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_r2_3prime"
+        },
+        {
+          "label": "trim r2 5prime",
+          "type": [
+            "null",
+            "int"
+          ],
+          "doc": "Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 0).\n",
+          "inputBinding": {
+            "prefix": "--trim-min-r2-5prime=",
+            "separate": false
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/trim_r2_5prime"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Sehrish Kanwal",
+        "https://schema.org/email": "sehrish.kanwal@umccr.org"
+      },
+      "outputs": [
+        {
+          "label": "dragen bam out",
+          "doc": "The output bam file, exists only if --enable-map-align-output is set to true\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "outputBinding": {
+            "glob": "$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
+          },
+          "secondaryFiles": [
+            {
+              "pattern": ".bai",
+              "required": null
+            }
+          ],
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/dragen_bam_out"
+        },
+        {
+          "label": "dragen transcriptome output directory",
+          "doc": "The output directory containing all wts analysis output files\n",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory)"
+          },
+          "id": "#dragen-transcriptome__4.2.4.cwl/dragen-transcriptome--4.2.4/dragen_transcriptome_directory"
+        }
+      ]
+    },
+    {
+      "class": "CommandLineTool",
+      "id": "#qualimap__2.2.2.cwl",
+      "label": "qualimap v(2.2.2)",
+      "doc": "Qualimap perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.es/doc_html/command_line.html.\n",
+      "hints": [
+        {
+          "dockerPull": "public.ecr.aws/biocontainers/qualimap:2.2.2d--hdfd78af_2",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 8,
+          "ramMin": 32000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:size": "large"
+        }
+      ],
+      "requirements": [
+        {
+          "listing": [
+            {
+              "entryname": "run_qualimap.sh",
+              "entry": "#!/usr/bin/env bash\n\n# Set to fail\nset -euo pipefail\n\n# Set java opts\n# Use /scratch if the directory is available\n# Note :- means if TMPDIR is set to \"\" or undefined use /tmp\nif [[ -d \"/scratch\" ]]; then\n  export JAVA_OPTS=\"-Djava.io.tmpdir=/scratch\"\nelse\n  export JAVA_OPTS=\"-Djava.io.tmpdir=\\${TMPDIR:-/tmp}\"\nfi\n\n# Run qualimap\nqualimap rnaseq --paired \"\\${@}\"\n"
+            }
+          ],
+          "class": "InitialWorkDirRequirement"
+        },
+        {
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "tmpdirMin": "${\n  /* 1 Tb */\n  return Math.pow(2, 20);\n}\n",
+          "class": "ResourceRequirement"
+        }
+      ],
+      "baseCommand": [
+        "bash",
+        "run_qualimap.sh"
+      ],
+      "inputs": [
+        {
+          "label": "algorithm",
+          "doc": "Counting algorithm:\nuniquely-mapped-reads(default) or proportional.\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--algorithm"
+          },
+          "id": "#qualimap__2.2.2.cwl/qualimap--2.2.2/algorithm"
+        },
+        {
+          "label": "gtf",
+          "doc": "Region file in GTF, GFF or BED format.\nIf GTF format is provided, counting is based on\nattributes, otherwise based on feature name.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "-gtf"
+          },
+          "id": "#qualimap__2.2.2.cwl/qualimap--2.2.2/gtf"
+        },
+        {
+          "label": "input bam",
+          "doc": "Input mapping file in BAM format.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "-bam"
+          },
+          "id": "#qualimap__2.2.2.cwl/qualimap--2.2.2/input_bam"
+        },
+        {
+          "label": "java mem",
+          "doc": "Set desired Java heap memory size\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--java-mem-size=",
+            "separate": false
+          },
+          "id": "#qualimap__2.2.2.cwl/qualimap--2.2.2/java_mem"
+        },
+        {
+          "label": "out dir",
+          "doc": "Output folder for HTML report and raw data.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "-outdir"
+          },
+          "id": "#qualimap__2.2.2.cwl/qualimap--2.2.2/out_dir"
+        },
+        {
+          "label": "seq protocol",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#qualimap__2.2.2.cwl/qualimap--2.2.2/seq_protocol/strand-specific-forward",
+                "#qualimap__2.2.2.cwl/qualimap--2.2.2/seq_protocol/strand-specific-reverse",
+                "#qualimap__2.2.2.cwl/qualimap--2.2.2/seq_protocol/non-strand-specific"
+              ]
+            }
+          ],
+          "doc": "Sequencing library protocol:\nstrand-specific-forward, strand-specific-reverse or\nnon-strand-specific (default).\n",
+          "inputBinding": {
+            "prefix": "--sequencing-protocol"
+          },
+          "id": "#qualimap__2.2.2.cwl/qualimap--2.2.2/seq_protocol"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "qualimap qc",
+          "doc": "Output directory with qc files and report\n",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.out_dir)"
+          },
+          "id": "#qualimap__2.2.2.cwl/qualimap--2.2.2/qualimap_qc"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Sehrish Kanwal",
+        "https://schema.org/email": "sehrish.kanwal@umccr.org"
+      }
+    },
+    {
+      "class": "Workflow",
+      "id": "#main",
+      "label": "dragen-wts-qc-pipeline v(4.2.4)",
+      "doc": "Documentation for dragen-wts-qc-pipeline v4.2.4\n",
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "class": "MultipleInputFeatureRequirement"
+        },
+        {
+          "class": "ScatterFeatureRequirement"
+        },
+        {
+          "types": [
+            {
+              "$import": "#fastq-list-row__1.0.0.yaml/fastq-list-row"
+            }
+          ],
+          "class": "SchemaDefRequirement"
+        },
+        {
+          "class": "StepInputExpressionRequirement"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "algorithm",
+          "type": [
+            "null",
+            "string"
+          ],
+          "doc": "Counting algorithm:\nuniquely-mapped-reads(default) or proportional.\n",
+          "default": "proportional",
+          "id": "#main/algorithm"
+        },
+        {
+          "label": "annotation file",
+          "doc": "Path to annotation transcript file.\n",
+          "type": "File",
+          "id": "#main/annotation_file"
+        },
+        {
+          "label": "bam input",
+          "doc": "Input a BAM file for WTS analysis\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "secondaryFiles": [
+            {
+              "pattern": ".bai",
+              "required": true
+            }
+          ],
+          "id": "#main/bam_input"
+        },
+        {
+          "label": "enable duplicate marking",
+          "doc": "Mark identical alignments as duplicates\n",
+          "type": "boolean",
+          "id": "#main/enable_duplicate_marking"
+        },
+        {
+          "label": "enable map align",
+          "doc": "Enabled by default.\nSet this value to false if using bam_input AND tumor_bam_input\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_map_align"
+        },
+        {
+          "label": "enable map align output",
+          "doc": "Do you wish to have the output bam files present\n",
+          "type": "boolean",
+          "id": "#main/enable_map_align_output"
+        },
+        {
+          "label": "enable rna gene fusion",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "doc": "Optional - Enable the DRAGEN Gene Fusion module - defaults to true\n",
+          "id": "#main/enable_rna_gene_fusion"
+        },
+        {
+          "label": "enable rna quantification",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "doc": "Optional - Enable the quantification module - defaults to true\n",
+          "id": "#main/enable_rna_quantification"
+        },
+        {
+          "label": "enable sort",
+          "doc": "True by default, only set this to false if using --bam-input as input parameter\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_sort"
+        },
+        {
+          "label": "fastq list",
+          "doc": "CSV file that contains a list of FASTQ files\nto process. read_1 and read_2 components in the CSV file must be presigned urls.\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "id": "#main/fastq_list"
+        },
+        {
+          "label": "Row of fastq lists",
+          "doc": "The row of fastq lists.\nEach row has the following attributes:\n  * RGID\n  * RGLB\n  * RGSM\n  * Lane\n  * Read1File\n  * Read2File (optional)\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "#fastq-list-row__1.0.0.yaml/fastq-list-row"
+            }
+          ],
+          "id": "#main/fastq_list_rows"
+        },
+        {
+          "label": "java mem",
+          "type": [
+            "null",
+            "string"
+          ],
+          "doc": "Set desired Java heap memory size\n",
+          "default": "96G",
+          "id": "#main/java_mem"
+        },
+        {
+          "label": "license instance id location",
+          "doc": "You may wish to place your own in.\nOptional value, default set to /opt/instance-identity\nwhich is a path inside the dragen container\n",
+          "type": [
+            "null",
+            "File",
+            "string"
+          ],
+          "id": "#main/lic_instance_id_location"
+        },
+        {
+          "label": "output directory",
+          "doc": "The directory where all output files are placed\n",
+          "type": "string",
+          "id": "#main/output_directory"
+        },
+        {
+          "label": "output file prefix",
+          "doc": "The prefix given to all output files\n",
+          "type": "string",
+          "id": "#main/output_file_prefix"
+        },
+        {
+          "label": "reference tar",
+          "doc": "Path to ref data tarball\n",
+          "type": "File",
+          "id": "#main/reference_tar"
+        }
+      ],
+      "steps": [
+        {
+          "label": "run dragen transcriptome step",
+          "doc": "Runs the dragen transcriptome workflow on the FPGA.\nTakes in a fastq list and corresponding mount paths from the predefined_mount_paths.\nAll other options avaiable at the top of the workflow\n",
+          "in": [
+            {
+              "source": "#main/annotation_file",
+              "id": "#main/run_dragen_transcriptome_step/annotation_file"
+            },
+            {
+              "source": "#main/bam_input",
+              "id": "#main/run_dragen_transcriptome_step/bam_input"
+            },
+            {
+              "source": "#main/enable_duplicate_marking",
+              "id": "#main/run_dragen_transcriptome_step/enable_duplicate_marking"
+            },
+            {
+              "source": "#main/enable_map_align",
+              "id": "#main/run_dragen_transcriptome_step/enable_map_align"
+            },
+            {
+              "source": "#main/enable_map_align_output",
+              "id": "#main/run_dragen_transcriptome_step/enable_map_align_output"
+            },
+            {
+              "source": "#main/enable_rna_gene_fusion",
+              "id": "#main/run_dragen_transcriptome_step/enable_rna_gene_fusion"
+            },
+            {
+              "source": "#main/enable_rna_quantification",
+              "id": "#main/run_dragen_transcriptome_step/enable_rna_quantification"
+            },
+            {
+              "source": "#main/enable_sort",
+              "id": "#main/run_dragen_transcriptome_step/enable_sort"
+            },
+            {
+              "source": "#main/fastq_list",
+              "id": "#main/run_dragen_transcriptome_step/fastq_list"
+            },
+            {
+              "source": "#main/fastq_list_rows",
+              "id": "#main/run_dragen_transcriptome_step/fastq_list_rows"
+            },
+            {
+              "source": "#main/lic_instance_id_location",
+              "id": "#main/run_dragen_transcriptome_step/lic_instance_id_location"
+            },
+            {
+              "source": "#main/output_directory",
+              "id": "#main/run_dragen_transcriptome_step/output_directory"
+            },
+            {
+              "source": "#main/output_file_prefix",
+              "id": "#main/run_dragen_transcriptome_step/output_file_prefix"
+            },
+            {
+              "source": "#main/reference_tar",
+              "id": "#main/run_dragen_transcriptome_step/reference_tar"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/run_dragen_transcriptome_step/dragen_transcriptome_directory"
+            },
+            {
+              "id": "#main/run_dragen_transcriptome_step/dragen_bam_out"
+            }
+          ],
+          "run": "#dragen-transcriptome__4.2.4.cwl",
+          "id": "#main/run_dragen_transcriptome_step"
+        },
+        {
+          "label": "run qualimap step",
+          "doc": "Run qualimap step to generate additional QC metrics\n",
+          "in": [
+            {
+              "source": "#main/algorithm",
+              "id": "#main/run_qualimap_step/algorithm"
+            },
+            {
+              "source": "#main/annotation_file",
+              "id": "#main/run_qualimap_step/gtf"
+            },
+            {
+              "source": "#main/run_dragen_transcriptome_step/dragen_bam_out",
+              "id": "#main/run_qualimap_step/input_bam"
+            },
+            {
+              "source": "#main/java_mem",
+              "id": "#main/run_qualimap_step/java_mem"
+            },
+            {
+              "source": "#main/output_directory",
+              "valueFrom": "$(self)_qualimap",
+              "id": "#main/run_qualimap_step/out_dir"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/run_qualimap_step/qualimap_qc"
+            }
+          ],
+          "run": "#qualimap__2.2.2.cwl",
+          "id": "#main/run_qualimap_step"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "dragen transcriptome output directory",
+          "doc": "The output directory containing all transcriptome output files\n",
+          "type": "Directory",
+          "outputSource": "#main/run_dragen_transcriptome_step/dragen_transcriptome_directory",
+          "id": "#main/dragen_transcriptome_output_directory"
+        },
+        {
+          "label": "dragen transcriptome output directory",
+          "doc": "The output directory containing all transcriptome output files\n",
+          "type": "Directory",
+          "outputSource": "#main/run_qualimap_step/qualimap_qc",
+          "id": "#main/qualimap_output_directory"
+        }
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Sehrish Kanwal",
+        "https://schema.org/email": "sehrish.kanwal@umccr.org"
+      }
+    }
+  ],
+  "cwlVersion": "v1.1",
+  "$schemas": [
+    "https://schema.org/version/latest/schemaorg-current-http.rdf"
+  ],
+  "$namespaces": {
+    "s": "https://schema.org/"
+  }
+}
