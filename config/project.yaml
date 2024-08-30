@@ -685,7 +685,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-08-21T05:07:05UTC
+            modification_time: 2024-08-30T02:20:29UTC
             run_instances: []
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
@@ -781,7 +781,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-08-21T05:07:23UTC
+            modification_time: 2024-08-30T02:20:45UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
@@ -806,7 +806,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-08-21T05:07:29UTC
+            modification_time: 2024-08-30T02:20:51UTC
             run_instances: []
       - name: dragen-wgs-qc-pipeline
         path: dragen-wgs-qc-pipeline
@@ -1027,7 +1027,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-08-21T05:08:04UTC
+            modification_time: 2024-08-30T02:21:30UTC
             run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc
@@ -2465,6 +2465,11 @@ projects:
             ica_workflow_version_name: 4.2.4--cfb3f84
             modification_time: 2024-08-21T05:08:28UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--74b52bb
+            modification_time: 2024-08-30T02:21:47UTC
+            run_instances: []
       - name: dragen-germline-pipeline
         path: dragen-germline-pipeline
         ica_workflow_name: dragen-germline-pipeline_prod-wf
@@ -3785,6 +3790,11 @@ projects:
             ica_workflow_version_name: 4.2.4--cfb3f84
             modification_time: 2024-08-21T05:08:50UTC
             run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--74b52bb
+            modification_time: 2024-08-30T02:22:12UTC
+            run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
         ica_workflow_name: dragen-alignment-pipeline_prod-wf
@@ -3849,6 +3859,11 @@ projects:
             path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4--cfb3f84
             modification_time: 2024-08-21T05:08:55UTC
+            run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--74b52bb
+            modification_time: 2024-08-30T02:22:18UTC
             run_instances: []
   - project_name: collab-illumina-dev_workflows
     project_id: dddd6c29-24d3-49f4-91c0-7e818b3c0a21

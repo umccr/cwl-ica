@@ -19,7 +19,7 @@ dragen-alignment-pipeline 4.2.4 workflow
 
   
 > ID: dragen-alignment-pipeline--4.2.4  
-> md5sum: 085ae6ad4e14ba9fa4bcc9e431e2092d
+> md5sum: 616ac20e7f53bd7d460a83f65e78dc9c
 
 ### dragen-alignment-pipeline v(4.2.4) documentation
   
@@ -595,25 +595,12 @@ When no-unclip-score is set to 1, any unclipped bonus (unclip-score) contributin
 If only properly paired alignments should be reported for paired reads.
 
 
-### output directory
+### output prefix
 
 
 
   
-> ID: output_directory
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The directory where all output files are placed
-
-
-### output file prefix
-
-
-
-  
-> ID: output_file_prefix
+> ID: output_prefix
   
 **Optional:** `False`  
 **Type:** `string`  
@@ -980,7 +967,7 @@ The dragen multiQC output
 
   
 **workflow name:** dragen-alignment-pipeline_prod-wf  
-**wfl version name:** 4.2.4--cfb3f84  
+**wfl version name:** 4.2.4--74b52bb  
 
   
 

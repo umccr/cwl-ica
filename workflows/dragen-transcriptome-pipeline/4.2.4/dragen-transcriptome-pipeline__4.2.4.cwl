@@ -72,15 +72,10 @@ inputs:
       Path to annotation transcript file.
     type: File
   # Output naming options
-  output_file_prefix:
+  output_prefix:
     label: output file prefix
     doc: |
       The prefix given to all output files
-    type: string
-  output_directory:
-    label: output directory
-    doc: |
-      The directory where all output files are placed
     type: string
   # Alignment options
   enable_map_align:
@@ -234,13 +229,6 @@ inputs:
     doc: |
       command line config to supply additional config values on the command line.
     type: string?
-  # Collect outputs
-  output_directory_name_arriba:
-    label: output directory name arriba
-    type: string?
-    doc: |
-      Name of the directory to collect arriba outputs in.
-    default: "arriba"
   # Location of license
   lic_instance_id_location:
     label: license instance id location
@@ -274,9 +262,10 @@ steps:
       reference_tar:
         source: reference_tar
       output_file_prefix:
-        source: output_file_prefix
+        source: output_prefix
       output_directory:
-        source: output_directory
+        source: output_prefix
+        valueFrom: "$(self)_dragen_transcriptome"
       enable_map_align:
         source: enable_map_align
       enable_map_align_output:
@@ -373,7 +362,8 @@ steps:
           - arriba_fusion_step/discarded_fusions
           - arriba_drawing_step/output_pdf
       output_directory_name:
-        source: output_directory_name_arriba
+        source: output_prefix
+        valueFrom: "$(self)_arriba"
     out:
       - output_directory
     run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
@@ -389,7 +379,7 @@ steps:
       algorithm:
         source: algorithm
       out_dir:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "$(self)_qualimap"
       gtf:
         source: annotation_file
@@ -422,20 +412,20 @@ steps:
           - qc_reference_samples
         linkMerge: merge_flattened
       output_directory_name:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "$(self)_dragen_transcriptome_multiqc"
       output_filename:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "$(self)_dragen_transcriptome_multiqc.html"
       title:
-        source: output_file_prefix
+        source: output_prefix
         valueFrom: "UMCCR MultiQC Dragen Transcriptome Report for $(self)"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output
       cl_config:
         source:
           - cl_config
-          - output_file_prefix
+          - output_prefix
         valueFrom: |
           ${
             return add_sample_to_sample_name_replace_in_multiqc_cl_config(self[0], self[1] + "_qualimap", self[1]);

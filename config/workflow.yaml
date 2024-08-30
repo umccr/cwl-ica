@@ -28,7 +28,7 @@ workflows:
         md5sum: 84a90fe24d07e71402dc76be0ef3584a
       - name: 4.2.4
         path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
-        md5sum: 00ffd893cb44a16524b42000354f8896
+        md5sum: 78a515690480b9181a3c3faaba6eea43
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
@@ -91,7 +91,7 @@ workflows:
         md5sum: 26234c4e0efae8cc7835a6cc3887598f
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
-        md5sum: 53fa6a65c2e478838f5af0e7322e2824
+        md5sum: d8bbfbee2f713b2ea768d5ea8a8285b9
     categories: []
   - name: dragen-alignment-pipeline
     path: dragen-alignment-pipeline
@@ -107,7 +107,7 @@ workflows:
         md5sum: de6314d47274af5b343b819d4a82a601
       - name: 4.2.4
         path: 4.2.4/dragen-alignment-pipeline__4.2.4.cwl
-        md5sum: 085ae6ad4e14ba9fa4bcc9e431e2092d
+        md5sum: 616ac20e7f53bd7d460a83f65e78dc9c
     categories:
       - alignment
       - dragen
@@ -264,7 +264,7 @@ workflows:
         md5sum: 30b4219906569c20b5d8d4a7ec79ee67
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-        md5sum: 1dfe7157419b0a80131010e5ea896eb7
+        md5sum: a9d59f7474a1b87d531c2a859a29316d
     categories: []
   - name: illumina-interop-qc
     path: illumina-interop-qc
