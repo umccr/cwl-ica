@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 4.2.4 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--4.2.4  
-> md5sum: 1dfe7157419b0a80131010e5ea896eb7
+> md5sum: a9d59f7474a1b87d531c2a859a29316d
 
 ### dragen-somatic-with-germline-pipeline v(4.2.4) documentation
   
@@ -702,56 +702,30 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
-### output directory germline
+### output prefix germline
 
 
 
   
-> ID: output_directory_germline
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The directory where all output files are placed for the germline pipeline
-
-
-### output directory somatic
-
-
-
-  
-> ID: output_directory_somatic
+> ID: output_prefix_germline
   
 **Optional:** `False`  
 **Type:** `string`  
 **Docs:**  
-The directory where all output files are placed for the somatic pipeline
+The prefix given to all outputs for the dragen germline pipeline
 
 
-### output file prefix germline
-
-
-
-  
-> ID: output_file_prefix_germline
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The prefix given to all output files for the germline pipeline
-
-
-### output file prefix somatic
+### output prefix somatic
 
 
 
   
-> ID: output_file_prefix_somatic
+> ID: output_prefix_somatic
   
 **Optional:** `False`  
 **Type:** `string`  
 **Docs:**  
-The prefix given to all output files for the somatic pipeline
+The prefix given to all outputs for the dragen somatic pipeline
 
 
 ### qc coverage ignore overlaps
@@ -1483,7 +1457,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f9e39214740>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7efe1b0f1880>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).
@@ -2029,7 +2003,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
-**wfl version name:** 4.2.4--cfb3f84  
+**wfl version name:** 4.2.4--74b52bb  
 
   
 

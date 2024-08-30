@@ -19,7 +19,7 @@ dragen-germline-pipeline 4.2.4 workflow
 
   
 > ID: dragen-germline-pipeline--4.2.4  
-> md5sum: 00ffd893cb44a16524b42000354f8896
+> md5sum: 78a515690480b9181a3c3faaba6eea43
 
 ### dragen-germline-pipeline v(4.2.4) documentation
   
@@ -350,25 +350,12 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
-### output directory
+### output prefix
 
 
 
   
-> ID: output_directory
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The directory where all output files are placed
-
-
-### output file prefix
-
-
-
-  
-> ID: output_file_prefix
+> ID: output_prefix
   
 **Optional:** `False`  
 **Type:** `string`  
