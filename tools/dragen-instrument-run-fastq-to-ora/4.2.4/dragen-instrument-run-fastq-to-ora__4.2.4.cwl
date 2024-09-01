@@ -121,7 +121,8 @@ requirements:
             echo "\$(date -Iseconds): Generating ora file info file, --ora-print-file-info set to true" 1>&2
             /opt/edico/bin/dragen \\
               --enable-map-align false \\
-              --fastq-list "$(inputs.output_directory_name)/fastq_list.csv" \\
+              --fastq-list "$(inputs.output_directory_name)/fastq_list_ora.csv" \\
+              --fastq-list-all-samples=true \\
               --enable-ora=true \\
               --ora-reference "$(get_ref_path(inputs.ora_reference))" \\
               --ora-print-file-info=true >> "$(inputs.output_directory_name)/ora-file-info.txt"
@@ -135,7 +136,8 @@ requirements:
             echo "\$(date -Iseconds): Checking ora file integrity, --ora-check-file-integrity set to true" 1>&2
             /opt/edico/bin/dragen \\
               --enable-map-align false \\
-              --fastq-list "$(inputs.output_directory_name)/fastq_list.csv" \\
+              --fastq-list "$(inputs.output_directory_name)/fastq_list_ora.csv" \\
+              --fastq-list-all-samples=true \\
               --enable-ora=true \\
               --ora-reference "$(get_ref_path(inputs.ora_reference))" \\
               --ora-check-file-integrity=true >> "$(inputs.output_directory_name)/ora-file-integrity.txt"

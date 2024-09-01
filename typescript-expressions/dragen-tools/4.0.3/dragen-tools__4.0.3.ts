@@ -611,11 +611,11 @@ export function generate_new_fastq_list_csv_script(fastq_list_rows: FastqListRow
 
     new_fastq_list_csv_script += `# Initialise header\n`
 
-    new_fastq_list_csv_script += `echo "RGID,RGLB,RGSM,Read1File,Read2File"\n`
+    new_fastq_list_csv_script += `echo "RGID,RGLB,RGSM,Lane,Read1File,Read2File"\n`
 
     for (let fastq_list_row of fastq_list_rows){
         // Initialise echo line
-        let echo_line = `echo \"${fastq_list_row.rgid},${fastq_list_row.rglb},${fastq_list_row.rgsm},`
+        let echo_line = `echo \"${fastq_list_row.rgid},${fastq_list_row.rglb},${fastq_list_row.rgsm},${fastq_list_row.lane}`
         // Confirm read 1 is a file type
         if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === File_class.FILE){
             echo_line += `${fastq_list_row.read_1.path.replace(input_directory.path + "/", '').replace(".gz", ".ora")},`

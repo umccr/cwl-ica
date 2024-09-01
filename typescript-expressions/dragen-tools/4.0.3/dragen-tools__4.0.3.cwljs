@@ -502,11 +502,11 @@ function generate_new_fastq_list_csv_script(fastq_list_rows, input_directory) {
     new_fastq_list_csv_script += "set -euo pipefail\n\n";
     new_fastq_list_csv_script += "# Generate a new fastq list csv script\n";
     new_fastq_list_csv_script += "# Initialise header\n";
-    new_fastq_list_csv_script += "echo \"RGID,RGLB,RGSM,Read1File,Read2File\"\n";
+    new_fastq_list_csv_script += "echo \"RGID,RGLB,RGSM,Lane,Read1File,Read2File\"\n";
     for (var _i = 0, fastq_list_rows_6 = fastq_list_rows; _i < fastq_list_rows_6.length; _i++) {
         var fastq_list_row = fastq_list_rows_6[_i];
         /*  Initialise echo line */
-        var echo_line = "echo \"".concat(fastq_list_row.rgid, ",").concat(fastq_list_row.rglb, ",").concat(fastq_list_row.rgsm, ",");
+        var echo_line = "echo \"".concat(fastq_list_row.rgid, ",").concat(fastq_list_row.rglb, ",").concat(fastq_list_row.rgsm, ",").concat(fastq_list_row.lane);
         /*  Confirm read 1 is a file type */
         if ("class" in fastq_list_row.read_1 && fastq_list_row.read_1.class === "File") {
             echo_line += "".concat(fastq_list_row.read_1.path.replace(input_directory.path + "/", '').replace(".gz", ".ora"), ",");
