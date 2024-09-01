@@ -1,6 +1,6 @@
-# Test started at 2024-09-01T15:15:15+10:00
+# Test started at 2024-09-02T09:45:30+10:00
 
-FAIL tests/dragen-tools__4.0.3.test.js
+PASS tests/dragen-tools__4.0.3.test.js
   ● Console
 
     console.log
@@ -25,39 +25,6 @@ FAIL tests/dragen-tools__4.0.3.test.js
 
       at log (dragen-tools__4.0.3.js:656:17)
 
-  ● Test ora mount points › Test the generate mount points of the tumor and normal fastq list rows
-
-    expect(received).toMatchObject(expected)
-
-    - Expected  - 2
-    + Received  + 2
-
-    @@ -40,12 +40,12 @@
-      set -euo pipefail
-
-      # Generate a new fastq list csv script
-      # Initialise header
-      echo \"RGID,RGLB,RGSM,Lane,Read1File,Read2File\"
-    - echo \"2.MY_SAMPLE_ID,UnknownLibrary,MY_SAMPLE_ID,2,MY_SAMPLE_ID_L002_R1_001.fastq.ora,MY_SAMPLE_ID_L002_R2_001.fastq.ora\"
-    - echo \"4.MY_SAMPLE_ID,UnknownLibrary,MY_SAMPLE_ID,4,MY_SAMPLE_ID_L004_R1_001.fastq.ora,MY_SAMPLE_ID_L004_R2_001.fastq.ora\"
-    + echo \"2.MY_SAMPLE_ID,UnknownLibrary,MY_SAMPLE_ID,2MY_SAMPLE_ID_L002_R1_001.fastq.ora,MY_SAMPLE_ID_L002_R2_001.fastq.ora\"
-    + echo \"4.MY_SAMPLE_ID,UnknownLibrary,MY_SAMPLE_ID,4MY_SAMPLE_ID_L004_R1_001.fastq.ora,MY_SAMPLE_ID_L004_R2_001.fastq.ora\"
-      ",
-          },
-          "entryname": "generate-new-fastq-list-csv.sh",
-        },
-        Object {
-
-      342 |     var fastq_list_csv_mount_points = (0, dragen_tools__4_0_3_1.generate_ora_mount_points)(ORA_RUN_DIRECTORY, "output-directory-path");
-      343 |     test("Test the generate mount points of the tumor and normal fastq list rows", function () {
-    > 344 |         expect(fastq_list_csv_mount_points).toMatchObject(expected_mount_points_object);
-          |                                             ^
-      345 |     });
-      346 | });
-      347 |
-
-      at Object.<anonymous> (tests/dragen-tools__4.0.3.test.js:344:45)
-
 FAIL tests/dragen-tools__4.0.3.test.ts
   ● Test suite failed to run
 
@@ -73,10 +40,10 @@ Branches     : 70.62% ( 113/160 )
 Functions    : 69.44% ( 25/36 )
 Lines        : 85.03% ( 233/274 )
 ================================================================================
-Test Suites: 2 failed, 2 total
-Tests:       1 failed, 15 passed, 16 total
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       16 passed, 16 total
 Snapshots:   0 total
-Time:        1.635 s
+Time:        2.451 s
 Ran all test suites.
-# Test completed at 2024-09-01T15:15:18+10:00
+# Test completed at 2024-09-02T09:45:34+10:00
 
