@@ -78,15 +78,15 @@ requirements:
           
           (
             echo "\$(date -Iseconds): Collecting md5sums of gzipped fastq files" 1>&2 && \\
-            bash "$(get_fastq_gz_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.md5" && \\
+            bash "$(get_fastq_gz_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.md5.txt" && \\
             echo "\$(date -Iseconds): Md5sum complete" 1>&2 \\
           ) & \\
           (
             echo "\$(date -Iseconds): Ora compressing the fastq files" 1>&2 && \\
             /opt/edico/bin/dragen "\${@}" && \\
             echo "\$(date -Iseconds): Compression complete" 1>&2 && \\
-            echo "\$(date -Iseconds): Generating md5sums for ora outputs" 1>&2 \\
-            bash "$(get_fastq_ora_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_ora.md5" && \\
+            echo "\$(date -Iseconds): Generating md5sums for ora outputs" 1>&2 && \\
+            bash "$(get_fastq_ora_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_ora.md5.txt" && \\
             echo "\$(date -Iseconds): Generating md5sums for ora outputs complete" 1>&2
           ) & \\
           (
@@ -119,13 +119,19 @@ requirements:
           # if inputs.ora_print_file_info is true
           if [[ "$(get_bool_value_as_str(inputs.ora_print_file_info))" == "true" ]]; then
             echo "\$(date -Iseconds): Generating ora file info file, --ora-print-file-info set to true" 1>&2
+            mkdir -p "$(inputs.output_directory_name)/ora-logs/file-info/"
             /opt/edico/bin/dragen \\
-              --enable-map-align false \\
-              --fastq-list "$(inputs.output_directory_name)/fastq_list_ora.csv" \\
-              --fastq-list-all-samples=true \\
+              --enable-map-align=false \\
               --enable-ora=true \\
-              --ora-reference "$(get_ref_path(inputs.ora_reference))" \\
-              --ora-print-file-info=true >> "$(inputs.output_directory_name)/ora-file-info.txt"
+              --fastq-list="$(inputs.output_directory_name)/fastq_list_ora.csv" \\
+              --fastq-list-all-samples=true \\
+              --ora-reference="$(get_ref_path(inputs.ora_reference))" \\
+              --ora-print-file-info=true \\ 
+              --ora-parallel-files=1 \\
+              --intermediate-results-dir="$(get_intermediate_results_dir())" \\
+              --lic-instance-id-location="$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
+              --output-directory="$(inputs.output_directory_name)/ora-logs/file-info/" \\
+              1> "$(inputs.output_directory_name)/ora-logs/file-info/ora-file-info.log"
             echo "\$(date -Iseconds): Generating ora file info file complete" 1>&2
           else
             echo "\$(date -Iseconds): Skipping ora file info step --ora-print-file-info set to false" 1>&2  
@@ -134,13 +140,18 @@ requirements:
           # If inputs.ora_check_file_integrity is true
           if [[ "$(get_bool_value_as_str(inputs.ora_check_file_integrity))" == "true" ]]; then
             echo "\$(date -Iseconds): Checking ora file integrity, --ora-check-file-integrity set to true" 1>&2
+            mkdir -p "$(inputs.output_directory_name)/ora-logs/check-integrity/"
             /opt/edico/bin/dragen \\
-              --enable-map-align false \\
-              --fastq-list "$(inputs.output_directory_name)/fastq_list_ora.csv" \\
-              --fastq-list-all-samples=true \\
+              --enable-map-align=false \\
               --enable-ora=true \\
-              --ora-reference "$(get_ref_path(inputs.ora_reference))" \\
-              --ora-check-file-integrity=true >> "$(inputs.output_directory_name)/ora-file-integrity.txt"
+              --fastq-list="$(inputs.output_directory_name)/fastq_list_ora.csv" \\
+              --fastq-list-all-samples=true \\
+              --ora-reference="$(get_ref_path(inputs.ora_reference))" \\
+              --ora-check-file-integrity=true \\
+              --intermediate-results-dir="$(get_intermediate_results_dir())" \\
+              --lic-instance-id-location="$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
+              --output-directory "$(inputs.output_directory_name)/ora-logs/check-integrity/" \\
+              1> "$(inputs.output_directory_name)/ora-logs/check-integrity/ora-check-integrity.log"
             echo "\$(date -Iseconds): Checking ora file integrity complete" 1>&2
           else
             echo "\$(date -Iseconds): Skipping ora file integrity check step --ora-check-file-integrity set to false" 1>&2
