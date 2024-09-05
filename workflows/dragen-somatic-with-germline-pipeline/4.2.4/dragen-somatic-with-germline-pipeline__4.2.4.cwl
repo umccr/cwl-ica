@@ -117,26 +117,16 @@ inputs:
 
   # Output naming options
   # Germline
-  output_file_prefix_germline:
-    label: output file prefix germline
+  output_prefix_germline:
+    label: output prefix germline
     doc: |
-      The prefix given to all output files for the germline pipeline
-    type: string
-  output_directory_germline:
-    label: output directory germline
-    doc: |
-      The directory where all output files are placed for the germline pipeline
+      The prefix given to all outputs for the dragen germline pipeline
     type: string
   # Somatic
-  output_file_prefix_somatic:
-    label: output file prefix somatic
+  output_prefix_somatic:
+    label: output prefix somatic
     doc: |
-      The prefix given to all output files for the somatic pipeline
-    type: string
-  output_directory_somatic:
-    label: output directory somatic
-    doc: |
-      The directory where all output files are placed for the somatic pipeline
+      The prefix given to all outputs for the dragen somatic pipeline
     type: string
 
   # Optional operation modes
@@ -957,9 +947,10 @@ steps:
       reference_tar:
         source: reference_tar
       output_file_prefix:
-        source: output_file_prefix_germline
+        source: output_prefix_germline
       output_directory:
-        source: output_directory_germline
+        source: output_prefix_germline
+        valueFrom: "$(self)_dragen_germline"
       enable_sort:
         source: [ enable_sort_germline, enable_sort]
         valueFrom: |
@@ -1127,10 +1118,11 @@ steps:
       reference_tar:
         source: reference_tar
       # Mandatory parameters
-      output_directory:
-        source: output_directory_somatic
       output_file_prefix:
-        source: output_file_prefix_somatic
+        source: output_prefix_somatic
+      output_directory:
+        source: output_prefix_somatic
+        valueFrom: "$(self)_dragen_somatic"
       # Optional operation modes
       # Optional operation modes
       # Given we're running from fastqs
@@ -1415,13 +1407,13 @@ steps:
           - run_dragen_germline_step/dragen_germline_output_directory
           - run_dragen_somatic_step/dragen_somatic_output_directory
       output_directory_name:
-        source: [ output_file_prefix_somatic, output_file_prefix_germline]
+        source: [ output_prefix_somatic, output_prefix_germline]
         valueFrom: "$(self[0])__$(self[1])_dragen_somatic_and_germline_multiqc"
       output_filename:
-        source: [ output_file_prefix_somatic, output_file_prefix_germline]
+        source: [ output_prefix_somatic, output_prefix_germline]
         valueFrom: "$(self[0])__$(self[1])_dragen_somatic_and_germline_multiqc.html"
       title:
-        source: [ output_file_prefix_somatic, output_file_prefix_germline]
+        source: [ output_prefix_somatic, output_prefix_germline]
         valueFrom: "UMCCR MultiQC Dragen Somatic And Germline Report for $(self[0])__$(self[1])"
       dummy_file:
         source: create_dummy_file_step/dummy_file_output

@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.2.4 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.2.4  
-> md5sum: c142f00004a02ac7d7247c0767ee9ff2
+> md5sum: d8bbfbee2f713b2ea768d5ea8a8285b9
 
 ### dragen-transcriptome-pipeline v(4.2.4) documentation
   
@@ -286,38 +286,12 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
-### output directory
-
-
-
-  
-> ID: output_directory
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The directory where all output files are placed
-
-
-### output directory name arriba
-
-
-
-  
-> ID: output_directory_name_arriba
-  
-**Optional:** `True`  
-**Type:** `string`  
-**Docs:**  
-Name of the directory to collect arriba outputs in.
-
-
 ### output file prefix
 
 
 
   
-> ID: output_file_prefix
+> ID: output_prefix
   
 **Optional:** `False`  
 **Type:** `string`  
@@ -740,7 +714,7 @@ The output directory containing all transcriptome output files
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 4.2.4--a9cc9b5  
+**wfl version name:** 4.2.4--74b52bb  
 
   
 
