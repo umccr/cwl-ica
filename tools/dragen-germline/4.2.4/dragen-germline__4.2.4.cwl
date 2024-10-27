@@ -39,12 +39,12 @@ hints:
       dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
 
 requirements:
-  ResourceRequirement:
-    tmpdirMin: |
-      ${
-        /* 1 Tb */
-        return Math.pow(2, 20); 
-      }
+  #ResourceRequirement:
+  #  tmpdirMin: |
+  #    ${
+  #      /* 1 Tb */
+  #      return Math.pow(2, 20); 
+  #    }
   SchemaDefRequirement:
     types:
       - $import: ../../../schemas/fastq-list-row/1.0.0/fastq-list-row__1.0.0.yaml
@@ -249,6 +249,15 @@ inputs:
       prefix: "--dedup-min-qual="
       separate: False
       valueFrom: "$(self.toString())"
+  enable_pgx:
+    label: enable pgx
+    doc: |
+      Enable star allele caller. This also turns on other PGx callers such as CYP2D6, CYP2B6
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-pgx="
+      separate: False
+      valueFrom: "$(self.toString())"
 
   # Structural Variant Caller Options
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/StructuralVariantCalling.htm
@@ -443,6 +452,48 @@ inputs:
       prefix: "--vc-enable-vcf-output="
       separate: False
       valueFrom: "$(self.toString())"
+  vc_emit_ref_confidence:
+    label: vc emit ref confidence
+    doc: |
+      A genomic VCF (gVCF) file contains information on variants and positions determined to be homozygous to the reference genome. 
+      For homozygous regions, the gVCF file includes statistics that indicate how well reads support the absence of variants or
+      alternative alleles. To enable gVCF output, set to GVCF. By default, contiguous runs of homozygous reference calls with similar 
+      scores are collapsed into blocks (hom-ref blocks). Hom-ref blocks save disk space and processing time of downstream analysis tools. 
+      DRAGEN recommends using the default mode. To produce unbanded output, set --vc-emit-ref-confidence to BP_RESOLUTION.
+    type: string?
+    inputBinding:
+      prefix: "--vc-emit-ref-confidence="
+      separate: False
+  enable_targeted:
+    label: enable targeted
+    doc: |
+      Enable targeted variant calling for repetitive regions
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-targeted="
+      separate: False
+      valueFrom: "$(self.toString())"
+  vc_ml_enable_recalibration:
+    label: vc ml enable recalibration
+    doc: |
+      DRAGEN employs machine learning-based variant recalibration (DRAGEN-ML) for germline SNV VC. 
+      Variant calling accuracy is improved using powerful and efficient machine learning techniques that augment the variant caller, 
+      by exploiting more of the available read and context information that does not easily integrate into the Bayesian processing 
+      used by the haplotype variant caller.
+    type: boolean?
+    inputBinding:
+      prefix: "--vc-ml-enable-recalibration="
+      separate: False
+      valueFrom: "$(self.toString())"
+  output_format :
+    label: output format 
+    doc: |
+      For mapping and aligning, the output is sorted and compressed into BAM format by default before saving to disk. 
+      You can control the output format from the map/align stage with the --output-format <SAM|BAM|CRAM> option.
+    type: string?
+    inputBinding:
+      prefix: "--output-format="
+      separate: False
 
   # Sex chromosome mosaic variants options
   vc_enable_sex_chr_diploid:
@@ -569,6 +620,28 @@ inputs:
       prefix: "--dbsnp="
       separate: False
 
+  # Repeat expansion calling
+  repeat_genotype_enable:
+    label: repeat genotype enable
+    doc: |
+      Enable DRAGEN repeat expansion detection
+    type: boolean?
+    inputBinding:
+      prefix: "--repeat-genotype-enable="
+      separate: False
+      valueFrom: "$(self.toString())"
+  repeat_genotype_use_catalog:
+    label: repeat genotype use catalog
+    doc: |
+      The repeat-specification (also called variant catalog) JSON file defines the repeat regions for ExpansionHunter to analyze. 
+      Default repeat-specification for some pathogenic and polymorphic repeats are in the /opt/edico/repeat-specs/ directory, 
+      based on the reference genome used with DRAGEN. Users can choose between any of the three default repeat-specification files 
+      packaged with DRAGEN using <default|default_plus_smn|expanded>
+    type: string?
+    inputBinding:
+      prefix: "--repeat-genotype-use-catalog="
+      separate: False
+
   # Force genotyping
   vc_forcegt_vcf:
     label: vc forcegt vcf
@@ -657,6 +730,15 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--enable-hla="
+      separate: False
+      valueFrom: "$(self.toString())"
+  hla_enable_class_2:
+    label: hla enable class 2
+    doc: |
+      Enable class II HLA typing by setting --hla-enable-class-2 flag to true
+    type: boolean?
+    inputBinding:
+      prefix: "--hla-enable-class-2="
       separate: False
       valueFrom: "$(self.toString())"
   hla_bed_file:
