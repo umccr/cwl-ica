@@ -196,6 +196,22 @@ inputs:
     inputBinding:
       prefix: "--output-directory="
       separate: False
+  output_format :
+    label: output format
+    doc: |
+      For mapping and aligning, the output is sorted and compressed into BAM format by default before saving to disk.
+      You can control the output format from the map/align stage with the --output-format <SAM|BAM|CRAM> option.
+    type:
+      - "null"
+      - type: enum
+        symbols:
+          - SAM
+          - BAM
+          - CRAM
+    inputBinding:
+      prefix: "--output-format="
+      separate: False
+
   # Optional operation modes
   # Given we're running from fastqs
   # --enable-variant-caller option must be set to true (set in arguments), --enable-map-align is then activated by default
@@ -256,6 +272,15 @@ inputs:
     type: boolean?
     inputBinding:
       prefix: "--enable-pgx="
+      separate: False
+      valueFrom: "$(self.toString())"
+  enable_targeted:
+    label: enable targeted
+    doc: |
+      Enable targeted variant calling for repetitive regions
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-targeted="
       separate: False
       valueFrom: "$(self.toString())"
 
@@ -455,24 +480,15 @@ inputs:
   vc_emit_ref_confidence:
     label: vc emit ref confidence
     doc: |
-      A genomic VCF (gVCF) file contains information on variants and positions determined to be homozygous to the reference genome. 
+      A genomic VCF (gVCF) file contains information on variants and positions determined to be homozygous to the reference genome.
       For homozygous regions, the gVCF file includes statistics that indicate how well reads support the absence of variants or
-      alternative alleles. To enable gVCF output, set to GVCF. By default, contiguous runs of homozygous reference calls with similar 
-      scores are collapsed into blocks (hom-ref blocks). Hom-ref blocks save disk space and processing time of downstream analysis tools. 
+      alternative alleles. To enable gVCF output, set to GVCF. By default, contiguous runs of homozygous reference calls with similar
+      scores are collapsed into blocks (hom-ref blocks). Hom-ref blocks save disk space and processing time of downstream analysis tools.
       DRAGEN recommends using the default mode. To produce unbanded output, set --vc-emit-ref-confidence to BP_RESOLUTION.
     type: string?
     inputBinding:
       prefix: "--vc-emit-ref-confidence="
       separate: False
-  enable_targeted:
-    label: enable targeted
-    doc: |
-      Enable targeted variant calling for repetitive regions
-    type: boolean?
-    inputBinding:
-      prefix: "--enable-targeted="
-      separate: False
-      valueFrom: "$(self.toString())"
   vc_ml_enable_recalibration:
     label: vc ml enable recalibration
     doc: |
@@ -485,15 +501,6 @@ inputs:
       prefix: "--vc-ml-enable-recalibration="
       separate: False
       valueFrom: "$(self.toString())"
-  output_format :
-    label: output format 
-    doc: |
-      For mapping and aligning, the output is sorted and compressed into BAM format by default before saving to disk. 
-      You can control the output format from the map/align stage with the --output-format <SAM|BAM|CRAM> option.
-    type: string?
-    inputBinding:
-      prefix: "--output-format="
-      separate: False
 
   # Sex chromosome mosaic variants options
   vc_enable_sex_chr_diploid:
@@ -637,11 +644,30 @@ inputs:
       Default repeat-specification for some pathogenic and polymorphic repeats are in the /opt/edico/repeat-specs/ directory, 
       based on the reference genome used with DRAGEN. Users can choose between any of the three default repeat-specification files 
       packaged with DRAGEN using <default|default_plus_smn|expanded>
-    type: string?
+    type:
+      - "null"
+      - type: enum
+        symbols:
+        - default
+        - default_plus_smn
+        - expanded
     inputBinding:
       prefix: "--repeat-genotype-use-catalog="
       separate: False
-
+  repeat_genotype_specs:
+    label: repeat genotype specs
+    doc: |
+      Specifies the full path to the JSON file that contains the repeat variant catalog (specification) describing the loci to call.
+      --repeat-genotype-specs is required for ExpansionHunter.
+      If the option is not provided,
+      DRAGEN attempts to autodetect the applicable catalog file from /opt/edico/repeat-specs/ based on the reference provided.
+    type:
+      - "null"
+      - File
+      - string
+    inputBinding:
+      prefix: "--repeat-genotype-specs="
+      separate: False
   # Force genotyping
   vc_forcegt_vcf:
     label: vc forcegt vcf

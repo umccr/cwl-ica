@@ -28,7 +28,7 @@ workflows:
         md5sum: fc6f52dc0670304e2b932d1d96a4d992
       - name: 4.2.4
         path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
-        md5sum: 94f548562038f47caf6962bc6ebe2f8f
+        md5sum: 6fc0cce26d0adffb48084d4e182d349c
     categories:
       - dragen
   - name: dragen-qc-hla-pipeline
