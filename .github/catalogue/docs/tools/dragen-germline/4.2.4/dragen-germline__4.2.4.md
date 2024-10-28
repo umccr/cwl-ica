@@ -17,7 +17,7 @@ dragen-germline 4.2.4 tool
 
   
 > ID: dragen-germline--4.2.4  
-> md5sum: bafe0fe822a62b1387d96102ade30d98
+> md5sum: e52da4f95f01382810a29afae0326d1c
 
 ### dragen-germline v(4.2.4) documentation
   
@@ -192,6 +192,19 @@ Set this value to false if using bam_input
 Do you wish to have the output bam files present
 
 
+### enable pgx
+
+
+
+  
+> ID: enable_pgx
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable star allele caller. This also turns on other PGx callers such as CYP2D6, CYP2B6
+
+
 ### enable sort
 
 
@@ -217,6 +230,19 @@ True by default, only set this to false if using --bam-input parameter
 **Docs:**  
 Enable/disable structural variant
 caller. Default is false.
+
+
+### enable targeted
+
+
+
+  
+> ID: enable_targeted
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable targeted variant calling for repetitive regions
 
 
 ### fastq list
@@ -277,6 +303,19 @@ Population-level allele frequencies can be obtained from the Allele Frequency Ne
 Use the HLA region BED input file to specify the region to extract HLA reads from.
 DRAGEN HLA Caller parses the input file for regions within the BED file, and then
 extracts reads accordingly to align with the HLA allele reference.
+
+
+### hla enable class 2
+
+
+
+  
+> ID: hla_enable_class_2
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable class II HLA typing by setting --hla-enable-class-2 flag to true
 
 
 ### hla min reads
@@ -382,6 +421,20 @@ The directory where all output files are placed
 The prefix given to all output files
 
 
+### output format
+
+
+
+  
+> ID: output_format
+  
+**Optional:** `True`  
+**Type:** `[ SAM | BAM | CRAM  ]`  
+**Docs:**  
+For mapping and aligning, the output is sorted and compressed into BAM format by default before saving to disk.
+You can control the output format from the map/align stage with the --output-format <SAM|BAM|CRAM> option.
+
+
 ### qc coverage ignore overlaps
 
 
@@ -447,6 +500,51 @@ Generates coverage region report using bed file 3.
 **Type:** `File`  
 **Docs:**  
 Path to ref data tarball
+
+
+### repeat genotype enable
+
+
+
+  
+> ID: repeat_genotype_enable
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable DRAGEN repeat expansion detection
+
+
+### repeat genotype specs
+
+
+
+  
+> ID: repeat_genotype_specs
+  
+**Optional:** `True`  
+**Type:** `['File', 'string']`  
+**Docs:**  
+Specifies the full path to the JSON file that contains the repeat variant catalog (specification) describing the loci to call.
+--repeat-genotype-specs is required for ExpansionHunter.
+If the option is not provided,
+DRAGEN attempts to autodetect the applicable catalog file from /opt/edico/repeat-specs/ based on the reference provided.
+
+
+### repeat genotype use catalog
+
+
+
+  
+> ID: repeat_genotype_use_catalog
+  
+**Optional:** `True`  
+**Type:** `[ default | default_plus_smn | expanded  ]`  
+**Docs:**  
+The repeat-specification (also called variant catalog) JSON file defines the repeat regions for ExpansionHunter to analyze. 
+Default repeat-specification for some pathogenic and polymorphic repeats are in the /opt/edico/repeat-specs/ directory, 
+based on the reference genome used with DRAGEN. Users can choose between any of the three default repeat-specification files 
+packaged with DRAGEN using <default|default_plus_smn|expanded>
 
 
 ### sample sex
@@ -602,6 +700,23 @@ You can enter any value between 0-1. The default maximum TiN contamination toler
 **Docs:**  
 The --vc-decoy-contigs option specifies a comma-separated list of contigs to skip during variant calling.
 This option can be set in the configuration file.
+
+
+### vc emit ref confidence
+
+
+
+  
+> ID: vc_emit_ref_confidence
+  
+**Optional:** `True`  
+**Type:** `string`  
+**Docs:**  
+A genomic VCF (gVCF) file contains information on variants and positions determined to be homozygous to the reference genome.
+For homozygous regions, the gVCF file includes statistics that indicate how well reads support the absence of variants or
+alternative alleles. To enable gVCF output, set to GVCF. By default, contiguous runs of homozygous reference calls with similar
+scores are collapsed into blocks (hom-ref blocks). Hom-ref blocks save disk space and processing time of downstream analysis tools.
+DRAGEN recommends using the default mode. To produce unbanded output, set --vc-emit-ref-confidence to BP_RESOLUTION.
 
 
 ### vc enable baf
@@ -783,6 +898,22 @@ Default is 10000 for the germline workflow
 **Docs:**  
 specifies the maximum number of reads covering a given raw region.
 Default is 30000 for the germline workflow
+
+
+### vc ml enable recalibration
+
+
+
+  
+> ID: vc_ml_enable_recalibration
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+DRAGEN employs machine learning-based variant recalibration (DRAGEN-ML) for germline SNV VC. 
+Variant calling accuracy is improved using powerful and efficient machine learning techniques that augment the variant caller, 
+by exploiting more of the available read and context information that does not easily integrate into the Bayesian processing 
+used by the haplotype variant caller.
 
 
 ### vc remove all soft clips
