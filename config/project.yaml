@@ -126,7 +126,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-germline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-08-21T04:51:02UTC
+            modification_time: 2024-10-28T02:12:38UTC
             run_instances: []
       - name: custom-create-tso500-samplesheet
         path: custom-create-tso500-samplesheet
@@ -685,7 +685,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-09-05T10:50:25UTC
+            modification_time: 2024-10-28T01:49:28UTC
             run_instances: []
       - name: dragen-qc-hla-pipeline
         path: dragen-qc-hla-pipeline
@@ -1027,7 +1027,7 @@ projects:
           - name: 4.2.4
             path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4
-            modification_time: 2024-09-05T10:51:38UTC
+            modification_time: 2024-10-28T02:28:58UTC
             run_instances: []
       - name: illumina-interop-qc
         path: illumina-interop-qc
@@ -3824,6 +3824,11 @@ projects:
             path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
             ica_workflow_version_name: 4.2.4--1c67c7b
             modification_time: 2024-09-05T10:52:37UTC
+            run_instances: []
+          - name: 4.2.4
+            path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
+            ica_workflow_version_name: 4.2.4--560a364
+            modification_time: 2024-10-28T02:29:27UTC
             run_instances: []
       - name: dragen-alignment-pipeline
         path: dragen-alignment-pipeline
