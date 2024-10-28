@@ -3,7 +3,10 @@
 // In CWL, visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
 // Imports
 import {Directory_class, DirectoryProperties as IDirectory, File_class, FileProperties as IFile} from "cwl-ts-auto";
-import {get_file_from_directory} from "../get-file-from-directory__1.0.0";
+import {
+    find_files_in_directory_recursively_with_regex,
+    get_file_from_directory
+} from "../get-file-from-directory__1.0.0";
 
 // Test the get bam file from directory
 const INPUT_FILE_NAMEROOT = "footest"
@@ -12,6 +15,7 @@ const INPUT_FILE_BASENAME = INPUT_FILE_NAMEROOT + INPUT_FILE_NAMEEXT
 const INPUT_OUTPUT_DIRECTORY_LOCATION = "outputs/output-directory"
 
 // When in the top directory
+// @ts-ignore
 const INPUT_SHALLOW_LISTING: IDirectory = {
     class_: Directory_class.DIRECTORY,
     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}`,
@@ -42,6 +46,7 @@ const INPUT_SHALLOW_LISTING: IDirectory = {
 // When in a nested directory directory
 const INPUT_NESTED_DIRECTORY_NAME = "nested-directory";
 
+// @ts-ignore
 const INPUT_DEEP_LISTING: IDirectory = {
     class_: Directory_class.DIRECTORY,
     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}`,
@@ -105,5 +110,21 @@ describe('Test Deep Directory Listing', function () {
         expect(
             get_file_from_directory(INPUT_DEEP_LISTING, INPUT_FILE_BASENAME, true)
         ).toMatchObject(EXPECTED_DEEP_LISTING_OUTPUT_BAM_FILE)
+    })
+});
+
+describe('Test Deep Directory Regex', function () {
+    // Get script path
+    test("Test the deep regex function", () => {
+        expect(
+            find_files_in_directory_recursively_with_regex(INPUT_DEEP_LISTING, /\.txt$/g)
+        ).toMatchObject([
+            EXPECTED_DEEP_LISTING_OUTPUT_BAM_FILE,
+            {
+                class_: File_class.FILE,
+                basename: "logs.txt",
+                location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/logs.txt`
+            }
+        ])
     })
 });

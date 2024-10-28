@@ -25,6 +25,7 @@ var MV_ORA_FILE_PATH = "tests/data/mv-ora.sh";
 var GENERATE_NEW_FASTQ_LIST_CSV_SH_PATH = "tests/data/generate-new-fastq-list-csv.sh";
 var GENERATE_MD5SUM_FOR_FASTQ_GZ_FILES_SH_PATH = "tests/data/generate-md5sum-for-fastq-gz-files.sh";
 var GENERATE_MD5SUM_FOR_FASTQ_ORA_FILES_SH_PATH = "tests/data/generate-md5sum-for-fastq-ora-files.sh";
+var GENERATE_FILE_SIZES_FOR_FASTQ_GZ_FILES_SH_PATH = "tests/data/generate-file-sizes-for-fastq-gz-files.sh";
 var FASTQ_LIST_CSV_FILE = {
     class_: cwl_ts_auto_1.File_class.FILE,
     basename: "fastq_list.csv",
@@ -190,6 +191,11 @@ var EXPECTED_MD5SUM_FOR_FASTQ_ORA_FILES_SH_OUTPUT = {
     basename: "generate-md5sum-for-fastq-ora-files.sh",
     contents: (0, fs_1.readFileSync)(GENERATE_MD5SUM_FOR_FASTQ_ORA_FILES_SH_PATH, "utf8")
 };
+var EXPECTED_FILE_SIZES_FOR_FASTQ_GZ_FILES_SH_OUTPUT = {
+    class_: cwl_ts_auto_1.File_class.FILE,
+    basename: "generate-file-sizes-for-fastq-gz-files.sh",
+    contents: (0, fs_1.readFileSync)(GENERATE_FILE_SIZES_FOR_FASTQ_GZ_FILES_SH_PATH, "utf8")
+};
 describe('Test Simple Functions', function () {
     // Simple expected outputs
     var expected_get_script_path_output = "run-dragen-script.sh";
@@ -333,6 +339,10 @@ describe('Test ora mount points', function () {
         {
             "entryname": "generate-md5sum-for-fastq-gz-files.sh",
             "entry": EXPECTED_MD5SUM_FOR_FASTQ_GZ_FILES_SH_OUTPUT
+        },
+        {
+            "entryname": "generate-file-sizes-for-fastq-gz-files.sh",
+            "entry": EXPECTED_FILE_SIZES_FOR_FASTQ_GZ_FILES_SH_OUTPUT
         },
         {
             "entryname": "generate-md5sum-for-fastq-ora-files.sh",
