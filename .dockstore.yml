@@ -29,6 +29,7 @@ workflows:
         - dragen-alignment-pipeline/4.2.4__20240708034912
         - dragen-alignment-pipeline/4.2.4__20240801063352
         - dragen-alignment-pipeline/4.2.4__20240803074610
+        - dragen-alignment-pipeline/4.2.4__20240830041127
   - name: dragen-transcriptome-pipeline_4_2_4
     subclass: CWL
     primaryDescriptorPath: 
@@ -61,6 +62,7 @@ workflows:
         - dragen-somatic-with-germline-pipeline/4.2.4__20240627054304
         - dragen-somatic-with-germline-pipeline/4.2.4__20240801063441
         - dragen-somatic-with-germline-pipeline/4.2.4__20240803080024
+        - dragen-somatic-with-germline-pipeline/4.2.4__20240830041201
   - name: rnasum-pipeline_1_0_0
     subclass: CWL
     primaryDescriptorPath: /.dockstore/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.packed.cwl.json
@@ -87,3 +89,16 @@ workflows:
         - umccrise-pipeline/2.3.1--1
         - umccrise-pipeline/2.3.1--1__20240627233816
         - umccrise-pipeline/2.3.1--1__20240820075836
+  - name: dragen-wts-qc-pipeline_4_2_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-wts-qc-pipeline/4.2.4/dragen-wts-qc-pipeline__4.2.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-wts-qc-pipeline/4.2.4/dragen-wts-qc-pipeline__4.2.4.md
+    authors:
+      - name: Sehrish Kanwal
+        email: sehrish.kanwal@umccr.org
+    filters:
+      tags:
+        - dragen-wts-qc-pipeline/4.2.4
+        - dragen-wts-qc-pipeline/4.2.4__20240830041140

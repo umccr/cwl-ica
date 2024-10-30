@@ -39,6 +39,9 @@ const FASTQ_LIST_REORDERED_CSV_FILE_PATH = "tests/data/fastq_list.reordered.csv"
 const TUMOR_FASTQ_LIST_CSV_FILE_PATH = "tests/data/tumor_fastq_list.csv";
 const ORA_FASTQ_LIST_CSV_FILE_PATH = "tests/data/fastq_list.ora.csv"
 const MV_ORA_FILE_PATH = "tests/data/mv-ora.sh"
+const GENERATE_NEW_FASTQ_LIST_CSV_SH_PATH = "tests/data/generate-new-fastq-list-csv.sh"
+const GENERATE_MD5SUM_FOR_FASTQ_GZ_FILES_SH_PATH = "tests/data/generate-md5sum-for-fastq-gz-files.sh"
+const GENERATE_MD5SUM_FOR_FASTQ_ORA_FILES_SH_PATH = "tests/data/generate-md5sum-for-fastq-ora-files.sh"
 
 const FASTQ_LIST_CSV_FILE: IFile = {
     class_: File_class.FILE,
@@ -190,6 +193,21 @@ const EXPECTED_ORA_MV_SH_OUTPUT: IFile = {
     basename: "mv-ora-output-files.sh",
     contents: readFileSync(MV_ORA_FILE_PATH, "utf8")
 };
+const EXPECTED_ORA_NEW_FASTQ_LIST_CSV_SH_OUTPUT: IFile = {
+    class_: File_class.FILE,
+    basename: "generate-new-fastq-list-csv.sh",
+    contents: readFileSync(GENERATE_NEW_FASTQ_LIST_CSV_SH_PATH, "utf8")
+};
+const EXPECTED_MD5SUM_FOR_FASTQ_GZ_FILES_SH_OUTPUT: IFile = {
+    class_: File_class.FILE,
+    basename: "generate-md5sum-for-fastq-gz-files.sh",
+    contents: readFileSync(GENERATE_MD5SUM_FOR_FASTQ_GZ_FILES_SH_PATH, "utf8")
+};
+const EXPECTED_MD5SUM_FOR_FASTQ_ORA_FILES_SH_OUTPUT: IFile = {
+    class_: File_class.FILE,
+    basename: "generate-md5sum-for-fastq-ora-files.sh",
+    contents: readFileSync(GENERATE_MD5SUM_FOR_FASTQ_ORA_FILES_SH_PATH, "utf8")
+};
 
 describe('Test Simple Functions', function () {
     // Simple expected outputs
@@ -333,6 +351,18 @@ describe('Test ora mount points', function () {
         {
             "entryname": "mv-ora-output-files.sh",
             "entry": EXPECTED_ORA_MV_SH_OUTPUT
+        },
+        {
+            "entryname": "generate-new-fastq-list-csv.sh",
+            "entry": EXPECTED_ORA_NEW_FASTQ_LIST_CSV_SH_OUTPUT
+        },
+        {
+            "entryname": "generate-md5sum-for-fastq-gz-files.sh",
+            "entry": EXPECTED_MD5SUM_FOR_FASTQ_GZ_FILES_SH_OUTPUT
+        },
+        {
+            "entryname": "generate-md5sum-for-fastq-ora-files.sh",
+            "entry": EXPECTED_MD5SUM_FOR_FASTQ_ORA_FILES_SH_OUTPUT
         }
     ];
     const fastq_list_csv_mount_points = generate_ora_mount_points(ORA_RUN_DIRECTORY, "output-directory-path");
