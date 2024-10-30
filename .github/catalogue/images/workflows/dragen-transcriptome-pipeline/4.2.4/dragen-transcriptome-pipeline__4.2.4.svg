@@ -62,7 +62,7 @@
 <polygon fill="black" stroke="black" points="2580.92,-1120.41 2590.8,-1116.58 2580.69,-1113.41 2580.92,-1120.41"/>
 </g>
 <!-- run_qualimap_step -->
-<g id="node43" class="node">
+<g id="node42" class="node">
 <title>run_qualimap_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="4407,-860.62 4407,-897.62 4549,-897.62 4549,-860.62 4407,-860.62"/>
 <text text-anchor="middle" x="4478" y="-875.42" font-family="Times,serif" font-size="14.00">qualimap v(2.2.2)</text>
@@ -163,41 +163,41 @@
 <path fill="none" stroke="black" d="M4691,-1334.52C4680.13,-1323.5 4662.9,-1310.11 4645,-1303.12 4312.79,-1173.48 3208.47,-1128.27 2833.11,-1116.55"/>
 <polygon fill="black" stroke="black" points="2833.13,-1113.05 2823.03,-1116.24 2832.91,-1120.05 2833.13,-1113.05"/>
 </g>
+<!-- output_prefix&#45;&gt;run_qualimap_step -->
+<g id="edge27" class="edge">
+<title>output_prefix&#45;&gt;run_qualimap_step</title>
+<path fill="none" stroke="black" d="M4691.43,-1334.56C4671.31,-1297.41 4623.45,-1207.96 4587,-1131.12 4548.77,-1050.55 4508,-953.17 4488.97,-906.97"/>
+<polygon fill="black" stroke="black" points="4492.18,-905.57 4485.14,-897.65 4485.7,-908.23 4492.18,-905.57"/>
+</g>
 <!-- dragen_qc_step -->
-<g id="node42" class="node">
+<g id="node43" class="node">
 <title>dragen_qc_step</title>
 <polygon fill="lightgoldenrodyellow" stroke="black" points="4631.5,-628.62 4631.5,-665.62 4770.5,-665.62 4770.5,-628.62 4631.5,-628.62"/>
 <text text-anchor="middle" x="4701" y="-643.42" font-family="Times,serif" font-size="14.00">multiqc v(1.15.0)</text>
 </g>
 <!-- output_prefix&#45;&gt;dragen_qc_step -->
-<g id="edge27" class="edge">
+<g id="edge28" class="edge">
 <title>output_prefix&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M4694.05,-1334.37C4676.85,-1239.45 4676.33,-791.88 4692.5,-675.72"/>
 <polygon fill="black" stroke="black" points="4695.96,-676.25 4694.06,-665.83 4689.04,-675.16 4695.96,-676.25"/>
 </g>
 <!-- output_prefix&#45;&gt;dragen_qc_step -->
-<g id="edge28" class="edge">
+<g id="edge29" class="edge">
 <title>output_prefix&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M4698.68,-1334.37C4692.96,-1239.55 4692.78,-792.78 4698.15,-676.07"/>
 <polygon fill="black" stroke="black" points="4701.66,-676 4698.69,-665.83 4694.67,-675.63 4701.66,-676"/>
 </g>
 <!-- output_prefix&#45;&gt;dragen_qc_step -->
-<g id="edge29" class="edge">
+<g id="edge30" class="edge">
 <title>output_prefix&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M4703.32,-1334.37C4709.04,-1239.55 4709.22,-792.78 4703.85,-676.07"/>
 <polygon fill="black" stroke="black" points="4707.33,-675.63 4703.31,-665.83 4700.34,-676 4707.33,-675.63"/>
 </g>
 <!-- output_prefix&#45;&gt;dragen_qc_step -->
-<g id="edge30" class="edge">
+<g id="edge31" class="edge">
 <title>output_prefix&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M4707.95,-1334.37C4725.15,-1239.45 4725.67,-791.88 4709.5,-675.72"/>
 <polygon fill="black" stroke="black" points="4712.96,-675.16 4707.94,-665.83 4706.04,-676.25 4712.96,-675.16"/>
-</g>
-<!-- output_prefix&#45;&gt;run_qualimap_step -->
-<g id="edge31" class="edge">
-<title>output_prefix&#45;&gt;run_qualimap_step</title>
-<path fill="none" stroke="black" d="M4691.43,-1334.56C4671.31,-1297.41 4623.45,-1207.96 4587,-1131.12 4548.77,-1050.55 4508,-953.17 4488.97,-906.97"/>
-<polygon fill="black" stroke="black" points="4492.18,-905.57 4485.14,-897.65 4485.7,-908.23 4492.18,-905.57"/>
 </g>
 <!-- cl_config -->
 <g id="node8" class="node">
@@ -583,35 +583,35 @@
 <path fill="none" stroke="black" d="M2626.88,-1093.61C2294.99,-1021.06 1029.09,-744.33 679.12,-667.82"/>
 <polygon fill="black" stroke="black" points="679.8,-664.39 669.28,-665.67 678.3,-671.23 679.8,-664.39"/>
 </g>
-<!-- run_dragen_transcriptome_step&#45;&gt;dragen_qc_step -->
-<g id="edge7" class="edge">
-<title>run_dragen_transcriptome_step&#45;&gt;dragen_qc_step</title>
-<path fill="none" stroke="black" d="M2782.43,-1093.61C3096.52,-1020.68 4299.18,-741.43 4621.26,-666.64"/>
-<polygon fill="black" stroke="black" points="4622.49,-669.95 4631.44,-664.28 4620.9,-663.13 4622.49,-669.95"/>
-</g>
 <!-- run_dragen_transcriptome_step&#45;&gt;run_qualimap_step -->
-<g id="edge8" class="edge">
+<g id="edge7" class="edge">
 <title>run_dragen_transcriptome_step&#45;&gt;run_qualimap_step</title>
 <path fill="none" stroke="black" d="M2823.2,-1095.97C3156.71,-1052.47 4111.3,-927.95 4396.55,-890.75"/>
 <polygon fill="black" stroke="black" points="4397.35,-894.17 4406.81,-889.41 4396.44,-887.23 4397.35,-894.17"/>
 </g>
-<!-- dragen_qc_step&#45;&gt;multiqc_output_directory -->
-<g id="edge12" class="edge">
-<title>dragen_qc_step&#45;&gt;multiqc_output_directory</title>
-<path fill="none" stroke="black" d="M4684.71,-628.54C4618.88,-557.49 4372.39,-291.47 4295.24,-208.2"/>
-<polygon fill="black" stroke="black" points="4297.67,-205.68 4288.31,-200.73 4292.54,-210.44 4297.67,-205.68"/>
+<!-- run_dragen_transcriptome_step&#45;&gt;dragen_qc_step -->
+<g id="edge8" class="edge">
+<title>run_dragen_transcriptome_step&#45;&gt;dragen_qc_step</title>
+<path fill="none" stroke="black" d="M2782.43,-1093.61C3096.52,-1020.68 4299.18,-741.43 4621.26,-666.64"/>
+<polygon fill="black" stroke="black" points="4622.49,-669.95 4631.44,-664.28 4620.9,-663.13 4622.49,-669.95"/>
 </g>
 <!-- run_qualimap_step&#45;&gt;qualimap_output_directory -->
-<g id="edge14" class="edge">
+<g id="edge12" class="edge">
 <title>run_qualimap_step&#45;&gt;qualimap_output_directory</title>
 <path fill="none" stroke="black" d="M4467.23,-860.6C4409.55,-766.71 4137.14,-323.34 4067.33,-209.71"/>
 <polygon fill="black" stroke="black" points="4070.15,-207.61 4061.93,-200.92 4064.19,-211.27 4070.15,-207.61"/>
 </g>
 <!-- run_qualimap_step&#45;&gt;dragen_qc_step -->
-<g id="edge13" class="edge">
+<g id="edge11" class="edge">
 <title>run_qualimap_step&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M4495.13,-860.46C4534.45,-819.9 4631.28,-720.03 4676.72,-673.16"/>
 <polygon fill="black" stroke="black" points="4679.37,-675.47 4683.81,-665.85 4674.34,-670.59 4679.37,-675.47"/>
+</g>
+<!-- dragen_qc_step&#45;&gt;multiqc_output_directory -->
+<g id="edge13" class="edge">
+<title>dragen_qc_step&#45;&gt;multiqc_output_directory</title>
+<path fill="none" stroke="black" d="M4684.71,-628.54C4618.88,-557.49 4372.39,-291.47 4295.24,-208.2"/>
+<polygon fill="black" stroke="black" points="4297.67,-205.68 4288.31,-200.73 4292.54,-210.44 4297.67,-205.68"/>
 </g>
 <!-- create_dummy_file_step -->
 <g id="node44" class="node">
@@ -620,7 +620,7 @@
 <text text-anchor="middle" x="4925" y="-875.42" font-family="Times,serif" font-size="14.00">custom&#45;create&#45;dummy&#45;file v(1.0.0)</text>
 </g>
 <!-- create_dummy_file_step&#45;&gt;dragen_qc_step -->
-<g id="edge11" class="edge">
+<g id="edge14" class="edge">
 <title>create_dummy_file_step&#45;&gt;dragen_qc_step</title>
 <path fill="none" stroke="black" d="M4907.8,-860.46C4868.3,-819.9 4771.03,-720.03 4725.39,-673.16"/>
 <polygon fill="black" stroke="black" points="4727.75,-670.57 4718.26,-665.85 4722.73,-675.46 4727.75,-670.57"/>

@@ -76,21 +76,29 @@ requirements:
             --partial-reconfig HMM \\
             --ignore-version-check true
           
-          echo "\$(date -Iseconds): Ora compressing the fastq files" 1>&2
-          /opt/edico/bin/dragen "\${@}"
-          
-          echo "\$(date -Iseconds): Compression complete - moving outputs" 1>&2
-          
-          echo "\$(date -Iseconds): Showing outputs" 1>&2
-          find "$(get_ora_intermediate_output_dir())" 1>&2
-          
-          # Moving the non-fastq files to the output directory
-          echo "\$(date -Iseconds): Moving non-fastq files to the output directory" 1>&2
-          rsync --archive \\
-            --include="*/" \\
-            --exclude="*.fastq.gz" \\
-            "$(inputs.instrument_run_directory.path)/" \\
-            "$(inputs.output_directory_name)/"
+          (
+            echo "\$(date -Iseconds): Collecting md5sums of gzipped fastq files" 1>&2 && \\
+            bash "$(get_fastq_gz_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.md5.txt" && \\
+            echo "\$(date -Iseconds): Md5sum complete" 1>&2 \\
+          ) & \\
+          (
+            echo "\$(date -Iseconds): Ora compressing the fastq files" 1>&2 && \\
+            /opt/edico/bin/dragen "\${@}" && \\
+            echo "\$(date -Iseconds): Compression complete" 1>&2 && \\
+            echo "\$(date -Iseconds): Generating md5sums for ora outputs" 1>&2 && \\
+            bash "$(get_fastq_ora_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_ora.md5.txt" && \\
+            echo "\$(date -Iseconds): Generating md5sums for ora outputs complete" 1>&2
+          ) & \\
+          (
+            echo "\$(date -Iseconds): Moving non-fastq files to the output directory" 1>&2 && \\
+            rsync --archive \\
+              --include="*/" \\
+              --exclude="*.fastq.gz" \\
+              "$(inputs.instrument_run_directory.path)/" \\
+              "$(inputs.output_directory_name)/" && \\
+            echo "\$(date -Iseconds): Moving non-fastq files to the output directory complete" 1>&2 \\
+          ) & \\
+          wait
           
           # Remove the streaming log none file (as it is not compatible with downstream cwl services)
           rm -f "$(get_ora_intermediate_output_dir())/streaming_log_none(1000).csv"
@@ -100,6 +108,55 @@ requirements:
           echo "\$(date -Iseconds): Moving fastq ora files from the scratch space to the output directory" 1>&2
           bash "$(get_ora_mv_files_script_path())"
           echo "\$(date -Iseconds): ORA Tool complete" 1>&2
+          
+          # Generate new fastq list csv 
+          # With fastq.ora suffixes for read 1 and read 2
+          # And place in output directory
+          echo "\$(date -Iseconds): Generating fastq list csv for ora outputs" 1>&2
+          bash "$(get_new_fastq_list_csv_script_path())" >> "$(inputs.output_directory_name)/fastq_list_ora.csv"
+          echo "\$(date -Iseconds): Generating fastq list csv for ora outputs complete" 1>&2
+          
+          # if inputs.ora_print_file_info is true
+          if [[ "$(get_bool_value_as_str(inputs.ora_print_file_info))" == "true" ]]; then
+            echo "\$(date -Iseconds): Generating ora file info file, --ora-print-file-info set to true" 1>&2
+            mkdir -p "$(inputs.output_directory_name)/ora-logs/file-info/"
+            /opt/edico/bin/dragen \\
+              --enable-map-align=false \\
+              --enable-ora=true \\
+              --fastq-list="$(inputs.output_directory_name)/fastq_list_ora.csv" \\
+              --fastq-list-all-samples=true \\
+              --ora-reference="$(get_ref_path(inputs.ora_reference))" \\
+              --ora-print-file-info=true \\ 
+              --ora-parallel-files=1 \\
+              --intermediate-results-dir="$(get_intermediate_results_dir())" \\
+              --lic-instance-id-location="$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
+              --output-directory="$(inputs.output_directory_name)/ora-logs/file-info/" \\
+              1> "$(inputs.output_directory_name)/ora-logs/file-info/ora-file-info.log"
+            echo "\$(date -Iseconds): Generating ora file info file complete" 1>&2
+          else
+            echo "\$(date -Iseconds): Skipping ora file info step --ora-print-file-info set to false" 1>&2  
+          fi
+          
+          # If inputs.ora_check_file_integrity is true
+          if [[ "$(get_bool_value_as_str(inputs.ora_check_file_integrity))" == "true" ]]; then
+            echo "\$(date -Iseconds): Checking ora file integrity, --ora-check-file-integrity set to true" 1>&2
+            mkdir -p "$(inputs.output_directory_name)/ora-logs/check-integrity/"
+            /opt/edico/bin/dragen \\
+              --enable-map-align=false \\
+              --enable-ora=true \\
+              --fastq-list="$(inputs.output_directory_name)/fastq_list_ora.csv" \\
+              --fastq-list-all-samples=true \\
+              --ora-reference="$(get_ref_path(inputs.ora_reference))" \\
+              --ora-check-file-integrity=true \\
+              --intermediate-results-dir="$(get_intermediate_results_dir())" \\
+              --lic-instance-id-location="$(get_optional_attribute_from_multi_type_input_object(inputs.lic_instance_id_location, "path"))" \\
+              --output-directory "$(inputs.output_directory_name)/ora-logs/check-integrity/" \\
+              1> "$(inputs.output_directory_name)/ora-logs/check-integrity/ora-check-integrity.log"
+            echo "\$(date -Iseconds): Checking ora file integrity complete" 1>&2
+          else
+            echo "\$(date -Iseconds): Skipping ora file integrity check step --ora-check-file-integrity set to false" 1>&2
+          fi
+
       - |
         ${
           return generate_ora_mount_points(inputs.instrument_run_directory, inputs.output_directory_name);
@@ -178,6 +235,19 @@ inputs:
     inputBinding:
       prefix: --ora-threads-per-file=
       separate: False
+  # Integrity options
+  ora_print_file_info:
+    label: ora print file info
+    doc: |
+      Prints file information summary of ORA compressed files.
+    default: false
+    type: boolean
+  ora_check_file_integrity:
+    label: ora check file integrity
+    doc: |
+      Set to true to perform and output result of FASTQ file and decompressed FASTQ.ORA integrity check. The default value is false.
+    default: false
+    type: boolean
   # Miscellaneous options
   lic_instance_id_location:
     label: license instance id location

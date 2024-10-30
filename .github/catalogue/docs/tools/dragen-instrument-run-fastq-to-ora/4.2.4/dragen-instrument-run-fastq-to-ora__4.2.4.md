@@ -17,7 +17,7 @@ dragen-instrument-run-fastq-to-ora 4.2.4 tool
 
   
 > ID: dragen-instrument-run-fastq-to-ora--4.2.4  
-> md5sum: d1ffdfc1b6c24e9c740911dad47d8f71
+> md5sum: 446649b855aac94789ac8142821e07bf
 
 ### dragen-instrument-run-fastq-to-ora v(4.2.4) documentation
   
@@ -70,6 +70,19 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
+### ora check file integrity
+
+
+
+  
+> ID: ora_check_file_integrity
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+Set to true to perform and output result of FASTQ file and decompressed FASTQ.ORA integrity check. The default value is false.
+
+
 ### ora parallel files
 
 
@@ -83,6 +96,19 @@ which is a path inside the dragen container
 The number of files to compress in parallel
 ORA threads per file is set to 8 by default, 
 so this value should represent 16 / number of cores available
+
+
+### ora print file info
+
+
+
+  
+> ID: ora_print_file_info
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+Prints file information summary of ORA compressed files.
 
 
 ### ora reference

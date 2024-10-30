@@ -19,7 +19,7 @@ dragen-instrument-run-fastq-to-ora-pipeline 4.2.4 workflow
 
   
 > ID: dragen-instrument-run-fastq-to-ora-pipeline--4.2.4  
-> md5sum: 0cd9b9e27eb0ba79fb5ebd7914dd4b24
+> md5sum: 72e2437257db521bcbee4460e6a1fa63
 
 ### dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline documentation
   
@@ -68,6 +68,19 @@ The directory containing the instrument run. Expected to be in the BCLConvert 4.
   etc...
 
 
+### ora check file integrity
+
+
+
+  
+> ID: ora_check_file_integrity
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+Set to true to perform and output result of FASTQ file and decompressed FASTQ.ORA integrity check. The default value is false.
+
+
 ### ora parallel files
 
 
@@ -80,6 +93,19 @@ The directory containing the instrument run. Expected to be in the BCLConvert 4.
 **Docs:**  
 The number of files to compress in parallel. If using an FPGA medium instance in the 
 run_dragen_instrument_run_fastq_to_ora_step this should be set to 16 / ora_threads_per_file.
+
+
+### ora print file info
+
+
+
+  
+> ID: ora_print_file_info
+  
+**Optional:** `False`  
+**Type:** `boolean`  
+**Docs:**  
+Prints file information summary of ORA compressed files.
 
 
 ### ora reference

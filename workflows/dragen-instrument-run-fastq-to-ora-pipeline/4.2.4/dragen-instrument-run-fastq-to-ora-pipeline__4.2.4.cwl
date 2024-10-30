@@ -72,6 +72,19 @@ inputs:
       run_dragen_instrument_run_fastq_to_ora_step this should be set to 4 since there are only 16 cores available
     type: int?
     default: 8
+  # Integrity options
+  ora_print_file_info:
+    label: ora print file info
+    doc: |
+      Prints file information summary of ORA compressed files.
+    default: false
+    type: boolean
+  ora_check_file_integrity:
+    label: ora check file integrity
+    doc: |
+      Set to true to perform and output result of FASTQ file and decompressed FASTQ.ORA integrity check. The default value is false.
+    default: false
+    type: boolean
 
 steps:
   # Run Dragen Instrument Run Fastq to ORA
@@ -80,6 +93,7 @@ steps:
     doc: |
       Run the dragen instrument run fastq to ora tool
     in:
+      # Mandatory inputs
       instrument_run_directory:
         source: instrument_run_directory
       output_directory_name:
@@ -90,12 +104,20 @@ steps:
           }
       ora_reference:
         source: ora_reference
+      # Optional inputs
       sample_id_list:
         source: sample_id_list
+      # CPU Configurations
       ora_parallel_files:
         source: ora_parallel_files
       ora_threads_per_file:
         source: ora_threads_per_file
+      # Integrity options
+      ora_print_file_info:
+        source: ora_print_file_info
+      ora_check_file_integrity:
+        source: ora_check_file_integrity
+
     out:
       - id: output_directory
     run: ../../../tools/dragen-instrument-run-fastq-to-ora/4.2.4/dragen-instrument-run-fastq-to-ora__4.2.4.cwl
