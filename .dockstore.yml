@@ -114,3 +114,16 @@ workflows:
       tags:
         - dragen-wts-qc-pipeline/4.2.4
         - dragen-wts-qc-pipeline/4.2.4__20240830041140
+  - name: dragen-instrument-run-fastq-to-ora-pipeline_4_2_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-instrument-run-fastq-to-ora-pipeline/4.2.4/dragen-instrument-run-fastq-to-ora-pipeline__4.2.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-instrument-run-fastq-to-ora-pipeline/4.2.4/dragen-instrument-run-fastq-to-ora-pipeline__4.2.4.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4
+        - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4__20241030041958
