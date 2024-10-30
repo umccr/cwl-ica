@@ -80,6 +80,18 @@ inputs:
     doc: |
       The prefix given to all output files
     type: string
+  output_format :
+    label: output format
+    doc: |
+      For mapping and aligning, the output is sorted and compressed into BAM format by default before saving to disk.
+      You can control the output format from the map/align stage with the --output-format <SAM|BAM|CRAM> option.
+    type:
+      - "null"
+      - type: enum
+        symbols:
+          - SAM
+          - BAM
+          - CRAM
 
   # Optional operation modes
   # Given we're running from fastqs
@@ -109,6 +121,16 @@ inputs:
       Specifies the Phred quality score below which a base should be excluded from the quality score
       calculation used for choosing among duplicate reads.
     type: int?
+  enable_pgx:
+    label: enable pgx
+    doc: |
+      Enable star allele caller. This also turns on other PGx callers such as CYP2D6, CYP2B6
+    type: boolean?
+  enable_targeted:
+    label: enable targeted
+    doc: |
+      Enable targeted variant calling for repetitive regions
+    type: boolean?
 
   # Structural Variant Caller Options
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/StructuralVariantCalling.htm
@@ -234,8 +256,25 @@ inputs:
     doc: |
       The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
+  vc_emit_ref_confidence:
+    label: vc emit ref confidence
+    doc: |
+      A genomic VCF (gVCF) file contains information on variants and positions determined to be homozygous to the reference genome.
+      For homozygous regions, the gVCF file includes statistics that indicate how well reads support the absence of variants or
+      alternative alleles. To enable gVCF output, set to GVCF. By default, contiguous runs of homozygous reference calls with similar
+      scores are collapsed into blocks (hom-ref blocks). Hom-ref blocks save disk space and processing time of downstream analysis tools.
+      DRAGEN recommends using the default mode. To produce unbanded output, set --vc-emit-ref-confidence to BP_RESOLUTION.
+    type: string?
+  vc_ml_enable_recalibration:
+    label: vc ml enable recalibration
+    doc: |
+      DRAGEN employs machine learning-based variant recalibration (DRAGEN-ML) for germline SNV VC.
+      Variant calling accuracy is improved using powerful and efficient machine learning techniques that augment the variant caller,
+      by exploiting more of the available read and context information that does not easily integrate into the Bayesian processing
+      used by the haplotype variant caller.
+    type: boolean?
 
-    # Sex chromosome mosaic variants options
+  # Sex chromosome mosaic variants options
   vc_enable_sex_chr_diploid:
     label: vc enable sex chr diploid
     doc: |
@@ -326,6 +365,38 @@ inputs:
     secondaryFiles:
       - pattern: ".tbi"
         required: true
+
+  # Repeat expansion calling
+  repeat_genotype_enable:
+    label: repeat genotype enable
+    doc: |
+      Enable DRAGEN repeat expansion detection
+    type: boolean?
+  repeat_genotype_use_catalog:
+    label: repeat genotype use catalog
+    doc: |
+      The repeat-specification (also called variant catalog) JSON file defines the repeat regions for ExpansionHunter to analyze.
+      Default repeat-specification for some pathogenic and polymorphic repeats are in the /opt/edico/repeat-specs/ directory,
+      based on the reference genome used with DRAGEN. Users can choose between any of the three default repeat-specification files
+      packaged with DRAGEN using <default|default_plus_smn|expanded>
+    type:
+      - "null"
+      - type: enum
+        symbols:
+        - default
+        - default_plus_smn
+        - expanded
+  repeat_genotype_specs:
+    label: repeat genotype specs
+    doc: |
+      Specifies the full path to the JSON file that contains the repeat variant catalog (specification) describing the loci to call.
+      --repeat-genotype-specs is required for ExpansionHunter.
+      If the option is not provided,
+      DRAGEN attempts to autodetect the applicable catalog file from /opt/edico/repeat-specs/ based on the reference provided.
+    type:
+      - "null"
+      - File
+      - string
 
   # Force genotyping
   vc_forcegt_vcf:
@@ -472,12 +543,18 @@ steps:
       output_directory:
         source: output_prefix
         valueFrom: "$(self)_dragen_germline"
+      output_format:
+        source: output_format
       enable_map_align_output:
         source: enable_map_align_output
       enable_duplicate_marking:
         source: enable_duplicate_marking
       dedup_min_qual:
         source: dedup_min_qual
+      enable_pgx:
+        source: enable_pgx
+      enable_targeted:
+        source: enable_targeted
       vc_target_bed:
         source: vc_target_bed
       vc_target_bed_padding:
@@ -496,6 +573,10 @@ steps:
         source: vc_enable_phasing
       vc_enable_vcf_output:
         source: vc_enable_vcf_output
+      vc_emit_ref_confidence:
+        source: vc_emit_ref_confidence
+      vc_ml_enable_recalibration:
+        source: vc_ml_enable_recalibration
       vc_enable_sex_chr_diploid:
         source: vc_enable_sex_chr_diploid
       vc_haploid_call_af_threshold:
@@ -514,9 +595,10 @@ steps:
         source: vc_enable_baf
       vc_hard_filter:
         source: vc_hard_filter
+
+      # Structural Variant Caller Options
       enable_sv:
         source: enable_sv
-      # Structural Variant Caller Options
       sv_call_regions_bed:
         source: sv_call_regions_bed
       sv_region:
@@ -537,6 +619,13 @@ steps:
         source: sv_tin_contam_tolerance
       dbsnp_annotation:
         source: dbsnp_annotation
+      # repeat genotype options
+      repeat_genotype_enable:
+        source: repeat_genotype_enable
+      repeat_genotype_use_catalog:
+        source: repeat_genotype_use_catalog
+      repeat_genotype_specs:
+        source: repeat_genotype_specs
       #cnv options
       enable_cnv:
         source: enable_cnv
