@@ -63,3 +63,48 @@ function get_file_from_directory(input_dir, file_basename, recursive) {
     /*  Return the output file object */
     return output_file_obj;
 }
+/*  Find files in a directory */
+function find_files_in_directory_recursively_with_regex(input_dir, file_regex) {
+    /*
+    Initialise the output file object
+    */
+    var output_file_obj = [];
+    /*
+    Check input_dir is a directory and has a listing
+    */
+    if (input_dir.class === undefined || input_dir.class !== "Directory") {
+        throw new Error("Could not confirm that the first argument was a directory");
+    }
+    if (input_dir.listing === undefined || input_dir.listing === null) {
+        throw new Error("Could not collect listing from directory \"".concat(input_dir.basename, "\""));
+    }
+    /*
+    Collect listing as a variable
+    */
+    var input_listing = input_dir.listing;
+    /*
+    Iterate through the file listing
+    */
+    for (var _i = 0, input_listing_2 = input_listing; _i < input_listing_2.length; _i++) {
+        var listing_item = input_listing_2[_i];
+        if (listing_item.class === "File" && file_regex.test(listing_item.basename)) {
+            /*
+            Got the file of interest and the file basename matches the file regex
+            */
+            output_file_obj.push(listing_item);
+        }
+        if (listing_item.class === "Directory") {
+            var subdirectory_list = listing_item;
+            try {
+                /*  Consider that the file might not be in this subdirectory and that is okay */
+                var subdirectory_files = find_files_in_directory_recursively_with_regex(subdirectory_list, file_regex);
+                output_file_obj.push.apply(output_file_obj, subdirectory_files);
+            }
+            catch (error) {
+                /*  Dont need to report an error though, just continue */
+            }
+        }
+    }
+    /*  Return the output file object */
+    return output_file_obj;
+}

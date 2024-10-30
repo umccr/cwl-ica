@@ -1181,9 +1181,31 @@ datasets:
         folder_size_in_bytes: 5858132347
         object_e_tag_md5sum: 4dde55434a5b9c2a700b0ed845cc3e9c
         folder_structure_md5sum: cd6eef09246bd35d870f8754bdc701d0
-
+  - dataset_tenant_name: umccr-prod
+    dataset_name: ora-reference-v2
+    dataset_description: |
+      The ORA V2 Reference Tarball, used for ORA compression.
+      Can be downloaded from "https://support.illumina.com/downloads/ora-compression-reference-files.html"
+    cwl_username: Alexis Lucattini
+    dataset_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    dataset_region_city_name: Sydney
+    dataset_creation_time: '2024-10-30T04:01:43Z'
+    dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
+    data:
+      - data_id: fil.3f573b26c22c4507077908dcb063a68d
+        owning_project_id: 92bc8608-9393-44b4-bf16-fb0c5a12269a
+        owning_project_name: reference-data
+        data_uri: icav2://reference-data/dragen-ora/v2/ora_reference_v2.tar.gz
+        creation_time: '2024-07-30T07:37:34Z'
+        modification_time: '2024-07-31T12:55:40Z'
+        creator_id:
+        creator_name:
+        data_type: FILE
+        file_size_in_bytes: 2398461386
+        object_e_tag: cd29935e722171bee7b568b08852cabd-286
 
 # List of bunches / bunch versions that are precursors to bundles
+
 bunches:
   # BCLConvert Interop QC
   - bunch_name: bclconvert_interop_qc_prod__1_3_1__1_21
@@ -1620,6 +1642,31 @@ bunches:
           - dataset_name: umccrise_202303
             dataset_creation_time: '2024-06-23T10:43:30Z'
             dataset_id_hash: d240e2f94f1859bd67da74fb9d7b90d2
+  # ORA Compression pipeline
+  - bunch_name: ora_instrument_run_compression_pipeline_with_reference__4_2_4
+    bunch_description: Contains the ora compression pipeline (to be used on an entire
+      instrument run) using dragen v4.2.4, and the compression reference tar v2
+    tenant_name: umccr-prod
+    pipeline_path:
+      workflows/dragen-instrument-run-fastq-to-ora-pipeline/4.2.4/dragen-instrument-run-fastq-to-ora-pipeline__4.2.4.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - compression
+    bunch_versions:
+      - version: v2
+        version_description: This verions of the bunch contains the dragen ora compression
+          v2
+        version_creation_date: 2024-10-30T04:09:34+00:00Z
+        datasets:
+          - dataset_name: ora-reference-v2
+            dataset_creation_time: '2024-10-30T04:01:43Z'
+            dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
 
 
 # List of generated bundles

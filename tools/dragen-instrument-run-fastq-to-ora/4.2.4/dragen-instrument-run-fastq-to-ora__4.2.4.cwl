@@ -79,7 +79,10 @@ requirements:
           (
             echo "\$(date -Iseconds): Collecting md5sums of gzipped fastq files" 1>&2 && \\
             bash "$(get_fastq_gz_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.md5.txt" && \\
-            echo "\$(date -Iseconds): Md5sum complete" 1>&2 \\
+            echo "\$(date -Iseconds): Md5sum complete" 1>&2 && \\
+            echo "\$(date -Iseconds): Collecting file sizes of gzipped fastq files" 1>&2 && \\
+            bash "$(get_fastq_gz_file_sizes_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.filesizes.tsv" && \\
+            echo "\$(date -Iseconds): File size collection complete" 1>&2 \\
           ) & \\
           (
             echo "\$(date -Iseconds): Ora compressing the fastq files" 1>&2 && \\
@@ -88,6 +91,9 @@ requirements:
             echo "\$(date -Iseconds): Generating md5sums for ora outputs" 1>&2 && \\
             bash "$(get_fastq_ora_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_ora.md5.txt" && \\
             echo "\$(date -Iseconds): Generating md5sums for ora outputs complete" 1>&2
+            echo "\$(date -Iseconds): Generating file sizes for ora outputs" 1>&2 && \\
+            bash "$(get_fastq_ora_file_sizes_script_path())" > "$(inputs.output_directory_name)/fastq_ora.filesizes.tsv" && \\
+            echo "\$(date -Iseconds): Generating file sizes for ora outputs complete" 1>&2
           ) & \\
           (
             echo "\$(date -Iseconds): Moving non-fastq files to the output directory" 1>&2 && \\

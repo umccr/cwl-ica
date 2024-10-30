@@ -1,83 +1,69 @@
-# Test started at 2022-09-27T16:10:24+10:00
+# Test started at 2024-08-16T21:15:52+10:00
 
-yarn exec v1.22.19
-warning package.json: No license field
-PASS tests/get-file-from-directory__1.0.0.test.js (9.482 s)
+PASS tests/get-file-from-directory__1.0.0.test.js
 FAIL tests/get-file-from-directory__1.0.0.test.ts
   ● Test suite failed to run
 
-    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m19[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m23[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
       Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
 
-    [7m 19[0m         {
+    [7m 23[0m         {
     [7m   [0m [91m        ~[0m
-    [7m 20[0m             class_: File_class.FILE,
+    [7m 24[0m             class_: File_class.FILE,
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m...[0m 
-    [7m 22[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/index.html`
+    [7m 26[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/index.html`
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m 23[0m         },
+    [7m 27[0m         },
     [7m   [0m [91m~~~~~~~~~[0m
-    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m24[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m28[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
       Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
 
-    [7m 24[0m         {
+    [7m 28[0m         {
     [7m   [0m [91m        ~[0m
-    [7m 25[0m             class_: File_class.FILE,
+    [7m 29[0m             class_: File_class.FILE,
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m...[0m 
-    [7m 27[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_FILE_BASENAME}`
+    [7m 31[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_FILE_BASENAME}`
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m 28[0m         },
+    [7m 32[0m         },
     [7m   [0m [91m~~~~~~~~~[0m
-    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m29[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m33[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
       Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
 
-    [7m 29[0m         {
+    [7m 33[0m         {
     [7m   [0m [91m        ~[0m
-    [7m 30[0m             class_: File_class.FILE,
+    [7m 34[0m             class_: File_class.FILE,
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m...[0m 
-    [7m 32[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_FILE_BASENAME}.bai`
+    [7m 36[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_FILE_BASENAME}.bai`
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m 33[0m         },
+    [7m 37[0m         },
     [7m   [0m [91m~~~~~~~~~[0m
-    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m34[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m38[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
       Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
 
-    [7m 34[0m         {
+    [7m 38[0m         {
     [7m   [0m [91m        ~[0m
-    [7m 35[0m             class_: File_class.FILE,
+    [7m 39[0m             class_: File_class.FILE,
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m...[0m 
-    [7m 37[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/logs.txt`
+    [7m 41[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/logs.txt`
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m 38[0m         },
+    [7m 42[0m         },
     [7m   [0m [91m~~~~~~~~~[0m
-    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m49[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m54[0m:[93m9[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
       Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
 
-    [7m 49[0m         {
+    [7m 54[0m         {
     [7m   [0m [91m        ~[0m
-    [7m 50[0m             class_: File_class.FILE,
+    [7m 55[0m             class_: File_class.FILE,
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m...[0m 
-    [7m 52[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/index.html`
+    [7m 57[0m             location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/index.html`
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m 53[0m         },
+    [7m 58[0m         },
     [7m   [0m [91m~~~~~~~~~[0m
-    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m59[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
-      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
-
-    [7m 59[0m                 {
-    [7m   [0m [91m                ~[0m
-    [7m 60[0m                     class_: File_class.FILE,
-    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m...[0m 
-    [7m 62[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/${INPUT_FILE_BASENAME}`
-    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m 63[0m                 },
-    [7m   [0m [91m~~~~~~~~~~~~~~~~~[0m
     [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m64[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
       Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
 
@@ -86,8 +72,8 @@ FAIL tests/get-file-from-directory__1.0.0.test.ts
     [7m 65[0m                     class_: File_class.FILE,
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m...[0m 
-    [7m 67[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/${INPUT_FILE_BASENAME}.bai`
-    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 67[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/${INPUT_FILE_BASENAME}`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m 68[0m                 },
     [7m   [0m [91m~~~~~~~~~~~~~~~~~[0m
     [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m69[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
@@ -98,30 +84,34 @@ FAIL tests/get-file-from-directory__1.0.0.test.ts
     [7m 70[0m                     class_: File_class.FILE,
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
     [7m...[0m 
-    [7m 72[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/logs.txt`
+    [7m 72[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/${INPUT_FILE_BASENAME}.bai`
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m 73[0m                 },
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~[0m
+    [96mtests/get-file-from-directory__1.0.0.test.ts[0m:[93m74[0m:[93m17[0m - [91merror[0m[90m TS2322: [0mType '{ class_: File_class.FILE; basename: string; location: string; }' is not assignable to type 'File | Directory'.
+      Type '{ class_: File_class.FILE; basename: string; location: string; }' is missing the following properties from type 'File': save, loadingOptions
+
+    [7m 74[0m                 {
+    [7m   [0m [91m                ~[0m
+    [7m 75[0m                     class_: File_class.FILE,
+    [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    [7m...[0m 
+    [7m 77[0m                     location: `${INPUT_OUTPUT_DIRECTORY_LOCATION}/${INPUT_NESTED_DIRECTORY_NAME}/logs.txt`
     [7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
-    [7m 73[0m                 }
+    [7m 78[0m                 }
     [7m   [0m [91m~~~~~~~~~~~~~~~~~[0m
 
 
 =============================== Coverage summary ===============================
-Statements   : 86.66% ( 26/30 )
-Branches     : 80.76% ( 21/26 )
-Functions    : 100% ( 1/1 )
-Lines        : 85.18% ( 23/27 )
+Statements   : 87.75% ( 43/49 )
+Branches     : 82.5% ( 33/40 )
+Functions    : 100% ( 2/2 )
+Lines        : 86.36% ( 38/44 )
 ================================================================================
 Test Suites: 1 failed, 1 passed, 2 total
-Tests:       2 passed, 2 total
+Tests:       3 passed, 3 total
 Snapshots:   0 total
-Time:        15.728 s
+Time:        1.787 s
 Ran all test suites.
-error Command failed.
-Exit code: 1
-Command: jest
-Arguments: 
-Directory: /e/Users/awluc/OneDrive/GitHub/UMCCR/cwl-ica/typescript-expressions/get-file-from-directory/1.0.0
-Output:
-
-info Visit https://yarnpkg.com/en/docs/cli/exec for documentation about this command.
-# Test completed at 2022-09-27T16:10:53+10:00
+# Test completed at 2024-08-16T21:15:55+10:00
 

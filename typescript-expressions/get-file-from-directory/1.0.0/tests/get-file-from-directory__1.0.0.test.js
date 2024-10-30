@@ -12,6 +12,7 @@ var INPUT_FILE_NAMEEXT = ".txt";
 var INPUT_FILE_BASENAME = INPUT_FILE_NAMEROOT + INPUT_FILE_NAMEEXT;
 var INPUT_OUTPUT_DIRECTORY_LOCATION = "outputs/output-directory";
 // When in the top directory
+// @ts-ignore
 var INPUT_SHALLOW_LISTING = {
     class_: cwl_ts_auto_1.Directory_class.DIRECTORY,
     location: "".concat(INPUT_OUTPUT_DIRECTORY_LOCATION),
@@ -40,6 +41,7 @@ var INPUT_SHALLOW_LISTING = {
 };
 // When in a nested directory directory
 var INPUT_NESTED_DIRECTORY_NAME = "nested-directory";
+// @ts-ignore
 var INPUT_DEEP_LISTING = {
     class_: cwl_ts_auto_1.Directory_class.DIRECTORY,
     location: "".concat(INPUT_OUTPUT_DIRECTORY_LOCATION),
@@ -93,5 +95,18 @@ describe('Test Deep Directory Listing', function () {
     // Get script path
     test("Test the deep listing function", function () {
         expect((0, get_file_from_directory__1_0_0_1.get_file_from_directory)(INPUT_DEEP_LISTING, INPUT_FILE_BASENAME, true)).toMatchObject(EXPECTED_DEEP_LISTING_OUTPUT_BAM_FILE);
+    });
+});
+describe('Test Deep Directory Regex', function () {
+    // Get script path
+    test("Test the deep regex function", function () {
+        expect((0, get_file_from_directory__1_0_0_1.find_files_in_directory_recursively_with_regex)(INPUT_DEEP_LISTING, /\.txt$/g)).toMatchObject([
+            EXPECTED_DEEP_LISTING_OUTPUT_BAM_FILE,
+            {
+                class_: cwl_ts_auto_1.File_class.FILE,
+                basename: "logs.txt",
+                location: "".concat(INPUT_OUTPUT_DIRECTORY_LOCATION, "/").concat(INPUT_NESTED_DIRECTORY_NAME, "/logs.txt")
+            }
+        ]);
     });
 });

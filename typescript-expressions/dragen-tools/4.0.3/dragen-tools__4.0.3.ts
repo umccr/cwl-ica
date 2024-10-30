@@ -119,11 +119,25 @@ export function get_fastq_gz_md5sum_files_script_path(): string {
     return "generate-md5sum-for-fastq-gz-files.sh"
 }
 
+export function get_fastq_gz_file_sizes_script_path(): string {
+    /*
+    Get the script path to generating the filesizes for each fastq gzip file
+    */
+    return "generate-file-sizes-for-fastq-gz-files.sh"
+}
+
 export function get_fastq_ora_md5sum_files_script_path(): string {
     /*
     Get the script path for generating the md5sum for each fastq ora file
     */
     return "generate-md5sum-for-fastq-ora-files.sh"
+}
+
+export function get_fastq_ora_file_sizes_script_path(): string {
+    /*
+    Get the script path to generating the filesizes for each fastq gzip file
+    */
+    return "generate-file-sizes-for-fastq-ora-files.sh"
 }
 
 export function get_normal_name_from_fastq_list_rows(fastq_list_rows: Array<FastqListRow> | null): string | null {
@@ -494,7 +508,6 @@ export function get_ref_scratch_dir(reference_name: string) {
     return get_scratch_mount() + reference_name + "/";
 }
 
-
 export function get_ora_intermediate_output_dir() {
     return get_scratch_mount() + "ora-outputs/";
 }
@@ -598,6 +611,54 @@ export function generate_fastq_gz_md5sum_files_script(fastq_list_rows: FastqList
     }
 }
 
+export function generate_fastq_gz_file_sizes_script(fastq_list_rows: FastqListRow[], input_directory: IDirectory): IFile {
+    /*
+    Generate the fastq gzip get files sizes, results are printed to stdout
+    */
+    let get_filesizes_fastq_gz_script = "#!/usr/bin/env bash\n\n"
+
+    get_filesizes_fastq_gz_script += `# Exit on failure\n`
+    get_filesizes_fastq_gz_script += `set -euo pipefail\n\n`
+
+    // Initialise the bash array
+    get_filesizes_fastq_gz_script += `# Get fastq gz paths\n`
+    get_filesizes_fastq_gz_script += `FASTQ_GZ_PATHS=(\n`
+
+    // Iterate over all files
+    for (let fastq_list_row of fastq_list_rows) {
+        // Confirm read 1 is a file type
+        if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === File_class.FILE) {
+            // Add relative path of read 1
+            get_filesizes_fastq_gz_script += `  "${fastq_list_row.read_1.path.replace(input_directory.path + "/", '')}" \\\n`
+        }
+        // Confirm read 2 is a file type
+        if (fastq_list_row.read_2 !== null && "class_" in fastq_list_row.read_2 && fastq_list_row.read_2.class_ === File_class.FILE) {
+            get_filesizes_fastq_gz_script += `  "${fastq_list_row.read_2.path.replace(input_directory.path + "/", '')}" \\\n`
+        }
+    }
+
+    // Complete the bash array
+    get_filesizes_fastq_gz_script += `)\n\n`
+
+    // Build the for loop
+    // Initialise the tsv
+    get_filesizes_fastq_gz_script += `# Initialise the tsv header\n`
+    get_filesizes_fastq_gz_script += `echo "fastqPath\tfileSizeInBytes"\n\n`
+    get_filesizes_fastq_gz_script += `# Generate file sizes for the input fastq gz files\n`
+    get_filesizes_fastq_gz_script += `for fastq_gz_path in "\${FASTQ_GZ_PATHS[@]}"; do\n`
+    get_filesizes_fastq_gz_script += `  file_size="$(wc -c < "${input_directory.path}/\${fastq_gz_path}")"\n`
+    get_filesizes_fastq_gz_script += `  echo "\${fastq_gz_path}\t\${file_size}"\n`
+    get_filesizes_fastq_gz_script += `done\n\n`
+
+    get_filesizes_fastq_gz_script += `# file size script complete\n`
+
+    return {
+        class_: File_class.FILE,
+        basename: get_fastq_gz_file_sizes_script_path(),
+        contents: get_filesizes_fastq_gz_script
+    }
+}
+
 export function generate_fastq_ora_md5sum_files_script(fastq_list_rows: FastqListRow[], input_directory: IDirectory, output_directory: string): IFile {
     /*
     Generate the fastq ora md5sum files script command, results are printed to stdout
@@ -635,7 +696,6 @@ export function generate_fastq_ora_md5sum_files_script(fastq_list_rows: FastqLis
 
     get_md5sum_fastq_ora_script += `# Md5sum script complete\n`
 
-
     return {
         class_: File_class.FILE,
         basename: get_fastq_ora_md5sum_files_script_path(),
@@ -643,6 +703,52 @@ export function generate_fastq_ora_md5sum_files_script(fastq_list_rows: FastqLis
     }
 }
 
+
+export function generate_fastq_ora_file_sizes_script(fastq_list_rows: FastqListRow[], input_directory: IDirectory, output_directory: string): IFile {
+    /*
+    Generate the fastq ora file size files script command, results are printed to stdout
+    */
+    let get_filesizes_fastq_ora_script = "#!/usr/bin/env bash\n\n"
+
+    get_filesizes_fastq_ora_script += `# Exit on failure\n`
+    get_filesizes_fastq_ora_script += `set -euo pipefail\n\n`
+
+    // Initialise the bash array
+    get_filesizes_fastq_ora_script += `# Get fastq ora paths\n`
+    get_filesizes_fastq_ora_script += `FASTQ_ORA_OUTPUT_PATHS=(\n`
+
+    // Iterate over all files
+    for (let fastq_list_row of fastq_list_rows) {
+        // Confirm read 1 is a file type
+        if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === File_class.FILE) {
+            // Add relative path of read 1
+            get_filesizes_fastq_ora_script += `  "${fastq_list_row.read_1.path.replace(input_directory.path + "/", '').replace(".gz", ".ora")}" \\\n`
+        }
+        // Confirm read 2 is a file type
+        if (fastq_list_row.read_2 !== null && "class_" in fastq_list_row.read_2 && fastq_list_row.read_2.class_ === File_class.FILE) {
+            get_filesizes_fastq_ora_script += `  "${fastq_list_row.read_2.path.replace(input_directory.path + "/", '').replace(".gz", ".ora")}" \\\n`
+        }
+    }
+
+    // Complete the bash array
+    get_filesizes_fastq_ora_script += `)\n\n`
+
+    get_filesizes_fastq_ora_script += `# Initialise the tsv header\n`
+    get_filesizes_fastq_ora_script += `echo "fastqPath\tfileSizeInBytes"\n\n`
+    get_filesizes_fastq_ora_script += `# Generate file sizes for the output fastq ora files\n`
+    get_filesizes_fastq_ora_script += `for fastq_ora_output_path in "\${FASTQ_ORA_OUTPUT_PATHS[@]}"; do\n`
+    get_filesizes_fastq_ora_script += `  fastq_ora_scratch_path="${output_directory}$(basename "\${fastq_ora_output_path}")"\n`
+    get_filesizes_fastq_ora_script += `  file_size="$(wc -c < "\${fastq_ora_scratch_path}")"\n`
+    get_filesizes_fastq_ora_script += `  echo "\${fastq_ora_output_path}\t\${file_size}"\n`
+    get_filesizes_fastq_ora_script += `done\n\n`
+    get_filesizes_fastq_ora_script += `# ORA script complete\n`
+
+    return {
+        class_: File_class.FILE,
+        basename: get_fastq_ora_file_sizes_script_path(),
+        contents: get_filesizes_fastq_ora_script
+    }
+}
 
 export function generate_new_fastq_list_csv_script(fastq_list_rows: FastqListRow[], input_directory: IDirectory): IFile {
     /*
@@ -856,11 +962,24 @@ export function generate_ora_mount_points(input_run: IDirectory, output_director
         "entry": generate_fastq_gz_md5sum_files_script(fastq_list_rows, input_run)
     })
 
+    // Generate the script to generate the filesizes of the input gzipped fastq files
+    e.push({
+        "entryname": get_fastq_gz_file_sizes_script_path(),
+        "entry": generate_fastq_gz_file_sizes_script(fastq_list_rows, input_run)
+    })
+
     // Generate the script to generate the md5sums of the output ora fastq files
     e.push({
         "entryname": get_fastq_ora_md5sum_files_script_path(),
         "entry": generate_fastq_ora_md5sum_files_script(fastq_list_rows, input_run, get_ora_intermediate_output_dir())
     })
+
+    // Generate the script to generate the filesizes of the output ora fastq files
+    e.push({
+        "entryname": get_fastq_ora_file_sizes_script_path(),
+        "entry": generate_fastq_ora_file_sizes_script(fastq_list_rows, input_run, get_ora_intermediate_output_dir())
+    })
+
 
 
     // Return the dirent
