@@ -127,3 +127,16 @@ workflows:
       tags:
         - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4
         - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4__20241030041958
+  - name: dragen-transcriptome-pipeline_4_3_6
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-transcriptome-pipeline/4.3.6/dragen-transcriptome-pipeline__4.3.6.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.3.6/dragen-transcriptome-pipeline__4.3.6.md
+    authors:
+      - name: Sehrish Kanwal
+        email: sehrish.kanwal@umccr.org
+    filters:
+      tags:
+        - dragen-transcriptome-pipeline/4.3.6
+        - dragen-transcriptome-pipeline/4.3.6__20241106102659
