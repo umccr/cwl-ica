@@ -127,6 +127,19 @@ workflows:
       tags:
         - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4
         - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4__20241030041958
+  - name: dragen-germline-pipeline_4_3_6
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-germline-pipeline/4.3.6/dragen-germline-pipeline__4.3.6.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-germline-pipeline/4.3.6/dragen-germline-pipeline__4.3.6.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - dragen-germline-pipeline/4.3.6
+        - dragen-germline-pipeline/4.3.6__20241106102657
   - name: dragen-somatic-with-germline-pipeline_4_3_6
     subclass: CWL
     primaryDescriptorPath: 
