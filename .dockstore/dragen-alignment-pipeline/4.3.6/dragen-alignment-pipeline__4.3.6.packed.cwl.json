@@ -1,0 +1,1987 @@
+{
+  "$graph": [
+    {
+      "class": "CommandLineTool",
+      "id": "#dragen-alignment__4.3.6.cwl",
+      "label": "dragen-alignment v(4.3.6)",
+      "doc": "Documentation for dragen-alignment v4.3.6\n",
+      "hints": [
+        {
+          "dockerPull": "079623148045.dkr.ecr.ap-southeast-2.amazonaws.com/cp-prod/c3add40b-1be2-431d-a322-29529f7d2866:latest",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 16,
+          "ramMin": 240000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "fpga",
+          "https://platform.illumina.com/rdf/ica/resources:size": "medium"
+        }
+      ],
+      "requirements": [
+        {
+          "listing": [
+            {
+              "entryname": "$(get_script_path())",
+              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Reset dragen\n/opt/edico/bin/dragen_reset\n\n# Create directories\nmkdir --parents \\\\\n  \"$(get_ref_mount())\" \\\\\n  \"$(get_intermediate_results_dir())\" \\\\\n  \"$(inputs.output_directory)\"\n\n# untar ref data into scratch space\ntar \\\\\n  --directory \"$(get_ref_mount())\" \\\\\n  --extract \\\\\n  --file \"$(inputs.reference_tar.path)\"\n\n# Confirm not both fastq_list and fastq_list_rows are defined\nif [[ \"$(is_not_null(inputs.fastq_list))\" == \"true\" && \"$(is_not_null(inputs.fastq_list_rows))\" == \"true\" ]]; then\n  echo \"Cannot set both CWL inputs fastq_list AND fastq_list_rows\" 1>&2\n  exit 1\nfi\n\n# Run dragen command and import options from cli\n\"$(get_dragen_bin_path())\" \"\\${@}\"\n"
+            },
+            "${\n  return generate_germline_mount_points(inputs);\n}\n"
+          ],
+          "class": "InitialWorkDirRequirement"
+        },
+        {
+          "expressionLib": [
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction get_script_path() {\n    /*\n    Abstract script path, can then be referenced in baseCommand attribute too\n    Makes things more readable.\n    */\n    return \"run-dragen-script.sh\";\n}\nfunction get_scratch_mount() {\n    /*\n    Return the path of the scratch directory space\n    */\n    return \"/scratch/\";\n}\nfunction get_intermediate_results_dir() {\n    /*\n    Get intermediate results directory as /scratch for dragen runs\n    */\n    return get_scratch_mount() + \"intermediate-results/\";\n}\nfunction get_name_root_from_tarball(basename) {\n    var tar_ball_regex = /(\\S+)\\.tar\\.gz/g;\n    var tar_ball_expression = tar_ball_regex.exec(basename);\n    if (tar_ball_expression === null) {\n        throw new Error(\"Could not get nameroot from \".concat(basename));\n    }\n    return tar_ball_expression[1];\n}\nfunction get_ref_path(reference_input_obj) {\n    /*\n    Get the reference path\n    */\n    return get_ref_mount() + get_name_root_from_tarball(reference_input_obj.basename) + \"/\";\n}\nfunction get_ref_mount() {\n    /*\n    Get the reference mount point\n    */\n    return get_scratch_mount() + \"ref/\";\n}\nfunction get_dragen_bin_path() {\n    /*\n    Get dragen bin path\n    */\n    return \"/opt/edico/bin/dragen\";\n}\nfunction get_dragen_eval_line() {\n    /*\n    Return string\n    */\n    return \"eval \\\"\" + get_dragen_bin_path() + \"\\\" '\\\"\\$@\\\"' \\n\";\n}\nfunction get_fastq_list_csv_path() {\n    /*\n    The fastq list path must be placed in working directory\n    */\n    return \"fastq_list.csv\";\n}\nfunction get_tumor_fastq_list_csv_path() {\n    /*\n    The tumor fastq list path must be placed in working directory\n    */\n    return \"tumor_fastq_list.csv\";\n}\nfunction get_ora_mv_files_script_path() {\n    /*\n    Get the ora mv files script path\n    */\n    return \"mv-ora-output-files.sh\";\n}\nfunction get_new_fastq_list_csv_script_path() {\n    /*\n    Get the new fastq list csv script path\n    */\n    return \"generate-new-fastq-list-csv.sh\";\n}\nfunction get_fastq_gz_md5sum_files_script_path() {\n    /*\n    Get the script path to generating the md5sum for each fastq gzip file\n    */\n    return \"generate-md5sum-for-fastq-gz-files.sh\";\n}\nfunction get_fastq_gz_file_sizes_script_path() {\n    /*\n    Get the script path to generating the filesizes for each fastq gzip file\n    */\n    return \"generate-file-sizes-for-fastq-gz-files.sh\";\n}\nfunction get_fastq_ora_md5sum_files_script_path() {\n    /*\n    Get the script path for generating the md5sum for each fastq ora file\n    */\n    return \"generate-md5sum-for-fastq-ora-files.sh\";\n}\nfunction get_fastq_ora_file_sizes_script_path() {\n    /*\n    Get the script path to generating the filesizes for each fastq gzip file\n    */\n    return \"generate-file-sizes-for-fastq-ora-files.sh\";\n}\nfunction get_normal_name_from_fastq_list_rows(fastq_list_rows) {\n    /*\n    Get the normal sample name from the fastq list rows object\n    */\n    /*\n    Check fastq list rows is defined\n    */\n    if (fastq_list_rows === undefined || fastq_list_rows === null) {\n        return null;\n    }\n    /*\n    Get RGSM value and return\n    */\n    return fastq_list_rows[0].rgsm;\n}\nfunction get_normal_name_from_fastq_list_csv(fastq_list_csv) {\n    /*\n    Get the normal name from the fastq list csv...\n    */\n    /*\n    Check file is defined\n    */\n    if (fastq_list_csv === undefined || fastq_list_csv === null) {\n        return null;\n    }\n    /*\n    Check contents are defined\n    */\n    if (fastq_list_csv.contents === null || fastq_list_csv.contents === undefined) {\n        return null;\n    }\n    /*\n    Confirm fastq list csv is of type File\n    */\n    if (fastq_list_csv.class !== \"File\") {\n        throw new Error(\"Could not confirm input fastq_list_csv is of type File\");\n    }\n    /*\n    Split contents by line\n    */\n    var contents_by_line = [];\n    fastq_list_csv.contents.split(\"\\n\").forEach(function (line_content) {\n        var stripped_line_content = line_content.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\n        if (stripped_line_content !== \"\") {\n            contents_by_line.push(stripped_line_content);\n        }\n    });\n    var column_names = contents_by_line[0].split(\",\");\n    /*\n    Get RGSM index value (which column is RGSM at?)\n    */\n    var rgsm_index = column_names.indexOf(\"RGSM\");\n    /*\n    RGSM is not in index. Return null\n    */\n    if (rgsm_index === -1) {\n        return null;\n    }\n    /*\n    Get RGSM value of first row and return\n    */\n    return contents_by_line[1].split(\",\")[rgsm_index];\n}\nfunction get_normal_output_prefix(inputs) {\n    var _a, _b;\n    /*\n    Get the normal RGSM value and then add _normal to it\n    */\n    var normal_name = null;\n    var normal_re_replacement = /_normal$/;\n    /*\n    Check if bam_input is set\n    */\n    if (inputs.bam_input !== null && inputs.bam_input !== undefined) {\n        /* Remove _normal from nameroot if it already exists */\n        /* We dont want _normal_normal as a suffix */\n        return \"\".concat((_a = inputs.bam_input.nameroot) === null || _a === void 0 ? void 0 :_a.replace(normal_re_replacement, \"\"), \"_normal\");\n    }\n    /*\n    Check if cram_input is set\n    */\n    if (inputs.cram_input !== null && inputs.cram_input !== undefined) {\n        /* Remove _normal from nameroot if it already exists */\n        /* We dont want _normal_normal as a suffix */\n        return \"\".concat((_b = inputs.cram_input.nameroot) === null || _b === void 0 ? void 0 :_b.replace(normal_re_replacement, \"\"), \"_normal\");\n    }\n    /*\n    Check if fastq list file is set\n    */\n    if (inputs.fastq_list !== null && inputs.fastq_list !== undefined) {\n        normal_name = get_normal_name_from_fastq_list_csv(inputs.fastq_list);\n        if (normal_name !== null) {\n            return \"\".concat(normal_name, \"_normal\");\n        }\n    }\n    /*\n    Otherwise collect and return from schema object\n    */\n    normal_name = get_normal_name_from_fastq_list_rows(inputs.fastq_list_rows);\n    return \"\".concat(normal_name, \"_normal\");\n}\nfunction build_fastq_list_csv_header(header_names) {\n    /*\n    Convert lowercase labels to uppercase values\n    i.e\n    [ \"rgid\", \"rglb\", \"rgsm\", \"lane\", \"read_1\", \"read_2\" ]\n    to\n    \"RGID,RGLB,RGSM,Lane,Read1File,Read2File\"\n    */\n    var modified_header_names = [];\n    for (var _i = 0, header_names_1 = header_names; _i < header_names_1.length; _i++) {\n        var header_name = header_names_1[_i];\n        if (header_name.indexOf(\"rg\") === 0) {\n            /*\n            rgid -> RGID\n            */\n            modified_header_names.push(header_name.toUpperCase());\n        }\n        else if (header_name.indexOf(\"read\") === 0) {\n            /*\n            read_1 -> Read1File\n            */\n            modified_header_names.push(\"Read\" + header_name.charAt(header_name.length - 1) + \"File\");\n        }\n        else {\n            /*\n            lane to Lane\n            */\n            modified_header_names.push(header_name[0].toUpperCase() + header_name.substr(1));\n        }\n    }\n    /*\n    Convert array to comma separated strings\n    */\n    return modified_header_names.join(\",\") + \"\\n\";\n}\nfunction get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {\n    var fastq_list_row_values_array = [];\n    /*  This for loop is here to ensure were assigning values in the same order as the header */\n    for (var _i = 0, row_order_1 = row_order; _i < row_order_1.length; _i++) {\n        var item_index = row_order_1[_i];\n        var found_item = false;\n        /*  Find matching attribute in this row */\n        for (var _a = 0, _b = Object.getOwnPropertyNames(fastq_list_row); _a < _b.length; _a++) {\n            var fastq_list_row_field_name = _b[_a];\n            var fastq_list_row_field_value = fastq_list_row[fastq_list_row_field_name];\n            if (fastq_list_row_field_value === null) {\n                /*\n                Item not found, add an empty attribute for this cell in the csv\n                */\n                continue;\n            }\n            /*  The header value matches the name in the item */\n            if (fastq_list_row_field_name === item_index) {\n                /*\n                If the field value has a class attribute then it's either read_1 or read_2\n                */\n                if (fastq_list_row_field_value.hasOwnProperty(\"class\")) {\n                    var fastq_list_row_field_value_file = fastq_list_row_field_value;\n                    /*\n                    Assert that this is actually of class file\n                    */\n                    if (fastq_list_row_field_value_file.class !== \"File\") {\n                        continue;\n                    }\n                    if (fastq_list_row_field_value_file.path !== null && fastq_list_row_field_value_file.path !== undefined) {\n                        /*\n                        Push the path attribute to the fastq list csv row if it is not null\n                        */\n                        fastq_list_row_values_array.push(fastq_list_row_field_value_file.path);\n                    }\n                    else {\n                        /*\n                        Otherwise push the location attribute\n                        */\n                        fastq_list_row_values_array.push(fastq_list_row_field_value_file.location);\n                    }\n                }\n                else {\n                    /*\n                    Push the string attribute to the fastq list csv row\n                    */\n                    fastq_list_row_values_array.push(fastq_list_row_field_value.toString());\n                }\n                found_item = true;\n                break;\n            }\n        }\n        if (!found_item) {\n            /*\n            Push blank cell if no item found\n            */\n            fastq_list_row_values_array.push(\"\");\n        }\n    }\n    /*\n    Convert to string and return as string\n    */\n    return fastq_list_row_values_array.join(\",\") + \"\\n\";\n}\nfunction generate_fastq_list_csv(fastq_list_rows) {\n    /*\n    Fastq list rows generation\n    */\n    var fastq_csv_file = {\n        class:\"File\",\n        basename:get_fastq_list_csv_path()\n    };\n    /*\n    Set the row order\n    */\n    var row_order = [];\n    /*\n    Set the array order\n    Make sure we iterate through all rows of the array\n    */\n    for (var _i = 0, fastq_list_rows_1 = fastq_list_rows; _i < fastq_list_rows_1.length; _i++) {\n        var fastq_list_row = fastq_list_rows_1[_i];\n        for (var _a = 0, _b = Object.getOwnPropertyNames(fastq_list_row); _a < _b.length; _a++) {\n            var fastq_list_row_field_name = _b[_a];\n            if (row_order.indexOf(fastq_list_row_field_name) === -1) {\n                row_order.push(fastq_list_row_field_name);\n            }\n        }\n    }\n    /*\n    Make header\n    */\n    fastq_csv_file.contents = build_fastq_list_csv_header(row_order);\n    /*\n    For each fastq list row,\n    collect the values of each attribute but in the order of the header\n    */\n    for (var _c = 0, fastq_list_rows_2 = fastq_list_rows; _c < fastq_list_rows_2.length; _c++) {\n        var fastq_list_row = fastq_list_rows_2[_c];\n        /*  Add csv row to file contents */\n        fastq_csv_file.contents += get_fastq_list_row_as_csv_row(fastq_list_row, row_order);\n    }\n    return fastq_csv_file;\n}\nfunction generate_germline_mount_points(inputs) {\n    /*\n    Create and add in the fastq list csv for the input fastqs\n    */\n    var e = [];\n    if (inputs.fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.fastq_list_rows)\n        });\n    }\n    if (inputs.fastq_list !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":inputs.fastq_list\n        });\n    }\n    /*\n    Return file paths\n    */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\nfunction generate_somatic_mount_points(inputs) {\n    /*\n    Create and add in the fastq list csv for the input fastqs\n    */\n    var e = [];\n    if (inputs.fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.fastq_list_rows)\n        });\n    }\n    if (inputs.tumor_fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_tumor_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.tumor_fastq_list_rows)\n        });\n    }\n    if (inputs.fastq_list !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":inputs.fastq_list\n        });\n    }\n    if (inputs.tumor_fastq_list !== null) {\n        e.push({\n            \"entryname\":get_tumor_fastq_list_csv_path(),\n            \"entry\":inputs.tumor_fastq_list\n        });\n    }\n    /*\n    Return file paths\n    */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\nfunction generate_transcriptome_mount_points(inputs) {\n    /*\n    Calls another function that generates mount points\n    */\n    return generate_germline_mount_points(inputs);\n}\n/*  Custom functions for dragen reference tarball build */\nfunction get_liftover_dir() {\n    /*  Hardcoded liftover directory in dragen 4.2 */\n    return \"/opt/edico/liftover/\";\n}\nfunction get_mask_dir() {\n    /*  Hardcoded mask directory in dragen 4.2 */\n    return \"/opt/edico/fasta_mask/\";\n}\nfunction get_ref_scratch_dir(reference_name) {\n    /*  We get the reference scratch directory as a combination of */\n    /*  the dragen scratch mount and the reference name */\n    return get_scratch_mount() + reference_name + \"/\";\n}\nfunction get_ora_intermediate_output_dir() {\n    return get_scratch_mount() + \"ora-outputs/\";\n}\nfunction generate_ora_mv_files_script(fastq_list_rows, input_directory, output_directory) {\n    /*\n    Generate the shell script with a list of echo commands to write a new fastq list csv to stdout, however\n    the fastq list csv contains the ora files as outputs instead\n    */\n    var ora_mv_files_script = \"#!/usr/bin/env bash\\n\\n\";\n    ora_mv_files_script += \"# Exit on failure\\n\";\n    ora_mv_files_script += \"set -euo pipefail\\n\\n\";\n    ora_mv_files_script += \"# Get fastq ora paths\\n\";\n    ora_mv_files_script += \"FASTQ_ORA_OUTPUT_PATHS=(\\n\";\n    /*  Iterate over all files */\n    for (var _i = 0, fastq_list_rows_3 = fastq_list_rows; _i < fastq_list_rows_3.length; _i++) {\n        var fastq_list_row = fastq_list_rows_3[_i];\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            /*  Add relative path of read 1 */\n            ora_mv_files_script += \"  \\\"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            /*  Add relative path of read 2 */\n            ora_mv_files_script += \"  \\\"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n    }\n    /*  Complete the bash array */\n    ora_mv_files_script += \")\\n\\n\";\n    ora_mv_files_script += \"# Move all ora files to the final output directory\\n\";\n    ora_mv_files_script += \"for fastq_ora_output_path in \\\"${FASTQ_ORA_OUTPUT_PATHS[@]}\\\"; do\\n\";\n    ora_mv_files_script += \"  fastq_ora_scratch_path=\\\"\".concat(get_ora_intermediate_output_dir(), \"$(basename \\\"${fastq_ora_output_path}\\\")\\\"\\n\");\n    ora_mv_files_script += \"  mkdir -p \\\"$(dirname \\\"\".concat(output_directory, \"/${fastq_ora_output_path}\\\")\\\"\\n\");\n    ora_mv_files_script += \"  rsync --archive \\\\\\n\";\n    ora_mv_files_script += \"    --remove-source-files \\\\\\n\";\n    ora_mv_files_script += \"    --include \\\"$(basename \\\"${fastq_ora_output_path}\\\")\\\" \\\\\\n\";\n    ora_mv_files_script += \"    --exclude \\\"*\\\" \\\\\\n\";\n    ora_mv_files_script += \"    \\\"$(dirname \\\"${fastq_ora_scratch_path}\\\")/\\\" \\\\\\n\";\n    ora_mv_files_script += \"    \\\"$(dirname \\\"\".concat(output_directory, \"/${fastq_ora_output_path}\\\")/\\\"\\n\");\n    ora_mv_files_script += \"done\\n\\n\";\n    ora_mv_files_script += \"# Transfer all other files\\n\";\n    ora_mv_files_script += \"mkdir -p \\\"\".concat(output_directory, \"/ora-logs/\\\"\\n\");\n    ora_mv_files_script += \"mv \\\"\".concat(get_ora_intermediate_output_dir(), \"\\\" \\\"\").concat(output_directory, \"/ora-logs/compression/\\\"\\n\");\n    return {\n        class:\"File\",\n        basename:get_ora_mv_files_script_path(),\n        contents:ora_mv_files_script\n    };\n}\nfunction generate_fastq_gz_md5sum_files_script(fastq_list_rows, input_directory) {\n    /*\n    Generate the fastq gzip md5sum files script command, results are printed to stdout\n    */\n    var get_md5sum_fastq_gz_script = \"#!/usr/bin/env bash\\n\\n\";\n    get_md5sum_fastq_gz_script += \"# Exit on failure\\n\";\n    get_md5sum_fastq_gz_script += \"set -euo pipefail\\n\\n\";\n    /*  Initialise the bash array */\n    get_md5sum_fastq_gz_script += \"# Get fastq gz paths\\n\";\n    get_md5sum_fastq_gz_script += \"FASTQ_GZ_PATHS=(\\n\";\n    /*  Iterate over all files */\n    for (var _i = 0, fastq_list_rows_4 = fastq_list_rows; _i < fastq_list_rows_4.length; _i++) {\n        var fastq_list_row = fastq_list_rows_4[_i];\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            /*  Add relative path of read 1 */\n            get_md5sum_fastq_gz_script += \"  \\\"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", ''), \"\\\" \\\\\\n\");\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            get_md5sum_fastq_gz_script += \"  \\\"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", ''), \"\\\" \\\\\\n\");\n        }\n    }\n    /*  Complete the bash array */\n    get_md5sum_fastq_gz_script += \")\\n\\n\";\n    /*  Build the for loop */\n    get_md5sum_fastq_gz_script += \"# Generate md5sums for the input fastq gz files\\n\";\n    get_md5sum_fastq_gz_script += \"for fastq_gz_path in \\\"${FASTQ_GZ_PATHS[@]}\\\"; do\\n\";\n    get_md5sum_fastq_gz_script += \"  full_input_path=\\\"\".concat(input_directory.path, \"/${fastq_gz_path}\\\"\\n\");\n    get_md5sum_fastq_gz_script += \"  md5sum \\\"${full_input_path}\\\" | sed \\\"s%${full_input_path}%${fastq_gz_path}%\\\"\\n\";\n    get_md5sum_fastq_gz_script += \"done\\n\\n\";\n    get_md5sum_fastq_gz_script += \"# Md5sum script complete\\n\";\n    return {\n        class:\"File\",\n        basename:get_fastq_gz_md5sum_files_script_path(),\n        contents:get_md5sum_fastq_gz_script\n    };\n}\nfunction generate_fastq_gz_file_sizes_script(fastq_list_rows, input_directory) {\n    /*\n    Generate the fastq gzip get files sizes, results are printed to stdout\n    */\n    var get_filesizes_fastq_gz_script = \"#!/usr/bin/env bash\\n\\n\";\n    get_filesizes_fastq_gz_script += \"# Exit on failure\\n\";\n    get_filesizes_fastq_gz_script += \"set -euo pipefail\\n\\n\";\n    /*  Initialise the bash array */\n    get_filesizes_fastq_gz_script += \"# Get fastq gz paths\\n\";\n    get_filesizes_fastq_gz_script += \"FASTQ_GZ_PATHS=(\\n\";\n    /*  Iterate over all files */\n    for (var _i = 0, fastq_list_rows_5 = fastq_list_rows; _i < fastq_list_rows_5.length; _i++) {\n        var fastq_list_row = fastq_list_rows_5[_i];\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            /*  Add relative path of read 1 */\n            get_filesizes_fastq_gz_script += \"  \\\"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", ''), \"\\\" \\\\\\n\");\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            get_filesizes_fastq_gz_script += \"  \\\"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", ''), \"\\\" \\\\\\n\");\n        }\n    }\n    /*  Complete the bash array */\n    get_filesizes_fastq_gz_script += \")\\n\\n\";\n    /*  Build the for loop */\n    /*  Initialise the tsv */\n    get_filesizes_fastq_gz_script += \"# Initialise the tsv header\\n\";\n    get_filesizes_fastq_gz_script += \"echo \\\"fastqPath\\tfileSizeInBytes\\\"\\n\\n\";\n    get_filesizes_fastq_gz_script += \"# Generate file sizes for the input fastq gz files\\n\";\n    get_filesizes_fastq_gz_script += \"for fastq_gz_path in \\\"${FASTQ_GZ_PATHS[@]}\\\"; do\\n\";\n    get_filesizes_fastq_gz_script += \"  file_size=\\\"$(wc -c < \\\"\".concat(input_directory.path, \"/${fastq_gz_path}\\\")\\\"\\n\");\n    get_filesizes_fastq_gz_script += \"  echo \\\"${fastq_gz_path}\\t${file_size}\\\"\\n\";\n    get_filesizes_fastq_gz_script += \"done\\n\\n\";\n    get_filesizes_fastq_gz_script += \"# file size script complete\\n\";\n    return {\n        class:\"File\",\n        basename:get_fastq_gz_file_sizes_script_path(),\n        contents:get_filesizes_fastq_gz_script\n    };\n}\nfunction generate_fastq_ora_md5sum_files_script(fastq_list_rows, input_directory, output_directory) {\n    /*\n    Generate the fastq ora md5sum files script command, results are printed to stdout\n    */\n    var get_md5sum_fastq_ora_script = \"#!/usr/bin/env bash\\n\\n\";\n    get_md5sum_fastq_ora_script += \"# Exit on failure\\n\";\n    get_md5sum_fastq_ora_script += \"set -euo pipefail\\n\\n\";\n    /*  Initialise the bash array */\n    get_md5sum_fastq_ora_script += \"# Get fastq ora paths\\n\";\n    get_md5sum_fastq_ora_script += \"FASTQ_ORA_OUTPUT_PATHS=(\\n\";\n    /*  Iterate over all files */\n    for (var _i = 0, fastq_list_rows_6 = fastq_list_rows; _i < fastq_list_rows_6.length; _i++) {\n        var fastq_list_row = fastq_list_rows_6[_i];\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            /*  Add relative path of read 1 */\n            get_md5sum_fastq_ora_script += \"  \\\"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            get_md5sum_fastq_ora_script += \"  \\\"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n    }\n    /*  Complete the bash array */\n    get_md5sum_fastq_ora_script += \")\\n\\n\";\n    get_md5sum_fastq_ora_script += \"# Generate md5sums for the input fastq ora files\\n\";\n    get_md5sum_fastq_ora_script += \"for fastq_ora_output_path in \\\"${FASTQ_ORA_OUTPUT_PATHS[@]}\\\"; do\\n\";\n    get_md5sum_fastq_ora_script += \"  fastq_ora_scratch_path=\\\"\".concat(output_directory, \"$(basename \\\"${fastq_ora_output_path}\\\")\\\"\\n\");\n    get_md5sum_fastq_ora_script += \"  md5sum \\\"${fastq_ora_scratch_path}\\\" | sed \\\"s%${fastq_ora_scratch_path}%${fastq_ora_output_path}%\\\"\\n\";\n    get_md5sum_fastq_ora_script += \"done\\n\\n\";\n    get_md5sum_fastq_ora_script += \"# Md5sum script complete\\n\";\n    return {\n        class:\"File\",\n        basename:get_fastq_ora_md5sum_files_script_path(),\n        contents:get_md5sum_fastq_ora_script\n    };\n}\nfunction generate_fastq_ora_file_sizes_script(fastq_list_rows, input_directory, output_directory) {\n    /*\n    Generate the fastq ora file size files script command, results are printed to stdout\n    */\n    var get_filesizes_fastq_ora_script = \"#!/usr/bin/env bash\\n\\n\";\n    get_filesizes_fastq_ora_script += \"# Exit on failure\\n\";\n    get_filesizes_fastq_ora_script += \"set -euo pipefail\\n\\n\";\n    /*  Initialise the bash array */\n    get_filesizes_fastq_ora_script += \"# Get fastq ora paths\\n\";\n    get_filesizes_fastq_ora_script += \"FASTQ_ORA_OUTPUT_PATHS=(\\n\";\n    /*  Iterate over all files */\n    for (var _i = 0, fastq_list_rows_7 = fastq_list_rows; _i < fastq_list_rows_7.length; _i++) {\n        var fastq_list_row = fastq_list_rows_7[_i];\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            /*  Add relative path of read 1 */\n            get_filesizes_fastq_ora_script += \"  \\\"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            get_filesizes_fastq_ora_script += \"  \\\"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n    }\n    /*  Complete the bash array */\n    get_filesizes_fastq_ora_script += \")\\n\\n\";\n    get_filesizes_fastq_ora_script += \"# Initialise the tsv header\\n\";\n    get_filesizes_fastq_ora_script += \"echo \\\"fastqPath\\tfileSizeInBytes\\\"\\n\\n\";\n    get_filesizes_fastq_ora_script += \"# Generate file sizes for the output fastq ora files\\n\";\n    get_filesizes_fastq_ora_script += \"for fastq_ora_output_path in \\\"${FASTQ_ORA_OUTPUT_PATHS[@]}\\\"; do\\n\";\n    get_filesizes_fastq_ora_script += \"  fastq_ora_scratch_path=\\\"\".concat(output_directory, \"$(basename \\\"${fastq_ora_output_path}\\\")\\\"\\n\");\n    get_filesizes_fastq_ora_script += \"  file_size=\\\"$(wc -c < \\\"${fastq_ora_scratch_path}\\\")\\\"\\n\";\n    get_filesizes_fastq_ora_script += \"  echo \\\"${fastq_ora_output_path}\\t${file_size}\\\"\\n\";\n    get_filesizes_fastq_ora_script += \"done\\n\\n\";\n    get_filesizes_fastq_ora_script += \"# ORA script complete\\n\";\n    return {\n        class:\"File\",\n        basename:get_fastq_ora_file_sizes_script_path(),\n        contents:get_filesizes_fastq_ora_script\n    };\n}\nfunction generate_new_fastq_list_csv_script(fastq_list_rows, input_directory) {\n    /*\n    Generate the shell script with a list of mv commands to move the output files from the scratch space to their\n    original location in the working directory\n    */\n    var new_fastq_list_csv_script = \"#!/usr/bin/env bash\\n\\n\";\n    new_fastq_list_csv_script += \"set -euo pipefail\\n\\n\";\n    new_fastq_list_csv_script += \"# Generate a new fastq list csv script\\n\";\n    new_fastq_list_csv_script += \"# Initialise header\\n\";\n    new_fastq_list_csv_script += \"echo \\\"RGID,RGLB,RGSM,Lane,Read1File,Read2File\\\"\\n\";\n    for (var _i = 0, fastq_list_rows_8 = fastq_list_rows; _i < fastq_list_rows_8.length; _i++) {\n        var fastq_list_row = fastq_list_rows_8[_i];\n        /*  Initialise echo line */\n        var echo_line = \"echo \\\"\".concat(fastq_list_row.rgid, \",\").concat(fastq_list_row.rglb, \",\").concat(fastq_list_row.rgsm, \",\").concat(fastq_list_row.lane, \",\");\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            echo_line += \"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \",\");\n        }\n        else {\n            echo_line += ',';\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            echo_line += \"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"));\n        }\n        /*  Finish off echo line */\n        echo_line += \"\\\"\\n\";\n        new_fastq_list_csv_script += echo_line;\n    }\n    return {\n        class:\"File\",\n        basename:get_new_fastq_list_csv_script_path(),\n        contents:new_fastq_list_csv_script\n    };\n}\nfunction find_fastq_files_in_directory_recursively_with_regex(input_dir) {\n    var _a;\n    /*\n    Initialise the output file object\n    */\n    var read_1_file_list = [];\n    var read_2_file_list = [];\n    var output_file_objs = [];\n    var fastq_file_regex = /\\.fastq\\.gz$/;\n    var r1_fastq_file_regex = /_R1_001\\.fastq\\.gz$/;\n    var r2_fastq_file_regex = /_R2_001\\.fastq\\.gz$/;\n    /*\n    Check input_dir is a directory and has a listing\n    */\n    if (input_dir.class === undefined || input_dir.class !== \"Directory\") {\n        throw new Error(\"Could not confirm that the first argument was a directory\");\n    }\n    if (input_dir.listing === undefined || input_dir.listing === null) {\n        throw new Error(\"Could not collect listing from directory \\\"\".concat(input_dir.basename, \"\\\"\"));\n    }\n    /*\n    Collect listing as a variable\n    */\n    var input_listing = input_dir.listing;\n    /*\n    Iterate through the file listing\n    */\n    for (var _i = 0, input_listing_1 = input_listing; _i < input_listing_1.length; _i++) {\n        var listing_item = input_listing_1[_i];\n        if (listing_item.class === \"File\" && fastq_file_regex.test(listing_item.basename)) {\n            /*\n            Got the file of interest and the file basename matches the file regex\n            */\n            /*\n            Check if the file is read 1 or read 2\n            */\n            if (r1_fastq_file_regex.test(listing_item.basename)) {\n                read_1_file_list.push(listing_item);\n            }\n            if (r2_fastq_file_regex.test(listing_item.basename)) {\n                read_2_file_list.push(listing_item);\n            }\n        }\n        if (listing_item.class === \"Directory\") {\n            var subdirectory_list = listing_item;\n            try {\n                /*  Consider that the file might not be in this subdirectory and that is okay */\n                output_file_objs.push.apply(output_file_objs, find_fastq_files_in_directory_recursively_with_regex(subdirectory_list));\n            }\n            catch (error) {\n                /*  Dont need to report an error though, just continue */\n            }\n        }\n    }\n    /*  Iterate over all the read 1 files and try to find a matching read 2 file */\n    for (var _b = 0, read_1_file_list_1 = read_1_file_list; _b < read_1_file_list_1.length; _b++) {\n        var read_1_file = read_1_file_list_1[_b];\n        var read_2_file = undefined;\n        for (var _c = 0, read_2_file_list_1 = read_2_file_list; _c < read_2_file_list_1.length; _c++) {\n            var read_2_file_candidate = read_2_file_list_1[_c];\n            if (((_a = read_1_file.basename) === null || _a === void 0 ? void 0 :_a.replace(\"R1_001.fastq.gz\", \"R2_001.fastq.gz\")) === read_2_file_candidate.basename) {\n                read_2_file = read_2_file_candidate;\n                break;\n            }\n        }\n        output_file_objs.push({ read1obj:read_1_file, read2obj:read_2_file });\n    }\n    /*  Return the output file object */\n    return output_file_objs;\n}\nfunction get_rgsm_value_from_fastq_file_name(fastq_file_name) {\n    /*  Get the RGID value from the fastq file name */\n    var rgid_regex = /(.+?)(?:_S\\d+)?(?:_L00\\d)?_R[12]_001\\.fastq\\.gz$/;\n    var rgid_expression = rgid_regex.exec(fastq_file_name);\n    if (rgid_expression === null) {\n        throw new Error(\"Could not get rgid from \".concat(fastq_file_name));\n    }\n    return rgid_expression[1];\n}\nfunction get_lane_value_from_fastq_file_name(fastq_file_name) {\n    /*  Get the lane value from the fastq file name */\n    var lane_regex = /(?:.+?)(?:_S\\d+)?_L00(\\d)_R[12]_001\\.fastq\\.gz$/;\n    var lane_expression = lane_regex.exec(fastq_file_name);\n    if (lane_expression === null) {\n        return 1;\n    }\n    else {\n        console.log(lane_expression);\n        return parseInt(lane_expression[1]);\n    }\n}\nfunction generate_ora_mount_points(input_run, output_directory_path, sample_id_list) {\n    /*\n    Three main parts\n\n    1. Collect the fastq files\n    2. For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary to make a fastq list row\n    3. Generate the fastq list csv file\n    */\n    /*  Collect the fastq files */\n    var fastq_files_pairs = find_fastq_files_in_directory_recursively_with_regex(input_run);\n    /*  For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary */\n    var fastq_list_rows = [];\n    for (var _i = 0, fastq_files_pairs_1 = fastq_files_pairs; _i < fastq_files_pairs_1.length; _i++) {\n        var fastq_files_pair = fastq_files_pairs_1[_i];\n        var rgsm_value = get_rgsm_value_from_fastq_file_name(fastq_files_pair.read1obj.basename);\n        /*  Skip fastq list pair if sample_id_list is defined and the rgsm_value is not in the list */\n        if (sample_id_list !== undefined && sample_id_list !== null && sample_id_list !== \"\" && sample_id_list.indexOf(rgsm_value) === -1) {\n            continue;\n        }\n        /*  Remove undetermined files from the list of fastqs to process (they are often empty) */\n        if (rgsm_value === \"Undetermined\") {\n            continue;\n        }\n        /*  Check if we have the size attribute and if so check if it is greater than 0 */\n        if (fastq_files_pair.read1obj.size !== null && fastq_files_pair.read1obj.size !== undefined && fastq_files_pair.read1obj.size == 0) {\n            continue;\n        }\n        /*  Repeat the condition for read 2 although also ensure that read 2 is also actually defined */\n        if (fastq_files_pair.read2obj !== undefined && fastq_files_pair.read2obj !== null) {\n            if (fastq_files_pair.read2obj.size !== null && fastq_files_pair.read2obj.size !== undefined && fastq_files_pair.read2obj.size == 0) {\n                continue;\n            }\n        }\n        var lane_value = get_lane_value_from_fastq_file_name(fastq_files_pair.read1obj.basename);\n        var fastq_list_row = {\n            rgid:lane_value.toString() + '.' + rgsm_value,\n            rgsm:rgsm_value,\n            rglb:\"UnknownLibrary\",\n            lane:lane_value,\n            read_1:fastq_files_pair.read1obj,\n            read_2:fastq_files_pair.read2obj\n        };\n        fastq_list_rows.push(fastq_list_row);\n    }\n    /*  Initialise dirent */\n    var e = [];\n    /*  Generate the fastq list csv file */\n    e.push({\n        \"entryname\":get_fastq_list_csv_path(),\n        \"entry\":generate_fastq_list_csv(fastq_list_rows)\n    });\n    /*  Generate the script to then move the files from the scratch space to the working directory */\n    e.push({\n        \"entryname\":get_ora_mv_files_script_path(),\n        \"entry\":generate_ora_mv_files_script(fastq_list_rows, input_run, output_directory_path)\n    });\n    /*  Generate the script to generate the new output fastq list csv */\n    e.push({\n        \"entryname\":get_new_fastq_list_csv_script_path(),\n        \"entry\":generate_new_fastq_list_csv_script(fastq_list_rows, input_run)\n    });\n    /*  Generate the script to generate the md5sums of the input gzipped fastq files */\n    e.push({\n        \"entryname\":get_fastq_gz_md5sum_files_script_path(),\n        \"entry\":generate_fastq_gz_md5sum_files_script(fastq_list_rows, input_run)\n    });\n    /*  Generate the script to generate the filesizes of the input gzipped fastq files */\n    e.push({\n        \"entryname\":get_fastq_gz_file_sizes_script_path(),\n        \"entry\":generate_fastq_gz_file_sizes_script(fastq_list_rows, input_run)\n    });\n    /*  Generate the script to generate the md5sums of the output ora fastq files */\n    e.push({\n        \"entryname\":get_fastq_ora_md5sum_files_script_path(),\n        \"entry\":generate_fastq_ora_md5sum_files_script(fastq_list_rows, input_run, get_ora_intermediate_output_dir())\n    });\n    /*  Generate the script to generate the filesizes of the output ora fastq files */\n    e.push({\n        \"entryname\":get_fastq_ora_file_sizes_script_path(),\n        \"entry\":generate_fastq_ora_file_sizes_script(fastq_list_rows, input_run, get_ora_intermediate_output_dir())\n    });\n    /*  Return the dirent */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\n",
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction is_not_null(input_obj) {\n    /*\n    Determine if input object is defined and is not null\n    */\n    return !(input_obj === null || input_obj === undefined);\n}\nfunction get_attribute_from_optional_input(input_object, attribute) {\n    /*\n    Get attribute from optional input -\n    If input is not defined, then return null\n    */\n    if (input_object === null || input_object === undefined) {\n        return null;\n    }\n    else {\n        return get_optional_attribute_from_object(input_object, attribute);\n    }\n}\nfunction get_optional_attribute_from_object(input_object, attribute) {\n    /*\n    Get attribute from object, if attribute is not defined return null\n    Assume the input object is an object of key value pairs where we know the key is of type string\n    stackoverflow.com/questions/56833469/typescript-error-ts7053-element-implicitly-has-an-any-type\n    */\n    if (input_object.hasOwnProperty(attribute)) {\n        return input_object[attribute];\n    }\n    else {\n        return null;\n    }\n}\nfunction get_bool_value_as_str(input_bool) {\n    if (is_not_null(input_bool) && input_bool) {\n        return \"true\";\n    }\n    else {\n        return \"false\";\n    }\n}\nfunction boolean_to_int(input_bool) {\n    if (is_not_null(input_bool) && String(input_bool).toLowerCase() === \"true\") {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\nfunction get_optional_attribute_from_multi_type_input_object(object, attribute) {\n    /*\n    Get attribute from optional input\n    */\n    if (object === null || object === undefined) {\n        return null;\n    }\n    else if (typeof object === \"object\") {\n        /*  Get attribute from optional input */\n        return get_attribute_from_optional_input(object, attribute);\n    }\n    else {\n        /*  Object is likely actually a str */\n        return object;\n    }\n}\nfunction get_source_a_or_b(input_a, input_b) {\n    /*\n    Get the first input parameter if it is not null\n    Otherwise return the second parameter\n    Otherwise return null\n    */\n    if (is_not_null(input_a)) {\n        return input_a;\n    }\n    else if (is_not_null(input_b)) {\n        return input_b;\n    }\n    else {\n        return null;\n    }\n}\nfunction get_first_non_null_input(inputs) {\n    /*\n    Get first element of the array that is not null\n    */\n    for (var _i = 0, inputs_1 = inputs; _i < inputs_1.length; _i++) {\n        var input_element = inputs_1[_i];\n        if (is_not_null(input_element)) {\n            return input_element;\n        }\n    }\n    return null;\n}\nfunction get_attribute_list_from_object_list(obj_list, attribute) {\n    /*\n    Get attribute from list of objects\n    If an object is null, it is not included in the return list\n    */\n    return obj_list.filter(function (x) { return x !== null; }).map(function (x) { return get_optional_attribute_from_object(x, attribute); });\n}\nfunction get_str_list_as_bash_array(input_list, item_wrap) {\n    /*\n    Convert a list of strings to a bash array, if the list is not defined return null\n    */\n    if (input_list === null) {\n        return null;\n    }\n    if (item_wrap === null) {\n        return \"( \".concat(input_list.map(function (x) { return \"'\".concat(item_wrap).concat(x).concat(item_wrap, \"'\"); }).join(' '), \" )\");\n    }\n    return \"( \".concat(input_list.map(function (x) { return \"'\".concat(x, \"'\"); }).join(' '), \" )\");\n}\nfunction get_object_attribute_list_as_bash_array(obj_list, attribute) {\n    /*\n    Get attribute from list of objects and convert to a bash array\n    Do not include null values in the array\n    */\n    return get_str_list_as_bash_array(get_attribute_list_from_object_list(obj_list, attribute).filter(function (x) { return x !== null; }));\n}\n"
+          ],
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "tmpdirMin": "${\n  /* 1 Tb */\n  return Math.pow(2, 20);\n}\n",
+          "class": "ResourceRequirement"
+        },
+        {
+          "types": [
+            {
+              "type": "record",
+              "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row",
+              "fields": [
+                {
+                  "label": "lane",
+                  "doc": "The lane that the sample was run on\n",
+                  "type": "int",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/lane"
+                },
+                {
+                  "label": "read 1",
+                  "doc": "The path to R1 of a sample\n",
+                  "type": [
+                    "File",
+                    "string"
+                  ],
+                  "streamable": true,
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/read_1"
+                },
+                {
+                  "label": "read 2",
+                  "doc": "The path to R2 of a sample\n",
+                  "type": [
+                    "null",
+                    "File",
+                    "string"
+                  ],
+                  "streamable": true,
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/read_2"
+                },
+                {
+                  "label": "rgid",
+                  "doc": "The read-group id of the sample.\nOften an index\n",
+                  "type": "string",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/rgid"
+                },
+                {
+                  "label": "rglb",
+                  "doc": "The read-group library of the sample.\n",
+                  "type": "string",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/rglb"
+                },
+                {
+                  "label": "rgsm",
+                  "doc": "The read-group sample name\n",
+                  "type": "string",
+                  "name": "#fastq-list-row__1.0.0.yaml/fastq-list-row/rgsm"
+                }
+              ]
+            }
+          ],
+          "class": "SchemaDefRequirement"
+        }
+      ],
+      "baseCommand": [
+        "bash"
+      ],
+      "arguments": [
+        {
+          "valueFrom": "$(get_script_path())",
+          "position": -1
+        },
+        {
+          "prefix": "--fastq-list=",
+          "separate": false,
+          "valueFrom": "$(get_fastq_list_csv_path())"
+        },
+        {
+          "prefix": "--intermediate-results-dir=",
+          "separate": false,
+          "valueFrom": "$(get_intermediate_results_dir())"
+        },
+        {
+          "prefix": "--output-format=",
+          "separate": false,
+          "valueFrom": "BAM"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "aln min score",
+          "doc": "(signed) Minimum alignment score to report; baseline for MAPQ.\n\nWhen using local alignments (global = 0), aln-min-score is computed by the host software as \"22 * match-score\".\n\nWhen using global alignments (global = 1), aln-min-score is set to -1000000.\n\nHost software computation may be overridden by setting aln-min-score in configuration file.\n\nRange: \u22122,147,483,648 to 2,147,483,647\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.aln-min-score=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/aln_min_score"
+        },
+        {
+          "label": "alt aware",
+          "doc": "Enables special processing for alt contigs, if alt liftover was used in hash table.\nEnabled by default if reference was built with liftover.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--alt-aware=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/alt_aware"
+        },
+        {
+          "label": "ann sj max indel",
+          "doc": "Maximum indel length to expect near an annotated splice junction.\nRange: 0 - 63\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.ann-sj-max-indel=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/ann_sj_max_indel"
+        },
+        {
+          "label": "annotation file",
+          "doc": "Use to supply a gene annotation file. Required for quantification and gene-fusion.\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "inputBinding": {
+            "prefix": "--annotation-file=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/annotation_file"
+        },
+        {
+          "label": "dedup min qual",
+          "doc": "Minimum base quality for calculating read quality metric for deduplication.\nRange: 0-63\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.dedup-min-qual=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/dedup_min_qual"
+        },
+        {
+          "label": "edit chain limit",
+          "doc": "For edit-mode 1 or 2: Maximum seed chain length in a read to qualify for seed editing.\nRange: > 0\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.edit-chain-limit=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_chain_limit"
+        },
+        {
+          "label": "edit mode",
+          "doc": "0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_mode/0",
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_mode/1",
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_mode/2",
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_mode/3"
+              ]
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.edit-mode=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_mode"
+        },
+        {
+          "label": "edit read len",
+          "doc": "For edit-mode 1 or 2: Read length in which to try edit-seed-num edited seeds.\nRange: > 0\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.edit-read-len=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_read_len"
+        },
+        {
+          "label": "edit seed num",
+          "doc": "For edit-mode 1 or 2: Requested number of seeds per read to allow editing on.\nRange: > 0\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.edit-seed-num=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/edit_seed_num"
+        },
+        {
+          "label": "en alt hap aln",
+          "doc": "Allows chimeric alignments to be output, as supplementary.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.en-alt-hap-aln=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/en_alt_hap_aln"
+        },
+        {
+          "label": "en chimeric aln",
+          "doc": "Allows chimeric alignments to be output, as supplementary.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.en-chimeric-aln=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/en_chimeric_aln"
+        },
+        {
+          "label": "enable duplicate marking",
+          "doc": "Enable the flagging of duplicate output alignment records.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-duplicate-marking=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/enable_duplicate_marking"
+        },
+        {
+          "label": "enable map align",
+          "doc": "Enable step of mapper/aligner.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-map-align=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/enable_map_align"
+        },
+        {
+          "label": "enable map align",
+          "doc": "Enables saving the output from the map/align stage.\nIf only running map/align, the default value is true.\nIf running the variant caller, the default value is false.\nTherefore in the case of the dragen alignment pipeline, this will always be true.\nFor sanity purposes, we have it as an option since its default state is not intuitive\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-map-align-output=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/enable_map_align_output"
+        },
+        {
+          "label": "enable rna",
+          "doc": "Enable rna specific settings\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-rna=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/enable_rna"
+        },
+        {
+          "label": "enable rna quantification",
+          "doc": "If set to true, enables RNA quantification. Requires --enable-rna to be set to true.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-rna-quantification=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/enable_rna_quantification"
+        },
+        {
+          "label": "enable rrna filtering",
+          "doc": "Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--rrna-filter-enable=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/enable_rrna_filter"
+        },
+        {
+          "label": "enable sort",
+          "doc": "Enable sorting after mapping/alignment.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-sort=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/enable_sort"
+        },
+        {
+          "label": "fastq list",
+          "doc": "CSV file that contains a list of FASTQ files\nto process.\nRead1File and Read2File must be presigned urls in order to use the fastq_list option.\nOtherwise use the fastq_list_rows option\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/fastq_list"
+        },
+        {
+          "label": "fastq list rows",
+          "doc": "Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "#fastq-list-row__1.0.0.yaml/fastq-list-row"
+            }
+          ],
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/fastq_list_rows"
+        },
+        {
+          "label": "gap ext pen",
+          "doc": "Score penalty for gap extension.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.gap-ext-pen=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/gap_ext_pen"
+        },
+        {
+          "label": "gap open pen",
+          "doc": "Score penalty for opening a gap (insertion or deletion).\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--gap-open-pen=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/gap_open_pen"
+        },
+        {
+          "label": "generate md tags",
+          "doc": "Whether to generate MD tags with alignment output records. Default is false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--generate-md-tags=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/generate_md_tags"
+        },
+        {
+          "label": "generate sa tags",
+          "doc": "Whether to generate SA:Z tags for records that have chimeric/supplemental alignments.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--generate-sa-tags=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/generate_sa_tags"
+        },
+        {
+          "label": "generate zs tags",
+          "doc": "Whether to generate ZS tags for alignment output records. Default is false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--generate-zs-tags=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/generate_zs_tags"
+        },
+        {
+          "label": "global",
+          "doc": "If alignment is global (Needleman-Wunsch) rather than local (Smith-Waterman).\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.global=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/global"
+        },
+        {
+          "label": "hard clips",
+          "doc": "Flags for hard clipping: [0] primary, [1] supplementary, [2] secondary.\nThe hard-clips option is used as a field of 3 bits, with values ranging from 0 to 7.\nThe bits specify alignments, as follows:\n  * Bit 0\u2014primary alignments\n  * Bit 1\u2014supplementary alignments\n  * Bit 2\u2014secondary alignments\nEach bit determines whether local alignments of that type are reported with hard clipping (1)\nor soft clipping (0).\nThe default is 6, meaning primary alignments use soft clipping and supplementary and\nsecondary alignments use hard clipping.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.hard-clips=",
+            "separate": false,
+            "valueFrom": "${\n  return (self >> 0).toString(2);\n}\n"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/hard_clips"
+        },
+        {
+          "label": "license instance id location",
+          "doc": "You may wish to place your own in.\nOptional value, default set to /opt/instance-identity\nwhich is a path inside the dragen container\n",
+          "type": [
+            "null",
+            "File",
+            "string"
+          ],
+          "default": "/opt/instance-identity",
+          "inputBinding": {
+            "prefix": "--lic-instance-id-location=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/lic_instance_id_location"
+        },
+        {
+          "label": "map orientations",
+          "doc": "Constrain orientations to accept forward-only, reverse-complement only, or any alignments.\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/map_orientations/0",
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/map_orientations/1",
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/map_orientations/2"
+              ]
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.map-orientations=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/map_orientations"
+        },
+        {
+          "label": "mapq max",
+          "doc": "Ceiling on reported MAPQ. Max 255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.mapq-max=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/mapq_max"
+        },
+        {
+          "label": "mapq strict js",
+          "doc": "Specific to RNA. When set to 0, a higher MAPQ value is returned, expressing confidence that the alignment is at least partially correct. When set to 1, a lower MAPQ value is returned, expressing the splice junction ambiguity.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--mapq-strict-js=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/mapq_strict_js"
+        },
+        {
+          "label": "match n score",
+          "doc": "(signed) Score increment for matching a reference 'N' nucleotide IUB code.\nRange: -16 to 15\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.match-n-score=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/match_n_score"
+        },
+        {
+          "label": "match score",
+          "doc": "Score increment for matching reference nucleotide.\nWhen global = 0, match-score > 0; When global = 1, match-score >= 0\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.match-score=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/match_score"
+        },
+        {
+          "label": "max intron bases",
+          "doc": "Maximum intron length reported.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.max-intron-bases=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/max_intron_bases"
+        },
+        {
+          "label": "max rescues",
+          "doc": "Maximum rescue alignments per read pair. Default is 10\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--max-rescues=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/max_rescues"
+        },
+        {
+          "label": "min intron bases",
+          "doc": "Minimum reference deletion length reported as an intron.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.min-intron-bases=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/min_intron_bases"
+        },
+        {
+          "label": "min score coeff",
+          "doc": "Adjustment to aln-min-score per read base.\nRange: -64 to 63.999\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.min-score-coeff=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/min_score_coeff"
+        },
+        {
+          "label": "mismatch pen",
+          "doc": "Score penalty for a mismatch.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.mismatch-pen=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/mismatch_pen"
+        },
+        {
+          "label": "no unclip score",
+          "doc": "When no-unclip-score is set to 1, any unclipped bonus (unclip-score) contributing to an alignment is removed from the alignment score before further processing.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.no-unclip-score=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/no_unclip_score"
+        },
+        {
+          "label": "no unpaired",
+          "doc": "If only properly paired alignments should be reported for paired reads.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.no-unpaired=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/no_unpaired"
+        },
+        {
+          "label": "output directory",
+          "doc": "The directory where all output files are placed\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--output-directory=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/output_directory"
+        },
+        {
+          "label": "output file prefix",
+          "doc": "The prefix given to all output files\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--output-file-prefix=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/output_file_prefix"
+        },
+        {
+          "label": "pe max penalty",
+          "doc": "Maximum pairing score penalty, for unpaired or distant ends.\nRange: 0-255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.pe-max-penalty=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/pe_max_penalty"
+        },
+        {
+          "label": "pe orientation",
+          "doc": "Expected paired-end orientation: 0=FR, 1=RF, 2=FF.\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/pe_orientation/0",
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/pe_orientation/1",
+                "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/pe_orientation/2"
+              ]
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.pe-orientation=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/pe_orientation"
+        },
+        {
+          "label": "preserve map align order",
+          "doc": "Produce output file that preserves original order of reads in the input file.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--preserve-map-align-order=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/preserve_map_align_order"
+        },
+        {
+          "label": "reference tar",
+          "doc": "Path to ref data tarball\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--ref-dir=",
+            "separate": false,
+            "valueFrom": "$(get_ref_path(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/reference_tar"
+        },
+        {
+          "label": "remove duplicates",
+          "doc": "If true, remove duplicate alignment records instead of just flagging them.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--remove-duplicates=",
+            "separate": false,
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/remove_duplicates"
+        },
+        {
+          "label": "rescue sigmas",
+          "doc": "Deviations from the mean read length used for rescue scan radius. Default is 2.5.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.rescue-sigmas=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/rescue_sigmas"
+        },
+        {
+          "label": "sec aligns",
+          "doc": "Maximum secondary (suboptimal) alignments to report per read.\nRange: 0 - 30\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.sec-aligns=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/sec_aligns"
+        },
+        {
+          "label": "sec aligns hard",
+          "doc": "Set to force unmapped when not all secondary alignments can be output.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.sec-aligns-hard=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/sec_aligns_hard"
+        },
+        {
+          "label": "sec phred delta",
+          "doc": "Only secondary alignments with likelihood within this Phred of the primary are reported.\nRange: 0 - 255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.sec-phred-delta=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/sec_phred_delta"
+        },
+        {
+          "label": "sec score delta",
+          "doc": "Secondary aligns allowed with pair score no more than this far below primary.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.sec-score-delta=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/sec_score_delta"
+        },
+        {
+          "label": "seed density",
+          "doc": "Requested density of seeds from reads queried in the hash table\nRange: 0 - 1\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--Mapper.seed-density=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/seed_density"
+        },
+        {
+          "label": "supp aligns",
+          "doc": "Maximum supplementary (chimeric) alignments to report per read.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.supp-aligns=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/supp_aligns"
+        },
+        {
+          "label": "supp as sec",
+          "doc": "If supplementary alignments should be reported with secondary flag.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.supp-as-sec=",
+            "separate": false,
+            "valueFrom": "$(Number(self))"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/supp_as_sec"
+        },
+        {
+          "label": "supp min score adj",
+          "doc": "Amount to increase minimum alignment score for supplementary alignments.\nThis score is computed by host software as \"8 * match-score\" for DNA, and is default 0 for RNA.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.supp-min-score-adj=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/supp_min_score_adj"
+        },
+        {
+          "label": "unclip score",
+          "doc": "Score bonus for reaching each edge of the read.\nRange: 0 - 127\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.unclip-score=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/unclip_score"
+        },
+        {
+          "label": "unpaired pen",
+          "doc": "Penalty for unpaired alignments in Phred scale.\nRange: 0 - 255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--Aligner.unpaired-pen=",
+            "separate": false
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/unpaired_pen"
+        },
+        {
+          "label": "verbose",
+          "doc": "Enable verbose output from DRAGEN.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "-v"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/verbose"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      },
+      "outputs": [
+        {
+          "label": "dragen alignment output directory",
+          "doc": "The output directory containing all alignment output files and qc metrics\n",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory)"
+          },
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/dragen_alignment_output_directory"
+        },
+        {
+          "label": "dragen bam out",
+          "doc": "The output alignment file\n",
+          "type": "File",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory)/$(inputs.output_file_prefix).bam"
+          },
+          "secondaryFiles": [
+            {
+              "pattern": ".bai",
+              "required": null
+            }
+          ],
+          "id": "#dragen-alignment__4.3.6.cwl/dragen-alignment--4.3.6/dragen_bam_out"
+        }
+      ]
+    },
+    {
+      "class": "CommandLineTool",
+      "id": "#multiqc__1.25.1.cwl",
+      "label": "multiqc v(1.25.0)",
+      "doc": "Documentation for multiqc v1.25.0\nUse patch that includes https://github.com/ewels/MultiQC/pull/1969\n",
+      "hints": [
+        {
+          "dockerPull": "ghcr.io/multiqc/multiqc:v1.25.1",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 2,
+          "ramMin": 4000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:size": "small"
+        }
+      ],
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        }
+      ],
+      "baseCommand": [
+        "multiqc"
+      ],
+      "inputs": [
+        {
+          "label": "cl config",
+          "doc": "Override config from the cli\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--cl-config"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/cl_config"
+        },
+        {
+          "label": "comment",
+          "doc": "Custom comment, will be printed at the top of the report.\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--comment"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/comment"
+        },
+        {
+          "label": "config",
+          "doc": "Configuration file for bclconvert\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "streamable": true,
+          "inputBinding": {
+            "prefix": "--config"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/config"
+        },
+        {
+          "label": "input directories",
+          "doc": "The list of directories to place in the analysis\n",
+          "type": {
+            "type": "array",
+            "items": "Directory"
+          },
+          "inputBinding": {
+            "position": 100
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/input_directories"
+        },
+        {
+          "label": "output directory",
+          "doc": "The output directory\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--outdir",
+            "valueFrom": "$(runtime.outdir)/$(self)"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/output_directory_name"
+        },
+        {
+          "label": "output filename",
+          "doc": "Report filename in html format.\nDefaults to 'multiqc-report.html\"\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--filename"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/output_filename"
+        },
+        {
+          "label": "title",
+          "doc": "Report title.\nPrinted as page header, used for filename if not otherwise specified.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--title"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/title"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "output directory",
+          "doc": "Directory that contains all multiqc analysis data\n",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory_name)"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/output_directory"
+        },
+        {
+          "label": "output file",
+          "doc": "Output html file\n",
+          "type": "File",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory_name)/$(inputs.output_filename)"
+          },
+          "id": "#multiqc__1.25.1.cwl/multiqc--1.25.0/output_file"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    },
+    {
+      "class": "Workflow",
+      "id": "#main",
+      "label": "dragen-alignment-pipeline v(4.3.6)",
+      "doc": "Documentation for dragen-alignment-pipeline v4.3.6\n",
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "class": "MultipleInputFeatureRequirement"
+        },
+        {
+          "class": "ScatterFeatureRequirement"
+        },
+        {
+          "types": [
+            {
+              "$import": "#fastq-list-row__1.0.0.yaml/fastq-list-row"
+            }
+          ],
+          "class": "SchemaDefRequirement"
+        },
+        {
+          "class": "StepInputExpressionRequirement"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "aln min score",
+          "doc": "(signed) Minimum alignment score to report; baseline for MAPQ.\n\nWhen using local alignments (global = 0), aln-min-score is computed by the host software as \"22 * match-score\".\n\nWhen using global alignments (global = 1), aln-min-score is set to -1000000.\n\nHost software computation may be overridden by setting aln-min-score in configuration file.\n\nRange: \u22122,147,483,648 to 2,147,483,647\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/aln_min_score"
+        },
+        {
+          "label": "alt aware",
+          "doc": "Enables special processing for alt contigs, if alt liftover was used in hash table.\nEnabled by default if reference was built with liftover.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/alt_aware"
+        },
+        {
+          "label": "ann sj max indel",
+          "doc": "Maximum indel length to expect near an annotated splice junction.\nRange: 0 - 63\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ann_sj_max_indel"
+        },
+        {
+          "label": "annotation file",
+          "doc": "Use to supply a gene annotation file. Required for quantification and gene-fusion.\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "id": "#main/annotation_file"
+        },
+        {
+          "label": "dedup min qual",
+          "doc": "Minimum base quality for calculating read quality metric for deduplication.\nRange: 0-63\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/dedup_min_qual"
+        },
+        {
+          "label": "edit chain limit",
+          "doc": "For edit-mode 1 or 2: Maximum seed chain length in a read to qualify for seed editing.\nRange: > 0\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/edit_chain_limit"
+        },
+        {
+          "label": "edit mode",
+          "doc": "0 = No edits, 1 = Chain len test, 2 = Paired chain len test, 3 = Edit all std seeds.\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#main/edit_mode/0",
+                "#main/edit_mode/1",
+                "#main/edit_mode/2",
+                "#main/edit_mode/3"
+              ]
+            }
+          ],
+          "id": "#main/edit_mode"
+        },
+        {
+          "label": "edit read len",
+          "doc": "For edit-mode 1 or 2: Read length in which to try edit-seed-num edited seeds.\nRange: > 0\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/edit_read_len"
+        },
+        {
+          "label": "edit seed num",
+          "doc": "For edit-mode 1 or 2: Requested number of seeds per read to allow editing on.\nRange: > 0\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/edit_seed_num"
+        },
+        {
+          "label": "en alt hap aln",
+          "doc": "Allows chimeric alignments to be output, as supplementary.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/en_alt_hap_aln"
+        },
+        {
+          "label": "en chimeric aln",
+          "doc": "Allows chimeric alignments to be output, as supplementary.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/en_chimeric_aln"
+        },
+        {
+          "label": "enable duplicate marking",
+          "doc": "Enable the flagging of duplicate output alignment records.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_duplicate_marking"
+        },
+        {
+          "label": "enable map align",
+          "doc": "Enable use of BAM input files for mapper/aligner.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_map_align"
+        },
+        {
+          "label": "enable map align",
+          "doc": "Enables saving the output from the map/align stage.\nIf only running map/align, the default value is true.\nIf running the variant caller, the default value is false.\nTherefore in the case of the dragen alignment pipeline, this will always be true.\nFor sanity purposes, we have it as an option since its default state is not intuitive\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_map_align_output"
+        },
+        {
+          "label": "enable rna",
+          "doc": "Enable rna specific settings\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_rna"
+        },
+        {
+          "label": "enable rna quantification",
+          "doc": "If set to true, enables RNA quantification. Requires --enable-rna to be set to true.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_rna_quantification"
+        },
+        {
+          "label": "enable rrna filtering",
+          "doc": "Use the DRAGEN RNA pipeline to filter rRNA reads during alignment. The default value is false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_rrna_filter"
+        },
+        {
+          "label": "enable sort",
+          "doc": "Enable sorting after mapping/alignment.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_sort"
+        },
+        {
+          "label": "fastq list",
+          "doc": "CSV file that contains a list of FASTQ files for normal sample\nto process (read_1 and read_2 attributes must be presigned urls for each column)\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "id": "#main/fastq_list"
+        },
+        {
+          "label": "Row of fastq lists",
+          "doc": "The row of fastq lists.\nEach row has the following attributes:\n  * RGID\n  * RGLB\n  * RGSM\n  * Lane\n  * Read1File\n  * Read2File (optional)\n",
+          "type": [
+            "null",
+            {
+              "type": "array",
+              "items": "#fastq-list-row__1.0.0.yaml/fastq-list-row"
+            }
+          ],
+          "id": "#main/fastq_list_rows"
+        },
+        {
+          "label": "gap ext pen",
+          "doc": "Score penalty for gap extension.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/gap_ext_pen"
+        },
+        {
+          "label": "gap open pen",
+          "doc": "Score penalty for opening a gap (insertion or deletion).\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/gap_open_pen"
+        },
+        {
+          "label": "generate md tags",
+          "doc": "Whether to generate MD tags with alignment output records. Default is false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/generate_md_tags"
+        },
+        {
+          "label": "generate sa tags",
+          "doc": "Whether to generate SA:Z tags for records that have chimeric/supplemental alignments.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/generate_sa_tags"
+        },
+        {
+          "label": "generate zs tags",
+          "doc": "Whether to generate ZS tags for alignment output records. Default is false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/generate_zs_tags"
+        },
+        {
+          "label": "global",
+          "doc": "If alignment is global (Needleman-Wunsch) rather than local (Smith-Waterman).\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/global"
+        },
+        {
+          "label": "hard clips",
+          "doc": "Flags for hard clipping: [0] primary, [1] supplementary, [2] secondary.\nThe hard-clips option is used as a field of 3 bits, with values ranging from 0 to 7.\nThe bits specify alignments, as follows:\n  * Bit 0\u2014primary alignments\n  * Bit 1\u2014supplementary alignments\n  * Bit 2\u2014secondary alignments\nEach bit determines whether local alignments of that type are reported with hard clipping (1)\nor soft clipping (0).\nThe default is 6, meaning primary alignments use soft clipping and supplementary and\nsecondary alignments use hard clipping.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/hard_clips"
+        },
+        {
+          "label": "map orientations",
+          "doc": "Constrain orientations to accept forward-only, reverse-complement only, or any alignments.\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#main/map_orientations/0",
+                "#main/map_orientations/1",
+                "#main/map_orientations/2"
+              ]
+            }
+          ],
+          "id": "#main/map_orientations"
+        },
+        {
+          "label": "mapq max",
+          "doc": "Ceiling on reported MAPQ. Max 255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/mapq_max"
+        },
+        {
+          "label": "mapq strict js",
+          "doc": "Specific to RNA. When set to 0, a higher MAPQ value is returned, expressing confidence that the alignment is at least partially correct. When set to 1, a lower MAPQ value is returned, expressing the splice junction ambiguity.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/mapq_strict_js"
+        },
+        {
+          "label": "match n score",
+          "doc": "(signed) Score increment for matching a reference 'N' nucleotide IUB code.\nRange: -16 to 15\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/match_n_score"
+        },
+        {
+          "label": "match score",
+          "doc": "Score increment for matching reference nucleotide.\nWhen global = 0, match-score > 0; When global = 1, match-score >= 0\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/match_score"
+        },
+        {
+          "label": "max intron bases",
+          "doc": "Maximum intron length reported.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/max_intron_bases"
+        },
+        {
+          "label": "max rescues",
+          "doc": "Maximum rescue alignments per read pair. Default is 10\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/max_rescues"
+        },
+        {
+          "label": "min intron bases",
+          "doc": "Minimum reference deletion length reported as an intron.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/min_intron_bases"
+        },
+        {
+          "label": "min score coeff",
+          "doc": "Adjustment to aln-min-score per read base.\nRange: -64 to 63.999\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/min_score_coeff"
+        },
+        {
+          "label": "mismatch pen",
+          "doc": "Score penalty for a mismatch.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/mismatch_pen"
+        },
+        {
+          "label": "no unclip score",
+          "doc": "When no-unclip-score is set to 1, any unclipped bonus (unclip-score) contributing to an alignment is removed from the alignment score before further processing.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/no_unclip_score"
+        },
+        {
+          "label": "no unpaired",
+          "doc": "If only properly paired alignments should be reported for paired reads.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/no_unpaired"
+        },
+        {
+          "label": "output prefix",
+          "doc": "The prefix given to all output files\n",
+          "type": "string",
+          "id": "#main/output_prefix"
+        },
+        {
+          "label": "pe max penalty",
+          "doc": "Maximum pairing score penalty, for unpaired or distant ends.\nRange: 0-255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/pe_max_penalty"
+        },
+        {
+          "label": "pe orientation",
+          "doc": "Expected paired-end orientation: 0=FR, 1=RF, 2=FF.\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#main/pe_orientation/0",
+                "#main/pe_orientation/1",
+                "#main/pe_orientation/2"
+              ]
+            }
+          ],
+          "id": "#main/pe_orientation"
+        },
+        {
+          "label": "preserve map align order",
+          "doc": "Produce output file that preserves original order of reads in the input file.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/preserve_map_align_order"
+        },
+        {
+          "label": "reference tar",
+          "doc": "Path to ref data tarball\n",
+          "type": "File",
+          "id": "#main/reference_tar"
+        },
+        {
+          "label": "remove duplicates",
+          "doc": "If true, remove duplicate alignment records instead of just flagging them.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/remove_duplicates"
+        },
+        {
+          "label": "rescue sigmas",
+          "doc": "Deviations from the mean read length used for rescue scan radius. Default is 2.5.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/rescue_sigmas"
+        },
+        {
+          "label": "sec aligns",
+          "doc": "Maximum secondary (suboptimal) alignments to report per read.\nRange: 0 - 30\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/sec_aligns"
+        },
+        {
+          "label": "sec aligns hard",
+          "doc": "Set to force unmapped when not all secondary alignments can be output.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/sec_aligns_hard"
+        },
+        {
+          "label": "sec phred delta",
+          "doc": "Only secondary alignments with likelihood within this Phred of the primary are reported.\nRange: 0 - 255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/sec_phred_delta"
+        },
+        {
+          "label": "sec score delta",
+          "doc": "Secondary aligns allowed with pair score no more than this far below primary.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/sec_score_delta"
+        },
+        {
+          "label": "seed density",
+          "doc": "Requested density of seeds from reads queried in the hash table\nRange: 0 - 1\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/seed_density"
+        },
+        {
+          "label": "supp aligns",
+          "doc": "Maximum supplementary (chimeric) alignments to report per read.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/supp_aligns"
+        },
+        {
+          "label": "supp as sec",
+          "doc": "If supplementary alignments should be reported with secondary flag.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/supp_as_sec"
+        },
+        {
+          "label": "supp min score adj",
+          "doc": "Amount to increase minimum alignment score for supplementary alignments.\nThis score is computed by host software as \"8 * match-score\" for DNA, and is default 0 for RNA.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/supp_min_score_adj"
+        },
+        {
+          "label": "unclip score",
+          "doc": "Score bonus for reaching each edge of the read.\nRange: 0 - 127\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/unclip_score"
+        },
+        {
+          "label": "unpaired pen",
+          "doc": "Penalty for unpaired alignments in Phred scale.\nRange: 0 - 255\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/unpaired_pen"
+        },
+        {
+          "label": "verbose",
+          "doc": "Enable verbose output from DRAGEN.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/verbose"
+        }
+      ],
+      "steps": [
+        {
+          "label": "dragen qc step",
+          "doc": "The dragen qc step - this takes in an array of dirs\n",
+          "in": [
+            {
+              "source": "#main/run_dragen_alignment_step/dragen_alignment_output_directory",
+              "valueFrom": "${\n  return [self];\n}\n",
+              "id": "#main/dragen_qc_step/input_directories"
+            },
+            {
+              "source": "#main/output_prefix",
+              "valueFrom": "$(self)_dragen_alignment_multiqc",
+              "id": "#main/dragen_qc_step/output_directory_name"
+            },
+            {
+              "source": "#main/output_prefix",
+              "valueFrom": "$(self)_dragen_alignment_multiqc.html",
+              "id": "#main/dragen_qc_step/output_filename"
+            },
+            {
+              "source": "#main/output_prefix",
+              "valueFrom": "UMCCR MultiQC Dragen Alignment Report for $(self)",
+              "id": "#main/dragen_qc_step/title"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/dragen_qc_step/output_directory"
+            }
+          ],
+          "run": "#multiqc__1.25.1.cwl",
+          "id": "#main/dragen_qc_step"
+        },
+        {
+          "label": "run dragen alignment step",
+          "doc": "Runs the alignment step on a dragen fpga\nTakes in a fastq list and corresponding mount paths from the predefined mount paths\nAll other options available at the top of the workflow\n",
+          "in": [
+            {
+              "source": "#main/aln_min_score",
+              "id": "#main/run_dragen_alignment_step/aln_min_score"
+            },
+            {
+              "source": "#main/alt_aware",
+              "id": "#main/run_dragen_alignment_step/alt_aware"
+            },
+            {
+              "source": "#main/ann_sj_max_indel",
+              "id": "#main/run_dragen_alignment_step/ann_sj_max_indel"
+            },
+            {
+              "source": "#main/annotation_file",
+              "id": "#main/run_dragen_alignment_step/annotation_file"
+            },
+            {
+              "source": "#main/dedup_min_qual",
+              "id": "#main/run_dragen_alignment_step/dedup_min_qual"
+            },
+            {
+              "source": "#main/edit_chain_limit",
+              "id": "#main/run_dragen_alignment_step/edit_chain_limit"
+            },
+            {
+              "source": "#main/edit_mode",
+              "id": "#main/run_dragen_alignment_step/edit_mode"
+            },
+            {
+              "source": "#main/edit_read_len",
+              "id": "#main/run_dragen_alignment_step/edit_read_len"
+            },
+            {
+              "source": "#main/edit_seed_num",
+              "id": "#main/run_dragen_alignment_step/edit_seed_num"
+            },
+            {
+              "source": "#main/en_alt_hap_aln",
+              "id": "#main/run_dragen_alignment_step/en_alt_hap_aln"
+            },
+            {
+              "source": "#main/en_chimeric_aln",
+              "id": "#main/run_dragen_alignment_step/en_chimeric_aln"
+            },
+            {
+              "source": "#main/enable_duplicate_marking",
+              "id": "#main/run_dragen_alignment_step/enable_duplicate_marking"
+            },
+            {
+              "source": "#main/enable_map_align",
+              "id": "#main/run_dragen_alignment_step/enable_map_align"
+            },
+            {
+              "source": "#main/enable_map_align_output",
+              "id": "#main/run_dragen_alignment_step/enable_map_align_output"
+            },
+            {
+              "source": "#main/enable_rna",
+              "id": "#main/run_dragen_alignment_step/enable_rna"
+            },
+            {
+              "source": "#main/enable_rna_quantification",
+              "id": "#main/run_dragen_alignment_step/enable_rna_quantification"
+            },
+            {
+              "source": "#main/enable_rrna_filter",
+              "id": "#main/run_dragen_alignment_step/enable_rrna_filter"
+            },
+            {
+              "source": "#main/enable_sort",
+              "id": "#main/run_dragen_alignment_step/enable_sort"
+            },
+            {
+              "source": "#main/fastq_list",
+              "id": "#main/run_dragen_alignment_step/fastq_list"
+            },
+            {
+              "source": "#main/fastq_list_rows",
+              "id": "#main/run_dragen_alignment_step/fastq_list_rows"
+            },
+            {
+              "source": "#main/gap_ext_pen",
+              "id": "#main/run_dragen_alignment_step/gap_ext_pen"
+            },
+            {
+              "source": "#main/gap_open_pen",
+              "id": "#main/run_dragen_alignment_step/gap_open_pen"
+            },
+            {
+              "source": "#main/generate_md_tags",
+              "id": "#main/run_dragen_alignment_step/generate_md_tags"
+            },
+            {
+              "source": "#main/generate_sa_tags",
+              "id": "#main/run_dragen_alignment_step/generate_sa_tags"
+            },
+            {
+              "source": "#main/generate_zs_tags",
+              "id": "#main/run_dragen_alignment_step/generate_zs_tags"
+            },
+            {
+              "source": "#main/global",
+              "id": "#main/run_dragen_alignment_step/global"
+            },
+            {
+              "source": "#main/hard_clips",
+              "id": "#main/run_dragen_alignment_step/hard_clips"
+            },
+            {
+              "source": "#main/map_orientations",
+              "id": "#main/run_dragen_alignment_step/map_orientations"
+            },
+            {
+              "source": "#main/mapq_max",
+              "id": "#main/run_dragen_alignment_step/mapq_max"
+            },
+            {
+              "source": "#main/mapq_strict_js",
+              "id": "#main/run_dragen_alignment_step/mapq_strict_js"
+            },
+            {
+              "source": "#main/match_n_score",
+              "id": "#main/run_dragen_alignment_step/match_n_score"
+            },
+            {
+              "source": "#main/match_score",
+              "id": "#main/run_dragen_alignment_step/match_score"
+            },
+            {
+              "source": "#main/max_intron_bases",
+              "id": "#main/run_dragen_alignment_step/max_intron_bases"
+            },
+            {
+              "source": "#main/max_rescues",
+              "id": "#main/run_dragen_alignment_step/max_rescues"
+            },
+            {
+              "source": "#main/min_intron_bases",
+              "id": "#main/run_dragen_alignment_step/min_intron_bases"
+            },
+            {
+              "source": "#main/min_score_coeff",
+              "id": "#main/run_dragen_alignment_step/min_score_coeff"
+            },
+            {
+              "source": "#main/mismatch_pen",
+              "id": "#main/run_dragen_alignment_step/mismatch_pen"
+            },
+            {
+              "source": "#main/no_unclip_score",
+              "id": "#main/run_dragen_alignment_step/no_unclip_score"
+            },
+            {
+              "source": "#main/no_unpaired",
+              "id": "#main/run_dragen_alignment_step/no_unpaired"
+            },
+            {
+              "source": "#main/output_prefix",
+              "valueFrom": "$(self)_dragen_alignment",
+              "id": "#main/run_dragen_alignment_step/output_directory"
+            },
+            {
+              "source": "#main/output_prefix",
+              "id": "#main/run_dragen_alignment_step/output_file_prefix"
+            },
+            {
+              "source": "#main/pe_max_penalty",
+              "id": "#main/run_dragen_alignment_step/pe_max_penalty"
+            },
+            {
+              "source": "#main/pe_orientation",
+              "id": "#main/run_dragen_alignment_step/pe_orientation"
+            },
+            {
+              "source": "#main/preserve_map_align_order",
+              "id": "#main/run_dragen_alignment_step/preserve_map_align_order"
+            },
+            {
+              "source": "#main/reference_tar",
+              "id": "#main/run_dragen_alignment_step/reference_tar"
+            },
+            {
+              "source": "#main/remove_duplicates",
+              "id": "#main/run_dragen_alignment_step/remove_duplicates"
+            },
+            {
+              "source": "#main/rescue_sigmas",
+              "id": "#main/run_dragen_alignment_step/rescue_sigmas"
+            },
+            {
+              "source": "#main/sec_aligns",
+              "id": "#main/run_dragen_alignment_step/sec_aligns"
+            },
+            {
+              "source": "#main/sec_aligns_hard",
+              "id": "#main/run_dragen_alignment_step/sec_aligns_hard"
+            },
+            {
+              "source": "#main/sec_phred_delta",
+              "id": "#main/run_dragen_alignment_step/sec_phred_delta"
+            },
+            {
+              "source": "#main/sec_score_delta",
+              "id": "#main/run_dragen_alignment_step/sec_score_delta"
+            },
+            {
+              "source": "#main/seed_density",
+              "id": "#main/run_dragen_alignment_step/seed_density"
+            },
+            {
+              "source": "#main/supp_aligns",
+              "id": "#main/run_dragen_alignment_step/supp_aligns"
+            },
+            {
+              "source": "#main/supp_as_sec",
+              "id": "#main/run_dragen_alignment_step/supp_as_sec"
+            },
+            {
+              "source": "#main/supp_min_score_adj",
+              "id": "#main/run_dragen_alignment_step/supp_min_score_adj"
+            },
+            {
+              "source": "#main/unclip_score",
+              "id": "#main/run_dragen_alignment_step/unclip_score"
+            },
+            {
+              "source": "#main/unpaired_pen",
+              "id": "#main/run_dragen_alignment_step/unpaired_pen"
+            },
+            {
+              "source": "#main/verbose",
+              "id": "#main/run_dragen_alignment_step/verbose"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/run_dragen_alignment_step/dragen_alignment_output_directory"
+            },
+            {
+              "id": "#main/run_dragen_alignment_step/dragen_bam_out"
+            }
+          ],
+          "run": "#dragen-alignment__4.3.6.cwl",
+          "id": "#main/run_dragen_alignment_step"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "dragen alignment output directory",
+          "doc": "The output directory containing all alignment output files and qc metrics\n",
+          "type": "Directory",
+          "outputSource": "#main/run_dragen_alignment_step/dragen_alignment_output_directory",
+          "id": "#main/dragen_alignment_output_directory"
+        },
+        {
+          "label": "dragen bam out",
+          "doc": "The output alignment file\n",
+          "type": "File",
+          "outputSource": "#main/run_dragen_alignment_step/dragen_bam_out",
+          "secondaryFiles": [
+            {
+              "pattern": ".bai",
+              "required": null
+            }
+          ],
+          "id": "#main/dragen_bam_out"
+        },
+        {
+          "label": "dragen QC report out",
+          "doc": "The dragen multiQC output\n",
+          "type": "Directory",
+          "outputSource": "#main/dragen_qc_step/output_directory",
+          "id": "#main/multiqc_output_directory"
+        }
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    }
+  ],
+  "cwlVersion": "v1.1",
+  "$schemas": [
+    "https://schema.org/version/latest/schemaorg-current-http.rdf"
+  ],
+  "$namespaces": {
+    "s": "https://schema.org/"
+  }
+}

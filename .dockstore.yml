@@ -166,3 +166,16 @@ workflows:
       tags:
         - dragen-transcriptome-pipeline/4.3.6
         - dragen-transcriptome-pipeline/4.3.6__20241106102659
+  - name: dragen-alignment-pipeline_4_3_6
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-alignment-pipeline/4.3.6/dragen-alignment-pipeline__4.3.6.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.3.6/dragen-alignment-pipeline__4.3.6.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - dragen-alignment-pipeline/4.3.6
+        - dragen-alignment-pipeline/4.3.6__20241106102650
