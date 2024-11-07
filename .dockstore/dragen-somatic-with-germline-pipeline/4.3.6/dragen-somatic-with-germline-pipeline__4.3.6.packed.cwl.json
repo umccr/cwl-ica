@@ -3110,6 +3110,24 @@
           "id": "#main/enable_cnv"
         },
         {
+          "label": "enable cnv germline",
+          "doc": "Enable CNV processing in the DRAGEN Host Software (somatic only)\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_cnv_germline"
+        },
+        {
+          "label": "enable cnv somatic",
+          "doc": "Enable CNV processing in the DRAGEN Host Software (germline only)\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_cnv_somatic"
+        },
+        {
           "label": "enable duplicate marking",
           "doc": "Enable the flagging of duplicate output\nalignment records.\n",
           "type": [
@@ -4087,7 +4105,11 @@
               "id": "#main/run_dragen_germline_step/dedup_min_qual"
             },
             {
-              "source": "#main/enable_cnv",
+              "source": [
+                "#main/enable_cnv_germline",
+                "#main/enable_cnv"
+              ],
+              "valueFrom": "${\n  return get_first_non_null_input(self);\n}\n",
               "id": "#main/run_dragen_germline_step/enable_cnv"
             },
             {
@@ -4435,7 +4457,11 @@
               "id": "#main/run_dragen_somatic_step/dedup_min_qual"
             },
             {
-              "source": "#main/enable_cnv",
+              "source": [
+                "#main/enable_cnv_somatic",
+                "#main/enable_cnv"
+              ],
+              "valueFrom": "${\n  return get_first_non_null_input(self);\n}\n",
               "id": "#main/run_dragen_somatic_step/enable_cnv"
             },
             {
