@@ -234,6 +234,21 @@ inputs:
       Enable/disable structural variant
       caller. Default is false.
     type: boolean?
+  enable_cnv:
+    label: enable cnv calling
+    doc: |
+      Enable CNV processing in the DRAGEN Host Software.
+    type: boolean?
+  enable_cnv_germline:
+    label: enable cnv germline
+    doc: |
+      Enable CNV processing in the DRAGEN Host Software (somatic only)
+    type: boolean?
+  enable_cnv_somatic:
+    label: enable cnv somatic
+    doc: |
+      Enable CNV processing in the DRAGEN Host Software (germline only)
+    type: boolean?
 
   # Phased / MNV Calling options
   vc_combine_phased_variants_distance_somatic:
@@ -676,11 +691,6 @@ inputs:
   # If known, specify the sex of the sample.
   # If the sample sex is not specified, the caller attempts to estimate the sample sex from tumor alignments.
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/CopyNumVariantCalling.htm
-  enable_cnv:
-    label: enable cnv calling
-    doc: |
-      Enable CNV processing in the DRAGEN Host Software.
-    type: boolean?
   cnv_normal_b_allele_vcf:
     label: cnv normal b allele vcf
     doc: |
@@ -987,6 +997,12 @@ steps:
           ${
             return get_first_non_null_input(self);
           }
+      enable_cnv:
+        source: [ enable_cnv_germline, enable_cnv ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
       # Variant calling options
       vc_base_qual_threshold:
         source: [ vc_base_qual_threshold_germline, vc_base_qual_threshold ]
@@ -1050,8 +1066,6 @@ steps:
       dbsnp_annotation:
         source: dbsnp_annotation
       #cnv options
-      enable_cnv:
-        source: enable_cnv
       cnv_enable_self_normalization:
         source: cnv_enable_self_normalization
       #qc options
@@ -1162,6 +1176,12 @@ steps:
           }
       enable_sv:
         source: [ enable_sv_somatic, enable_sv ]
+        valueFrom: |
+          ${
+            return get_first_non_null_input(self);
+          }
+      enable_cnv:
+        source: [ enable_cnv_somatic, enable_cnv ]
         valueFrom: |
           ${
             return get_first_non_null_input(self);
@@ -1301,8 +1321,6 @@ steps:
       # If known, specify the sex of the sample.
       # If the sample sex is not specified, the caller attempts to estimate the sample sex from tumor alignments.
       # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/CopyNumVariantCalling.htm
-      enable_cnv:
-        source: enable_cnv
       cnv_enable_self_normalization:
         source: cnv_enable_self_normalization
       cnv_normal_b_allele_vcf:
