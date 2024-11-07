@@ -1,46 +1,52 @@
 
-dragen-germline 4.2.4 tool
-==========================
+dragen-germline-pipeline 4.3.6 workflow
+=======================================
 
 ## Table of Contents
   
-- [Overview](#dragen-germline-v424-overview)  
+- [Overview](#dragen-germline-pipeline-v436-overview)  
+- [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-germline-v424-inputs)  
-- [Outputs](#dragen-germline-v424-outputs)  
+- [Inputs](#dragen-germline-pipeline-v436-inputs)  
+- [Steps](#dragen-germline-pipeline-v436-steps)  
+- [Outputs](#dragen-germline-pipeline-v436-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-germline v(4.2.4) Overview
+## dragen-germline-pipeline v(4.3.6) Overview
 
 
 
   
-> ID: dragen-germline--4.2.4  
-> md5sum: 2b5b45e49447cb8b282a053cdc071da1
+> ID: dragen-germline-pipeline--4.3.6  
+> md5sum: 65ab25120dd83bc3f77ae9fa7e028433
 
-### dragen-germline v(4.2.4) documentation
+### dragen-germline-pipeline v(4.3.6) documentation
   
-Documentation for dragen-germline v4.2.4
+Documentation for dragen-germline-pipeline v4.3.6
 
 ### Categories
   
+- dragen  
 
 
+## Visual Workflow Overview
+  
+[![dragen-germline-pipeline__4.3.6.svg](../../../../images/workflows/dragen-germline-pipeline/4.3.6/dragen-germline-pipeline__4.3.6.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-germline-pipeline/4.3.6/dragen-germline-pipeline__4.3.6.svg)
 ## Related Links
   
-- [CWL File Path](../../../../../../tools/dragen-germline/4.2.4/dragen-germline__4.2.4.cwl)  
+- [CWL File Path](../../../../../../workflows/dragen-germline-pipeline/4.3.6/dragen-germline-pipeline__4.3.6.cwl)  
 
 
-### Used By
+### Uses
   
-- [dragen-germline-pipeline 4.2.4](../../../workflows/dragen-germline-pipeline/4.2.4/dragen-germline-pipeline__4.2.4.md)  
-- [dragen-somatic-with-germline-pipeline 4.2.4](../../../workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md)  
+- [multiqc 1.25.1 :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
+- [dragen-germline 4.3.6 :construction:](../../../tools/dragen-germline/4.3.6/dragen-germline__4.3.6.md)  
 
   
 
 
-## dragen-germline v(4.2.4) Inputs
+## dragen-germline-pipeline v(4.3.6) Inputs
 
 ### bam input
 
@@ -92,7 +98,7 @@ Input a normal CRAM file for the variant calling stage
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Path to the reference fasta file for the CRAM input. 
+Path to the reference fasta file for the CRAM input.
 Required only if the input is a cram file AND not the reference in the tarball
 
 
@@ -205,19 +211,6 @@ Do you wish to have the output bam files present
 Enable star allele caller. This also turns on other PGx callers such as CYP2D6, CYP2B6
 
 
-### enable sort
-
-
-
-  
-> ID: enable_sort
-  
-**Optional:** `True`  
-**Type:** `boolean`  
-**Docs:**  
-True by default, only set this to false if using --bam-input parameter
-
-
 ### enable sv
 
 
@@ -305,19 +298,6 @@ DRAGEN HLA Caller parses the input file for regions within the BED file, and the
 extracts reads accordingly to align with the HLA allele reference.
 
 
-### hla enable class 2
-
-
-
-  
-> ID: hla_enable_class_2
-  
-**Optional:** `True`  
-**Type:** `boolean`  
-**Docs:**  
-Enable class II HLA typing by setting --hla-enable-class-2 flag to true
-
-
 ### hla min reads
 
 
@@ -395,32 +375,6 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
-### output directory
-
-
-
-  
-> ID: output_directory
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The directory where all output files are placed
-
-
-### output file prefix
-
-
-
-  
-> ID: output_file_prefix
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The prefix given to all output files
-
-
 ### output format
 
 
@@ -433,6 +387,19 @@ The prefix given to all output files
 **Docs:**  
 For mapping and aligning, the output is sorted and compressed into BAM format by default before saving to disk.
 You can control the output format from the map/align stage with the --output-format <SAM|BAM|CRAM> option.
+
+
+### output prefix
+
+
+
+  
+> ID: output_prefix
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+The prefix given to all output files
 
 
 ### qc coverage ignore overlaps
@@ -541,9 +508,9 @@ DRAGEN attempts to autodetect the applicable catalog file from /opt/edico/repeat
 **Optional:** `True`  
 **Type:** `[ default | default_plus_smn | expanded  ]`  
 **Docs:**  
-The repeat-specification (also called variant catalog) JSON file defines the repeat regions for ExpansionHunter to analyze. 
-Default repeat-specification for some pathogenic and polymorphic repeats are in the /opt/edico/repeat-specs/ directory, 
-based on the reference genome used with DRAGEN. Users can choose between any of the three default repeat-specification files 
+The repeat-specification (also called variant catalog) JSON file defines the repeat regions for ExpansionHunter to analyze.
+Default repeat-specification for some pathogenic and polymorphic repeats are in the /opt/edico/repeat-specs/ directory,
+based on the reference genome used with DRAGEN. Users can choose between any of the three default repeat-specification files
 packaged with DRAGEN using <default|default_plus_smn|expanded>
 
 
@@ -555,7 +522,7 @@ packaged with DRAGEN using <default|default_plus_smn|expanded>
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ none | auto | male | female  ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -796,11 +763,11 @@ Enable or disable the ROH caller by setting this option to true or false. Enable
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-For male samples in germline calling mode, DRAGEN calls potential mosaic variants in non-PAR regions of sex chromosomes. 
-A variant is called as mosaic when the allele frequency (FORMAT/AF) is below 85% or if multiple alt alleles are called, 
-suggesting incompatibility with the haploid assumption. The GT field for bi-allelic mosaic variants is "0/1", 
-denoting a mixture of reference and alt alleles, as opposed to the regular GT of "1" for haploid variants. 
-The GT field for multi-allelic mosaic variants is "1/2" in VCF. 
+For male samples in germline calling mode, DRAGEN calls potential mosaic variants in non-PAR regions of sex chromosomes.
+A variant is called as mosaic when the allele frequency (FORMAT/AF) is below 85% or if multiple alt alleles are called,
+suggesting incompatibility with the haploid assumption. The GT field for bi-allelic mosaic variants is "0/1",
+denoting a mixture of reference and alt alleles, as opposed to the regular GT of "1" for haploid variants.
+The GT field for multi-allelic mosaic variants is "1/2" in VCF.
 You can disable the calling of mosaic variants by setting --vc-enable-sex-chr-diploid to false.
 
 
@@ -855,7 +822,7 @@ Option --vc-haploid-call-af-threshold=<af_threshold> to control threshold.
   "MOSAIC" will be added.
 
 
-### vc hard filter
+### vc hard fitler
 
 
 
@@ -910,9 +877,9 @@ Default is 30000 for the germline workflow
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-DRAGEN employs machine learning-based variant recalibration (DRAGEN-ML) for germline SNV VC. 
-Variant calling accuracy is improved using powerful and efficient machine learning techniques that augment the variant caller, 
-by exploiting more of the available read and context information that does not easily integrate into the Bayesian processing 
+DRAGEN employs machine learning-based variant recalibration (DRAGEN-ML) for germline SNV VC.
+Variant calling accuracy is improved using powerful and efficient machine learning techniques that augment the variant caller,
+by exploiting more of the available read and context information that does not easily integrate into the Bayesian processing
 used by the haplotype variant caller.
 
 
@@ -993,14 +960,51 @@ The default value is 500 for germline mode and 50 for somatic mode.
   
 
 
-## dragen-germline v(4.2.4) Outputs
+## dragen-germline-pipeline v(4.3.6) Steps
+
+### dragen qc step
+
+
+  
+> ID: dragen-germline-pipeline--4.3.6/dragen_qc_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+The dragen qc step - this takes in an array of dirs
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/multiqc/1.25.1/multiqc__1.25.1.cwl)  
+[CWL File Help Page :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
+
+
+### run dragen germline step
+
+
+  
+> ID: dragen-germline-pipeline--4.3.6/run_dragen_germline_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Runs the dragen germline workflow on the FPGA.
+Takes in either a fastq list as a file or a fastq_list_rows schema object
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/dragen-germline/4.3.6/dragen-germline__4.3.6.cwl)  
+[CWL File Help Page :construction:](../../../tools/dragen-germline/4.3.6/dragen-germline__4.3.6.md)  
+
+
+## dragen-germline-pipeline v(4.3.6) Outputs
 
 ### dragen bam out
 
 
 
   
-> ID: dragen-germline--4.2.4/dragen_bam_out  
+> ID: dragen-germline-pipeline--4.3.6/dragen_bam_out  
 
   
 **Optional:** `True`  
@@ -1015,7 +1019,7 @@ The output bam file, exists only if --enable-map-align-output is set to true
 
 
   
-> ID: dragen-germline--4.2.4/dragen_germline_output_directory  
+> ID: dragen-germline-pipeline--4.3.6/dragen_germline_output_directory  
 
   
 **Optional:** `False`  
@@ -1030,7 +1034,7 @@ The output directory containing all germline output files
 
 
   
-> ID: dragen-germline--4.2.4/dragen_vcf_out  
+> ID: dragen-germline-pipeline--4.3.6/dragen_vcf_out  
 
   
 **Optional:** `True`  
@@ -1039,24 +1043,20 @@ The output directory containing all germline output files
 The output germline vcf file
   
 
-  
+
+### multiqc output directory
 
 
-## ICA
-
-### ToC
-  
-- [development_workflows](#project-development_workflows)  
-
-
-### Project: development_workflows
-
-
-> wfl id: wfl.a19f90ebde874ceba9f3f41f82878e8c  
 
   
-**workflow name:** dragen-germline_dev-wf  
-**wfl version name:** 4.2.4  
+> ID: dragen-germline-pipeline--4.3.6/multiqc_output_directory  
+
+  
+**Optional:** `False`  
+**Output Type:** `Directory`  
+**Docs:**  
+The output directory for multiqc
+  
 
   
 

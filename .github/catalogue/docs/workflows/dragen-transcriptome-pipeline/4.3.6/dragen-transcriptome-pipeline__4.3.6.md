@@ -1,29 +1,29 @@
 
-dragen-transcriptome-pipeline 4.2.4 workflow
+dragen-transcriptome-pipeline 4.3.6 workflow
 ============================================
 
 ## Table of Contents
   
-- [Overview](#dragen-transcriptome-pipeline-v424-overview)  
+- [Overview](#dragen-transcriptome-pipeline-v436-overview)  
 - [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-transcriptome-pipeline-v424-inputs)  
-- [Steps](#dragen-transcriptome-pipeline-v424-steps)  
-- [Outputs](#dragen-transcriptome-pipeline-v424-outputs)  
+- [Inputs](#dragen-transcriptome-pipeline-v436-inputs)  
+- [Steps](#dragen-transcriptome-pipeline-v436-steps)  
+- [Outputs](#dragen-transcriptome-pipeline-v436-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-transcriptome-pipeline v(4.2.4) Overview
+## dragen-transcriptome-pipeline v(4.3.6) Overview
 
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4  
-> md5sum: bcafa1401a0ad7771075a8625273ea84
+> ID: dragen-transcriptome-pipeline--4.3.6  
+> md5sum: c9e823dbdf406f61e221a4eee400a8f4
 
-### dragen-transcriptome-pipeline v(4.2.4) documentation
+### dragen-transcriptome-pipeline v(4.3.6) documentation
   
-Documentation for dragen-transcriptome-pipeline v4.2.4
+Documentation for dragen-transcriptome-pipeline v4.3.6
 
 ### Categories
   
@@ -31,10 +31,10 @@ Documentation for dragen-transcriptome-pipeline v4.2.4
 
 ## Visual Workflow Overview
   
-[![dragen-transcriptome-pipeline__4.2.4.svg](../../../../images/workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.svg)
+[![dragen-transcriptome-pipeline__4.3.6.svg](../../../../images/workflows/dragen-transcriptome-pipeline/4.3.6/dragen-transcriptome-pipeline__4.3.6.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-transcriptome-pipeline/4.3.6/dragen-transcriptome-pipeline__4.3.6.svg)
 ## Related Links
   
-- [CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl)  
+- [CWL File Path](../../../../../../workflows/dragen-transcriptome-pipeline/4.3.6/dragen-transcriptome-pipeline__4.3.6.cwl)  
 
 
 ### Uses
@@ -42,15 +42,14 @@ Documentation for dragen-transcriptome-pipeline v4.2.4
 - [arriba-drawing 2.4.0](../../../tools/arriba-drawing/2.4.0/arriba-drawing__2.4.0.md)  
 - [arriba-fusion-calling 2.4.0](../../../tools/arriba-fusion-calling/2.4.0/arriba-fusion-calling__2.4.0.md)  
 - [custom-create-directory 1.0.0](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
-- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.15.0](../../../tools/multiqc/1.15.0/multiqc__1.15.0.md)  
-- [dragen-transcriptome 4.2.4](../../../tools/dragen-transcriptome/4.2.4/dragen-transcriptome__4.2.4.md)  
+- [multiqc 1.25.1 :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
+- [dragen-transcriptome 4.3.6 :construction:](../../../tools/dragen-transcriptome/4.3.6/dragen-transcriptome__4.3.6.md)  
 - [qualimap 2.2.2](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 
   
 
 
-## dragen-transcriptome-pipeline v(4.2.4) Inputs
+## dragen-transcriptome-pipeline v(4.3.6) Inputs
 
 ### algorithm
 
@@ -312,19 +311,6 @@ The prefix given to all output files
 GFF3 file containing the genomic coordinates of protein domains.
 
 
-### qc reference samples
-
-
-
-  
-> ID: qc_reference_samples
-  
-**Optional:** `False`  
-**Type:** `.[]`  
-**Docs:**  
-Reference samples for multiQC report
-
-
 ### read trimming
 
 
@@ -395,6 +381,20 @@ Specify the FASTA file that contains adapter sequences to trim from the 5' end o
 NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
 
 
+### trim adapter r2 5prime
+
+
+
+  
+> ID: trim_adapter_r2_5prime
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
+NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
+
+
 ### trim adapter read1
 
 
@@ -432,20 +432,6 @@ Specify the FASTA file that contains adapter sequences to trim from the 3' end o
 **Type:** `int`  
 **Docs:**  
 Specify the minimum number of adapter bases required for trimming
-
-
-### trim adapter r2 5prime
-
-
-
-  
-> ID: trim_dapter_r2_5prime
-  
-**Optional:** `True`  
-**Type:** `File`  
-**Docs:**  
-Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
-NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
 
 
 ### trim r1 3prime
@@ -502,13 +488,13 @@ Specify the minimum number of bases to trim from the 5' end of Read 2 (default: 
   
 
 
-## dragen-transcriptome-pipeline v(4.2.4) Steps
+## dragen-transcriptome-pipeline v(4.3.6) Steps
 
 ### arriba drawing step
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/arriba_drawing_step
+> ID: dragen-transcriptome-pipeline--4.3.6/arriba_drawing_step
   
 **Step Type:** tool  
 **Docs:**
@@ -525,7 +511,7 @@ Run Arriba drawing script for fusions predicted by previous step.
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/arriba_fusion_step
+> ID: dragen-transcriptome-pipeline--4.3.6/arriba_fusion_step
   
 **Step Type:** tool  
 **Docs:**
@@ -542,7 +528,7 @@ Runs Arriba fusion calling on the bam file produced by Dragen.
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/create_arriba_output_directory
+> ID: dragen-transcriptome-pipeline--4.3.6/create_arriba_output_directory
   
 **Step Type:** tool  
 **Docs:**
@@ -555,28 +541,11 @@ Create an output directory to contain the arriba files
 [CWL File Help Page](../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.md)  
 
 
-### Create dummy file
-
-
-  
-> ID: dragen-transcriptome-pipeline--4.2.4/create_dummy_file_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Intermediate step for letting multiqc-interop be placed in stream mode
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-
-
 ### dragen qc step
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/dragen_qc_step
+> ID: dragen-transcriptome-pipeline--4.3.6/dragen_qc_step
   
 **Step Type:** tool  
 **Docs:**
@@ -585,15 +554,15 @@ The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.15.0/multiqc__1.15.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.15.0/multiqc__1.15.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.25.1/multiqc__1.25.1.cwl)  
+[CWL File Help Page :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
 
 
 ### run dragen transcriptome step
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/run_dragen_transcriptome_step
+> ID: dragen-transcriptome-pipeline--4.3.6/run_dragen_transcriptome_step
   
 **Step Type:** tool  
 **Docs:**
@@ -604,15 +573,15 @@ All other options avaiable at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../tools/dragen-transcriptome/4.2.4/dragen-transcriptome__4.2.4.cwl)  
-[CWL File Help Page](../../../tools/dragen-transcriptome/4.2.4/dragen-transcriptome__4.2.4.md)  
+[CWL File Path](../../../../../../tools/dragen-transcriptome/4.3.6/dragen-transcriptome__4.3.6.cwl)  
+[CWL File Help Page :construction:](../../../tools/dragen-transcriptome/4.3.6/dragen-transcriptome__4.3.6.md)  
 
 
 ### run qualimap step
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/run_qualimap_step
+> ID: dragen-transcriptome-pipeline--4.3.6/run_qualimap_step
   
 **Step Type:** tool  
 **Docs:**
@@ -625,14 +594,14 @@ Run qualimap step to generate additional QC metrics
 [CWL File Help Page](../../../tools/qualimap/2.2.2/qualimap__2.2.2.md)  
 
 
-## dragen-transcriptome-pipeline v(4.2.4) Outputs
+## dragen-transcriptome-pipeline v(4.3.6) Outputs
 
 ### arriba output directory
 
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/arriba_output_directory  
+> ID: dragen-transcriptome-pipeline--4.3.6/arriba_output_directory  
 
   
 **Optional:** `False`  
@@ -647,7 +616,7 @@ The directory containing output files from arriba
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/dragen_transcriptome_output_directory  
+> ID: dragen-transcriptome-pipeline--4.3.6/dragen_transcriptome_output_directory  
 
   
 **Optional:** `False`  
@@ -662,7 +631,7 @@ The output directory containing all transcriptome output files
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/multiqc_output_directory  
+> ID: dragen-transcriptome-pipeline--4.3.6/multiqc_output_directory  
 
   
 **Optional:** `False`  
@@ -677,7 +646,7 @@ The output directory for multiqc
 
 
   
-> ID: dragen-transcriptome-pipeline--4.2.4/qualimap_output_directory  
+> ID: dragen-transcriptome-pipeline--4.3.6/qualimap_output_directory  
 
   
 **Optional:** `False`  
@@ -685,36 +654,6 @@ The output directory for multiqc
 **Docs:**  
 The output directory containing all transcriptome output files
   
-
-  
-
-
-## ICA
-
-### ToC
-  
-- [development_workflows](#project-development_workflows)  
-- [production_workflows](#project-production_workflows)  
-
-
-### Project: development_workflows
-
-
-> wfl id: wfl.286d4a2e82f048609d5b288a9d2868f6  
-
-  
-**workflow name:** dragen-transcriptome-pipeline_dev-wf  
-**wfl version name:** 4.2.4  
-
-
-### Project: production_workflows
-
-
-> wfl id: wfl.7e5ba7470b5549a6b4bf6d95daaa1214  
-
-  
-**workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 4.2.4--89be8f2  
 
   
 
