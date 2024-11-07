@@ -724,6 +724,7 @@ UMCCR CWL-ICA Catalogue
 - [3.9.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/3.9.3/dragen-germline-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-germline-pipeline/4.0.3/dragen-germline-pipeline__4.0.3.md)  
 - [4.2.4](.github/catalogue/docs/workflows/dragen-germline-pipeline/4.2.4/dragen-germline-pipeline__4.2.4.md)  
+- [4.3.6](.github/catalogue/docs/workflows/dragen-germline-pipeline/4.3.6/dragen-germline-pipeline__4.3.6.md)  
 
 
 ### dragen-qc-hla-pipeline
@@ -778,6 +779,7 @@ UMCCR CWL-ICA Catalogue
 - [3.9.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/3.9.3/dragen-transcriptome-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.0.3/dragen-transcriptome-pipeline__4.0.3.md)  
 - [4.2.4](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.2.4/dragen-transcriptome-pipeline__4.2.4.md)  
+- [4.3.6](.github/catalogue/docs/workflows/dragen-transcriptome-pipeline/4.3.6/dragen-transcriptome-pipeline__4.3.6.md)  
 
 
 ### dragen-alignment-pipeline
@@ -794,6 +796,7 @@ UMCCR CWL-ICA Catalogue
 - [3.9.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/3.9.3/dragen-alignment-pipeline__3.9.3.md)  
 - [4.0.3](.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.md)  
 - [4.2.4](.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.2.4/dragen-alignment-pipeline__4.2.4.md)  
+- [4.3.6](.github/catalogue/docs/workflows/dragen-alignment-pipeline/4.3.6/dragen-alignment-pipeline__4.3.6.md)  
 
 
 ### dragen-wgs-qc-pipeline
@@ -925,6 +928,7 @@ UMCCR CWL-ICA Catalogue
 - [4.0.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
 - [3.9.3](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/3.9.3/dragen-somatic-with-germline-pipeline__3.9.3.md)  
 - [4.2.4](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.md)  
+- [4.3.6](.github/catalogue/docs/workflows/dragen-somatic-with-germline-pipeline/4.3.6/dragen-somatic-with-germline-pipeline__4.3.6.md)  
 
 
 ### illumina-interop-qc

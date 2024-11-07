@@ -1,29 +1,29 @@
 
-dragen-alignment-pipeline 4.0.3 workflow
+dragen-alignment-pipeline 4.3.6 workflow
 ========================================
 
 ## Table of Contents
   
-- [Overview](#dragen-alignment-pipeline-v403-overview)  
+- [Overview](#dragen-alignment-pipeline-v436-overview)  
 - [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-alignment-pipeline-v403-inputs)  
-- [Steps](#dragen-alignment-pipeline-v403-steps)  
-- [Outputs](#dragen-alignment-pipeline-v403-outputs)  
+- [Inputs](#dragen-alignment-pipeline-v436-inputs)  
+- [Steps](#dragen-alignment-pipeline-v436-steps)  
+- [Outputs](#dragen-alignment-pipeline-v436-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-alignment-pipeline v(4.0.3) Overview
+## dragen-alignment-pipeline v(4.3.6) Overview
 
 
 
   
-> ID: dragen-alignment-pipeline--4.0.3  
-> md5sum: 5aa4890ae0a27d6d6af0b6de85376aed
+> ID: dragen-alignment-pipeline--4.3.6  
+> md5sum: cc4d8f38e17006edcd6acb18cf7dea5a
 
-### dragen-alignment-pipeline v(4.0.3) documentation
+### dragen-alignment-pipeline v(4.3.6) documentation
   
-Documentation for dragen-alignment-pipeline v4.0.3
+Documentation for dragen-alignment-pipeline v4.3.6
 
 ### Categories
   
@@ -33,22 +33,21 @@ Documentation for dragen-alignment-pipeline v4.0.3
 
 ## Visual Workflow Overview
   
-[![dragen-alignment-pipeline__4.0.3.svg](../../../../images/workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.svg)
+[![dragen-alignment-pipeline__4.3.6.svg](../../../../images/workflows/dragen-alignment-pipeline/4.3.6/dragen-alignment-pipeline__4.3.6.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-alignment-pipeline/4.3.6/dragen-alignment-pipeline__4.3.6.svg)
 ## Related Links
   
-- [CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/4.0.3/dragen-alignment-pipeline__4.0.3.cwl)  
+- [CWL File Path](../../../../../../workflows/dragen-alignment-pipeline/4.3.6/dragen-alignment-pipeline__4.3.6.cwl)  
 
 
 ### Uses
   
-- [custom-touch-file 1.0.0 :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-- [multiqc 1.14.0](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
-- [dragen-alignment 4.0.3](../../../tools/dragen-alignment/4.0.3/dragen-alignment__4.0.3.md)  
+- [multiqc 1.25.1 :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
+- [dragen-alignment 4.3.6 :construction:](../../../tools/dragen-alignment/4.3.6/dragen-alignment__4.3.6.md)  
 
   
 
 
-## dragen-alignment-pipeline v(4.0.3) Inputs
+## dragen-alignment-pipeline v(4.3.6) Inputs
 
 ### aln min score
 
@@ -97,6 +96,19 @@ Enabled by default if reference was built with liftover.
 **Docs:**  
 Maximum indel length to expect near an annotated splice junction.
 Range: 0 - 63
+
+
+### annotation file
+
+
+
+  
+> ID: annotation_file
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Use to supply a gene annotation file. Required for quantification and gene-fusion.
 
 
 ### dedup min qual
@@ -220,6 +232,23 @@ Enable the flagging of duplicate output alignment records.
 Enable use of BAM input files for mapper/aligner.
 
 
+### enable map align
+
+
+
+  
+> ID: enable_map_align_output
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enables saving the output from the map/align stage.
+If only running map/align, the default value is true.
+If running the variant caller, the default value is false.
+Therefore in the case of the dragen alignment pipeline, this will always be true.
+For sanity purposes, we have it as an option since its default state is not intuitive
+
+
 ### enable rna
 
 
@@ -231,6 +260,19 @@ Enable use of BAM input files for mapper/aligner.
 **Type:** `boolean`  
 **Docs:**  
 Enable rna specific settings
+
+
+### enable rna quantification
+
+
+
+  
+> ID: enable_rna_quantification
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+If set to true, enables RNA quantification. Requires --enable-rna to be set to true.
 
 
 ### enable rrna filtering
@@ -552,25 +594,12 @@ When no-unclip-score is set to 1, any unclipped bonus (unclip-score) contributin
 If only properly paired alignments should be reported for paired reads.
 
 
-### output directory
+### output prefix
 
 
 
   
-> ID: output_directory
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-The directory where all output files are placed
-
-
-### output file prefix
-
-
-
-  
-> ID: output_file_prefix
+> ID: output_prefix
   
 **Optional:** `False`  
 **Type:** `string`  
@@ -808,30 +837,13 @@ Enable verbose output from DRAGEN.
   
 
 
-## dragen-alignment-pipeline v(4.0.3) Steps
-
-### Create dummy file
-
-
-  
-> ID: dragen-alignment-pipeline--4.0.3/create_dummy_file_step
-  
-**Step Type:** tool  
-**Docs:**
-  
-Intermediate step for letting multiqc-interop be placed in stream mode
-
-#### Links
-  
-[CWL File Path](../../../../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.cwl)  
-[CWL File Help Page :construction:](../../../tools/custom-touch-file/1.0.0/custom-touch-file__1.0.0.md)  
-
+## dragen-alignment-pipeline v(4.3.6) Steps
 
 ### dragen qc step
 
 
   
-> ID: dragen-alignment-pipeline--4.0.3/dragen_qc_step
+> ID: dragen-alignment-pipeline--4.3.6/dragen_qc_step
   
 **Step Type:** tool  
 **Docs:**
@@ -840,15 +852,15 @@ The dragen qc step - this takes in an array of dirs
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.14.0/multiqc__1.14.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.14.0/multiqc__1.14.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.25.1/multiqc__1.25.1.cwl)  
+[CWL File Help Page :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
 
 
 ### run dragen alignment step
 
 
   
-> ID: dragen-alignment-pipeline--4.0.3/run_dragen_alignment_step
+> ID: dragen-alignment-pipeline--4.3.6/run_dragen_alignment_step
   
 **Step Type:** tool  
 **Docs:**
@@ -859,18 +871,18 @@ All other options available at the top of the workflow
 
 #### Links
   
-[CWL File Path](../../../../../../tools/dragen-alignment/4.0.3/dragen-alignment__4.0.3.cwl)  
-[CWL File Help Page](../../../tools/dragen-alignment/4.0.3/dragen-alignment__4.0.3.md)  
+[CWL File Path](../../../../../../tools/dragen-alignment/4.3.6/dragen-alignment__4.3.6.cwl)  
+[CWL File Help Page :construction:](../../../tools/dragen-alignment/4.3.6/dragen-alignment__4.3.6.md)  
 
 
-## dragen-alignment-pipeline v(4.0.3) Outputs
+## dragen-alignment-pipeline v(4.3.6) Outputs
 
 ### dragen alignment output directory
 
 
 
   
-> ID: dragen-alignment-pipeline--4.0.3/dragen_alignment_output_directory  
+> ID: dragen-alignment-pipeline--4.3.6/dragen_alignment_output_directory  
 
   
 **Optional:** `False`  
@@ -885,7 +897,7 @@ The output directory containing all alignment output files and qc metrics
 
 
   
-> ID: dragen-alignment-pipeline--4.0.3/dragen_bam_out  
+> ID: dragen-alignment-pipeline--4.3.6/dragen_bam_out  
 
   
 **Optional:** `False`  
@@ -900,7 +912,7 @@ The output alignment file
 
 
   
-> ID: dragen-alignment-pipeline--4.0.3/multiqc_output_directory  
+> ID: dragen-alignment-pipeline--4.3.6/multiqc_output_directory  
 
   
 **Optional:** `False`  
@@ -908,25 +920,6 @@ The output alignment file
 **Docs:**  
 The dragen multiQC output
   
-
-  
-
-
-## ICA
-
-### ToC
-  
-- [development_workflows](#project-development_workflows)  
-
-
-### Project: development_workflows
-
-
-> wfl id: wfl.a3e19e590ed34a0fa0518718cb8a36cf  
-
-  
-**workflow name:** dragen-alignment-pipeline_dev-wf  
-**wfl version name:** 4.0.3  
 
   
 

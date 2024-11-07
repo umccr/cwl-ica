@@ -1,49 +1,54 @@
 
-dragen-somatic 4.0.3 tool
-=========================
+dragen-somatic-with-germline-pipeline 4.3.6 workflow
+====================================================
 
 ## Table of Contents
   
-- [Overview](#dragen-somatic-v403-overview)  
+- [Overview](#dragen-somatic-with-germline-pipeline-v436-overview)  
+- [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#dragen-somatic-v403-inputs)  
-- [Outputs](#dragen-somatic-v403-outputs)  
+- [Inputs](#dragen-somatic-with-germline-pipeline-v436-inputs)  
+- [Steps](#dragen-somatic-with-germline-pipeline-v436-steps)  
+- [Outputs](#dragen-somatic-with-germline-pipeline-v436-outputs)  
 - [ICA](#ica)  
 
 
-## dragen-somatic v(4.0.3) Overview
+## dragen-somatic-with-germline-pipeline v(4.3.6) Overview
 
 
 
   
-> ID: dragen-somatic--4.0.3  
-> md5sum: 1f3a8b5e2791990e355cd5adc237d786
+> ID: dragen-somatic-with-germline-pipeline--4.3.6  
+> md5sum: f6f250deff3ce3eb74c05da342e970ea
 
-### dragen-somatic v(4.0.3) documentation
+### dragen-somatic-with-germline-pipeline v(4.3.6) documentation
   
-Run tumor-normal dragen somatic pipeline v 4.0.3.
-Workflow takes in two separate lists of object stor version of the fastq_list.csv equivalent
-See the fastq_list_row schema definitions for more information.
-More information on the documentation can be found [here](https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/SomaticMode.htm).
+Documentation for dragen-somatic-with-germline-pipeline
+v4.3.6
 
 ### Categories
   
 
 
+## Visual Workflow Overview
+  
+[![dragen-somatic-with-germline-pipeline__4.3.6.svg](../../../../images/workflows/dragen-somatic-with-germline-pipeline/4.3.6/dragen-somatic-with-germline-pipeline__4.3.6.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/dragen-somatic-with-germline-pipeline/4.3.6/dragen-somatic-with-germline-pipeline__4.3.6.svg)
 ## Related Links
   
-- [CWL File Path](../../../../../../tools/dragen-somatic/4.0.3/dragen-somatic__4.0.3.cwl)  
+- [CWL File Path](../../../../../../workflows/dragen-somatic-with-germline-pipeline/4.3.6/dragen-somatic-with-germline-pipeline__4.3.6.cwl)  
 
 
-### Used By
+### Uses
   
-- [dragen-somatic-pipeline 4.0.3](../../../workflows/dragen-somatic-pipeline/4.0.3/dragen-somatic-pipeline__4.0.3.md)  
-- [dragen-somatic-with-germline-pipeline 4.0.3](../../../workflows/dragen-somatic-with-germline-pipeline/4.0.3/dragen-somatic-with-germline-pipeline__4.0.3.md)  
+- [get-first-non-null-bam-file 1.0.0 :construction:](../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.md)  
+- [dragen-germline 4.3.6 :construction:](../../../tools/dragen-germline/4.3.6/dragen-germline__4.3.6.md)  
+- [multiqc 1.25.1 :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
+- [dragen-somatic 4.3.6 :construction:](../../../tools/dragen-somatic/4.3.6/dragen-somatic__4.3.6.md)  
 
   
 
 
-## dragen-somatic v(4.0.3) Inputs
+## dragen-somatic-with-germline-pipeline v(4.3.6) Inputs
 
 ### bam input
 
@@ -124,6 +129,43 @@ Specify a population SNP catalog.
 Enable HET-calling mode for heterogeneous segments.
 
 
+### cnv somatic enable lower ploidy limit
+
+
+
+  
+> ID: cnv_somatic_enable_lower_ploidy_limit
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+To improve accuracy on the tumor ploidy model estimation, the somatic WGS CNV caller estimates whether the chosen model calls
+homozygous deletions on regions that are likely to reduce the overall fitness of cells,
+which are therefore deemed to be "essential" and under negative selection.
+In the current literature, recent efforts tried to map such cell-essential genes (eg, in 2015 - https://www.science.org/doi/10.1126/science.aac7041).
+The check on essential regions is controlled with --cnv-somatic-enable-lower-ploidy-limit (default true).
+
+
+### cnv somatic essential genes bed
+
+
+
+  
+> ID: cnv_somatic_essential_genes_bed
+  
+**Optional:** `True`  
+**Type:** `['string', 'File']`  
+**Docs:**  
+Default bedfiles describing the essential regions are provided for hg19, GRCh37, hs37d5, GRCh38,
+but a custom bedfile can also be provided in input through the
+--cnv-somatic-essential-genes-bed=<BEDFILE_PATH> parameter.
+In such case, the feature is automatically enabled.
+A custom essential regions bedfile needs to have the following format: 4-column, tab-separated,
+where the first 3 columns identify the coordinates of the essential region (chromosome, 0-based start, excluded end).
+The fourth column is the region id (string type). For the purpose of the algorithm, currently only the first 3 columns are used.
+However, the fourth might be helpful to investigate manually which regions drove the decisions on model plausibility made by the caller.
+
+
 ### cnv use somatic vc baf
 
 
@@ -150,6 +192,33 @@ to specify the germline heterozygous sites.
 **Docs:**  
 Use the variant allele frequencies (VAFs) from the somatic SNVs to help select
 the tumor model for the sample.
+
+
+### cram input
+
+
+
+  
+> ID: cram_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a normal CRAM file for the variant calling stage
+
+
+### cram reference
+
+
+
+  
+> ID: cram_reference
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to the reference fasta file for the CRAM input.
+Required only if the input is a cram file AND not the reference in the tarball
 
 
 ### dbsnp annotation
@@ -182,6 +251,34 @@ Specifies the Phred quality score below which a base should be excluded from the
 calculation used for choosing among duplicate reads.
 
 
+### deduplicate minimum quality germline
+
+
+
+  
+> ID: dedup_min_qual_germline
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specifies the Phred quality score below which a base should be excluded from the quality score
+calculation used for choosing among duplicate reads.
+
+
+### deduplicate minimum quality somatic
+
+
+
+  
+> ID: dedup_min_qual_somatic
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+Specifies the Phred quality score below which a base should be excluded from the quality score
+calculation used for choosing among duplicate reads.
+
+
 ### enable cnv calling
 
 
@@ -195,12 +292,66 @@ calculation used for choosing among duplicate reads.
 Enable CNV processing in the DRAGEN Host Software.
 
 
+### enable cnv germline
+
+
+
+  
+> ID: enable_cnv_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable CNV processing in the DRAGEN Host Software (somatic only)
+
+
+### enable cnv somatic
+
+
+
+  
+> ID: enable_cnv_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable CNV processing in the DRAGEN Host Software (germline only)
+
+
 ### enable duplicate marking
 
 
 
   
 > ID: enable_duplicate_marking
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable the flagging of duplicate output
+alignment records.
+
+
+### enable duplicate marking germline
+
+
+
+  
+> ID: enable_duplicate_marking_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable the flagging of duplicate output
+alignment records.
+
+
+### enable duplicate marking somatic
+
+
+
+  
+> ID: enable_duplicate_marking_somatic
   
 **Optional:** `True`  
 **Type:** `boolean`  
@@ -247,7 +398,21 @@ Requires somatic CNV calls.
 **Type:** `boolean`  
 **Docs:**  
 Enabled by default since --enable-variant-caller option is set to true.
-Set this value to false if using bam_input AND tumor_bam_input
+Set this value to false if using bam_input
+
+
+### enable map align germline
+
+
+
+  
+> ID: enable_map_align_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
 
 
 ### enable map align output
@@ -264,6 +429,52 @@ Enables saving the output from the
 map/align stage. Default is true when only
 running map/align. Default is false if
 running the variant caller.
+
+
+### enable map align output germline
+
+
+
+  
+> ID: enable_map_align_output_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enables saving the output from the
+map/align stage. Default is true when only
+running map/align. Default is false if
+running the variant caller.
+
+
+### enable map align output somatic
+
+
+
+  
+> ID: enable_map_align_output_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enables saving the output from the
+map/align stage. Default is true when only
+running map/align. Default is false if
+running the variant caller.
+
+
+### enable map align somatic
+
+
+
+  
+> ID: enable_map_align_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enabled by default since --enable-variant-caller option is set to true.
+Set this value to false if using bam_input
 
 
 ### enable rna
@@ -289,7 +500,33 @@ Set this option for running RNA samples through T/N workflow
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-True by default, only set this to false if using --bam-input and --tumor-bam-input parameters
+True by default, only set this to false if using --bam-input parameter
+
+
+### enable sort germline
+
+
+
+  
+> ID: enable_sort_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameter
+
+
+### enable sort somatic
+
+
+
+  
+> ID: enable_sort_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+True by default, only set this to false if using --bam-input parameter
 
 
 ### enable sv
@@ -298,6 +535,34 @@ True by default, only set this to false if using --bam-input and --tumor-bam-inp
 
   
 > ID: enable_sv
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable/disable structural variant
+caller. Default is false.
+
+
+### enable sv germline
+
+
+
+  
+> ID: enable_sv_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable/disable structural variant
+caller. Default is false.
+
+
+### enable sv somatic
+
+
+
+  
+> ID: enable_sv_somatic
   
 **Optional:** `True`  
 **Type:** `boolean`  
@@ -331,10 +596,10 @@ and the related callability report are enabled.
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files for normal sample
-to process. read_1 and read_2 components in the CSV file must be presigned urls.
+to process.
 
 
-### fastq list rows
+### Row of fastq lists
 
 
 
@@ -344,7 +609,14 @@ to process. read_1 and read_2 components in the CSV file must be presigned urls.
 **Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
-Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for normal sample
+The row of fastq lists.
+Each row has the following attributes:
+  * RGID
+  * RGLB
+  * RGSM
+  * Lane
+  * Read1File
+  * Read2File (optional)
 
 
 ### hla allele frequency file
@@ -455,30 +727,30 @@ Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
 
 
-### output directory
+### output prefix germline
 
 
 
   
-> ID: output_directory
-  
-**Optional:** `False`  
-**Type:** `string`  
-**Docs:**  
-Required - The output directory.
-
-
-### output file prefix
-
-
-
-  
-> ID: output_file_prefix
+> ID: output_prefix_germline
   
 **Optional:** `False`  
 **Type:** `string`  
 **Docs:**  
-Required - the output file prefix
+The prefix given to all outputs for the dragen germline pipeline
+
+
+### output prefix somatic
+
+
+
+  
+> ID: output_prefix_somatic
+  
+**Optional:** `False`  
+**Type:** `string`  
+**Docs:**  
+The prefix given to all outputs for the dragen somatic pipeline
 
 
 ### qc coverage ignore overlaps
@@ -571,9 +843,9 @@ Enables repeat expansion detection.
 **Optional:** `True`  
 **Type:** `File`  
 **Docs:**  
-Specifies the full path to the JSON file that contains the 
+Specifies the full path to the JSON file that contains the
 repeat variant catalog (specification) describing the loci to call.
-If the option is not provided, DRAGEN attempts to autodetect the applicable catalog file 
+If the option is not provided, DRAGEN attempts to autodetect the applicable catalog file
 from /opt/edico/repeat-specs/ based on the reference provided.
 
 
@@ -587,7 +859,7 @@ from /opt/edico/repeat-specs/ based on the reference provided.
 **Optional:** `True`  
 **Type:** `[ default | default_plus_smn | expanded  ]`  
 **Docs:**  
-Repeat variant catalog type to use (default - ~60 repeats, default_plus_smn - 
+Repeat variant catalog type to use (default - ~60 repeats, default_plus_smn -
 same as default with SMN repeat, expanded - ~50K repeats)
 
 
@@ -599,7 +871,7 @@ same as default with SMN repeat, expanded - ~50K repeats)
 > ID: sample_sex
   
 **Optional:** `True`  
-**Type:** `[ none | auto | male | female  ]`  
+**Type:** `[ male | female  ]`  
 **Docs:**  
 Specifies the sex of a sample
 
@@ -802,6 +1074,19 @@ The default value is 0.05.
 Input a tumor BAM file for the variant calling stage
 
 
+### tumor cram input
+
+
+
+  
+> ID: tumor_cram_input
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Input a tumor CRAM file for the variant calling stage
+
+
 ### tumor fastq list
 
 
@@ -813,10 +1098,10 @@ Input a tumor BAM file for the variant calling stage
 **Type:** `File`  
 **Docs:**  
 CSV file that contains a list of FASTQ files
-to process. read_1 and read_2 components in the CSV file must be presigned urls.
+to process.
 
 
-### tumor fastq list rows
+### Row of fastq lists
 
 
 
@@ -826,7 +1111,14 @@ to process. read_1 and read_2 components in the CSV file must be presigned urls.
 **Optional:** `True`  
 **Type:** `fastq-list-row[]`  
 **Docs:**  
-Alternative to providing a file, one can instead provide a list of 'fastq-list-row' objects for tumor sample
+The row of fastq lists.
+Each row has the following attributes:
+  * RGID
+  * RGLB
+  * RGSM
+  * Lane
+  * Read1File
+  * Read2File (optional)
 
 
 ### vc af call threshold
@@ -853,7 +1145,7 @@ The default is 0.01.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-If the AF filter is enabled using --vc-enable-af-filter-mito=true, 
+If the AF filter is enabled using --vc-enable-af-filter-mito=true,
 the option sets the allele frequency call threshold to emit a call in the VCF for mitochondrial variant calling.
 The default value is 0.01.
 
@@ -883,9 +1175,54 @@ The default is 0.05.
 **Optional:** `True`  
 **Type:** `float`  
 **Docs:**  
-If the AF filter is enabled using --vc-enable-af-filter-mito=true, 
-the option sets the allele frequency filter threshold to mark emitted VCF calls 
+If the AF filter is enabled using --vc-enable-af-filter-mito=true,
+the option sets the allele frequency filter threshold to mark emitted VCF calls
 as filtered for mitochondrial variant calling. The default value is 0.02.
+
+
+### vc base qual threshold
+
+
+
+  
+> ID: vc_base_qual_threshold
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+(Replaces --vc-min-base-qual)
+Specifies the minimum base quality to be considered in the active region detection of the small variant caller.
+The default value is 10.
+
+
+### vc base qual threshold germline
+
+
+
+  
+> ID: vc_base_qual_threshold_germline
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+(Replaces --vc-min-base-qual)
+Specifies the minimum base quality to be considered in the active region detection of the small variant caller.
+The default value is 10.
+
+
+### vc base qual threshold somatic
+
+
+
+  
+> ID: vc_base_qual_threshold_somatic
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+(Replaces --vc-min-base-qual)
+Specifies the minimum base quality to be considered in the active region detection of the small variant caller.
+The default value is 10.
 
 
 ### vc callability normal thresh
@@ -914,6 +1251,38 @@ The somatic callable regions report includes all regions with normal coverage ab
 **Docs:**  
 The --vc-callability-tumor-thresh option specifies the callability threshold for tumor samples. The
 somatic callable regions report includes all regions with tumor coverage above the tumor threshold.
+
+
+### vc combine phased variants distance somatic
+
+
+
+  
+> ID: vc_combine_phased_variants_distance_somatic
+  
+**Optional:** `True`  
+**Type:** `int`  
+**Docs:**  
+When the specified value is greater than 0, combines all phased variants in the phasing set that have a distance
+less than or equal to the provided value. The max allowed phasing distance is 15.
+The default value is 0, which disables the option.
+
+
+### vc combine phased variants max vaf delta somatic
+
+
+
+  
+> ID: vc_combine_phased_variants_max_vaf_delta_somatic
+  
+**Optional:** `True`  
+**Type:** `float`  
+**Docs:**  
+Component SNVs/INDELs of MNV calls are output only if the VAF of the component
+call is greater than that of the MNV by more than 0.1. The VAF difference
+threshold for outputting component calls along with MNV calls can be controlled by
+the --vc-combine-phased-variants-max-vaf-delta option.
+This option is mutually exclusive with --vc-mnv-emit-component-calls
 
 
 ### vc decoy contigs
@@ -1032,8 +1401,8 @@ variants if the normal sample genotype is not a homozygous reference.
 **Optional:** `True`  
 **Type:** `boolean`  
 **Docs:**  
-Similar to vc-enable-triallelic-filter, but less aggressive. 
-Keep the allele per position with highest alt AD, and only filter the rest. 
+Similar to vc-enable-triallelic-filter, but less aggressive.
+Keep the allele per position with highest alt AD, and only filter the rest.
 The default is false. Not compatible with vc-enable-triallelic-filter.
 
 
@@ -1060,9 +1429,9 @@ Enables the orientation bias filter. The default value is false, which means the
 **Optional:** `True`  
 **Type:** `string`  
 **Docs:**  
-The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option. 
+The artifact type to be filtered can be specified with the --vc-orientation-bias-filter-artifacts option.
 The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
-An artifact (or an artifact and its reverse compliment) cannot be listed twice. 
+An artifact (or an artifact and its reverse compliment) cannot be listed twice.
 For example, C/T,G/A is not valid, because C->G and T->A are reverse compliments.
 
 
@@ -1113,12 +1482,12 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fd556409910>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f6502208290>]`  
 **Docs:**  
-Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter. 
-Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads). 
-In addition, NTD error estimation accounts for non-strand-specific biases such as sample-wide elevation of a certain SNV type, 
-eg C->T or any other transition or transversion. 
+Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
+Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).
+In addition, NTD error estimation accounts for non-strand-specific biases such as sample-wide elevation of a certain SNV type,
+eg C->T or any other transition or transversion.
 NTD error estimation can also capture the biases in a trinucleotide context.
 
 
@@ -1133,6 +1502,27 @@ NTD error estimation can also capture the biases in a trinucleotide context.
 **Type:** `boolean`  
 **Docs:**  
 The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
+
+
+### vc forcegt vcf
+
+
+
+  
+> ID: vc_forcegt_vcf
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+AGENsupports force genotyping (ForceGT) for Germline SNV variant calling.
+To use ForceGT, use the --vc-forcegt-vcf option with a list of small variants to force genotype.
+The input list of small variants can be a .vcf or .vcf.gz file.
+
+The current limitations of ForceGT are as follows:
+*	ForceGT is supported for Germline SNV variant calling in the V3 mode.
+The V1, V2, and V2+ modes are not supported.
+*	ForceGT is not supported for Somatic SNV variant calling.
+*	ForceGT variants do not propagate through Joint Genotyping.
 
 
 ### vc hard filter
@@ -1206,6 +1596,21 @@ Default is 30000 for the somatic workflow
 **Docs:**  
 The --vc-min-tumor-read-qual option specifies the minimum read quality (MAPQ) to be considered for
 variant calling. The default value is 3 for tumor-normal analysis or 20 for tumor-only analysis.
+
+
+### vc mnv emit component calls somatic
+
+
+
+  
+> ID: vc_mnv_emit_component_calls_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+To output all component SNVs/INDELs of MNVs, regardless of VAF difference,
+when enabled, use the option --vc-mnv-emit-component-calls.
+This option is mutually exclusive with --vc-combine-phased-variants-max-vaf-delta
 
 
 ### vc remove all soft clips
@@ -1329,6 +1734,28 @@ The --vc-target-coverage option specifies the target coverage for down-sampling.
 The default value is 500 for germline mode and 50 for somatic mode.
 
 
+### vc target vaf somatic
+
+
+
+  
+> ID: vc_target_vaf_somatic
+  
+**Optional:** `True`  
+**Type:** `float`  
+**Docs:**  
+The vc-target-vaf is used to select the variant allele frequencies of interest.
+The variant caller will aim to detect variants with allele frequencies larger than this setting.
+We recommend adding a small safety factor, e.g. to ensure variants in the ballpark of 1% are detected,
+the minimum vc-target-vaf can be specified as 0.009 (0.9%). This setting will not apply a hard threshold,
+and it is possible to detect variants with allele frequencies lower than the selected threshold.
+On high coverage and clean datasets, a lower target-vaf may help increase sensitivity.
+On noisy samples (like FFPE) a higher target-vaf (like 0.03) maybe help reduce false positives.
+Using a low target-vaf may also increase runtime. Set the vc-target-vaf to 0 to disable this feature.
+When this feature is disabled the variant caller will require at least 2 supporting reads to discover a candidate variant.
+Default=0.01.
+
+
 ### vc tin contam tolerance
 
 
@@ -1346,14 +1773,102 @@ greater than zero. For example, vc-tin-contam-tolerance=-0.1.
   
 
 
-## dragen-somatic v(4.0.3) Outputs
+## dragen-somatic-with-germline-pipeline v(4.3.6) Steps
+
+### get normal bam out
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/get_normal_bam_out
+  
+**Step Type:** expression  
+**Docs:**
+  
+Get the normal bam value from one of the two available options
+From the germline step (preferred)
+From the somatic step (backup option)
+
+#### Links
+  
+[CWL File Path](../../../../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.cwl)  
+[CWL File Help Page :construction:](../../../expressions/get-first-non-null-bam-file/1.0.0/get-first-non-null-bam-file__1.0.0.md)  
+
+
+### run dragen germline step
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/run_dragen_germline_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Runs the dragen germline workflow on the FPGA.
+Takes in either a fastq list as a file or a fastq_list_rows schema object
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/dragen-germline/4.3.6/dragen-germline__4.3.6.cwl)  
+[CWL File Help Page :construction:](../../../tools/dragen-germline/4.3.6/dragen-germline__4.3.6.md)  
+
+
+### dragen qc step
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/run_dragen_qc_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+The dragen qc step - this takes in an array of dirs
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/multiqc/1.25.1/multiqc__1.25.1.cwl)  
+[CWL File Help Page :construction:](../../../tools/multiqc/1.25.1/multiqc__1.25.1.md)  
+
+
+### run dragen somatic step
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/run_dragen_somatic_step
+  
+**Step Type:** tool  
+**Docs:**
+  
+Run dragen somatic v4.3.6
+
+#### Links
+  
+[CWL File Path](../../../../../../tools/dragen-somatic/4.3.6/dragen-somatic__4.3.6.cwl)  
+[CWL File Help Page :construction:](../../../tools/dragen-somatic/4.3.6/dragen-somatic__4.3.6.md)  
+
+
+## dragen-somatic-with-germline-pipeline v(4.3.6) Outputs
+
+### dragen germline output directory
+
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/dragen_germline_output_directory  
+
+  
+**Optional:** `False`  
+**Output Type:** `Directory`  
+**Docs:**  
+The output directory containing all germline output files
+  
+
 
 ### dragen somatic output directory
 
 
 
   
-> ID: dragen-somatic--4.0.3/dragen_somatic_output_directory  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/dragen_somatic_output_directory  
 
   
 **Optional:** `False`  
@@ -1363,19 +1878,48 @@ Output directory containing all outputs of the somatic dragen run
   
 
 
+### germline snv vcf out
+
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/germline_snv_vcf_out  
+
+  
+**Optional:** `True`  
+**Output Type:** `File`  
+**Docs:**  
+The output vcf file of germline step
+  
+
+
+### multiqc output directory
+
+
+
+  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/multiqc_output_directory  
+
+  
+**Optional:** `False`  
+**Output Type:** `Directory`  
+**Docs:**  
+The output directory for multiqc
+  
+
+
 ### output normal bam
 
 
 
   
-> ID: dragen-somatic--4.0.3/normal_bam_out  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/normal_bam_out  
 
   
 **Optional:** `True`  
 **Output Type:** `File`  
 **Docs:**  
 Bam file of the normal sample
-Exists only if --enable-map-align-output set to true
   
 
 
@@ -1384,7 +1928,7 @@ Exists only if --enable-map-align-output set to true
 
 
   
-> ID: dragen-somatic--4.0.3/somatic_snv_vcf_hard_filtered_out  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/somatic_snv_vcf_hard_filtered_out  
 
   
 **Optional:** `True`  
@@ -1399,7 +1943,7 @@ Output of the snv vcf filtered tumor calls
 
 
   
-> ID: dragen-somatic--4.0.3/somatic_snv_vcf_out  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/somatic_snv_vcf_out  
 
   
 **Optional:** `True`  
@@ -1414,7 +1958,7 @@ Output of the snv vcf tumor calls
 
 
   
-> ID: dragen-somatic--4.0.3/somatic_structural_vcf_out  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/somatic_structural_vcf_out  
 
   
 **Optional:** `True`  
@@ -1430,34 +1974,14 @@ Exists only if --enable-sv is set to true.
 
 
   
-> ID: dragen-somatic--4.0.3/tumor_bam_out  
+> ID: dragen-somatic-with-germline-pipeline--4.3.6/tumor_bam_out  
 
   
 **Optional:** `True`  
 **Output Type:** `File`  
 **Docs:**  
-Bam file of the tumor sample.
-Exists only if --enable-map-align-output set to true
+Bam file of the tumor sample
   
-
-  
-
-
-## ICA
-
-### ToC
-  
-- [development_workflows](#project-development_workflows)  
-
-
-### Project: development_workflows
-
-
-> wfl id: wfl.8f8f70998abd4dbd85200e1692b1ef94  
-
-  
-**workflow name:** dragen-somatic_dev-wf  
-**wfl version name:** 4.0.3  
 
   
 

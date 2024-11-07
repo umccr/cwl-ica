@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 4.2.4 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--4.2.4  
-> md5sum: 1d482653dfffb10f803bfe766f19d8ee
+> md5sum: 8bcca124af5ca64c963a42da1b9d985f
 
 ### dragen-somatic-with-germline-pipeline v(4.2.4) documentation
   
@@ -291,6 +291,32 @@ calculation used for choosing among duplicate reads.
 **Type:** `boolean`  
 **Docs:**  
 Enable CNV processing in the DRAGEN Host Software.
+
+
+### enable cnv germline
+
+
+
+  
+> ID: enable_cnv_germline
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable CNV processing in the DRAGEN Host Software (somatic only)
+
+
+### enable cnv somatic
+
+
+
+  
+> ID: enable_cnv_somatic
+  
+**Optional:** `True`  
+**Type:** `boolean`  
+**Docs:**  
+Enable CNV processing in the DRAGEN Host Software (germline only)
 
 
 ### enable duplicate marking
@@ -1457,7 +1483,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7fe4266fa270>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f9e8ae160f0>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).
@@ -2003,7 +2029,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
-**wfl version name:** 4.2.4--560a364  
+**wfl version name:** 4.2.4--89be8f2  
 
   
 
