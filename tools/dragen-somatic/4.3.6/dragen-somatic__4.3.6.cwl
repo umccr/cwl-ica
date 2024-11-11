@@ -1159,6 +1159,15 @@ inputs:
       prefix: "--enable-cnv="
       separate: False
       valueFrom: "$(self.toString())"
+  enable_dux4_caller:
+    label: enable dux4
+    doc: |
+      Enable DUX4 CNV calling.
+    type: boolean?
+    inputBinding:
+      prefix: "--enable-dux4-caller="
+      separate: False
+      valueFrom: "$(self.toString())"
   cnv_normal_b_allele_vcf:
     label: cnv normal b allele vcf
     doc: |

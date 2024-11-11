@@ -249,6 +249,11 @@ inputs:
     doc: |
       Enable CNV processing in the DRAGEN Host Software (germline only)
     type: boolean?
+  enable_dux4_caller:
+    label: enable dux 4 caller
+    doc: |
+      Enable DUX4 fusion detection.
+    type: boolean?
 
   # Phased / MNV Calling options
   vc_combine_phased_variants_distance_somatic:
@@ -1186,6 +1191,8 @@ steps:
           ${
             return get_first_non_null_input(self);
           }
+      enable_dux4_caller:
+        source: enable_dux4_caller
       # Phased / MNV Calling Options
       # Phased / MNV Calling options
       vc_combine_phased_variants_distance:
