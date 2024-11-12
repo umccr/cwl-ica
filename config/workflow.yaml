@@ -297,6 +297,9 @@ workflows:
       - name: 1.1.0
         path: 1.1.0/rnasum-pipeline__1.1.0.cwl
         md5sum: 28bb78f3359e7f977c4be97880886a02
+      - name: 1.1.5
+        path: 1.1.5/rnasum-pipeline__1.1.5.cwl
+        md5sum: 7fec44c37ab6d7f991a40c3a02925e6a
     categories: []
   - name: bclconvert-interop-qc
     path: bclconvert-interop-qc
