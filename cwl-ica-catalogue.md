@@ -946,6 +946,7 @@ UMCCR CWL-ICA Catalogue
 - [0.4.5](.github/catalogue/docs/workflows/rnasum-pipeline/0.4.5/rnasum-pipeline__0.4.5.md)  
 - [1.0.0](.github/catalogue/docs/workflows/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.md)  
 - [1.1.0](.github/catalogue/docs/workflows/rnasum-pipeline/1.1.0/rnasum-pipeline__1.1.0.md)  
+- [1.1.5](.github/catalogue/docs/workflows/rnasum-pipeline/1.1.5/rnasum-pipeline__1.1.5.md)  
 
 
 ### bclconvert-interop-qc
