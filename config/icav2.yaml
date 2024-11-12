@@ -2164,7 +2164,8 @@ bunches:
             dataset_creation_time: '2024-06-23T10:39:55Z'
             dataset_id_hash: b8e45195afdbb7384012421978363b08
   - bunch_name: rnasum_prod__1_1_0
-    bunch_description: Contains the UMCCR rnasum pipeline for RNA-seq data analysis
+    bunch_description: |
+      Contains the UMCCR rnasum pipeline for RNA-seq data analysis
       with reference data
     tenant_name: umccr-prod
     pipeline_path: workflows/rnasum-pipeline/1.1.0/rnasum-pipeline__1.1.0.cwl
@@ -2184,6 +2185,32 @@ bunches:
         version_description: This version of the bunch contains the rnasum 1.0.0 reference
           data
         version_creation_date: 2024-09-01T05:28:42+00:00Z
+        datasets:
+          - dataset_name: rnasum_1_0_0
+            dataset_creation_time: '2024-06-23T10:39:55Z'
+            dataset_id_hash: b8e45195afdbb7384012421978363b08
+  - bunch_name: rnasum_prod__1_1_5
+    bunch_description: |
+      Contains the UMCCR rnasum pipeline for RNA-seq data analysis
+      with reference data
+    tenant_name: umccr-prod
+    pipeline_path: workflows/rnasum-pipeline/1.1.5/rnasum-pipeline__1.1.5.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - wts
+      - tertiary-analysis
+      - production
+    bunch_versions:
+      - version: 1.0.0
+        version_description: This version of the bunch contains the rnasum 1.0.0 reference
+          data
+        version_creation_date: 2024-11-12T02:22:40+00:00Z
         datasets:
           - dataset_name: rnasum_1_0_0
             dataset_creation_time: '2024-06-23T10:39:55Z'
