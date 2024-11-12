@@ -1054,6 +1054,11 @@ projects:
             ica_workflow_version_name: 0.4.5
             modification_time: 2023-03-13T21:31:21UTC
             run_instances: []
+          - name: 1.1.5
+            path: 1.1.5/rnasum-pipeline__1.1.5.cwl
+            ica_workflow_version_name: 1.1.5
+            modification_time: 2024-11-12T00:46:45UTC
+            run_instances: []
       - name: tabix-workflow
         path: tabix-workflow
         ica_workflow_name: tabix-workflow_dev-wf
