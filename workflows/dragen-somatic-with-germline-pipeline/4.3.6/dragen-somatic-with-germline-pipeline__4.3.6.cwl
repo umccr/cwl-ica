@@ -242,19 +242,14 @@ inputs:
   enable_cnv_germline:
     label: enable cnv germline
     doc: |
-      Enable CNV processing in the DRAGEN Host Software (somatic only)
+      Enable CNV processing in the DRAGEN Host Software (germline only)
     type: boolean?
   enable_cnv_somatic:
     label: enable cnv somatic
     doc: |
-      Enable CNV processing in the DRAGEN Host Software (germline only)
+      Enable CNV processing in the DRAGEN Host Software (somatic only)
     type: boolean?
-  enable_dux4_caller:
-    label: enable dux 4 caller
-    doc: |
-      Enable DUX4 fusion detection.
-    type: boolean?
-
+  
   # Phased / MNV Calling options
   vc_combine_phased_variants_distance_somatic:
     label: vc combine phased variants distance somatic
@@ -465,6 +460,7 @@ inputs:
     doc: |
       The -vc-enable-vcf-output option enables VCF file output during a gVCF run. The default value is false.
     type: boolean?
+
   # Downsampling options
   vc_max_reads_per_active_region:
     label: vc max reads per active region
@@ -478,6 +474,7 @@ inputs:
       specifies the maximum number of reads covering a given raw region.
       Default is 30000 for the somatic workflow
     type: int?
+
   # Ploidy support
   sample_sex:
     label: sample sex
@@ -489,6 +486,7 @@ inputs:
         symbols:
           - male
           - female
+
   # ROH options
   vc_enable_roh:
     label: vc enable roh
@@ -502,12 +500,14 @@ inputs:
       DRAGEN distributes blacklist files for all popular human genomes and automatically selects a blacklist to
       match the genome in use, unless this option is used explicitly select a file.
     type: File?
+
   # BAF options
   vc_enable_baf:
     label: vc enable baf
     doc: |
       Enable or disable B-allele frequency output. Enabled by default.
     type: boolean?
+
   # Somatic calling options
   vc_min_tumor_read_qual:
     label: vc min tumor read qual
@@ -573,6 +573,7 @@ inputs:
       The default is C/T,G/T, which correspond to OxoG and FFPE artifacts. Valid values include C/T, or G/T, or C/T,G/T,C/A.
       An artifact (or an artifact and its reverse compliment) cannot be listed twice.
       For example, C/T,G/A is not valid, because C->G and T->A are reverse compliments.
+
   # Post somatic calling filtering options
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/PostSomaticFilters.htm
   vc_hard_filter:
@@ -815,12 +816,18 @@ inputs:
       from the TMB calculation. The default value is 10.
     type: int?
 
-  # HLA calling
+  # HLA calling only available to germline mode
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/HLACaller.htm
+  # https://help.dragen.illumina.com/product-guides/dragen-v4.3/dragen-reference-support
   enable_hla:
     label: enable hla
     doc: |
-      Enable HLA typing by setting --enable-hla flag to true
+      Enable HLA typing for class I genes by setting --enable-hla flag to true
+    type: boolean?
+  hla_enable_class_2:
+    label: enable hla class 2
+    doc: |
+      Enable HLA typing for class II genes by setting --hla-enable-class-2 flag to true
     type: boolean?
   hla_bed_file:
     label: hla bed file
@@ -867,6 +874,23 @@ inputs:
       The default value is 1000 and suggested for WES samples. If using samples with less coverage, you can use a
       lower threshold value.
     type: int?
+
+  # Multi-Region Joint Detection only available to germline mode
+  # https://help.dragen.illumina.com/product-guides/dragen-v4.3/dragen-dna-pipeline/small-variant-calling/multi-region-joint-detection
+  # https://help.dragen.illumina.com/product-guides/dragen-v4.3/dragen-reference-support
+  enable_mrjd:
+    label: enable multi-region joint detection (mrjd)
+    doc: |
+      In DRAGEN v4.3, MRJD covers regions that include six clinically relevant genes: NEB, TTN, SMN1/2, PMS2, STRC, and IKBKG.
+      With this option enabled, the following two types of variants are reported: 1. Uniquely placed variants; 2. Region-ambiguous variants.
+    type: boolean?
+  mrjd_enable_high_sensitivity_mode:
+    label: enable multi-region joint detection high sensitivity mode
+    doc: |
+      In addition to 1. Uniquely placed variants and 2. Region-ambiguous variants, with this option enabled,
+      the following two types of variants are reported: 3. Positions where the reference alleles in all paralogous regions are not the same;
+      4. Variants that have been placed uniquely in one of the paralogous regions and no variant in the corresponding position in the other region
+    type: boolean?
 
   # RNA
   # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/TPipelineIntro_fDG.htm
@@ -1082,9 +1106,11 @@ steps:
         source: qc_coverage_region_3
       qc_coverage_ignore_overlaps:
         source: qc_coverage_ignore_overlaps
-      #hla
+      #hla options
       enable_hla:
         source: enable_hla
+      hla_enable_class_2:
+        source: hla_enable_class_2
       hla_bed_file:
         source: hla_bed_file
       hla_reference_file:
@@ -1099,6 +1125,11 @@ steps:
         source: hla_min_reads
       lic_instance_id_location:
         source: lic_instance_id_location
+      #multi-region join detection options
+      enable_mrjd:
+        source: enable_mrjd
+      mrjd_enable_high_sensitivity_mode:
+        source: mrjd_enable_high_sensitivity_mode
     out:
       - id: dragen_germline_output_directory
       - id: dragen_bam_out
@@ -1191,8 +1222,6 @@ steps:
           ${
             return get_first_non_null_input(self);
           }
-      enable_dux4_caller:
-        source: enable_dux4_caller
       # Phased / MNV Calling Options
       # Phased / MNV Calling options
       vc_combine_phased_variants_distance:
@@ -1369,22 +1398,6 @@ steps:
         source: tmb_vaf_threshold
       tmb_db_threshold:
         source: tmb_db_threshold
-      # HLA calling
-      # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/HLACaller.htm
-      enable_hla:
-        source: enable_hla
-      hla_bed_file:
-        source: hla_bed_file
-      hla_reference_file:
-        source: hla_reference_file
-      hla_allele_frequency_file:
-        source: hla_allele_frequency_file
-      hla_tiebreaker_threshold:
-        source: hla_tiebreaker_threshold
-      hla_zygosity_threshold:
-        source: hla_zygosity_threshold
-      hla_min_reads:
-        source: hla_min_reads
       # RNA
       # https://support-docs.illumina.com/SW/DRAGEN_v40/Content/SW/DRAGEN/TPipelineIntro_fDG.htm
       enable_rna:
