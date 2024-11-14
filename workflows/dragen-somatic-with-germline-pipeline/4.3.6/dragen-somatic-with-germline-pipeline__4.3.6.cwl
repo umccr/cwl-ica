@@ -1094,10 +1094,10 @@ steps:
         source: sv_tin_contam_tolerance
       dbsnp_annotation:
         source: dbsnp_annotation
-      #cnv options
+      # cnv options
       cnv_enable_self_normalization:
         source: cnv_enable_self_normalization
-      #qc options
+      # qc options
       qc_coverage_region_1:
         source: qc_coverage_region_1
       qc_coverage_region_2:
@@ -1106,7 +1106,7 @@ steps:
         source: qc_coverage_region_3
       qc_coverage_ignore_overlaps:
         source: qc_coverage_ignore_overlaps
-      #hla options
+      # hla options
       enable_hla:
         source: enable_hla
       hla_enable_class_2:
@@ -1125,7 +1125,7 @@ steps:
         source: hla_min_reads
       lic_instance_id_location:
         source: lic_instance_id_location
-      #multi-region join detection options
+      # multi-region join detection options
       enable_mrjd:
         source: enable_mrjd
       mrjd_enable_high_sensitivity_mode:

@@ -79,28 +79,32 @@ requirements:
             exit 1
           fi
 
-          # DRAGEN Multi-region Joint Detection (MRJD) is a de novo germline small variant caller for paralogous regions.
-          # MRJD is compatible with the hg38, hg19 and GRCh37 reference genomes.
-          # https://help.dragen.illumina.com/product-guides/dragen-v4.3/dragen-dna-pipeline/small-variant-calling/multi-region-joint-detection
-          #
-          # Multi Region Joint Detection (MRJD) Caller should be runs as standalone pipeline on DRAGEN™ server (not in integrated with Germline Small VC)
-          # https://support.illumina.com/content/dam/illumina-support/documents/downloads/software/dragen/release-notes/200056923_00_DRAGEN_4_3_6_Customer-Release-Notes.pdf
-          echo "run MRJD" 1>&2
-          eval /opt/edico/bin/dragen \\
-              "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
-              "--bam-input=$(get_ref_path(inputs.bam_input))" \\
-              --enable-map-align=false \\
-              --enable-mrjd=true \\
-              --mrjd-enable-high-sensitivity-mode=true \\
-              "--output-directory=$(inputs.output_directory)" \\
-              "--output-file-prefix=$(inputs.output_file_prefix)"
-
           # Run dragen command and import options from cli
           "$(get_dragen_bin_path())" "\${@}"
       - |
         ${
           return generate_germline_mount_points(inputs);
         }
+
+          # DRAGEN Multi-region Joint Detection (MRJD) is a de novo germline small variant caller for paralogous regions.
+          # MRJD is compatible with the hg38, hg19 and GRCh37 reference genomes.
+          # https://help.dragen.illumina.com/product-guides/dragen-v4.3/dragen-dna-pipeline/small-variant-calling/multi-region-joint-detection
+          #
+          # Multi Region Joint Detection (MRJD) Caller should be runs as standalone pipeline on DRAGEN™ server (not in integrated with Germline Small VC)
+          # https://support.illumina.com/content/dam/illumina-support/documents/downloads/software/dragen/release-notes/200056923_00_DRAGEN_4_3_6_Customer-Release-Notes.pdf
+          if [[ "$(is_not_null(inputs.bam_input))" == "true" && \
+              ( "$(get_bool_value_as_str(inputs.enable_mrjd))" == "true" || \
+                "$(get_bool_value_as_str(inputs.mrjd_enable_high_sensitivity_mode))" == "true" ) ]]; then 
+            echo "optionally run MRJD if relevant parameter is enabled" 1>&2
+            eval /opt/edico/bin/dragen \\
+                "--ref-dir=$(get_ref_path(inputs.reference_tar))" \\
+                "--bam-input=$(get_ref_path(inputs.bam_input))" \\
+                --enable-map-align=false \\
+                --enable-mrjd=true \\
+                --mrjd-enable-high-sensitivity-mode=true \\
+                "--output-directory=$(inputs.output_directory)" \\
+                "--output-file-prefix=$(inputs.output_file_prefix)"
+          fi
 
 baseCommand: [ "bash" ]
 
@@ -849,9 +853,6 @@ inputs:
       In DRAGEN v4.3, MRJD covers regions that include six clinically relevant genes: NEB, TTN, SMN1/2, PMS2, STRC, and IKBKG.
       With this option enabled, the following two types of variants are reported: 1. Uniquely placed variants; 2. Region-ambiguous variants.
     type: boolean?
-    inputBinding:
-      prefix: "--enable-mrjd="
-      separate: False
   mrjd_enable_high_sensitivity_mode:
     label: enable multi-region joint detection high sensitivity mode 
     doc: |
@@ -859,9 +860,6 @@ inputs:
       the following two types of variants are reported: 3. Positions where the reference alleles in all paralogous regions are not the same; 
       4. Variants that have been placed uniquely in one of the paralogous regions and no variant in the corresponding position in the other region
     type: boolean?
-    inputBinding:
-      prefix: "--mrjd-enable-high-sensitivity-mode="
-      separate: False
 
   # Miscellaneous options
   lic_instance_id_location:
