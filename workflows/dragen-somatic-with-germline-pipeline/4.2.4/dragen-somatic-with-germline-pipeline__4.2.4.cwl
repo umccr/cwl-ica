@@ -118,7 +118,7 @@ inputs:
     label: ora reference tar
     doc: |
       Path to ref data tarball
-    type: File
+    type: File?
 
   # Output naming options
   # Germline
