@@ -78,6 +78,14 @@ requirements:
             --extract \\
             --file "$(inputs.reference_tar.path)"
 
+          # Check if ora reference is set
+          if [[ "$(is_not_null(inputs.ora_reference_tar))" == "true" ]]; then
+              tar \\
+              --directory "$(get_ref_mount())" \\
+              --extract \\
+              --file "$(inputs.ora_reference_tar.path)"
+          fi
+
           # Confirm either of fastq_list, fastq_list_rows, bam_input or cram_input is defined
           if [[ "$(boolean_to_int(is_not_null(inputs.fastq_list)) + boolean_to_int(is_not_null(inputs.fastq_list_rows)) + boolean_to_int(is_not_null(inputs.bam_input)) + boolean_to_int(is_not_null(inputs.cram_input)))" -ne "1" ]]; then
             echo "Please set one and only one of fastq_list, fastq_list_rows and bam_input for normal sample" 1>&2
@@ -177,6 +185,15 @@ inputs:
     type: File
     inputBinding:
       prefix: "--ref-dir="
+      separate: False
+      valueFrom: "$(get_ref_path(self))"
+  ora_reference_tar:
+    label: ora reference tar
+    doc: |
+      Path to ORA ref data tarball
+    type: File?
+    inputBinding:
+      prefix: "--ora-reference="
       separate: False
       valueFrom: "$(get_ref_path(self))"
   # Output naming options

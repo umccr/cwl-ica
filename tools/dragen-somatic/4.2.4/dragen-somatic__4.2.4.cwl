@@ -88,7 +88,15 @@ requirements:
             --directory "$(get_ref_mount())" \\
             --extract \\
             --file "$(inputs.reference_tar.path)"
-          
+
+          # Check if ora reference is set
+          if [[ "$(is_not_null(inputs.ora_reference_tar))" == "true" ]]; then
+              tar \\
+              --directory "$(get_ref_mount())" \\
+              --extract \\
+              --file "$(inputs.ora_reference_tar.path)"
+          fi
+
           # Check if both bam inputs are set
           if [[ "$(is_not_null(inputs.bam_input))" == "true" && "$(is_not_null(inputs.tumor_bam_input))" == "true" && ( "$(get_bool_value_as_str(inputs.enable_map_align))" == "true" || "$(get_bool_value_as_str(inputs.enable_map_align_output))" == "true" ) ]]; then
             echo "More than one bam input is set, need to run enable map align first beforehand then run variant calling in a separate step" 1>&2
@@ -463,6 +471,16 @@ inputs:
     type: File
     inputBinding:
       prefix: "--ref-dir="
+      separate: False
+      valueFrom: "$(get_ref_path(self))"
+  # If fastqs are ora, then we need to provide the ora reference tar
+  ora_reference_tar:
+    label: ora reference tar
+    doc: |
+      Path to ORA ref data tarball
+    type: File?
+    inputBinding:
+      prefix: "--ora-reference="
       separate: False
       valueFrom: "$(get_ref_path(self))"
 

@@ -114,6 +114,11 @@ inputs:
     doc: |
       Path to ref data tarball
     type: File
+  ora_reference_tar:
+    label: ora reference tar
+    doc: |
+      Path to ref data tarball
+    type: File
 
   # Output naming options
   # Germline
@@ -956,6 +961,8 @@ steps:
         source: cram_reference
       reference_tar:
         source: reference_tar
+      ora_reference_tar:
+        source: ora_reference_tar
       output_file_prefix:
         source: output_prefix_germline
       output_directory:
@@ -1131,6 +1138,8 @@ steps:
         source: cram_reference
       reference_tar:
         source: reference_tar
+      ora_reference_tar:
+        source: ora_reference_tar
       # Mandatory parameters
       output_file_prefix:
         source: output_prefix_somatic

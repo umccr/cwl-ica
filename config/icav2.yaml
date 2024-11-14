@@ -1319,7 +1319,7 @@ datasets:
         object_e_tag_md5sum: 4dde55434a5b9c2a700b0ed845cc3e9c
         folder_structure_md5sum: cd6eef09246bd35d870f8754bdc701d0
   - dataset_tenant_name: umccr-prod
-    dataset_name: ora-reference-v2
+    dataset_name: ora_reference_v2
     dataset_description: |
       The ORA V2 Reference Tarball, used for ORA compression.
       Can be downloaded from "https://support.illumina.com/downloads/ora-compression-reference-files.html"
@@ -2006,6 +2006,9 @@ bunches:
           - dataset_name: wgs_validation_fastq_SFRC01073
             dataset_creation_time: '2024-06-21T09:40:51Z'
             dataset_id_hash: deac29472b118a9b51889a661e804cd8
+          - dataset_name: ora_reference_v2
+            dataset_creation_time: '2024-10-30T04:01:43Z'
+            dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
   # Production 4.2.4
   - bunch_name: dragen_somatic_with_germline_pipeline_prod__4_2_4
     bunch_description: |
@@ -2036,6 +2039,9 @@ bunches:
           - dataset_name: dragen_hash_table_hg38_alt_masked_v9_r3_linear_cnv_hla_rna
             dataset_creation_time: '2024-06-21T09:21:42Z'
             dataset_id_hash: a5fe1d2e2fe35737bdbc0871d46878e1
+          - dataset_name: ora_reference_v2
+            dataset_creation_time: '2024-10-30T04:01:43Z'
+            dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
 
   # Validation 4.3.6
   - bunch_name: dragen_somatic_with_germline_pipeline_with_validation_data__4_3_6
@@ -2265,7 +2271,7 @@ bunches:
           v2
         version_creation_date: 2024-10-30T04:09:34+00:00Z
         datasets:
-          - dataset_name: ora-reference-v2
+          - dataset_name: ora_reference_v2
             dataset_creation_time: '2024-10-30T04:01:43Z'
             dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
 
@@ -4856,7 +4862,7 @@ bundles:
     bunch_name: ora_instrument_run_compression_pipeline_with_reference__4_2_4
     bunch_version: v2
     bunch_datasets:
-      - dataset_name: ora-reference-v2
+      - dataset_name: ora_reference_v2
         dataset_creation_time: '2024-10-30T04:01:43Z'
         dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
     bundle_id: 21a15230-7927-4c07-ad9c-05b0c2b11b66
