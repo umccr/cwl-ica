@@ -78,7 +78,7 @@ requirements:
           
           (
             echo "\$(date -Iseconds): Collecting md5sums of gzipped fastq files" 1>&2 && \\
-            bash "$(get_fastq_gz_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.md5.txt" && \\
+            bash "$(get_fastq_raw_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_raw.md5.txt" && \\
             echo "\$(date -Iseconds): Md5sum complete" 1>&2 && \\
             echo "\$(date -Iseconds): Collecting file sizes of gzipped fastq files" 1>&2 && \\
             bash "$(get_fastq_gz_file_sizes_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.filesizes.tsv" && \\
