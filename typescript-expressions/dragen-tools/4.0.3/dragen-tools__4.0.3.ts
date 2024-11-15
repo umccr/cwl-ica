@@ -599,7 +599,7 @@ export function get_md5sum_fastq_raw_script(fastq_list_rows: FastqListRow[], inp
     get_md5sum_fastq_raw_script_contents += `# Generate md5sums for the input fastq gz files\n`
     get_md5sum_fastq_raw_script_contents += `for fastq_gz_path in "\${FASTQ_GZ_PATHS[@]}"; do\n`
     get_md5sum_fastq_raw_script_contents += `  full_input_path="${input_directory.path}/\${fastq_gz_path}"\n`
-    get_md5sum_fastq_raw_script_contents += `  zcat "\${full_input_path}" | md5sum | sed "s%-%\${fastq_gz_path//.gz/}%"\n`
+    get_md5sum_fastq_raw_script_contents += `  zcat "\${full_input_path}" | md5sum | sed "s%-%\${fastq_gz_path%.gz}%"\n`
     get_md5sum_fastq_raw_script_contents += `done\n\n`
 
     get_md5sum_fastq_raw_script_contents += `# Md5sum script complete\n`
