@@ -14,7 +14,7 @@ FASTQ_GZ_PATHS=(
 # Generate md5sums for the input fastq gz files
 for fastq_gz_path in "${FASTQ_GZ_PATHS[@]}"; do
   full_input_path="data/${fastq_gz_path}"
-  md5sum "${full_input_path}" | sed "s%${full_input_path}%${fastq_gz_path}%"
+  zcat "${full_input_path}" | md5sum | sed "s%-%${fastq_gz_path//.gz/}%"
 done
 
 # Md5sum script complete

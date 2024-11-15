@@ -12,7 +12,7 @@ exports.get_fastq_list_csv_path = get_fastq_list_csv_path;
 exports.get_tumor_fastq_list_csv_path = get_tumor_fastq_list_csv_path;
 exports.get_ora_mv_files_script_path = get_ora_mv_files_script_path;
 exports.get_new_fastq_list_csv_script_path = get_new_fastq_list_csv_script_path;
-exports.get_fastq_gz_md5sum_files_script_path = get_fastq_gz_md5sum_files_script_path;
+exports.get_fastq_raw_md5sum_files_script_path = get_fastq_raw_md5sum_files_script_path;
 exports.get_fastq_gz_file_sizes_script_path = get_fastq_gz_file_sizes_script_path;
 exports.get_fastq_ora_md5sum_files_script_path = get_fastq_ora_md5sum_files_script_path;
 exports.get_fastq_ora_file_sizes_script_path = get_fastq_ora_file_sizes_script_path;
@@ -30,7 +30,7 @@ exports.get_mask_dir = get_mask_dir;
 exports.get_ref_scratch_dir = get_ref_scratch_dir;
 exports.get_ora_intermediate_output_dir = get_ora_intermediate_output_dir;
 exports.generate_ora_mv_files_script = generate_ora_mv_files_script;
-exports.generate_fastq_gz_md5sum_files_script = generate_fastq_gz_md5sum_files_script;
+exports.get_md5sum_fastq_raw_script = get_md5sum_fastq_raw_script;
 exports.generate_fastq_gz_file_sizes_script = generate_fastq_gz_file_sizes_script;
 exports.generate_fastq_ora_md5sum_files_script = generate_fastq_ora_md5sum_files_script;
 exports.generate_fastq_ora_file_sizes_script = generate_fastq_ora_file_sizes_script;
@@ -120,11 +120,11 @@ function get_new_fastq_list_csv_script_path() {
     */
     return "generate-new-fastq-list-csv.sh";
 }
-function get_fastq_gz_md5sum_files_script_path() {
+function get_fastq_raw_md5sum_files_script_path() {
     /*
     Get the script path to generating the md5sum for each fastq gzip file
     */
-    return "generate-md5sum-for-fastq-gz-files.sh";
+    return "generate-md5sum-for-fastq-raw-files.sh";
 }
 function get_fastq_gz_file_sizes_script_path() {
     /*
@@ -511,42 +511,42 @@ function generate_ora_mv_files_script(fastq_list_rows, input_directory, output_d
         contents: ora_mv_files_script
     };
 }
-function generate_fastq_gz_md5sum_files_script(fastq_list_rows, input_directory) {
+function get_md5sum_fastq_raw_script(fastq_list_rows, input_directory) {
     /*
     Generate the fastq gzip md5sum files script command, results are printed to stdout
     */
-    var get_md5sum_fastq_gz_script = "#!/usr/bin/env bash\n\n";
-    get_md5sum_fastq_gz_script += "# Exit on failure\n";
-    get_md5sum_fastq_gz_script += "set -euo pipefail\n\n";
+    var get_md5sum_fastq_raw_script_contents = "#!/usr/bin/env bash\n\n";
+    get_md5sum_fastq_raw_script_contents += "# Exit on failure\n";
+    get_md5sum_fastq_raw_script_contents += "set -euo pipefail\n\n";
     // Initialise the bash array
-    get_md5sum_fastq_gz_script += "# Get fastq gz paths\n";
-    get_md5sum_fastq_gz_script += "FASTQ_GZ_PATHS=(\n";
+    get_md5sum_fastq_raw_script_contents += "# Get fastq gz paths\n";
+    get_md5sum_fastq_raw_script_contents += "FASTQ_GZ_PATHS=(\n";
     // Iterate over all files
     for (var _i = 0, fastq_list_rows_4 = fastq_list_rows; _i < fastq_list_rows_4.length; _i++) {
         var fastq_list_row = fastq_list_rows_4[_i];
         // Confirm read 1 is a file type
         if ("class_" in fastq_list_row.read_1 && fastq_list_row.read_1.class_ === cwl_ts_auto_1.File_class.FILE) {
             // Add relative path of read 1
-            get_md5sum_fastq_gz_script += "  \"".concat(fastq_list_row.read_1.path.replace(input_directory.path + "/", ''), "\" \\\n");
+            get_md5sum_fastq_raw_script_contents += "  \"".concat(fastq_list_row.read_1.path.replace(input_directory.path + "/", ''), "\" \\\n");
         }
         // Confirm read 2 is a file type
         if (fastq_list_row.read_2 !== null && "class_" in fastq_list_row.read_2 && fastq_list_row.read_2.class_ === cwl_ts_auto_1.File_class.FILE) {
-            get_md5sum_fastq_gz_script += "  \"".concat(fastq_list_row.read_2.path.replace(input_directory.path + "/", ''), "\" \\\n");
+            get_md5sum_fastq_raw_script_contents += "  \"".concat(fastq_list_row.read_2.path.replace(input_directory.path + "/", ''), "\" \\\n");
         }
     }
     // Complete the bash array
-    get_md5sum_fastq_gz_script += ")\n\n";
+    get_md5sum_fastq_raw_script_contents += ")\n\n";
     // Build the for loop
-    get_md5sum_fastq_gz_script += "# Generate md5sums for the input fastq gz files\n";
-    get_md5sum_fastq_gz_script += "for fastq_gz_path in \"${FASTQ_GZ_PATHS[@]}\"; do\n";
-    get_md5sum_fastq_gz_script += "  full_input_path=\"".concat(input_directory.path, "/${fastq_gz_path}\"\n");
-    get_md5sum_fastq_gz_script += "  md5sum \"${full_input_path}\" | sed \"s%${full_input_path}%${fastq_gz_path}%\"\n";
-    get_md5sum_fastq_gz_script += "done\n\n";
-    get_md5sum_fastq_gz_script += "# Md5sum script complete\n";
+    get_md5sum_fastq_raw_script_contents += "# Generate md5sums for the input fastq gz files\n";
+    get_md5sum_fastq_raw_script_contents += "for fastq_gz_path in \"${FASTQ_GZ_PATHS[@]}\"; do\n";
+    get_md5sum_fastq_raw_script_contents += "  full_input_path=\"".concat(input_directory.path, "/${fastq_gz_path}\"\n");
+    get_md5sum_fastq_raw_script_contents += "  zcat \"${full_input_path}\" | md5sum | sed \"s%-%${fastq_gz_path//.gz/}%\"\n";
+    get_md5sum_fastq_raw_script_contents += "done\n\n";
+    get_md5sum_fastq_raw_script_contents += "# Md5sum script complete\n";
     return {
         class_: cwl_ts_auto_1.File_class.FILE,
-        basename: get_fastq_gz_md5sum_files_script_path(),
-        contents: get_md5sum_fastq_gz_script
+        basename: get_fastq_raw_md5sum_files_script_path(),
+        contents: get_md5sum_fastq_raw_script_contents
     };
 }
 function generate_fastq_gz_file_sizes_script(fastq_list_rows, input_directory) {
@@ -856,8 +856,8 @@ function generate_ora_mount_points(input_run, output_directory_path, sample_id_l
     });
     // Generate the script to generate the md5sums of the input gzipped fastq files
     e.push({
-        "entryname": get_fastq_gz_md5sum_files_script_path(),
-        "entry": generate_fastq_gz_md5sum_files_script(fastq_list_rows, input_run)
+        "entryname": get_fastq_raw_md5sum_files_script_path(),
+        "entry": get_md5sum_fastq_raw_script(fastq_list_rows, input_run)
     });
     // Generate the script to generate the filesizes of the input gzipped fastq files
     e.push({
