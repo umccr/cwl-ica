@@ -31,7 +31,7 @@ hints:
     coresMin: 16
     ramMin: 240000
   DockerRequirement:
-      dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.3.6
+    dockerPull: 079623148045.dkr.ecr.ap-southeast-2.amazonaws.com/cp-prod/c3add40b-1be2-431d-a322-29529f7d2866:latest
 
 requirements:
   ResourceRequirement:
