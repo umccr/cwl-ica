@@ -129,6 +129,7 @@ workflows:
       tags:
         - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4
         - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4__20241030041958
+        - dragen-instrument-run-fastq-to-ora-pipeline/4.2.4__20241115044412
   - name: dragen-germline-pipeline_4_3_6
     subclass: CWL
     primaryDescriptorPath: 
