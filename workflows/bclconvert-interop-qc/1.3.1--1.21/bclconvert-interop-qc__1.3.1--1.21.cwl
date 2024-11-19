@@ -112,6 +112,11 @@ steps:
       title:
         source: instrument_run_id
         valueFrom: "$(self) BCLConvert MultiQC Report"
+      cl_config:
+        valueFrom: |
+          ${
+             return JSON.stringify({"bclconvert": { "genome_size": "hg38_genome" }});
+           }
     out:
       - id: output_directory
       - id: output_file
