@@ -75,25 +75,10 @@ requirements:
           /opt/edico/bin/dragen \\
             --partial-reconfig HMM \\
             --ignore-version-check true
-          
-          (
-            echo "\$(date -Iseconds): Collecting md5sums of gzipped fastq files" 1>&2 && \\
-            bash "$(get_fastq_raw_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_raw.md5.txt" && \\
-            echo "\$(date -Iseconds): Md5sum complete" 1>&2 && \\
-            echo "\$(date -Iseconds): Collecting file sizes of gzipped fastq files" 1>&2 && \\
-            bash "$(get_fastq_gz_file_sizes_script_path())" > "$(inputs.output_directory_name)/fastq_gzipped.filesizes.tsv" && \\
-            echo "\$(date -Iseconds): File size collection complete" 1>&2 \\
-          ) & \\
           (
             echo "\$(date -Iseconds): Ora compressing the fastq files" 1>&2 && \\
             /opt/edico/bin/dragen "\${@}" && \\
-            echo "\$(date -Iseconds): Compression complete" 1>&2 && \\
-            echo "\$(date -Iseconds): Generating md5sums for ora outputs" 1>&2 && \\
-            bash "$(get_fastq_ora_md5sum_files_script_path())" > "$(inputs.output_directory_name)/fastq_ora.md5.txt" && \\
-            echo "\$(date -Iseconds): Generating md5sums for ora outputs complete" 1>&2
-            echo "\$(date -Iseconds): Generating file sizes for ora outputs" 1>&2 && \\
-            bash "$(get_fastq_ora_file_sizes_script_path())" > "$(inputs.output_directory_name)/fastq_ora.filesizes.tsv" && \\
-            echo "\$(date -Iseconds): Generating file sizes for ora outputs complete" 1>&2
+            echo "\$(date -Iseconds): Compression complete" 1>&2 \\
           ) & \\
           (
             echo "\$(date -Iseconds): Moving non-fastq files to the output directory" 1>&2 && \\
@@ -162,7 +147,6 @@ requirements:
           else
             echo "\$(date -Iseconds): Skipping ora file integrity check step --ora-check-file-integrity set to false" 1>&2
           fi
-
       - |
         ${
           return generate_ora_mount_points(inputs.instrument_run_directory, inputs.output_directory_name);

@@ -316,5 +316,5 @@ workflows:
     versions:
       - name: 4.2.4
         path: 4.2.4/dragen-instrument-run-fastq-to-ora-pipeline__4.2.4.cwl
-        md5sum: a34b89ae8c6508a54029efe26bdba81e
+        md5sum: 597d249e2e4c99a0d3846b27bcd7fea5
     categories: []
