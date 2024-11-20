@@ -13,6 +13,7 @@ workflows:
       tags:
         - bclconvert-interop-qc/1.3.1--1.21
         - bclconvert-interop-qc/1.3.1--1.21__20240627051309
+        - bclconvert-interop-qc/1.3.1--1.21__20241119001529
   - name: dragen-alignment-pipeline_4_2_4
     subclass: CWL
     primaryDescriptorPath: 
@@ -159,6 +160,7 @@ workflows:
         - dragen-somatic-with-germline-pipeline/4.3.6__20241106102705
         - dragen-somatic-with-germline-pipeline/4.3.6__20241107061820
         - dragen-somatic-with-germline-pipeline/4.3.6__20241115045341
+        - dragen-somatic-with-germline-pipeline/4.3.6__20241115073817
   - name: dragen-transcriptome-pipeline_4_3_6
     subclass: CWL
     primaryDescriptorPath: 
