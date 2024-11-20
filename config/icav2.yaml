@@ -1364,6 +1364,25 @@ bunches:
           Interop QC v1.3.1 with MultiQC version 1.21
         version_creation_date: 2024-06-23T23:19:52+00:00Z
         datasets: []
+  - bunch_name: bclconvert_interop_qc_prod__1_3_1__1_25_2
+    bunch_description: BCLConvert Interop QC Pipeline Bunch
+    tenant_name: umccr-prod
+    pipeline_path:
+      workflows/bclconvert-interop-qc/1.3.1--1.25.2/bclconvert-interop-qc__1.3.1--1.25.2.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - qc
+    bunch_versions:
+      - version: 1.3.1__1.25.2
+        version_description: Interop QC v1.3.1 with MultiQC version 1.25.2
+        version_creation_date: 2024-11-20T23:00:49+00:00Z
+        datasets: []
 
   # DRAGEN WGTS Alignment QC
   # Validation Only 4.2.4
