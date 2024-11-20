@@ -12,16 +12,23 @@ FASTQ_ORA_OUTPUT_PATHS=(
 )
 
 # Move all ora files to the final output directory
-for fastq_ora_output_path in "${FASTQ_ORA_OUTPUT_PATHS[@]}"; do
-  fastq_ora_scratch_path="/ephemeral/ora-outputs/$(basename "${fastq_ora_output_path}")"
-  mkdir -p "$(dirname "output-directory-path/${fastq_ora_output_path}")"
-  rsync --archive \
-    --remove-source-files \
-    --include "$(basename "${fastq_ora_output_path}")" \
-    --exclude "*" \
-    "$(dirname "${fastq_ora_scratch_path}")/" \
-    "$(dirname "output-directory-path/${fastq_ora_output_path}")/"
-done
+xargs \
+  --max-args=1 \
+  --max-procs=16 \
+  bash -c \
+    '
+      fastq_ora_scratch_path="/ephemeral/ora-outputs/$(basename "$@")"
+      mkdir -p "$(dirname "output-directory-path/$@")"
+      rsync \
+        --archive \
+        --remove-source-files \
+        --include "$(basename "$@")" \
+        --exclude "*" \
+        "$(dirname "${fastq_ora_scratch_path}")/" \
+        "$(dirname "output-directory-path/$@")/"
+    ' \
+  _ \
+  <<< "${FASTQ_ORA_OUTPUT_PATHS[@]}"
 
 # Transfer all other files
 mkdir -p "output-directory-path/ora-logs/"
