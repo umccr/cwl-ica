@@ -310,6 +310,9 @@ workflows:
       - name: 1.3.1--1.21
         path: 1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl
         md5sum: dfad0c0195611d1ff0ca6a255955fc00
+      - name: 1.3.1--1.25.2
+        path: 1.3.1--1.25.2/bclconvert-interop-qc__1.3.1--1.25.2.cwl
+        md5sum: bf3fba24832235c0203ea4f72c2a4d53
     categories: []
   - name: dragen-instrument-run-fastq-to-ora-pipeline
     path: dragen-instrument-run-fastq-to-ora-pipeline
