@@ -14,6 +14,12 @@ s:author:
     s:name: Sehrish Kanwal
     s:email: sehrish.kanwal@umccr.org
 
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
+
 # ID/Docs
 id: dragen-transcriptome--4.2.4
 label: dragen-transcriptome v(4.2.4)
@@ -73,6 +79,14 @@ requirements:
             --extract \\
             --file "$(inputs.reference_tar.path)"
 
+          # Check if ora reference is set
+          if [[ "$(is_not_null(inputs.ora_reference_tar))" == "true" ]]; then
+              tar \\
+              --directory "$(get_ref_mount())" \\
+              --extract \\
+              --file "$(inputs.ora_reference_tar.path)"
+          fi
+
           # Run dragen command and import options from cli
           "$(get_dragen_bin_path())" "\${@}"
       - |
@@ -131,6 +145,8 @@ inputs:
     secondaryFiles:
       - pattern: ".bai"
         required: true
+
+  # References
   reference_tar:
     label: reference tar
     doc: |
@@ -140,6 +156,17 @@ inputs:
       prefix: "--ref-dir="
       separate: False
       valueFrom: "$(get_ref_path(self))"
+  # If fastqs are ora, then we need to provide the ora reference tar
+  ora_reference_tar:
+    label: ora reference tar
+    doc: |
+      Path to ORA ref data tarball
+    type: File?
+    inputBinding:
+      prefix: "--ora-reference="
+      separate: False
+      valueFrom: "$(get_ref_path(self))"
+
   # Output naming options
   output_file_prefix:
     label: output file prefix
