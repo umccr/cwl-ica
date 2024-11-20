@@ -1,0 +1,443 @@
+{
+  "$graph": [
+    {
+      "class": "ExpressionTool",
+      "id": "#get-file-from-directory__1.0.1.cwl",
+      "label": "get-file-from-directory v(1.0.1)",
+      "doc": "Documentation for get-file-from-directory v1.0.1\n",
+      "requirements": [
+        {
+          "expressionLib": [
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction get_file_from_directory(input_dir, file_basename, recursive) {\n    if (recursive === void 0) { recursive = false; }\n    /*\n    Initialise the output file object\n    */\n    var output_file_obj = null;\n    /*\n    Check input_dir is a directory and has a listing\n    */\n    if (input_dir.class === undefined || input_dir.class !== \"Directory\") {\n        throw new Error(\"Could not confirm that the first argument was a directory\");\n    }\n    if (input_dir.listing === undefined || input_dir.listing === null) {\n        throw new Error(\"Could not collect listing from directory \\\"\".concat(input_dir.basename, \"\\\"\"));\n    }\n    /*\n    Check that the basename input is defined\n    */\n    if (file_basename === undefined || file_basename === null) {\n        throw new Error(\"Did not receive a name of a file\");\n    }\n    /*\n    Collect listing as a variable\n    */\n    var input_listing = input_dir.listing;\n    /*\n    Iterate through the file listing\n    */\n    for (var _i = 0, input_listing_1 = input_listing; _i < input_listing_1.length; _i++) {\n        var listing_item = input_listing_1[_i];\n        if (listing_item.class === \"File\" && listing_item.basename === file_basename) {\n            /*\n            Got the file of interest\n            */\n            output_file_obj = listing_item;\n            break;\n        }\n        if (listing_item.class === \"Directory\" && recursive) {\n            var subdirectory_list = listing_item;\n            try {\n                /*  Consider that the file might not be in this subdirectory and that is okay */\n                output_file_obj = get_file_from_directory(subdirectory_list, file_basename, recursive);\n            }\n            catch (error) {\n                /*  Dont need to report an error though, just continue */\n            }\n            if (output_file_obj !== null) {\n                break;\n            }\n        }\n    }\n    /*\n    Ensure we found the file object\n    */\n    if (output_file_obj === null) {\n        throw new Error(\"Could not find file in the directory \".concat(input_dir.basename));\n    }\n    /*  Return the output file object */\n    return output_file_obj;\n}\n/*  Find files in a directory */\nfunction find_files_in_directory_recursively_with_regex(input_dir, file_regex) {\n    /*\n    Initialise the output file object\n    */\n    var output_file_obj = [];\n    /*\n    Check input_dir is a directory and has a listing\n    */\n    if (input_dir.class === undefined || input_dir.class !== \"Directory\") {\n        throw new Error(\"Could not confirm that the first argument was a directory\");\n    }\n    if (input_dir.listing === undefined || input_dir.listing === null) {\n        throw new Error(\"Could not collect listing from directory \\\"\".concat(input_dir.basename, \"\\\"\"));\n    }\n    /*\n    Collect listing as a variable\n    */\n    var input_listing = input_dir.listing;\n    /*\n    Iterate through the file listing\n    */\n    for (var _i = 0, input_listing_2 = input_listing; _i < input_listing_2.length; _i++) {\n        var listing_item = input_listing_2[_i];\n        if (listing_item.class === \"File\" && file_regex.test(listing_item.basename)) {\n            /*\n            Got the file of interest and the file basename matches the file regex\n            */\n            output_file_obj.push(listing_item);\n        }\n        if (listing_item.class === \"Directory\") {\n            var subdirectory_list = listing_item;\n            try {\n                /*  Consider that the file might not be in this subdirectory and that is okay */\n                var subdirectory_files = find_files_in_directory_recursively_with_regex(subdirectory_list, file_regex);\n                output_file_obj.push.apply(output_file_obj, subdirectory_files);\n            }\n            catch (error) {\n                /*  Dont need to report an error though, just continue */\n            }\n        }\n    }\n    /*  Return the output file object */\n    return output_file_obj;\n}\n"
+          ],
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "loadListing": "shallow_listing",
+          "class": "LoadListingRequirement"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "file basename",
+          "doc": "The basename of the file we wish to extract from the directory\n",
+          "type": "string",
+          "id": "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/file_basename"
+        },
+        {
+          "label": "input dir",
+          "doc": "Input directory with the file present\n",
+          "type": "Directory",
+          "id": "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/input_dir"
+        },
+        {
+          "label": "listing level",
+          "doc": "The listing level of the file we wish to extract from the directory\n",
+          "type": [
+            {
+              "type": "enum",
+              "symbols": [
+                "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/listing_level/shallow_listing",
+                "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/listing_level/deep_listing"
+              ]
+            }
+          ],
+          "default": "shallow_listing",
+          "id": "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/listing_level"
+        }
+      ],
+      "expression": "${\n  var recursive_listing = false;\n  if ( inputs.listing_level === \"deep_listing\" ){\n    recursive_listing = true;\n  }\n  return {\"output_file\": get_file_from_directory(inputs.input_dir, inputs.file_basename, recursive_listing)};\n}",
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      },
+      "outputs": [
+        {
+          "label": "output file",
+          "doc": "File extracted from the directory\n",
+          "type": "File",
+          "id": "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/output_file"
+        }
+      ]
+    },
+    {
+      "class": "CommandLineTool",
+      "id": "#illumina-interop__1.3.1.cwl",
+      "label": "illumina-interop v(1.3.1)",
+      "doc": "Run illumina-interop v1.3.1, this tool\n",
+      "hints": [
+        {
+          "dockerPull": "ghcr.io/umccr/illumina-interop:1.3.1",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 2,
+          "ramMin": 4000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:size": "small"
+        }
+      ],
+      "requirements": [
+        {
+          "listing": [
+            {
+              "entryname": "generate_interop_files.sh",
+              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Create output directory\nmkdir \"$(inputs.output_dir_name)\"\n\n# Generate interop files\ninterop_summary --csv=1 --level=4 \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/interop_summary.csv\"\ninterop_index-summary --csv=1 \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/interop_index-summary.csv\"\n\n# Generate imaging table\ninterop_imaging_table \"$(inputs.input_run_dir.path)\" > \"$(inputs.output_dir_name)/imaging_table.csv\"\n\n# Generate imaging plot\ninterop_imaging_plot \"$(inputs.output_dir_name)/imaging_table.csv\" \"$(inputs.output_dir_name)/imaging_plot.png\" \"$(inputs.input_run_dir.basename)\"\n\n# Compress imaging table\ngzip \"$(inputs.output_dir_name)/imaging_table.csv\"\n"
+            }
+          ],
+          "class": "InitialWorkDirRequirement"
+        },
+        {
+          "class": "InlineJavascriptRequirement"
+        }
+      ],
+      "baseCommand": [
+        "bash",
+        "generate_interop_files.sh"
+      ],
+      "inputs": [
+        {
+          "label": "input run directory",
+          "doc": "The bcl directory\n",
+          "type": "Directory",
+          "inputBinding": {
+            "position": 100
+          },
+          "id": "#illumina-interop__1.3.1.cwl/illumina-interop--1.3.1/input_run_dir"
+        },
+        {
+          "label": "output directory",
+          "doc": "The output directory, defaults to \"interop_summary_files\"\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "default": "interop_summary_files",
+          "id": "#illumina-interop__1.3.1.cwl/illumina-interop--1.3.1/output_dir_name"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "interop output",
+          "doc": "output directory\n",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.output_dir_name)"
+          },
+          "id": "#illumina-interop__1.3.1.cwl/illumina-interop--1.3.1/interop_out_dir"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    },
+    {
+      "class": "CommandLineTool",
+      "id": "#multiqc__1.25.2.cwl",
+      "label": "multiqc v(1.25.0)",
+      "doc": "Documentation for multiqc v1.25.0\nUse patch that includes https://github.com/ewels/MultiQC/pull/1969\n",
+      "hints": [
+        {
+          "dockerPull": "ghcr.io/multiqc/multiqc:v1.25.2",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 2,
+          "ramMin": 4000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:size": "small"
+        }
+      ],
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        }
+      ],
+      "baseCommand": [
+        "multiqc"
+      ],
+      "inputs": [
+        {
+          "label": "cl config",
+          "doc": "Override config from the cli\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--cl-config"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/cl_config"
+        },
+        {
+          "label": "comment",
+          "doc": "Custom comment, will be printed at the top of the report.\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--comment"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/comment"
+        },
+        {
+          "label": "config",
+          "doc": "Configuration file for bclconvert\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "streamable": true,
+          "inputBinding": {
+            "prefix": "--config"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/config"
+        },
+        {
+          "label": "input directories",
+          "doc": "The list of directories to place in the analysis\n",
+          "type": {
+            "type": "array",
+            "items": "Directory"
+          },
+          "inputBinding": {
+            "position": 100
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/input_directories"
+        },
+        {
+          "label": "output directory",
+          "doc": "The output directory\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--outdir",
+            "valueFrom": "$(runtime.outdir)/$(self)"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/output_directory_name"
+        },
+        {
+          "label": "output filename",
+          "doc": "Report filename in html format.\nDefaults to 'multiqc-report.html\"\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--filename"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/output_filename"
+        },
+        {
+          "label": "title",
+          "doc": "Report title.\nPrinted as page header, used for filename if not otherwise specified.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--title"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/title"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "output directory",
+          "doc": "Directory that contains all multiqc analysis data\n",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory_name)"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/output_directory"
+        },
+        {
+          "label": "output file",
+          "doc": "Output html file\n",
+          "type": "File",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory_name)/$(inputs.output_filename)"
+          },
+          "id": "#multiqc__1.25.2.cwl/multiqc--1.25.0/output_file"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    },
+    {
+      "class": "Workflow",
+      "id": "#main",
+      "label": "bclconvert-interop-qc v(1.3.1--1.25.2)",
+      "doc": "Documentation for bclconvert-interop-qc v1.3.1--1.25.2\nThis workflow has been designed for BCLConvert 4.2.7 outputs from the Nextflow autolaunch pipeline.\nThe InterOp directory is expected to contain the IndexMetricsOut.bin file, otherwise the\nindex summary will not be generated.\nIt is assumed that the Reports directory will contain the RunInfo.xml file\n",
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "class": "MultipleInputFeatureRequirement"
+        },
+        {
+          "class": "ScatterFeatureRequirement"
+        },
+        {
+          "class": "StepInputExpressionRequirement"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "BCLConvert Report Directory",
+          "doc": "The output directory from a BCLConvert run named 'Reports'\n",
+          "type": "Directory",
+          "id": "#main/bclconvert_report_directory"
+        },
+        {
+          "label": "Instrument Run ID",
+          "doc": "The instrument run ID\n",
+          "type": "string",
+          "id": "#main/instrument_run_id"
+        },
+        {
+          "label": "Interop Directory",
+          "doc": "The interop directory\n",
+          "type": "Directory",
+          "id": "#main/interop_directory"
+        }
+      ],
+      "steps": [
+        {
+          "label": "Generate InterOp QC",
+          "doc": "Generate the interop files by mounting the interop directory underneath a directory named by the run id specified.\nalong with the run info xml file.\n",
+          "in": [
+            {
+              "source": [
+                "#main/instrument_run_id",
+                "#main/interop_directory",
+                "#main/get_run_info_xml_file_from_reports_dir/output_file"
+              ],
+              "valueFrom": "${\n  return {\n    \"class\": \"Directory\",\n    \"basename\": self[0],\n    \"listing\": [\n      /* The interop directory */\n      self[1],\n      /* The RunInfo XML file */\n      self[2]\n    ]\n  };\n}\n",
+              "id": "#main/generate_interop_qc_step/input_run_dir"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/generate_interop_qc_step/interop_out_dir"
+            }
+          ],
+          "run": "#illumina-interop__1.3.1.cwl",
+          "id": "#main/generate_interop_qc_step"
+        },
+        {
+          "label": "Get RunInfo.xml file from Reports Dir",
+          "doc": "Get the RunInfo.xml file from the Reports Directory\n",
+          "in": [
+            {
+              "valueFrom": "RunInfo.xml",
+              "id": "#main/get_run_info_xml_file_from_reports_dir/file_basename"
+            },
+            {
+              "source": "#main/bclconvert_report_directory",
+              "id": "#main/get_run_info_xml_file_from_reports_dir/input_dir"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/get_run_info_xml_file_from_reports_dir/output_file"
+            }
+          ],
+          "run": "#get-file-from-directory__1.0.1.cwl",
+          "id": "#main/get_run_info_xml_file_from_reports_dir"
+        },
+        {
+          "label": "Run Multiqc",
+          "doc": "Run MultiQC on the input reports directory along with the generated index summary files\n",
+          "in": [
+            {
+              "valueFrom": "${\n   return JSON.stringify({\"bclconvert\": { \"genome_size\": \"hg38_genome\" }});\n }\n",
+              "id": "#main/run_multiqc_step/cl_config"
+            },
+            {
+              "source": [
+                "#main/generate_interop_qc_step/interop_out_dir",
+                "#main/bclconvert_report_directory"
+              ],
+              "id": "#main/run_multiqc_step/input_directories"
+            },
+            {
+              "valueFrom": "multiqc",
+              "id": "#main/run_multiqc_step/output_directory_name"
+            },
+            {
+              "source": "#main/instrument_run_id",
+              "valueFrom": "$(self)_multiqc_report.html",
+              "id": "#main/run_multiqc_step/output_filename"
+            },
+            {
+              "source": "#main/instrument_run_id",
+              "valueFrom": "$(self) BCLConvert MultiQC Report",
+              "id": "#main/run_multiqc_step/title"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/run_multiqc_step/output_directory"
+            },
+            {
+              "id": "#main/run_multiqc_step/output_file"
+            }
+          ],
+          "run": "#multiqc__1.25.2.cwl",
+          "id": "#main/run_multiqc_step"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "interop out dir",
+          "doc": "Directory containing the inteop summary csvs\n",
+          "type": "Directory",
+          "outputSource": "#main/generate_interop_qc_step/interop_out_dir",
+          "id": "#main/interop_output_dir"
+        },
+        {
+          "label": "multiqc html report",
+          "doc": "The HTML report generated by the multiqc step\n",
+          "type": "File",
+          "outputSource": "#main/run_multiqc_step/output_file",
+          "id": "#main/multiqc_html_report"
+        },
+        {
+          "label": "multiqc output dir",
+          "doc": "Directory containing the multiqc data\n",
+          "type": "Directory",
+          "outputSource": "#main/run_multiqc_step/output_directory",
+          "id": "#main/multiqc_output_dir"
+        }
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    }
+  ],
+  "cwlVersion": "v1.1",
+  "$schemas": [
+    "https://schema.org/version/latest/schemaorg-current-http.rdf"
+  ],
+  "$namespaces": {
+    "s": "https://schema.org/"
+  }
+}
