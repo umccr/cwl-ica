@@ -17,7 +17,7 @@ dragen-somatic 4.2.4 tool
 
   
 > ID: dragen-somatic--4.2.4  
-> md5sum: 1d955db46be0e3926c6eabab31c1a817
+> md5sum: 89ea95ccb2da7b0add9f3bbe168f179f
 
 ### dragen-somatic v(4.2.4) documentation
   
@@ -517,6 +517,19 @@ The default value is 0.15.
 You may wish to place your own in.
 Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
+
+
+### ora reference tar
+
+
+
+  
+> ID: ora_reference_tar
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to ORA ref data tarball
 
 
 ### output directory
@@ -1237,7 +1250,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7f52584bdeb0>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.CommandInputEnumSchema object at 0x7fb6d838f650>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).

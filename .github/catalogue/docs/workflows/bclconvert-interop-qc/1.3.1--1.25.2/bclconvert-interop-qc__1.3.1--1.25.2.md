@@ -1,30 +1,30 @@
 
-bclconvert-interop-qc 1.3.1--1.21 workflow
-==========================================
+bclconvert-interop-qc 1.3.1--1.25.2 workflow
+============================================
 
 ## Table of Contents
   
-- [Overview](#bclconvert-interop-qc-v131--121-overview)  
+- [Overview](#bclconvert-interop-qc-v131--1252-overview)  
 - [Visual](#visual-workflow-overview)  
 - [Links](#related-links)  
-- [Inputs](#bclconvert-interop-qc-v131--121-inputs)  
-- [Steps](#bclconvert-interop-qc-v131--121-steps)  
-- [Outputs](#bclconvert-interop-qc-v131--121-outputs)  
+- [Inputs](#bclconvert-interop-qc-v131--1252-inputs)  
+- [Steps](#bclconvert-interop-qc-v131--1252-steps)  
+- [Outputs](#bclconvert-interop-qc-v131--1252-outputs)  
 - [ICA](#ica)  
 
 
-## bclconvert-interop-qc v(1.3.1--1.21) Overview
+## bclconvert-interop-qc v(1.3.1--1.25.2) Overview
 
 
 
   
-> ID: bclconvert-interop-qc--1.3.1--1.21  
-> md5sum: dfad0c0195611d1ff0ca6a255955fc00
+> ID: bclconvert-interop-qc--1.3.1--1.25.2  
+> md5sum: bf3fba24832235c0203ea4f72c2a4d53
 
-### bclconvert-interop-qc v(1.3.1--1.21) documentation
+### bclconvert-interop-qc v(1.3.1--1.25.2) documentation
   
-Documentation for bclconvert-interop-qc v1.3.1--1.21
-This workflow has been designed for BCLConvert 4.2.7 outputs from the Nextflow autolaunch pipeline. 
+Documentation for bclconvert-interop-qc v1.3.1--1.25.2
+This workflow has been designed for BCLConvert 4.2.7 outputs from the Nextflow autolaunch pipeline.
 The InterOp directory is expected to contain the IndexMetricsOut.bin file, otherwise the
 index summary will not be generated.
 It is assumed that the Reports directory will contain the RunInfo.xml file
@@ -35,22 +35,22 @@ It is assumed that the Reports directory will contain the RunInfo.xml file
 
 ## Visual Workflow Overview
   
-[![bclconvert-interop-qc__1.3.1--1.21.svg](../../../../images/workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.svg)
+[![bclconvert-interop-qc__1.3.1--1.25.2.svg](../../../../images/workflows/bclconvert-interop-qc/1.3.1--1.25.2/bclconvert-interop-qc__1.3.1--1.25.2.svg)](https://github.com/umccr/cwl-ica/raw/main/.github/catalogue/images/workflows/bclconvert-interop-qc/1.3.1--1.25.2/bclconvert-interop-qc__1.3.1--1.25.2.svg)
 ## Related Links
   
-- [CWL File Path](../../../../../../workflows/bclconvert-interop-qc/1.3.1--1.21/bclconvert-interop-qc__1.3.1--1.21.cwl)  
+- [CWL File Path](../../../../../../workflows/bclconvert-interop-qc/1.3.1--1.25.2/bclconvert-interop-qc__1.3.1--1.25.2.cwl)  
 
 
 ### Uses
   
 - [illumina-interop 1.3.1 :construction:](../../../tools/illumina-interop/1.3.1/illumina-interop__1.3.1.md)  
 - [get-file-from-directory 1.0.1 :construction:](../../../expressions/get-file-from-directory/1.0.1/get-file-from-directory__1.0.1.md)  
-- [multiqc 1.21.0](../../../tools/multiqc/1.21.0/multiqc__1.21.0.md)  
+- [multiqc 1.25.2](../../../tools/multiqc/1.25.2/multiqc__1.25.2.md)  
 
   
 
 
-## bclconvert-interop-qc v(1.3.1--1.21) Inputs
+## bclconvert-interop-qc v(1.3.1--1.25.2) Inputs
 
 ### BCLConvert Report Directory
 
@@ -93,13 +93,13 @@ The interop directory
   
 
 
-## bclconvert-interop-qc v(1.3.1--1.21) Steps
+## bclconvert-interop-qc v(1.3.1--1.25.2) Steps
 
 ### Generate InterOp QC
 
 
   
-> ID: bclconvert-interop-qc--1.3.1--1.21/generate_interop_qc_step
+> ID: bclconvert-interop-qc--1.3.1--1.25.2/generate_interop_qc_step
   
 **Step Type:** tool  
 **Docs:**
@@ -117,7 +117,7 @@ along with the run info xml file.
 
 
   
-> ID: bclconvert-interop-qc--1.3.1--1.21/get_run_info_xml_file_from_reports_dir
+> ID: bclconvert-interop-qc--1.3.1--1.25.2/get_run_info_xml_file_from_reports_dir
   
 **Step Type:** expression  
 **Docs:**
@@ -134,7 +134,7 @@ Get the RunInfo.xml file from the Reports Directory
 
 
   
-> ID: bclconvert-interop-qc--1.3.1--1.21/run_multiqc_step
+> ID: bclconvert-interop-qc--1.3.1--1.25.2/run_multiqc_step
   
 **Step Type:** tool  
 **Docs:**
@@ -143,18 +143,18 @@ Run MultiQC on the input reports directory along with the generated index summar
 
 #### Links
   
-[CWL File Path](../../../../../../tools/multiqc/1.21.0/multiqc__1.21.0.cwl)  
-[CWL File Help Page](../../../tools/multiqc/1.21.0/multiqc__1.21.0.md)  
+[CWL File Path](../../../../../../tools/multiqc/1.25.2/multiqc__1.25.2.cwl)  
+[CWL File Help Page](../../../tools/multiqc/1.25.2/multiqc__1.25.2.md)  
 
 
-## bclconvert-interop-qc v(1.3.1--1.21) Outputs
+## bclconvert-interop-qc v(1.3.1--1.25.2) Outputs
 
 ### interop out dir
 
 
 
   
-> ID: bclconvert-interop-qc--1.3.1--1.21/interop_output_dir  
+> ID: bclconvert-interop-qc--1.3.1--1.25.2/interop_output_dir  
 
   
 **Optional:** `False`  
@@ -169,7 +169,7 @@ Directory containing the inteop summary csvs
 
 
   
-> ID: bclconvert-interop-qc--1.3.1--1.21/multiqc_html_report  
+> ID: bclconvert-interop-qc--1.3.1--1.25.2/multiqc_html_report  
 
   
 **Optional:** `False`  
@@ -184,7 +184,7 @@ The HTML report generated by the multiqc step
 
 
   
-> ID: bclconvert-interop-qc--1.3.1--1.21/multiqc_output_dir  
+> ID: bclconvert-interop-qc--1.3.1--1.25.2/multiqc_output_dir  
 
   
 **Optional:** `False`  

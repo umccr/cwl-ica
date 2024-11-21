@@ -19,7 +19,7 @@ dragen-somatic-with-germline-pipeline 4.2.4 workflow
 
   
 > ID: dragen-somatic-with-germline-pipeline--4.2.4  
-> md5sum: 8bcca124af5ca64c963a42da1b9d985f
+> md5sum: 47a79066959406c485ef5504102a82d4
 
 ### dragen-somatic-with-germline-pipeline v(4.2.4) documentation
   
@@ -726,6 +726,19 @@ The default value is 0.15.
 You may wish to place your own in.
 Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
+
+
+### ora reference tar
+
+
+
+  
+> ID: ora_reference_tar
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to ref data tarball
 
 
 ### output prefix germline
@@ -1483,7 +1496,7 @@ Enables the multiallelic filter. The default is true.
 > ID: vc_enable_unequal_ntd
   
 **Optional:** `True`  
-**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7f9e8ae160f0>]`  
+**Type:** `['boolean', <cwl_utils.parser.cwl_v1_1.InputEnumSchema object at 0x7fd01a1a9b50>]`  
 **Docs:**  
 Nucleotide (NTD) Error Bias Estimation is on by default and recommended as a replacement for the orientation bias filter.
 Both methods take account of strand-specific biases (systematic differences between F1R2 and F2R1 reads).
@@ -2029,7 +2042,7 @@ Bam file of the tumor sample
 
   
 **workflow name:** dragen-somatic-with-germline-pipeline_prod-wf  
-**wfl version name:** 4.2.4--89be8f2  
+**wfl version name:** 4.2.4--a796b5d  
 
   
 

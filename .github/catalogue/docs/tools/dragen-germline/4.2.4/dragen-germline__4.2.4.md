@@ -17,7 +17,7 @@ dragen-germline 4.2.4 tool
 
   
 > ID: dragen-germline--4.2.4  
-> md5sum: 2b5b45e49447cb8b282a053cdc071da1
+> md5sum: bb9225471e8137100924146d6aea109f
 
 ### dragen-germline v(4.2.4) documentation
   
@@ -393,6 +393,19 @@ The default value is 0.15.
 You may wish to place your own in.
 Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
+
+
+### ora reference tar
+
+
+
+  
+> ID: ora_reference_tar
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to ORA ref data tarball
 
 
 ### output directory
