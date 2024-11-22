@@ -13,6 +13,12 @@ s:author:
     s:name: Sehrish Kanwal
     s:email: sehrish.kanwal@umccr.org
 
+s:maintainer:
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
+
 # ID/Docs
 id: dragen-transcriptome-pipeline--4.2.4
 label: dragen-transcriptome-pipeline v(4.2.4)
@@ -65,6 +71,11 @@ inputs:
     doc: |
       Path to ref data tarball
     type: File
+  ora_reference_tar:
+    label: ora reference tar
+    doc: |
+      Path to ref data tarball
+    type: File?
   # Transcript annotation file
   annotation_file:
     label: annotation file
@@ -261,6 +272,8 @@ steps:
         source: bam_input
       reference_tar:
         source: reference_tar
+      ora_reference_tar:
+        source: ora_reference_tar
       output_file_prefix:
         source: output_prefix
       output_directory:

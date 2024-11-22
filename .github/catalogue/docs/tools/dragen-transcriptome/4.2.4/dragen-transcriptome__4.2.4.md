@@ -17,7 +17,7 @@ dragen-transcriptome 4.2.4 tool
 
   
 > ID: dragen-transcriptome--4.2.4  
-> md5sum: 38af34f5c16c605ad7bd06181934d9c8
+> md5sum: 7b27cf6088144ef7c4126429ad0f392b
 
 ### dragen-transcriptome v(4.2.4) documentation
   
@@ -200,6 +200,19 @@ Alternative to providing a file, one can instead provide a list of 'fastq-list-r
 You may wish to place your own in.
 Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
+
+
+### ora reference tar
+
+
+
+  
+> ID: ora_reference_tar
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to ORA ref data tarball
 
 
 ### output directory

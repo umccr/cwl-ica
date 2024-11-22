@@ -19,7 +19,7 @@ dragen-transcriptome-pipeline 4.2.4 workflow
 
   
 > ID: dragen-transcriptome-pipeline--4.2.4  
-> md5sum: bcafa1401a0ad7771075a8625273ea84
+> md5sum: 3bd28e1e1a16ed22f1ab54391a26623b
 
 ### dragen-transcriptome-pipeline v(4.2.4) documentation
   
@@ -284,6 +284,19 @@ Set desired Java heap memory size
 You may wish to place your own in.
 Optional value, default set to /opt/instance-identity
 which is a path inside the dragen container
+
+
+### ora reference tar
+
+
+
+  
+> ID: ora_reference_tar
+  
+**Optional:** `True`  
+**Type:** `File`  
+**Docs:**  
+Path to ref data tarball
 
 
 ### output file prefix
@@ -714,7 +727,7 @@ The output directory containing all transcriptome output files
 
   
 **workflow name:** dragen-transcriptome-pipeline_prod-wf  
-**wfl version name:** 4.2.4--89be8f2  
+**wfl version name:** 4.2.4--a796b5d  
 
   
 

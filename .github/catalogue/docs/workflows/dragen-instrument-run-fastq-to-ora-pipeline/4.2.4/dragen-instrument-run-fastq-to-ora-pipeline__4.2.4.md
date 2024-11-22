@@ -19,7 +19,7 @@ dragen-instrument-run-fastq-to-ora-pipeline 4.2.4 workflow
 
   
 > ID: dragen-instrument-run-fastq-to-ora-pipeline--4.2.4  
-> md5sum: da57d2421f8ffb47ec102dd02a4d5db7
+> md5sum: 597d249e2e4c99a0d3846b27bcd7fea5
 
 ### dragen-instrument-run-fastq-to-ora v(4.2.4) pipeline documentation
   
