@@ -33,6 +33,7 @@ hints:
   DockerRequirement:
     dockerPull: 079623148045.dkr.ecr.ap-southeast-2.amazonaws.com/cp-prod/c3add40b-1be2-431d-a322-29529f7d2866:latest
 
+
 requirements:
   ResourceRequirement:
     tmpdirMin: |
@@ -81,10 +82,55 @@ requirements:
 
           # Run dragen command and import options from cli
           "$(get_dragen_bin_path())" "\${@}"
+
+          # DRAGEN Multi-region Joint Detection (MRJD) is a de novo germline small variant caller for paralogous regions.
+          # MRJD is compatible with the hg38, hg19 and GRCh37 reference genomes.
+          # https://help.dragen.illumina.com/product-guides/dragen-v4.3/dragen-dna-pipeline/small-variant-calling/multi-region-joint-detection
+          #
+          # Multi Region Joint Detection (MRJD) Caller should be runs as standalone pipeline on DRAGEN™ server (not in integrated with Germline Small VC)
+          # https://support.illumina.com/content/dam/illumina-support/documents/downloads/software/dragen/release-notes/200056923_00_DRAGEN_4_3_6_Customer-Release-Notes.pdf
+          if [[ \\
+            "$(get_bool_value_as_str(inputs.enable_mrjd))" == "true" \\
+          ]]; then
+            echo "Optionally run MRJD if relevant parameter is enabled" 1>&2
+            "$(get_dragen_bin_path())" \\
+              --ref-dir="$(get_ref_path(inputs.reference_tar))" \\
+              --bam-input="$(inputs.output_directory)/$(inputs.output_prefix).bam" \\
+              --enable-map-align="false" \\
+              --enable-mrjd="true" \\
+              --mrjd-enable-high-sensitivity-mode="$(get_bool_value_as_str(inputs.mrjd_enable_high_sensitivity_mode))" \\
+              --output-directory="$(inputs.output_directory)/mrjd/" \\
+              --output-file-prefix="$(inputs.output_file_prefix)"
+
+            # Merge MRJD VCF with the original VCF
+            mrjd_utility_url="https://webdata.illumina.com/downloads/software/dragen/resource-files/mrjd-utility-1.0.tar.gz"
+            wget \\
+              --output-document /dev/stdout \\
+             --quiet \\
+             "\${mrjd_utility_url}" | \\
+            tar \\
+              --extract \\
+              --gzip \\
+              --file - \\
+              mrjd_utility/mrjd.bed \\
+              mrjd_utility/merge_vc_mrjd_vcf.py
+
+            # Run MRJD utility
+            # FIXME - might want to put this in the mrjd output directory
+            # FIMXE - just want to see what data is generated from what program
+            mkdir "$(inputs.output_directory)/mrjd-merged"
+            python3 "./mrjd_utility/merge_vc_mrjd_vcf.py" \\
+              --bed "mrjd_utility/mrjd.bed" \\
+              --vc "$(inputs.output_directory)/$(inputs.output_prefix).vcf" \\
+              --mrjd "$(inputs.output_directory)/mrjd/$(inputs.output_prefix).vcf" \\
+              --outdir "$(inputs.output_directory)/mrjd-merged/"
+          fi
       - |
         ${
           return generate_germline_mount_points(inputs);
         }
+
+
 
 baseCommand: [ "bash" ]
 
@@ -747,7 +793,7 @@ inputs:
   enable_hla:
     label: enable hla
     doc: |
-      Enable HLA typing by setting --enable-hla flag to true
+      Enable HLA typing for class I genes by setting --enable-hla flag to true
     type: boolean?
     inputBinding:
       prefix: "--enable-hla="
@@ -756,7 +802,7 @@ inputs:
   hla_enable_class_2:
     label: hla enable class 2
     doc: |
-      Enable class II HLA typing by setting --hla-enable-class-2 flag to true
+      Enable HLA typing for class II genes by setting --hla-enable-class-2 flag to true
     type: boolean?
     inputBinding:
       prefix: "--hla-enable-class-2="
@@ -825,6 +871,22 @@ inputs:
     inputBinding:
       prefix: "--hla-min-reads="
       separate: False
+
+  # Multi-Region Joint Detection
+  enable_mrjd:
+    label: enable multi-region joint detection
+    doc: |
+      In DRAGEN v4.3, MRJD covers regions that include six clinically relevant genes: NEB, TTN, SMN1/2, PMS2, STRC, and IKBKG.
+      With this option enabled, the following two types of variants are reported: 1. Uniquely placed variants; 2. Region-ambiguous variants.
+    type: boolean?
+  mrjd_enable_high_sensitivity_mode:
+    label: enable multi-region joint detection high sensitivity mode 
+    doc: |
+      In addition to 1. Uniquely placed variants and 2. Region-ambiguous variants, with this option enabled, 
+      the following two types of variants are reported: 3. Positions where the reference alleles in all paralogous regions are not the same; 
+      4. Variants that have been placed uniquely in one of the paralogous regions and no variant in the corresponding position in the other region
+    type: boolean?
+
   # Miscellaneous options
   lic_instance_id_location:
     label: license instance id location
