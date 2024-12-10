@@ -321,3 +321,10 @@ workflows:
         path: 4.2.4/dragen-instrument-run-fastq-to-ora-pipeline__4.2.4.cwl
         md5sum: 597d249e2e4c99a0d3846b27bcd7fea5
     categories: []
+  - name: dragen-build-reference-tarball-pipeline
+    path: dragen-build-reference-tarball-pipeline
+    versions:
+      - name: 4.2.4
+        path: 4.2.4/dragen-build-reference-tarball-pipeline__4.2.4.cwl
+        md5sum: b7149af1a4ee0d28d7bc7cde8affe9b6
+    categories: []
