@@ -1,0 +1,947 @@
+{
+  "$graph": [
+    {
+      "class": "CommandLineTool",
+      "id": "#dragen-build-reference-tarball__4.2.4.cwl",
+      "label": "dragen-build-reference-tarball v(4.2.4)",
+      "doc": "Documentation for dragen-build-reference-tarball v4.2.4\n",
+      "hints": [
+        {
+          "dockerPull": "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 16,
+          "ramMin": 240000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "fpga",
+          "https://platform.illumina.com/rdf/ica/resources:size": "medium"
+        }
+      ],
+      "requirements": [
+        {
+          "listing": [
+            {
+              "entryname": "$(get_hash_table_script_filename())",
+              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Create staging directory\necho \"Creating scratch directory at $(get_ref_scratch_dir(inputs.ht_reference.nameroot))\" 1>&2\nmkdir -p \"$(get_ref_scratch_dir(inputs.ht_reference.nameroot))\"\n\n# Create output directory\necho \"Creating output directory at $(inputs.output_directory)\" 1>&2\nmkdir -p \"$(inputs.output_directory)\"\n\n# Change to staging directory\necho \"Running dragen command at $(get_ref_scratch_dir(inputs.ht_reference.nameroot))\" 1>&2\n\n# Run dragen command inside scratch dir\n( \\\\\n  cd \"$(get_ref_scratch_dir(inputs.ht_reference.nameroot))\" && \\\\\n  \"$(get_dragen_bin_path())\" \"\\${@}\" \\\\\n)\n# tar up output directory\ntar \\\\\n  --directory \"\\$(dirname \"$(inputs.output_directory)\")\" \\\\\n  --create \\\\\n  --gzip \\\\\n  --file \"$(inputs.output_directory).tar.gz\" \\\\\n  \"$(inputs.output_directory)\"\n"
+            }
+          ],
+          "class": "InitialWorkDirRequirement"
+        },
+        {
+          "expressionLib": [
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction get_script_path() {\n    /*\n    Abstract script path, can then be referenced in baseCommand attribute too\n    Makes things more readable.\n    */\n    return \"run-dragen-script.sh\";\n}\nfunction get_scratch_mount() {\n    /*\n    Return the path of the scratch directory space\n    */\n    return \"/scratch/\";\n}\nfunction get_intermediate_results_dir() {\n    /*\n    Get intermediate results directory as /scratch for dragen runs\n    */\n    return get_scratch_mount() + \"intermediate-results/\";\n}\nfunction get_name_root_from_tarball(basename) {\n    var tar_ball_regex = /(\\S+)\\.tar\\.gz/g;\n    var tar_ball_expression = tar_ball_regex.exec(basename);\n    if (tar_ball_expression === null) {\n        throw new Error(\"Could not get nameroot from \".concat(basename));\n    }\n    return tar_ball_expression[1];\n}\nfunction get_ref_path(reference_input_obj) {\n    /*\n    Get the reference path\n    */\n    return get_ref_mount() + get_name_root_from_tarball(reference_input_obj.basename) + \"/\";\n}\nfunction get_ref_mount() {\n    /*\n    Get the reference mount point\n    */\n    return get_scratch_mount() + \"ref/\";\n}\nfunction get_dragen_bin_path() {\n    /*\n    Get dragen bin path\n    */\n    return \"/opt/edico/bin/dragen\";\n}\nfunction get_dragen_eval_line() {\n    /*\n    Return string\n    */\n    return \"eval \\\"\" + get_dragen_bin_path() + \"\\\" '\\\"\\$@\\\"' \\n\";\n}\nfunction get_fastq_list_csv_path() {\n    /*\n    The fastq list path must be placed in working directory\n    */\n    return \"fastq_list.csv\";\n}\nfunction get_tumor_fastq_list_csv_path() {\n    /*\n    The tumor fastq list path must be placed in working directory\n    */\n    return \"tumor_fastq_list.csv\";\n}\nfunction get_ora_mv_files_script_path() {\n    /*\n    Get the ora mv files script path\n    */\n    return \"mv-ora-output-files.sh\";\n}\nfunction get_new_fastq_list_csv_script_path() {\n    /*\n    Get the new fastq list csv script path\n    */\n    return \"generate-new-fastq-list-csv.sh\";\n}\nfunction get_fastq_raw_md5sum_files_script_path() {\n    /*\n    Get the script path to generating the md5sum for each fastq gzip file\n    */\n    return \"generate-md5sum-for-fastq-raw-files.sh\";\n}\nfunction get_fastq_gz_file_sizes_script_path() {\n    /*\n    Get the script path to generating the filesizes for each fastq gzip file\n    */\n    return \"generate-file-sizes-for-fastq-gz-files.sh\";\n}\nfunction get_fastq_ora_md5sum_files_script_path() {\n    /*\n    Get the script path for generating the md5sum for each fastq ora file\n    */\n    return \"generate-md5sum-for-fastq-ora-files.sh\";\n}\nfunction get_fastq_ora_file_sizes_script_path() {\n    /*\n    Get the script path to generating the filesizes for each fastq gzip file\n    */\n    return \"generate-file-sizes-for-fastq-ora-files.sh\";\n}\nfunction get_normal_name_from_fastq_list_rows(fastq_list_rows) {\n    /*\n    Get the normal sample name from the fastq list rows object\n    */\n    /*\n    Check fastq list rows is defined\n    */\n    if (fastq_list_rows === undefined || fastq_list_rows === null) {\n        return null;\n    }\n    /*\n    Get RGSM value and return\n    */\n    return fastq_list_rows[0].rgsm;\n}\nfunction get_normal_name_from_fastq_list_csv(fastq_list_csv) {\n    /*\n    Get the normal name from the fastq list csv...\n    */\n    /*\n    Check file is defined\n    */\n    if (fastq_list_csv === undefined || fastq_list_csv === null) {\n        return null;\n    }\n    /*\n    Check contents are defined\n    */\n    if (fastq_list_csv.contents === null || fastq_list_csv.contents === undefined) {\n        return null;\n    }\n    /*\n    Confirm fastq list csv is of type File\n    */\n    if (fastq_list_csv.class !== \"File\") {\n        throw new Error(\"Could not confirm input fastq_list_csv is of type File\");\n    }\n    /*\n    Split contents by line\n    */\n    var contents_by_line = [];\n    fastq_list_csv.contents.split(\"\\n\").forEach(function (line_content) {\n        var stripped_line_content = line_content.replace(/(\\r\\n|\\n|\\r)/gm, \"\");\n        if (stripped_line_content !== \"\") {\n            contents_by_line.push(stripped_line_content);\n        }\n    });\n    var column_names = contents_by_line[0].split(\",\");\n    /*\n    Get RGSM index value (which column is RGSM at?)\n    */\n    var rgsm_index = column_names.indexOf(\"RGSM\");\n    /*\n    RGSM is not in index. Return null\n    */\n    if (rgsm_index === -1) {\n        return null;\n    }\n    /*\n    Get RGSM value of first row and return\n    */\n    return contents_by_line[1].split(\",\")[rgsm_index];\n}\nfunction get_normal_output_prefix(inputs) {\n    var _a, _b;\n    /*\n    Get the normal RGSM value and then add _normal to it\n    */\n    var normal_name = null;\n    var normal_re_replacement = /_normal$/;\n    /*\n    Check if bam_input is set\n    */\n    if (inputs.bam_input !== null && inputs.bam_input !== undefined) {\n        /* Remove _normal from nameroot if it already exists */\n        /* We dont want _normal_normal as a suffix */\n        return \"\".concat((_a = inputs.bam_input.nameroot) === null || _a === void 0 ? void 0 :_a.replace(normal_re_replacement, \"\"), \"_normal\");\n    }\n    /*\n    Check if cram_input is set\n    */\n    if (inputs.cram_input !== null && inputs.cram_input !== undefined) {\n        /* Remove _normal from nameroot if it already exists */\n        /* We dont want _normal_normal as a suffix */\n        return \"\".concat((_b = inputs.cram_input.nameroot) === null || _b === void 0 ? void 0 :_b.replace(normal_re_replacement, \"\"), \"_normal\");\n    }\n    /*\n    Check if fastq list file is set\n    */\n    if (inputs.fastq_list !== null && inputs.fastq_list !== undefined) {\n        normal_name = get_normal_name_from_fastq_list_csv(inputs.fastq_list);\n        if (normal_name !== null) {\n            return \"\".concat(normal_name, \"_normal\");\n        }\n    }\n    /*\n    Otherwise collect and return from schema object\n    */\n    normal_name = get_normal_name_from_fastq_list_rows(inputs.fastq_list_rows);\n    return \"\".concat(normal_name, \"_normal\");\n}\nfunction build_fastq_list_csv_header(header_names) {\n    /*\n    Convert lowercase labels to uppercase values\n    i.e\n    [ \"rgid\", \"rglb\", \"rgsm\", \"lane\", \"read_1\", \"read_2\" ]\n    to\n    \"RGID,RGLB,RGSM,Lane,Read1File,Read2File\"\n    */\n    var modified_header_names = [];\n    for (var _i = 0, header_names_1 = header_names; _i < header_names_1.length; _i++) {\n        var header_name = header_names_1[_i];\n        if (header_name.indexOf(\"rg\") === 0) {\n            /*\n            rgid -> RGID\n            */\n            modified_header_names.push(header_name.toUpperCase());\n        }\n        else if (header_name.indexOf(\"read\") === 0) {\n            /*\n            read_1 -> Read1File\n            */\n            modified_header_names.push(\"Read\" + header_name.charAt(header_name.length - 1) + \"File\");\n        }\n        else {\n            /*\n            lane to Lane\n            */\n            modified_header_names.push(header_name[0].toUpperCase() + header_name.substr(1));\n        }\n    }\n    /*\n    Convert array to comma separated strings\n    */\n    return modified_header_names.join(\",\") + \"\\n\";\n}\nfunction get_fastq_list_row_as_csv_row(fastq_list_row, row_order) {\n    var fastq_list_row_values_array = [];\n    /*  This for loop is here to ensure were assigning values in the same order as the header */\n    for (var _i = 0, row_order_1 = row_order; _i < row_order_1.length; _i++) {\n        var item_index = row_order_1[_i];\n        var found_item = false;\n        /*  Find matching attribute in this row */\n        for (var _a = 0, _b = Object.getOwnPropertyNames(fastq_list_row); _a < _b.length; _a++) {\n            var fastq_list_row_field_name = _b[_a];\n            var fastq_list_row_field_value = fastq_list_row[fastq_list_row_field_name];\n            if (fastq_list_row_field_value === null) {\n                /*\n                Item not found, add an empty attribute for this cell in the csv\n                */\n                continue;\n            }\n            /*  The header value matches the name in the item */\n            if (fastq_list_row_field_name === item_index) {\n                /*\n                If the field value has a class attribute then it's either read_1 or read_2\n                */\n                if (fastq_list_row_field_value.hasOwnProperty(\"class\")) {\n                    var fastq_list_row_field_value_file = fastq_list_row_field_value;\n                    /*\n                    Assert that this is actually of class file\n                    */\n                    if (fastq_list_row_field_value_file.class !== \"File\") {\n                        continue;\n                    }\n                    if (fastq_list_row_field_value_file.path !== null && fastq_list_row_field_value_file.path !== undefined) {\n                        /*\n                        Push the path attribute to the fastq list csv row if it is not null\n                        */\n                        fastq_list_row_values_array.push(fastq_list_row_field_value_file.path);\n                    }\n                    else {\n                        /*\n                        Otherwise push the location attribute\n                        */\n                        fastq_list_row_values_array.push(fastq_list_row_field_value_file.location);\n                    }\n                }\n                else {\n                    /*\n                    Push the string attribute to the fastq list csv row\n                    */\n                    fastq_list_row_values_array.push(fastq_list_row_field_value.toString());\n                }\n                found_item = true;\n                break;\n            }\n        }\n        if (!found_item) {\n            /*\n            Push blank cell if no item found\n            */\n            fastq_list_row_values_array.push(\"\");\n        }\n    }\n    /*\n    Convert to string and return as string\n    */\n    return fastq_list_row_values_array.join(\",\") + \"\\n\";\n}\nfunction generate_fastq_list_csv(fastq_list_rows) {\n    /*\n    Fastq list rows generation\n    */\n    var fastq_csv_file = {\n        class:\"File\",\n        basename:get_fastq_list_csv_path()\n    };\n    /*\n    Set the row order\n    */\n    var row_order = [];\n    /*\n    Set the array order\n    Make sure we iterate through all rows of the array\n    */\n    for (var _i = 0, fastq_list_rows_1 = fastq_list_rows; _i < fastq_list_rows_1.length; _i++) {\n        var fastq_list_row = fastq_list_rows_1[_i];\n        for (var _a = 0, _b = Object.getOwnPropertyNames(fastq_list_row); _a < _b.length; _a++) {\n            var fastq_list_row_field_name = _b[_a];\n            if (row_order.indexOf(fastq_list_row_field_name) === -1) {\n                row_order.push(fastq_list_row_field_name);\n            }\n        }\n    }\n    /*\n    Make header\n    */\n    fastq_csv_file.contents = build_fastq_list_csv_header(row_order);\n    /*\n    For each fastq list row,\n    collect the values of each attribute but in the order of the header\n    */\n    for (var _c = 0, fastq_list_rows_2 = fastq_list_rows; _c < fastq_list_rows_2.length; _c++) {\n        var fastq_list_row = fastq_list_rows_2[_c];\n        /*  Add csv row to file contents */\n        fastq_csv_file.contents += get_fastq_list_row_as_csv_row(fastq_list_row, row_order);\n    }\n    return fastq_csv_file;\n}\nfunction generate_germline_mount_points(inputs) {\n    /*\n    Create and add in the fastq list csv for the input fastqs\n    */\n    var e = [];\n    if (inputs.fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.fastq_list_rows)\n        });\n    }\n    if (inputs.fastq_list !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":inputs.fastq_list\n        });\n    }\n    /*\n    Return file paths\n    */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\nfunction generate_somatic_mount_points(inputs) {\n    /*\n    Create and add in the fastq list csv for the input fastqs\n    */\n    var e = [];\n    if (inputs.fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.fastq_list_rows)\n        });\n    }\n    if (inputs.tumor_fastq_list_rows !== null) {\n        e.push({\n            \"entryname\":get_tumor_fastq_list_csv_path(),\n            \"entry\":generate_fastq_list_csv(inputs.tumor_fastq_list_rows)\n        });\n    }\n    if (inputs.fastq_list !== null) {\n        e.push({\n            \"entryname\":get_fastq_list_csv_path(),\n            \"entry\":inputs.fastq_list\n        });\n    }\n    if (inputs.tumor_fastq_list !== null) {\n        e.push({\n            \"entryname\":get_tumor_fastq_list_csv_path(),\n            \"entry\":inputs.tumor_fastq_list\n        });\n    }\n    /*\n    Return file paths\n    */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\nfunction generate_transcriptome_mount_points(inputs) {\n    /*\n    Calls another function that generates mount points\n    */\n    return generate_germline_mount_points(inputs);\n}\n/*  Custom functions for dragen reference tarball build */\nfunction get_liftover_dir() {\n    /*  Hardcoded liftover directory in dragen 4.2 */\n    return \"/opt/edico/liftover/\";\n}\nfunction get_mask_dir() {\n    /*  Hardcoded mask directory in dragen 4.2 */\n    return \"/opt/edico/fasta_mask/\";\n}\nfunction get_ref_scratch_dir(reference_name) {\n    /*  We get the reference scratch directory as a combination of */\n    /*  the dragen scratch mount and the reference name */\n    return get_scratch_mount() + reference_name + \"/\";\n}\nfunction get_ora_intermediate_output_dir() {\n    return get_scratch_mount() + \"ora-outputs/\";\n}\nfunction generate_ora_mv_files_script(fastq_list_rows, input_directory, output_directory) {\n    /*\n    Generate the shell script with a list of echo commands to write a new fastq list csv to stdout, however\n    the fastq list csv contains the ora files as outputs instead\n    */\n    var ora_mv_files_script = \"#!/usr/bin/env bash\\n\\n\";\n    ora_mv_files_script += \"# Exit on failure\\n\";\n    ora_mv_files_script += \"set -euo pipefail\\n\\n\";\n    ora_mv_files_script += \"# Get fastq ora paths\\n\";\n    ora_mv_files_script += \"FASTQ_ORA_OUTPUT_PATHS=(\\n\";\n    /*  Iterate over all files */\n    for (var _i = 0, fastq_list_rows_3 = fastq_list_rows; _i < fastq_list_rows_3.length; _i++) {\n        var fastq_list_row = fastq_list_rows_3[_i];\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            /*  Add relative path of read 1 */\n            ora_mv_files_script += \"  \\\"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            /*  Add relative path of read 2 */\n            ora_mv_files_script += \"  \\\"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \"\\\" \\\\\\n\");\n        }\n    }\n    /*  Complete the bash array */\n    ora_mv_files_script += \")\\n\\n\";\n    ora_mv_files_script += \"# Move all ora files to the final output directory\\n\";\n    ora_mv_files_script += \"xargs \\\\\\n\";\n    ora_mv_files_script += \"  --max-args=1 \\\\\\n\";\n    ora_mv_files_script += \"  --max-procs=16 \\\\\\n\";\n    ora_mv_files_script += \"  bash -c \\\\\\n\";\n    ora_mv_files_script += \"    '\\n\";\n    ora_mv_files_script += \"      fastq_ora_scratch_path=\\\"\".concat(get_ora_intermediate_output_dir(), \"$(basename \\\"$@\\\")\\\"\\n\");\n    ora_mv_files_script += \"      mkdir -p \\\"$(dirname \\\"\".concat(output_directory, \"/$@\\\")\\\"\\n\");\n    ora_mv_files_script += \"      rsync \\\\\\n\";\n    ora_mv_files_script += \"        --archive \\\\\\n\";\n    ora_mv_files_script += \"        --remove-source-files \\\\\\n\";\n    ora_mv_files_script += \"        --include \\\"$(basename \\\"$@\\\")\\\" \\\\\\n\";\n    ora_mv_files_script += \"        --exclude \\\"*\\\" \\\\\\n\";\n    ora_mv_files_script += \"        \\\"$(dirname \\\"${fastq_ora_scratch_path}\\\")/\\\" \\\\\\n\";\n    ora_mv_files_script += \"        \\\"$(dirname \\\"\".concat(output_directory, \"/$@\\\")/\\\"\\n\");\n    ora_mv_files_script += \"    ' \\\\\\n\";\n    ora_mv_files_script += \"  _ \\\\\\n\";\n    ora_mv_files_script += \"  <<< \\\"${FASTQ_ORA_OUTPUT_PATHS[@]}\\\"\\n\\n\";\n    ora_mv_files_script += \"# Transfer all other files\\n\";\n    ora_mv_files_script += \"mkdir -p \\\"\".concat(output_directory, \"/ora-logs/\\\"\\n\");\n    ora_mv_files_script += \"mv \\\"\".concat(get_ora_intermediate_output_dir(), \"\\\" \\\"\").concat(output_directory, \"/ora-logs/compression/\\\"\\n\");\n    return {\n        class:\"File\",\n        basename:get_ora_mv_files_script_path(),\n        contents:ora_mv_files_script\n    };\n}\nfunction generate_new_fastq_list_csv_script(fastq_list_rows, input_directory) {\n    /*\n    Generate the shell script with a list of mv commands to move the output files from the scratch space to their\n    original location in the working directory\n    */\n    var new_fastq_list_csv_script = \"#!/usr/bin/env bash\\n\\n\";\n    new_fastq_list_csv_script += \"set -euo pipefail\\n\\n\";\n    new_fastq_list_csv_script += \"# Generate a new fastq list csv script\\n\";\n    new_fastq_list_csv_script += \"# Initialise header\\n\";\n    new_fastq_list_csv_script += \"echo \\\"RGID,RGLB,RGSM,Lane,Read1File,Read2File\\\"\\n\";\n    for (var _i = 0, fastq_list_rows_4 = fastq_list_rows; _i < fastq_list_rows_4.length; _i++) {\n        var fastq_list_row = fastq_list_rows_4[_i];\n        /*  Initialise echo line */\n        var echo_line = \"echo \\\"\".concat(fastq_list_row.rgid, \",\").concat(fastq_list_row.rglb, \",\").concat(fastq_list_row.rgsm, \",\").concat(fastq_list_row.lane, \",\");\n        /*  Confirm read 1 is a file type */\n        if (\"class\" in fastq_list_row.read_1 && fastq_list_row.read_1.class === \"File\") {\n            echo_line += \"\".concat(fastq_list_row.read_1.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"), \",\");\n        }\n        else {\n            echo_line += ',';\n        }\n        /*  Confirm read 2 is a file type */\n        if (fastq_list_row.read_2 !== null && \"class\" in fastq_list_row.read_2 && fastq_list_row.read_2.class === \"File\") {\n            echo_line += \"\".concat(fastq_list_row.read_2.path.replace(input_directory.path + \"/\", '').replace(\".gz\", \".ora\"));\n        }\n        /*  Finish off echo line */\n        echo_line += \"\\\"\\n\";\n        new_fastq_list_csv_script += echo_line;\n    }\n    return {\n        class:\"File\",\n        basename:get_new_fastq_list_csv_script_path(),\n        contents:new_fastq_list_csv_script\n    };\n}\nfunction find_fastq_files_in_directory_recursively_with_regex(input_dir) {\n    var _a;\n    /*\n    Initialise the output file object\n    */\n    var read_1_file_list = [];\n    var read_2_file_list = [];\n    var output_file_objs = [];\n    var fastq_file_regex = /\\.fastq\\.gz$/;\n    var r1_fastq_file_regex = /_R1_001\\.fastq\\.gz$/;\n    var r2_fastq_file_regex = /_R2_001\\.fastq\\.gz$/;\n    /*\n    Check input_dir is a directory and has a listing\n    */\n    if (input_dir.class === undefined || input_dir.class !== \"Directory\") {\n        throw new Error(\"Could not confirm that the first argument was a directory\");\n    }\n    if (input_dir.listing === undefined || input_dir.listing === null) {\n        throw new Error(\"Could not collect listing from directory \\\"\".concat(input_dir.basename, \"\\\"\"));\n    }\n    /*\n    Collect listing as a variable\n    */\n    var input_listing = input_dir.listing;\n    /*\n    Iterate through the file listing\n    */\n    for (var _i = 0, input_listing_1 = input_listing; _i < input_listing_1.length; _i++) {\n        var listing_item = input_listing_1[_i];\n        if (listing_item.class === \"File\" && fastq_file_regex.test(listing_item.basename)) {\n            /*\n            Got the file of interest and the file basename matches the file regex\n            */\n            /*\n            Check if the file is read 1 or read 2\n            */\n            if (r1_fastq_file_regex.test(listing_item.basename)) {\n                read_1_file_list.push(listing_item);\n            }\n            if (r2_fastq_file_regex.test(listing_item.basename)) {\n                read_2_file_list.push(listing_item);\n            }\n        }\n        if (listing_item.class === \"Directory\") {\n            var subdirectory_list = listing_item;\n            try {\n                /*  Consider that the file might not be in this subdirectory and that is okay */\n                output_file_objs.push.apply(output_file_objs, find_fastq_files_in_directory_recursively_with_regex(subdirectory_list));\n            }\n            catch (error) {\n                /*  Dont need to report an error though, just continue */\n            }\n        }\n    }\n    /*  Iterate over all the read 1 files and try to find a matching read 2 file */\n    for (var _b = 0, read_1_file_list_1 = read_1_file_list; _b < read_1_file_list_1.length; _b++) {\n        var read_1_file = read_1_file_list_1[_b];\n        var read_2_file = undefined;\n        for (var _c = 0, read_2_file_list_1 = read_2_file_list; _c < read_2_file_list_1.length; _c++) {\n            var read_2_file_candidate = read_2_file_list_1[_c];\n            if (((_a = read_1_file.basename) === null || _a === void 0 ? void 0 :_a.replace(\"R1_001.fastq.gz\", \"R2_001.fastq.gz\")) === read_2_file_candidate.basename) {\n                read_2_file = read_2_file_candidate;\n                break;\n            }\n        }\n        output_file_objs.push({ read1obj:read_1_file, read2obj:read_2_file });\n    }\n    /*  Return the output file object */\n    return output_file_objs;\n}\nfunction get_rgsm_value_from_fastq_file_name(fastq_file_name) {\n    /*  Get the RGID value from the fastq file name */\n    var rgid_regex = /(.+?)(?:_S\\d+)?(?:_L00\\d)?_R[12]_001\\.fastq\\.gz$/;\n    var rgid_expression = rgid_regex.exec(fastq_file_name);\n    if (rgid_expression === null) {\n        throw new Error(\"Could not get rgid from \".concat(fastq_file_name));\n    }\n    return rgid_expression[1];\n}\nfunction get_lane_value_from_fastq_file_name(fastq_file_name) {\n    /*  Get the lane value from the fastq file name */\n    var lane_regex = /(?:.+?)(?:_S\\d+)?_L00(\\d)_R[12]_001\\.fastq\\.gz$/;\n    var lane_expression = lane_regex.exec(fastq_file_name);\n    if (lane_expression === null) {\n        return 1;\n    }\n    else {\n        console.log(lane_expression);\n        return parseInt(lane_expression[1]);\n    }\n}\nfunction generate_ora_mount_points(input_run, output_directory_path, sample_id_list) {\n    /*\n    Three main parts\n\n    1. Collect the fastq files\n    2. For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary to make a fastq list row\n    3. Generate the fastq list csv file\n    */\n    /*  Collect the fastq files */\n    var fastq_files_pairs = find_fastq_files_in_directory_recursively_with_regex(input_run);\n    /*  For each fastq file pair, generate the rgid, rgsm, rglb and lane attributes as necessary */\n    var fastq_list_rows = [];\n    for (var _i = 0, fastq_files_pairs_1 = fastq_files_pairs; _i < fastq_files_pairs_1.length; _i++) {\n        var fastq_files_pair = fastq_files_pairs_1[_i];\n        var rgsm_value = get_rgsm_value_from_fastq_file_name(fastq_files_pair.read1obj.basename);\n        /*  Skip fastq list pair if sample_id_list is defined and the rgsm_value is not in the list */\n        if (sample_id_list !== undefined && sample_id_list !== null && sample_id_list !== \"\" && sample_id_list.indexOf(rgsm_value) === -1) {\n            continue;\n        }\n        /*  Remove undetermined files from the list of fastqs to process (they are often empty) */\n        if (rgsm_value === \"Undetermined\") {\n            continue;\n        }\n        /*  Check if we have the size attribute and if so check if it is greater than 0 */\n        if (fastq_files_pair.read1obj.size !== null && fastq_files_pair.read1obj.size !== undefined && fastq_files_pair.read1obj.size == 0) {\n            continue;\n        }\n        /*  Repeat the condition for read 2 although also ensure that read 2 is also actually defined */\n        if (fastq_files_pair.read2obj !== undefined && fastq_files_pair.read2obj !== null) {\n            if (fastq_files_pair.read2obj.size !== null && fastq_files_pair.read2obj.size !== undefined && fastq_files_pair.read2obj.size == 0) {\n                continue;\n            }\n        }\n        var lane_value = get_lane_value_from_fastq_file_name(fastq_files_pair.read1obj.basename);\n        var fastq_list_row = {\n            rgid:lane_value.toString() + '.' + rgsm_value,\n            rgsm:rgsm_value,\n            rglb:\"UnknownLibrary\",\n            lane:lane_value,\n            read_1:fastq_files_pair.read1obj,\n            read_2:fastq_files_pair.read2obj\n        };\n        fastq_list_rows.push(fastq_list_row);\n    }\n    /*  Initialise dirent */\n    var e = [];\n    /*  Generate the fastq list csv file */\n    e.push({\n        \"entryname\":get_fastq_list_csv_path(),\n        \"entry\":generate_fastq_list_csv(fastq_list_rows)\n    });\n    /*  Generate the script to then move the files from the scratch space to the working directory */\n    e.push({\n        \"entryname\":get_ora_mv_files_script_path(),\n        \"entry\":generate_ora_mv_files_script(fastq_list_rows, input_run, output_directory_path)\n    });\n    /*  Generate the script to generate the new output fastq list csv */\n    e.push({\n        \"entryname\":get_new_fastq_list_csv_script_path(),\n        \"entry\":generate_new_fastq_list_csv_script(fastq_list_rows, input_run)\n    });\n    /*  Return the dirent */\n    /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */\n    return e;\n}\n",
+            "/*  Author:Alexis Lucattini */\n/*  For assistance on generation of typescript expressions */\n/*  In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript */\n/*  Imports */\n/*  Functions */\nfunction is_not_null(input_obj) {\n    /*\n    Determine if input object is defined and is not null\n    */\n    return !(input_obj === null || input_obj === undefined);\n}\nfunction get_attribute_from_optional_input(input_object, attribute) {\n    /*\n    Get attribute from optional input -\n    If input is not defined, then return null\n    */\n    if (input_object === null || input_object === undefined) {\n        return null;\n    }\n    else {\n        return get_optional_attribute_from_object(input_object, attribute);\n    }\n}\nfunction get_optional_attribute_from_object(input_object, attribute) {\n    /*\n    Get attribute from object, if attribute is not defined return null\n    Assume the input object is an object of key value pairs where we know the key is of type string\n    stackoverflow.com/questions/56833469/typescript-error-ts7053-element-implicitly-has-an-any-type\n    */\n    if (input_object.hasOwnProperty(attribute)) {\n        return input_object[attribute];\n    }\n    else {\n        return null;\n    }\n}\nfunction get_bool_value_as_str(input_bool) {\n    if (is_not_null(input_bool) && input_bool) {\n        return \"true\";\n    }\n    else {\n        return \"false\";\n    }\n}\nfunction boolean_to_int(input_bool) {\n    if (is_not_null(input_bool) && String(input_bool).toLowerCase() === \"true\") {\n        return 1;\n    }\n    else {\n        return 0;\n    }\n}\nfunction get_optional_attribute_from_multi_type_input_object(object, attribute) {\n    /*\n    Get attribute from optional input\n    */\n    if (object === null || object === undefined) {\n        return null;\n    }\n    else if (typeof object === \"object\") {\n        /*  Get attribute from optional input */\n        return get_attribute_from_optional_input(object, attribute);\n    }\n    else {\n        /*  Object is likely actually a str */\n        return object;\n    }\n}\nfunction get_source_a_or_b(input_a, input_b) {\n    /*\n    Get the first input parameter if it is not null\n    Otherwise return the second parameter\n    Otherwise return null\n    */\n    if (is_not_null(input_a)) {\n        return input_a;\n    }\n    else if (is_not_null(input_b)) {\n        return input_b;\n    }\n    else {\n        return null;\n    }\n}\nfunction get_first_non_null_input(inputs) {\n    /*\n    Get first element of the array that is not null\n    */\n    for (var _i = 0, inputs_1 = inputs; _i < inputs_1.length; _i++) {\n        var input_element = inputs_1[_i];\n        if (is_not_null(input_element)) {\n            return input_element;\n        }\n    }\n    return null;\n}\nfunction get_attribute_list_from_object_list(obj_list, attribute) {\n    /*\n    Get attribute from list of objects\n    If an object is null, it is not included in the return list\n    */\n    return obj_list.filter(function (x) { return x !== null; }).map(function (x) { return get_optional_attribute_from_object(x, attribute); });\n}\nfunction get_str_list_as_bash_array(input_list, item_wrap) {\n    /*\n    Convert a list of strings to a bash array, if the list is not defined return null\n    */\n    if (input_list === null) {\n        return null;\n    }\n    if (item_wrap === null) {\n        return \"( \".concat(input_list.map(function (x) { return \"'\".concat(item_wrap).concat(x).concat(item_wrap, \"'\"); }).join(' '), \" )\");\n    }\n    return \"( \".concat(input_list.map(function (x) { return \"'\".concat(x, \"'\"); }).join(' '), \" )\");\n}\nfunction get_object_attribute_list_as_bash_array(obj_list, attribute) {\n    /*\n    Get attribute from list of objects and convert to a bash array\n    Do not include null values in the array\n    */\n    return get_str_list_as_bash_array(get_attribute_list_from_object_list(obj_list, attribute).filter(function (x) { return x !== null; }));\n}\n",
+            "var get_hash_table_script_filename = function(){ return \"build_hash_table.sh\"; }"
+          ],
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "tmpdirMin": "${\n  /* 1 Tb */\n  return Math.pow(2, 20);\n}\n",
+          "class": "ResourceRequirement"
+        }
+      ],
+      "baseCommand": [
+        "bash"
+      ],
+      "arguments": [
+        {
+          "position": -1,
+          "valueFrom": "$(get_hash_table_script_filename())"
+        },
+        {
+          "prefix": "--build-hash-table",
+          "valueFrom": "true"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "enable cnv",
+          "doc": "For the DRAGEN CNV pipeline, the hashtable must be generated with the --enable-cnv option set to true,\nin addition to any other options required by other pipelines.\nWhen --enable-cnv is true, dragen generates an additional k-mer uniqueness map that the CNV algorithm uses to\ncounteract mapability biases.\nThe k-mer uniqueness map file only needs to be generated once per reference hashtable\nand takes about 1.5 hours per whole human genome.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--enable-cnv",
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/enable_cnv"
+        },
+        {
+          "label": "ht alt aware validation",
+          "doc": "When building hash tables from a reference that contains ALT-contigs,\nbuilding with a liftover file is required.\nTo disable this requirement, set the --ht-alt-aware-validate option to false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-alt-aware-validate",
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_alt_aware_validate"
+        },
+        {
+          "label": "ht alt aware liftover",
+          "doc": "The --ht-alt-liftover option specifies the path to the liftover file to build an ALT-aware hash table.\nThis option is required when building from a reference with ALT contigs.\nSAM liftover files for hg38DH and hg19 are provided in /opt/edico/liftover.\n\nFor hg38 references, use bwa-kit_hs38DH_liftover.sam\nFor hg19 references, use hg19_alt_liftover.sam\n",
+          "type": [
+            "null",
+            "File",
+            {
+              "type": "enum",
+              "symbols": [
+                "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_alt_liftover/bwa-kit_hs38DH_liftover.sam",
+                "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_alt_liftover/hg19_alt_liftover.sam"
+              ]
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--ht-alt-liftover",
+            "valueFrom": "${\n  /*\n  Not checking for null\n  Only evaluated if not null\n  */\n  if(typeof(self) == \"string\"){\n    /*\n    Enum, of type string\n    Returns the lift over dir plus file name\n    */\n    return get_liftover_dir() + self;\n  }\n  else {\n    /*\n    Of type File, return path\n    */\n    return self.path;\n  }\n}"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_alt_liftover"
+        },
+        {
+          "label": "ht build hla hash table",
+          "doc": "Used when --enable-hla is set to true for any given dragen workflow.\nThis option must be used when running dragen workflows on hla data.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "default": true,
+          "inputBinding": {
+            "prefix": "--ht-build-hla-hashtable",
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_build_hla_hashtable"
+        },
+        {
+          "label": "ht build rna hash table",
+          "doc": "Used when --enable-rna is set to true for any given dragen workflow.\nThis option must be used when running dragen workflows on rna data.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "default": true,
+          "inputBinding": {
+            "prefix": "--ht-build-rna-hashtable",
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_build_rna_hashtable"
+        },
+        {
+          "label": "cost coefficient for hit frequency",
+          "doc": "The --ht-cost-coeff-seed-freq option assigns the cost component for the difference between\nthe target hit frequency and the number of hits populated for a single seed.\nHigher values result primarily in high-frequency seeds being extended further to bring their frequencies down\ntoward the target.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-cost-coeff-seed-freq"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_cost_coeff_seed_freq"
+        },
+        {
+          "label": "cost coefficient for seed length",
+          "doc": "The --ht-cost-coeff-seed-len option assigns the cost component for each base by which a seed is extended.\nAdditional bases are considered a cost because longer seeds risk overlapping variants or sequencing errors and\nlosing their correct mappings. Higher values lead to shorter final seed extensions.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-cost-coeff-seed-len"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_cost_coeff_seed_len"
+        },
+        {
+          "label": "cost penalty for seed extension",
+          "doc": "The --ht-cost-penalty option assigns a flat cost for extending beyond the primary seed length.\nA higher value results in fewer seeds being extended at all.\nCurrent testing shows that zero (0) is appropriate for this parameter.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-cost-penalty"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_cost_penalty"
+        },
+        {
+          "label": "cost increment for extension step",
+          "doc": "The --ht-cost-penalty-incr option assigns a recurring cost for each incremental seed extension step\ntaken from primary to final extended seed length.\nMore steps are considered a higher cost because extending in many small steps requires\nmore hash table space for intermediate EXTEND records,\nand takes substantially more run time to execute the extensions.\nA higher value results in seed extension trees with fewer nodes,\nreaching from the root primary seed length to leaf extended seed lengths in fewer, larger steps.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-cost-penalty-incr"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_cost_penalty_incr"
+        },
+        {
+          "label": "ht decoys path",
+          "doc": "The DRAGEN software automatically detects the use of hg19 and hg38 references and\nadds decoys to the hash table when they are not found in the FASTA file.\nUse the --ht-decoys option to specify the path to a decoys file.\nThe default is /opt/edico/liftover/hs_decoys.fa.\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-decoys"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_decoys"
+        },
+        {
+          "label": "ht mask bed",
+          "doc": "Specifies the BED file for base masking.\n",
+          "type": [
+            "null",
+            "File",
+            {
+              "type": "enum",
+              "symbols": [
+                "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_mask_bed/hg38_alt_mask.bed"
+              ]
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--ht-mask-bed",
+            "valueFrom": "${\n  /*\n  Not checking for null\n  Only evaluated if not null\n  */\n  if(typeof(self) == \"string\"){\n    /*\n    Enum, of type string\n    Returns the lift over dir plus file name\n    */\n    return get_mask_dir() + self;\n  }\n  else {\n    /*\n    Of type File, return path\n    */\n    return self.path;\n  }\n}"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_mask_bed"
+        },
+        {
+          "label": "ht max dec factor",
+          "doc": "Seed thinning is an experimental technique to improve mapping performance in high-frequency regions.\nWhen primary seeds have higher frequency than the cap indicated by the --ht-soft-seed-freq-cap option,\nonly a fraction of seed positions are populated to stay under the cap.\n\nThe --ht-max-dec-factor option specifies a maximum factor by which seeds can be thinned.\n\nFor example, --ht-max-dec-factor 3 retains at least 1/3 of the original seeds. --ht-max-dec-factor 1\ndisables any thinning.\n\nSeeds are decimated in careful patterns to prevent leaving any long gaps unpopulated.\n\nThe idea is that seed thinning can achieve mapped seed coverage in high frequency reference regions\nwhere the maximum hit frequency would otherwise have been exceeded.\n\nSeed thinning can also keep seed extensions shorter, which is also good for successful mapping.\nBased on testing to date, seed thinning has not proven to be superior to other accuracy optimization methods.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-max-dec-factor"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_max_dec_factor"
+        },
+        {
+          "label": "ht maximum seed length",
+          "doc": "The --ht-max-ext-seed-len option limits the length of extended seeds populated into the hash table.\nPrimary seeds (length specified by --ht-seed-len) that match many reference positions can be extended\nto achieve more unique matching, which may be required to map seeds within the maximum hit frequency\n(--ht-max-seed-freq).\nGiven a primary seed length k, the maximum seed length can be configured between k and k+128.\nThe default is the upper bound, k+128.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-max-ext-seed-len"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_max_ext_seed_len"
+        },
+        {
+          "label": "ht maximum hit frequency",
+          "doc": "The --ht-max-seed-freq option sets a firm limit on the number of seed hits (reference genome locations)\nthat can be populated for any primary or extended seed.\n\nIf a given primary seed maps to more reference positions than this limit,\nit must be extended long enough that the extended seeds subdivide into smaller groups of identical\nseeds under the limit. If, even at the maximum extended seed length (--ht-max-ext-seed-len),\na group of identical reference seeds is larger than this limit,\ntheir reference positions are not populated into the hash table.\nInstead, dragen populates a single High Frequency record.\nThe maximum hit frequency can be configured from 1 to 256.\nHowever, if this value is too low, hash table construction can fail because too many seed extensions are needed.\nThe practical minimum for a whole human genome reference, other options being default, is 8.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-max-seed-freq"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_max_seed_freq"
+        },
+        {
+          "label": "ht max table chunks",
+          "doc": "The --ht-max-table-chunks option controls the memory footprint during hash table construction by\nlimiting the number of ~1 GB hash table chunks that reside in memory simultaneously.\nEach additional chunk consumes roughly twice its size (~2 GB) in system memory during construction.\n\nThe hash table is divided into power-of-two independent chunks, of a fixed chunk size, X,\nwhich depends on the hash table size, in the range 0.5 GB < X \u2264 1 GB.\n\nFor example, a 24 GB hash table contains 32 independent 0.75 GB chunks that can be constructed by parallel\nthreads with enough memory and a 16 GB hash table contains 16 independent 1 GB chunks.\n\nThe default is --ht-max-table-chunks equal to --ht-num-threads,\nbut with a minimum default --ht-max-table-chunks of 8.\n\nIt makes sense to have these two options match, because building one hash table chunk requires one chunk space\nin memory and one thread to work on it. Nevertheless, there are build-speed advantages to\nraising --ht-max-table-chunks higher than --ht-num-threads, or to raising --ht-num-threads higher\nthan --ht-max-table-chunks.\n\nFor example, the DRAGEN servers contain 24 cores that have hyperthreading enabled,\nso a value of 32 should be used. When using a higher value, adjust --ht-max-table-chunks needs to be adjusted\nas well. The servers have 128 GB of memory available.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-max-table-chunks"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_max_table_chunks"
+        },
+        {
+          "label": "ht mem limit",
+          "doc": "The --ht-mem-limit option controls the generated hash table size by specifying the DRAGEN board memory available\nfor both the hash table and the encoded reference genome.\nThe \u2011\u2011ht\u2011mem-limit option defaults to 32 GB when the reference genome approaches WHG size,\nor to a generous size for smaller references. Normally there is little reason to override these defaults.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-mem-limit"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_mem_limit"
+        },
+        {
+          "label": "ht methylated",
+          "doc": "DRAGEN methylation runs require building a special pair of hash tables with reference bases\nconverted from C->T for one table, and G->A for the other.\nWhen running the hash table generation with the --ht-methylated option, these conversions are done automatically,\nand the converted hash tables are generated in a pair of subdirectories of the target directory\nspecified with --output-directory.\nThe subdirectories are named CT_converted and GA_converted, corresponding to the automatic base conversions.\nWhen using these hash tables for methylated alignment runs, refer to the original --output-directory and not\nto either of the automatically generated subdirectories.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-methylated",
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_methylated"
+        },
+        {
+          "label": "ht num threads",
+          "doc": "The --ht-num-threads option determines the maximum number of worker CPU threads that are\nused to speed up hash table construction.\nThe default for this option is 8, with a maximum of 32 threads allowed.\nIf your server supports execution of more threads, it is recommended that you use the maximum.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-num-threads"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_num_threads"
+        },
+        {
+          "label": "ht population alternate contigs",
+          "doc": "Specifies the path to the reference FASTA file with population alternate contigs.\nThe standard reference FASTA is augmented with the population alternate contigs during hash table build.\nThe population alternate contigs file must have a corresponding liftover SAM file.\nA population alternate contig file for hg38 reference is provided in /opt/edico/liftover (pop_altContig.fa.gz).\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-pop-alt-contigs"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_pop_alt_contigs"
+        },
+        {
+          "label": "ht population alternate liftover",
+          "doc": "Specifies the path to the liftover file for the population alternate contigs.\nThe liftover SAM file must have a corresponding population alternate contigs FASTA.\nA population alternate contig SAM liftover file for hg38 reference is provided in /opt/edico/liftover\n(pop_liftover.sam.gz).\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-pop-alt-liftover"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_pop_alt_liftover"
+        },
+        {
+          "label": "ht population snps",
+          "doc": "Specifies the path to a VCF file containing unphased population SNPs.\nThe standard reference FASTA is augmented with these SNPs as multibase codes during mapping-aligning.\nEach SNP entry in the VCF only requires the CHROM, POS, REF, ALT columns.\nThe ALT column can have multiple comma-separated population SNP VCF for hg38 reference is\nprovided in /opt/edico/liftover (pop_snps.vcf.gz).\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-pop-snps"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_pop_snps"
+        },
+        {
+          "label": "ht rand hit extend",
+          "doc": "Whenever a HIFREQ or EXTEND record is populated into the hash table, it stands in place of a\nlarge set of reference hits for a certain seed.\nOptionally, the hash table builder can choose a random representative of that set,\nand populate that HIT record alongside the HIFREQ or EXTEND record.\n\nRandom sample hits provide alternative alignments that are very useful in estimating MAPQ accurately\nfor the alignments that are reported.\n\nThey are never used outside of this context for reporting alignment positions,\nbecause that would result in biased coverage of locations that happened to be selected\nduring hash table construction.\n\nTo include a sample hit, set --ht-rand-hit-hifreq to 1.\nThe --ht-rand-hit-extend option is a minimum pre-extension hit count to include a sample hit, or zero to disable.\nModifying these options is not recommended.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-rand-hit-extend"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_rand_hit_extend"
+        },
+        {
+          "label": "ht random hit hifreq",
+          "doc": "Whenever a HIFREQ or EXTEND record is populated into the hash table, it stands in place of a\nlarge set of reference hits for a certain seed.\nOptionally, the hash table builder can choose a random representative of that set,\nand populate that HIT record alongside the HIFREQ or EXTEND record.\n\nRandom sample hits provide alternative alignments that are very useful in estimating MAPQ accurately\nfor the alignments that are reported.\n\nThey are never used outside of this context for reporting alignment positions,\nbecause that would result in biased coverage of locations that happened to be selected\nduring hash table construction.\n\nTo include a sample hit, set --ht-rand-hit-hifreq to 1.\nThe --ht-rand-hit-extend option is a minimum pre-extension hit count to include a sample hit, or zero to disable.\nModifying these options is not recommended.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-rand-hit-hifreq"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_rand_hit_hifreq"
+        },
+        {
+          "label": "ht reference seed interval",
+          "doc": "The --ht-ref-seed-interval option defines the step size between positions of seeds in the reference\ngenome populated into the hash table.\n\nAn interval of 1 (default) means that every seed position is populated, 2 means 50% of positions are populated,\netc. Noninteger values are supported, eg, 2.5 yields 40% populated.\n\nSeeds from a whole human reference are easily 100% populated with 32 GB memory on DRAGEN boards.\nIf a substantially larger reference genome is used, change this option\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-ref-seed-interval"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_ref_seed_interval"
+        },
+        {
+          "label": "ht reference",
+          "doc": "Reference fasta file\n",
+          "type": "File",
+          "secondaryFiles": [
+            {
+              "pattern": ".fai",
+              "required": true
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--ht-reference"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_reference"
+        },
+        {
+          "label": "ht primary seed length",
+          "doc": "The --ht-seed-len option specifies the initial length in nucleotides\nof seeds from the reference genome to populate into the hash table.\n\nAt run time, the mapper extracts seeds of this same length from each read,\nand looks for exact matches (unless seed editing is enabled) in the hash table.\n\nThe maximum primary seed length is a function of hash table size.\nThe limit is k=27 for table sizes from 16 GB to 64 GB, covering typical sizes for whole human genome,\nor k=26 for sizes from 4 GB to 16 GB.\n\nThe minimum primary seed length depends mainly on the reference genome size and complexity.\nIt needs to be long enough to resolve most reference positions uniquely.\nFor whole human genome references, hash table construction typically fails with k < 16.\nThe lower bound may be smaller for shorter genomes, or higher for less complex (more repetitive) genomes.\nThe uniqueness threshold of --ht-seed-len 16 for the 3.1Gbp human\ngenome can be understood intuitively because log4(3.1 G) \u2248 16,\nso it requires at least 16 choices from 4 nucleotides to distinguish 3.1 G reference positions.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-seed-len"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_seed_len"
+        },
+        {
+          "label": "ht size",
+          "doc": "This option specifies the hash table size to generate,\nrather than calculating an appropriate table size from the reference genome size\nand the available memory (option --ht-mem-limit).\nUsing default table sizing is recommended and using --ht-mem-limit is the next best choice.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-size"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_size"
+        },
+        {
+          "label": "ht soft seed frequency cap",
+          "doc": "Seed thinning is an experimental technique to improve mapping performance in high-frequency regions.\nWhen primary seeds have higher frequency than the cap indicated by the --ht-soft-seed-freq-cap option,\nonly a fraction of seed positions are populated to stay under the cap.\n\nThe --ht-max-dec-factor option specifies a maximum factor by which seeds can be thinned.\n\nFor example, --ht-max-dec-factor 3 retains at least 1/3 of the original seeds. --ht-max-dec-factor 1\ndisables any thinning.\n\nSeeds are decimated in careful patterns to prevent leaving any long gaps unpopulated.\n\nThe idea is that seed thinning can achieve mapped seed coverage in high frequency reference regions\nwhere the maximum hit frequency would otherwise have been exceeded.\n\nSeed thinning can also keep seed extensions shorter, which is also good for successful mapping.\nBased on testing to date, seed thinning has not proven to be superior to other accuracy optimization methods.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-soft-seed-freq-cap"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_soft_seed_freq_cap"
+        },
+        {
+          "label": "ht suppress decoys",
+          "doc": "Use the --ht-suppress-decoys option to suppress the use of the decoys file when building the hash table.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-suppress-decoys",
+            "valueFrom": "$(self.toString())"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_suppress_decoys"
+        },
+        {
+          "label": "target hit frequency",
+          "doc": "The --ht-target-seed-freq option defines the ideal number of hits per seed for which seed extension should aim.\nHigher values lead to fewer and shorter final seed extensions, because shorter seeds tend to match more reference\npositions.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--ht-target-seed-freq"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/ht_target_seed_freq"
+        },
+        {
+          "label": "output directory",
+          "doc": "The name of the dragen output directory.\nThe output tarball will be this plus \".tar.gz\"\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--output-directory",
+            "valueFrom": "$(runtime.outdir)/$(self)"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/output_directory"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      },
+      "outputs": [
+        {
+          "label": "dragen reference tar",
+          "doc": "Output tarball containing the reference data\n",
+          "type": "File",
+          "outputBinding": {
+            "glob": "$(inputs.output_directory).tar.gz"
+          },
+          "id": "#dragen-build-reference-tarball__4.2.4.cwl/dragen-build-reference-tarball--4.2.4/dragen_reference_tar"
+        }
+      ]
+    },
+    {
+      "class": "Workflow",
+      "id": "#main",
+      "label": "dragen-build-reference-tarball v(4.2.4)",
+      "doc": "Documentation for dragen-build-reference-tarball v4.2.4\n",
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "enable cnv",
+          "doc": "For the DRAGEN CNV pipeline, the hashtable must be generated with the --enable-cnv option set to true,\nin addition to any other options required by other pipelines.\nWhen --enable-cnv is true, dragen generates an additional k-mer uniqueness map that the CNV algorithm uses to\ncounteract mapability biases.\nThe k-mer uniqueness map file only needs to be generated once per reference hashtable\nand takes about 1.5 hours per whole human genome.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/enable_cnv"
+        },
+        {
+          "label": "ht alt aware validation",
+          "doc": "When building hash tables from a reference that contains ALT-contigs,\nbuilding with a liftover file is required.\nTo disable this requirement, set the --ht-alt-aware-validate option to false.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/ht_alt_aware_validate"
+        },
+        {
+          "label": "ht alt aware liftover",
+          "doc": "The --ht-alt-liftover option specifies the path to the liftover file to build an ALT-aware hash table.\nThis option is required when building from a reference with ALT contigs.\nSAM liftover files for hg38DH and hg19 are provided in /opt/edico/liftover.\n\nFor hg38 references, use bwa-kit_hs38DH_liftover.sam\nFor hg19 references, use hg19_alt_liftover.sam\n",
+          "type": [
+            "null",
+            "File",
+            {
+              "type": "enum",
+              "symbols": [
+                "#main/ht_alt_liftover/bwa-kit_hs38DH_liftover.sam",
+                "#main/ht_alt_liftover/hg19_alt_liftover.sam"
+              ]
+            }
+          ],
+          "id": "#main/ht_alt_liftover"
+        },
+        {
+          "label": "ht build hla hash table",
+          "doc": "Used when --enable-hla is set to true for any given dragen workflow.\nThis option must be used when running dragen workflows on hla data.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "default": true,
+          "id": "#main/ht_build_hla_hashtable"
+        },
+        {
+          "label": "ht build rna hash table",
+          "doc": "Used when --enable-rna is set to true for any given dragen workflow.\nThis option must be used when running dragen workflows on rna data.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "default": true,
+          "id": "#main/ht_build_rna_hashtable"
+        },
+        {
+          "label": "cost coefficient for hit frequency",
+          "doc": "The --ht-cost-coeff-seed-freq option assigns the cost component for the difference between\nthe target hit frequency and the number of hits populated for a single seed.\nHigher values result primarily in high-frequency seeds being extended further to bring their frequencies down\ntoward the target.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/ht_cost_coeff_seed_freq"
+        },
+        {
+          "label": "cost coefficient for seed length",
+          "doc": "The --ht-cost-coeff-seed-len option assigns the cost component for each base by which a seed is extended.\nAdditional bases are considered a cost because longer seeds risk overlapping variants or sequencing errors and\nlosing their correct mappings. Higher values lead to shorter final seed extensions.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/ht_cost_coeff_seed_len"
+        },
+        {
+          "label": "cost penalty for seed extension",
+          "doc": "The --ht-cost-penalty option assigns a flat cost for extending beyond the primary seed length.\nA higher value results in fewer seeds being extended at all.\nCurrent testing shows that zero (0) is appropriate for this parameter.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/ht_cost_penalty"
+        },
+        {
+          "label": "cost increment for extension step",
+          "doc": "The --ht-cost-penalty-incr option assigns a recurring cost for each incremental seed extension step\ntaken from primary to final extended seed length.\nMore steps are considered a higher cost because extending in many small steps requires\nmore hash table space for intermediate EXTEND records,\nand takes substantially more run time to execute the extensions.\nA higher value results in seed extension trees with fewer nodes,\nreaching from the root primary seed length to leaf extended seed lengths in fewer, larger steps.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/ht_cost_penalty_incr"
+        },
+        {
+          "label": "ht decoys path",
+          "doc": "The DRAGEN software automatically detects the use of hg19 and hg38 references and\nadds decoys to the hash table when they are not found in the FASTA file.\nUse the --ht-decoys option to specify the path to a decoys file.\nThe default is /opt/edico/liftover/hs_decoys.fa.\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "id": "#main/ht_decoys"
+        },
+        {
+          "label": "ht mask bed",
+          "doc": "Specifies the BED file for base masking.\n",
+          "type": [
+            "null",
+            "File",
+            {
+              "type": "enum",
+              "symbols": [
+                "#main/ht_mask_bed/hg38_alt_mask.bed"
+              ]
+            }
+          ],
+          "id": "#main/ht_mask_bed"
+        },
+        {
+          "label": "ht max dec factor",
+          "doc": "Seed thinning is an experimental technique to improve mapping performance in high-frequency regions.\nWhen primary seeds have higher frequency than the cap indicated by the --ht-soft-seed-freq-cap option,\nonly a fraction of seed positions are populated to stay under the cap.\n\nThe --ht-max-dec-factor option specifies a maximum factor by which seeds can be thinned.\n\nFor example, --ht-max-dec-factor 3 retains at least 1/3 of the original seeds. --ht-max-dec-factor 1\ndisables any thinning.\n\nSeeds are decimated in careful patterns to prevent leaving any long gaps unpopulated.\n\nThe idea is that seed thinning can achieve mapped seed coverage in high frequency reference regions\nwhere the maximum hit frequency would otherwise have been exceeded.\n\nSeed thinning can also keep seed extensions shorter, which is also good for successful mapping.\nBased on testing to date, seed thinning has not proven to be superior to other accuracy optimization methods.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/ht_max_dec_factor"
+        },
+        {
+          "label": "ht maximum seed length",
+          "doc": "The --ht-max-ext-seed-len option limits the length of extended seeds populated into the hash table.\nPrimary seeds (length specified by --ht-seed-len) that match many reference positions can be extended\nto achieve more unique matching, which may be required to map seeds within the maximum hit frequency\n(--ht-max-seed-freq).\nGiven a primary seed length k, the maximum seed length can be configured between k and k+128.\nThe default is the upper bound, k+128.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_max_ext_seed_len"
+        },
+        {
+          "label": "ht maximum hit frequency",
+          "doc": "The --ht-max-seed-freq option sets a firm limit on the number of seed hits (reference genome locations)\nthat can be populated for any primary or extended seed.\n\nIf a given primary seed maps to more reference positions than this limit,\nit must be extended long enough that the extended seeds subdivide into smaller groups of identical\nseeds under the limit. If, even at the maximum extended seed length (--ht-max-ext-seed-len),\na group of identical reference seeds is larger than this limit,\ntheir reference positions are not populated into the hash table.\nInstead, dragen populates a single High Frequency record.\nThe maximum hit frequency can be configured from 1 to 256.\nHowever, if this value is too low, hash table construction can fail because too many seed extensions are needed.\nThe practical minimum for a whole human genome reference, other options being default, is 8.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_max_seed_freq"
+        },
+        {
+          "label": "ht max table chunks",
+          "doc": "The --ht-max-table-chunks option controls the memory footprint during hash table construction by\nlimiting the number of ~1 GB hash table chunks that reside in memory simultaneously.\nEach additional chunk consumes roughly twice its size (~2 GB) in system memory during construction.\n\nThe hash table is divided into power-of-two independent chunks, of a fixed chunk size, X,\nwhich depends on the hash table size, in the range 0.5 GB < X \u2264 1 GB.\n\nFor example, a 24 GB hash table contains 32 independent 0.75 GB chunks that can be constructed by parallel\nthreads with enough memory and a 16 GB hash table contains 16 independent 1 GB chunks.\n\nThe default is --ht-max-table-chunks equal to --ht-num-threads,\nbut with a minimum default --ht-max-table-chunks of 8.\n\nIt makes sense to have these two options match, because building one hash table chunk requires one chunk space\nin memory and one thread to work on it. Nevertheless, there are build-speed advantages to\nraising --ht-max-table-chunks higher than --ht-num-threads, or to raising --ht-num-threads higher\nthan --ht-max-table-chunks.\n\nFor example, the DRAGEN servers contain 24 cores that have hyperthreading enabled,\nso a value of 32 should be used. When using a higher value, adjust --ht-max-table-chunks needs to be adjusted\nas well. The servers have 128 GB of memory available.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_max_table_chunks"
+        },
+        {
+          "label": "ht mem limit",
+          "doc": "The --ht-mem-limit option controls the generated hash table size by specifying the DRAGEN board memory available\nfor both the hash table and the encoded reference genome.\nThe \u2011\u2011ht\u2011mem-limit option defaults to 32 GB when the reference genome approaches WHG size,\nor to a generous size for smaller references. Normally there is little reason to override these defaults.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_mem_limit"
+        },
+        {
+          "label": "ht methylated",
+          "doc": "DRAGEN methylation runs require building a special pair of hash tables with reference bases\nconverted from C->T for one table, and G->A for the other.\nWhen running the hash table generation with the --ht-methylated option, these conversions are done automatically,\nand the converted hash tables are generated in a pair of subdirectories of the target directory\nspecified with --output-directory.\nThe subdirectories are named CT_converted and GA_converted, corresponding to the automatic base conversions.\nWhen using these hash tables for methylated alignment runs, refer to the original --output-directory and not\nto either of the automatically generated subdirectories.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/ht_methylated"
+        },
+        {
+          "label": "ht num threads",
+          "doc": "The --ht-num-threads option determines the maximum number of worker CPU threads that are\nused to speed up hash table construction.\nThe default for this option is 8, with a maximum of 32 threads allowed.\nIf your server supports execution of more threads, it is recommended that you use the maximum.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_num_threads"
+        },
+        {
+          "label": "ht population alternate contigs",
+          "doc": "Specifies the path to the reference FASTA file with population alternate contigs.\nThe standard reference FASTA is augmented with the population alternate contigs during hash table build.\nThe population alternate contigs file must have a corresponding liftover SAM file.\nA population alternate contig file for hg38 reference is provided in /opt/edico/liftover (pop_altContig.fa.gz).\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "id": "#main/ht_pop_alt_contigs"
+        },
+        {
+          "label": "ht population alternate liftover",
+          "doc": "Specifies the path to the liftover file for the population alternate contigs.\nThe liftover SAM file must have a corresponding population alternate contigs FASTA.\nA population alternate contig SAM liftover file for hg38 reference is provided in /opt/edico/liftover\n(pop_liftover.sam.gz).\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "id": "#main/ht_pop_alt_liftover"
+        },
+        {
+          "label": "ht population snps",
+          "doc": "Specifies the path to a VCF file containing unphased population SNPs.\nThe standard reference FASTA is augmented with these SNPs as multibase codes during mapping-aligning.\nEach SNP entry in the VCF only requires the CHROM, POS, REF, ALT columns.\nThe ALT column can have multiple comma-separated population SNP VCF for hg38 reference is\nprovided in /opt/edico/liftover (pop_snps.vcf.gz).\n",
+          "type": [
+            "null",
+            "File"
+          ],
+          "id": "#main/ht_pop_snps"
+        },
+        {
+          "label": "ht rand hit extend",
+          "doc": "Whenever a HIFREQ or EXTEND record is populated into the hash table, it stands in place of a\nlarge set of reference hits for a certain seed.\nOptionally, the hash table builder can choose a random representative of that set,\nand populate that HIT record alongside the HIFREQ or EXTEND record.\n\nRandom sample hits provide alternative alignments that are very useful in estimating MAPQ accurately\nfor the alignments that are reported.\n\nThey are never used outside of this context for reporting alignment positions,\nbecause that would result in biased coverage of locations that happened to be selected\nduring hash table construction.\n\nTo include a sample hit, set --ht-rand-hit-hifreq to 1.\nThe --ht-rand-hit-extend option is a minimum pre-extension hit count to include a sample hit, or zero to disable.\nModifying these options is not recommended.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_rand_hit_extend"
+        },
+        {
+          "label": "ht random hit hifreq",
+          "doc": "Whenever a HIFREQ or EXTEND record is populated into the hash table, it stands in place of a\nlarge set of reference hits for a certain seed.\nOptionally, the hash table builder can choose a random representative of that set,\nand populate that HIT record alongside the HIFREQ or EXTEND record.\n\nRandom sample hits provide alternative alignments that are very useful in estimating MAPQ accurately\nfor the alignments that are reported.\n\nThey are never used outside of this context for reporting alignment positions,\nbecause that would result in biased coverage of locations that happened to be selected\nduring hash table construction.\n\nTo include a sample hit, set --ht-rand-hit-hifreq to 1.\nThe --ht-rand-hit-extend option is a minimum pre-extension hit count to include a sample hit, or zero to disable.\nModifying these options is not recommended.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_rand_hit_hifreq"
+        },
+        {
+          "label": "ht reference seed interval",
+          "doc": "The --ht-ref-seed-interval option defines the step size between positions of seeds in the reference\ngenome populated into the hash table.\n\nAn interval of 1 (default) means that every seed position is populated, 2 means 50% of positions are populated,\netc. Noninteger values are supported, eg, 2.5 yields 40% populated.\n\nSeeds from a whole human reference are easily 100% populated with 32 GB memory on DRAGEN boards.\nIf a substantially larger reference genome is used, change this option\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_ref_seed_interval"
+        },
+        {
+          "label": "ht reference",
+          "doc": "Reference fasta file\n",
+          "type": "File",
+          "secondaryFiles": [
+            {
+              "pattern": ".fai",
+              "required": true
+            }
+          ],
+          "id": "#main/ht_reference"
+        },
+        {
+          "label": "ht primary seed length",
+          "doc": "The --ht-seed-len option specifies the initial length in nucleotides\nof seeds from the reference genome to populate into the hash table.\n\nAt run time, the mapper extracts seeds of this same length from each read,\nand looks for exact matches (unless seed editing is enabled) in the hash table.\n\nThe maximum primary seed length is a function of hash table size.\nThe limit is k=27 for table sizes from 16 GB to 64 GB, covering typical sizes for whole human genome,\nor k=26 for sizes from 4 GB to 16 GB.\n\nThe minimum primary seed length depends mainly on the reference genome size and complexity.\nIt needs to be long enough to resolve most reference positions uniquely.\nFor whole human genome references, hash table construction typically fails with k < 16.\nThe lower bound may be smaller for shorter genomes, or higher for less complex (more repetitive) genomes.\nThe uniqueness threshold of --ht-seed-len 16 for the 3.1Gbp human\ngenome can be understood intuitively because log4(3.1 G) \u2248 16,\nso it requires at least 16 choices from 4 nucleotides to distinguish 3.1 G reference positions.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_seed_len"
+        },
+        {
+          "label": "ht size",
+          "doc": "This option specifies the hash table size to generate,\nrather than calculating an appropriate table size from the reference genome size\nand the available memory (option --ht-mem-limit).\nUsing default table sizing is recommended and using --ht-mem-limit is the next best choice.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_size"
+        },
+        {
+          "label": "ht soft seed frequency cap",
+          "doc": "Seed thinning is an experimental technique to improve mapping performance in high-frequency regions.\nWhen primary seeds have higher frequency than the cap indicated by the --ht-soft-seed-freq-cap option,\nonly a fraction of seed positions are populated to stay under the cap.\n\nThe --ht-max-dec-factor option specifies a maximum factor by which seeds can be thinned.\n\nFor example, --ht-max-dec-factor 3 retains at least 1/3 of the original seeds. --ht-max-dec-factor 1\ndisables any thinning.\n\nSeeds are decimated in careful patterns to prevent leaving any long gaps unpopulated.\n\nThe idea is that seed thinning can achieve mapped seed coverage in high frequency reference regions\nwhere the maximum hit frequency would otherwise have been exceeded.\n\nSeed thinning can also keep seed extensions shorter, which is also good for successful mapping.\nBased on testing to date, seed thinning has not proven to be superior to other accuracy optimization methods.\n",
+          "type": [
+            "null",
+            "float"
+          ],
+          "id": "#main/ht_soft_seed_freq_cap"
+        },
+        {
+          "label": "ht suppress decoys",
+          "doc": "Use the --ht-suppress-decoys option to suppress the use of the decoys file when building the hash table.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/ht_suppress_decoys"
+        },
+        {
+          "label": "target hit frequency",
+          "doc": "The --ht-target-seed-freq option defines the ideal number of hits per seed for which seed extension should aim.\nHigher values lead to fewer and shorter final seed extensions, because shorter seeds tend to match more reference\npositions.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/ht_target_seed_freq"
+        },
+        {
+          "label": "output directory",
+          "doc": "The name of the dragen output directory.\nThe output tarball will be this plus \".tar.gz\"\n",
+          "type": "string",
+          "id": "#main/output_directory"
+        }
+      ],
+      "steps": [
+        {
+          "label": "dragen build reference tarball step",
+          "doc": "Step to build the dragen reference tarball\n",
+          "in": [
+            {
+              "source": "#main/enable_cnv",
+              "id": "#main/dragen_build_reference_tarball_step/enable_cnv"
+            },
+            {
+              "source": "#main/ht_alt_aware_validate",
+              "id": "#main/dragen_build_reference_tarball_step/ht_alt_aware_validate"
+            },
+            {
+              "source": "#main/ht_alt_liftover",
+              "id": "#main/dragen_build_reference_tarball_step/ht_alt_liftover"
+            },
+            {
+              "source": "#main/ht_build_hla_hashtable",
+              "id": "#main/dragen_build_reference_tarball_step/ht_build_hla_hashtable"
+            },
+            {
+              "source": "#main/ht_build_rna_hashtable",
+              "id": "#main/dragen_build_reference_tarball_step/ht_build_rna_hashtable"
+            },
+            {
+              "source": "#main/ht_cost_coeff_seed_freq",
+              "id": "#main/dragen_build_reference_tarball_step/ht_cost_coeff_seed_freq"
+            },
+            {
+              "source": "#main/ht_cost_coeff_seed_len",
+              "id": "#main/dragen_build_reference_tarball_step/ht_cost_coeff_seed_len"
+            },
+            {
+              "source": "#main/ht_cost_penalty",
+              "id": "#main/dragen_build_reference_tarball_step/ht_cost_penalty"
+            },
+            {
+              "source": "#main/ht_cost_penalty_incr",
+              "id": "#main/dragen_build_reference_tarball_step/ht_cost_penalty_incr"
+            },
+            {
+              "source": "#main/ht_decoys",
+              "id": "#main/dragen_build_reference_tarball_step/ht_decoys"
+            },
+            {
+              "source": "#main/ht_mask_bed",
+              "id": "#main/dragen_build_reference_tarball_step/ht_mask_bed"
+            },
+            {
+              "source": "#main/ht_max_dec_factor",
+              "id": "#main/dragen_build_reference_tarball_step/ht_max_dec_factor"
+            },
+            {
+              "source": "#main/ht_max_ext_seed_len",
+              "id": "#main/dragen_build_reference_tarball_step/ht_max_ext_seed_len"
+            },
+            {
+              "source": "#main/ht_max_seed_freq",
+              "id": "#main/dragen_build_reference_tarball_step/ht_max_seed_freq"
+            },
+            {
+              "source": "#main/ht_max_table_chunks",
+              "id": "#main/dragen_build_reference_tarball_step/ht_max_table_chunks"
+            },
+            {
+              "source": "#main/ht_mem_limit",
+              "id": "#main/dragen_build_reference_tarball_step/ht_mem_limit"
+            },
+            {
+              "source": "#main/ht_methylated",
+              "id": "#main/dragen_build_reference_tarball_step/ht_methylated"
+            },
+            {
+              "source": "#main/ht_num_threads",
+              "id": "#main/dragen_build_reference_tarball_step/ht_num_threads"
+            },
+            {
+              "source": "#main/ht_pop_alt_contigs",
+              "id": "#main/dragen_build_reference_tarball_step/ht_pop_alt_contigs"
+            },
+            {
+              "source": "#main/ht_pop_alt_liftover",
+              "id": "#main/dragen_build_reference_tarball_step/ht_pop_alt_liftover"
+            },
+            {
+              "source": "#main/ht_pop_snps",
+              "id": "#main/dragen_build_reference_tarball_step/ht_pop_snps"
+            },
+            {
+              "source": "#main/ht_rand_hit_extend",
+              "id": "#main/dragen_build_reference_tarball_step/ht_rand_hit_extend"
+            },
+            {
+              "source": "#main/ht_rand_hit_hifreq",
+              "id": "#main/dragen_build_reference_tarball_step/ht_rand_hit_hifreq"
+            },
+            {
+              "source": "#main/ht_ref_seed_interval",
+              "id": "#main/dragen_build_reference_tarball_step/ht_ref_seed_interval"
+            },
+            {
+              "source": "#main/ht_reference",
+              "id": "#main/dragen_build_reference_tarball_step/ht_reference"
+            },
+            {
+              "source": "#main/ht_seed_len",
+              "id": "#main/dragen_build_reference_tarball_step/ht_seed_len"
+            },
+            {
+              "source": "#main/ht_size",
+              "id": "#main/dragen_build_reference_tarball_step/ht_size"
+            },
+            {
+              "source": "#main/ht_soft_seed_freq_cap",
+              "id": "#main/dragen_build_reference_tarball_step/ht_soft_seed_freq_cap"
+            },
+            {
+              "source": "#main/ht_suppress_decoys",
+              "id": "#main/dragen_build_reference_tarball_step/ht_suppress_decoys"
+            },
+            {
+              "source": "#main/ht_target_seed_freq",
+              "id": "#main/dragen_build_reference_tarball_step/ht_target_seed_freq"
+            },
+            {
+              "source": "#main/output_directory",
+              "id": "#main/dragen_build_reference_tarball_step/output_directory"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/dragen_build_reference_tarball_step/dragen_reference_tar"
+            }
+          ],
+          "run": "#dragen-build-reference-tarball__4.2.4.cwl",
+          "id": "#main/dragen_build_reference_tarball_step"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "dragen reference tar",
+          "doc": "Output tarball containing the reference data\n",
+          "type": "File",
+          "outputSource": "#main/dragen_build_reference_tarball_step/dragen_reference_tar",
+          "id": "#main/dragen_reference_tar"
+        }
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    }
+  ],
+  "cwlVersion": "v1.1",
+  "$schemas": [
+    "https://schema.org/version/latest/schemaorg-current-http.rdf"
+  ],
+  "$namespaces": {
+    "s": "https://schema.org/",
+    "ilmn-tes": "https://platform.illumina.com/rdf/ica/"
+  }
+}
