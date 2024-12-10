@@ -2290,9 +2290,31 @@ bunches:
           v2
         version_creation_date: 2024-10-30T04:09:34+00:00Z
         datasets:
-          - dataset_name: ora_reference_v2
-            dataset_creation_time: '2024-10-30T04:01:43Z'
-            dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
+          - dataset_name: hg38_fasta
+            dataset_creation_time: '2024-06-21T11:31:50Z'
+            dataset_id_hash: 5f129b14aca5b4a7fda902590b15abc2
+
+  # Dragen Build Reference
+  - bunch_name: dragen_reference_tarball_generation
+    bunch_description: Workflow for generating the reference tarball
+    tenant_name: umccr-prod
+    pipeline_path:
+      workflows/dragen-build-reference-tarball-pipeline/4.2.4/dragen-build-reference-tarball-pipeline__4.2.4.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+    categories:
+      - dragen
+    bunch_versions:
+      - version: 4.2.4
+        version_description: Dragen 4.2.4
+        version_creation_date: 2024-12-10T07:21:26+00:00Z
+        datasets:
+          - dataset_name: hg38_fasta
+            dataset_creation_time: '2024-06-21T11:31:50Z'
+            dataset_id_hash: 5f129b14aca5b4a7fda902590b15abc2
 
 # List of generated bundles
 bundles:
