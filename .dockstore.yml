@@ -227,3 +227,16 @@ workflows:
       tags:
         - dragen-build-reference-tarball-pipeline/4.2.4
         - dragen-build-reference-tarball-pipeline/4.2.4__20241210071831
+  - name: dragen-build-reference-tarball-pipeline_4_2_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-build-reference-tarball-pipeline/4.2.4/dragen-build-reference-tarball-pipeline__4.2.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-build-reference-tarball-pipeline/4.2.4/dragen-build-reference-tarball-pipeline__4.2.4.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - dragen-build-reference-tarball-pipeline/4.2.4
+        - dragen-build-reference-tarball-pipeline/4.2.4__20241210072731
