@@ -83,7 +83,7 @@ requirements:
               tar \\
               --directory "$(get_ref_mount())" \\
               --extract \\
-              --file "$(inputs.ora_reference_tar.path)"
+              --file "$(get_attribute_from_optional_input(inputs.ora_reference_tar, "path"))"
           fi
 
           # Confirm either of fastq_list, fastq_list_rows, bam_input or cram_input is defined

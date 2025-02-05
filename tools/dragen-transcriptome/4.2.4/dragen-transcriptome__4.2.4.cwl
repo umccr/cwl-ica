@@ -84,7 +84,7 @@ requirements:
               tar \\
               --directory "$(get_ref_mount())" \\
               --extract \\
-              --file "$(inputs.ora_reference_tar.path)"
+              --file "$(get_attribute_from_optional_input(inputs.ora_reference_tar, "path"))"
           fi
 
           # Run dragen command and import options from cli
