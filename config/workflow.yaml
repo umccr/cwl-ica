@@ -28,7 +28,7 @@ workflows:
         md5sum: e127feb0f9f489220f6222a7113df9ca
       - name: 4.2.4
         path: 4.2.4/dragen-germline-pipeline__4.2.4.cwl
-        md5sum: f9ab827e041388565123b244814eeaa0
+        md5sum: 66ae15657d03cac1bc71759e7ebef2aa
       - name: 4.3.6
         path: 4.3.6/dragen-germline-pipeline__4.3.6.cwl
         md5sum: 106d05940e873de3b46df58eba130e13
@@ -94,7 +94,7 @@ workflows:
         md5sum: d816d64e21d240d0deda38953f0626e9
       - name: 4.2.4
         path: 4.2.4/dragen-transcriptome-pipeline__4.2.4.cwl
-        md5sum: 3bd28e1e1a16ed22f1ab54391a26623b
+        md5sum: c66d8f1e95b11ae4c170c572607b8c15
       - name: 4.3.6
         path: 4.3.6/dragen-transcriptome-pipeline__4.3.6.cwl
         md5sum: 3a4cfde936390dcd776448d4070a0b93
@@ -273,7 +273,7 @@ workflows:
         md5sum: 30b4219906569c20b5d8d4a7ec79ee67
       - name: 4.2.4
         path: 4.2.4/dragen-somatic-with-germline-pipeline__4.2.4.cwl
-        md5sum: 47a79066959406c485ef5504102a82d4
+        md5sum: 2b7d1a489676ccf9588a3d5fff37cc4b
       - name: 4.3.6
         path: 4.3.6/dragen-somatic-with-germline-pipeline__4.3.6.cwl
         md5sum: affc904f411557816e44ad0c84d63865
