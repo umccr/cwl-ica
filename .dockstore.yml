@@ -242,3 +242,16 @@ workflows:
       tags:
         - dragen-build-reference-tarball-pipeline/4.2.4
         - dragen-build-reference-tarball-pipeline/4.2.4__20241210072731
+  - name: dragen-germline-pipeline_4_2_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-germline-pipeline/4.2.4/dragen-germline-pipeline__4.2.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-germline-pipeline/4.2.4/dragen-germline-pipeline__4.2.4.md
+    authors:
+      - name: Sehrish Kanwal
+        email: sehrish.kanwal@umccr.org
+    filters:
+      tags:
+        - dragen-germline-pipeline/4.2.4
+        - dragen-germline-pipeline/4.2.4__20250205035322
