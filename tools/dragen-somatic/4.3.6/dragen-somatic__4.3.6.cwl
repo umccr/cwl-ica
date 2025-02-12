@@ -1463,6 +1463,20 @@ inputs:
       prefix: "--repeat-genotype-use-catalog="
       separate: False
 
+  # Cross-sample Contamination
+  qc_somatic_contam_vcf:
+    label: qc somatic contam vcf
+    doc: |
+      The cross-contamination metric is enabled by including one of the following flags along with a compatible VCF.
+      Pre-built contamination VCF files for different human references can be found at /opt/edico/config. 
+      DRAGEN supports separate modes for germline and somatic samples. 
+    type: File?
+    default: "/opt/edico/config/somatic_sample_cross_contamination_resource_hg38.vcf.gz"
+    inputBinding:
+      prefix: "--qc-somatic-contam-vcf="
+      separate: False
+      valueFrom: "$(self.toString())"
+
   # Miscell
   lic_instance_id_location:
     label: license instance id location

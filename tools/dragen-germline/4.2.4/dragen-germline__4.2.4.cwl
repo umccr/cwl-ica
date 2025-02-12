@@ -849,7 +849,7 @@ inputs:
       separate: False
 
   # Cross-sample Contamination
-  qc-cross-cont-vcf:
+  qc_cross_cont_vcf:
     label: qc cross cont vcf
     doc: |
       The cross-contamination metric is enabled by including one of the following flags along with a compatible VCF.

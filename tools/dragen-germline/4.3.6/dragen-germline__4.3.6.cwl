@@ -825,6 +825,20 @@ inputs:
     inputBinding:
       prefix: "--hla-min-reads="
       separate: False
+
+  # Cross-sample Contamination
+  qc_cross_cont_vcf:
+    label: qc cross cont vcf
+    doc: |
+      The cross-contamination metric is enabled by including one of the following flags along with a compatible VCF.
+      Pre-built contamination VCF files for different human references can be found at /opt/edico/config. 
+      DRAGEN supports separate modes for germline and somatic samples. 
+    type: File?
+    inputBinding:
+      prefix: "--qc-cross-cont-vcf="
+      separate: False
+      valueFrom: "$(self.toString())"
+      
   # Miscellaneous options
   lic_instance_id_location:
     label: license instance id location
