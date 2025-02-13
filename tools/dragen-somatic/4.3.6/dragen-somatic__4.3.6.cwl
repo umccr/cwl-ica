@@ -1471,7 +1471,6 @@ inputs:
       Pre-built contamination VCF files for different human references can be found at /opt/edico/config. 
       DRAGEN supports separate modes for germline and somatic samples. 
     type: File?
-    default: "/opt/edico/config/somatic_sample_cross_contamination_resource_hg38.vcf.gz"
     inputBinding:
       prefix: "--qc-somatic-contam-vcf="
       separate: False
