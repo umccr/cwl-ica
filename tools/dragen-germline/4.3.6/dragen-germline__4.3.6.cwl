@@ -833,11 +833,40 @@ inputs:
       The cross-contamination metric is enabled by including one of the following flags along with a compatible VCF.
       Pre-built contamination VCF files for different human references can be found at /opt/edico/config. 
       DRAGEN supports separate modes for germline and somatic samples. 
-    type: File?
+      For hg38 references, use sample_cross_contamination_resource_hg38.vcf.gz
+      For hg19 references, use sample_cross_contamination_resource_hg19.vcf.gz
+      For GRCh37 references, use sample_cross_contamination_resource_GRCh37.vcf.gz
+    type:
+      - "null"
+      - File
+      - type: enum
+        symbols:
+          - "sample_cross_contamination_resource_hg38.vcf.gz"
+          - "sample_cross_contamination_resource_hg19.vcf.gz"
+          - "sample_cross_contamination_resource_GRCh37.vcf.gz"
     inputBinding:
       prefix: "--qc-cross-cont-vcf="
       separate: False
-      valueFrom: "$(self.toString())"
+      valueFrom: >-
+        ${
+          /*
+          Not checking for null
+          Only evaluated if not null
+          */
+          if(typeof(self) == "string"){
+            /*
+            Enum, of type string
+            Returns the contamination vcf dir plus file name
+            */
+            return get_contamination_dir() + self;
+          }
+          else {
+            /*
+            Of type File, return path
+            */
+            return self.path;
+          }
+        }
       
   # Miscellaneous options
   lic_instance_id_location:
