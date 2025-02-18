@@ -35,6 +35,7 @@ exports.find_fastq_files_in_directory_recursively_with_regex = find_fastq_files_
 exports.get_rgsm_value_from_fastq_file_name = get_rgsm_value_from_fastq_file_name;
 exports.get_lane_value_from_fastq_file_name = get_lane_value_from_fastq_file_name;
 exports.generate_ora_mount_points = generate_ora_mount_points;
+exports.get_contamination_dir = get_contamination_dir;
 // Author: Alexis Lucattini
 // For assistance on generation of typescript expressions
 // In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
@@ -704,4 +705,10 @@ function generate_ora_mount_points(input_run, output_directory_path, sample_id_l
     // Return the dirent
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
     return e;
+}
+function get_contamination_dir() {
+    /*
+    Hardcoded contamination directory in dragen
+    */
+    return "/opt/edico/config/";
 }

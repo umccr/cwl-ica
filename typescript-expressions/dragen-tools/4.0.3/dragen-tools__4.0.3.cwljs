@@ -667,3 +667,9 @@ function generate_ora_mount_points(input_run, output_directory_path, sample_id_l
     /*  @ts-ignore Type '{ entryname:string; entry:FileProperties; }[]' is not assignable to type 'DirentProperties[]' */
     return e;
 }
+function get_contamination_dir() {
+    /*
+    Hardcoded contamination directory in dragen
+    */
+    return "/opt/edico/config/";
+}

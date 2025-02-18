@@ -1,4 +1,4 @@
-# Test started at 2024-11-20T21:05:15+11:00
+# Test started at 2025-02-18T15:47:25+11:00
 
 PASS tests/dragen-tools__4.0.3.test.js
   ● Console
@@ -12,7 +12,7 @@ PASS tests/dragen-tools__4.0.3.test.js
         groups: undefined
       ]
 
-      at log (dragen-tools__4.0.3.js:639:17)
+      at log (dragen-tools__4.0.3.js:640:17)
 
     console.log
       [
@@ -23,7 +23,7 @@ PASS tests/dragen-tools__4.0.3.test.js
         groups: undefined
       ]
 
-      at log (dragen-tools__4.0.3.js:639:17)
+      at log (dragen-tools__4.0.3.js:640:17)
 
 FAIL tests/dragen-tools__4.0.3.test.ts
   ● Test suite failed to run
@@ -35,15 +35,15 @@ FAIL tests/dragen-tools__4.0.3.test.ts
 
 
 =============================== Coverage summary ===============================
-Statements   : 84.64% ( 248/293 )
+Statements   : 84.4% ( 249/295 )
 Branches     : 69.71% ( 99/142 )
-Functions    : 58.33% ( 21/36 )
-Lines        : 83.27% ( 224/269 )
+Functions    : 56.75% ( 21/37 )
+Lines        : 83.02% ( 225/271 )
 ================================================================================
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       16 passed, 16 total
 Snapshots:   0 total
-Time:        1.838 s
+Time:        1.395 s
 Ran all test suites.
-# Test completed at 2024-11-20T21:05:18+11:00
+# Test completed at 2025-02-18T15:47:28+11:00
 

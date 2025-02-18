@@ -923,6 +923,23 @@ inputs:
       - pattern: ".tbi"
         required: true
 
+  # Cross sample contamination
+  qc_cross_cont_vcf:
+    label: qc cross cont vcf
+    doc: |
+      The cross-contamination metric is enabled by including one of the following flags along with a compatible VCF.
+      Pre-built contamination VCF files for different human references can be found at /opt/edico/config. 
+      DRAGEN supports separate modes for germline and somatic samples. 
+    type: File?
+
+  qc_somatic_contam_vcf:
+    label: qc somatic contam vcf
+    doc: |
+      The cross-contamination metric is enabled by including one of the following flags along with a compatible VCF.
+      Pre-built contamination VCF files for different human references can be found at /opt/edico/config. 
+      DRAGEN supports separate modes for germline and somatic samples. 
+    type: File?
+
   # Miscell
   lic_instance_id_location:
     label: license instance id location
@@ -1099,6 +1116,8 @@ steps:
         source: hla_zygosity_threshold
       hla_min_reads:
         source: hla_min_reads
+      qc_cross_cont_vcf:
+        source: qc_cross_cont_vcf
       lic_instance_id_location:
         source: lic_instance_id_location
     out:
@@ -1399,6 +1418,8 @@ steps:
         source: repeat_genotype_specs
       repeat_genotype_use_catalog:
         source: repeat_genotype_use_catalog
+      qc_somatic_contam_vcf:
+        source: qc_somatic_contam_vcf
       # Miscell
       lic_instance_id_location:
         source: lic_instance_id_location
