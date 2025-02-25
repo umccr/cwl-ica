@@ -841,31 +841,15 @@ inputs:
       - File
       - type: enum
         symbols:
-          - "sample_cross_contamination_resource_hg38.vcf.gz"
-          - "sample_cross_contamination_resource_hg19.vcf.gz"
-          - "sample_cross_contamination_resource_GRCh37.vcf.gz"
+          - "hg38"
+          - "hg19"
+          - "GRCh37"
     inputBinding:
       prefix: "--qc-cross-cont-vcf="
       separate: False
       valueFrom: >-
         ${
-          /*
-          Not checking for null
-          Only evaluated if not null
-          */
-          if(typeof(self) == "string"){
-            /*
-            Enum, of type string
-            Returns the contamination vcf dir plus file name
-            */
-            return get_contamination_dir() + self;
-          }
-          else {
-            /*
-            Of type File, return path
-            */
-            return self.path;
-          }
+        return get_germline_cross_contamination_resource(self);
         }
       
   # Miscellaneous options
