@@ -935,9 +935,9 @@ inputs:
       - File
       - type: enum
         symbols:
-          - "sample_cross_contamination_resource_hg38.vcf.gz"
-          - "sample_cross_contamination_resource_hg19.vcf.gz"
-          - "sample_cross_contamination_resource_GRCh37.vcf.gz"
+          - "hg38"
+          - "hg19"
+          - "GRCh37"
 
   qc_somatic_contam_vcf:
     label: qc somatic contam vcf
@@ -950,10 +950,9 @@ inputs:
       - File
       - type: enum
         symbols:
-          - "somatic_sample_cross_contamination_resource_hg38.vcf.gz"
-          - "somatic_sample_cross_contamination_resource_hg19.vcf.gz"
-          - "somatic_sample_cross_contamination_resource_GRCh37.vcf.gz"
-
+          - "hg38"
+          - "hg19"
+          - "GRCh37"
   # Miscell
   lic_instance_id_location:
     label: license instance id location
