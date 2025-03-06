@@ -35,6 +35,9 @@ exports.find_fastq_files_in_directory_recursively_with_regex = find_fastq_files_
 exports.get_rgsm_value_from_fastq_file_name = get_rgsm_value_from_fastq_file_name;
 exports.get_lane_value_from_fastq_file_name = get_lane_value_from_fastq_file_name;
 exports.generate_ora_mount_points = generate_ora_mount_points;
+exports.get_contamination_dir = get_contamination_dir;
+exports.get_somatic_cross_contamination_resource = get_somatic_cross_contamination_resource;
+exports.get_germline_cross_contamination_resource = get_germline_cross_contamination_resource;
 // Author: Alexis Lucattini
 // For assistance on generation of typescript expressions
 // In CWL, please visit our wiki page at https://github.com/umccr/cwl-ica/wiki/TypeScript
@@ -704,4 +707,36 @@ function generate_ora_mount_points(input_run, output_directory_path, sample_id_l
     // Return the dirent
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
     return e;
+}
+function get_contamination_dir() {
+    /*
+    Hardcoded contamination directory in dragen
+    */
+    return "/opt/edico/config/";
+}
+function get_somatic_cross_contamination_resource(input_symbol) {
+    if (input_symbol === null) {
+        return null;
+    }
+    if (typeof input_symbol === "string") {
+        // Enum case
+        return get_contamination_dir() + "somatic_sample_cross_contamination_resource_" + input_symbol + ".vcf.gz";
+    }
+    else {
+        // File case
+        return input_symbol.path;
+    }
+}
+function get_germline_cross_contamination_resource(input_symbol) {
+    if (input_symbol === null) {
+        return null;
+    }
+    if (typeof input_symbol === "string") {
+        // Enum case
+        return get_contamination_dir() + "sample_cross_contamination_resource_" + input_symbol + ".vcf.gz";
+    }
+    else {
+        // File case
+        return input_symbol.path;
+    }
 }

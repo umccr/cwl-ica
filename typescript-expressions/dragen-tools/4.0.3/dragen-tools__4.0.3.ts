@@ -778,3 +778,36 @@ export function generate_ora_mount_points(input_run: IDirectory, output_director
     // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
     return e;
 }
+
+export function get_contamination_dir(): string {
+    /*
+    Hardcoded contamination directory in dragen
+    */
+    return "/opt/edico/config/";
+}
+
+export function get_somatic_cross_contamination_resource(input_symbol: any) {
+    if (input_symbol === null) {
+      return null;
+    }
+    if (typeof input_symbol === "string") {
+      // Enum case
+      return get_contamination_dir() + "somatic_sample_cross_contamination_resource_" + input_symbol + ".vcf.gz";
+    } else {
+      // File case
+      return input_symbol.path;
+    }
+  }
+
+  export function get_germline_cross_contamination_resource(input_symbol: any) {
+    if (input_symbol === null) {
+      return null;
+    }
+    if (typeof input_symbol === "string") {
+      // Enum case
+      return get_contamination_dir() + "sample_cross_contamination_resource_" + input_symbol + ".vcf.gz";
+    } else {
+      // File case
+      return input_symbol.path;
+    }
+  }
