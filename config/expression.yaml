@@ -98,3 +98,10 @@ expressions:
         path: 1.0.0/create-single-directory-from-directories-array__1.0.0.cwl
         md5sum: 69ab7a051b01016079432205133fa846
     categories: []
+  - name: create-directory
+    path: create-directory
+    versions:
+      - name: 1.0.0
+        path: 1.0.0/create-directory__1.0.0.cwl
+        md5sum: baf20b922366133398f5dcb8e2e267db
+    categories: []
