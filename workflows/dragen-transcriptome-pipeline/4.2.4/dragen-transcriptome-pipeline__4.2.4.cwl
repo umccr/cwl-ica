@@ -379,7 +379,7 @@ steps:
         valueFrom: "$(self)_arriba"
     out:
       - output_directory
-    run: ../../../tools/custom-create-directory/1.0.0/custom-create-directory__1.0.0.cwl
+    run: ../../../expressions/create-directory/1.0.0/create-directory__1.0.0.cwl
 
   # Step-5: Run qualimap
   run_qualimap_step:
