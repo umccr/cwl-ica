@@ -77,7 +77,7 @@ expression: |
     return {
       "output_directory": {
         "class": "Directory",
-        "location": inputs.output_directory_name,
+        "basename": inputs.output_directory_name,
         "listing": listing
       }
     };
