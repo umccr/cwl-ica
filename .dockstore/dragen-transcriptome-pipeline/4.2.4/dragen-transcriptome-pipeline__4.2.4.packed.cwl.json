@@ -46,7 +46,7 @@
           "id": "#create-directory__1.0.0.cwl/create-directory--1.0.0/output_directory_name"
         }
       ],
-      "expression": "${\n  /*\n  Generate output listing\n  */\n\n  /* Initiate the listing */\n  var listing = [];\n\n  /* Add the input files */\n  if (inputs.input_files !== null) {\n    for (var i=0; i < inputs.input_files.length; i++) {\n      listing.push(inputs.input_files[i]);\n    }\n  }\n\n  /* Add the input directories */\n  if (inputs.input_directories !== null) {\n    for (var i=0; i < inputs.input_directories.length; i++) {\n      listing.push(inputs.input_directories[i]);\n    }\n  }\n\n  /* Add the output directory */\n  return {\n    \"output_directory\": {\n      \"class\": \"Directory\",\n      \"location\": inputs.output_directory_name,\n      \"listing\": listing\n    }\n  };\n}\n",
+      "expression": "${\n  /*\n  Generate output listing\n  */\n\n  /* Initiate the listing */\n  var listing = [];\n\n  /* Add the input files */\n  if (inputs.input_files !== null) {\n    for (var i=0; i < inputs.input_files.length; i++) {\n      listing.push(inputs.input_files[i]);\n    }\n  }\n\n  /* Add the input directories */\n  if (inputs.input_directories !== null) {\n    for (var i=0; i < inputs.input_directories.length; i++) {\n      listing.push(inputs.input_directories[i]);\n    }\n  }\n\n  /* Add the output directory */\n  return {\n    \"output_directory\": {\n      \"class\": \"Directory\",\n      \"basename\": inputs.output_directory_name,\n      \"listing\": listing\n    }\n  };\n}\n",
       "https://schema.org/author": {
         "class": "https://schema.org/Person",
         "https://schema.org/name": "Alexis Lucattini",

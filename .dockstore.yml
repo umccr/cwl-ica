@@ -50,6 +50,7 @@ workflows:
         - dragen-transcriptome-pipeline/4.2.4__20240830041834
         - dragen-transcriptome-pipeline/4.2.4__20241210230924
         - dragen-transcriptome-pipeline/4.2.4__20250330232251
+        - dragen-transcriptome-pipeline/4.2.4__20250331013709
   - name: dragen-somatic-with-germline-pipeline_4_2_4
     subclass: CWL
     primaryDescriptorPath: 
