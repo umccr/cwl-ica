@@ -2,6 +2,50 @@
   "$graph": [
     {
       "class": "ExpressionTool",
+      "id": "#create-file__1.0.0.cwl",
+      "label": "create-file v(1.0.0)",
+      "doc": "Documentation for create-file v1.0.0\n",
+      "inputs": [
+        {
+          "label": "basename",
+          "type": "string",
+          "doc": "The name of the file to be created.\n",
+          "id": "#create-file__1.0.0.cwl/create-file--1.0.0/basename"
+        },
+        {
+          "label": "contents",
+          "type": [
+            "null",
+            "string"
+          ],
+          "doc": "The contents of the file to be created.\nIf not provided, an empty file will be created OR the contents used by location\n",
+          "id": "#create-file__1.0.0.cwl/create-file--1.0.0/contents"
+        },
+        {
+          "label": "location",
+          "type": "string",
+          "doc": "This might be the location of an existing file and can be used to create a new file with the same contents.\n",
+          "id": "#create-file__1.0.0.cwl/create-file--1.0.0/location"
+        }
+      ],
+      "expression": "${\n  return {\n    \"output_file\": {\n      \"class\": \"File\",\n      \"basename\": inputs.basename,\n      \"contents\": inputs.contents,\n      \"location\": inputs.location\n    }\n  };\n}\n",
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      },
+      "outputs": [
+        {
+          "type": "File",
+          "label": "output_file",
+          "doc": "The output file created by the expression tool.\n",
+          "id": "#create-file__1.0.0.cwl/create-file--1.0.0/output_file"
+        }
+      ]
+    },
+    {
+      "class": "ExpressionTool",
       "id": "#get-file-from-directory__1.0.1.cwl",
       "label": "get-file-from-directory v(1.0.1)",
       "doc": "Documentation for get-file-from-directory v1.0.1\n",
@@ -46,13 +90,6 @@
           "id": "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/listing_level"
         }
       ],
-      "expression": "${\n  var recursive_listing = false;\n  if ( inputs.listing_level === \"deep_listing\" ){\n    recursive_listing = true;\n  }\n  return {\"output_file\": get_file_from_directory(inputs.input_dir, inputs.file_basename, recursive_listing)};\n}",
-      "https://schema.org/author": {
-        "class": "https://schema.org/Person",
-        "https://schema.org/name": "Alexis Lucattini",
-        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
-        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
-      },
       "outputs": [
         {
           "label": "output file",
@@ -60,7 +97,84 @@
           "type": "File",
           "id": "#get-file-from-directory__1.0.1.cwl/get-file-from-directory--1.0.1/output_file"
         }
-      ]
+      ],
+      "expression": "${\n  var recursive_listing = false;\n  if ( inputs.listing_level === \"deep_listing\" ){\n    recursive_listing = true;\n  }\n  return {\"output_file\": get_file_from_directory(inputs.input_dir, inputs.file_basename, recursive_listing)};\n}",
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    },
+    {
+      "class": "CommandLineTool",
+      "id": "#custom-convert-multiqc-json-data-to-qlims-import-csv__1.0.0.cwl",
+      "label": "custom-convert-multiqc-json-data-to-qlims-import-csv v(1.0.0)",
+      "doc": "Documentation for custom-convert-multiqc-json-data-to-qlims-\nimport-csv v1.0.0\n",
+      "hints": [
+        {
+          "dockerPull": "ghcr.io/umccr/alpine-jq:1.6",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 2,
+          "ramMin": 4000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:size": "small"
+        }
+      ],
+      "requirements": [
+        {
+          "listing": [
+            {
+              "entryname": "convert-multiqc-json-data-to-qlims-import-csv.sh",
+              "entry": "jq --raw-output \\\\\n  --argjson human_genome_size \"$(inputs.human_genome_size)\" \\\\\n  '\n    .report_saved_raw_data.multiqc_bclconvert_bysample | to_entries |\n    map(\n      .key as $sample_name |\n      .value.lanes | to_entries |\n      map(\n        .key as $lane |\n        {\n          \"Sample Name\": $sample_name,\n          \"Coverage\": ((.value.yield_q30 / $human_genome_size) * 100 | round / 100),\n          \"Lane\": ($lane[1:] | tonumber),\n          \"Clusters\": .value.clusters,\n          \"One mismatch index\": ((.value.percent_one_mismatch_index_reads) * 100 | round / 100),\n          \"Yield\": .value.yield_\n        }\n      )\n    ) |\n    flatten |\n    # To csv (With ordered keys)\n    # https://unix.stackexchange.com/questions/754935/convert-json-to-csv-with-headers-in-jq\n    [first|keys_unsorted] + map([.[]]) | .[] | @csv |\n    # Remove quotes\n    # https://stackoverflow.com/questions/60350315/why-does-the-jq-raw-output-argument-fail-to-remove-quotes-from-csv-output\n    gsub(\"\\\\\"\"; \"\")\n' < \"$(inputs.multiqc_data_json.path)\"\n"
+            }
+          ],
+          "class": "InitialWorkDirRequirement"
+        },
+        {
+          "class": "InlineJavascriptRequirement"
+        }
+      ],
+      "baseCommand": [
+        "bash",
+        "convert-multiqc-json-data-to-qlims-import-csv.sh"
+      ],
+      "stdout": "qlims.csv",
+      "inputs": [
+        {
+          "label": "Human genome size",
+          "type": "long",
+          "default": 3049315783,
+          "id": "#custom-convert-multiqc-json-data-to-qlims-import-csv__1.0.0.cwl/custom-convert-multiqc-json-data-to-qlims-import-csv--1.0.0/human_genome_size"
+        },
+        {
+          "label": "MultiQC JSON data",
+          "type": "File",
+          "id": "#custom-convert-multiqc-json-data-to-qlims-import-csv__1.0.0.cwl/custom-convert-multiqc-json-data-to-qlims-import-csv--1.0.0/multiqc_data_json"
+        }
+      ],
+      "outputs": [
+        {
+          "type": "File",
+          "outputBinding": {
+            "glob": "qlims.csv"
+          },
+          "id": "#custom-convert-multiqc-json-data-to-qlims-import-csv__1.0.0.cwl/custom-convert-multiqc-json-data-to-qlims-import-csv--1.0.0/qlims_csv"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
     },
     {
       "class": "CommandLineTool",
@@ -340,6 +454,27 @@
           "id": "#main/generate_interop_qc_step"
         },
         {
+          "label": "Generate QLIMS CSV",
+          "doc": "Generate the QLIMS CSV file from the interop directory\n",
+          "in": [
+            {
+              "source": [
+                "#main/run_multiqc_step/output_directory",
+                "#main/instrument_run_id"
+              ],
+              "valueFrom": "${\n  return {\n    \"class\": \"File\",\n    \"basename\": \"multiqc_data.json\",\n    \"location\": self[0].location + \"/\" + self[1] + \"_multiqc_report_data/multiqc_data.json\"\n  };\n}\n",
+              "id": "#main/generate_qc_csv_step/multiqc_data_json"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/generate_qc_csv_step/qlims_csv"
+            }
+          ],
+          "run": "#custom-convert-multiqc-json-data-to-qlims-import-csv__1.0.0.cwl",
+          "id": "#main/generate_qc_csv_step"
+        },
+        {
           "label": "Get RunInfo.xml file from Reports Dir",
           "doc": "Get the RunInfo.xml file from the Reports Directory\n",
           "in": [
@@ -359,6 +494,29 @@
           ],
           "run": "#get-file-from-directory__1.0.1.cwl",
           "id": "#main/get_run_info_xml_file_from_reports_dir"
+        },
+        {
+          "label": "Rename QLIMS CSV",
+          "doc": "Rename the QLIMS CSV file to include the instrument run ID\n",
+          "in": [
+            {
+              "source": "#main/instrument_run_id",
+              "valueFrom": "$(self)_multiqc_bclconvert_summary_qlims.csv",
+              "id": "#main/rename_qc_csv_step/basename"
+            },
+            {
+              "source": "#main/generate_qc_csv_step/qlims_csv",
+              "valueFrom": "$(self.location)",
+              "id": "#main/rename_qc_csv_step/location"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/rename_qc_csv_step/output_file"
+            }
+          ],
+          "run": "#create-file__1.0.0.cwl",
+          "id": "#main/rename_qc_csv_step"
         },
         {
           "label": "Run Multiqc",
@@ -423,6 +581,13 @@
           "type": "Directory",
           "outputSource": "#main/run_multiqc_step/output_directory",
           "id": "#main/multiqc_output_dir"
+        },
+        {
+          "label": "multiqc qlims csv report",
+          "doc": "The CSV required by qlims for ingestion generated from the multiqc step\n",
+          "type": "File",
+          "outputSource": "#main/rename_qc_csv_step/output_file",
+          "id": "#main/multiqc_qlims_csv_report"
         }
       ],
       "https://schema.org/author": {
