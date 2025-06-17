@@ -1,0 +1,18 @@
+type: record
+name: dragen-rna-gene-fusion-detection-options
+fields:
+  enable_rna_gene_fusion:
+    label: Enable rna gene fusion
+    doc: |
+      Enable the rna gene fusion detection algorithm.
+    type: boolean?
+  rna_gf_blast_pairs:
+    label: rna gf blat pairs
+    doc: |
+      A tab separated file listing gene pairs that have a high level of similarity.
+      The first and second column are the gene names, and the third column is the e-score.
+      This list of gene pairs is used as a homology filter to reduce false positives.
+      For runs on human genome assemblies GRCH38 and hg19, DRAGEN automatically
+      applies a default file generated using Gencode Human Release 32 annotations for primary chromosomes
+      if no other file is specified using the command-line.
+    type: File?

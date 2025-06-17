@@ -1,0 +1,26 @@
+type: record
+name: dragen-qc-coverage
+fields:
+  region:
+    label: region
+    doc: |
+      Generate the coverage region report using this bed file
+    type: File
+  report_type:
+    label: report type
+    doc: |
+      Describe the report type requested for qc covreage region
+    type: string
+    # Enums inside records not supported by cwltool 3.0.20201203173111
+    #  type: enum
+    #  symbols:
+    #    - full_res
+    #    - cov_report
+  thresholds:
+    label: thresholds
+    doc: |
+      Declare the thresholds to use in coverage report, up to 11 values
+    type:
+      - "null"
+      - type: array
+        items: int

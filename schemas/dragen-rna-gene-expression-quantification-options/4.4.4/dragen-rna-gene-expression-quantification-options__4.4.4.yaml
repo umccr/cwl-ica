@@ -1,0 +1,27 @@
+type: record
+name: dragen-rna-gene-expression-quantification-options
+fields:
+  enable_rna_quantification:
+    label: enable rna quantification
+    doc: Enable RNA gene expression quantification.
+    type: boolean?
+  rna_quantification_gc_bias:
+    label: rna quantification gc bias
+    doc: Use gc bias model. Default is true
+    type: boolean?
+  rna_quantification_fld_max:
+    label: rna quantification fld max
+    doc: Fragment length distribution max for single-ended library runs. Default is 100
+    type: int?
+  rna_quantification_fld_mean:
+    label: rna quantification fld mean
+    doc: Fragment length distribution mean for single-ended library runs. Default is 250
+    type: int?
+  rna_quantification_fld_sd:
+    label: rna quantification fld sd
+    doc: Fragment length distribution standard deviation for single-ended library runs. Default is 25
+    type: int?
+  rna_quantification_tlen_min:
+    label: rna quantification tlen min
+    doc: Minimum transcript length to be used for coverage profiling. Default is 500
+    type: int?

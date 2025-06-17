@@ -1,0 +1,7 @@
+type: record
+name: fastq-list-rows-input
+fields:
+  fastq_list_rows:
+    type:
+      type: array
+      items: { "$import": "../../../schemas/fastq-list-row/2.0.0/fastq-list-row__2.0.0.yaml#fastq-list-row" }

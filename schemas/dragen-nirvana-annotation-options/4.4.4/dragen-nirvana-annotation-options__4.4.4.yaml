@@ -1,0 +1,22 @@
+type: record
+name: dragen-nirvana-annotation-options
+fields:
+  enable_variant_annotation:
+    label: enable variant annotation
+    doc: |
+      Enable Nirvana variant annotation on the output vcf/gvcf files.
+      The default is false.
+    type: boolean?
+  variant_annotation_data:
+    label: variant annotation data
+    doc: |
+      Top directory containing Nirvana data file.
+      Downloadable at https://support.illumina.com/content/dam/illumina-support/help/Illumina_DRAGEN_Bio_IT_Platform_v3_7_1000000141465/Content/SW/Informatics/Dragen/Nirvana_DownloadData_fDG.htm
+    type: string?
+  variant_annotation_assembly:
+    label: variant annotation assembly
+    doc: |
+      The reference genome assembly used for Nirvana variant annotation.
+      One of 'GRCh37' / 'GRCh38'
+    type: string?
+

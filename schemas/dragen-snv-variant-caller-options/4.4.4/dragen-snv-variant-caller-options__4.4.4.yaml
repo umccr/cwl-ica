@@ -1,0 +1,224 @@
+type: record
+name: dragen-snv-variant-caller-options
+fields:
+  enable_variant_caller:
+    label: enable variant caller
+    doc: |
+      Enables the DRAGEN variant caller.
+      This is forced to true for DNA but for RNA analysis, you will need to set this to true
+      in order to enable the variant caller.
+    type: boolean?
+  # Variant calling 'general' options
+  # Docs can be found at
+  # https://help.dragen.illumina.com/product-guides/dragen-v4.3/command-line-options#general-software-options
+  enable_methylation_calling:
+    label: enable methylation calling
+    doc: |
+      Automatically adds tags related to methylation and outputs a single BAM for methylation protocols.
+    type: boolean?
+  enable_variant_deduplication:
+    label: enable variant deduplication
+    doc: |
+      Enables variant deduplication. The default value is false.
+    type: boolean?
+  enable_vcf_compression:
+    label: enable vcf compression
+    doc: |
+      Enables compression of VCF output files. The default value is true.
+    type: boolean?
+  enable_vcf_indexing:
+    label: enable vcf indexing
+    doc: |
+      Outputs a *.tbi index file in addition to the output VCF/gVCF. The default is true.
+    type: boolean?
+  dbsnp:
+    label: dbsnp
+    doc: |
+      Sets the path to the variant annotation database VCF (or *.vcf.gz) file.
+    type: File?
+  vd_eh_vcf:
+    label: vd eh vcf
+    doc: |
+      Inputs the ExpansionHunter VCF file for variant deduplication. The input file can be gzipped.
+    type: File?
+    secondaryFiles:
+      - pattern: ".tbi"
+        required: false
+  vd_output_match_log:
+    label: vd output match log
+    doc: |
+      Outputs a file that describes the variants that matched during deduplication. The default value is false.
+    type: boolean?
+  vd_small_variant_vcf:
+    label: vd small variant vcf
+    doc: |
+      Inputs small variant VCF file for variant deduplication. The input file can be gzipped.
+    type: File?
+    secondaryFiles:
+      - pattern: ".tbi"
+        required: false
+  vd_sv_vcf:
+    label: vd sv vcf
+    doc: |
+      Inputs structural variant VCF for variant deduplication. The input file can be gzipped.
+    type: File?
+    secondaryFiles:
+      - pattern: ".tbi"
+        required: false
+  # Variant calling specific options
+  # Denovo
+  dn_cnv_vcf:
+    label: dn cnv vcf
+    doc: For de novo calling, filters joint structural variant VCF from the CNV calling step. If omitted, DRAGEN skips any checks with overlapping copy number variants.
+    type: File?
+  dn_input_vcf:
+    label: dn input vcf
+    doc: For de novo calling, filters joint small variant VCF from the de novo calling step.
+    type: File?
+  dn_output_vcf:
+    label: dn output vcf
+    doc: For de novo calling, specifies the file location for writing the filtered VCF file. If not specified, the input VCF is overwritten.
+    type: File?
+  dn_sv_vcf:
+    label: dn sv vcf
+    doc: For de novo calling, filters the joint structural variant VCF file from the SV calling step. If omitted, DRAGEN skips any checks with overlapping structural variants.
+    type: File?
+  # Enable settings
+  enable_joint_genotyping:
+    label: enable joint genotyping
+    doc: To enable the joint genotyping caller, set to true.
+    type: boolean?
+  enable_multi_sample_gvcf:
+    label: enable multi sample gvcf
+    doc: Enables generation of a multisample gVCF file. If set to true, requires a combined gVCF file as input.
+    type: boolean?
+  enable_vlrd:
+    label: enable vlrd
+    doc: Enables Virtual Long Read Detection.
+    type: boolean?
+  # Joint calling options
+  pedigree_file:
+    label: pedigree file
+    doc: Specifies the path to a pedigree file that describes the familial relationships between panels (specific to joint calling). Only pedigree files that contain trios are supported.
+    type: File?
+  # QC Options
+  qc_snp_denovo_quality_threshold:
+    label: qc snp denovo quality threshold
+    doc: Sets the threshold for counting and reporting de novo SNP variants.
+    type: int?
+  qc_indel_denovo_quality_threshold:
+    label: qc indel denovo quality threshold
+    doc: Sets the threshold for counting and reporting de novo INDEL variants.
+    type: int?
+  variant:
+    label: variant
+    doc: Specifies the path to a single gVCF file. You can use the --variant option multiple times to specify paths to multiple gVCF files. Use one file per line. Up to 500 gVCFs are supported.
+    type: File?
+  variant_list:
+    label: variant list
+    doc: Specifies the path to a file containing a list of input gVCF files that need to be combined. Use one file per line.
+    type: File?
+  vc_af_call_threshold:
+    label: vc af call threshold
+    doc: If the AF filter is enabled using --vc-enable-af-filter=true, the option sets the allele frequency call threshold for nuclear chromosomes to emit a call in the VCF. The default value is 0.01.
+    type: int?
+  vc_af_filter_threshold:
+    label: vc af filter threshold
+    doc: If the AF filter is enabled using --vc-enable-af-filter=true, the option sets the allele frequency filter threshold for nuclear chromosomes to mark emitted VCF calls as filtered. The default value is 0.05.
+    type: int?
+  vc_af_call_threshold_mito:
+    label: vc af call threshold mito
+    doc: If the AF filter is enabled using --vc-enable-af-filter-mito=true, the option sets the allele frequency call threshold to emit a call in the VCF for mitochondrial variant calling. The default value is 0.01.
+    type: int?
+  vc_af_filter_threshold_mito:
+    label: vc af filter threshold mito
+    doc: If the AF filter is enabled using --vc-enable-af-filter-mito=true, the option sets the allele frequency filter threshold to mark emitted VCF calls as filtered for mitochondrial variant calling. The default value is 0.02.
+    type: int?
+  vc_callability_normal_threshold:
+    label: vc callability normal threshold
+    doc: Specifies the normal sample coverage threshold for a site to be considered callable in the somatic callable regions report. The default is 5.
+    type: int?
+  vc_callability_tumor_threshold:
+    label: vc callability tumor threshold
+    doc: Specifies the tumor sample coverage threshold for a site to be considered callable in the somatic callable regions report. The default is 50.
+    type: int?
+  vc_clustered_event_penalty:
+    label: vc clustered event penalty
+    doc: SQ score penalty applied to phased clustered somatic events; set to 0 to disable the penalty. The default value is 4.0 for tumor-normal and 7.0 for tumor-only.
+    type: int?
+  vc_decoy_contigs:
+    label: vc decoy contigs
+    doc: Specifies the path to a comma-separated list of contigs to skip during variant calling.
+    type: string[]?
+  vc_depth_annotation_threshold:
+    label: vc depth annotation threshold
+    doc: Filters all non-PASS somatic alt variants with a depth below this threshold. The default value is 0 (no filtering).
+    type: int?
+  vc_depth_filter_threshold:
+    label: vc depth filter threshold
+    doc: Filters all somatic variants (alt or homref) with a depth below this threshold. The default value is 0 (no filtering).
+    type: int?
+  vc_emit_ref_confidence:
+    label: vc emit ref confidence
+    doc: Enables base pair resolution gVCF generation or banded gVCF generation.
+    type: string?
+  # RNA Specific options
+  rna_vc_enable_homozygous_genotype:
+    label: rna vc enable homozygous genotype
+    doc: Enables the generation of homozygous genotypes in the VCF output. The default value is false.
+    type: boolean?
+  rna_vc_homozygous_genotype_af_threshold:
+    label: rna vc homozygous genotype af threshold
+    doc: Sets the allele frequency threshold for calling homozygous genotypes. The default value is 0.85
+    type: float?
+  # Config default options
+  vc_max_alternate_alleles:
+    label: vc max alternate alleles
+    doc: |
+      Specifies the maximum number of alternate alleles to emit in the VCF output.
+    type: int?
+  vc_emit_zero_coverage_intervals:
+    label: vc emit zero coverage intervals
+    doc: |
+      Specifies whether or not to emit zero coverage intervals in the VCF output.
+      The default value is true
+    type: boolean?
+  # MNV Options
+  vc_mnv_emit_component_calls:
+    label: vc mnv emit component calls
+    doc: |
+      Specifies whether or not to emit the individual component variant records along with the merged variant records.
+      When set to true, all component calls making up an MNV or complex indel will be emitted in the VCF
+      along with the merged variant record. The default is true for somatic and false (disabled) for germline.
+    type: boolean?
+  vc_combine_phased_variants_distance:
+    label: vc combine phased variants distance
+    doc: |
+      Specifies the maximum distance over which phased insertions, deletions, and SNVs will be combined into a complex indel.
+      This distance threshold will be applied to any group of phased variants that includes at least one indel.
+      The default is 2 for somatic and 0 for germline (disabled).
+    type: int?
+  vc_combine_phased_variants_max_vaf_delta:
+    label: vc combine phased variants max vaf delta
+    doc: |
+      Specifies the threshold for filtering MNV component variant calls when the events comprising to the MNV have
+      different allele frequencies. The default value is 0.1, which means that any SNV or INDEL with an AF that is
+      more than 0.1 greater than the MNV AF shall be emitted as a PASSing call, while the remaining components
+      shall be emitted with the 'mnv_component' FILTER flag. Only applicable when vc-combine-phased-variants-distance
+      is greater than 0 and vc-mnv-emit-component-calls is true. (Default=0.1)
+    type: float?
+  vc_combine_phased_variants_distance_snvs_only:
+    label: vc combine phased variants distance snvs only
+    doc: |
+      Specifies the maximum distance over which phased SNVs will be combined into an MNV.
+      This option applies only to phased variant groups consisting of only SNVs.
+      The default is 2 for somatic and 0 for germline (disabled). For phased variant groups that include both SNVs and indels,
+      the analogous vc-combine-phased-variants-distance option applies.
+    type: int?
+  # QC Contamination Options
+  qc_detect_contamination:
+    label: qc detect contamination
+    doc: |
+      Recommended way to run contamination detection based on GATK CalculateContamination.
+      Supports germline and somatic.
+    type: boolean?
