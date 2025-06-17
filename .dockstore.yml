@@ -72,7 +72,8 @@ workflows:
         - dragen-somatic-with-germline-pipeline/4.2.4__20241210230846
   - name: rnasum-pipeline_1_0_0
     subclass: CWL
-    primaryDescriptorPath: /.dockstore/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.packed.cwl.json
+    primaryDescriptorPath: 
+      /.dockstore/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.packed.cwl.json
     readMePath: 
       /.github/catalogue/docs/workflows/rnasum-pipeline/1.0.0/rnasum-pipeline__1.0.0.md
     authors:
@@ -98,7 +99,8 @@ workflows:
         - umccrise-pipeline/2.3.1--1__20240820075836
   - name: rnasum-pipeline_1_1_0
     subclass: CWL
-    primaryDescriptorPath: /.dockstore/rnasum-pipeline/1.1.0/rnasum-pipeline__1.1.0.packed.cwl.json
+    primaryDescriptorPath: 
+      /.dockstore/rnasum-pipeline/1.1.0/rnasum-pipeline__1.1.0.packed.cwl.json
     readMePath: 
       /.github/catalogue/docs/workflows/rnasum-pipeline/1.1.0/rnasum-pipeline__1.1.0.md
     authors:
@@ -196,7 +198,8 @@ workflows:
         - dragen-alignment-pipeline/4.3.6__20241106102650
   - name: rnasum-pipeline_1_1_5
     subclass: CWL
-    primaryDescriptorPath: /.dockstore/rnasum-pipeline/1.1.5/rnasum-pipeline__1.1.5.packed.cwl.json
+    primaryDescriptorPath: 
+      /.dockstore/rnasum-pipeline/1.1.5/rnasum-pipeline__1.1.5.packed.cwl.json
     readMePath: 
       /.github/catalogue/docs/workflows/rnasum-pipeline/1.1.5/rnasum-pipeline__1.1.5.md
     authors:
@@ -259,3 +262,16 @@ workflows:
       tags:
         - dragen-germline-pipeline/4.2.4
         - dragen-germline-pipeline/4.2.4__20250205035322
+  - name: dragen-wgts-dna-pipeline_4_4_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-wgts-dna-pipeline/4.4.4/dragen-wgts-dna-pipeline__4.4.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-wgts-dna-pipeline/4.4.4/dragen-wgts-dna-pipeline__4.4.4.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - dragen-wgts-dna-pipeline/4.4.4
+        - dragen-wgts-dna-pipeline/4.4.4__20250617224149
