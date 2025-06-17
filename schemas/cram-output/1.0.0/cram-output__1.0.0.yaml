@@ -1,7 +1,7 @@
 type: record
 name: cram-output
 fields:
-  - name: cram_output
+  cram_output:
     type: File
     secondaryFiles:
       - pattern: .crai
