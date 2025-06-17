@@ -31,8 +31,6 @@ requirements:
     SchemaDefRequirement:
       types:
         # Data inputs
-        - $import: ../../../schemas/fastq-list-row/2.0.0/fastq-list-row__2.0.0.yaml
-        - $import: ../../../schemas/fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0.yaml
         - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
         - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
         - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml

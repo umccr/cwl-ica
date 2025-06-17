@@ -7,16 +7,16 @@ fields:
     doc: |
       The data from the alignment stage
     type:
-      - {"$import": "../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml#bam-input"}
-      - {"$import": "../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml#cram-input"}
+      - {"$import": "../../bam-input/1.0.0/bam-input__1.0.0.yaml#bam-input"}
+      - {"$import": "../../cram-input/1.0.0/cram-input__1.0.0.yaml#cram-input"}
   tumor_alignment_data:
     label: tumor alignment data
     doc: |
       The data from the tumor alignment stage (optional)
     type:
       - "null"
-      - {"$import": "../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml#bam-input"}
-      - {"$import": "../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml#cram-input"}
+      - {"$import": "../../bam-input/1.0.0/bam-input__1.0.0.yaml#bam-input"}
+      - {"$import": "../../cram-input/1.0.0/cram-input__1.0.0.yaml#cram-input"}
   ref_tar:
     label: ref tar
     doc: |
