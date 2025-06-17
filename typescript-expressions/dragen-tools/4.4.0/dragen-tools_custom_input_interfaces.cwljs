@@ -1,0 +1,5 @@
+/*
+Some inputs are of mutually exclusive types that we cannot 'schemafy' in CWL,
+
+Instead we type them here
+*/
