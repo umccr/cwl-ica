@@ -30,10 +30,12 @@ requirements:
     SubworkflowFeatureRequirement: {}
     SchemaDefRequirement:
       types:
+        # Subschema imports
         - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
         - $import: ../../../schemas/bam-output/1.0.0/bam-output__1.0.0.yaml
         - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
         - $import: ../../../schemas/cram-output/1.0.0/cram-output__1.0.0.yaml
+        # Dragen options
         - $import: ../../../schemas/dragen-wgts-dna-options-alignment-stage/4.4.0/dragen-wgts-dna-options-alignment-stage__4.4.0.yaml
 
 inputs:

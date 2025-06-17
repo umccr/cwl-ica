@@ -30,6 +30,22 @@ requirements:
     SubworkflowFeatureRequirement: {}
     SchemaDefRequirement:
       types:
+        # Data inputs
+        - $import: ../../../schemas/fastq-list-row/2.0.0/fastq-list-row__2.0.0.yaml
+        - $import: ../../../schemas/fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0.yaml
+        - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
+        - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
+        - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml
+
+        # Sub-import schema support
+        - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml
+        - $import: ../../../schemas/dragen-cnv-caller-options/4.4.4/dragen-cnv-caller-options__4.4.4.yaml
+        - $import: ../../../schemas/dragen-maf-conversion-options/4.4.4/dragen-maf-conversion-options__4.4.4.yaml
+        - $import: ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml
+        - $import: ../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml
+        - $import: ../../../schemas/dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4.yaml
+
+        # Dragen options
         - $import: ../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.4/dragen-wgts-dna-options-variant-calling-stage__4.4.4.yaml
 
 inputs:
