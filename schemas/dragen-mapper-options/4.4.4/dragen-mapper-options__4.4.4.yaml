@@ -1,0 +1,48 @@
+type: record
+name: dragen-mapper-options
+fields:
+  ann_sj_max_indel:
+    label: ann_sj_max_indel
+    doc: |
+      Specifies maximum indel length to expect near an annotated splice junction.
+    type: int?
+  edit_chain_limit:
+    label: edit chain limit
+    doc: |
+      For edit-mode 1 or 2, the option sets maximum seed chain length in a read to qualify for seed editing.
+    type: int?
+  edit_mode:
+    label: edit_mode
+    doc: |
+      Controls when seed editing is used. The following values represent the different edit modes: 0 is no edits, 1 is chain length test, 2 is paired chain length test, 3 is full seed edits
+    type: int?
+  edit_read_len:
+    label: edit_read_len
+    doc: |
+      For edit-mode 1 or 2, controls the read length for edit-seed-num seed editing positions.
+    type: int?
+  edit_seed_num:
+    label: edit-seed-num
+    doc: |
+      For edit-mode 1 or 2, controls the requested number of seeds per read to allow editing on.
+    type: int?
+  map_orientations:
+    label: map_orientations
+    doc: |
+      Restricts the orientation of read mapping to only forward in the reference genome or only reverse-complemented. The following values represent the different orientations (paired end requires normal):0 is normal (paired-end inputs must use normal), 1 is reverse-complemented, 2 is no forward
+    type: int?
+  max_intron_bases:
+    label: max_intron_bases
+    doc: |
+      Specifies maximum intron length reported.
+    type: int?
+  min_intron_bases:
+    label: min_intron_bases
+    doc: |
+      Specifies minimum reference deletion length reported as an intron.
+    type: int?
+  seed_density:
+    label: seed_density
+    doc: |
+      Controls requested density of seeds from reads queried in the hash table
+    type: int?

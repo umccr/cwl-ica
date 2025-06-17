@@ -1,0 +1,10 @@
+type: record
+name: bam-input
+fields:
+  - name: bam_input
+    type: File
+    label: bam-input
+    doc: Bam input file
+    secondaryFiles:
+      - pattern: .bai
+        required: true

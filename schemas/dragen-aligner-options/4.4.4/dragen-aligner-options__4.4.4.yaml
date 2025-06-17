@@ -1,0 +1,179 @@
+type: record
+name: dragen-aligner-options
+fields:
+  aln_min_score:
+    label: aln_min_score
+    doc: |
+      A signed integer that specifies a minimum acceptable alignment score to report the baseline for MAPQ. When using local alignments (global is 0), aln-min-score is computed by the host software as 22 * match-score. When using global alignments (global is 1), aln-min-score is set to -1000000. Host software computation can be overridden by setting aln-min-score in configuration file.
+    type: int?
+  clip_pe_overhang:
+    label: clip_pe_overhang
+    doc: |
+      When nonzero, clips 3' read ends overhanging their mate's 5' ends as aligned. Set 1 to soft-clip overhang, 2 to hard-clip.
+    type: int?
+  dedup_min_qual:
+    label: dedup_min_qual
+    doc: |
+      Specifies a minimum base quality for calculating read quality metric for deduplication.
+    type: int?
+  en_alt_hap_aln:
+    label: en_alt_hap_aln
+    doc: |
+      Allows haplotype alignments to be output as supplementary.
+    type: int?
+  en_chimeric_aln:
+    label: en_chimeric_aln
+    doc: |
+      Allows chimeric alignments to be output as supplementary.
+    type: int?
+  gap_ext_pen:
+    label: gap_ext_pen
+    doc: |
+      Specifies the penalty for extending a gap.
+    type: int?
+  gap_open_pen:
+    label: gap_open_pen
+    doc: |
+      Specifies the penalty for opening a gap (ie, insertion or deletion).
+    type: int?
+  global:
+    label: global
+    doc: |
+      Controls whether alignment is end-to-end in the read. The following values represent the different alignments: 0 is local alignment (Smith-Waterman) 1 is global alignment (Needleman-Wunsch)
+    type: int?
+  hard_clip_tags:
+    label: hard_clip_tags
+    doc: |
+      Flags put hard-clipped bases in XB/XQ tags: [0] primary, [1] supplementary, [2] secondary
+    type: int?
+  hard_clips:
+    label: hard_clips
+    doc: |
+      Specifies alignments for hard clipping. The following values represent the different alignments: Bit 0 is primary Bit 1 is supplementary Bit 2 is secondary
+    type: int?
+  mapq_floor_1snp:
+    label: mapq_floor_1snp
+    doc: |
+      Minimum MAPQ when the best score exceeds others by at least one SNP cost
+    type: int?
+  map_orientations:
+    label: map_orientations
+    doc: |
+      Constrains orientations to accept forward-only, reverse-complement only, or any alignments. The following values represent the different orientations: 0 is any 1 is forward only 2 is reverse only
+    type: int?
+  mapq_max:
+    label: mapq_max
+    doc: |
+      Specifies ceiling on reported MAPQ. The default value is 60.
+    type: int?
+  mapq_strict_sjs:
+    label: mapq_strict_sjs
+    doc: |
+      Specific to RNA. When set to 0, a higher MAPQ value is returned, expressing confidence that the alignment is at least partially correct. When set to 1, a lower MAPQ value is returned, expressing the splice junction ambiguity.
+    type: int?
+  match_n_score:
+    label: match_n_score
+    doc: |
+      A signed integer that specifies the score increment for matching where a read or reference base is N.
+    type: int?
+  match_score:
+    label: match_score
+    doc: |
+      Specifies the score increment for matching reference nucleotide.
+    type: int?
+  max_rescues:
+    label: max_rescues
+    doc: |
+      Specifies maximum rescue alignments per read pair. The default value is 10.
+    type: int?
+  min_overhang:
+    label: min_overhang
+    doc: |
+      Minimum overhang on each side of a splice junction
+    type: int?
+  min_score_coeff:
+    label: min_score_coeff
+    doc: |
+      Sets adjustment to aln-min-score per read base.
+    type: float?
+  mismatch_pen:
+    label: mismatch_pen
+    doc: |
+      Defines the score penalty for a mismatch.
+    type: int?
+  no_noncan_motifs:
+    label: no_noncan_motifs
+    doc: |
+      Set to suppress individual non-canonical splice junctions.
+      0 = no filter, 1 = remove unless annotated, 2 = remove noncanonical motif splice junctions
+    type: int?
+  no_unclip_score:
+    label: no_unclip_score
+    doc: |
+      When set to 1, the option removes any unclipped bonus (unclip-score) contributing to an alignment from the alignment score before further processing.
+    type: int?
+  no_unpaired:
+    label: no_unpaired
+    doc: |
+      Determines if only properly paired alignments should be reported for paired reads.
+    type: int?
+  pe_max_penalty:
+    label: pe_max_penalty
+    doc: |
+      Specifies the maximum pairing score penalty for unpaired or distant ends.
+    type: int?
+  pe_orientation:
+    label: pe_orientation
+    doc: |
+      Specifies the expected paired-end orientation. The following values represent the different orientations: 0 is FR (default) 1 is RF 2 is FF
+    type: int?
+  rescue_sigmas:
+    label: rescue_sigmas
+    doc: |
+      Sets deviations from the mean read length used for rescue scan radius. The default value is 2.5.
+    type: float?
+  sec_aligns:
+    label: sec_aligns
+    doc: |
+      Restricts the maximum number of secondary (suboptimal) alignments to report per read.
+    type: int?
+  sec_aligns_hard:
+    label: sec_aligns_hard
+    doc: |
+      If set to 1, forces the read to be unmapped when not all secondary alignments can be output.
+    type: int?
+  sec_phred_delta:
+    label: sec_phred_delta
+    doc: |
+      Controls which secondary alignments are emitted. Only secondary alignments within this Phred value of the primary are reported.
+    type: int?
+  sec_score_delta:
+    label: sec_score_delta
+    doc: |
+      Determines the pair score threshold below primary that secondary alignments are allowed.
+    type: float?
+  supp_aligns:
+    label: supp_aligns
+    doc: |
+      Restricts the maximum number of supplementary (chimeric) alignments to report per read.
+    type: int?
+  supp_as_sec:
+    label: supp_as_sec
+    doc: |
+      Determines if supplementary alignments should be reported with secondary flag.
+    type: int?
+  supp_min_score_adj:
+    label: supp_min_score_adj
+    doc: |
+      Specifies amount to increase minimum alignment score for supplementary alignments. The score is computed by host software as 8 * match-score for DNA. The default is 0 for RNA.
+    type: int?
+  unclip_score:
+    label: unclip_score
+    doc: |
+      Specifies the score bonus for reaching the edge of the read.
+    type: int?
+  unpaired_pen:
+    label: unpaired_pen
+    doc: |
+      Specifies the penalty for unpaired alignments, using Phred scale.
+    type: int?

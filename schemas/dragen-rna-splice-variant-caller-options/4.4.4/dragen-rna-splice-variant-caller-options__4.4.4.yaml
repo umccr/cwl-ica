@@ -1,0 +1,8 @@
+type: record
+name: dragen-rna-splice-variant-caller-options
+fields:
+  enable_rna_splice_variant:
+    label: Enable RNA Splice Variant Caller
+    doc: |
+      Enable the RNA Splice Variant Caller. This option is only available for RNA-Seq data.
+    type: boolean?

@@ -1,0 +1,41 @@
+type: record
+name: dragen-cnv-caller-options
+fields:
+  enable_cnv:
+    label: enable cnv
+    doc: |
+      Enables copy number variant (CNV).
+    type: boolean?
+  cnv_bypass_contig_check:
+    label: cnv bypass contig check
+    doc: |
+      Bypass contig check for self normalization.
+    type: boolean?
+  # Somatic specific options
+  cnv_use_somatic_vc_baf:
+    label: cnv use somatic vc baf
+    doc: |
+      If running in tumor-normal mode with the SNV caller enabled,
+      use this option to specify the germline heterozygous sites.
+      For more information on specifying b-allele loci,
+      see Specification of B-Allele Loci.
+    type: boolean?
+  enable_hrd:
+    label: enable hrd
+    doc: |
+      Set to true to enable HRD scoring to quantify genomic instability.
+    type: boolean?
+  hrd_input_ascn:
+    label: hrd input ascn
+    doc: |
+      Specify the allele-specific copy number file (*cnv.vcf.gz).
+      The CNV VCF file should include REF calls for proper HRD segmentation.
+      See the option --cnv-enable-ref-calls in the CNV section.
+    type: File?
+  hrd_input_tn:
+    label: hrd input tn
+    doc: |
+      Specify the tumor normalized bin count file (*.tn.tsv.gz).
+    type: File?
+
+

@@ -1,0 +1,20 @@
+type: record
+name: dragen-sv-caller-options
+fields:
+  enable_sv:
+    label: enable csv
+    doc: |
+      Enables the structural variant caller.
+      The default value is false.
+    type: boolean?
+  sv_call_regions_bed:
+    label: sv call regions bed
+    doc: |
+      A bed file containing the regions to be used for structural variant calling.
+    type: File?
+  sv_filtered_contigs:
+    label: sv filtered contigs
+    doc: |
+      A file containing the list of contigs to be filtered out from structural variant calling.
+      The default value is empty.
+    type: string[]?

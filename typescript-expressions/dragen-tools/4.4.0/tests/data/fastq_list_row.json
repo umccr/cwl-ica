@@ -1,0 +1,30 @@
+[
+  {
+    "rgid": "TGACGAAT+GCCTACTG.4.241024_A00130_0336_BHW7MVDSXC",
+    "rglb": "L2401553",
+    "rgsm": "L2401553",
+    "lane": 4,
+    "rgcn": "UMCCR",
+    "rgds": "Library ID: L2401553, Sequenced on 24 Oct, 2024 at UMCCR, Phenotype: normal, Assay: TsqNano, Type: WGS",
+    "rgdt": "2024-10-24T00:00:00",
+    "rgpl": "Illumina",
+    "read_1": {
+      "class_": "File",
+      "location": "file:///ces/scheduler/run/50496c7f-da9e-4245-9b04-2684def6f74f/data/ea19a3f5-ec7c-4940-a474-c31cd91dbad4/fil.0d1db4479a3e4e6fb2ea08dda4d1efcf/L2401553_S27_L004_R1_001.fastq.ora",
+      "path": "/data/ea19a3f5-ec7c-4940-a474-c31cd91dbad4/fil.0d1db4479a3e4e6fb2ea08dda4d1efcf/L2401553_S27_L004_R1_001.fastq.ora",
+      "size": 6630035514,
+      "basename": "L2401553_S27_L004_R1_001.fastq.ora",
+      "nameroot": "L2401553_S27_L004_R1_001.fastq",
+      "nameext": ".ora"
+    },
+    "read_2": {
+      "class_": "File",
+      "location": "file:///ces/scheduler/run/50496c7f-da9e-4245-9b04-2684def6f74f/data/ea19a3f5-ec7c-4940-a474-c31cd91dbad4/fil.715247367e8f472ab2eb08dda4d1efcf/L2401553_S27_L004_R2_001.fastq.ora",
+      "path": "/data/ea19a3f5-ec7c-4940-a474-c31cd91dbad4/fil.715247367e8f472ab2eb08dda4d1efcf/L2401553_S27_L004_R2_001.fastq.ora",
+      "size": 8636711799,
+      "basename": "L2401553_S27_L004_R2_001.fastq.ora",
+      "nameroot": "L2401553_S27_L004_R2_001.fastq",
+      "nameext": ".ora"
+    }
+  }
+]

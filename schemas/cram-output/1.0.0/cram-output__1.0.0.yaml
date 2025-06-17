@@ -1,0 +1,8 @@
+type: record
+name: cram-output
+fields:
+  - name: cram_output
+    type: File
+    secondaryFiles:
+      - pattern: .crai
+        required: true

@@ -1,0 +1,16 @@
+type: record
+name: dragen-maf-conversion-options
+fields:
+  enable_maf_output:
+    label: enable maf output
+    doc: |
+      Enables Mutation Annotation Format (MAF) output.
+      The default value is false.
+    type: boolean?
+  maf_transcript_source:
+    label: maf transcript source
+    doc: |
+      Specifies desired transcript source for Mutation Annotation Format (MAF) output.
+      One of 'Refseq' or 'Ensembl'.
+    type: string?
+

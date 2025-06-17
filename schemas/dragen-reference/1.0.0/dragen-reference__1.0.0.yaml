@@ -1,0 +1,23 @@
+type: record
+name: dragen-reference
+fields:
+  name:
+    label: name
+    doc: |
+      The name of the reference genome, i.e hg38
+    type: string
+  structure:
+    label: structure
+    doc: |
+        The structure of the reference genome, i.e. linear or graph
+    type:
+      - type: enum
+        symbols:
+          - linear
+          - graph
+  tarball:
+    label: tarball
+    doc: |
+      The reference tarball containing the reference genome and annotation files.
+    type: File
+
