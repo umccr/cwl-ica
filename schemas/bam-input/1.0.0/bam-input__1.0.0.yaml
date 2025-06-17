@@ -1,7 +1,7 @@
 type: record
 name: bam-input
 fields:
-  - name: bam_input
+  bam_input:
     type: File
     label: bam-input
     doc: Bam input file
