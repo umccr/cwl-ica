@@ -223,6 +223,7 @@ workflows:
         - bclconvert-interop-qc/1.3.1--1.25.2
         - bclconvert-interop-qc/1.3.1--1.25.2__20241120234352
         - bclconvert-interop-qc/1.3.1--1.25.2__20250414112602
+        - bclconvert-interop-qc/1.3.1--1.25.2__20250629070033
   - name: dragen-build-reference-tarball-pipeline_4_2_4
     subclass: CWL
     primaryDescriptorPath: 
