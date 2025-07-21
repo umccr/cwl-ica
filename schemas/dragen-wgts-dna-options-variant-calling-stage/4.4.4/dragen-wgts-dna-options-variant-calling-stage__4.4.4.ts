@@ -1,5 +1,3 @@
-import { BamInput } from "../../bam-input/1.0.0/bam-input__1.0.0"
-import { CramInput } from "../../cram-input/1.0.0/cram-input__1.0.0"
 import { FileProperties as IFile } from "cwl-ts-auto"
 import { DragenSnvVariantCallerOptions } from "../../dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4"
 import {DragenCnvCallerOptions} from "../../dragen-cnv-caller-options/4.4.4/dragen-cnv-caller-options__4.4.4";
@@ -13,14 +11,20 @@ import {
 import {
 	DragenTargetedCallerOptions
 } from "../../dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4";
+import {FastqListRowsInput} from "../../fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0";
+import {BamInput} from "../../bam-input/1.0.0/bam-input__1.0.0";
+import {CramInput} from "../../cram-input/1.0.0/cram-input__1.0.0";
+import {
+	DragenWgtsAlignmentOptions
+} from "../../dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4";
 
 export interface DragenWgtsDnaOptionsVariantCallingStage {
 	/*
 	alignment data: 
 	The data from the alignment stage
 	*/
-	alignment_data: BamInput | CramInput
-	tumor_alignment_data?: BamInput | CramInput
+	sequence_data: FastqListRowsInput | BamInput | CramInput
+	tumor_alignment_data?: FastqListRowsInput | BamInput | CramInput
 
 	/*
 	lic instance id location: 
@@ -46,6 +50,16 @@ export interface DragenWgtsDnaOptionsVariantCallingStage {
 	Note that the actual dragen command is '--ref-dir' but we first need to download and extract the tarball.
 	*/
 	ref_tar: IFile
+
+	/*
+	Ora reference: Only required if inputs are in ORA format.
+	*/
+	ora_reference?: IFile
+
+	/*
+	alignment options:
+	*/
+	alignment_options: DragenWgtsAlignmentOptions
 
 	/*
 	variant calling options: 

@@ -54,15 +54,17 @@ export interface DragenWgtsDnaVariantCallingStageOptionsFromPipelineProps {
     sample_name: string
     tumor_sample_name?: string
     reference: DragenReference
-    alignment_data: DragenOutputAlignmentType,
-    tumor_alignment_data?: DragenOutputAlignmentType
-    snv_variant_caller_options: DragenSnvVariantCallerOptions,
-    cnv_caller_options: DragenCnvCallerOptions,
-    maf_conversion_options: DragenMafConversionOptions,
-    sv_caller_options: DragenSvCallerOptions,
-    nirvana_annotation_options: DragenNirvanaAnnotationOptions,
-    targeted_caller_options: DragenTargetedCallerOptions,
-    lic_instance_id_location: StringOrFileType,
+    ora_reference: IFile
+    sequence_data: DragenInputSequenceType
+    tumor_sequence_data?: DragenInputSequenceType
+    alignment_options: DragenWgtsAlignmentOptions
+    snv_variant_caller_options: DragenSnvVariantCallerOptions
+    cnv_caller_options: DragenCnvCallerOptions
+    maf_conversion_options: DragenMafConversionOptions
+    sv_caller_options: DragenSvCallerOptions
+    nirvana_annotation_options: DragenNirvanaAnnotationOptions
+    targeted_caller_options: DragenTargetedCallerOptions
+    lic_instance_id_location: StringOrFileType
     default_configuration_options: Record<string, any>
 }
 

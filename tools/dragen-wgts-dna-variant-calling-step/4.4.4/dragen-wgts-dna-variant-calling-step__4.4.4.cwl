@@ -54,22 +54,26 @@ requirements:
           ${
 
             /*
-              Check if theres any tumor alignment data,
+              Check if theres any tumor sequence data in bam/cram format,
               if so rename bam / cram input params to have tumor_ prefix
             */
-            var tumor_alignment_data = {};
-            if (inputs.dragen_options.tumor_alignment_data){
-              if (inputs.dragen_options.tumor_alignment_data.bam_input){
+            var tumor_sequence_data = {};
+            if (inputs.dragen_options.tumor_sequence_data){
+              /* Check what data type we have */
+              if (inputs.dragen_options.tumor_sequence_data.fastq_list_rows){
+                 /* Has fastq list rows */
+                 tumor_sequence_data["tumor_fastq_list_rows"] = inputs.dragen_options.tumor_sequence_data.fastq_list_rows;
+              } else if (inputs.dragen_options.tumor_sequence_data.bam_input){
                 /* Has bam input */
-                tumor_alignment_data["tumor_bam_input"] = inputs.dragen_options.tumor_alignment_data.bam_input;
+                tumor_sequence_data["tumor_bam_input"] = inputs.dragen_options.tumor_sequence_data.bam_input;
               } else {
                 /* Has cram input */
-                tumor_alignment_data["tumor_cram_input"] = inputs.dragen_options.tumor_alignment_data.cram_input;
+                tumor_sequence_data["tumor_cram_input"] = inputs.dragen_options.tumor_sequence_data.cram_input;
 
                 /* Check for cram reference */
-                if (inputs.dragen_options.tumor_alignment_data.cram_reference){
+                if (inputs.dragen_options.tumor_sequence_data.cram_reference){
                   /* Has cram reference */
-                  tumor_alignment_data["tumor_cram_reference"] = inputs.dragen_options.tumor_alignment_data.cram_reference;
+                  tumor_sequence_data["tumor_cram_reference"] = inputs.dragen_options.tumor_sequence_data.cram_reference;
                 }
               }
             }
@@ -89,8 +93,10 @@ requirements:
               dragen_merge_options(
                 [
                    /* Input data */
-                   inputs.dragen_options.alignment_data,
-                   tumor_alignment_data,
+                   inputs.dragen_options.sequence_data,
+                   tumor_sequence_data,
+                   /* Alignment options */
+                   inputs.dragen_options.alignment_options,
                    /* SNV VC Options */
                    inputs.dragen_options.snv_variant_caller_options,
                    /* CNV Options */
@@ -108,15 +114,17 @@ requirements:
                       "output_directory": inputs.dragen_options.output_directory,
                       "output_file_prefix": inputs.dragen_options.output_file_prefix,
                       "ref_tar": inputs.dragen_options.ref_tar,
-                      "lic_instance_id_location": lic_instance_id_location
+                      "lic_instance_id_location": lic_instance_id_location,
+                      "ora_reference": inputs.dragen_options.ora_reference,
                    },
                    /* VC Mandatory options */
                    {
                       /* We push this to /scratch */
                       "intermediate_results_dir": get_intermediate_results_dir(),
                       /* Force enable parameters */
-                      "enable_map_align": false,
-                      "enable_map_align_output": false,
+                      /* We now align in this step too to prevent a double invocation of the dragen license charge */
+                      "enable_map_align": true,
+                      "enable_map_align_output": true,
                       "enable_variant_caller": true
                    }
                 ]
@@ -145,15 +153,21 @@ requirements:
             --extract \\
             --file "$(inputs.dragen_options.ref_tar.path)"
 
+          # Check if ora reference is set
+          if [[ "$(is_not_null(inputs.dragen_options.ora_reference))" == "true" ]]; then
+            mkdir --parents \\
+              "$(get_ora_ref_mount())"
+              tar \\
+                --directory "$(get_ora_ref_mount())" \\
+                --extract \\
+                --file "$(get_attribute_from_optional_input(inputs.dragen_options.ora_reference, "path"))"
+          fi
+
           # Run dragen command and import options from cli
           "$(get_dragen_bin_path())" "\${@}"
       - |
         ${
-          /* Tumor alignment data may be undefined */
-          return generate_alignment_data_mount_points(
-            inputs.dragen_options.alignment_data,
-            inputs.dragen_options.tumor_alignment_data
-          );
+          return generate_sequence_data_mount_points(inputs.dragen_options.sequence_data, inputs.dragen_options.tumor_sequence_data);
         }
 
 baseCommand: [ "bash", "run_dragen.sh" ]

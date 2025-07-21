@@ -94,6 +94,20 @@ export function get_ref_mount(): string {
     return get_scratch_mount() + "ref/";
 }
 
+export function get_ora_ref_mount(): string {
+    /*
+    Get the ORA reference mount point
+    */
+    return get_scratch_mount() + "ora-reference/";
+}
+
+export function get_ora_ref_path(reference_input_obj: IFile): string {
+    /*
+    Get the reference path
+    */
+    return get_ora_ref_mount() + get_name_root_from_tarball(<string>reference_input_obj.basename);
+}
+
 export function get_dragen_bin_path(): string {
     /*
     Get dragen bin path
@@ -106,6 +120,13 @@ export function get_fastq_list_csv_path(): string {
     The fastq list path must be placed in working directory
     */
     return "fastq_list.csv"
+}
+
+export function get_tumor_fastq_list_csv_path(): string {
+    /*
+    The fastq list path must be placed in working directory
+    */
+    return "tumor_fastq_list.csv"
 }
 
 export function capitalizeFirstLetter(str: string): string {
@@ -356,18 +377,8 @@ export function get_fastq_list_row_as_csv_row(fastq_list_row: FastqListRow, row_
                     if (fastq_list_row_field_value_file.class_ !== File_class.FILE) {
                         continue
                     }
-
-                    if (fastq_list_row_field_value_file.path !== null && fastq_list_row_field_value_file.path !== undefined) {
-                        /*
-                        Push the path attribute to the fastq list csv row if it is not null
-                        */
-                        fastq_list_row_values_array.push(<string>fastq_list_row_field_value_file.path)
-                    } else {
-                        /*
-                        Otherwise push the location attribute
-                        */
-                        fastq_list_row_values_array.push(<string>fastq_list_row_field_value_file.location)
-                    }
+                    // Read 1 and 2 files are mounted as rgid/filename
+                    fastq_list_row_values_array.push(<string>fastq_list_row.rgid + '/' + fastq_list_row_field_value_file.basename)
                 } else {
                     /*
                     Push the string attribute to the fastq list csv row
@@ -392,6 +403,7 @@ export function get_fastq_list_row_as_csv_row(fastq_list_row: FastqListRow, row_
     */
     return fastq_list_row_values_array.join(",") + "\n"
 }
+
 
 export function generate_fastq_list_csv(fastq_list_rows: FastqListRow[]): IFile {
     /*
@@ -507,7 +519,6 @@ export function dragen_to_config_toml(
             json_blob["fastq-list"] = get_fastq_list_csv_path()
             continue
         }
-        /* Alignment data */
         if (key === "bam_input") {
             json_blob["bam-input"] = value.basename
             continue
@@ -520,7 +531,11 @@ export function dragen_to_config_toml(
             json_blob["cram-reference"] = value.basename
             continue
         }
-        /* Tumor alignment data */
+        /* Tumor sequence data */
+        if (key === "tumor_fastq_list_rows") {
+            json_blob['tumor-fastq-list'] = get_tumor_fastq_list_csv_path()
+            continue
+        }
         if (key === "tumor_bam_input") {
             json_blob["tumor-bam-input"] = value.basename
             continue
@@ -540,16 +555,20 @@ export function dragen_to_config_toml(
             /*
                 If the ref_tar does not contain 'graph',
                 then we also need to add the parameter,
-                --validate-pangenome-reference=false
+                --validate-pangenome-reference=false,
+                this was in place when we wanted to align genome to linear somatic reference
+                however, we are no longer doing that so this parameter is not needed
             */
             if (!value.basename.includes("graph")) {
                 json_blob['validate-pangenome-reference'] = false
             }
             continue
         }
+
+        /* If the ora reference is parsed through, we alos place the ora reference into the scratch space */
         if (key === "ora_reference") {
             /* Mounted at ref mount, strip the .tar.gz from the basename */
-            json_blob['ora-reference'] = get_ref_mount() + value.basename.replace(/\.tar\.gz$/, "")
+            json_blob['ora-reference'] = get_ora_ref_path(<IFile>value)
             continue
         }
 
@@ -589,7 +608,8 @@ export function dragen_to_config_toml(
 }
 
 export function generate_sequence_data_mount_points(
-    sequence_data: DragenInputSequenceType
+    sequence_data: DragenInputSequenceType,
+    tumor_sequence_data?: DragenInputSequenceType | null
 ): Array<IDirent> {
     /*
     Create and add in the fastq list csv for the input fastqs
@@ -605,6 +625,33 @@ export function generate_sequence_data_mount_points(
             "entryname": get_fastq_list_csv_path(),
             "entry": generate_fastq_list_csv(sequence_data.fastq_list_rows)
         });
+        // Optional path mappings are not added by default
+        for (const fastq_list_row of sequence_data.fastq_list_rows) {
+            if (fastq_list_row.read_1) {
+                /* Read 1 may be a string, such as a presigned url, if its a file mount it */
+                if (typeof fastq_list_row.read_1 === 'object' && fastq_list_row.read_1.hasOwnProperty("class_") && fastq_list_row.read_1["class_"] === File_class.FILE) {
+                    e.push({
+                        "entryname": fastq_list_row.rgid + '/' + fastq_list_row.read_1.basename,
+                        "entry": {
+                            "class": "File",
+                            "location": fastq_list_row.read_1.location
+                        }
+                    })
+                }
+            }
+            if (fastq_list_row.read_2) {
+                /* Read 2 may be a string, such as a presigned url, if its a file mount it */
+                if (typeof fastq_list_row.read_2 === 'object' && fastq_list_row.read_2.hasOwnProperty("class_") && fastq_list_row.read_2["class_"] === File_class.FILE) {
+                    e.push({
+                        "entryname": fastq_list_row.rgid + '/' + fastq_list_row.read_2.basename,
+                        "entry": {
+                            "class": "File",
+                            "location": fastq_list_row.read_2.location
+                        }
+                    })
+                }
+            }
+        }
     } else if ("bam_input" in sequence_data && sequence_data.bam_input !== undefined) {
         e.push({
             "entryname": sequence_data.bam_input.basename,
@@ -657,6 +704,110 @@ export function generate_sequence_data_mount_points(
             /* Then add in each secondary file object */
             if (sequence_data.cram_reference.secondaryFiles) {
                 sequence_data.cram_reference.secondaryFiles.forEach(function (secondary_file_iter_) {
+                    e.push({
+                        "entryname": secondary_file_iter_.basename,
+                        "entry": {
+                            "class": "File",
+                            "location": secondary_file_iter_.location
+                        }
+                    })
+                })
+            }
+        }
+    }
+
+    /* Can exist here if germline-only */
+    if (!tumor_sequence_data) {
+        // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
+        return e
+    }
+
+    // Add the tumor sequence data
+    if ("fastq_list_rows" in tumor_sequence_data && tumor_sequence_data.fastq_list_rows !== undefined) {
+        /* Upload the csv */
+        e.push({
+            "entryname": get_tumor_fastq_list_csv_path(),
+            "entry": generate_fastq_list_csv(tumor_sequence_data.fastq_list_rows)
+        });
+        // Optional path mappings are not added by default
+        for (const fastq_list_row of tumor_sequence_data.fastq_list_rows) {
+            if (fastq_list_row.read_1) {
+                /* Read 1 may be a string, such as a presigned url, if its a file mount it */
+                if (typeof fastq_list_row.read_1 === 'object' && fastq_list_row.read_1.hasOwnProperty("class_") && fastq_list_row.read_1["class_"] === File_class.FILE) {
+                    e.push({
+                        "entryname": fastq_list_row.rgid + '/' + fastq_list_row.read_1.basename,
+                        "entry": {
+                            "class": "File",
+                            "location": fastq_list_row.read_1.location
+                        }
+                    })
+                }
+            }
+            if (fastq_list_row.read_2) {
+                /* Read 2 may be a string, such as a presigned url, if its a file mount it */
+                if (typeof fastq_list_row.read_2 === 'object' && fastq_list_row.read_2.hasOwnProperty("class_") && fastq_list_row.read_2["class_"] === File_class.FILE) {
+                    e.push({
+                        "entryname": fastq_list_row.rgid + '/' + fastq_list_row.read_2.basename,
+                        "entry": {
+                            "class": "File",
+                            "location": fastq_list_row.read_2.location
+                        }
+                    })
+                }
+            }
+        }
+    } else if ("bam_input" in tumor_sequence_data && tumor_sequence_data.bam_input !== undefined) {
+        e.push({
+            "entryname": tumor_sequence_data.bam_input.basename,
+            "entry": {
+                "class": "File",
+                "location": tumor_sequence_data.bam_input.location
+            }
+        });
+        /* Then add in each secondary file object */
+        if (tumor_sequence_data.bam_input.secondaryFiles) {
+            tumor_sequence_data.bam_input.secondaryFiles.forEach(function (secondary_file_iter_) {
+                e.push({
+                    "entryname": secondary_file_iter_.basename,
+                    "entry": {
+                        "class": "File",
+                        "location": secondary_file_iter_.location
+                    }
+                })
+            })
+        }
+    } else if ("cram_input" in tumor_sequence_data && tumor_sequence_data.cram_input !== undefined) {
+        e.push({
+            "entryname": tumor_sequence_data.cram_input.basename,
+            "entry": {
+                "class": "File",
+                "location": tumor_sequence_data.cram_input.location
+            }
+        });
+        /* Then add in each secondary file object */
+        if (tumor_sequence_data.cram_input.secondaryFiles) {
+            tumor_sequence_data.cram_input.secondaryFiles.forEach(function (secondary_file_iter_) {
+                e.push({
+                    "entryname": secondary_file_iter_.basename,
+                    "entry": {
+                        "class": "File",
+                        "location": secondary_file_iter_.location
+                    }
+                })
+            })
+        }
+        // We also add in the reference file if its provided
+        if (tumor_sequence_data.cram_reference !== undefined) {
+            e.push({
+                "entryname": tumor_sequence_data.cram_reference.basename,
+                "entry": {
+                    "class": "File",
+                    "location": tumor_sequence_data.cram_reference.location
+                }
+            })
+            /* Then add in each secondary file object */
+            if (tumor_sequence_data.cram_reference.secondaryFiles) {
+                tumor_sequence_data.cram_reference.secondaryFiles.forEach(function (secondary_file_iter_) {
                     e.push({
                         "entryname": secondary_file_iter_.basename,
                         "entry": {
@@ -1020,37 +1171,13 @@ export function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
         evaluated before 'when'
     */
 
-    /* Convert bam_output to bam_input or cram_output to cram_input */
-    let alignment_data = null
-    if ("bam_output" in props.alignment_data) {
-        alignment_data = {
-            'bam_input': props.alignment_data.bam_output
-        }
-    } else {
-        alignment_data = {
-            'cram_input': props.alignment_data.cram_output
-        }
-    }
-
-    let tumor_alignment_data = null
-    if (props.tumor_alignment_data) {
-        if ("bam_output" in props.tumor_alignment_data) {
-            /* Convert bam_output to bam_input or cram_output to cram_input */
-            tumor_alignment_data = {
-                'bam_input': props.tumor_alignment_data.bam_output
-            }
-        } else {
-            tumor_alignment_data = {
-                'cram_input': props.tumor_alignment_data.cram_output
-            }
-        }
-    }
-
     return <DragenWgtsDnaOptionsVariantCallingStage>{
         /* Data inputs */
-        alignment_data: alignment_data,
-        tumor_alignment_data: tumor_alignment_data,
+        sequence_data: props.sequence_data,
+        tumor_sequence_data: props.tumor_sequence_data,
         ref_tar: props.reference.tarball,
+        ora_reference: props.ora_reference ? props.ora_reference : null,
+
         /* Stage specific options */
         /* Use tumor_sample_name if it exists otherwise use the standard sample name */
         output_file_prefix: (props.tumor_sample_name ? props.tumor_sample_name : props.sample_name),
@@ -1062,9 +1189,15 @@ export function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
             props.reference.name + "__" +
             props.reference.structure + "__dragen_variant_calling"
         ),
-        /* Lic Instance id location */
-        lic_instance_id_location: props.lic_instance_id_location,
+
+        /* Alignment options */
+        alignment_options: dragen_merge_options([
+            filter_object_by_keys(props.default_configuration_options, props.alignment_options),
+            props.alignment_options,
+        ]),
+
         /* Variant caller options */
+        /* SNV caller options */
         snv_variant_caller_options: dragen_merge_options([
             filter_object_by_keys(props.default_configuration_options, props.snv_variant_caller_options),
             props.snv_variant_caller_options,
@@ -1078,10 +1211,15 @@ export function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
             filter_object_by_keys(props.default_configuration_options, props.sv_caller_options),
             props.sv_caller_options,
         ]),
+
         /* Nirvana options */
         nirvana_annotation_options: props.nirvana_annotation_options,
+
         /* Targeted Caller options */
-        targeted_caller_options: props.targeted_caller_options
+        targeted_caller_options: props.targeted_caller_options,
+
+        /* Lic Instance id location */
+        lic_instance_id_location: props.lic_instance_id_location,
     }
 }
 

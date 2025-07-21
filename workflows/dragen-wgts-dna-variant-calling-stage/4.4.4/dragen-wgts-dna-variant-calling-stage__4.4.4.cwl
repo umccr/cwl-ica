@@ -31,11 +31,18 @@ requirements:
     SchemaDefRequirement:
       types:
         # Data inputs
+        - $import: ../../../schemas/fastq-list-row/2.0.0/fastq-list-row__2.0.0.yaml
+        - $import: ../../../schemas/fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0.yaml
         - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
         - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
         - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml
 
+        # Nested schemas
+        - $import: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml
+        - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
+
         # Sub-import schema support
+        - $import: ../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4.yaml
         - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml
         - $import: ../../../schemas/dragen-cnv-caller-options/4.4.4/dragen-cnv-caller-options__4.4.4.yaml
         - $import: ../../../schemas/dragen-maf-conversion-options/4.4.4/dragen-maf-conversion-options__4.4.4.yaml
