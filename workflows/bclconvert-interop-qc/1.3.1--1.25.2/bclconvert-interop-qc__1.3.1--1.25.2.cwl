@@ -64,7 +64,7 @@ steps:
         valueFrom: "RunInfo.xml"
     out:
       - id: output_file
-    run: ../../../expressions/get-file-from-directory/1.0.1/get-file-from-directory__1.0.1.cwl
+    run: ../../../tools/get-file-from-directory/1.0.1/get-file-from-directory__1.0.1.cwl
 
   # 1 of 2 steps - generate the interop qc
   generate_interop_qc_step:
@@ -73,6 +73,8 @@ steps:
       Generate the interop files by mounting the interop directory underneath a directory named by the run id specified.
       along with the run info xml file.
     in:
+      instrument_run_id:
+        source: instrument_run_id
       input_run_dir:
         source:
           - instrument_run_id
@@ -152,12 +154,11 @@ steps:
       basename:
         source: instrument_run_id
         valueFrom: "$(self)_multiqc_bclconvert_summary_qlims.csv"
-      location:
+      file_object:
         source: generate_qc_csv_step/qlims_csv
-        valueFrom: "$(self.location)"
     out:
       - id: output_file
-    run: ../../../expressions/create-file/1.0.0/create-file__1.0.0.cwl
+    run: ../../../tools/create-file/1.0.1/create-file__1.0.1.cwl
 
 outputs:
   # Collect everything

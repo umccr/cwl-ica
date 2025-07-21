@@ -48,8 +48,8 @@ requirements:
           mkdir "$(inputs.output_dir_name)"
 
           # Generate interop files
-          interop_summary --csv=1 --level=4 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/interop_summary.csv"
-          interop_index-summary --csv=1 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/interop_index-summary.csv"
+          interop_summary --csv=1 --level=4 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/$(inputs.instrument_run_id).csv"
+          interop_index-summary --csv=1 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/$(inputs.instrument_run_id).csv"
 
           # Generate imaging table
           interop_imaging_table "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/imaging_table.csv"
@@ -65,6 +65,11 @@ baseCommand: [ "bash", "generate_interop_files.sh" ]
 
 inputs:
   # Required inputs
+  instrument_run_id:
+    label: instrument run id
+    doc: |
+      The instrument run id, e.g. "C123456789"
+    type: string
   input_run_dir:
     label: input run directory
     doc: |
