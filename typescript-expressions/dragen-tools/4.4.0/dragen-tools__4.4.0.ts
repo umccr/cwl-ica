@@ -565,7 +565,7 @@ export function dragen_to_config_toml(
             continue
         }
 
-        /* If the ora reference is parsed through, we alos place the ora reference into the scratch space */
+        /* If the ora reference is parsed through, we also place the ora reference into the scratch space */
         if (key === "ora_reference") {
             /* Mounted at ref mount, strip the .tar.gz from the basename */
             json_blob['ora-reference'] = get_ora_ref_path(<IFile>value)
