@@ -277,3 +277,4 @@ workflows:
       tags:
         - dragen-wgts-dna-pipeline/4.4.4
         - dragen-wgts-dna-pipeline/4.4.4__20250617224149
+        - dragen-wgts-dna-pipeline/4.4.4__20250722003700
