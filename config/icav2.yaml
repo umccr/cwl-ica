@@ -2590,11 +2590,12 @@ bunches:
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     bunch_region_city_name: Sydney
     projects:
-      - production
+      - development
+      - staging
     categories:
       - wgts
       - dna
-      - pro
+      - validation
     bunch_versions:
       - version: v11_r5
         version_description: |
