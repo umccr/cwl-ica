@@ -127,7 +127,7 @@ steps:
           }
     out:
       - id: dragen_wgts_alignment_options_output
-    run: ../../../tools/dragen-wgts-parse-alignment-schema/4.4.4/dragen-wgts-parse-alignment-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-wgts-parse-alignment-schema/4.4.4/dragen-wgts-parse-alignment-schema__4.4.4.cwl
 
 outputs:
   alignment_options_output:

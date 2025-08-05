@@ -49,7 +49,7 @@ steps:
           }
     out:
       - id: aligner_options_output
-    run: ../../../tools/dragen-parse-aligner-schema/4.4.4/dragen-parse-aligner-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-aligner-schema/4.4.4/dragen-parse-aligner-schema__4.4.4.cwl
 
 outputs:
   aligner_options_output:
