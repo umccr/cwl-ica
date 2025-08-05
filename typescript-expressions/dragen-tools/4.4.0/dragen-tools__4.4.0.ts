@@ -1172,6 +1172,12 @@ export function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
     */
 
     return <DragenWgtsDnaOptionsVariantCallingStage>{
+        /*
+        Naming things
+        */
+        sample_name: props.sample_name,
+        tumor_sample_name: props.tumor_sample_name,
+
         /* Data inputs */
         sequence_data: props.sequence_data,
         tumor_sequence_data: props.tumor_sequence_data,
@@ -1187,7 +1193,8 @@ export function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
             (props.tumor_sample_name ? props.tumor_sample_name + "__" : "") +
             props.sample_name + "__" +
             props.reference.name + "__" +
-            props.reference.structure + "__dragen_variant_calling"
+            props.reference.structure + "__" +
+            "dragen_wgts_dna_" + (props.tumor_sample_name ? "somatic" : "germline") + "_variant_calling"
         ),
 
         /* Alignment options */
@@ -1244,7 +1251,7 @@ export function get_dragen_wgts_rna_variant_calling_stage_options_from_pipeline(
         output_directory: (
             props.sample_name + "__" +
             props.reference.name + "__" +
-            props.reference.structure + "__dragen_rna_variant_calling"
+            props.reference.structure + "__dragen_wgts_rna_variant_calling"
         ),
         /* Lic Instance id location */
         lic_instance_id_location: props.lic_instance_id_location,
@@ -1282,7 +1289,7 @@ export function get_dragen_wgts_rna_variant_calling_stage_options_from_pipeline(
  */
 
 export function get_wgts_dna_multiqc_output_filename(props: MultiQcNamingOptionsProps) {
-    return (props.tumor_sample_name ? props.tumor_sample_name + "_" : "") + props.sample_name + "_multiqc_report.html"
+    return (props.tumor_sample_name ? props.tumor_sample_name + "__" : "") + props.sample_name + "__multiqc_report.html"
 }
 
 export function get_wgts_rna_multiqc_output_filename(props: MultiQcNamingOptionsProps) {
@@ -1293,7 +1300,7 @@ export function get_wgts_rna_multiqc_output_filename(props: MultiQcNamingOptions
 
 export function get_wgts_dna_multiqc_output_directory_name(props: MultiQcNamingOptionsProps) {
     /* Given a sample name, and potentially a tumor sample name, return the multiqc output directory name */
-    return (props.tumor_sample_name ? props.tumor_sample_name + "_" : "") + props.sample_name + "_multiqc"
+    return (props.tumor_sample_name ? props.tumor_sample_name + "__" : "") + props.sample_name + "__multiqc"
 }
 
 export function get_wgts_rna_multiqc_output_directory_name(props: MultiQcNamingOptionsProps) {

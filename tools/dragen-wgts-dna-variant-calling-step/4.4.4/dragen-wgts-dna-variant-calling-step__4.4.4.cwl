@@ -46,6 +46,13 @@ requirements:
       - $include: ../../../typescript-expressions/dragen-tools/4.4.0/dragen-tools__4.4.0.cwljs
   SchemaDefRequirement:
     types:
+      # Data inputs
+      - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml
+      - $import: ../../../schemas/fastq-list-row/2.0.0/fastq-list-row__2.0.0.yaml
+      - $import: ../../../schemas/fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0.yaml
+      - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
+      - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
+      # Main import
       - $import: ../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.4/dragen-wgts-dna-options-variant-calling-stage__4.4.4.yaml
   InitialWorkDirRequirement:
     listing:
@@ -165,6 +172,21 @@ requirements:
 
           # Run dragen command and import options from cli
           "$(get_dragen_bin_path())" "\${@}"
+
+          # Copy over the config.toml file to the output directory too
+          cp "$(get_dragen_config_path())" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).config.toml"
+
+          # Rename normal bam file if we ran the somatic workflow
+          # below is js function is_not_null(inputs.dragen_options.tumor_sequence_data) == "true"
+          # This may look like "true" == "true" when the script is written
+          if [[ "$(is_not_null(inputs.dragen_options.tumor_sequence_data))" == "true" ]]; then
+            # Normal bam file is currently named "output_file_prefix.bam", where output_file_prefix is the name of the tumor sample
+            # It should instead be named "sample_name_normal.bam", to match "tumor_sample_name_tumor.bam".
+            # We will also need to rename the bai and .md5sum secondary files
+            mv "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).bam" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.sample_name)_normal.bam"
+            mv "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).bam.bai" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.sample_name)_normal.bam.bai"
+            mv "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).bam.md5sum" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.sample_name)_normal.bam.md5sum"
+          fi
       - |
         ${
           return generate_sequence_data_mount_points(inputs.dragen_options.sequence_data, inputs.dragen_options.tumor_sequence_data);

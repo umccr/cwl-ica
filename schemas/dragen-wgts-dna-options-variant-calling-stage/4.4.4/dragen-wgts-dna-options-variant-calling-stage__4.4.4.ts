@@ -20,8 +20,14 @@ import {
 
 export interface DragenWgtsDnaOptionsVariantCallingStage {
 	/*
-	alignment data: 
-	The data from the alignment stage
+	  Naming things (helps for renaming the germline bam afterwards)
+    */
+	sample_name: string
+	tumor_sample_name?: string
+
+	/*
+	sequence data:
+	The data to be aligned and variant called on
 	*/
 	sequence_data: FastqListRowsInput | BamInput | CramInput
 	tumor_alignment_data?: FastqListRowsInput | BamInput | CramInput

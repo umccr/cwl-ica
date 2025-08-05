@@ -52,13 +52,13 @@ steps:
       snv_variant_caller_options_input: snv_variant_caller_options
     out:
       - id: snv_variant_caller_options_output
-    run: ../../../tools/dragen-parse-snv-variant-caller-schema/4.4.4/dragen-parse-snv-variant-caller-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-snv-variant-caller-schema/4.4.4/dragen-parse-snv-variant-caller-schema__4.4.4.cwl
   parse_sv_caller_options:
     in:
       sv_caller_options_input: sv_caller_options
     out:
       - id: sv_caller_options_output
-    run: ../../../tools/dragen-parse-sv-caller-schema/4.4.4/dragen-parse-sv-caller-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-sv-caller-schema/4.4.4/dragen-parse-sv-caller-schema__4.4.4.cwl
 
 outputs:
   snv_variant_caller_options_output:

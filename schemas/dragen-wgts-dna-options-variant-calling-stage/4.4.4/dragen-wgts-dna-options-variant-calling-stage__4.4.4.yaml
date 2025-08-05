@@ -1,6 +1,19 @@
 type: record
 name: dragen-wgts-dna-options-variant-calling-stage
 fields:
+  # Naming inputs
+  sample_name:
+    label: sample name
+    doc: |
+      The sample name to use for the variant calling.
+    type: string
+  tumor_sample_name:
+    label: tumor sample name
+    doc: |
+      The tumor sample name to use for the variant calling.
+    type:
+      - "null"
+      - string
   # Data inputs
   sequence_data:
     label: sequence data

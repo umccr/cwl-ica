@@ -49,7 +49,7 @@ steps:
           }
     out:
       - id: mapper_options_output
-    run: ../../../tools/dragen-parse-mapper-schema/4.4.4/dragen-parse-mapper-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-mapper-schema/4.4.4/dragen-parse-mapper-schema__4.4.4.cwl
 
 outputs:
   mapper_options_output:
