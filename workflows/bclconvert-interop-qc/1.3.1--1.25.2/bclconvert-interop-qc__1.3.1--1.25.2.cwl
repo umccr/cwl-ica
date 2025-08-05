@@ -73,6 +73,8 @@ steps:
       Generate the interop files by mounting the interop directory underneath a directory named by the run id specified.
       along with the run info xml file.
     in:
+      instrument_run_id:
+        source: instrument_run_id
       input_run_dir:
         source:
           - instrument_run_id
