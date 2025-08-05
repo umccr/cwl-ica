@@ -340,257 +340,6 @@ steps:
       - id: alignment_options_output
     run: ../../dragen-create-wgts-alignment-options-object/4.4.4/dragen-create-wgts-alignment-options-object__4.4.4.cwl
 
-  # Run the alignment stage
-  run_dragen_alignment_stage:
-    label: run alignment stage
-    doc: |
-      Run the alignment stage for the germline sequence data
-      The outputs are used to call variants in the variant calling stage.
-      And may be used for the somatic variant calling stage if the somatic reference is identical to the normal reference.
-    in:
-      dragen_options:
-        source:
-          # Sample names
-          - sample_name
-          # References
-          - reference
-          # ORA Reference
-          - ora_reference
-          # Sequence data
-          - sequence_data
-          # Options
-          - run_get_default_alignment_options_schema_step/alignment_options_output
-          # License file
-          - lic_instance_id_location
-          # Default Dragen Configuration
-          - run_get_dragen_configuration_options_step/dragen_default_configuration_options
-        valueFrom: |
-          ${
-            /*
-                // Sample Names
-                self[0] - sample_name
-
-                // References
-                self[1] - reference
-
-                // ORA Reference
-                self[2] - ora_reference
-
-                // Sequence data
-                self[3] - sequence_data
-
-                // Alignment options
-                self[4] - alignment_options
-
-                // License file
-                self[5] - lic_instance_id_location
-
-                // Default Dragen Configuration
-                self[6] - default configuration options
-            */
-            return get_dragen_wgts_dna_alignment_stage_options_from_pipeline(
-              {
-                "sample_name": self[0],
-                "reference": self[1],
-                "ora_reference": self[2],
-                "sequence_data": self[3],
-                "alignment_options": self[4],
-                "lic_instance_id_location": self[5],
-                "default_configuration_options": JSON.parse(self[6])
-              }
-            );
-          }
-    out:
-      - id: output_directory
-      - id: output_alignment_file
-    run: ../../../workflows/dragen-wgts-alignment-stage/4.4.4/dragen-wgts-alignment-stage__4.4.4.cwl
-
-  # If tumor sequence data is provided,
-  # Merge alignment options and somatic alignment options
-  # Run the alignment stage for tumor sequence data
-  run_dragen_alignment_stage_tumor:
-    label: run dragen alignment stage tumor
-    doc: |
-      Run the alignment stage for the tumor sequence data
-      The outputs are used to call variants in the variant calling stage.
-      This is only run when the somatic reference is different from the normal reference.
-      This is used to align the tumor sequence data on the somatic reference.
-    when: |
-      ${
-        /* Only run when tumor sequence data is provided */
-        return inputs.run_condition
-      }
-    in:
-      # Only run when tumor sequence data is provided
-      run_condition:
-        source:
-          - tumor_sequence_data
-        valueFrom: |
-          ${
-            /* Return true if the tumor sequence data is provided */
-            if (self){
-              return true;
-            } else {
-              return false;
-            };
-          }
-      dragen_options:
-        source:
-          # Sample name
-          - tumor_sample_name
-          # Reference
-          - somatic_reference
-          - reference
-          - ora_reference
-          # Sequence data
-          - tumor_sequence_data
-          # Alignment options
-          - somatic_alignment_options
-          - run_get_default_alignment_options_schema_step/alignment_options_output
-          # License file
-          - lic_instance_id_location
-          # Default Dragen Configuration
-          - run_get_dragen_configuration_options_step/dragen_default_configuration_options
-        valueFrom: |
-          ${
-            /*
-               // Sample Names
-               self[0] - tumor_sample_name
-
-               // References
-               self[1] - somatic_reference
-               self[2] - reference
-
-               // Ora reference
-               self[3] - ora_reference
-
-               // Sequence data
-               self[4] - tumor_sequence_data
-
-               // Alignment options
-               self[5] - somatic_alignment_options
-               self[6] - alignment_options
-
-               // License file
-               self[7] - lic_instance_id_location
-
-               // Default Dragen Configuration
-               self[8] - default_configuration_options
-            */
-            return get_dragen_wgts_dna_alignment_stage_options_from_pipeline(
-              {
-                "sample_name": self[0],
-                "reference": pick_first_non_null([self[1], self[2]]),
-                "ora_reference": self[3],
-                "sequence_data": self[4],
-                "alignment_options": dragen_merge_options([self[6], self[5]]),
-                "lic_instance_id_location": self[7],
-                "default_configuration_options": JSON.parse(self[8])
-              }
-            );
-          }
-    out:
-      - id: output_directory
-      - id: output_alignment_file
-    run: ../../../workflows/dragen-wgts-alignment-stage/4.4.4/dragen-wgts-alignment-stage__4.4.4.cwl
-
-
-  # If ref and somatic ref are both specified, we also need to run the alignment stage,
-  # again for the normal sequence data
-  # Rerun the alignment stage for normal sequence data on the somatic reference
-  run_dragen_alignment_stage_normal_somatic_reference:
-    label: run alignment stage normal somatic reference
-    doc: |
-      This is only run when the somatic reference is different from the normal reference.
-      This is used to align the normal sequence data on the somatic reference.
-      The outputs are used to call somatic variants in the somatic variant calling stage.
-    when: |
-      ${
-        /* Only run when reference_tar is provided */
-        return inputs.run_condition;
-      }
-    in:
-      # When condition
-      run_condition:
-        source:
-          - reference
-          - somatic_reference
-          - somatic_alignment_options
-        valueFrom: |
-          ${
-            /* Return true if the reference and somatic reference are different */
-            if (dragen_references_match([self[0], self[1]]) === false){
-              return true;
-            }
-            /* Or when the somatic alignment options are not null */
-            if (self[2]){
-              return true;
-            }
-            return false;
-          }
-      dragen_options:
-        source:
-          # Sample name
-          - sample_name
-          # Reference
-          - somatic_reference
-          - reference
-          # ORA Reference
-          - ora_reference
-          # Sequence data
-          - sequence_data
-          # Alignment options
-          # We use the somatic alignment options since this will be the normal alignment
-          # For the somatic workflow
-          - somatic_alignment_options
-          - run_get_default_alignment_options_schema_step/alignment_options_output
-          # License file
-          - lic_instance_id_location
-          # Default Dragen Configuration
-          - run_get_dragen_configuration_options_step/dragen_default_configuration_options
-        valueFrom: |
-          ${
-            /*
-                // Sample Names
-                self[0] - sample_name
-
-                // References
-                self[1] - somatic_reference
-                self[2] - reference // Used for input validation only
-
-                // ORA Reference
-                self[3] - ora_reference
-
-                // Sequence data
-                self[4] - sequence_data
-
-                // Alignment options
-                self[5] - somatic_alignment_options
-                self[6] - alignment_options
-
-                // License file
-                self[7] - lic_instance_id_location
-
-                // Default Dragen Configuration
-                self[8] - default_configuration_options
-            */
-            return get_dragen_wgts_dna_alignment_stage_options_from_pipeline(
-              {
-                "sample_name": self[0],
-                "reference": pick_first_non_null([self[1], self[2]]),
-                "ora_reference": self[3],
-                "sequence_data": self[4],
-                "alignment_options": dragen_merge_options([self[6], self[5]]),
-                "lic_instance_id_location": self[7],
-                "default_configuration_options": JSON.parse(self[8])
-              }
-            );
-          }
-    out:
-      - id: output_directory
-      - id: output_alignment_file
-    run: ../../../workflows/dragen-wgts-alignment-stage/4.4.4/dragen-wgts-alignment-stage__4.4.4.cwl
-
   # Get the default alignment options input schema
   run_get_variant_calling_options_as_schemas_step:
     label: get default dna-variant-calling options schema
@@ -623,6 +372,137 @@ steps:
       - id: sv_caller_options_output
     run: ../../dragen-create-wgts-dna-variant-calling-options-object/4.4.4/dragen-create-wgts-dna-variant-calling-options-object__4.4.4.cwl
 
+  # Reheader the bam files
+  run_reheader_sequence_data_step:
+    label: run reheader sequence data step
+    doc: |
+      If our sequence data files are bam / cram files, we will need to reheader them first before commencing the pipeline
+    when: |
+      ${
+        /* Only run when our sequence data is a bam or cram file */
+        return inputs.run_condition;
+      }
+    in:
+      run_condition:
+        source: sequence_data
+        valueFrom: |
+          ${
+            if (self.bam_input || self.cram_input){
+              return true;
+            } else {
+              return false;
+            }
+          }
+      rgsm:
+        source: sample_name
+        valueFrom: |
+          ${
+            /* Does run_validation pass */
+            if (self.bam_input || self.cram_input){
+              return self.output_prefix;
+            }
+            /* Otherwise just return nothing, this step wont run anyway */
+            return "";
+          }
+      alignment_file:
+        source: sequence_data
+        valueFrom: |
+          ${
+            /* Does run_validation pass */
+            if (self.bam_input || self.cram_input){
+              if (self.bam_input){
+                return self.bam_input;
+              }
+              return self.cram_input;
+            }
+            /*
+              Otherwise we need to make up a bam_input record just to validate the inputs
+              since the **when** condition isnt evaluated until the input objects are validated
+            */
+            return {
+              "class": "File",
+              "location": "https://example.com/empty.bam",
+              "basename": "empty.bam",
+              "secondaryFiles": [
+                 {
+                    "class": "File",
+                    "location": "https://example.com/empty.bam.bai",
+                    "basename": "empty.bam.bai"
+                 }
+              ]
+            }
+          }
+    out:
+      - id: alignment_file_out_renamed
+    run: ../../../tools/rename-rgsm-in-alignment-header/1.0.0/rename-rgsm-in-alignment-header__1.0.0.cwl
+
+  # Reheader the bam files
+  run_reheader_sequence_data_step_tumor:
+    label: run reheader sequence data step tumor
+    doc: |
+      If our tumor sequence data files are bam / cram files, we will need to reheader them first before commencing the pipeline
+    when: |
+      ${
+        /* Only run when tumor sequence data is provided and is a bam / cram file */
+        return inputs.run_condition;
+      }
+    in:
+      run_condition:
+        source: tumor_sequence_data
+        valueFrom: |
+          ${
+            if (!self){
+              return false;
+            };
+            if (self.bam_input || self.cram_input){
+              return true;
+            } else {
+              return false;
+            }
+          }
+      rgsm:
+        source: tumor_sample_name
+        valueFrom: |
+          ${
+            /* Does run_validation pass */
+            if (self.bam_input || self.cram_input){
+              return self.output_prefix;
+            }
+            /* Otherwise just return nothing, this step wont run anyway */
+            return "";
+          }
+      alignment_file:
+        source: tumor_sequence_data
+        valueFrom: |
+          ${
+            /* Does run_validation pass */
+            if (self && (self.bam_input || self.cram_input)){
+              if (self.bam_input){
+                return self.bam_input;
+              }
+              return self.cram_input;
+            }
+
+            /*
+              Otherwise we need to make up a bam_input record just to validate the inputs
+              since the **when** condition isnt evaluated until the input objects are validated
+            */
+            return {
+              "class": "File",
+              "location": "https://example.com/empty.bam",
+              "basename": "empty.bam",
+              "secondaryFiles": [
+                 {
+                    "class": "File",
+                    "location": "https://example.com/empty.bam.bai",
+                    "basename": "empty.bam.bai"
+                 }
+              ]
+            };
+          }
+    out:
+      - id: alignment_file_out_renamed
+    run: ../../../tools/rename-rgsm-in-alignment-header/1.0.0/rename-rgsm-in-alignment-header__1.0.0.cwl
 
   # Run the variant calling stage
   # Use the standard alignment for input
@@ -638,8 +518,13 @@ steps:
           - sample_name
           # Reference
           - reference
-          # Input alignment files
-          - run_dragen_alignment_stage/output_alignment_file
+          # ORA Reference
+          - ora_reference
+          # Sequence Data
+          - run_reheader_sequence_data_step/alignment_file_out_renamed
+          - sequence_data
+          # Alignment Options
+          - run_get_default_alignment_options_schema_step/alignment_options_output
           # Variant Caller options
           - run_get_variant_calling_options_as_schemas_step/snv_variant_caller_options_output
           # CNV Caller Options
@@ -665,47 +550,75 @@ steps:
                 // References
                 self[1] - reference
 
-                // Input alignment file
-                self[2] - output_alignment_file
+                // ORA Reference
+                self[2] - ora_reference
+
+                // Input sequence data
+                self[3] - run_reheader_sequence_data_step/alignment_file_out_renamed
+                self[4] - sequence_data
+
+                // Alignment options
+                self[5] - run_get_default_alignment_options_schema_step/alignment_options
 
                 // Variant caller options
-                self[3] - snv_variant_caller_options
+                self[6] - snv_variant_caller_options
 
                 // CNV caller options
-                self[4] - cnv_caller_options
+                self[7] - cnv_caller_options
 
                 // MAF conversion options
-                self[5] - maf_conversion_options
+                self[8] - maf_conversion_options
 
                 // SV caller options
-                self[6] - sv_caller_options
+                self[9] - sv_caller_options
 
                 // Nirvana annotation options
-                self[7] - nirvana_annotation_options
+                self[10] - nirvana_annotation_options
 
                 // Targeted caller options
-                self[8] - targeted_caller_options
+                self[11] - targeted_caller_options
 
                 // License file
-                self[9] - lic_instance_id_location
+                self[12] - lic_instance_id_location
 
                 // Default Dragen Configuration
-                self[10] - default_configuration_options
+                self[13] - default_configuration_options
             */
+
+            /* If run rename rgsm step was never run, just leave the sequence data as is */
+            if (self[3] === null){
+              var sequence_data = self[4];
+            } else {
+              /* Otherwise merge */
+              /* Initialise the object */
+              var reheadered_object = {};
+              /* Coerce into sequence_data format */
+              if (self[3].hasOwnProperty("class") && self[3].class === "File") {
+                /* Determine if we have a cram or a bam file */
+                if (self[3].nameext == ".bam"){
+                  reheadered_object["bam_input"] = self[3];
+                } else if (self[3].nameext == ".cram"){
+                  reheadered_object["cram_input"] = self[3];
+                }
+              }
+              var sequence_data = dragen_merge_options([self[4], reheadered_object]);
+            }
+
             return get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
               {
                 "sample_name": self[0],
                 "reference": self[1],
-                /* Map alignment inputs to alignment outputs */
-                "alignment_data": self[2],
-                "snv_variant_caller_options": self[3],
-                "cnv_caller_options": self[4],
-                "maf_conversion_options": self[5],
-                "sv_caller_options": self[6],
-                "nirvana_annotation_options": self[7],
-                "targeted_caller_options": self[8],
-                "lic_instance_id_location": self[9],
-                "default_configuration_options": JSON.parse(self[10])
+                "ora_reference": self[2],
+                "sequence_data": sequence_data,
+                "alignment_options": self[5],
+                "snv_variant_caller_options": self[6],
+                "cnv_caller_options": self[7],
+                "maf_conversion_options": self[8],
+                "sv_caller_options": self[9],
+                "nirvana_annotation_options": self[10],
+                "targeted_caller_options": self[11],
+                "lic_instance_id_location": self[12],
+                "default_configuration_options": JSON.parse(self[13])
               }
             );
           }
@@ -732,10 +645,10 @@ steps:
       # Run condition
       run_condition:
         source:
-          - run_dragen_alignment_stage_tumor/output_alignment_file
+          - tumor_sample_name
         valueFrom: |
           ${
-            /* Return true if the tumor output alignment is not null */
+            /* Return true if the tumor sample name is not null */
             if(self){
               return true;
             } else {
@@ -751,13 +664,20 @@ steps:
           # Reference (pick first non null)
           - somatic_reference
           - reference
-          # Output alignment files
-          # Germline alignment (pick first non null)
-          - run_dragen_alignment_stage_normal_somatic_reference/output_alignment_file
-          - run_dragen_alignment_stage/output_alignment_file
-          # Somatic alignment
-          - run_dragen_alignment_stage_tumor/output_alignment_file
+          # ORA Reference
+          - ora_reference
+          # Sequence data
+          - run_reheader_sequence_data_step/alignment_file_out_renamed
+          - sequence_data
+          # Tumor sequence data
+          - run_reheader_sequence_data_step_tumor/alignment_file_out_renamed
+          - tumor_sequence_data
           # Options list
+          # Alignment options
+          # Merge these two
+          # Alignment options
+          - somatic_alignment_options
+          - run_get_default_alignment_options_schema_step/alignment_options_output
           # Variant caller options
           # Merge these two
           - somatic_snv_variant_caller_options
@@ -789,45 +709,84 @@ steps:
                 self[2] - somatic_reference
                 self[3] - reference
 
-                // Input alignment files
-                // Latter might exist, but we want former if it exists
-                self[4] - germline alignment on somatic reference
-                self[5] - germline alignment on normal reference
+                // ORA Reference
+                self[4] - ora_reference
 
-                // This definitely exists
-                self[6] - somatic alignment
+                // Input sequence data files
+                self[5] - sequence data reheadered
+                self[6] - sequence data original
+
+                // Tumor sequence data files
+                self[7] - tumor sequence data reheadered
+                self[8] - tumor sequence data
+
+                // Alignment data
+                self[9] - somatic alignment options
+                self[10] - alignment options
 
                 // Variant calling options
-                self[7] - somatic_snv_variant_caller_options
-                self[8] - snv_variant_caller_options
+                self[11] - somatic_snv_variant_caller_options
+                self[12] - snv_variant_caller_options
 
                 // CNV caller options
-                self[9] - somatic_cnv_caller_options
-                self[10] - cnv_caller_options
+                self[13] - somatic_cnv_caller_options
+                self[14] - cnv_caller_options
 
                 // MAF conversion options
-                self[11] - somatic_maf_conversion_options
-                self[12] - maf_conversion_options
+                self[15] - somatic_maf_conversion_options
+                self[16] - maf_conversion_options
 
                 // SV caller options
-                self[13] - somatic_sv_caller_options
-                self[14] - sv_caller_options
+                self[17] - somatic_sv_caller_options
+                self[18] - sv_caller_options
 
                 // Nirvana annotation options
-                self[15] - somatic_nirvana_annotation_options
-                self[16] - nirvana_annotation_options
+                self[19] - somatic_nirvana_annotation_options
+                self[20] - nirvana_annotation_options
 
                 // License file
-                self[17] - lic_instance_id_location
+                self[21] - lic_instance_id_location
 
                 // Default Dragen Configuration
-                self[18] - default_configuration_options
+                self[22] - default_configuration_options
             */
 
-            /* First confirm that the somatic alignment is set, otherwise return null */
-            /* Before trying to transform objects that are null */
-            if (self[6] === null) {
-              return null;
+            /* If run rename rgsm step was never run, just leave the sequence data as is */
+            if (self[5] === null){
+              var sequence_data = self[6];
+            } else {
+              /* Otherwise merge */
+              /* Initialise the object */
+              var reheadered_object = {};
+              /* Coerce into sequence_data format */
+              if (self[5].hasOwnProperty("class") && self[5].class === "File") {
+                /* Determine if we have a cram or a bam file */
+                if (self[5].nameext == ".bam"){
+                  reheadered_object["bam_input"] = self[5];
+                } else if (self[5].nameext == ".cram"){
+                  reheadered_object["cram_input"] = self[5];
+                }
+              }
+              var sequence_data = dragen_merge_options([self[6], reheadered_object]);
+            }
+
+            /* If run rename rgsm step tumor was never run, just leave the sequence data as is */
+            if (self[7] === null){
+              var tumor_sequence_data = self[8];
+            } else {
+              /* Otherwise merge */
+              /* Initialise the object */
+              var reheadered_object = {};
+              /* Coerce into tumor_sequence_data format */
+              if (self[7].hasOwnProperty("class") && self[7].class === "File") {
+                /* Determine if we have a cram or a bam file */
+                if (self[7].nameext == ".bam"){
+                  reheadered_object["bam_input"] = self[7];
+                } else if (self[7].nameext == ".cram"){
+                  reheadered_object["cram_input"] = self[7];
+                }
+              }
+              var tumor_sequence_data = dragen_merge_options([self[8], reheadered_object]);
             }
 
             return get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
@@ -835,17 +794,19 @@ steps:
                 "sample_name": self[0],
                 "tumor_sample_name": self[1],
                 "reference": pick_first_non_null([self[2], self[3]]),
-                "alignment_data": pick_first_non_null([self[4], self[5]]),
-                "tumor_alignment_data": self[6],
-                "snv_variant_caller_options": dragen_merge_options([self[8], self[7]]),
-                "cnv_caller_options": dragen_merge_options([self[10], self[9]]),
-                "maf_conversion_options": dragen_merge_options([self[12], self[11]]),
-                "sv_caller_options": dragen_merge_options([self[14], self[13]]),
-                "nirvana_annotation_options": dragen_merge_options([self[16], self[15]]),
+                "ora_reference": self[4],
+                "sequence_data": sequence_data,
+                "tumor_sequence_data": tumor_sequence_data,
+                "alignment_options": dragen_merge_options([self[10], self[9]]),
+                "snv_variant_caller_options": dragen_merge_options([self[12], self[11]]),
+                "cnv_caller_options": dragen_merge_options([self[14], self[13]]),
+                "maf_conversion_options": dragen_merge_options([self[16], self[15]]),
+                "sv_caller_options": dragen_merge_options([self[18], self[17]]),
+                "nirvana_annotation_options": dragen_merge_options([self[20], self[19]]),
                 /* Targeted caller options are not available in the somatic variant calling stage */
                 "targeted_caller_options": null,
-                "lic_instance_id_location": self[17],
-                "default_configuration_options": JSON.parse(self[18])
+                "lic_instance_id_location": self[21],
+                "default_configuration_options": JSON.parse(self[22])
               }
             );
           }
@@ -862,10 +823,6 @@ steps:
       input_directories:
         pickValue: all_non_null
         source:
-          # Alignments
-          - run_dragen_alignment_stage/output_directory
-          - run_dragen_alignment_stage_tumor/output_directory
-          - run_dragen_alignment_stage_normal_somatic_reference/output_directory
           # Variant calling
           - run_dragen_variant_calling_stage/output_directory
           - run_dragen_variant_calling_stage_tumor/output_directory
@@ -917,26 +874,6 @@ steps:
 
 
 outputs:
-  # Alignment outputs
-  dragen_alignment_output_directory:
-    type: Directory
-    outputSource: run_dragen_alignment_stage/output_directory
-    label: dragen alignment output directory
-    doc: |
-      The outputs of the alignment stage.
-  dragen_alignment_output_directory_normal_somatic_reference:
-    type: Directory?
-    outputSource: run_dragen_alignment_stage_normal_somatic_reference/output_directory
-    label: dragen alignment output directory normal somatic reference
-    doc: |
-      The outputs of the alignment stage for the normal sample on the somatic reference.
-  dragen_alignment_output_directory_tumor:
-    type: Directory?
-    outputSource: run_dragen_alignment_stage_tumor/output_directory
-    label: dragen alignment output directory
-    doc: |
-      The outputs of the alignment stage for the tumor sample.
-
   # Variant calling outputs
   dragen_variant_calling_output_directory:
     type: Directory
