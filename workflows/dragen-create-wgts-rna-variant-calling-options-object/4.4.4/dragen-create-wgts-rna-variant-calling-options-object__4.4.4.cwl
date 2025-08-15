@@ -51,13 +51,13 @@ steps:
       snv_variant_caller_options_input: snv_variant_caller_options
     out:
       - id: snv_variant_caller_options_output
-    run: ../../../tools/dragen-parse-snv-variant-caller-schema/4.4.4/dragen-parse-snv-variant-caller-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-snv-variant-caller-schema/4.4.4/dragen-parse-snv-variant-caller-schema__4.4.4.cwl
   parse_rna_gene_expression_quantification_options:
     in:
       rna_gene_expression_quantification_options_input: rna_gene_expression_quantification_options
     out:
       - id: rna_gene_expression_quantification_options_output
-    run: ../../../tools/dragen-parse-rna-gene-expression-quantification-schema/4.4.4/dragen-parse-rna-gene-expression-quantification-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-rna-gene-expression-quantification-schema/4.4.4/dragen-parse-rna-gene-expression-quantification-schema__4.4.4.cwl
 
 outputs:
   snv_variant_caller_options_output:

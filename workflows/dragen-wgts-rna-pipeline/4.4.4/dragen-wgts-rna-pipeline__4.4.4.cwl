@@ -21,24 +21,23 @@ doc: |
   Dragen dragen-wgts-rna-pipeline v4.4.4
 
   Performs the following steps:
-    * If input is a bam file (for tumor or normal), reheader the bam file such that the rgsm value matches
+    * If input is a bam file, reheader the bam file such that the rgsm value matches
       the output_prefix value. We can't do this inside the dragen container since it doesn't have the samtools binary installed.
       Instead we run a seperate step to reheader the bam file.
-    * If tumor sequence data is provided and normal sequence data are provided, run the dragen-somatic tool.
-    * If only the normal sequence data are provided, run the dragen-germline tool.
-
+    * Run the dragen rna pipeline
+    * Run multiqc on the outputs of the dragen rna pipeline
+  
   Inputs:
-    This pipeline differs from our previous dragen-germline and dragen-somatic pipeline by instead grouping inputs.
+    This pipeline differs from our previous rna pipeline by instead grouping inputs.
     This makes overall workflow cwl file much smaller, and the workflow graphs much more readable.
     It also means appending input options is much easier since it involves updating just one schema yaml file,
       rather than the workflow inputs, workflow steps and the tool inputs.
     Most of the grunt work is done in the dragen tools typescript file to convert input options into a configuration file.
 
   Outputs:
-    The outputs are the same as the previous dragen-germline and dragen-somatic pipelines.
+    The outputs are the same as the previous dragen-rna pipelines
     The outputs are:
-      * Dragen somatic output directory (if tumor sequence data are provided)
-      * Dragen germline output directory (always)
+      * Dragen rna output directory (always)
       * Multiqc output directory (always)
 
 requirements:
@@ -386,9 +385,6 @@ steps:
     out:
       - id: output_directory
     run: ../../../workflows/dragen-wgts-rna-variant-calling-stage/4.4.4/dragen-wgts-rna-variant-calling-stage__4.4.4.cwl
-
-  # Arriba Pipeline
-  # Run the Arriba pipeline for gene fusion detection
 
   # Run Multiqc on outputs
   run_multiqc:
