@@ -3,43 +3,43 @@ class: CommandLineTool
 
 # Extensions
 $namespaces:
-    s: https://schema.org/
-    ilmn-tes: https://platform.illumina.com/rdf/ica/
+  s: https://schema.org/
+  ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 # Metadata
 s:author:
-    class: s:Person
-    s:name: Alexis Lucattini
-    s:email: Alexis.Lucattini@umccr.org
-    s:identifier: https://orcid.org/0000-0001-9754-647X
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
 id: dragen-variant-calling-step--4.4.4
 label: dragen-variant-calling-step v(4.4.4)
 doc: |
-    Documentation for dragen-variant-calling-step v4.4.0
+  Documentation for dragen-variant-calling-step v4.4.0
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
-    ResourceRequirement:
-      ilmn-tes:resources/tier: standard
-      ilmn-tes:resources/type: fpga
-      ilmn-tes:resources/size: medium
-      coresMin: 16
-      ramMin: 240000
-    DockerRequirement:
-        # Dragen 4.4.4
-        dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/b35eb8ce-3035-4796-896b-1b33b6a02c44:latest"
+  ResourceRequirement:
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: fpga
+    ilmn-tes:resources/size: medium
+    coresMin: 16
+    ramMin: 240000
+  DockerRequirement:
+    # Dragen 4.4.4
+    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/b35eb8ce-3035-4796-896b-1b33b6a02c44:latest"
 
 requirements:
   ResourceRequirement:
     tmpdirMin: |
       ${
-        /* 1 Tb */
-        return Math.pow(2, 20);
+        /* 2 Tb */
+        return Math.pow(2, 21);
       }
   InlineJavascriptRequirement:
     expressionLib:
