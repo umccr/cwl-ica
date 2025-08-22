@@ -595,9 +595,9 @@ steps:
               /* Coerce into sequence_data format */
               if (self[3].hasOwnProperty("class") && self[3].class === "File") {
                 /* Determine if we have a cram or a bam file */
-                if (self[3].nameext == ".bam"){
+                if (self[3].nameext === ".bam"){
                   reheadered_object["bam_input"] = self[3];
-                } else if (self[3].nameext == ".cram"){
+                } else if (self[3].nameext === ".cram"){
                   reheadered_object["cram_input"] = self[3];
                 }
               }
