@@ -281,3 +281,16 @@ workflows:
         - dragen-wgts-dna-pipeline/4.4.4__20250722003700
         - dragen-wgts-dna-pipeline/4.4.4__20250805055151
         - dragen-wgts-dna-pipeline/4.4.4__20250822034548
+  - name: dragen-wgts-rna-pipeline_4_4_4
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/dragen-wgts-rna-pipeline/4.4.4/dragen-wgts-rna-pipeline__4.4.4.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/dragen-wgts-rna-pipeline/4.4.4/dragen-wgts-rna-pipeline__4.4.4.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - dragen-wgts-rna-pipeline/4.4.4
+        - dragen-wgts-rna-pipeline/4.4.4__20250822040654
