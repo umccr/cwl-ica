@@ -131,14 +131,20 @@ requirements:
 
           # Check if ora reference is set
           if [[ "$(is_not_null(inputs.dragen_options.ora_reference))" == "true" ]]; then
+            mkdir --parents \\
+              "$(get_ora_ref_mount())"
               tar \\
-              --directory "$(get_ref_mount())" \\
-              --extract \\
-              --file "$(get_attribute_from_optional_input(inputs.dragen_options.ora_reference, "path"))"
+                --directory "$(get_ora_ref_mount())" \\
+                --extract \\
+                --file "$(get_attribute_from_optional_input(inputs.dragen_options.ora_reference, "path"))"
           fi
+          
+          # Copy over the config.toml file to the output directory too
+          cp "$(get_dragen_config_path())" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).config.toml"
 
           # Run dragen command and import options from cli
-          "$(get_dragen_bin_path())" "\${@}"
+          "$(get_dragen_bin_path())" "\${@}"          
+
       - |
         ${
           /* Tumor alignment data may be undefined */

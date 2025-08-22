@@ -170,11 +170,11 @@ requirements:
                 --file "$(get_attribute_from_optional_input(inputs.dragen_options.ora_reference, "path"))"
           fi
 
-          # Run dragen command and import options from cli
-          "$(get_dragen_bin_path())" "\${@}"
-
           # Copy over the config.toml file to the output directory too
           cp "$(get_dragen_config_path())" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).config.toml"
+
+          # Run dragen command and import options from cli
+          "$(get_dragen_bin_path())" "\${@}"
 
           # Rename normal bam file if we ran the somatic workflow
           # below is js function is_not_null(inputs.dragen_options.tumor_sequence_data) == "true"
