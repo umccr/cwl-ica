@@ -277,6 +277,71 @@ steps:
       - id: rna_gene_expression_quantification_options_output
     run: ../../dragen-create-wgts-rna-variant-calling-options-object/4.4.4/dragen-create-wgts-rna-variant-calling-options-object__4.4.4.cwl
 
+  # Resequence the bam file if it is provided
+  # Reheader the bam files
+  run_reheader_sequence_data_step:
+    label: run reheader sequence data step
+    doc: |
+      If our sequence data files are bam / cram files, we will need to reheader them first before commencing the pipeline
+    when: |
+      ${
+        /* Only run when our sequence data is a bam or cram file */
+        return inputs.run_condition;
+      }
+    in:
+      run_condition:
+        source: sequence_data
+        valueFrom: |
+          ${
+            if (self.bam_input || self.cram_input){
+              return true;
+            } else {
+              return false;
+            }
+          }
+      rgsm:
+        source: sample_name
+        valueFrom: |
+          ${
+            /* Does run_validation pass */
+            if (self){
+              return self;
+            }
+            /* Otherwise just return nothing, this step wont run anyway */
+            return "";
+          }
+      alignment_file:
+        source: sequence_data
+        valueFrom: |
+          ${
+            /* Does run_validation pass */
+            if (self.bam_input || self.cram_input){
+              if (self.bam_input){
+                return self.bam_input;
+              }
+              return self.cram_input;
+            }
+            /*
+              Otherwise we need to make up a bam_input record just to validate the inputs
+              since the **when** condition isnt evaluated until the input objects are validated
+            */
+            return {
+              "class": "File",
+              "location": "https://example.com/empty.bam",
+              "basename": "empty.bam",
+              "secondaryFiles": [
+                 {
+                    "class": "File",
+                    "location": "https://example.com/empty.bam.bai",
+                    "basename": "empty.bam.bai"
+                 }
+              ]
+            }
+          }
+    out:
+      - id: alignment_file_out_renamed
+    run: ../../../tools/rename-rgsm-in-alignment-header/1.0.0/rename-rgsm-in-alignment-header__1.0.0.cwl
+
   # Run the variant calling stage
   # Use the standard alignment for input
   run_dragen_rna_pipeline_stage:
@@ -296,6 +361,7 @@ steps:
           # Annotation File
           - annotation_file
           # Input sequence files
+          - run_reheader_sequence_data_step/alignment_file_out_renamed
           - sequence_data
           # Alignment options
           - run_get_default_alignment_options_schema_step/alignment_options_output
@@ -331,7 +397,8 @@ steps:
                 self[3] - annotation_file
 
                 // Input sequence data
-                self[4] - sequence_data
+                self[4] - run_reheader_sequence_data_step/alignment_file_out_renamed
+                self[5] - sequence_data
 
                 // Alignment options
                 self[5] - alignment_options
@@ -360,6 +427,25 @@ steps:
                 // Default Dragen Configuration
                 self[13] - default_configuration_options
             */
+            /* If run rename rgsm step was never run, just leave the sequence data as is */
+            if (self[4] === null){
+              var sequence_data = self[5];
+            } else {
+              /* Otherwise merge */
+              /* Initialise the object */
+              var reheadered_object = {};
+              /* Coerce into sequence_data format */
+              if (self[4].hasOwnProperty("class") && self[4].class === "File") {
+                /* Determine if we have a cram or a bam file */
+                if (self[4].nameext == ".bam"){
+                  reheadered_object["bam_input"] = self[4];
+                } else if (self[4].nameext == ".cram"){
+                  reheadered_object["cram_input"] = self[4];
+                }
+              }
+              var sequence_data = dragen_merge_options([self[5], reheadered_object]);
+            }
+          
             return get_dragen_wgts_rna_variant_calling_stage_options_from_pipeline(
               {
                 "sample_name": self[0],
@@ -367,19 +453,19 @@ steps:
                 "ora_reference": self[2],
                 "annotation_file": self[3],
                 /* Sequence data */
-                "sequence_data": self[4],
+                "sequence_data": sequence_data,
                 /* Alignment options */
-                "alignment_options": self[5],
+                "alignment_options": self[6],
                 /* VC Options */
-                "snv_variant_caller_options": self[6],
+                "snv_variant_caller_options": self[7],
                 /* Map gene fusion detection options to gene fusion detection options */
-                "gene_fusion_detection_options": self[7],
-                "gene_expression_quantification_options": self[8],
-                "splice_variant_caller_options": self[9],
-                "maf_conversion_options": self[10],
-                "nirvana_annotation_options": self[11],
-                "lic_instance_id_location": self[12],
-                "default_configuration_options": JSON.parse(self[13])
+                "gene_fusion_detection_options": self[8],
+                "gene_expression_quantification_options": self[9],
+                "splice_variant_caller_options": self[10],
+                "maf_conversion_options": self[11],
+                "nirvana_annotation_options": self[12],
+                "lic_instance_id_location": self[13],
+                "default_configuration_options": JSON.parse(self[14])
               }
             );
           }
