@@ -398,8 +398,8 @@ steps:
         valueFrom: |
           ${
             /* Does run_validation pass */
-            if (self.bam_input || self.cram_input){
-              return self.output_prefix;
+            if (self){
+              return self;
             }
             /* Otherwise just return nothing, this step wont run anyway */
             return "";
@@ -465,8 +465,8 @@ steps:
         valueFrom: |
           ${
             /* Does run_validation pass */
-            if (self.bam_input || self.cram_input){
-              return self.output_prefix;
+            if (self){
+              return self;
             }
             /* Otherwise just return nothing, this step wont run anyway */
             return "";
