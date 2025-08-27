@@ -17,6 +17,9 @@ import {CramInput} from "../../cram-input/1.0.0/cram-input__1.0.0";
 import {
 	DragenWgtsAlignmentOptions
 } from "../../dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4";
+import {DragenTmbOptions} from "../../dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4";
+import {DragenMsiOptions} from "../../dragen-msi-options/4.4.4/dragen-msi-options__4.4.4";
+import {DragenMrjdOptions} from "../../dragen-mrjd-options/4.4.4/dragen-mrjd-options__4.4.4";
 
 export interface DragenWgtsDnaOptionsVariantCallingStage {
 	/*
@@ -78,4 +81,7 @@ export interface DragenWgtsDnaOptionsVariantCallingStage {
 	sv_caller_options: DragenSvCallerOptions
 	nirvana_annotation_options?: DragenNirvanaAnnotationOptions
 	targeted_caller_options?: DragenTargetedCallerOptions
+	mrjd_options?: DragenMrjdOptions
+	tmb_options?: DragenTmbOptions
+	msi_options?: DragenMsiOptions
 }

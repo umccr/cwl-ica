@@ -29,6 +29,9 @@ import {
 import {
     DragenTargetedCallerOptions
 } from "../../../schemas/dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4";
+import {DragenTmbOptions} from "../../../schemas/dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4";
+import {DragenMsiOptions} from "../../../schemas/dragen-msi-options/4.4.4/dragen-msi-options__4.4.4";
+import {DragenMrjdOptions} from "../../../schemas/dragen-mrjd-options/4.4.4/dragen-mrjd-options__4.4.4";
 
 export interface DragenWgtsDnaAlignmentStageOptionsFromPipelineProps {
     sample_name: string
@@ -64,6 +67,9 @@ export interface DragenWgtsDnaVariantCallingStageOptionsFromPipelineProps {
     sv_caller_options: DragenSvCallerOptions
     nirvana_annotation_options: DragenNirvanaAnnotationOptions
     targeted_caller_options: DragenTargetedCallerOptions
+    mrjd_options: DragenMrjdOptions
+    tmb_options: DragenTmbOptions
+    msi_options: DragenMsiOptions
     lic_instance_id_location: StringOrFileType
     default_configuration_options: Record<string, any>
 }

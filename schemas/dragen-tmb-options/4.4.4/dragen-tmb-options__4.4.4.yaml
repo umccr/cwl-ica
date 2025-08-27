@@ -1,0 +1,23 @@
+type: record
+name: dragen-tmb-options
+fields:
+  enable_tmb:
+    label: enable tmb
+    doc: |
+      Enable TMB (Tumor Mutation Burden) analysis.
+    type: boolean?
+  tmb_vaf_threshold:
+    label: tmb vaf threshold
+    doc: |
+      Variant mininum allele frequency for usable variants (default=0.05)
+    type: float?
+  vc_callability_tumor_thresh:
+    label: vc callability tumor thresh
+    doc: |
+      Required read coverage to use a site (default=50).
+    type: int?
+  tmb_enable_proxi_filter:
+    label: tmb enable proxi filter
+    doc: |
+      Enable proximity filter for TMB (default=true).
+    type: boolean?
