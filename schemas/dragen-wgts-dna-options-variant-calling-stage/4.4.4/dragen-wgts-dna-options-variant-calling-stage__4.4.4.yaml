@@ -150,7 +150,7 @@ fields:
       - "null"
       - {"$import": "../../dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4.yaml#dragen-tmb-options"}
 
-  # MSI Optional
+  # MSI Options
   msi_options:
     label: msi options
     doc: |

@@ -240,8 +240,8 @@ inputs:
       This is passed to the variant calling pipeline, make sure to add 'enable_sv' to the sv caller options
       As it is not enabled by default.
     type:
-    - "null"
-    - ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml#dragen-sv-caller-options
+      - "null"
+      - ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml#dragen-sv-caller-options
 
   # Somatic SV Caller Options
   somatic_sv_caller_options:
@@ -793,7 +793,7 @@ steps:
           
                 // Somatic TMB options
                 self[21] - somatic_tmb_options
-                
+          
                 // Somatic MSI options
                 self[22] - somatic_msi_options
           
