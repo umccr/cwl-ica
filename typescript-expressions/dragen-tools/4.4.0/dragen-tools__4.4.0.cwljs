@@ -1073,6 +1073,12 @@ function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(props) 
         nirvana_annotation_options:props.nirvana_annotation_options,
         /* Targeted Caller options */
         targeted_caller_options:props.targeted_caller_options,
+        /* Mrjd Options */
+        mrjd_options:props.mrjd_options,
+        /* TMB Options */
+        tmb_options:props.tmb_options,
+        /* MSI Options */
+        msi_options:props.msi_options,
         /* Lic Instance id location */
         lic_instance_id_location:props.lic_instance_id_location,
     };

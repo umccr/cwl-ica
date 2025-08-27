@@ -131,3 +131,30 @@ fields:
     type:
       - "null"
       - {"$import": "../../dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4.yaml#dragen-targeted-caller-options"}
+
+  # MRJD Options
+  mrjd_options:
+    label: mrjd options
+    doc: |
+      Specifies the mrjd options
+    type:
+      - "null"
+      - {"$import": "../../dragen-mrjd-options/4.4.4/dragen-mrjd-options__4.4.4.yaml#dragen-mrjd-options"}
+
+  # TMB Options
+  tmb_options:
+    label: tmb options
+    doc: |
+      Specifies the tmb options
+    type:
+      - "null"
+      - {"$import": "../../dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4.yaml#dragen-tmb-options"}
+
+  # MSI Options
+  msi_options:
+    label: msi options
+    doc: |
+      Specifies the msi options
+    type:
+      - "null"
+      - {"$import": "../../dragen-msi-options/4.4.4/dragen-msi-options__4.4.4.yaml#dragen-msi-options"}

@@ -1,4 +1,4 @@
-# Test started at 2025-08-05T15:24:23+10:00
+# Test started at 2025-08-27T14:46:05+10:00
 
 PASS tests/dragen-tools__4.4.0.test.js
 PASS tests/dragen-tools__4.4.0.test.ts
@@ -13,7 +13,7 @@ Lines        : 51.38% ( 204/397 )
 Test Suites: 2 passed, 2 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        4.863 s
+Time:        3.259 s
 Ran all test suites.
-# Test completed at 2025-08-05T15:24:30+10:00
+# Test completed at 2025-08-27T14:46:10+10:00
 

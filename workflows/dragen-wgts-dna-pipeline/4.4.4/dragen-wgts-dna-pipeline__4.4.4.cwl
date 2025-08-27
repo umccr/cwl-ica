@@ -72,6 +72,8 @@ requirements:
       - $import: ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml
       - $import: ../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml
       - $import: ../../../schemas/dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-msi-options/4.4.4/dragen-msi-options__4.4.4.yaml
 
       # Stage schemas
       - $import: ../../../schemas/dragen-wgts-options-alignment-stage/4.4.4/dragen-wgts-options-alignment-stage__4.4.4.yaml
@@ -238,8 +240,8 @@ inputs:
       This is passed to the variant calling pipeline, make sure to add 'enable_sv' to the sv caller options
       As it is not enabled by default.
     type:
-    - "null"
-    - ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml#dragen-sv-caller-options
+      - "null"
+      - ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml#dragen-sv-caller-options
 
   # Somatic SV Caller Options
   somatic_sv_caller_options:
@@ -278,6 +280,38 @@ inputs:
       - "null"
       - ../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml#dragen-nirvana-annotation-options
 
+  # MRJD Options
+  mrjd_options:
+    label: mrjd options
+    doc: |
+      The options to be used for multi-region-joint-detection.
+      Make sure to add 'enable_mrjd' to the mrjd options
+      As it is not enabled by default.
+      These parameters are parsed only to the germline variant calling stage.
+    type:
+      - "null"
+      - ../../../schemas/dragen-mrjd-options/4.4.4/dragen-mrjd-options__4.4.4.yaml#dragen-mrjd-options
+
+  # Somatic TMB Options
+  somatic_tmb_options:
+    label: somatic tmb options
+    doc: |
+      The options to be used for tmb calling in the somatic variant calling stage.
+      Please set 'enable_tmb' to true to enable the tmb calling, all other options are optional
+    type:
+      - "null"
+      - ../../../schemas/dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4.yaml#dragen-tmb-options
+
+  # Somatic MSI Options
+  somatic_msi_options:
+    label: somatic msi options
+    doc: |
+      The options to be used for msi calling in the somatic variant calling stage.
+      Please set msi_command to "tumor-normal" to enable the msi calling, all other options are optional
+    type:
+      - "null"
+      - ../../../schemas/dragen-msi-options/4.4.4/dragen-msi-options__4.4.4.yaml#dragen-msi-options
+
   # Targeted Caller options
   targeted_caller_options:
     label: targeted caller options
@@ -289,7 +323,6 @@ inputs:
     type:
       - "null"
       - ../../../schemas/dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4.yaml#dragen-targeted-caller-options
-
 
   # License file
   lic_instance_id_location:
@@ -535,8 +568,9 @@ steps:
           - run_get_variant_calling_options_as_schemas_step/sv_caller_options_output
           # Nirvana Annotation Options
           - nirvana_annotation_options
-          # Dragen Caller Options
+          # Targeted Caller Options
           - targeted_caller_options
+          - mrjd_options
           # License location
           - lic_instance_id_location
           # Default Dragen Configuration
@@ -577,12 +611,15 @@ steps:
 
                 // Targeted caller options
                 self[11] - targeted_caller_options
+          
+                // MRJD options
+                self[12] - mrjd_options
 
                 // License file
-                self[12] - lic_instance_id_location
+                self[13] - lic_instance_id_location
 
                 // Default Dragen Configuration
-                self[13] - default_configuration_options
+                self[14] - default_configuration_options
             */
 
             /* If run rename rgsm step was never run, just leave the sequence data as is */
@@ -617,8 +654,14 @@ steps:
                 "sv_caller_options": self[9],
                 "nirvana_annotation_options": self[10],
                 "targeted_caller_options": self[11],
-                "lic_instance_id_location": self[12],
-                "default_configuration_options": JSON.parse(self[13])
+                "mrjd_options": self[12],
+                /* Add in the somatic tmb and msi options as null */
+                "tmb_options": null,
+                "msi_options": null,
+                /* License file */
+                "lic_instance_id_location": self[13],
+                /* Default Dragen Configuration */
+                "default_configuration_options": JSON.parse(self[14])
               }
             );
           }
@@ -694,6 +737,10 @@ steps:
           # Nirvana Annotation Options
           - somatic_nirvana_annotation_options
           - nirvana_annotation_options
+          # TMB Options
+          - somatic_tmb_options
+          # MSI Options
+          - somatic_msi_options
           # License file
           - lic_instance_id_location
           # Default Dragen Configuration
@@ -743,12 +790,18 @@ steps:
                 // Nirvana annotation options
                 self[19] - somatic_nirvana_annotation_options
                 self[20] - nirvana_annotation_options
-
+          
+                // Somatic TMB options
+                self[21] - somatic_tmb_options
+          
+                // Somatic MSI options
+                self[22] - somatic_msi_options
+          
                 // License file
-                self[21] - lic_instance_id_location
+                self[23] - lic_instance_id_location
 
                 // Default Dragen Configuration
-                self[22] - default_configuration_options
+                self[24] - default_configuration_options
             */
 
             /* If run rename rgsm step was never run, just leave the sequence data as is */
@@ -803,10 +856,15 @@ steps:
                 "maf_conversion_options": dragen_merge_options([self[16], self[15]]),
                 "sv_caller_options": dragen_merge_options([self[18], self[17]]),
                 "nirvana_annotation_options": dragen_merge_options([self[20], self[19]]),
+                "tmb_options": self[21],
+                "msi_options": self[22],
                 /* Targeted caller options are not available in the somatic variant calling stage */
                 "targeted_caller_options": null,
-                "lic_instance_id_location": self[21],
-                "default_configuration_options": JSON.parse(self[22])
+                /* MRJD options are not available in the somatic variant calling stage */
+                "mrjd_options": null,
+                /* Add in the license file */
+                "lic_instance_id_location": self[23],
+                "default_configuration_options": JSON.parse(self[24])
               }
             );
           }

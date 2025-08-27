@@ -1,0 +1,18 @@
+type: record
+name: dragen-msi-options
+fields:
+  msi_command:
+    label: msi command
+    doc: |
+      Mode of execution, one of tumor-only, tumor-normal, or collect-evidence
+    type: string?
+  msi_microsatellites_file:
+    label: msi microsatellites file
+    doc: |
+      Path to the microsatellites file
+    type: File?
+  msi_coverage_threshold:
+    label: msi coverage threshold
+    doc: |
+      Minimum coverage threshold for microsatellite sites (default: 40)
+    type: int?

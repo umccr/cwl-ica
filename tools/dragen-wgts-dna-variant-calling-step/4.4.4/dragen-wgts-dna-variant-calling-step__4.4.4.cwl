@@ -116,6 +116,12 @@ requirements:
                    inputs.dragen_options.nirvana_annotation_options,
                    /* Targeted Caller Options */
                    inputs.dragen_options.targeted_caller_options,
+                   /* MRJD Options */
+                   inputs.dragen_options.mrjd_options,
+                   /* TMB Options */
+                   inputs.dragen_options.tmb_options,
+                   /* MSI Options */
+                   inputs.dragen_options.msi_options,
                    /* Dragen mandatory options */
                    {
                       "output_directory": inputs.dragen_options.output_directory,

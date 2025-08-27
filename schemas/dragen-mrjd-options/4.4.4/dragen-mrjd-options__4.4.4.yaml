@@ -1,0 +1,13 @@
+type: record
+name: dragen-mrjd-options
+fields:
+  enable_mrjd:
+    label: Enable mrjd
+    doc: |
+      Enable MRJD (Multi-Region Joint Detection) analysis.
+    type: boolean?
+  mrjd_enable_high_sensitivity_mode:
+    label: Enable high sensitivity mode
+    doc: |
+      Enable high sensitivity mode for MRJD analysis.
+    type: boolean?
