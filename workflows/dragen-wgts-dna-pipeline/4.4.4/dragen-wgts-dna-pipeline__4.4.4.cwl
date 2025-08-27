@@ -72,6 +72,7 @@ requirements:
       - $import: ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml
       - $import: ../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml
       - $import: ../../../schemas/dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-mrjd-options/4.4.4/dragen-mrjd-options__4.4.4.yaml
       - $import: ../../../schemas/dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4.yaml
       - $import: ../../../schemas/dragen-msi-options/4.4.4/dragen-msi-options__4.4.4.yaml
 
