@@ -283,6 +283,7 @@ workflows:
         - dragen-wgts-dna-pipeline/4.4.4__20250822034548
         - dragen-wgts-dna-pipeline/4.4.4__20250822104303
         - dragen-wgts-dna-pipeline/4.4.4__20250827053004
+        - dragen-wgts-dna-pipeline/4.4.4__20250831041955
   - name: dragen-wgts-rna-pipeline_4_4_4
     subclass: CWL
     primaryDescriptorPath: 
