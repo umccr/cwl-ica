@@ -27,6 +27,9 @@ import {DragenReference} from "../../../schemas/dragen-reference/1.0.0/dragen-re
 import {
     DragenWgtsRnaOptionsVariantCallingStage
 } from "../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.4/dragen-wgts-rna-options-variant-calling-stage__4.4.4";
+import {
+    DragenNirvanaAnnotationOptions
+} from "../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4";
 
 
 // Backward compatibility with --target es5
@@ -107,6 +110,28 @@ export function get_ora_ref_path(reference_input_obj: IFile): string {
     */
     return get_ora_ref_mount() + get_name_root_from_tarball(<string>reference_input_obj.basename);
 }
+
+export function get_nirvana_ref_mount(): string {
+    /*
+    Get the Nirvana reference mount point
+    */
+    return get_scratch_mount() + "nirvana-reference/";
+}
+
+export function get_nirvana_ref_path(reference_input_obj: IFile): string {
+    return get_nirvana_ref_mount() + get_name_root_from_tarball(<string>reference_input_obj.basename);
+}
+
+export function get_variant_annotation_data_mount(nirvana_annotation_options?: DragenNirvanaAnnotationOptions): string | null {
+    if (!nirvana_annotation_options) {
+        return null
+    }
+    if (!nirvana_annotation_options.variant_annotation_data) {
+        return null
+    }
+    return get_attribute_from_optional_input(nirvana_annotation_options.variant_annotation_data, "path")
+}
+
 
 export function get_dragen_bin_path(): string {
     /*
@@ -567,8 +592,15 @@ export function dragen_to_config_toml(
 
         /* If the ora reference is parsed through, we also place the ora reference into the scratch space */
         if (key === "ora_reference") {
-            /* Mounted at ref mount, strip the .tar.gz from the basename */
+            /* Mounted at scratch mount, strip the .tar.gz from the basename */
             json_blob['ora-reference'] = get_ora_ref_path(<IFile>value)
+            continue
+        }
+
+        /* If the nirvana reference is parsed through, we also place the nirvana reference into the scratch space */
+        if (key === "variant_annotation_data") {
+            /* Mounted at the scratch mount, strip the .tar.gz from the basename */
+            json_blob['variant-annotation-data'] = get_nirvana_ref_path(<IFile>value)
             continue
         }
 
