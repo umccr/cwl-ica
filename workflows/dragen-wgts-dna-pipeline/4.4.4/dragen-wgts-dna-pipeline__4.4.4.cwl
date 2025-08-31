@@ -538,6 +538,70 @@ steps:
       - id: alignment_file_out_renamed
     run: ../../../tools/rename-rgsm-in-alignment-header/1.0.0/rename-rgsm-in-alignment-header__1.0.0.cwl
 
+  # Get the nirvana annotation data
+  run_nirvana_annotation_data_step:
+    label: run nirvana annotation data step
+    doc: |
+      If either somatic_nirvana_annotation_options or nirvana_annotation_options enable_variant_annotation is true,
+      But the variant_annotation_data is not provided, we will need to download the nirvana annotation data first
+    when: |
+      ${
+        /* Only run when tumor sequence data is provided and is a bam / cram file */
+        return inputs.run_condition;
+      }
+    in:
+      run_condition:
+        source:
+          - nirvana_annotation_options
+          - somatic_nirvana_annotation_options
+        valueFrom: |
+          ${
+            /* If neither nirvana annotation options nor somatic options are provided, return false */
+            if (!self[0] && !self[1]){
+              return false;
+            };
+            /* 
+              If either nirvana annotation options or somatic options enable variant annotation, 
+              but the variant annotation data has not been provided return true 
+            */
+            if (
+              ( self[0] && self[0].enable_variant_annotation && !self[0].variant_annotation_data ) || 
+              ( self[1] && self[1].enable_variant_annotation && !self[1].variant_annotation_data )
+            ){
+              return true;
+            } else {
+              return false;
+            }
+          }
+      genome_version:
+        source:
+          - nirvana_annotation_options
+          - somatic_nirvana_annotation_options
+        valueFrom: |
+          ${
+            if (self[0] && self[0].variant_annotation_assembly){
+              return self[0].variant_annotation_assembly;
+            } else if (self[1] && self[1].variant_annotation_assembly){
+              return self[1].variant_annotation_assembly;
+            } else {
+              return null;
+            }
+          }
+      annotations_type:
+        source: somatic_tmb_options
+        valueFrom: |
+          ${
+            if (self && self.enable_tmb) {
+              return "tmb";
+            } else {
+              return "all";
+            }
+          }
+
+    out:
+      - id: nirvana_assembly_tarball
+    run: ../../../tools/dragen-nirvana-downloader/4.4.4/dragen-nirvana-downloader__4.4.4.cwl
+
   # Run the variant calling stage
   # Use the standard alignment for input
   run_dragen_variant_calling_stage:
@@ -568,6 +632,7 @@ steps:
           # SV Caller Options
           - run_get_variant_calling_options_as_schemas_step/sv_caller_options_output
           # Nirvana Annotation Options
+          - run_nirvana_annotation_data_step/nirvana_assembly_tarball
           - nirvana_annotation_options
           # Targeted Caller Options
           - targeted_caller_options
@@ -608,19 +673,20 @@ steps:
                 self[9] - sv_caller_options
 
                 // Nirvana annotation options
-                self[10] - nirvana_annotation_options
+                self[10] - nirvana_assembly_tarball
+                self[11] - nirvana_annotation_options
 
                 // Targeted caller options
-                self[11] - targeted_caller_options
+                self[12] - targeted_caller_options
           
                 // MRJD options
-                self[12] - mrjd_options
+                self[13] - mrjd_options
 
                 // License file
-                self[13] - lic_instance_id_location
+                self[14] - lic_instance_id_location
 
                 // Default Dragen Configuration
-                self[14] - default_configuration_options
+                self[15] - default_configuration_options
             */
 
             /* If run rename rgsm step was never run, just leave the sequence data as is */
@@ -641,6 +707,18 @@ steps:
               }
               var sequence_data = dragen_merge_options([self[4], reheadered_object]);
             }
+          
+            /* If the nirvana assembly tarball was never downloaded, just set to null */
+            /* Or if weve set somatic_nirvana_annotation_options but not nirvana_annotation_options */
+            if (
+               self[10] === null ||
+               ( !self[11] || !self[11].enable_variant_annotation )
+            ) {
+               var nirvana_annotation_options = self[11];
+            } else {
+              /* Otherwise merge */
+              var nirvana_annotation_options = dragen_merge_options([self[11], {"variant_annotation_data": self[10]}]);
+            }
 
             return get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
               {
@@ -653,16 +731,16 @@ steps:
                 "cnv_caller_options": self[7],
                 "maf_conversion_options": self[8],
                 "sv_caller_options": self[9],
-                "nirvana_annotation_options": self[10],
-                "targeted_caller_options": self[11],
-                "mrjd_options": self[12],
+                "nirvana_annotation_options": nirvana_annotation_options,
+                "targeted_caller_options": self[12],
+                "mrjd_options": self[13],
                 /* Add in the somatic tmb and msi options as null */
                 "tmb_options": null,
                 "msi_options": null,
                 /* License file */
-                "lic_instance_id_location": self[13],
+                "lic_instance_id_location": self[14],
                 /* Default Dragen Configuration */
-                "default_configuration_options": JSON.parse(self[14])
+                "default_configuration_options": JSON.parse(self[15])
               }
             );
           }
@@ -736,6 +814,7 @@ steps:
           - somatic_sv_caller_options
           - run_get_variant_calling_options_as_schemas_step/sv_caller_options_output
           # Nirvana Annotation Options
+          - run_nirvana_annotation_data_step/nirvana_assembly_tarball
           - somatic_nirvana_annotation_options
           - nirvana_annotation_options
           # TMB Options
@@ -789,20 +868,21 @@ steps:
                 self[18] - sv_caller_options
 
                 // Nirvana annotation options
-                self[19] - somatic_nirvana_annotation_options
-                self[20] - nirvana_annotation_options
+                self[19] - nirvana_assembly_tarball
+                self[20] - somatic_nirvana_annotation_options
+                self[21] - nirvana_annotation_options
           
                 // Somatic TMB options
-                self[21] - somatic_tmb_options
+                self[22] - somatic_tmb_options
           
                 // Somatic MSI options
-                self[22] - somatic_msi_options
+                self[23] - somatic_msi_options
           
                 // License file
-                self[23] - lic_instance_id_location
+                self[24] - lic_instance_id_location
 
                 // Default Dragen Configuration
-                self[24] - default_configuration_options
+                self[25] - default_configuration_options
             */
 
             /* If run rename rgsm step was never run, just leave the sequence data as is */
@@ -842,6 +922,14 @@ steps:
               }
               var tumor_sequence_data = dragen_merge_options([self[8], reheadered_object]);
             }
+          
+            /* If the nirvana assembly tarball was never downloaded, just set to null */
+            if (self[19] === null){
+               var nirvana_annotation_options = dragen_merge_options([self[21], self[20]]);
+            } else {
+              /* Otherwise merge */
+              var nirvana_annotation_options = dragen_merge_options([self[21], self[20], {"variant_annotation_data": self[19]}]);
+            }
 
             return get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
               {
@@ -856,16 +944,16 @@ steps:
                 "cnv_caller_options": dragen_merge_options([self[14], self[13]]),
                 "maf_conversion_options": dragen_merge_options([self[16], self[15]]),
                 "sv_caller_options": dragen_merge_options([self[18], self[17]]),
-                "nirvana_annotation_options": dragen_merge_options([self[20], self[19]]),
-                "tmb_options": self[21],
-                "msi_options": self[22],
+                "nirvana_annotation_options": nirvana_annotation_options,
+                "tmb_options": self[22],
+                "msi_options": self[23],
                 /* Targeted caller options are not available in the somatic variant calling stage */
                 "targeted_caller_options": null,
                 /* MRJD options are not available in the somatic variant calling stage */
                 "mrjd_options": null,
                 /* Add in the license file */
-                "lic_instance_id_location": self[23],
-                "default_configuration_options": JSON.parse(self[24])
+                "lic_instance_id_location": self[24],
+                "default_configuration_options": JSON.parse(self[25])
               }
             );
           }

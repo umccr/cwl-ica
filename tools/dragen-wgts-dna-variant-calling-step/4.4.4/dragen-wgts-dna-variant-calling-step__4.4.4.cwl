@@ -159,21 +159,34 @@ requirements:
             "$(get_ref_mount())" \\
             "$(get_intermediate_results_dir())" \\
             "$(inputs.dragen_options.output_directory)"
-
+          
           # untar ref data into scratch space
           tar \\
             --directory "$(get_ref_mount())" \\
             --extract \\
+            --use-compress-program pigz \\
             --file "$(inputs.dragen_options.ref_tar.path)"
 
           # Check if ora reference is set
           if [[ "$(is_not_null(inputs.dragen_options.ora_reference))" == "true" ]]; then
             mkdir --parents \\
               "$(get_ora_ref_mount())"
-              tar \\
-                --directory "$(get_ora_ref_mount())" \\
-                --extract \\
-                --file "$(get_attribute_from_optional_input(inputs.dragen_options.ora_reference, "path"))"
+            tar \\
+              --directory "$(get_ora_ref_mount())" \\
+              --extract \\
+              --use-compress-program pigz \\
+              --file "$(get_attribute_from_optional_input(inputs.dragen_options.ora_reference, "path"))"
+          fi
+          
+          # Check if nirvana annotation options are set
+          if [[ "$(is_not_null(inputs.dragen_options.nirvana_annotation_options) && is_not_null(inputs.dragen_options.nirvana_annotation_options.variant_annotation_data))" == "true" ]]; then
+            mkdir --parents \\
+              "$(get_nirvana_ref_mount())"
+            tar \\
+              --directory "$(get_nirvana_ref_mount())" \\
+              --extract \\
+              --use-compress-program pigz \\
+              --file "$(get_variant_annotation_data_mount(inputs.dragen_options.nirvana_annotation_options))"
           fi
 
           # Copy over the config.toml file to the output directory too

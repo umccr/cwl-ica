@@ -56,6 +56,24 @@ function get_ora_ref_path(reference_input_obj) {
     */
     return get_ora_ref_mount() + get_name_root_from_tarball(reference_input_obj.basename);
 }
+function get_nirvana_ref_mount() {
+    /*
+    Get the Nirvana reference mount point
+    */
+    return get_scratch_mount() + "nirvana-reference/";
+}
+function get_nirvana_ref_path(reference_input_obj) {
+    return get_nirvana_ref_mount() + get_name_root_from_tarball(reference_input_obj.basename);
+}
+function get_variant_annotation_data_mount(nirvana_annotation_options) {
+    if (!nirvana_annotation_options) {
+        return null;
+    }
+    if (!nirvana_annotation_options.variant_annotation_data) {
+        return null;
+    }
+    return get_attribute_from_optional_input(nirvana_annotation_options.variant_annotation_data, "path");
+}
 function get_dragen_bin_path() {
     /*
     Get dragen bin path
@@ -480,8 +498,14 @@ function dragen_to_config_toml(props) {
         }
         /* If the ora reference is parsed through, we also place the ora reference into the scratch space */
         if (key === "ora_reference") {
-            /* Mounted at ref mount, strip the .tar.gz from the basename */
+            /* Mounted at scratch mount, strip the .tar.gz from the basename */
             json_blob['ora-reference'] = get_ora_ref_path(value);
+            continue;
+        }
+        /* If the nirvana reference is parsed through, we also place the nirvana reference into the scratch space */
+        if (key === "variant_annotation_data") {
+            /* Mounted at the scratch mount, strip the .tar.gz from the basename */
+            json_blob['variant-annotation-data'] = get_nirvana_ref_path(value);
             continue;
         }
         /* 3. Check if key is in the boolean to numeric list */

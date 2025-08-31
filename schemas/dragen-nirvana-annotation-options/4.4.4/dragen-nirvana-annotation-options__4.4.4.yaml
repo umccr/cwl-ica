@@ -10,9 +10,9 @@ fields:
   variant_annotation_data:
     label: variant annotation data
     doc: |
-      Top directory containing Nirvana data file.
-      Downloadable at https://support.illumina.com/content/dam/illumina-support/help/Illumina_DRAGEN_Bio_IT_Platform_v3_7_1000000141465/Content/SW/Informatics/Dragen/Nirvana_DownloadData_fDG.htm
-    type: string?
+      Tarball containing Nirvana data. 
+      If not provided, but enable_variant_annotation is true, the data will be downloaded from Illumina's servers
+    type: File?
   variant_annotation_assembly:
     label: variant annotation assembly
     doc: |
