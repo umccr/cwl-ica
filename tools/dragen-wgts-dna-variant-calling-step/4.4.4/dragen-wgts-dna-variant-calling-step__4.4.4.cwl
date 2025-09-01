@@ -38,8 +38,8 @@ requirements:
   ResourceRequirement:
     tmpdirMin: |
       ${
-        /* 2 Tb */
-        return Math.pow(2, 21);
+        /* 4 Tb */
+        return Math.pow(2, 22);
       }
   InlineJavascriptRequirement:
     expressionLib:
