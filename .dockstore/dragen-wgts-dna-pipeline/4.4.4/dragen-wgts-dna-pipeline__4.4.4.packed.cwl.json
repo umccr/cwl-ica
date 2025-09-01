@@ -1467,7 +1467,7 @@
           "class": "InlineJavascriptRequirement"
         },
         {
-          "tmpdirMin": "${\n  /* 2 Tb */\n  return Math.pow(2, 21);\n}\n",
+          "tmpdirMin": "${\n  /* 4 Tb */\n  return Math.pow(2, 22);\n}\n",
           "class": "ResourceRequirement"
         },
         {
