@@ -37,6 +37,12 @@ hints:
     dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/b35eb8ce-3035-4796-896b-1b33b6a02c44:latest"
 
 requirements:
+  ResourceRequirement:
+    tmpdirMin: |
+      ${
+        /* 1 Tb */
+        return Math.pow(2, 20);
+      }
   InlineJavascriptRequirement:
     expressionLib:
       - $include: ../../../typescript-expressions/dragen-tools/4.4.0/dragen-tools__4.4.0.cwljs
@@ -55,35 +61,61 @@ requirements:
           # Create directories
           mkdir \\
             ".dotnet" \\
-            "nirvana_assembly_$(inputs.genome_version)"
+            "/scratch/nirvana_assembly_$(inputs.genome_version)"
+          
+          # Set the env var for dotnet
+          export DOTNET_BUNDLE_EXTRACT_BASE_DIR="$(runtime.outdir)/.dotnet"
 
           # Run the nirvana script
           echo "Downloading $(inputs.annotations_type)" 1>&2
-          DOTNET_BUNDLE_EXTRACT_BASE_DIR="$(runtime.outdir)/.dotnet" \\
           "/opt/edico/share/nirvana/DataManager" "download" \\
             --ref "$(inputs.genome_version)" \\
             --versions-config "/opt/edico/resources/annotation/$(inputs.annotations_type)_annotations_$(inputs.genome_version).json" \\
-            --dir "nirvana_assembly_$(inputs.genome_version)" \\
+            --dir "/scratch/nirvana_assembly_$(inputs.genome_version)" \\
+            --credentials-file "/opt/edico/config/data-downloader.json"
+          
+          # Dont trust it, so we run it again for good measure
+          echo "Rerunning nirvana download for $(inputs.annotations_type)" 1>&2
+          "/opt/edico/share/nirvana/DataManager" "download" \\
+            --ref "$(inputs.genome_version)" \\
+            --versions-config "/opt/edico/resources/annotation/$(inputs.annotations_type)_annotations_$(inputs.genome_version).json" \\
+            --dir "/scratch/nirvana_assembly_$(inputs.genome_version)" \\
             --credentials-file "/opt/edico/config/data-downloader.json"
           
           # If the annotation type is not "all" we need to rerun with "all" as well
           if [[ "$(inputs.annotations_type)" != "all" ]]; then
             echo "Also downloading "all" annotations as well" 1>&2
-            DOTNET_BUNDLE_EXTRACT_BASE_DIR="$(runtime.outdir)/.dotnet" \\
             "/opt/edico/share/nirvana/DataManager" "download" \\
               --ref "$(inputs.genome_version)" \\
               --versions-config "/opt/edico/resources/annotation/all_annotations_$(inputs.genome_version).json" \\
-              --dir "nirvana_assembly_$(inputs.genome_version)" \\
+              --dir "/scratch/nirvana_assembly_$(inputs.genome_version)" \\
+              --credentials-file "/opt/edico/config/data-downloader.json"
+            
+            # Do we have trust issues, of course we do. Run it again.
+            echo "Rerunning download for "all" annotations" 1>&2
+            "/opt/edico/share/nirvana/DataManager" "download" \\
+              --ref "$(inputs.genome_version)" \\
+              --versions-config "/opt/edico/resources/annotation/all_annotations_$(inputs.genome_version).json" \\
+              --dir "/scratch/nirvana_assembly_$(inputs.genome_version)" \\
               --credentials-file "/opt/edico/config/data-downloader.json"
           fi
+          
+          # Make note of the files we have (to stderr)
+          echo "Downloaded files summary" 1>&2
+          echo "=================" 1>&2
+          find "/scratch/nirvana_assembly_$(inputs.genome_version)" -type f 1>&2
+          echo "=================" 1>&2
           
           # Tar it up!
           echo "Tarring it up $(inputs.annotations_type)" 1>&2
           tar \\
             --create \\
-            --use-compress-program pigz \\
-            --file "nirvana_assembly_$(inputs.genome_version).tar.gz" \\
-            "nirvana_assembly_$(inputs.genome_version)"
+            --use-compress-program "pigz" \\
+            --file "/scratch/nirvana_assembly_$(inputs.genome_version).tar.gz" \\
+            "/scratch/nirvana_assembly_$(inputs.genome_version)"
+          
+          # Move to outputs
+          mv "/scratch/nirvana_assembly_$(inputs.genome_version).tar.gz" "$(runtime.outdir)/nirvana_assembly_$(inputs.genome_version).tar.gz"
 
 
 baseCommand: [ "bash", "run_nirvana_download.sh" ]
