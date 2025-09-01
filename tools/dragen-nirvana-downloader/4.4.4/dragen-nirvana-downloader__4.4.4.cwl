@@ -103,7 +103,7 @@ requirements:
           # Make note of the files we have (to stderr)
           echo "Downloaded files summary" 1>&2
           echo "=================" 1>&2
-          find "nirvana_assembly_$(inputs.genome_version)" -type f 1>&2
+          find "/scratch/nirvana_assembly_$(inputs.genome_version)" -type f 1>&2
           echo "=================" 1>&2
           
           # Tar it up!
