@@ -110,9 +110,10 @@ requirements:
           echo "Tarring it up $(inputs.annotations_type)" 1>&2
           tar \\
             --create \\
+            --directory "/scratch" \\
             --use-compress-program "pigz" \\
             --file "/scratch/nirvana_assembly_$(inputs.genome_version).tar.gz" \\
-            "/scratch/nirvana_assembly_$(inputs.genome_version)"
+            "nirvana_assembly_$(inputs.genome_version)"
           
           # Move to outputs
           mv "/scratch/nirvana_assembly_$(inputs.genome_version).tar.gz" "$(runtime.outdir)/nirvana_assembly_$(inputs.genome_version).tar.gz"
