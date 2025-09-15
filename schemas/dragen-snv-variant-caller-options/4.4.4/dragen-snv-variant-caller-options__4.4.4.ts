@@ -192,4 +192,10 @@ export interface DragenSnvVariantCallerOptions {
 	Inputs structural variant VCF for variant deduplication. The input file can be gzipped.
 	*/
 	vd_sv_vcf?: IFile
+
+    /*
+    vc max callable region memory usage
+    Set the maximum size of a single callable region. Default is "13GB".
+    */
+    vc_max_callable_region_memory_usage?: string
 }
