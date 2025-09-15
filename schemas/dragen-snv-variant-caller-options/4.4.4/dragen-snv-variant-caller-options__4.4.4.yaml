@@ -222,3 +222,9 @@ fields:
       Recommended way to run contamination detection based on GATK CalculateContamination.
       Supports germline and somatic.
     type: boolean?
+  # High Coverage analysis options
+  vc_max_callable_region_memory_usage:
+    label: vc max callable region memory usage
+    doc: |
+      Set the maximum size of a single callable region. Default is "13GB".
+    type: str?
