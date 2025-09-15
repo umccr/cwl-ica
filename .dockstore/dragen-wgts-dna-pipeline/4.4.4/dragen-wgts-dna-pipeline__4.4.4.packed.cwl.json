@@ -838,6 +838,15 @@
                   "name": "#dragen-snv-variant-caller-options__4.4.4.yaml/dragen-snv-variant-caller-options/vc_max_alternate_alleles"
                 },
                 {
+                  "label": "vc max callable region memory usage",
+                  "doc": "Set the maximum size of a single callable region. Default is \"13GB\".\n",
+                  "type": [
+                    "null",
+                    "string"
+                  ],
+                  "name": "#dragen-snv-variant-caller-options__4.4.4.yaml/dragen-snv-variant-caller-options/vc_max_callable_region_memory_usage"
+                },
+                {
                   "label": "vc mnv emit component calls",
                   "doc": "Specifies whether or not to emit the individual component variant records along with the merged variant records.\nWhen set to true, all component calls making up an MNV or complex indel will be emitted in the VCF\nalong with the merged variant record. The default is true for somatic and false (disabled) for germline.\n",
                   "type": [
