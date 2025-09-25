@@ -2693,6 +2693,29 @@ bunches:
             dataset_creation_time: '2024-10-30T04:01:43Z'
             dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
 
+  # Dragen WGTS RNA Pipeline
+  - bunch_name: dragen_wgts_rna_pipeline
+    bunch_description: |
+      Contains the UMCCR dragen-wgts-rna pipeline
+    tenant_name: umccr-prod
+    pipeline_path:
+      workflows/dragen-wgts-rna-pipeline/4.4.4/dragen-wgts-rna-pipeline__4.4.4.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - wgts
+      - rna
+    bunch_versions:
+      - version: v11_r5
+        version_description: |
+          Redundant since we have no datasets
+        version_creation_date: 2025-09-25T05:46:49+00:00Z
+        datasets: []
 
 # List of generated bundles
 bundles:
