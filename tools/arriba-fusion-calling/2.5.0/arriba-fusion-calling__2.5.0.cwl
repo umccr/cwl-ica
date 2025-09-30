@@ -31,7 +31,7 @@ hints:
     coresMin: 8
     ramMin: 28000
   DockerRequirement:
-    dockerPull: public.ecr.aws/biocontainers/arriba:2.5.0--h87b9561_1
+    dockerPull: community.wave.seqera.io/library/arriba:2.5.0--2a8ebddcf37d7ec4
 
 requirements:
   SchemaDefRequirement:
@@ -40,7 +40,7 @@ requirements:
       - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml#cram-input
   InlineJavascriptRequirement: {}
 
-baseCommand: [ "draw_fusions.R" ]
+baseCommand: [ "arriba" ]
 
 inputs:
   # Data input
@@ -111,35 +111,10 @@ inputs:
   contigs:
     label: contigs
     doc: |
-      List of interesting contigs. Fusions between genes on other contigs are ignored
+      List of interesting contigs. 
+      Fusions between genes on other contigs are ignored
+      Default is 1-22, X, Y, AC_* and NC_*
     type: string[]?
-    default:
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      - 8
-      - 9
-      - 10
-      - 11
-      - 12
-      - 13
-      - 14
-      - 15
-      - 16
-      - 17
-      - 18
-      - 19
-      - 20
-      - 21
-      - 22
-      - X
-      - Y
-      - AC_*
-      - NC_*
     inputBinding:
       prefix: -i
       valueFrom: |
@@ -165,15 +140,13 @@ inputs:
     label: GTF features
     doc: |
       List of names of GTF features.
-      Default: gene_name=gene_name|gene_id gene_id=gene_id
-      transcript_id=transcript_id feature_exon=exon feature_CDS=CDS
+      Default: 
+        - gene_name=gene_name|gene_id 
+        - gene_id=gene_id
+        - transcript_id=transcript_id 
+        - feature_exon=exon 
+        - feature_CDS=CDS
     type: string[]?
-    default:
-      - gene_name=gene_name|gene_id
-      - gene_id=gene_id
-      - transcript_id=transcript_id
-      - feature_exon=exon
-      - feature_CDS=CDS
     inputBinding:
       prefix: -G
       valueFrom: |

@@ -34,8 +34,7 @@ hints:
     coresMin: 8
     ramMin: 28000
   DockerRequirement:
-    dockerPull: public.ecr.aws/biocontainers/arriba:2.5.0--h87b9561_1
-
+    dockerPull: community.wave.seqera.io/library/arriba:2.5.0--2a8ebddcf37d7ec4
 
 requirements:
   SchemaDefRequirement:
