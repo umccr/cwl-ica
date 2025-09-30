@@ -1281,7 +1281,7 @@ export function get_dragen_wgts_rna_variant_calling_stage_options_from_pipeline(
         /* Ora reference */
         ora_reference: props.ora_reference ? props.ora_reference : null,
 
-        /* Annotation file, used for a lot of the variant calling optoins */
+        /* Annotation file, used for a lot of the variant calling options */
         annotation_file: props.annotation_file,
 
         /* Stage specific options */
