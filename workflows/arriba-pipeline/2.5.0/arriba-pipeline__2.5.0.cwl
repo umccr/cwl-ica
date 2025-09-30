@@ -142,6 +142,10 @@ steps:
         source: cytobands_tsv
       protein_domains_gff3:
         source: protein_domains_gff3
+      # Output file name options
+      output_pdf_filename:
+        source: sample_name
+        valueFrom: "$(self)_fusions.pdf"
     out:
       - id: output_pdf
     run: ../../../tools/arriba-drawing/2.5.0/arriba-drawing__2.5.0.cwl
