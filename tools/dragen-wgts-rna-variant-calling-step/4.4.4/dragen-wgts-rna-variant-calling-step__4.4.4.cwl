@@ -79,11 +79,13 @@ requirements:
                    /* RNA VC Options */
                    inputs.dragen_options.snv_variant_caller_options,
                    /* RNA Gene Fusion Options */
-                   inputs.dragen_options.rna_gene_fusion_detection_options,
-                   /* Gene Expression Quantification */
-                   inputs.dragen_options.rna_gene_expression_quantification_options,
+                   inputs.dragen_options.gene_fusion_detection_options,
+                   /* RNA Gene Expression Quantification */
+                   inputs.dragen_options.gene_expression_quantification_options,
                    /* RNA Variant Splicing Options */
-                   inputs.dragen_options.rna_splice_variant_caller_options,
+                   inputs.dragen_options.splice_variant_caller_options,
+                   /* Maf conversion options */
+                   inputs.dragen_options.maf_conversion_options,
                    /* Nirvana Annotation Options */
                    inputs.dragen_options.nirvana_annotation_options,
                    /* Dragen mandatory options */
@@ -98,9 +100,10 @@ requirements:
                    {
                       /* We push this to /scratch */
                       "intermediate_results_dir": get_intermediate_results_dir(),
-                      /* Force alignment parameters to true - required for rna pipeline */
+                      /* Force enable parameters to true - required for rna pipeline */
                       "enable_map_align": true,
                       "enable_map_align_output": true,
+                      "enable_variant_caller": true,
                       "enable_rna": true
                    }
                 ]

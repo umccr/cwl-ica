@@ -74,19 +74,19 @@ fields:
 
   # RNA Specific Variant Calling options
   gene_fusion_detection_options:
-    label: rna_gene_fusion_detection_options
+    label: gene fusion detection options
     doc: |
       Options relating to rna gene fusion detection
     type:
       - {"$import": "../../dragen-rna-gene-fusion-detection-options/4.4.4/dragen-rna-gene-fusion-detection-options__4.4.4.yaml#dragen-rna-gene-fusion-detection-options"}
   gene_expression_quantification_options:
-    label: rna_gene_expression_quantification_options
+    label: gene expression quantification options
     doc: |
       Options relating to rna gene expression quantification
     type:
       - {"$import": "../../dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml#dragen-rna-gene-expression-quantification-options"}
   splice_variant_caller_options:
-    label: rna_splice_variant_caller_options
+    label: splice variant caller options
     doc: |
       Options relating to rna splice variant calling
     type:
@@ -98,6 +98,7 @@ fields:
     doc: |
       Specifies the MAF conversion options
     type:
+      - "null"
       - {"$import": "../../dragen-maf-conversion-options/4.4.4/dragen-maf-conversion-options__4.4.4.yaml#dragen-maf-conversion-options"}
 
   # Nirvana Annotation Options
@@ -106,4 +107,5 @@ fields:
     doc: |
       Specifies the Nirvana annotation options
     type:
+      - "null"
       - {"$import": "../../dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml#dragen-nirvana-annotation-options"}
