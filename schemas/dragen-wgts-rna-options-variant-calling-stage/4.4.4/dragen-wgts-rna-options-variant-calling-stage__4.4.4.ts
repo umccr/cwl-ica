@@ -44,13 +44,13 @@ export interface DragenWgtsRnaOptionsVariantCallingStage {
 	maf conversion options: 
 	Specifies the MAF conversion options
 	*/
-	maf_conversion_options: DragenMafConversionOptions
+	maf_conversion_options?: DragenMafConversionOptions
 
 	/*
 	nirvana annotation options: 
 	Specifies the Nirvana annotation options
 	*/
-	nirvana_annotation_options: DragenNirvanaAnnotationOptions
+	nirvana_annotation_options?: DragenNirvanaAnnotationOptions
 
 	/*
 	ora reference: 

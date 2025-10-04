@@ -485,38 +485,35 @@ steps:
           - run_dragen_rna_pipeline_stage/output_directory
         linkMerge: merge_nested
       output_filename:
-        source:
-          - sample_name
+        source: sample_name
         valueFrom: |
           ${
             /* Return the output filename */
             return get_wgts_rna_multiqc_output_filename(
               {
-                "sample_name": self[0],
+                "sample_name": self,
               }
             );
           }
       title:
-        source:
-          - sample_name
+        source: sample_name
         valueFrom: |
           ${
             /* Return the title */
             return get_wgts_rna_multiqc_title(
               {
-                "sample_name": self[0],
+                "sample_name": self,
               }
             );
           }
       output_directory_name:
-        source:
-          - sample_name
+        source: sample_name
         valueFrom: |
           ${
             /* Return the output directory name */
             return get_wgts_rna_multiqc_output_directory_name(
               {
-                "sample_name": self[0],
+                "sample_name": self,
               }
             );
           }

@@ -30,9 +30,9 @@ doc: |
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
-    ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: fpga
-    ilmn-tes:resources/size: medium
+    ilmn-tes:resources:tier: standard
+    ilmn-tes:resources:type: fpga
+    ilmn-tes:resources:size: medium
     coresMin: 16
     ramMin: 240000
   DockerRequirement:
@@ -79,11 +79,13 @@ requirements:
                    /* RNA VC Options */
                    inputs.dragen_options.snv_variant_caller_options,
                    /* RNA Gene Fusion Options */
-                   inputs.dragen_options.rna_gene_fusion_detection_options,
-                   /* Gene Expression Quantification */
-                   inputs.dragen_options.rna_gene_expression_quantification_options,
+                   inputs.dragen_options.gene_fusion_detection_options,
+                   /* RNA Gene Expression Quantification */
+                   inputs.dragen_options.gene_expression_quantification_options,
                    /* RNA Variant Splicing Options */
-                   inputs.dragen_options.rna_splice_variant_caller_options,
+                   inputs.dragen_options.splice_variant_caller_options,
+                   /* Maf conversion options */
+                   inputs.dragen_options.maf_conversion_options,
                    /* Nirvana Annotation Options */
                    inputs.dragen_options.nirvana_annotation_options,
                    /* Dragen mandatory options */
@@ -92,15 +94,17 @@ requirements:
                       "output_file_prefix": inputs.dragen_options.output_file_prefix,
                       "ref_tar": inputs.dragen_options.ref_tar,
                       "lic_instance_id_location": lic_instance_id_location,
-                      "ora_reference": inputs.dragen_options.ora_reference
+                      "ora_reference": inputs.dragen_options.ora_reference,
+                      "annotation_file": inputs.dragen_options.annotation_file
                    },
                    /* VC / RNA Mandatory options */
                    {
                       /* We push this to /scratch */
                       "intermediate_results_dir": get_intermediate_results_dir(),
-                      /* Force alignment parameters to true - required for rna pipeline */
+                      /* Force enable parameters to true - required for rna pipeline */
                       "enable_map_align": true,
                       "enable_map_align_output": true,
+                      "enable_variant_caller": true,
                       "enable_rna": true
                    }
                 ]
