@@ -1038,6 +1038,9 @@
               "$import": "#dragen-mapper-options__4.4.4.yaml/dragen-mapper-options"
             },
             {
+              "$import": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage"
+            },
+            {
               "type": "record",
               "name": "#dragen-wgts-alignment-options__4.4.4.yaml/dragen-wgts-alignment-options",
               "fields": [
@@ -1195,34 +1198,7 @@
                     {
                       "type": "array",
                       "items": {
-                        "type": "record",
-                        "name": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage",
-                        "fields": [
-                          {
-                            "label": "region",
-                            "doc": "Generate the coverage region report using this bed file\n",
-                            "type": "File",
-                            "name": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage/region"
-                          },
-                          {
-                            "label": "report type",
-                            "doc": "Describe the report type requested for qc covreage region\n",
-                            "type": "string",
-                            "name": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage/report_type"
-                          },
-                          {
-                            "label": "thresholds",
-                            "doc": "Declare the thresholds to use in coverage report, up to 11 values\n",
-                            "type": [
-                              "null",
-                              {
-                                "type": "array",
-                                "items": "int"
-                              }
-                            ],
-                            "name": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage/thresholds"
-                          }
-                        ]
+                        "$import": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage"
                       }
                     }
                   ],
@@ -1528,6 +1504,9 @@
             },
             {
               "$import": "#cram-input__1.0.0.yaml/cram-input"
+            },
+            {
+              "$import": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage"
             },
             {
               "type": "record",
@@ -2336,6 +2315,9 @@
             },
             {
               "$import": "#dragen-mapper-options__4.4.4.yaml/dragen-mapper-options"
+            },
+            {
+              "$import": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage"
             },
             {
               "$import": "#dragen-wgts-alignment-options__4.4.4.yaml/dragen-wgts-alignment-options"
@@ -3175,6 +3157,9 @@
               "$import": "#dragen-mapper-options__4.4.4.yaml/dragen-mapper-options"
             },
             {
+              "$import": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage"
+            },
+            {
               "$import": "#dragen-wgts-alignment-options__4.4.4.yaml/dragen-wgts-alignment-options"
             }
           ],
@@ -3410,6 +3395,9 @@
             },
             {
               "$import": "#dragen-mapper-options__4.4.4.yaml/dragen-mapper-options"
+            },
+            {
+              "$import": "#dragen-qc-coverage__1.0.0.yaml/dragen-qc-coverage"
             },
             {
               "$import": "#dragen-wgts-alignment-options__4.4.4.yaml/dragen-wgts-alignment-options"
