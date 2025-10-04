@@ -1,0 +1,894 @@
+{
+  "$graph": [
+    {
+      "class": "CommandLineTool",
+      "id": "#rnasum__2.0.0.cwl",
+      "label": "rnasum v(2.0.0)",
+      "doc": "Documentation for rnasum v2.0.0\n",
+      "hints": [
+        {
+          "dockerPull": "ghcr.io/umccr/rnasum:2.0.0",
+          "class": "DockerRequirement"
+        },
+        {
+          "coresMin": 4,
+          "ramMin": 16000,
+          "class": "ResourceRequirement",
+          "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:type": "standard",
+          "https://platform.illumina.com/rdf/ica/resources:size": "small"
+        }
+      ],
+      "baseCommand": [
+        "rnasum.R"
+      ],
+      "inputs": [
+        {
+          "label": "arriba pdf",
+          "doc": "PDF file containing the fusion plots produced by Arriba.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--arriba_pdf"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/arriba_pdf"
+        },
+        {
+          "label": "arriba tsv",
+          "doc": "TSV file containing the fusion calls produced by Arriba.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--arriba_tsv"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/arriba_tsv"
+        },
+        {
+          "label": "batch rm",
+          "doc": "Remove batch-associated effects between datasets.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--batch_rm"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/batch_rm"
+        },
+        {
+          "label": "cn gain",
+          "doc": "CN threshold value to classify genes within gained regions.\nDefault is 95.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--cn_gain"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/cn_gain"
+        },
+        {
+          "label": "cn loss",
+          "doc": "CN threshold value to classify genes within lost regions.\nDefault is 5.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--cn_loss"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/cn_loss"
+        },
+        {
+          "label": "dataset",
+          "doc": "Dataset to use for annotation.\n",
+          "type": {
+            "type": "enum",
+            "symbols": [
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/BRCA",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/THCA",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/HNSC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/LGG",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/KIRC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/LUSC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/LUAD",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/PRAD",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/STAD",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/LIHC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/COAD",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/KIRP",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/BLCA",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/OV",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/SARC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/PCPG",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/CESC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/UCEC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/PAAD",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/TGCT",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/LAML",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/ESCA",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/GBM",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/THYM",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/SKCM",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/READ",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/UVM",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/ACC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/MESO",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/KICH",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/UCS",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/DLBC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/CHOL",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/LUAD-LCNEC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/BLCA-NET",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/PAAD-IPMN",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/PAAD-NET",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/PAAD-ACC",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/PANCAN",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset/TEST"
+            ]
+          },
+          "inputBinding": {
+            "prefix": "--dataset"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset"
+        },
+        {
+          "label": "dataset name incl",
+          "doc": "Include dataset in the report and sample name.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--dataset_name_incl"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/dataset_name_incl"
+        },
+        {
+          "label": "dragen fusions",
+          "doc": "File path to DRAGEN RNA-seq 'fusion_candidates.final' output.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--dragen_fusions"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/dragen_fusions"
+        },
+        {
+          "label": "dragen mapping metrics",
+          "doc": "File path to DRAGEN RNA-seq 'mapping_metrics.csv' output.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--dragen_mapping_metrics"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/dragen_mapping_metrics"
+        },
+        {
+          "label": "drugs",
+          "doc": "Include drug matching section in the report.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--drugs"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/drugs"
+        },
+        {
+          "label": "filter",
+          "doc": "Filtering out low expressed genes.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--filter"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/filter"
+        },
+        {
+          "label": "immunogram",
+          "doc": "Include drug matching section in the report.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--immunogram"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/immunogram"
+        },
+        {
+          "label": "log",
+          "doc": "Log (base 2) transform data before normalisation.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--log"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/log"
+        },
+        {
+          "label": "norm",
+          "doc": "Normalisation method, one of TMM, TMMwzp, RLE, upperquartile or none\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#rnasum__2.0.0.cwl/rnasum--2.0.0/norm/TMM",
+                "#rnasum__2.0.0.cwl/rnasum--2.0.0/norm/TMMwzp",
+                "#rnasum__2.0.0.cwl/rnasum--2.0.0/norm/RLE",
+                "#rnasum__2.0.0.cwl/rnasum--2.0.0/norm/quantile",
+                "#rnasum__2.0.0.cwl/rnasum--2.0.0/norm/upperquartile",
+                "#rnasum__2.0.0.cwl/rnasum--2.0.0/norm/none"
+              ]
+            }
+          ],
+          "inputBinding": {
+            "prefix": "--norm"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/norm"
+        },
+        {
+          "label": "PCGR splice vars",
+          "doc": "Include non-coding splice region variants reported in PCGR.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--pcgr_splice_vars"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/pcgr_splice_vars"
+        },
+        {
+          "label": "pcgr tier",
+          "doc": "Tier threshold for reporting variants reported in PCGR.\nDefault is 4\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--pcgr_tier"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/pcgr_tier"
+        },
+        {
+          "label": "pcgr tiers tsv",
+          "doc": "TSV file containing the PCGR tiers information.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--pcgr_tiers_tsv"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/pcgr_tiers_tsv"
+        },
+        {
+          "label": "project",
+          "doc": "Project name, used for annotation purposes only.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--project"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/project"
+        },
+        {
+          "label": "purple gene tsv",
+          "doc": "File path to PURPLE 'purple.cnv.gene.tsv' output\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--purple_gene_tsv"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/purple_gene_tsv"
+        },
+        {
+          "label": "report dir",
+          "doc": "Directory path to output report.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--report_dir"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/report_dir"
+        },
+        {
+          "label": "salmon",
+          "doc": "File path to 'quant.genes.sf' output.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--salmon"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/salmon"
+        },
+        {
+          "label": "sample name",
+          "doc": "Sample name to be presented in report.\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--sample_name"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/sample_name"
+        },
+        {
+          "label": "sample source",
+          "doc": "Source of investigated sample (e.g. fresh frozen tissue, organoid).\nThis information is for annotation purposes only\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "inputBinding": {
+            "prefix": "--sample_source"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/sample_source"
+        },
+        {
+          "label": "save tables",
+          "doc": "Save interactive summary tables as HTML.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "inputBinding": {
+            "prefix": "--save_tables"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/save_tables"
+        },
+        {
+          "label": "scaling",
+          "doc": "Apply \"gene-wise\" (default) or \"group-wise\" data scaling.\n",
+          "type": {
+            "type": "enum",
+            "symbols": [
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/scaling/gene-wise",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/scaling/group-wise"
+            ]
+          },
+          "inputBinding": {
+            "prefix": "--scaling"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/scaling"
+        },
+        {
+          "label": "subject id",
+          "doc": "Subject ID\n",
+          "type": "string",
+          "inputBinding": {
+            "prefix": "--subject_id"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/subject_id"
+        },
+        {
+          "label": "sv tsv",
+          "doc": "TSV file containing the structural variant calls.\n",
+          "type": "File",
+          "inputBinding": {
+            "prefix": "--sv_tsv"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/sv_tsv"
+        },
+        {
+          "label": "top genes",
+          "doc": "The number of top ranked genes to be presented.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "inputBinding": {
+            "prefix": "--top_genes"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/top_genes"
+        },
+        {
+          "label": "transform",
+          "doc": "Transformation method to be used when converting read counts\n",
+          "type": {
+            "type": "enum",
+            "symbols": [
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/transform/CPM",
+              "#rnasum__2.0.0.cwl/rnasum--2.0.0/transform/TPM"
+            ]
+          },
+          "inputBinding": {
+            "prefix": "--transform"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/transform"
+        }
+      ],
+      "successCodes": [
+        0
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      },
+      "outputs": [
+        {
+          "label": "rnasum html",
+          "doc": "The HTML report output of RNAsum\n",
+          "type": "File",
+          "outputBinding": {
+            "glob": "$(inputs.report_dir)/$(inputs.sample_name).RNAseq_report.html"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/rnasum_html"
+        },
+        {
+          "label": "RNAsum output directory",
+          "doc": "Output directory containing all outputs of the RNAsum run",
+          "type": "Directory",
+          "outputBinding": {
+            "glob": "$(inputs.report_dir)"
+          },
+          "id": "#rnasum__2.0.0.cwl/rnasum--2.0.0/rnasum_output_directory"
+        }
+      ]
+    },
+    {
+      "class": "Workflow",
+      "id": "#main",
+      "label": "rnasum-pipeline v(2.0.0)",
+      "doc": "Documentation for rnasum-pipeline v2.0.0\n",
+      "requirements": [
+        {
+          "class": "InlineJavascriptRequirement"
+        },
+        {
+          "class": "MultipleInputFeatureRequirement"
+        },
+        {
+          "class": "ScatterFeatureRequirement"
+        },
+        {
+          "class": "StepInputExpressionRequirement"
+        }
+      ],
+      "inputs": [
+        {
+          "label": "arriba pdf",
+          "doc": "PDF file containing the fusion plots produced by Arriba.\n",
+          "type": "File",
+          "id": "#main/arriba_pdf"
+        },
+        {
+          "label": "arriba tsv",
+          "doc": "TSV file containing the fusion calls produced by Arriba.\n",
+          "type": "File",
+          "id": "#main/arriba_tsv"
+        },
+        {
+          "label": "batch rm",
+          "doc": "Remove batch-associated effects between datasets.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/batch_rm"
+        },
+        {
+          "label": "cn gain",
+          "doc": "CN threshold value to classify genes within gained regions.\nDefault is 95.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/cn_gain"
+        },
+        {
+          "label": "cn loss",
+          "doc": "CN threshold value to classify genes within lost regions.\nDefault is 5.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/cn_loss"
+        },
+        {
+          "label": "dataset",
+          "doc": "Dataset to use for annotation.\n",
+          "type": {
+            "type": "enum",
+            "symbols": [
+              "#main/dataset/BRCA",
+              "#main/dataset/THCA",
+              "#main/dataset/HNSC",
+              "#main/dataset/LGG",
+              "#main/dataset/KIRC",
+              "#main/dataset/LUSC",
+              "#main/dataset/LUAD",
+              "#main/dataset/PRAD",
+              "#main/dataset/STAD",
+              "#main/dataset/LIHC",
+              "#main/dataset/COAD",
+              "#main/dataset/KIRP",
+              "#main/dataset/BLCA",
+              "#main/dataset/OV",
+              "#main/dataset/SARC",
+              "#main/dataset/PCPG",
+              "#main/dataset/CESC",
+              "#main/dataset/UCEC",
+              "#main/dataset/PAAD",
+              "#main/dataset/TGCT",
+              "#main/dataset/LAML",
+              "#main/dataset/ESCA",
+              "#main/dataset/GBM",
+              "#main/dataset/THYM",
+              "#main/dataset/SKCM",
+              "#main/dataset/READ",
+              "#main/dataset/UVM",
+              "#main/dataset/ACC",
+              "#main/dataset/MESO",
+              "#main/dataset/KICH",
+              "#main/dataset/UCS",
+              "#main/dataset/DLBC",
+              "#main/dataset/CHOL",
+              "#main/dataset/LUAD-LCNEC",
+              "#main/dataset/BLCA-NET",
+              "#main/dataset/PAAD-IPMN",
+              "#main/dataset/PAAD-NET",
+              "#main/dataset/PAAD-ACC",
+              "#main/dataset/PANCAN",
+              "#main/dataset/TEST"
+            ]
+          },
+          "id": "#main/dataset"
+        },
+        {
+          "label": "dataset name incl",
+          "doc": "Include dataset in the report and sample name.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/dataset_name_incl"
+        },
+        {
+          "label": "dragen fusions",
+          "doc": "File path to DRAGEN RNA-seq 'fusion_candidates.final' output.\n",
+          "type": "File",
+          "id": "#main/dragen_fusions"
+        },
+        {
+          "label": "dragen mapping metrics",
+          "doc": "File path to DRAGEN RNA-seq 'mapping_metrics.csv' output.\n",
+          "type": "File",
+          "id": "#main/dragen_mapping_metrics"
+        },
+        {
+          "label": "drugs",
+          "doc": "Include drug matching section in the report.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/drugs"
+        },
+        {
+          "label": "filter",
+          "doc": "Filtering out low expressed genes.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/filter"
+        },
+        {
+          "label": "immunogram",
+          "doc": "Include drug matching section in the report.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/immunogram"
+        },
+        {
+          "label": "log",
+          "doc": "Log (base 2) transform data before normalisation.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/log"
+        },
+        {
+          "label": "norm",
+          "doc": "Normalisation method, one of TMM, TMMwzp, RLE, upperquartile or none\n",
+          "type": [
+            "null",
+            {
+              "type": "enum",
+              "symbols": [
+                "#main/norm/TMM",
+                "#main/norm/TMMwzp",
+                "#main/norm/RLE",
+                "#main/norm/quantile",
+                "#main/norm/upperquartile",
+                "#main/norm/none"
+              ]
+            }
+          ],
+          "id": "#main/norm"
+        },
+        {
+          "label": "PCGR splice vars",
+          "doc": "Include non-coding splice region variants reported in PCGR.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/pcgr_splice_vars"
+        },
+        {
+          "label": "pcgr tier",
+          "doc": "Tier threshold for reporting variants reported in PCGR.\nDefault is 4\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/pcgr_tier"
+        },
+        {
+          "label": "pcgr tiers tsv",
+          "doc": "TSV file containing the PCGR tiers information.\n",
+          "type": "File",
+          "id": "#main/pcgr_tiers_tsv"
+        },
+        {
+          "label": "project",
+          "doc": "Project name, used for annotation purposes only.\n",
+          "type": "string",
+          "id": "#main/project"
+        },
+        {
+          "label": "purple gene tsv",
+          "doc": "File path to PURPLE 'purple.cnv.gene.tsv' output\n",
+          "type": "File",
+          "id": "#main/purple_gene_tsv"
+        },
+        {
+          "label": "report dir",
+          "doc": "Directory path to output report.\n",
+          "type": "string",
+          "id": "#main/report_dir"
+        },
+        {
+          "label": "salmon",
+          "doc": "File path to 'quant.genes.sf' output.\n",
+          "type": "File",
+          "id": "#main/salmon"
+        },
+        {
+          "label": "sample name",
+          "doc": "Sample name to be presented in report.\n",
+          "type": "string",
+          "id": "#main/sample_name"
+        },
+        {
+          "label": "sample source",
+          "doc": "Source of investigated sample (e.g. fresh frozen tissue, organoid).\nThis information is for annotation purposes only\n",
+          "type": [
+            "null",
+            "string"
+          ],
+          "id": "#main/sample_source"
+        },
+        {
+          "label": "save tables",
+          "doc": "Save interactive summary tables as HTML.\n",
+          "type": [
+            "null",
+            "boolean"
+          ],
+          "id": "#main/save_tables"
+        },
+        {
+          "label": "scaling",
+          "doc": "Apply \"gene-wise\" (default) or \"group-wise\" data scaling.\n",
+          "type": {
+            "type": "enum",
+            "symbols": [
+              "#main/scaling/gene-wise",
+              "#main/scaling/group-wise"
+            ]
+          },
+          "id": "#main/scaling"
+        },
+        {
+          "label": "subject id",
+          "doc": "Subject ID\n",
+          "type": "string",
+          "id": "#main/subject_id"
+        },
+        {
+          "label": "sv tsv",
+          "doc": "TSV file containing the structural variant calls.\n",
+          "type": "File",
+          "id": "#main/sv_tsv"
+        },
+        {
+          "label": "top genes",
+          "doc": "The number of top ranked genes to be presented.\n",
+          "type": [
+            "null",
+            "int"
+          ],
+          "id": "#main/top_genes"
+        },
+        {
+          "label": "transform",
+          "doc": "Transformation method to be used when converting read counts\n",
+          "type": {
+            "type": "enum",
+            "symbols": [
+              "#main/transform/CPM",
+              "#main/transform/TPM"
+            ]
+          },
+          "id": "#main/transform"
+        }
+      ],
+      "steps": [
+        {
+          "label": "run rnasum step",
+          "doc": "Run the rnasum pipeline step\n",
+          "in": [
+            {
+              "source": "#main/arriba_pdf",
+              "id": "#main/run_rnasum_step/arriba_pdf"
+            },
+            {
+              "source": "#main/arriba_tsv",
+              "id": "#main/run_rnasum_step/arriba_tsv"
+            },
+            {
+              "source": "#main/batch_rm",
+              "id": "#main/run_rnasum_step/batch_rm"
+            },
+            {
+              "source": "#main/cn_gain",
+              "id": "#main/run_rnasum_step/cn_gain"
+            },
+            {
+              "source": "#main/cn_loss",
+              "id": "#main/run_rnasum_step/cn_loss"
+            },
+            {
+              "source": "#main/dataset",
+              "id": "#main/run_rnasum_step/dataset"
+            },
+            {
+              "source": "#main/dataset_name_incl",
+              "id": "#main/run_rnasum_step/dataset_name_incl"
+            },
+            {
+              "source": "#main/dragen_fusions",
+              "id": "#main/run_rnasum_step/dragen_fusions"
+            },
+            {
+              "source": "#main/dragen_mapping_metrics",
+              "id": "#main/run_rnasum_step/dragen_mapping_metrics"
+            },
+            {
+              "source": "#main/drugs",
+              "id": "#main/run_rnasum_step/drugs"
+            },
+            {
+              "source": "#main/filter",
+              "id": "#main/run_rnasum_step/filter"
+            },
+            {
+              "source": "#main/immunogram",
+              "id": "#main/run_rnasum_step/immunogram"
+            },
+            {
+              "source": "#main/log",
+              "id": "#main/run_rnasum_step/log"
+            },
+            {
+              "source": "#main/norm",
+              "id": "#main/run_rnasum_step/norm"
+            },
+            {
+              "source": "#main/pcgr_splice_vars",
+              "id": "#main/run_rnasum_step/pcgr_splice_vars"
+            },
+            {
+              "source": "#main/pcgr_tier",
+              "id": "#main/run_rnasum_step/pcgr_tier"
+            },
+            {
+              "source": "#main/pcgr_tiers_tsv",
+              "id": "#main/run_rnasum_step/pcgr_tiers_tsv"
+            },
+            {
+              "source": "#main/project",
+              "id": "#main/run_rnasum_step/project"
+            },
+            {
+              "source": "#main/purple_gene_tsv",
+              "id": "#main/run_rnasum_step/purple_gene_tsv"
+            },
+            {
+              "source": "#main/report_dir",
+              "id": "#main/run_rnasum_step/report_dir"
+            },
+            {
+              "source": "#main/salmon",
+              "id": "#main/run_rnasum_step/salmon"
+            },
+            {
+              "source": "#main/sample_name",
+              "id": "#main/run_rnasum_step/sample_name"
+            },
+            {
+              "source": "#main/sample_source",
+              "id": "#main/run_rnasum_step/sample_source"
+            },
+            {
+              "source": "#main/save_tables",
+              "id": "#main/run_rnasum_step/save_tables"
+            },
+            {
+              "source": "#main/scaling",
+              "id": "#main/run_rnasum_step/scaling"
+            },
+            {
+              "source": "#main/subject_id",
+              "id": "#main/run_rnasum_step/subject_id"
+            },
+            {
+              "source": "#main/sv_tsv",
+              "id": "#main/run_rnasum_step/sv_tsv"
+            },
+            {
+              "source": "#main/top_genes",
+              "id": "#main/run_rnasum_step/top_genes"
+            },
+            {
+              "source": "#main/transform",
+              "id": "#main/run_rnasum_step/transform"
+            }
+          ],
+          "out": [
+            {
+              "id": "#main/run_rnasum_step/rnasum_output_directory"
+            },
+            {
+              "id": "#main/run_rnasum_step/rnasum_html"
+            }
+          ],
+          "run": "#rnasum__2.0.0.cwl",
+          "id": "#main/run_rnasum_step"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "rnasum html",
+          "doc": "The HTML report output of RNAsum\n",
+          "type": "File",
+          "outputSource": "#main/run_rnasum_step/rnasum_html",
+          "id": "#main/rnasum_html"
+        },
+        {
+          "label": "RNAsum output directory",
+          "doc": "Output directory containing all outputs of the RNAsum run",
+          "type": "Directory",
+          "outputSource": "#main/run_rnasum_step/rnasum_output_directory",
+          "id": "#main/rnasum_output_directory"
+        }
+      ],
+      "https://schema.org/author": {
+        "class": "https://schema.org/Person",
+        "https://schema.org/name": "Alexis Lucattini",
+        "https://schema.org/email": "Alexis.Lucattini@umccr.org",
+        "https://schema.org/identifier": "https://orcid.org/0000-0001-9754-647X"
+      }
+    }
+  ],
+  "cwlVersion": "v1.1",
+  "$schemas": [
+    "https://schema.org/version/latest/schemaorg-current-http.rdf"
+  ],
+  "$namespaces": {
+    "s": "https://schema.org/"
+  }
+}
