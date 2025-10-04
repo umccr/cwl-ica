@@ -2496,6 +2496,54 @@ bunches:
           - dataset_name: rnasum_1_0_0
             dataset_creation_time: '2024-06-23T10:39:55Z'
             dataset_id_hash: b8e45195afdbb7384012421978363b08
+  - bunch_name: rnasum__2_0_0
+    bunch_description: |
+      Contains the UMCCR rnasum pipeline for RNA-seq data analysis
+      with reference data
+    tenant_name: umccr-prod
+    pipeline_path: workflows/rnasum-pipeline/2.0.0/rnasum-pipeline__2.0.0.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - wgts-rna
+      - tertiary-analysis
+      - production
+    bunch_versions:
+      - version: 1.0.0
+        version_description: |
+          This bunch requires no reference data
+        version_creation_date: 2025-10-04T07:48:38+00:00Z
+        datasets: [ ]
+
+  # Arriba
+  - bunch_name: arriba__2_5_0
+    bunch_description: |
+      Contains the UMCCR rnasum pipeline for RNA-seq data analysis
+      with reference data
+    tenant_name: umccr-prod
+    pipeline_path: workflows/arriba-pipeline/2.5.0/arriba-pipeline__2.5.0.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - wgts-rna
+      - fusion-calling
+      - production
+    bunch_versions:
+      - version: 1.0.0
+        version_description: |
+          This bunch requires no reference data
+        version_creation_date: 2025-10-04T07:48:38+00:00Z
+        datasets: [ ]
 
   # UMCCRise
   - bunch_name: umccrise_prod__2_3_1
