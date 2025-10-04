@@ -302,3 +302,16 @@ workflows:
       tags:
         - dragen-wgts-rna-pipeline/4.4.4
         - dragen-wgts-rna-pipeline/4.4.4__20250822040654
+  - name: arriba-pipeline_2_5_0
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/arriba-pipeline/2.5.0/arriba-pipeline__2.5.0.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/arriba-pipeline/2.5.0/arriba-pipeline__2.5.0.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - arriba-pipeline/2.5.0
+        - arriba-pipeline/2.5.0__20251004075334
