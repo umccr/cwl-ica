@@ -302,6 +302,7 @@ workflows:
       tags:
         - dragen-wgts-rna-pipeline/4.4.4
         - dragen-wgts-rna-pipeline/4.4.4__20250822040654
+        - dragen-wgts-rna-pipeline/4.4.4__20251005025030
   - name: arriba-pipeline_2_5_0
     subclass: CWL
     primaryDescriptorPath: 
