@@ -1017,6 +1017,119 @@ export function generate_alignment_data_mount_points(
     return e
 }
 
+export function generate_mv_qc_files_script_mount_points(options_list: DragenWgtsDnaOptionsVariantCallingStage): Array<IDirent> {
+    /*
+     If alignment_options.qc_coverage is defined, we generate a script to move the qc files to their name attribute
+    */
+    const qc_files_script = generate_mv_qc_files_script(options_list)
+    if (!qc_files_script) {
+        return []
+    } else {
+        return [
+            {
+                entryname:  qc_files_script.basename,
+                // @ts-ignore Type '{ entryname: string; entry: FileProperties; }[]' is not assignable to type 'DirentProperties[]'
+                entry: qc_files_script
+            }
+        ]
+    }
+}
+
+export function generate_mv_qc_files_script(options_list: DragenWgtsDnaOptionsVariantCallingStage): IFile | null {
+    /*
+    Generate mv qc files script
+     */
+
+    /* Check if alignment_options.qc_coverage is defined */
+    if (!options_list.alignment_options.qc_coverage || options_list.alignment_options.qc_coverage.length === 0) {
+        return null;
+    }
+
+    /* Initialise vars */
+    const output_file_prefix = options_list.output_file_prefix
+    const output_directory = options_list.output_directory
+
+    /* Initialise the script */
+    let mv_qc_files_script = "#!/usr/bin/env bash\n\n"
+    mv_qc_files_script += `# Exit on failure\n`
+    mv_qc_files_script += `set -euo pipefail\n\n`
+    mv_qc_files_script += `# Log start\n`
+    mv_qc_files_script += `echo "Start Moving QC files" 1>&2\n\n`
+
+    /* Arrays to make */
+    const qc_files_suffixes = [
+        /* Germline */
+        "contig_mean_cov.csv",
+        "cov_report.bed",
+        "coverage_metrics.csv",
+        "fine_hist.csv",
+        "hist.csv",
+        "overall_mean_cov.csv",
+        "read_cov_report.bed",
+        /* Somatic */
+        "contig_mean_cov_normal.csv",
+        "contig_mean_cov_tumor.csv",
+        "cov_report_normal.bed",
+        "cov_report_tumor.bed",
+        "coverage_metrics_normal.csv",
+        "coverage_metrics_tumor.csv",
+        "fine_hist_normal.csv",
+        "fine_hist_tumor.csv",
+        "hist_normal.csv",
+        "hist_tumor.csv",
+        "overall_mean_cov_normal.csv",
+        "overall_mean_cov_tumor.csv",
+        "read_cov_report_normal.bed",
+        "read_cov_report_tumor.bed",
+        "somatic_callable_regions.bed",
+    ]
+
+    const qc_file_names = options_list.alignment_options.qc_coverage.map(
+        (qc_coverage: DragenQcCoverage) => qc_coverage.name
+    )
+
+    /* Create the qc suffixes array */
+    mv_qc_files_script += `# Initialise coverage arrays \n`
+    mv_qc_files_script += `QC_SUFFIXES=( \\\n`
+
+    for (let qc_suffix of qc_files_suffixes) {
+        mv_qc_files_script += `  "${qc_suffix}" \\\n`
+    }
+    mv_qc_files_script += `)\n\n`
+    /* QC Array complete */
+
+    /* Create the array of qc names */
+    mv_qc_files_script += `QC_COVERAGE_NAMES=( \\\n`
+
+    for (let qc_coverage_name of qc_file_names) {
+        mv_qc_files_script += `  "${qc_coverage_name}" \\\n`
+    }
+    mv_qc_files_script += `)\n\n`
+
+    /* Now iterate through each qc name and suffix to move the files */
+    mv_qc_files_script += `# Move the QC files to the output directory\n`
+    mv_qc_files_script += `for qc_name_idx in "\${!QC_COVERAGE_NAMES[@]}"; do\n`
+    mv_qc_files_script += `  qc_name="\${QC_COVERAGE_NAMES[\$qc_name_idx]}"\n`
+    mv_qc_files_script += `  for qc_suffix in "\${QC_SUFFIXES[@]}"; do\n`
+    mv_qc_files_script += `    if [[ -f "${output_directory}/${output_file_prefix}.qc-coverage-region-\$((qc_name_idx+1))_\${qc_suffix}" ]]; then\n`
+    mv_qc_files_script += `      mv \\\n`
+    mv_qc_files_script += `        "${output_directory}/${output_file_prefix}.qc-coverage-region-\$((qc_name_idx+1))_\${qc_suffix}" \\\n`
+    mv_qc_files_script += `        "${output_directory}/${output_file_prefix}.qc-coverage-region-\${qc_name}_\${qc_suffix}"\n`
+    mv_qc_files_script += `    fi\n`
+    mv_qc_files_script += `  done\n`
+    mv_qc_files_script += `done\n\n`
+
+    mv_qc_files_script += `# Log completion\n`
+    mv_qc_files_script += `echo "Finish Moving QC files" 1>&2\n`
+
+
+    return {
+        class_: File_class.FILE,
+        basename: "mv_qc_files.sh",
+        contents: mv_qc_files_script
+    }
+}
+
 
 export function dragen_merge_options(options_list: (Record<string, any> | null)[]) {
     /*

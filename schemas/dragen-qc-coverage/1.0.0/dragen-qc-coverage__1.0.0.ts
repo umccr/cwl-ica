@@ -6,6 +6,11 @@ export enum ReportType {
 }
 
 export interface DragenQcCoverage {
+    /*
+    name:
+    The name of the qc coverage, used when renaming
+    */
+    name: string
 	/*
 	region: 
 	Generate the coverage region report using this bed file
