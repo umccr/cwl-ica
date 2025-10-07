@@ -329,3 +329,4 @@ workflows:
       tags:
         - rnasum-pipeline/2.0.0
         - rnasum-pipeline/2.0.0__20251004080109
+        - rnasum-pipeline/2.0.0__20251007042648
