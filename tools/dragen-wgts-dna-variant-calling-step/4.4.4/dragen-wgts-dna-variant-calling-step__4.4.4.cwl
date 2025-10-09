@@ -210,9 +210,20 @@ requirements:
             mv "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).bam.bai" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.sample_name)_normal.bam.bai"
             mv "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.output_file_prefix).bam.md5sum" "$(inputs.dragen_options.output_directory)/$(inputs.dragen_options.sample_name)_normal.bam.md5sum"
           fi
+          
+          # Rename qc stats if we set 
+          # below is js function is_not_null(inputs.dragen_options.alignment_options.qc_coverage) == "true"
+          # This may look like "true" == "true" when the script is written or "false" == "true"
+          if [[ "$(is_not_null(inputs.dragen_options.alignment_options.qc_coverage))" == "true" ]]; then
+              bash "mv_qc_files.sh"
+          fi
       - |
         ${
           return generate_sequence_data_mount_points(inputs.dragen_options.sequence_data, inputs.dragen_options.tumor_sequence_data);
+        }
+      - | 
+        ${
+          return generate_mv_qc_files_script_mount_points(inputs.dragen_options);
         }
 
 baseCommand: [ "bash", "run_dragen.sh" ]

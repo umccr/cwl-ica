@@ -1,6 +1,11 @@
 type: record
 name: dragen-qc-coverage
 fields:
+  name:
+    label: name
+    doc: |
+      Name of the coverage file
+    type: string
   region:
     label: region
     doc: |

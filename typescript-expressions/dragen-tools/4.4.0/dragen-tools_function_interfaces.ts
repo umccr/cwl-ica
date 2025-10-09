@@ -1,7 +1,7 @@
 import {DragenReference} from "../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0";
 import {
     DragenInputSequenceType,
-    DragenOutputAlignmentType, StringOrFileType
+    StringOrFileType
 } from "./dragen-tools_custom_input_interfaces";
 import {
     DragenSnvVariantCallerOptions
