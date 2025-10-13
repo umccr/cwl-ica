@@ -46,16 +46,6 @@ requirements:
       - $include: ../../../typescript-expressions/dragen-tools/4.4.0/dragen-tools__4.4.0.cwljs
   SchemaDefRequirement:
     types:
-      # Data inputs
-      - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml
-      - $import: ../../../schemas/fastq-list-row/2.0.0/fastq-list-row__2.0.0.yaml
-      - $import: ../../../schemas/fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0.yaml
-      - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
-      - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
-
-      # Nested schemas
-      - $import: ../../../schemas/dragen-qc-coverage/1.0.0/dragen-qc-coverage__1.0.0.yaml
-
       # Main import
       - $import: ../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.4/dragen-wgts-dna-options-variant-calling-stage__4.4.4.yaml
   InitialWorkDirRequirement:

@@ -31,19 +31,11 @@ requirements:
   StepInputExpressionRequirement: { }
   SchemaDefRequirement:
     types:
-      # Data inputs
-      - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml
-      - $import: ../../../schemas/fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0.yaml
-      - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
-      - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
-      # Nested schemas
-      - $import: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-qc-coverage/1.0.0/dragen-qc-coverage__1.0.0.yaml
       # I/O Schema
       - $import: ../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4.yaml
 
 inputs:
+  # Inputs
   alignment_options:
     label: alignment options
     doc: |
@@ -51,6 +43,29 @@ inputs:
     type: ../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4.yaml#dragen-wgts-alignment-options
 
 steps:
+  # Purely for the purposes of packing cwl correctly, we also need to manually parse every sub-schema that is imported
+  # This step does not actually run anything
+  parse_qc_coverage:
+    # Never
+    when: |
+      ${
+        return false;
+      }
+    in:
+      dragen_qc_coverage:
+        source: alignment_options
+        valueFrom: |
+          ${
+            if (self.dragen_qc_coverage) {
+              return self.dragen_qc_coverage;
+            } else {
+              return null
+            };
+          }
+    out: [ ]
+    run: ../../../expressions/dragen-parse-qc-coverage/1.0.0/dragen-parse-qc-coverage__1.0.0.cwl
+
+  # Option coercion steps
   coerce_mapper_options_step:
     in:
       mapper_options:

@@ -36,6 +36,7 @@ hints:
     coresMin: 16
     ramMin: 240000
   DockerRequirement:
+    # Dragen 4.4.4
     dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/b35eb8ce-3035-4796-896b-1b33b6a02c44:latest"
 
 requirements:

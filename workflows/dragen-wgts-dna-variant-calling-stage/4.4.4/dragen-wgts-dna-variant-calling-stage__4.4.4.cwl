@@ -30,40 +30,38 @@ requirements:
     SubworkflowFeatureRequirement: {}
     SchemaDefRequirement:
       types:
-        # Data inputs
-        - $import: ../../../schemas/fastq-list-row/2.0.0/fastq-list-row__2.0.0.yaml
-        - $import: ../../../schemas/fastq-list-rows-input/2.0.0/fastq-list-rows-input__2.0.0.yaml
-        - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
-        - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
-        - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml
-
-        # Nested schemas
-        - $import: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-qc-coverage/1.0.0/dragen-qc-coverage__1.0.0.yaml
-
-        # Sub-import schema support
-        - $import: ../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-cnv-caller-options/4.4.4/dragen-cnv-caller-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-maf-conversion-options/4.4.4/dragen-maf-conversion-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-mrjd-options/4.4.4/dragen-mrjd-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-msi-options/4.4.4/dragen-msi-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4.yaml
-
         # Dragen options
         - $import: ../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.4/dragen-wgts-dna-options-variant-calling-stage__4.4.4.yaml
 
 inputs:
+  # Dragen options
   dragen_options:
     type:
       - ../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.4/dragen-wgts-dna-options-variant-calling-stage__4.4.4.yaml#dragen-wgts-dna-options-variant-calling-stage
 
-
 steps:
+  # Parse fastq data
+  # Purely for the purposes of packing cwl correctly, we also need to manually parse every sub-schema that is imported
+  parse_sequence_data_step:
+    # Never
+    when: |
+      ${
+        return false;
+      }
+    in:
+      sequence_data:
+        source: dragen_options
+        valueFrom: |
+          ${
+            if (self.sequence_data) {
+              return self.sequence_data;
+            } else {
+              return null
+            };
+          }
+    out: [ ]
+    run: ../../dragen-parse-sequence-data/1.0.0/dragen-parse-sequence-data__1.0.0.cwl
+
   # Run dragen variant-calling pipeline
   run_dragen_variant_calling_step:
     in:
