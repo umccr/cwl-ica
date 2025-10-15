@@ -62,7 +62,7 @@ steps:
             if (self.fastq_list_rows) {
               return self.fastq_list_rows;
             } else {
-              return null
+              return null;
             };
           }
     out: [ ]
@@ -84,7 +84,7 @@ steps:
             if (self.bam_input) {
               return self.bam_input;
             } else {
-              return null
+              return null;
             };
           }
     out: [ ]
@@ -106,7 +106,7 @@ steps:
             if (self.cram_input) {
               return self.cram_input;
             } else {
-              return null
+              return null;
             };
           }
     out: [ ]

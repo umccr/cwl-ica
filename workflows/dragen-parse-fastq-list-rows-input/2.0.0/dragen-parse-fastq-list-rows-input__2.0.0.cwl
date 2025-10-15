@@ -60,7 +60,7 @@ steps:
             if (self) {
               return self[0];
             } else {
-              return null
+              return null;
             };
           }
     out:
@@ -81,7 +81,7 @@ steps:
             if (self) {
               return self;
             } else {
-              return null
+              return null;
             };
           }
     out:

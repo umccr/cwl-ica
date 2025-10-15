@@ -59,7 +59,7 @@ steps:
             if (self.dragen_qc_coverage) {
               return self.dragen_qc_coverage;
             } else {
-              return null
+              return null;
             };
           }
     out: [ ]

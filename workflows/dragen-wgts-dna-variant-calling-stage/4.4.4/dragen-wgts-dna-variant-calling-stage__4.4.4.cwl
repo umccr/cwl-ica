@@ -56,7 +56,7 @@ steps:
             if (self.sequence_data) {
               return self.sequence_data;
             } else {
-              return null
+              return null;
             };
           }
     out: [ ]
