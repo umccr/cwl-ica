@@ -16,10 +16,10 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: multiqc--1.25.0
-label: multiqc v(1.25.0)
+id: multiqc--1.31.0
+label: multiqc v(1.31.0)
 doc: |
-  Documentation for multiqc v1.25.0
+  Documentation for multiqc v1.31.0
   Use patch that includes https://github.com/ewels/MultiQC/pull/1969
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
