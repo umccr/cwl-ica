@@ -16,10 +16,10 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: illumina-interop--1.3.1
-label: illumina-interop v(1.3.1)
+id: illumina-interop--1.5.0
+label: illumina-interop v(1.5.0)
 doc: |
-  Run illumina-interop v1.3.1, this tool
+  Run illumina-interop v1.5.0, this tool
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
@@ -31,8 +31,10 @@ hints:
     coresMin: 2
     ramMin: 4000
   DockerRequirement:
-    dockerPull: ghcr.io/umccr/illumina-interop:1.3.1
+    dockerPull: ghcr.io/umccr/illumina-interop:1.5.0
 
+
+# Requirements
 requirements:
   InlineJavascriptRequirement: {}
   InitialWorkDirRequirement:
@@ -48,8 +50,8 @@ requirements:
           mkdir "$(inputs.output_dir_name)"
 
           # Generate interop files
-          interop_summary --csv=1 --level=4 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/$(inputs.instrument_run_id).csv"
-          interop_index-summary --csv=1 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/$(inputs.instrument_run_id).csv"
+          interop_summary --csv=1 --level=4 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/$(inputs.instrument_run_id)_summary.csv"
+          interop_index-summary --csv=1 "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/$(inputs.instrument_run_id)-index_summary.csv"
 
           # Generate imaging table
           interop_imaging_table "$(inputs.input_run_dir.path)" > "$(inputs.output_dir_name)/imaging_table.csv"
@@ -60,9 +62,12 @@ requirements:
           # Compress imaging table
           gzip "$(inputs.output_dir_name)/imaging_table.csv"
 
+
+# Run Command
 baseCommand: [ "bash", "generate_interop_files.sh" ]
 
 
+# Tool inputs
 inputs:
   # Required inputs
   instrument_run_id:
@@ -84,6 +89,8 @@ inputs:
     type: string?
     default: "interop_summary_files"
 
+
+# Tool outputs
 outputs:
   interop_out_dir:
     label: interop output
@@ -93,5 +100,7 @@ outputs:
     outputBinding:
       glob: "$(inputs.output_dir_name)"
 
+
+# Valid success codes
 successCodes:
   - 0
