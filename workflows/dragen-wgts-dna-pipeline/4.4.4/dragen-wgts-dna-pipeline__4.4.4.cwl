@@ -58,10 +58,6 @@ requirements:
       - $import: ../../../schemas/bam-input/1.0.0/bam-input__1.0.0.yaml
       - $import: ../../../schemas/cram-input/1.0.0/cram-input__1.0.0.yaml
 
-      # Intermediate data outputs
-      - $import: ../../../schemas/bam-output/1.0.0/bam-output__1.0.0.yaml
-      - $import: ../../../schemas/cram-output/1.0.0/cram-output__1.0.0.yaml
-
       # Options schemas
       - $import: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml
       - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
