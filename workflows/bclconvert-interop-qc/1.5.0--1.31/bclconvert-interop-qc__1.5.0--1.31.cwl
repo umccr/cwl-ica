@@ -192,7 +192,7 @@ outputs:
   interop_output_dir:
     label: interop out dir
     doc: |
-      Directory containing the inteop summary csvs
+      Directory containing the interop summary csvs
     type: Directory
     outputSource: generate_interop_qc_step/interop_out_dir
   multiqc_output_dir:
