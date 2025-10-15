@@ -1518,7 +1518,7 @@ bunches:
     bunch_description: BCLConvert Interop QC Pipeline Bunch
     tenant_name: umccr-prod
     pipeline_path:
-      workflows/bclconvert-interop-qc/1.5.0--1.31.0/bclconvert-interop-qc__1.5.0--1.31.0.cwl
+      workflows/bclconvert-interop-qc/1.5.0--1.31/bclconvert-interop-qc__1.5.0--1.31.cwl
     pipeline_project_name: pipelines
     bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
     bunch_region_city_name: Sydney
