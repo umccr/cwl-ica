@@ -15,10 +15,10 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-variant-calling-stage--4.4.4
-label: dragen-variant-calling-stage v(4.4.4)
+id: dragen-variant-calling-stage--4.4.6
+label: dragen-variant-calling-stage v(4.4.6)
 doc: |
-  Documentation for dragen-variant-calling-stage v4.4.0
+  Documentation for dragen-variant-calling-stage v4.4.6
 
 requirements:
   InlineJavascriptRequirement:

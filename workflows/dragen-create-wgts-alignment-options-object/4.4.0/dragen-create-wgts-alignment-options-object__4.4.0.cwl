@@ -15,11 +15,11 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-create-wgts-alignment-options-object--4.4.4
-label: dragen-create-wgts-alignment-options-object v(4.4.4)
+id: dragen-create-wgts-alignment-options-object--4.4.0
+label: dragen-create-wgts-alignment-options-object v(4.4.0)
 doc: |
   Documentation for dragen-create-wgts-alignment-options-object
-  v4.4.4
+  v4.4.0
 
 requirements:
   SubworkflowFeatureRequirement: { }
@@ -65,7 +65,7 @@ steps:
           }
     out:
       - id: mapper_options_output
-    run: ../../dragen-create-mapper-options-object/4.4.4/dragen-create-mapper-options-object__4.4.4.cwl
+    run: ../../dragen-create-mapper-options-object/4.4.0/dragen-create-mapper-options-object__4.4.0.cwl
   coerce_aligner_options_step:
     in:
       aligner_options:
@@ -80,7 +80,7 @@ steps:
           }
     out:
       - id: aligner_options_output
-    run: ../../dragen-create-aligner-options-object/4.4.4/dragen-create-aligner-options-object__4.4.4.cwl
+    run: ../../dragen-create-aligner-options-object/4.4.0/dragen-create-aligner-options-object__4.4.0.cwl
   coerce_alignment_options:
     in:
       dragen_wgts_alignment_options:

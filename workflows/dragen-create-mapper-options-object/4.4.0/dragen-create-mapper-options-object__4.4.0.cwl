@@ -15,11 +15,11 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-create-mapper-options-object--4.4.4
-label: dragen-create-mapper-options-object v(4.4.4)
+id: dragen-create-mapper-options-object--4.4.0
+label: dragen-create-mapper-options-object v(4.4.0)
 doc: |
   Documentation for dragen-create-mapper-options-object
-  v4.4.4
+  v4.4.0
 
 requirements:
   InlineJavascriptRequirement: {}
