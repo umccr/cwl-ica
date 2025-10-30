@@ -2783,6 +2783,54 @@ bunches:
           - dataset_name: ora_reference_v2
             dataset_creation_time: '2024-10-30T04:01:43Z'
             dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
+  - bunch_name: dragen_wgts_dna_pipeline_v4_4_6
+    bunch_description: |
+      Contains the UMCCR dragen-wgts-dna pipeline, and the appropriate reference data for dragen version 4.4.6
+
+      The reference data for both hg38 and chm13v2 are included in this bunch.
+      It is recommended to use the graph 'pangenome' for germline alignments / variant calling.
+      And to use the 'linear' reference for somatic alignments / variant calling.
+      Version for v11-r5 with alt-masked, cnv, hla, rna, and methylation calling enabled features
+    tenant_name: umccr-prod
+    pipeline_path:
+      workflows/dragen-wgts-dna-pipeline/4.4.6/dragen-wgts-dna-pipeline__4.4.6.cwl
+    pipeline_project_name: pipelines
+    bunch_region_id: 1efd315d-6309-4d7e-826b-d3824b0b5acb
+    bunch_region_city_name: Sydney
+    projects:
+      - development
+      - staging
+      - production
+    categories:
+      - dragen
+      - wgts
+      - dna
+    bunch_versions:
+      - version: v11_r5
+        version_description: |
+          This version of the bunch contains the dragen hash table for hg38
+          Version for v11-r5 with alt-masked, cnv, hla, rna enabled features
+        version_creation_date: 2025-06-17T04:40:46+00:00Z
+        datasets:
+          - dataset_name:
+              dragen_hash_table_chm13_v2_v11_r5_linear_cnv_hla_methyl_cg_methylated_combined_rna
+            dataset_creation_time: '2025-06-17T04:15:50Z'
+            dataset_id_hash: 708ce72faec7848c6d1cdf0f535fb67b
+          - dataset_name:
+              dragen_hash_table_chm13_v2_v11_r5_graph_cnv_hla_methyl_cg_rna
+            dataset_creation_time: '2025-06-17T04:16:34Z'
+            dataset_id_hash: 83ea4297ff053fc2bca74c421d4c993d
+          - dataset_name:
+              dragen_hash_table_hg38_alt_masked_v11_r5_linear_cnv_hla_methyl_cg_methylated_combined_rna
+            dataset_creation_time: '2025-06-17T04:16:53Z'
+            dataset_id_hash: ced9651070b46388788332d179ae0ad5
+          - dataset_name:
+              dragen_hash_table_hg38_alt_masked_v11_r5_graph_cnv_hla_methyl_cg_rna
+            dataset_creation_time: '2025-06-17T04:20:20Z'
+            dataset_id_hash: 5b020c8890367b47c6e73837f6b6481f
+          - dataset_name: ora_reference_v2
+            dataset_creation_time: '2024-10-30T04:01:43Z'
+            dataset_id_hash: 82a4434e4f8e5363842ded1f0a3bcd42
 
 
 # List of generated bundles
