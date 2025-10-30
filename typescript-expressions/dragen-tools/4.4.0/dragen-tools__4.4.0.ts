@@ -1035,6 +1035,13 @@ export function generate_mv_qc_files_script_mount_points(options_list: DragenWgt
     }
 }
 
+export function strip_uri_from_name(name_with_uri: string): string {
+    /*
+    Given a string as a uri, return all after the trailing hash
+     */
+    return name_with_uri.split('#').pop() || name_with_uri
+}
+
 export function generate_mv_qc_files_script(options_list: DragenWgtsDnaOptionsVariantCallingStage): IFile | null {
     /*
     Generate mv qc files script
@@ -1085,7 +1092,7 @@ export function generate_mv_qc_files_script(options_list: DragenWgtsDnaOptionsVa
     ]
 
     const qc_file_names = options_list.alignment_options.qc_coverage.map(
-        (qc_coverage: DragenQcCoverage) => qc_coverage.name
+        (qc_coverage: DragenQcCoverage) => strip_uri_from_name(qc_coverage.name)
     )
 
     /* Create the qc suffixes array */
@@ -1231,7 +1238,7 @@ export function get_dragen_wgts_dna_alignment_stage_options_from_pipeline(props:
         /* Stage specific options */
         output_directory: (
             `${props.sample_name ? props.sample_name : ""}__` +
-            `${props.reference.name}__` +
+            `${strip_uri_from_name(props.reference.name)}__` +
             `${props.reference.structure}__dragen_alignment`
         ),
         output_file_prefix: props.sample_name ? props.sample_name : "",
@@ -1269,7 +1276,7 @@ export function get_dragen_wgts_rna_alignment_stage_options_from_pipeline(props:
         /* Stage specific options */
         output_directory: (
             `${props.sample_name}__` +
-            `${props.reference.name}__` +
+            `${strip_uri_from_name(props.reference.name)}__` +
             `${props.reference.structure}__dragen_rna_alignment`
         ),
         output_file_prefix: props.sample_name ? props.sample_name : "",
@@ -1337,7 +1344,7 @@ export function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(
         output_directory: (
             (props.tumor_sample_name ? props.tumor_sample_name + "__" : "") +
             props.sample_name + "__" +
-            props.reference.name + "__" +
+            strip_uri_from_name(props.reference.name) + "__" +
             props.reference.structure + "__" +
             "dragen_wgts_dna_" + (props.tumor_sample_name ? "somatic" : "germline") + "_variant_calling"
         ),
@@ -1400,11 +1407,12 @@ export function get_dragen_wgts_rna_variant_calling_stage_options_from_pipeline(
         /* Stage specific options */
         /* Use tumor_sample_name if it exists otherwise use the standard sample name */
         output_file_prefix: props.sample_name,
+
         /* <TUMOR_SAMPLE_NAME>__<NORMAL_SAMPLE_NAME>_variant_calling for somatic data */
         /* <SAMPLE_NAME>_variant_calling for germline data */
         output_directory: (
             props.sample_name + "__" +
-            props.reference.name + "__" +
+            strip_uri_from_name(props.reference.name) + "__" +
             props.reference.structure + "__dragen_wgts_rna_variant_calling"
         ),
         /* Lic Instance id location */

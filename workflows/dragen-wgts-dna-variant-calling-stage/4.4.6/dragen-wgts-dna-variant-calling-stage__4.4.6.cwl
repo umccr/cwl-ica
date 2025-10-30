@@ -15,10 +15,10 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-variant-calling-stage--4.4.4
-label: dragen-variant-calling-stage v(4.4.4)
+id: dragen-variant-calling-stage--4.4.6
+label: dragen-variant-calling-stage v(4.4.6)
 doc: |
-  Documentation for dragen-variant-calling-stage v4.4.0
+  Documentation for dragen-variant-calling-stage v4.4.6
 
 requirements:
   InlineJavascriptRequirement:
@@ -40,24 +40,27 @@ requirements:
       # Nested schemas
       - $import: ../../../schemas/dragen-aligner-options/4.4.0/dragen-aligner-options__4.4.0.yaml
       - $import: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-qc-coverage/1.0.0/dragen-qc-coverage__1.0.0.yaml
 
-      # Options schemas
+      # Sub-import schema support
       - $import: ../../../schemas/dragen-wgts-alignment-options/4.4.0/dragen-wgts-alignment-options__4.4.0.yaml
       - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.0/dragen-snv-variant-caller-options__4.4.0.yaml
-      - $import: ../../../schemas/dragen-rna-gene-fusion-detection-options/4.4.0/dragen-rna-gene-fusion-detection-options__4.4.0.yaml
-      - $import: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml
-      - $import: ../../../schemas/dragen-rna-splice-variant-caller-options/4.4.0/dragen-rna-splice-variant-caller-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-cnv-caller-options/4.4.0/dragen-cnv-caller-options__4.4.0.yaml
       - $import: ../../../schemas/dragen-maf-conversion-options/4.4.0/dragen-maf-conversion-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-sv-caller-options/4.4.0/dragen-sv-caller-options__4.4.0.yaml
       - $import: ../../../schemas/dragen-nirvana-annotation-options/4.4.0/dragen-nirvana-annotation-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-targeted-caller-options/4.4.0/dragen-targeted-caller-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-mrjd-options/4.4.0/dragen-mrjd-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-msi-options/4.4.0/dragen-msi-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-tmb-options/4.4.0/dragen-tmb-options__4.4.0.yaml
 
-      # Stage schemas
-      - $import: ../../../schemas/dragen-wgts-options-alignment-stage/4.4.0/dragen-wgts-options-alignment-stage__4.4.0.yaml
-      - $import: ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.0/dragen-wgts-rna-options-variant-calling-stage__4.4.0.yaml
+      # Dragen options
+      - $import: ../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.0/dragen-wgts-dna-options-variant-calling-stage__4.4.0.yaml
 
 inputs:
   dragen_options:
     type:
-      - ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.0/dragen-wgts-rna-options-variant-calling-stage__4.4.0.yaml#dragen-wgts-rna-options-variant-calling-stage
+      - ../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.0/dragen-wgts-dna-options-variant-calling-stage__4.4.0.yaml#dragen-wgts-dna-options-variant-calling-stage
 
 
 steps:
@@ -68,7 +71,7 @@ steps:
         source: dragen_options
     out:
       - id: output_directory
-    run: ../../../tools/dragen-wgts-rna-variant-calling-step/4.4.4/dragen-wgts-rna-variant-calling-step__4.4.4.cwl
+    run: ../../../tools/dragen-wgts-dna-variant-calling-step/4.4.6/dragen-wgts-dna-variant-calling-step__4.4.6.cwl
 
 
 outputs:

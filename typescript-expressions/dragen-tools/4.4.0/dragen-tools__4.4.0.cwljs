@@ -919,6 +919,12 @@ function generate_mv_qc_files_script_mount_points(options_list) {
         ];
     }
 }
+function strip_uri_from_name(name_with_uri) {
+    /*
+    Given a string as a uri, return all after the trailing hash
+     */
+    return name_with_uri.split('#').pop() || name_with_uri;
+}
 function generate_mv_qc_files_script(options_list) {
     /*
     Generate mv qc files script
@@ -963,7 +969,7 @@ function generate_mv_qc_files_script(options_list) {
         "read_cov_report_tumor.bed",
         "somatic_callable_regions.bed",
     ];
-    var qc_file_names = options_list.alignment_options.qc_coverage.map(function (qc_coverage) { return qc_coverage.name; });
+    var qc_file_names = options_list.alignment_options.qc_coverage.map(function (qc_coverage) { return strip_uri_from_name(qc_coverage.name); });
     /* Create the qc suffixes array */
     mv_qc_files_script += "# Initialise coverage arrays \n";
     mv_qc_files_script += "QC_SUFFIXES=( \\\n";
@@ -1088,7 +1094,7 @@ function get_dragen_wgts_dna_alignment_stage_options_from_pipeline(props) {
         ora_reference:props.ora_reference ? props.ora_reference :null,
         /* Stage specific options */
         output_directory:("".concat(props.sample_name ? props.sample_name :"", "__") +
-            "".concat(props.reference.name, "__") +
+            "".concat(strip_uri_from_name(props.reference.name), "__") +
             "".concat(props.reference.structure, "__dragen_alignment")),
         output_file_prefix:props.sample_name ? props.sample_name :"",
         /* License file */
@@ -1114,7 +1120,7 @@ function get_dragen_wgts_rna_alignment_stage_options_from_pipeline(props) {
         ora_reference:props.ora_reference ? props.ora_reference :null,
         /* Stage specific options */
         output_directory:("".concat(props.sample_name, "__") +
-            "".concat(props.reference.name, "__") +
+            "".concat(strip_uri_from_name(props.reference.name), "__") +
             "".concat(props.reference.structure, "__dragen_rna_alignment")),
         output_file_prefix:props.sample_name ? props.sample_name :"",
         /* License file */
@@ -1169,7 +1175,7 @@ function get_dragen_wgts_dna_variant_calling_stage_options_from_pipeline(props) 
         /* <SAMPLE_NAME>_variant_calling for germline data */
         output_directory:((props.tumor_sample_name ? props.tumor_sample_name + "__" :"") +
             props.sample_name + "__" +
-            props.reference.name + "__" +
+            strip_uri_from_name(props.reference.name) + "__" +
             props.reference.structure + "__" +
             "dragen_wgts_dna_" + (props.tumor_sample_name ? "somatic" :"germline") + "_variant_calling"),
         /* Alignment options */
@@ -1221,7 +1227,7 @@ function get_dragen_wgts_rna_variant_calling_stage_options_from_pipeline(props) 
         /* <TUMOR_SAMPLE_NAME>__<NORMAL_SAMPLE_NAME>_variant_calling for somatic data */
         /* <SAMPLE_NAME>_variant_calling for germline data */
         output_directory:(props.sample_name + "__" +
-            props.reference.name + "__" +
+            strip_uri_from_name(props.reference.name) + "__" +
             props.reference.structure + "__dragen_wgts_rna_variant_calling"),
         /* Lic Instance id location */
         lic_instance_id_location:props.lic_instance_id_location,

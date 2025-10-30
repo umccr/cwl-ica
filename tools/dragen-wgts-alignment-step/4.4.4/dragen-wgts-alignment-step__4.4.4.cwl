@@ -45,7 +45,7 @@ requirements:
       - $include: ../../../typescript-expressions/dragen-tools/4.4.0/dragen-tools__4.4.0.cwljs
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/dragen-wgts-options-alignment-stage/4.4.4/dragen-wgts-options-alignment-stage__4.4.4.yaml
+      - $import: ../../../schemas/dragen-wgts-options-alignment-stage/4.4.0/dragen-wgts-options-alignment-stage__4.4.0.yaml
       - $import: ../../../schemas/bam-output/1.0.0/bam-output__1.0.0.yaml
       - $import: ../../../schemas/cram-output/1.0.0/cram-output__1.0.0.yaml
   InitialWorkDirRequirement:
@@ -155,7 +155,7 @@ inputs:
   dragen_options:
     label: dragen-options
     type:
-      - ../../../schemas/dragen-wgts-options-alignment-stage/4.4.4/dragen-wgts-options-alignment-stage__4.4.4.yaml#dragen-wgts-options-alignment-stage
+      - ../../../schemas/dragen-wgts-options-alignment-stage/4.4.0/dragen-wgts-options-alignment-stage__4.4.0.yaml#dragen-wgts-options-alignment-stage
 
 outputs:
   output_directory:

@@ -52,7 +52,7 @@ requirements:
   SchemaDefRequirement:
     types:
       # Imports
-      - $import: ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.4/dragen-wgts-rna-options-variant-calling-stage__4.4.4.yaml
+      - $import: ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.0/dragen-wgts-rna-options-variant-calling-stage__4.4.0.yaml
   InitialWorkDirRequirement:
     listing:
       - entryname: "$(get_dragen_config_path())"
@@ -172,7 +172,7 @@ inputs:
     label: dragen-options
     type:
       - "null"
-      - ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.4/dragen-wgts-rna-options-variant-calling-stage__4.4.4.yaml#dragen-wgts-rna-options-variant-calling-stage
+      - ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.0/dragen-wgts-rna-options-variant-calling-stage__4.4.0.yaml#dragen-wgts-rna-options-variant-calling-stage
 
 outputs:
   - id: output_directory
