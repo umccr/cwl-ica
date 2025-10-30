@@ -58,21 +58,21 @@ requirements:
       - $import: ../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0.yaml
 
       # Nested schemas
-      - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-aligner-options/4.4.0/dragen-aligner-options__4.4.0.yaml
 
       # Options schemas
-      - $import: ../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-rna-gene-fusion-detection-options/4.4.4/dragen-rna-gene-fusion-detection-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-rna-splice-variant-caller-options/4.4.4/dragen-rna-splice-variant-caller-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-maf-conversion-options/4.4.4/dragen-maf-conversion-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-wgts-alignment-options/4.4.0/dragen-wgts-alignment-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.0/dragen-snv-variant-caller-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-rna-gene-fusion-detection-options/4.4.0/dragen-rna-gene-fusion-detection-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-rna-splice-variant-caller-options/4.4.0/dragen-rna-splice-variant-caller-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-maf-conversion-options/4.4.0/dragen-maf-conversion-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-nirvana-annotation-options/4.4.0/dragen-nirvana-annotation-options__4.4.0.yaml
 
       # Stage schemas
-      - $import: ../../../schemas/dragen-wgts-options-alignment-stage/4.4.4/dragen-wgts-options-alignment-stage__4.4.4.yaml
-      - $import: ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.4/dragen-wgts-rna-options-variant-calling-stage__4.4.4.yaml
+      - $import: ../../../schemas/dragen-wgts-options-alignment-stage/4.4.0/dragen-wgts-options-alignment-stage__4.4.0.yaml
+      - $import: ../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.0/dragen-wgts-rna-options-variant-calling-stage__4.4.0.yaml
 
 inputs:
   # Data inputs
@@ -130,7 +130,7 @@ inputs:
       This is passed to the Dragen alignment tool.
     type:
       - "null"
-      - ../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4.yaml#dragen-wgts-alignment-options
+      - ../../../schemas/dragen-wgts-alignment-options/4.4.0/dragen-wgts-alignment-options__4.4.0.yaml#dragen-wgts-alignment-options
 
   # Variant caller configurations
   snv_variant_caller_options:
@@ -141,7 +141,7 @@ inputs:
       This is passed to the Dragen variant calling tool.
     type:
       - "null"
-      - ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml#dragen-snv-variant-caller-options
+      - ../../../schemas/dragen-snv-variant-caller-options/4.4.0/dragen-snv-variant-caller-options__4.4.0.yaml#dragen-snv-variant-caller-options
 
   # Gene Fusion Detection
   gene_fusion_detection_options:
@@ -150,7 +150,7 @@ inputs:
       The Gene Fusion Detection options for the rna gene fusion detection
     type:
       - "null"
-      - ../../../schemas/dragen-rna-gene-fusion-detection-options/4.4.4/dragen-rna-gene-fusion-detection-options__4.4.4.yaml#dragen-rna-gene-fusion-detection-options
+      - ../../../schemas/dragen-rna-gene-fusion-detection-options/4.4.0/dragen-rna-gene-fusion-detection-options__4.4.0.yaml#dragen-rna-gene-fusion-detection-options
 
   # Gene Expression Quantification Options
   gene_expression_quantification_options:
@@ -159,7 +159,7 @@ inputs:
       The Gene Expression Quantification options for the rna gene expression quantification
     type:
       - "null"
-      - ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml#dragen-rna-gene-expression-quantification-options
+      - ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml#dragen-rna-gene-expression-quantification-options
 
   # Splice Variant Detection Options
   splice_variant_caller_options:
@@ -168,7 +168,7 @@ inputs:
       The Splice Variant Caller options for the rna splice variant caller
     type:
       - "null"
-      - ../../../schemas/dragen-rna-splice-variant-caller-options/4.4.4/dragen-rna-splice-variant-caller-options__4.4.4.yaml#dragen-rna-splice-variant-caller-options
+      - ../../../schemas/dragen-rna-splice-variant-caller-options/4.4.0/dragen-rna-splice-variant-caller-options__4.4.0.yaml#dragen-rna-splice-variant-caller-options
 
   # MAF Conversion Options
   maf_conversion_options:
@@ -180,7 +180,7 @@ inputs:
       As it is not enabled by default.
     type:
       - "null"
-      - ../../../schemas/dragen-maf-conversion-options/4.4.4/dragen-maf-conversion-options__4.4.4.yaml#dragen-maf-conversion-options
+      - ../../../schemas/dragen-maf-conversion-options/4.4.0/dragen-maf-conversion-options__4.4.0.yaml#dragen-maf-conversion-options
 
   # Nirvana Annotation Options
   nirvana_annotation_options:
@@ -192,7 +192,7 @@ inputs:
       As it is not enabled by default.
     type:
       - "null"
-      - ../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4.yaml#dragen-nirvana-annotation-options
+      - ../../../schemas/dragen-nirvana-annotation-options/4.4.0/dragen-nirvana-annotation-options__4.4.0.yaml#dragen-nirvana-annotation-options
 
   # License file
   lic_instance_id_location:
@@ -241,7 +241,7 @@ steps:
           }
     out:
       - id: alignment_options_output
-    run: ../../dragen-create-wgts-alignment-options-object/4.4.4/dragen-create-wgts-alignment-options-object__4.4.4.cwl
+    run: ../../dragen-create-wgts-alignment-options-object/4.4.0/dragen-create-wgts-alignment-options-object__4.4.0.cwl
 
   # Run the get the variant calling options step
   # Get the default alignment options input schema

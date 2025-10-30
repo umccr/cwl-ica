@@ -37,7 +37,7 @@ requirements:
   InlineJavascriptRequirement: {}
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml
 
 # Will always return 0
 baseCommand: ["true"]
@@ -47,7 +47,7 @@ inputs:
     label: alignment options input
     doc: |
       Alignment options or null
-    type: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml#dragen-rna-gene-expression-quantification-options
+    type: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml#dragen-rna-gene-expression-quantification-options
 
 outputs:
   rna_gene_expression_quantification_options_output:
@@ -56,7 +56,7 @@ outputs:
       Alignment options
     type:
       - "null"
-      - ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml#dragen-rna-gene-expression-quantification-options
+      - ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml#dragen-rna-gene-expression-quantification-options
     outputBinding:
       outputEval: |
         ${

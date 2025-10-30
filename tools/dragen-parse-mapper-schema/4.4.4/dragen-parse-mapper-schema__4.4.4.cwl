@@ -38,7 +38,7 @@ requirements:
   InlineJavascriptRequirement: { }
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml
 
 
 # Will always return 0
@@ -49,14 +49,14 @@ inputs:
     label: alignment options input
     doc: |
       Alignment options or null
-    type: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml#dragen-mapper-options
+    type: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml#dragen-mapper-options
 
 outputs:
   mapper_options_output:
     label: alignment options output
     doc: |
       Alignment options
-    type: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml#dragen-mapper-options
+    type: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml#dragen-mapper-options
     outputBinding:
       outputEval: |
         ${

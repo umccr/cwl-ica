@@ -16,8 +16,8 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-variant-calling-step--4.4.4
-label: dragen-variant-calling-step v(4.4.4)
+id: dragen-variant-calling-step--4.4.6
+label: dragen-variant-calling-step v(4.4.6)
 doc: |
   Documentation for dragen-variant-calling-step v4.4.0
 
@@ -31,8 +31,8 @@ hints:
     coresMin: 16
     ramMin: 240000
   DockerRequirement:
-    # Dragen 4.4.4
-    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/b35eb8ce-3035-4796-896b-1b33b6a02c44:latest"
+    # Dragen 4.4.6
+    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/1df60bef-1edb-4efc-a50c-8e9625b5e60d:latest"
 
 requirements:
   ResourceRequirement:
@@ -221,7 +221,7 @@ requirements:
         ${
           return generate_sequence_data_mount_points(inputs.dragen_options.sequence_data, inputs.dragen_options.tumor_sequence_data);
         }
-      - | 
+      - |
         ${
           return generate_mv_qc_files_script_mount_points(inputs.dragen_options);
         }

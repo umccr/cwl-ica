@@ -37,7 +37,7 @@ requirements:
   InlineJavascriptRequirement: {}
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-sv-caller-options/4.4.0/dragen-sv-caller-options__4.4.0.yaml
 
 # Will always return 0
 baseCommand: ["true"]
@@ -47,7 +47,7 @@ inputs:
     label: alignment options input
     doc: |
       Alignment options or null
-    type: ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml#dragen-sv-caller-options
+    type: ../../../schemas/dragen-sv-caller-options/4.4.0/dragen-sv-caller-options__4.4.0.yaml#dragen-sv-caller-options
 
 outputs:
   sv_caller_options_output:
@@ -56,7 +56,7 @@ outputs:
       Alignment options
     type:
       - "null"
-      - ../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4.yaml#dragen-sv-caller-options
+      - ../../../schemas/dragen-sv-caller-options/4.4.0/dragen-sv-caller-options__4.4.0.yaml#dragen-sv-caller-options
     outputBinding:
       outputEval: |
         ${

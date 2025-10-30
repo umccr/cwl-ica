@@ -29,8 +29,8 @@ requirements:
     SchemaDefRequirement:
       types:
         # Data inputs
-        - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml
-        - $import: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml
+        - $import: ../../../schemas/dragen-snv-variant-caller-options/4.4.0/dragen-snv-variant-caller-options__4.4.0.yaml
+        - $import: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml
 
 
 inputs:
@@ -38,12 +38,12 @@ inputs:
     label: dragen-snv-variant-caller-options
     doc: |
       dragen-snv-variant-caller-options
-    type: ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml#dragen-snv-variant-caller-options
+    type: ../../../schemas/dragen-snv-variant-caller-options/4.4.0/dragen-snv-variant-caller-options__4.4.0.yaml#dragen-snv-variant-caller-options
   rna_gene_expression_quantification_options:
     label: dragen-rna-gene-expression-quantification-options
     doc: |
       dragen-rna-gene-expression-quantification-options
-    type: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml#dragen-rna-gene-expression-quantification-options
+    type: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml#dragen-rna-gene-expression-quantification-options
 
 steps:
   parse_snv_variant_caller_options:
@@ -51,13 +51,13 @@ steps:
       snv_variant_caller_options_input: snv_variant_caller_options
     out:
       - id: snv_variant_caller_options_output
-    run: ../../../expressions/dragen-parse-snv-variant-caller-schema/4.4.4/dragen-parse-snv-variant-caller-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-snv-variant-caller-schema/4.4.0/dragen-parse-snv-variant-caller-schema__4.4.0.cwl
   parse_rna_gene_expression_quantification_options:
     in:
       rna_gene_expression_quantification_options_input: rna_gene_expression_quantification_options
     out:
       - id: rna_gene_expression_quantification_options_output
-    run: ../../../expressions/dragen-parse-rna-gene-expression-quantification-schema/4.4.4/dragen-parse-rna-gene-expression-quantification-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-rna-gene-expression-quantification-schema/4.4.0/dragen-parse-rna-gene-expression-quantification-schema__4.4.0.cwl
 
 outputs:
   snv_variant_caller_options_output:
@@ -65,11 +65,11 @@ outputs:
     doc: |
       snv_variant_caller_options_output
     outputSource: parse_snv_variant_caller_options/snv_variant_caller_options_output
-    type: ../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4.yaml#dragen-snv-variant-caller-options
+    type: ../../../schemas/dragen-snv-variant-caller-options/4.4.0/dragen-snv-variant-caller-options__4.4.0.yaml#dragen-snv-variant-caller-options
   rna_gene_expression_quantification_options_output:
     label: rna_gene_expression_quantification_options_output
     doc: |
       rna_gene_expression_quantification_output
     outputSource: parse_rna_gene_expression_quantification_options/rna_gene_expression_quantification_options_output
-    type: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.4/dragen-rna-gene-expression-quantification-options__4.4.4.yaml#dragen-rna-gene-expression-quantification-options
+    type: ../../../schemas/dragen-rna-gene-expression-quantification-options/4.4.0/dragen-rna-gene-expression-quantification-options__4.4.0.yaml#dragen-rna-gene-expression-quantification-options
 

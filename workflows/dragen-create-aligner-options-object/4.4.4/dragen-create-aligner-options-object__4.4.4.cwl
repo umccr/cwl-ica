@@ -28,15 +28,15 @@ requirements:
   StepInputExpressionRequirement: { }
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-aligner-options/4.4.0/dragen-aligner-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml
 
 inputs:
   aligner_options:
     label: aligner options
     doc: |
       Input file, of varying format depending on the command run
-    type: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml#dragen-aligner-options
+    type: ../../../schemas/dragen-aligner-options/4.4.0/dragen-aligner-options__4.4.0.yaml#dragen-aligner-options
 
 steps:
   parse_aligner_options:
@@ -49,7 +49,7 @@ steps:
           }
     out:
       - id: aligner_options_output
-    run: ../../../expressions/dragen-parse-aligner-schema/4.4.4/dragen-parse-aligner-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-aligner-schema/4.4.0/dragen-parse-aligner-schema__4.4.0.cwl
 
 outputs:
   aligner_options_output:
@@ -57,4 +57,4 @@ outputs:
     doc: |
       Output file, of varying format depending on the command run
     outputSource: parse_aligner_options/aligner_options_output
-    type: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml#dragen-aligner-options
+    type: ../../../schemas/dragen-aligner-options/4.4.0/dragen-aligner-options__4.4.0.yaml#dragen-aligner-options

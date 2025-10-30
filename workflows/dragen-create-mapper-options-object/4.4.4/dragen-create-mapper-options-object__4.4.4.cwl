@@ -28,15 +28,15 @@ requirements:
   StepInputExpressionRequirement: {}
   SchemaDefRequirement:
     types:
-      - $import: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml
-      - $import: ../../../schemas/dragen-aligner-options/4.4.4/dragen-aligner-options__4.4.4.yaml
+      - $import: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-aligner-options/4.4.0/dragen-aligner-options__4.4.0.yaml
 
 inputs:
   mapper_options:
     label: mapper options
     doc: |
       Mapping options
-    type: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml#dragen-mapper-options
+    type: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml#dragen-mapper-options
 
 steps:
   parse_mapper_options:
@@ -49,7 +49,7 @@ steps:
           }
     out:
       - id: mapper_options_output
-    run: ../../../expressions/dragen-parse-mapper-schema/4.4.4/dragen-parse-mapper-schema__4.4.4.cwl
+    run: ../../../expressions/dragen-parse-mapper-schema/4.4.0/dragen-parse-mapper-schema__4.4.0.cwl
 
 outputs:
   mapper_options_output:
@@ -57,4 +57,4 @@ outputs:
     doc: |
       Output file, of varying format depending on the command run
     outputSource: parse_mapper_options/mapper_options_output
-    type: ../../../schemas/dragen-mapper-options/4.4.4/dragen-mapper-options__4.4.4.yaml#dragen-mapper-options
+    type: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml#dragen-mapper-options

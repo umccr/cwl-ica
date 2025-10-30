@@ -1,38 +1,26 @@
-cwlVersion: v1.1
-class: CommandLineTool
+cwlVersion: v1.2
+class: ExpressionTool
 
 # Extensions
 $namespaces:
-  s: https://schema.org/
-  ilmn-tes: https://platform.illumina.com/rdf/ica/
+    s: https://schema.org/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 # Metadata
 s:author:
-  class: s:Person
-  s:name: Alexis Lucattini
-  s:email: Alexis.Lucattini@umccr.org
-  s:identifier: https://orcid.org/0000-0001-9754-647X
+    class: s:Person
+    s:name: Alexis Lucattini
+    s:email: Alexis.Lucattini@umccr.org
+    s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-wgts-parse-alignment-schema--4.4.4
-label: dragen-wgts-parse-alignment-schema v(4.4.4)
+id: dragen-wgts-parse-alignment-schema--4.4.0
+label: dragen-wgts-parse-alignment-schema v(4.4.0)
 doc: |
-  Documentation for dragen-wgts-parse-alignment-schema v4.4.4
+    Documentation for dragen-wgts-parse-alignment-schema v4.4.0
 
-# ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
-# ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
-hints:
-  ResourceRequirement:
-    ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: standard
-    ilmn-tes:resources/size: small
-    coresMin: 2
-    ramMin: 4000
-  DockerRequirement:
-    dockerPull: alpine:latest
-
+# Requirements
 requirements:
   InlineJavascriptRequirement: { }
   SchemaDefRequirement:
@@ -40,13 +28,12 @@ requirements:
       # Nested schemas
       - $import: ../../../schemas/dragen-aligner-options/4.4.0/dragen-aligner-options__4.4.0.yaml
       - $import: ../../../schemas/dragen-mapper-options/4.4.0/dragen-mapper-options__4.4.0.yaml
+      - $import: ../../../schemas/dragen-qc-coverage/1.0.0/dragen-qc-coverage__1.0.0.yaml
 
       # I/O schemas
       - $import: ../../../schemas/dragen-wgts-alignment-options/4.4.0/dragen-wgts-alignment-options__4.4.0.yaml
 
-# Will always return 0
-baseCommand: [ "true" ]
-
+# Inputs / outputs
 inputs:
   dragen_wgts_alignment_options:
     label: dragen wgts alignment options
@@ -60,11 +47,11 @@ outputs:
     doc: |
       Dragen wgts alignment options output
     type: ../../../schemas/dragen-wgts-alignment-options/4.4.0/dragen-wgts-alignment-options__4.4.0.yaml#dragen-wgts-alignment-options
-    outputBinding:
-      outputEval: |
-        ${
-            return inputs.dragen_wgts_alignment_options;
-        }
 
-successCodes:
-  - 0
+# Expression
+expression: |
+  ${
+    return {
+      "dragen_wgts_alignment_options_output": inputs.dragen_wgts_alignment_options
+    };
+  }

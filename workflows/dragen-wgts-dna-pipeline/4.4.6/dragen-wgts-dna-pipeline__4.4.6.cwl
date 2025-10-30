@@ -15,10 +15,10 @@ s:author:
   s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
-id: dragen-wgts-dna-pipeline--4.4.4
-label: dragen-wgts-dna-pipeline v(4.4.4)
+id: dragen-wgts-dna-pipeline--4.4.6
+label: dragen-wgts-dna-pipeline v(4.4.6)
 doc: |
-  Dragen dragen-wgts-dna-pipeline v4.4.4
+  Dragen dragen-wgts-dna-pipeline v4.4.6
 
   Performs the following steps:
     * If input is a bam file (for tumor or normal), reheader the bam file such that the rgsm value matches
@@ -352,7 +352,7 @@ steps:
     in: { }
     out:
       - id: dragen_default_configuration_options
-    run: ../../../tools/get-dragen-default-configuration-json/4.4.4/get-dragen-default-configuration-json__4.4.4.cwl
+    run: ../../../tools/get-dragen-default-configuration-json/4.4.6/get-dragen-default-configuration-json__4.4.6.cwl
 
   # Get the default alignment options input schema
   run_get_default_alignment_options_schema_step:
@@ -747,7 +747,7 @@ steps:
           }
     out:
       - id: output_directory
-    run: ../../../workflows/dragen-wgts-dna-variant-calling-stage/4.4.4/dragen-wgts-dna-variant-calling-stage__4.4.4.cwl
+    run: ../../../workflows/dragen-wgts-dna-variant-calling-stage/4.4.6/dragen-wgts-dna-variant-calling-stage__4.4.6.cwl
 
   # If tumor sequence data is provided, run the variant calling stage for tumor
   # Merge variant calling options and somatic variant calling options
@@ -960,7 +960,7 @@ steps:
           }
     out:
       - id: output_directory
-    run: ../../../workflows/dragen-wgts-dna-variant-calling-stage/4.4.4/dragen-wgts-dna-variant-calling-stage__4.4.4.cwl
+    run: ../../../workflows/dragen-wgts-dna-variant-calling-stage/4.4.6/dragen-wgts-dna-variant-calling-stage__4.4.6.cwl
 
   # Run Multiqc on outputs
   run_multiqc:
