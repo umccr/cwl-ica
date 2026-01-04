@@ -26,10 +26,10 @@ doc: |
 hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: fpga
+    ilmn-tes:resources/type: fpga2
     ilmn-tes:resources/size: medium
-    coresMin: 16
-    ramMin: 240000
+    coresMin: 24
+    ramMin: 256000
   DockerRequirement:
     # Dragen 4.4.6
     dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/1df60bef-1edb-4efc-a50c-8e9625b5e60d:latest"
