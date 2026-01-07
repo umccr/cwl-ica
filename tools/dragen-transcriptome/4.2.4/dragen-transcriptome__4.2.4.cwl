@@ -3,16 +3,16 @@ class: CommandLineTool
 
 # Extensions
 $namespaces:
-    s: https://schema.org/
-    ilmn-tes: https://platform.illumina.com/rdf/ica/
+  s: https://schema.org/
+  ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 # Metadata
 s:author:
-    class: s:Person
-    s:name: Sehrish Kanwal
-    s:email: sehrish.kanwal@umccr.org
+  class: s:Person
+  s:name: Sehrish Kanwal
+  s:email: sehrish.kanwal@umccr.org
 
 s:maintainer:
   class: s:Person
@@ -24,19 +24,19 @@ s:maintainer:
 id: dragen-transcriptome--4.2.4
 label: dragen-transcriptome v(4.2.4)
 doc: |
-    Documentation for dragen-transcriptome v4.2.4
+  Documentation for dragen-transcriptome v4.2.4
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: fpga
+    ilmn-tes:resources/type: fpga2
     ilmn-tes:resources/size: medium
-    coresMin: 16
-    ramMin: 240000
+    coresMin: 24
+    ramMin: 256000
   DockerRequirement:
-    dockerPull: "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4"
+    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/627166f0-ab0e-40f4-a191-91e6fcaf50d2:latest"
 
 requirements:
   ResourceRequirement:
@@ -52,7 +52,7 @@ requirements:
     expressionLib:
       - $include: ../../../typescript-expressions/dragen-tools/4.0.3/dragen-tools__4.0.3.cwljs
       - $include: ../../../typescript-expressions/utils/1.0.0/utils__1.0.0.cwljs
-    
+
   InitialWorkDirRequirement:
     listing:
       - entryname: $(get_script_path())
@@ -297,7 +297,7 @@ inputs:
     doc: |
       Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 1.
     inputBinding:
-      prefix:  "--trim-adapter-read1="
+      prefix: "--trim-adapter-read1="
       separate: False
   trim_adapter_read2:
     label: trim adapter read2
@@ -305,7 +305,7 @@ inputs:
     doc: |
       Specify the FASTA file that contains adapter sequences to trim from the 3' end of Read 2.
     inputBinding:
-      prefix:  "--trim_adapter_read2="
+      prefix: "--trim_adapter_read2="
       separate: False
   trim_adapter_r1_5prime:
     label: trim adapter r1 5prime
@@ -314,7 +314,7 @@ inputs:
       Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 1. 
       NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
     inputBinding:
-      prefix:  "--trim-adapter-r1-5prime="
+      prefix: "--trim-adapter-r1-5prime="
       separate: False
   trim_adapter_r2_5prime:
     label: trim adapter r2 5prime
@@ -323,7 +323,7 @@ inputs:
       Specify the FASTA file that contains adapter sequences to trim from the 5' end of Read 2.
       NB: the sequences should be in reverse order (with respect to their appearance in the FASTQ) but not complemented.
     inputBinding:
-      prefix:  "--trim-adapter-r2-5prime="
+      prefix: "--trim-adapter-r2-5prime="
       separate: False
   trim_adapter_stringency:
     label: trim adapter stringency
@@ -331,7 +331,7 @@ inputs:
     doc: |
       Specify the minimum number of adapter bases required for trimming
     inputBinding:
-      prefix:  "--trim-adapter-stringency="
+      prefix: "--trim-adapter-stringency="
       separate: False
   trim_r1_5prime:
     label: trim r1 5prime
