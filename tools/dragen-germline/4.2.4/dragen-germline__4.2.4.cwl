@@ -3,16 +3,16 @@ class: CommandLineTool
 
 # Extensions
 $namespaces:
-    s: https://schema.org/
-    ilmn-tes: https://platform.illumina.com/rdf/ica/
+  s: https://schema.org/
+  ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 # Metadata
 s:author:
-    class: s:Person
-    s:name: Sehrish Kanwal
-    s:email: sehrish.kanwal@umccr.org
+  class: s:Person
+  s:name: Sehrish Kanwal
+  s:email: sehrish.kanwal@umccr.org
 
 s:maintainer:
   class: s:Person
@@ -24,19 +24,19 @@ s:maintainer:
 id: dragen-germline--4.2.4
 label: dragen-germline v(4.2.4)
 doc: |
-    Documentation for dragen-germline v4.2.4
+  Documentation for dragen-germline v4.2.4
 
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
   ResourceRequirement:
     ilmn-tes:resources/tier: standard
-    ilmn-tes:resources/type: fpga
+    ilmn-tes:resources/type: fpga2
     ilmn-tes:resources/size: medium
-    coresMin: 16
-    ramMin: 240000
+    coresMin: 24
+    ramMin: 256000
   DockerRequirement:
-      dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
+    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/627166f0-ab0e-40f4-a191-91e6fcaf50d2:latest"
 
 requirements:
   ResourceRequirement:
@@ -213,7 +213,7 @@ inputs:
     inputBinding:
       prefix: "--output-directory="
       separate: False
-  output_format :
+  output_format:
     label: output format
     doc: |
       For mapping and aligning, the output is sorted and compressed into BAM format by default before saving to disk.
@@ -665,9 +665,9 @@ inputs:
       - "null"
       - type: enum
         symbols:
-        - default
-        - default_plus_smn
-        - expanded
+          - default
+          - default_plus_smn
+          - expanded
     inputBinding:
       prefix: "--repeat-genotype-use-catalog="
       separate: False

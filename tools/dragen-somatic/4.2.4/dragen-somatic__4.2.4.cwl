@@ -3,17 +3,17 @@ class: CommandLineTool
 
 # Extensions
 $namespaces:
-    s: https://schema.org/
-    ilmn-tes: https://platform.illumina.com/rdf/ica/
+  s: https://schema.org/
+  ilmn-tes: https://platform.illumina.com/rdf/ica/
 $schemas:
   - https://schema.org/version/latest/schemaorg-current-http.rdf
 
 # Metadata
 s:author:
-    class: s:Person
-    s:name: Alexis Lucattini
-    s:email: Alexis.Lucattini@umccr.org
-    s:identifier: https://orcid.org/0000-0001-9754-647X
+  class: s:Person
+  s:name: Alexis Lucattini
+  s:email: Alexis.Lucattini@umccr.org
+  s:identifier: https://orcid.org/0000-0001-9754-647X
 
 # ID/Docs
 id: dragen-somatic--4.2.4
@@ -28,14 +28,14 @@ doc: |
 # ILMN V1 Resources Guide: https://illumina.gitbook.io/ica-v1/analysis/a-taskexecution#type-and-size
 # ILMN V2 Resources Guide: https://help.ica.illumina.com/project/p-flow/f-pipelines#compute-types
 hints:
-    ResourceRequirement:
-        ilmn-tes:resources/tier: standard
-        ilmn-tes:resources/type: fpga
-        ilmn-tes:resources/size: medium
-        coresMin: 16
-        ramMin: 240000
-    DockerRequirement:
-        dockerPull: 699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4
+  ResourceRequirement:
+    ilmn-tes:resources/tier: standard
+    ilmn-tes:resources/type: fpga2
+    ilmn-tes:resources/size: medium
+    coresMin: 24
+    ramMin: 256000
+  DockerRequirement:
+    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/627166f0-ab0e-40f4-a191-91e6fcaf50d2:latest"
 
 requirements:
   ResourceRequirement:
@@ -293,7 +293,7 @@ requirements:
               # if --enable-map-align-output is false and --enable-map-align is false, no bam output
               if [[ "$(get_bool_value_as_str(inputs.enable_map_align))" == "false" ]]; then
                 echo "--enable-map-align-output and --enable-map-align set to false, no bam output" 1>&2
-  
+          
               # Bams output if --enable-map-align-output is false but --enable-map-align is true
               # And one of tumor_bam_input or tumor_cram_input is set 
               # And one of bam_input or cram_input is set
@@ -305,7 +305,7 @@ requirements:
                 rm -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" "$(inputs.output_directory)/$(inputs.output_file_prefix).bam.bai" "$(inputs.output_directory)/$(inputs.output_file_prefix).bam.md5sum"
                 rm -f "$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam" "$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam.bai" "$(inputs.output_directory)/$(inputs.output_file_prefix)_tumor.bam.md5sum"  
               fi
-              
+          
               # No action required otherwise --enable-map-align-output is false
           
             # --enable-map-align-output is true 
@@ -317,10 +317,10 @@ requirements:
                 echo "Exiting" 1>&2
                 exit
               fi
-            
+          
               # Get new normal file name prefix from the fastq_list.csv
               new_normal_file_name_prefix="$(get_normal_output_prefix(inputs))"
-            
+          
               # Ensure output normal bam file exists and the destination normal bam file also does not exist yet
               if [[ -f "$(inputs.output_directory)/$(inputs.output_file_prefix).bam" && ! -f "$(inputs.output_directory)/\${new_normal_file_name_prefix}.bam" ]]; then
                 # Move normal bam, normal bam index and normal bam md5sum
@@ -335,7 +335,7 @@ requirements:
               fi
             fi
           fi
-                    
+          
           # If --enable-sv has been selected, we need to remove the empty genomeDepth directory
           # https://github.com/umccr-illumina/ica_v2/issues/131
           if [[ "$(is_not_null(inputs.enable_sv))" == "true" && "$(get_bool_value_as_str(inputs.enable_sv))" == "true" && -d "$(inputs.output_directory)/sv/" ]]; then
