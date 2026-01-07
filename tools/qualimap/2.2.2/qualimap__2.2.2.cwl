@@ -30,7 +30,7 @@ hints:
         coresMin: 8
         ramMin: 32000
     DockerRequirement:
-        dockerPull: public.ecr.aws/biocontainers/qualimap:2.2.2d--hdfd78af_2
+        dockerPull: quay.io/biocontainers/qualimap:2.2.2d--hdfd78af_2
 
 requirements:
   ResourceRequirement:

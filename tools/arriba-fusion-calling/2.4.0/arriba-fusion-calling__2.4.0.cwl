@@ -30,7 +30,7 @@ hints:
     coresMin: 8
     ramMin: 28000
   DockerRequirement:
-    dockerPull: public.ecr.aws/biocontainers/arriba:2.4.0--ha04fe3b_0
+    dockerPull: quay.io/biocontainers/arriba:2.4.0--ha04fe3b_0
 
 requirements:
   InlineJavascriptRequirement: {}
