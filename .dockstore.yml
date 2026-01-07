@@ -70,6 +70,7 @@ workflows:
         - dragen-somatic-with-germline-pipeline/4.2.4__20241107061831
         - dragen-somatic-with-germline-pipeline/4.2.4__20241114110541
         - dragen-somatic-with-germline-pipeline/4.2.4__20241210230846
+        - dragen-somatic-with-germline-pipeline/4.2.4__20260107075812
   - name: rnasum-pipeline_1_0_0
     subclass: CWL
     primaryDescriptorPath: 
