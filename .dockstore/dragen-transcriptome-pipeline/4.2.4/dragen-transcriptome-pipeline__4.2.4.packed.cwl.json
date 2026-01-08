@@ -69,7 +69,7 @@
       "doc": "Documentation for arriba-drawing v2.4.0\n",
       "hints": [
         {
-          "dockerPull": "public.ecr.aws/biocontainers/arriba:2.4.0--ha04fe3b_0",
+          "dockerPull": "quay.io/biocontainers/arriba:2.4.0--ha04fe3b_0",
           "class": "DockerRequirement"
         },
         {
@@ -390,7 +390,7 @@
       "doc": "Documentation for arriba-fusion-calling v2.4.0\n",
       "hints": [
         {
-          "dockerPull": "public.ecr.aws/biocontainers/arriba:2.4.0--ha04fe3b_0",
+          "dockerPull": "quay.io/biocontainers/arriba:2.4.0--ha04fe3b_0",
           "class": "DockerRequirement"
         },
         {
@@ -973,15 +973,15 @@
       "doc": "Documentation for dragen-transcriptome v4.2.4\n",
       "hints": [
         {
-          "dockerPull": "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4",
+          "dockerPull": "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/f1b7ad6a-11ac-4bc1-b705-b275ff2887ad:latest",
           "class": "DockerRequirement"
         },
         {
-          "coresMin": 16,
-          "ramMin": 240000,
+          "coresMin": 24,
+          "ramMin": 256000,
           "class": "ResourceRequirement",
           "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
-          "https://platform.illumina.com/rdf/ica/resources:type": "fpga",
+          "https://platform.illumina.com/rdf/ica/resources:type": "fpga2",
           "https://platform.illumina.com/rdf/ica/resources:size": "medium"
         }
       ],
@@ -990,7 +990,7 @@
           "listing": [
             {
               "entryname": "$(get_script_path())",
-              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Initialise dragen\n/opt/edico/bin/dragen \\\\\n  --partial-reconfig DNA-MAPPER \\\\\n  --ignore-version-check true\n\n# Create directories\nmkdir --parents \\\\\n  \"$(get_ref_mount())\" \\\\\n  \"$(get_intermediate_results_dir())\" \\\\\n  \"$(inputs.output_directory)\"\n\n# untar ref data into scratch space\ntar \\\\\n  --directory \"$(get_ref_mount())\" \\\\\n  --extract \\\\\n  --file \"$(inputs.reference_tar.path)\"\n\n# Check if ora reference is set\nif [[ \"$(is_not_null(inputs.ora_reference_tar))\" == \"true\" ]]; then\n    tar \\\\\n    --directory \"$(get_ref_mount())\" \\\\\n    --extract \\\\\n    --file \"$(get_attribute_from_optional_input(inputs.ora_reference_tar, \"path\"))\"\nfi\n\n# Run dragen command and import options from cli\n\"$(get_dragen_bin_path())\" \"\\${@}\"\n"
+              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Reset dragen\n/opt/edico/bin/dragen_reset\n\n# Create directories\nmkdir --parents \\\\\n  \"$(get_ref_mount())\" \\\\\n  \"$(get_intermediate_results_dir())\" \\\\\n  \"$(inputs.output_directory)\"\n\n# untar ref data into scratch space\ntar \\\\\n  --directory \"$(get_ref_mount())\" \\\\\n  --extract \\\\\n  --file \"$(inputs.reference_tar.path)\"\n\n# Check if ora reference is set\nif [[ \"$(is_not_null(inputs.ora_reference_tar))\" == \"true\" ]]; then\n    tar \\\\\n    --directory \"$(get_ref_mount())\" \\\\\n    --extract \\\\\n    --file \"$(get_attribute_from_optional_input(inputs.ora_reference_tar, \"path\"))\"\nfi\n\n# Run dragen command and import options from cli\n\"$(get_dragen_bin_path())\" \"\\${@}\"\n"
             },
             "${\n    return generate_transcriptome_mount_points(inputs);\n}\n"
           ],
@@ -1654,7 +1654,7 @@
       "doc": "Qualimap perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.es/doc_html/command_line.html.\n",
       "hints": [
         {
-          "dockerPull": "public.ecr.aws/biocontainers/qualimap:2.2.2d--hdfd78af_2",
+          "dockerPull": "quay.io/biocontainers/qualimap:2.2.2d--hdfd78af_2",
           "class": "DockerRequirement"
         },
         {
