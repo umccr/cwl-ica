@@ -69,7 +69,7 @@
       "doc": "Documentation for arriba-drawing v2.4.0\n",
       "hints": [
         {
-          "dockerPull": "public.ecr.aws/biocontainers/arriba:2.4.0--ha04fe3b_0",
+          "dockerPull": "quay.io/biocontainers/arriba:2.4.0--ha04fe3b_0",
           "class": "DockerRequirement"
         },
         {
@@ -390,7 +390,7 @@
       "doc": "Documentation for arriba-fusion-calling v2.4.0\n",
       "hints": [
         {
-          "dockerPull": "public.ecr.aws/biocontainers/arriba:2.4.0--ha04fe3b_0",
+          "dockerPull": "quay.io/biocontainers/arriba:2.4.0--ha04fe3b_0",
           "class": "DockerRequirement"
         },
         {
@@ -973,15 +973,15 @@
       "doc": "Documentation for dragen-transcriptome v4.2.4\n",
       "hints": [
         {
-          "dockerPull": "699120554104.dkr.ecr.us-east-1.amazonaws.com/public/dragen:4.2.4",
+          "dockerPull": "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/627166f0-ab0e-40f4-a191-91e6fcaf50d2:latest",
           "class": "DockerRequirement"
         },
         {
-          "coresMin": 16,
-          "ramMin": 240000,
+          "coresMin": 24,
+          "ramMin": 256000,
           "class": "ResourceRequirement",
           "https://platform.illumina.com/rdf/ica/resources:tier": "standard",
-          "https://platform.illumina.com/rdf/ica/resources:type": "fpga",
+          "https://platform.illumina.com/rdf/ica/resources:type": "fpga2",
           "https://platform.illumina.com/rdf/ica/resources:size": "medium"
         }
       ],
@@ -1654,7 +1654,7 @@
       "doc": "Qualimap perform RNA-seq QC analysis on paired-end data http://qualimap.bioinfo.cipf.es/doc_html/command_line.html.\n",
       "hints": [
         {
-          "dockerPull": "public.ecr.aws/biocontainers/qualimap:2.2.2d--hdfd78af_2",
+          "dockerPull": "quay.io/biocontainers/qualimap:2.2.2d--hdfd78af_2",
           "class": "DockerRequirement"
         },
         {

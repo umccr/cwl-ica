@@ -51,6 +51,7 @@ workflows:
         - dragen-transcriptome-pipeline/4.2.4__20241210230924
         - dragen-transcriptome-pipeline/4.2.4__20250330232251
         - dragen-transcriptome-pipeline/4.2.4__20250331013709
+        - dragen-transcriptome-pipeline/4.2.4__20260107075731
   - name: dragen-somatic-with-germline-pipeline_4_2_4
     subclass: CWL
     primaryDescriptorPath: 
@@ -70,6 +71,7 @@ workflows:
         - dragen-somatic-with-germline-pipeline/4.2.4__20241107061831
         - dragen-somatic-with-germline-pipeline/4.2.4__20241114110541
         - dragen-somatic-with-germline-pipeline/4.2.4__20241210230846
+        - dragen-somatic-with-germline-pipeline/4.2.4__20260107075812
         - dragen-somatic-with-germline-pipeline/4.2.4__20260108051059
   - name: rnasum-pipeline_1_0_0
     subclass: CWL
@@ -293,6 +295,7 @@ workflows:
         - dragen-wgts-dna-pipeline/4.4.4__20251009055750
         - dragen-wgts-dna-pipeline/4.4.4__20251015010222
         - dragen-wgts-dna-pipeline/4.4.4__20251102002321
+        - dragen-wgts-dna-pipeline/4.4.4__20260104232900
   - name: dragen-wgts-rna-pipeline_4_4_4
     subclass: CWL
     primaryDescriptorPath: 
@@ -307,6 +310,7 @@ workflows:
         - dragen-wgts-rna-pipeline/4.4.4
         - dragen-wgts-rna-pipeline/4.4.4__20250822040654
         - dragen-wgts-rna-pipeline/4.4.4__20251005025030
+        - dragen-wgts-rna-pipeline/4.4.4__20260104233012
   - name: arriba-pipeline_2_5_0
     subclass: CWL
     primaryDescriptorPath: 
@@ -363,3 +367,4 @@ workflows:
         - dragen-wgts-dna-pipeline/4.4.6
         - dragen-wgts-dna-pipeline/4.4.6__20251030220340
         - dragen-wgts-dna-pipeline/4.4.6__20251030232217
+        - dragen-wgts-dna-pipeline/4.4.6__20260104232925
