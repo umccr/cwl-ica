@@ -973,7 +973,7 @@
       "doc": "Documentation for dragen-transcriptome v4.2.4\n",
       "hints": [
         {
-          "dockerPull": "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/627166f0-ab0e-40f4-a191-91e6fcaf50d2:latest",
+          "dockerPull": "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/f1b7ad6a-11ac-4bc1-b705-b275ff2887ad:latest",
           "class": "DockerRequirement"
         },
         {
@@ -990,7 +990,7 @@
           "listing": [
             {
               "entryname": "$(get_script_path())",
-              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Initialise dragen\n/opt/edico/bin/dragen \\\\\n  --partial-reconfig DNA-MAPPER \\\\\n  --ignore-version-check true\n\n# Create directories\nmkdir --parents \\\\\n  \"$(get_ref_mount())\" \\\\\n  \"$(get_intermediate_results_dir())\" \\\\\n  \"$(inputs.output_directory)\"\n\n# untar ref data into scratch space\ntar \\\\\n  --directory \"$(get_ref_mount())\" \\\\\n  --extract \\\\\n  --file \"$(inputs.reference_tar.path)\"\n\n# Check if ora reference is set\nif [[ \"$(is_not_null(inputs.ora_reference_tar))\" == \"true\" ]]; then\n    tar \\\\\n    --directory \"$(get_ref_mount())\" \\\\\n    --extract \\\\\n    --file \"$(get_attribute_from_optional_input(inputs.ora_reference_tar, \"path\"))\"\nfi\n\n# Run dragen command and import options from cli\n\"$(get_dragen_bin_path())\" \"\\${@}\"\n"
+              "entry": "#!/usr/bin/env bash\n\n# Fail on non-zero exit of subshell\nset -euo pipefail\n\n# Reset dragen\n/opt/edico/bin/dragen_reset\n\n# Create directories\nmkdir --parents \\\\\n  \"$(get_ref_mount())\" \\\\\n  \"$(get_intermediate_results_dir())\" \\\\\n  \"$(inputs.output_directory)\"\n\n# untar ref data into scratch space\ntar \\\\\n  --directory \"$(get_ref_mount())\" \\\\\n  --extract \\\\\n  --file \"$(inputs.reference_tar.path)\"\n\n# Check if ora reference is set\nif [[ \"$(is_not_null(inputs.ora_reference_tar))\" == \"true\" ]]; then\n    tar \\\\\n    --directory \"$(get_ref_mount())\" \\\\\n    --extract \\\\\n    --file \"$(get_attribute_from_optional_input(inputs.ora_reference_tar, \"path\"))\"\nfi\n\n# Run dragen command and import options from cli\n\"$(get_dragen_bin_path())\" \"\\${@}\"\n"
             },
             "${\n    return generate_transcriptome_mount_points(inputs);\n}\n"
           ],
