@@ -36,7 +36,7 @@ hints:
     coresMin: 24
     ramMin: 256000
   DockerRequirement:
-    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/627166f0-ab0e-40f4-a191-91e6fcaf50d2:latest"
+    dockerPull: "079623148045.dkr.ecr.us-east-1.amazonaws.com/cp-prod/f1b7ad6a-11ac-4bc1-b705-b275ff2887ad:latest"
 
 requirements:
   ResourceRequirement:
@@ -62,10 +62,8 @@ requirements:
           # Fail on non-zero exit of subshell
           set -euo pipefail
 
-          # Initialise dragen
-          /opt/edico/bin/dragen \\
-            --partial-reconfig DNA-MAPPER \\
-            --ignore-version-check true
+          # Reset dragen
+          /opt/edico/bin/dragen_reset
 
           # Create directories
           mkdir --parents \\
