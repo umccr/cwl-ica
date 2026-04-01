@@ -369,3 +369,16 @@ workflows:
         - dragen-wgts-dna-pipeline/4.4.6__20251030220340
         - dragen-wgts-dna-pipeline/4.4.6__20251030232217
         - dragen-wgts-dna-pipeline/4.4.6__20260104232925
+  - name: bclconvert-interop-qc_1_9_0-1_33
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/bclconvert-interop-qc/1.9.0--1.33/bclconvert-interop-qc__1.9.0--1.33.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/bclconvert-interop-qc/1.9.0--1.33/bclconvert-interop-qc__1.9.0--1.33.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - bclconvert-interop-qc/1.9.0--1.33
+        - bclconvert-interop-qc/1.9.0--1.33__20260401225123
