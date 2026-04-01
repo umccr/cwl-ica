@@ -57,12 +57,6 @@ inputs:
     doc: |
       Additional parquet files to include in the MultiQC run
     type: File[]?
-  sample_names_tsv:
-    label: Sample Names TSV
-    doc: |
-      Sample names TSV file to include in the MultiQC run. We need
-      this as the parquet files will use the fastq id as the sample name
-    type: File?
   sample_filters_tsv:
     label: Sample Filters TSV
     doc: |
@@ -148,8 +142,6 @@ steps:
            }
       additional_parquet_files:
         - additional_parquet_files
-      sample_names_tsv:
-        - sample_names_tsv
       sample_filters_tsv:
         - sample_filters_tsv
     out:
