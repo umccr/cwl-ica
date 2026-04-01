@@ -16,13 +16,14 @@ s:author:
 
 # ID/Docs
 id: bclconvert-interop-qc--1.9.0--1.33
-
+label: bclconvert-interop-qc v(1.9.0--1.33)
 doc: |
   Documentation for bclconvert-interop-qc v1.9.0--1.33
   This workflow has been designed for BCLConvert 4.4 outputs from the Nextflow autolaunch pipeline.
   The InterOp directory is expected to contain the IndexMetricsOut.bin file, 
   otherwise the index summary will not be generated.
   It is assumed that the Reports directory will contain the RunInfo.xml file. 
+  We support the use of the sample filters tsv file for selecting certain assay/sample type/project combinations
   We also support the input of additional parquet files for MultiQC so that we can append to the existing BCLConvert InterOp data.
 
 requirements:

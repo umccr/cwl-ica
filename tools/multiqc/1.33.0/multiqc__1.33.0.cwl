@@ -69,7 +69,7 @@ inputs:
     label: output filename
     doc: |
       Report filename in html format.
-      Defaults to 'multiqc-report.html"
+      Defaults to multiqc-report.html
     type: string
     inputBinding:
       prefix: "--filename"
