@@ -2571,7 +2571,7 @@ bunches:
       - production
     categories:
       - wgts-rna
-      - --tertiary-analysis
+      - tertiary-analysis
       - production
     bunch_versions:
       - version: 1.0.0
