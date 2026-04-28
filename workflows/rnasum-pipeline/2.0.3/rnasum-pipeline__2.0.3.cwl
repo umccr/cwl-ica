@@ -277,6 +277,8 @@ steps:
         source: dragen_mapping_metrics
       salmon:
         source: salmon
+      kallisto:
+        source: kallisto
       # Sash
       pcgr_tiers_tsv:
         source: pcgr_tiers_tsv
