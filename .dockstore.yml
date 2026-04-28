@@ -382,3 +382,16 @@ workflows:
       tags:
         - bclconvert-interop-qc/1.9.0--1.33
         - bclconvert-interop-qc/1.9.0--1.33__20260401225123
+  - name: rnasum-pipeline_2_0_3
+    subclass: CWL
+    primaryDescriptorPath: 
+      /.dockstore/rnasum-pipeline/2.0.3/rnasum-pipeline__2.0.3.packed.cwl.json
+    readMePath: 
+      /.github/catalogue/docs/workflows/rnasum-pipeline/2.0.3/rnasum-pipeline__2.0.3.md
+    authors:
+      - name: Alexis Lucattini
+        email: Alexis.Lucattini@umccr.org
+    filters:
+      tags:
+        - rnasum-pipeline/2.0.3
+        - rnasum-pipeline/2.0.3__20260428032313
