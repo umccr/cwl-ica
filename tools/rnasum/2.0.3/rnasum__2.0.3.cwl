@@ -93,7 +93,7 @@ inputs:
     inputBinding:
       prefix: "--pcgr_tiers_tsv"
   cn_gene_tsv:
-    label: purple gene tsv
+    label: cn gene tsv
     doc: |
       File path to copy-number gene file (e.g. purple.cnv.gene.tsv).
     type: File
