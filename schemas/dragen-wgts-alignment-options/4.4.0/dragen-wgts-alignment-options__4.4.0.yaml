@@ -16,12 +16,41 @@ fields:
     doc: |
       Automatically detects paired-end parameters by running a sample through the mapper/aligner.
     type: boolean?
+  # Enable downsampling for DNA
+  enable_fractional_down_sampler:
+    label: enable fractional down sampler
+    doc: |
+      Subsample a random, fractional percentage of reads from an input file using the fractional downsampler. 
+      You can use downsampling to subsample data sets in order to simulate different amounts of sequencing. 
+      DRAGEN randomly subsamples reads from primary analysis without any modification (e.g. no trimming, no filtering, etc.).
+    type: boolean?
+  down_sampler_normal_subsample:
+    label: down sampler normal subsample
+    doc: |
+      Specify the fraction of reads to keep as a subsample of normal input data. The default value is 1.0 (100%).
+    type: float?
+  down_sampler_tumor_subsample:
+    label: down sampler tumor subsample
+    doc: |
+      Specify the fraction of reads to keep as a subsample of tumor input data. The default value is 1.0 (100%).
+    type: float?
+  down_sampler_random_seed:
+    label: down sampler random seed
+    doc: |
+      Specify the random seed for different runs of the same input data. The default value is 42.
+    type: boolean?
   # Enable downsampling, useful for RNA
   enable_down_sampler:
     label: enable down sampler
     doc: |
       Enables the down-sampling of input reads. The default value is false.
     type: boolean?
+  down_sampler_reads:
+    label: down sampler reads
+    doc: |
+      Use only this many RNA fragments for quantification, fusion, variant calling and output to BAM.
+      Please note the the entire input dataset is still used for the generation of trimming, fastqc, and mapping metrics.
+    type: int?
   # Alignment 'general' options
   append_read_index_to_name:
     label: append read index to name
