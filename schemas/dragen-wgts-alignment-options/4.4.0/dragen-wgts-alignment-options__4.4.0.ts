@@ -36,7 +36,7 @@ export interface DragenWgtsAlignmentOptions {
 	/*
 	down sampler reads: 
 	Use only this many RNA fragments for quantification, fusion, variant calling and output to BAM.
-	Please note the the entire input dataset is still used for the generation of trimming, fastqc, and mapping metrics.
+	Please note the entire input dataset is still used for the generation of trimming, fastqc, and mapping metrics.
 	*/
 	down_sampler_reads?: number
 
