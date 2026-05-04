@@ -31,7 +31,7 @@ export interface DragenWgtsAlignmentOptions {
 	down sampler random seed: 
 	Specify the random seed for different runs of the same input data. The default value is 42.
 	*/
-	down_sampler_random_seed?: boolean
+	down_sampler_random_seed?: number
 
 	/*
 	down sampler reads: 
