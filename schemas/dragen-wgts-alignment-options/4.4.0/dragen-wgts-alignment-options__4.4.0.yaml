@@ -49,7 +49,7 @@ fields:
     label: down sampler reads
     doc: |
       Use only this many RNA fragments for quantification, fusion, variant calling and output to BAM.
-      Please note the the entire input dataset is still used for the generation of trimming, fastqc, and mapping metrics.
+      Please note the entire input dataset is still used for the generation of trimming, fastqc, and mapping metrics.
     type: int?
   # Alignment 'general' options
   append_read_index_to_name:
