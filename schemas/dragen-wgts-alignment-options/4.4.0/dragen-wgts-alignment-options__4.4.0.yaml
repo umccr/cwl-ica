@@ -38,7 +38,7 @@ fields:
     label: down sampler random seed
     doc: |
       Specify the random seed for different runs of the same input data. The default value is 42.
-    type: boolean?
+    type: int?
   # Enable downsampling, useful for RNA
   enable_down_sampler:
     label: enable down sampler
