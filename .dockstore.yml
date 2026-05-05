@@ -369,6 +369,7 @@ workflows:
         - dragen-wgts-dna-pipeline/4.4.6__20251030220340
         - dragen-wgts-dna-pipeline/4.4.6__20251030232217
         - dragen-wgts-dna-pipeline/4.4.6__20260104232925
+        - dragen-wgts-dna-pipeline/4.4.6__20260505001558
   - name: bclconvert-interop-qc_1_9_0-1_33
     subclass: CWL
     primaryDescriptorPath: 
