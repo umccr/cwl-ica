@@ -1065,6 +1065,42 @@
                   "name": "#dragen-wgts-alignment-options__4.4.0.yaml/dragen-wgts-alignment-options/append_read_index_to_name"
                 },
                 {
+                  "label": "down sampler normal subsample",
+                  "doc": "Specify the fraction of reads to keep as a subsample of normal input data. The default value is 1.0 (100%).\n",
+                  "type": [
+                    "null",
+                    "float"
+                  ],
+                  "name": "#dragen-wgts-alignment-options__4.4.0.yaml/dragen-wgts-alignment-options/down_sampler_normal_subsample"
+                },
+                {
+                  "label": "down sampler random seed",
+                  "doc": "Specify the random seed for different runs of the same input data. The default value is 42.\n",
+                  "type": [
+                    "null",
+                    "int"
+                  ],
+                  "name": "#dragen-wgts-alignment-options__4.4.0.yaml/dragen-wgts-alignment-options/down_sampler_random_seed"
+                },
+                {
+                  "label": "down sampler reads",
+                  "doc": "Use only this many RNA fragments for quantification, fusion, variant calling and output to BAM.\nPlease note the entire input dataset is still used for the generation of trimming, fastqc, and mapping metrics.\n",
+                  "type": [
+                    "null",
+                    "int"
+                  ],
+                  "name": "#dragen-wgts-alignment-options__4.4.0.yaml/dragen-wgts-alignment-options/down_sampler_reads"
+                },
+                {
+                  "label": "down sampler tumor subsample",
+                  "doc": "Specify the fraction of reads to keep as a subsample of tumor input data. The default value is 1.0 (100%).\n",
+                  "type": [
+                    "null",
+                    "float"
+                  ],
+                  "name": "#dragen-wgts-alignment-options__4.4.0.yaml/dragen-wgts-alignment-options/down_sampler_tumor_subsample"
+                },
+                {
                   "doc": "Enables the deterministic sort of output alignment records. The default value is true.\n",
                   "type": [
                     "null",
@@ -1088,6 +1124,15 @@
                     "boolean"
                   ],
                   "name": "#dragen-wgts-alignment-options__4.4.0.yaml/dragen-wgts-alignment-options/enable_duplicate_marking"
+                },
+                {
+                  "label": "enable fractional down sampler",
+                  "doc": "Subsample a random, fractional percentage of reads from an input file using the fractional downsampler.\nYou can use downsampling to subsample data sets in order to simulate different amounts of sequencing.\nDRAGEN randomly subsamples reads from primary analysis without any modification (e.g. no trimming, no filtering, etc.).\n",
+                  "type": [
+                    "null",
+                    "boolean"
+                  ],
+                  "name": "#dragen-wgts-alignment-options__4.4.0.yaml/dragen-wgts-alignment-options/enable_fractional_down_sampler"
                 },
                 {
                   "label": "enable sampling",
