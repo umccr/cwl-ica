@@ -5,33 +5,33 @@ import {
 } from "./dragen-tools_custom_input_interfaces";
 import {
     DragenSnvVariantCallerOptions
-} from "../../../schemas/dragen-snv-variant-caller-options/4.4.4/dragen-snv-variant-caller-options__4.4.4";
+} from "../../../schemas/dragen-snv-variant-caller-options/4.4.0/dragen-snv-variant-caller-options__4.4.0";
 import {FileProperties as IFile} from "cwl-ts-auto";
 import {
     DragenCnvCallerOptions
-} from "../../../schemas/dragen-cnv-caller-options/4.4.4/dragen-cnv-caller-options__4.4.4";
+} from "../../../schemas/dragen-cnv-caller-options/4.4.0/dragen-cnv-caller-options__4.4.0";
 import {
     DragenMafConversionOptions
-} from "../../../schemas/dragen-maf-conversion-options/4.4.4/dragen-maf-conversion-options__4.4.4";
-import {DragenSvCallerOptions} from "../../../schemas/dragen-sv-caller-options/4.4.4/dragen-sv-caller-options__4.4.4";
+} from "../../../schemas/dragen-maf-conversion-options/4.4.0/dragen-maf-conversion-options__4.4.0";
+import {DragenSvCallerOptions} from "../../../schemas/dragen-sv-caller-options/4.4.0/dragen-sv-caller-options__4.4.0";
 import {
     DragenNirvanaAnnotationOptions
-} from "../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4";
+} from "../../../schemas/dragen-nirvana-annotation-options/4.4.0/dragen-nirvana-annotation-options__4.4.0";
 import {
     DragenRnaGeneFusionDetectionOptions
-} from "../../../schemas/dragen-rna-gene-fusion-detection-options/4.4.4/dragen-rna-gene-fusion-detection-options__4.4.4";
+} from "../../../schemas/dragen-rna-gene-fusion-detection-options/4.4.0/dragen-rna-gene-fusion-detection-options__4.4.0";
 import {
     DragenRnaSpliceVariantCallerOptions
-} from "../../../schemas/dragen-rna-splice-variant-caller-options/4.4.4/dragen-rna-splice-variant-caller-options__4.4.4";
+} from "../../../schemas/dragen-rna-splice-variant-caller-options/4.4.0/dragen-rna-splice-variant-caller-options__4.4.0";
 import {
     DragenWgtsAlignmentOptions
-} from "../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4";
+} from "../../../schemas/dragen-wgts-alignment-options/4.4.0/dragen-wgts-alignment-options__4.4.0";
 import {
     DragenTargetedCallerOptions
-} from "../../../schemas/dragen-targeted-caller-options/4.4.4/dragen-targeted-caller-options__4.4.4";
-import {DragenTmbOptions} from "../../../schemas/dragen-tmb-options/4.4.4/dragen-tmb-options__4.4.4";
-import {DragenMsiOptions} from "../../../schemas/dragen-msi-options/4.4.4/dragen-msi-options__4.4.4";
-import {DragenMrjdOptions} from "../../../schemas/dragen-mrjd-options/4.4.4/dragen-mrjd-options__4.4.4";
+} from "../../../schemas/dragen-targeted-caller-options/4.4.0/dragen-targeted-caller-options__4.4.0";
+import {DragenTmbOptions} from "../../../schemas/dragen-tmb-options/4.4.0/dragen-tmb-options__4.4.0";
+import {DragenMsiOptions} from "../../../schemas/dragen-msi-options/4.4.0/dragen-msi-options__4.4.0";
+import {DragenMrjdOptions} from "../../../schemas/dragen-mrjd-options/4.4.0/dragen-mrjd-options__4.4.0";
 
 export interface DragenWgtsDnaAlignmentStageOptionsFromPipelineProps {
     sample_name: string
@@ -94,4 +94,5 @@ export interface DragenWgtsRnaVariantCallingStageOptionsFromPipelineProps {
 export interface MultiQcNamingOptionsProps {
     sample_name: string
     tumor_sample_name?: string
+    semantic_version?: string
 }
