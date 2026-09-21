@@ -137,6 +137,11 @@ steps:
                  ],
                  "bclconvert": { 
                    "genome_size": "hg38_genome"
+                 },
+                 "table_columns_visible": {
+                   "Sequali": {
+                     "sequali_insert_size_estimate": false
+                   }
                  }
                }
              );
