@@ -12,10 +12,10 @@ import {FastqListRow} from "../../../schemas/fastq-list-row/1.0.0/fastq-list-row
 import {DragenQcCoverage} from "../../../schemas/dragen-qc-coverage/1.0.0/dragen-qc-coverage__1.0.0";
 import {
     DragenWgtsOptionsAlignmentStage
-} from "../../../schemas/dragen-wgts-options-alignment-stage/4.4.4/dragen-wgts-options-alignment-stage__4.4.4";
+} from "../../../schemas/dragen-wgts-options-alignment-stage/4.4.0/dragen-wgts-options-alignment-stage__4.4.0";
 import {
     DragenWgtsDnaOptionsVariantCallingStage
-} from "../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.4/dragen-wgts-dna-options-variant-calling-stage__4.4.4";
+} from "../../../schemas/dragen-wgts-dna-options-variant-calling-stage/4.4.0/dragen-wgts-dna-options-variant-calling-stage__4.4.0";
 import {
     DragenWgtsDnaAlignmentStageOptionsFromPipelineProps,
     DragenWgtsDnaVariantCallingStageOptionsFromPipelineProps, DragenWgtsRnaAlignmentStageOptionsFromPipelineProps,
@@ -26,10 +26,10 @@ import {DragenInputAlignmentType, DragenInputSequenceType} from "./dragen-tools_
 import {DragenReference} from "../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0";
 import {
     DragenWgtsRnaOptionsVariantCallingStage
-} from "../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.4/dragen-wgts-rna-options-variant-calling-stage__4.4.4";
+} from "../../../schemas/dragen-wgts-rna-options-variant-calling-stage/4.4.0/dragen-wgts-rna-options-variant-calling-stage__4.4.0";
 import {
     DragenNirvanaAnnotationOptions
-} from "../../../schemas/dragen-nirvana-annotation-options/4.4.4/dragen-nirvana-annotation-options__4.4.4";
+} from "../../../schemas/dragen-nirvana-annotation-options/4.4.0/dragen-nirvana-annotation-options__4.4.0";
 
 
 // Backward compatibility with --target es5
@@ -1474,7 +1474,7 @@ export function get_wgts_rna_multiqc_output_directory_name(props: MultiQcNamingO
 export function get_wgts_dna_multiqc_title(props: MultiQcNamingOptionsProps) {
     /* Given a sample name, and potentially a tumor sample name, return the multiqc output directory name */
     return (
-        "Dragen 4.4.4 WGTS DNA Pipeline ( " +
+        "Dragen 4.4" + (props.semantic_version ? `.${props.semantic_version} ` : " ") + "WGTS DNA Pipeline ( " +
         (props.tumor_sample_name ? props.tumor_sample_name + "/" : "") +
         props.sample_name + " )"
     )
@@ -1483,7 +1483,7 @@ export function get_wgts_dna_multiqc_title(props: MultiQcNamingOptionsProps) {
 export function get_wgts_rna_multiqc_title(props: MultiQcNamingOptionsProps) {
     /* Given a sample name, and potentially a tumor sample name, return the multiqc output directory name */
     return (
-        "Dragen 4.4.4 WGTS RNA Pipeline ( " +
+        "Dragen 4.4" + (props.semantic_version ? `.${props.semantic_version} ` : " ") + "WGTS RNA Pipeline ( " +
         props.sample_name +
         " )"
     )

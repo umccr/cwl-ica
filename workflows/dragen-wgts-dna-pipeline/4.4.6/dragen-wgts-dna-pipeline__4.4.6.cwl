@@ -998,7 +998,8 @@ steps:
             return get_wgts_dna_multiqc_title(
               {
                 "sample_name": self[0],
-                "tumor_sample_name": self[1]
+                "tumor_sample_name": self[1],
+                "semantic_version": "4.4.6"
               }
             );
           }
