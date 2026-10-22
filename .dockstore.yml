@@ -383,6 +383,7 @@ workflows:
       tags:
         - bclconvert-interop-qc/1.9.0--1.33
         - bclconvert-interop-qc/1.9.0--1.33__20260401225123
+        - bclconvert-interop-qc/1.9.0--1.33__20261022083942
   - name: rnasum-pipeline_2_0_3
     subclass: CWL
     primaryDescriptorPath: 
