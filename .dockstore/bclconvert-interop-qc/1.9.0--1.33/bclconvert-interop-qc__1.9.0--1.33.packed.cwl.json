@@ -441,7 +441,7 @@
               "id": "#main/run_multiqc_step/additional_parquet_files"
             },
             {
-              "valueFrom": "${\n   return JSON.stringify(\n     {\n       \"top_modules\": [\n         \"bclconvert\"\n       ],\n       \"bclconvert\": {\n         \"genome_size\": \"hg38_genome\"\n       }\n     }\n   );\n }\n",
+              "valueFrom": "${\n   return JSON.stringify(\n     {\n       \"top_modules\": [\n         \"bclconvert\"\n       ],\n       \"bclconvert\": {\n         \"genome_size\": \"hg38_genome\"\n       },\n       \"table_columns_visible\": {\n         \"Sequali\": {\n           \"sequali_insert_size_estimate\": false\n         }\n       }\n     }\n   );\n }\n",
               "id": "#main/run_multiqc_step/cl_config"
             },
             {
