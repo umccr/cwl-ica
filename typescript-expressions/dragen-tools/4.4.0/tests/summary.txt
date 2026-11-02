@@ -1,11 +1,13 @@
-# Test started at 2025-10-30T09:11:35+11:00
+# Test started at 2026-11-03T08:55:22+11:00
 
+(node:22973) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
 PASS tests/dragen-tools__4.4.0.test.js
 PASS tests/dragen-tools__4.4.0.test.ts
 
 =============================== Coverage summary ===============================
 Statements   : 47.22% ( 230/487 )
-Branches     : 33.04% ( 113/342 )
+Branches     : 32.65% ( 113/346 )
 Functions    : 22.22% ( 14/63 )
 Lines        : 46.47% ( 211/454 )
 ================================================================================
@@ -13,7 +15,7 @@ Lines        : 46.47% ( 211/454 )
 Test Suites: 2 passed, 2 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        2.536 s
+Time:        1.523 s
 Ran all test suites.
-# Test completed at 2025-10-30T09:11:39+11:00
+# Test completed at 2026-11-03T08:55:24+11:00
 
