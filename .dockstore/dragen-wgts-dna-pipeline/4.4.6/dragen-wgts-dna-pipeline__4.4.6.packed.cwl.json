@@ -2881,7 +2881,7 @@
                 "#main/sample_name",
                 "#main/tumor_sample_name"
               ],
-              "valueFrom": "${\n  /* Return the title */\n  return get_wgts_dna_multiqc_title(\n    {\n      \"sample_name\": self[0],\n      \"tumor_sample_name\": self[1]\n    }\n  );\n}\n",
+              "valueFrom": "${\n  /* Return the title */\n  return get_wgts_dna_multiqc_title(\n    {\n      \"sample_name\": self[0],\n      \"tumor_sample_name\": self[1],\n      \"semantic_version\": \"4.4.6\"\n    }\n  );\n}\n",
               "id": "#main/run_multiqc/title"
             }
           ],
