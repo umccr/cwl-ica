@@ -1274,13 +1274,13 @@ function get_wgts_rna_multiqc_output_directory_name(props) {
 }
 function get_wgts_dna_multiqc_title(props) {
     /* Given a sample name, and potentially a tumor sample name, return the multiqc output directory name */
-    return ("Dragen 4.4.4 WGTS DNA Pipeline ( " +
+    return ("Dragen 4.4" + (props.semantic_version ? ".".concat(props.semantic_version, " ") :" ") + "WGTS DNA Pipeline ( " +
         (props.tumor_sample_name ? props.tumor_sample_name + "/" :"") +
         props.sample_name + " )");
 }
 function get_wgts_rna_multiqc_title(props) {
     /* Given a sample name, and potentially a tumor sample name, return the multiqc output directory name */
-    return ("Dragen 4.4.4 WGTS RNA Pipeline ( " +
+    return ("Dragen 4.4" + (props.semantic_version ? ".".concat(props.semantic_version, " ") :" ") + "WGTS RNA Pipeline ( " +
         props.sample_name +
         " )");
 }

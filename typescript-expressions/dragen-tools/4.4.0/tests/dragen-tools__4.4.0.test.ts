@@ -17,7 +17,7 @@ import fs from 'fs';
 import path from 'path';
 import {
     DragenWgtsAlignmentOptions
-} from "../../../../schemas/dragen-wgts-alignment-options/4.4.4/dragen-wgts-alignment-options__4.4.4";
+} from "../../../../schemas/dragen-wgts-alignment-options/4.4.0/dragen-wgts-alignment-options__4.4.0";
 import {DragenReference} from "../../../../schemas/dragen-reference/1.0.0/dragen-reference__1.0.0";
 import {FileProperties as IFile} from "cwl-ts-auto/dist/FileProperties";
 import {DragenInputSequenceType} from "../dragen-tools_custom_input_interfaces";
