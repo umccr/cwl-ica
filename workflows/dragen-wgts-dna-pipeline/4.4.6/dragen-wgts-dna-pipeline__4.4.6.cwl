@@ -994,12 +994,12 @@ steps:
           - tumor_sample_name
         valueFrom: |
           ${
-            /* Return the title */
+            /* Return the title - semantic version of 6 for 4.4.6 */
             return get_wgts_dna_multiqc_title(
               {
                 "sample_name": self[0],
                 "tumor_sample_name": self[1],
-                "semantic_version": "4.4.6"
+                "semantic_version": "6"
               }
             );
           }
